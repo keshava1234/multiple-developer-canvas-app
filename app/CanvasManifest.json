@@ -113,13 +113,14 @@
     "FileID": "4f55cc36-4e8f-4e7e-93a6-76138e2f5516",
     "Id": "4f55cc36-4e8f-4e7e-93a6-76138e2f5516",
     "InstrumentationKey": "",
+    "LocalDatabaseReferences": "{}",
     "ManualOfflineProfileId": "",
-    "Name": "app",
+    "Name": "PowerApps_Co-Authoring App",
     "OriginatingVersion": "1.330",
     "ParserErrorCount": 0
   },
   "PublishInfo": {
-    "AppName": "app",
+    "AppName": "PowerApps_Co-Authoring App",
     "BackgroundColor": "RGBA(0,176,240,1)",
     "IconColor": "RGBA(255,255,255,1)",
     "IconName": "Edit",
