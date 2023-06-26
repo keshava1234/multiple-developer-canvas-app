@@ -45,13 +45,13 @@ Screen1 As screen:
         ZIndex: =6
 
     Button1 As button:
+        Height: =176
         OnSelect: |-
             =//Sundar
             Set(var1,"Sundar kESHVA");
             Set(var2,"");
             //
         Text: ="Submit"
-        X: =508
-        Y: =440
+        X: =1206
         ZIndex: =8
 
