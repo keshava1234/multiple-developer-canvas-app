@@ -52,3 +52,9 @@ Screen1 As screen:
         Y: =628
         ZIndex: =7
 
+    Button1 As button:
+        Text: ="Submit"
+        X: =502
+        Y: =437
+        ZIndex: =8
+
