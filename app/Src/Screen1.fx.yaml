@@ -53,3 +53,12 @@ Screen1 As screen:
         Y: =674
         ZIndex: =7
 
+    Button1 As button:
+        OnSelect: |-
+            =//Sundar
+            Set(var1,"Sundar")
+        Text: ="Button"
+        X: =224
+        Y: =716
+        ZIndex: =8
+
