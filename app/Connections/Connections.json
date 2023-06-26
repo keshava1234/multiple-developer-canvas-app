@@ -1,0 +1,47 @@
+{
+  "79c2c9a4-a545-42af-b9b5-8919f8944c88": {
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1627/1.0.1627.3238/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {
+      "https://ilinksystemsinc449.sharepoint.com/sites/NTN": {
+        "dataSources": {
+          "PORT": {
+            "tableName": "517df8ec-8d62-4bbc-98c3-3ac9a8d1a1ba"
+          }
+        }
+      },
+      "https://ilinksystemsinc449.sharepoint.com/sites/PENAPowerDisruptionRecoveryTracking": {
+        "dataSources": {
+          "Business Units": {
+            "tableName": "247b6a77-d6bb-4dcb-8f2c-cd0d3ee22598"
+          },
+          "Power Outage Events": {
+            "tableName": "0ad5aace-836d-4cb4-a453-d175ae45c458"
+          },
+          "Power Outage Recovery Activity": {
+            "tableName": "80dce4e5-af5f-4de6-8daf-2958cadc6817"
+          },
+          "Power Outage Recovery Tracking": {
+            "tableName": "463a6a7c-c7e0-4a5b-9c8f-f70c6133897f"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "Power Outage Recovery Tracking",
+      "Power Outage Events",
+      "Business Units",
+      "Power Outage Recovery Activity",
+      "PORT"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "79c2c9a4-a545-42af-b9b5-8919f8944c88"
+  }
+}

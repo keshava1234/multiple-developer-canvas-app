@@ -1,0 +1,35 @@
+Screen6_1 As screen:
+
+    TextInput1_1 As text:
+        Default: =""
+        Reset: =VarReset
+        X: =555
+        Y: =180
+        ZIndex: =1
+
+    Dropdown3_1 As dropdown:
+        Default: =Blank()
+        Items: =DropDownSample
+        Reset: =VarReset
+        X: =555
+        Y: =268
+        ZIndex: =2
+
+    ComboBox1_1 As combobox:
+        Items: =ComboBoxSample
+        Reset: =VarReset
+        SearchItems: =Search(ComboBoxSample,ComboBox1_1.SearchText,"Value1")
+        X: =555
+        Y: =364
+        ZIndex: =3
+
+    Button6_1 As button:
+        Height: =122
+        OnSelect: |
+            =Set(VarReset,true);
+            Set(VarReset,false);
+        Text: ="Reset All Controls"
+        X: =605
+        Y: =480
+        ZIndex: =4
+

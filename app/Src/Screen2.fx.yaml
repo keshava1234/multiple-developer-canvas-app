@@ -1,0 +1,261 @@
+Screen2 As screen:
+
+    Dropdown1_2 As dropdown:
+        Items: |-
+            =
+            collll1
+        OnChange: =ClearCollect(colPhases,Filter(collll1,ID = Dropdown1_2.Selected.ID).Phase)
+        X: =605
+        ZIndex: =1
+
+    Label1_2 As label:
+        Text: ="Business Unit"
+        X: =340
+        ZIndex: =2
+
+    Button1 As button:
+        Text: ="Phase1"
+        X: =335
+        Y: =55
+        ZIndex: =3
+
+    Button1_1 As button:
+        Text: ="Phase2"
+        X: =596
+        Y: =55
+        ZIndex: =4
+
+    Button1_2 As button:
+        Text: ="Phase3"
+        X: =855
+        Y: =55
+        ZIndex: =5
+
+    Form1 As form:
+        DataSource: ='Power Outage Recovery Activity'
+        Height: =476
+        NumberOfColumns: =1
+        X: =305
+        Y: =245
+        ZIndex: =6
+
+        Action_DataCard1 As typedDataCard.comboBoxMultiSelectEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Action"
+            Default: =ThisItem.Action
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'Power Outage Recovery Tracking'],DataSourceInfo.DisplayName,"Action")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =159
+            Required: =true
+            Update: =DataCardValue2.SelectedItems
+            Width: =800
+            X: =0
+            Y: =0
+            ZIndex: =7
+
+            DataCardKey2 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            Gallery2 As gallery.galleryVertical:
+                DelayItemLoading: =true
+                Height: =156
+                Items: =Choices([@'Power Outage Recovery Activity'].Action)
+                Layout: =Layout.Vertical
+                LoadingSpinner: =LoadingSpinner.Data
+                TemplateSize: =42
+                Width: =610
+                X: =30
+                Y: =63
+                ZIndex: =1
+
+                Checkbox2 As checkbox:
+                    Default: =ThisItem in DataCardValue2.SelectedItems
+                    Height: =41
+                    OnCheck: =Set(VarActionData,ShowColumns(Filter(Gallery2.AllItems,Checkbox2.Value),"Value"))
+                    OnSelect: =Select(Parent)
+                    OnUncheck: =
+                    Text: =ThisItem.Value
+                    Width: =435
+                    X: =40
+                    ZIndex: =1
+
+            DataCardValue2 As combobox:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                DefaultSelectedItems: =Parent.Default
+                DisplayFields: =["Value"]
+                DisplayMode: =Parent.DisplayMode
+                Items: =Choices([@'Power Outage Recovery Tracking'].Action)
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                SearchFields: =["Value"]
+                SearchItems: =Choices('Power Outage Recovery Tracking'.Action,DataCardValue2.SearchText)
+                Tooltip: =Parent.DisplayName
+                Visible: =false
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =169
+                ZIndex: =2
+
+            ErrorMessage2 As label:
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =Gallery2.Y + Gallery2.Height
+                ZIndex: =3
+
+            StarVisible2 As label:
+                Align: =Align.Center
+                Height: =DataCardKey2.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey2.Y
+                ZIndex: =4
+
+        "'Business Unit_DataCard1' As typedDataCard.comboBoxEditCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Business_x0020_Unit"
+            Default: =ThisItem.'Business Unit'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'Power Outage Recovery Tracking'],DataSourceInfo.DisplayName,"Business_x0020_Unit")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =33
+            Required: =true
+            Update: =DataCardValue3.Selected
+            Width: =800
+            X: =0
+            Y: =1
+            ZIndex: =7
+
+            DataCardKey3 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue3 As combobox:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                DefaultSelectedItems: =Parent.Default
+                DisplayFields: =["Value"]
+                DisplayMode: =Parent.DisplayMode
+                Items: =Choices([@'Power Outage Recovery Tracking'].'Business Unit')
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                SearchFields: =["Value"]
+                SearchItems: =Choices('Power Outage Recovery Tracking'.'Business Unit',DataCardValue3.SearchText)
+                SelectMultiple: =false
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey3.Y + DataCardKey3.Height + 5
+                ZIndex: =2
+
+            ErrorMessage3 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue3.Y + DataCardValue3.Height
+                ZIndex: =3
+
+            StarVisible3 As label:
+                Align: =Align.Center
+                Height: =DataCardKey3.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey3.Y
+                ZIndex: =4
+
+        Phase_DataCard1 As typedDataCard.comboBoxEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Phase"
+            Default: =ThisItem.Phase
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'Power Outage Recovery Tracking'],DataSourceInfo.DisplayName,"Phase")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =true
+            Update: =DataCardValue4.Selected
+            Width: =800
+            X: =0
+            Y: =2
+            ZIndex: =7
+
+            DataCardKey4 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue4 As combobox:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                DefaultSelectedItems: =Parent.Default
+                DisplayFields: =["Value"]
+                DisplayMode: =Parent.DisplayMode
+                Items: =Choices([@'Power Outage Recovery Tracking'].Phase)
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                SearchFields: =["Value"]
+                SearchItems: =Choices('Power Outage Recovery Tracking'.Phase,DataCardValue4.SearchText)
+                SelectMultiple: =false
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey4.Y + DataCardKey4.Height + 5
+                ZIndex: =2
+
+            ErrorMessage4 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue4.Y + DataCardValue4.Height
+                ZIndex: =3
+
+            StarVisible4 As label:
+                Align: =Align.Center
+                Height: =DataCardKey4.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey4.Y
+                ZIndex: =4
+

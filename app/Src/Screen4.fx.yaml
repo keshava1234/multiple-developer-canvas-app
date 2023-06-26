@@ -1,0 +1,285 @@
+Screen4 As screen:
+    OnVisible: =Collect(AllPhasesCollection,  DataCardValue12_1.Selected.Value);
+
+    Form2_1 As form:
+        DataSource: ='Power Outage Recovery Activity'
+        DefaultMode: =FormMode.New
+        Height: =518
+        NumberOfColumns: =1
+        X: =276
+        Y: =145
+        ZIndex: =1
+
+        Action_DataCard2_1 As typedDataCard.comboBoxMultiSelectEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Action"
+            Default: =ThisItem.Action
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'Power Outage Recovery Activity'],DataSourceInfo.DisplayName,"Action")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =309
+            Required: =true
+            Update: =DataCardValue10_1.SelectedItems
+            Width: =800
+            X: =0
+            Y: =0
+            ZIndex: =1
+
+            DataCardKey10_1 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue10_1 As combobox:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                DefaultSelectedItems: =Parent.Default
+                DisplayFields: =["Value"]
+                DisplayMode: =Parent.DisplayMode
+                IsSearchable: =false
+                Items: =Choices([@'Power Outage Recovery Activity'].Action)
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                SearchFields: =["Value"]
+                SearchItems: =[]
+                Tooltip: =Parent.DisplayName
+                Visible: =false
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey10_1.Y + DataCardKey10_1.Height + 5
+                ZIndex: =2
+
+            ErrorMessage8_1 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue10_1.Y + DataCardValue10_1.Height
+                ZIndex: =3
+
+            StarVisible8_1 As label:
+                Align: =Align.Center
+                Height: =DataCardKey10_1.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey10_1.Y
+                ZIndex: =4
+
+            Gallery5_2 As gallery.galleryVertical:
+                DelayItemLoading: =true
+                Height: =280
+                Items: =colActions
+                Layout: =Layout.Vertical
+                LoadingSpinner: =LoadingSpinner.Data
+                TemplateSize: =98
+                X: =40
+                Y: =40
+                ZIndex: =5
+
+                Gallery6_2 As gallery.galleryVertical:
+                    DelayItemLoading: =true
+                    Height: =98
+                    Items: =ThisItem.Action
+                    Layout: =Layout.Vertical
+                    LoadingSpinner: =LoadingSpinner.Data
+                    TemplateSize: =If(Self.Layout = Layout.Horizontal, Min(280, Self.Width - 60), Min(280, Self.Height - 60))
+                    Width: =630
+                    ZIndex: =1
+
+                    Checkbox5_2 As checkbox:
+                        Default: =If(ThisItem.Value exactin ColGallerySelectedActions.Value,true)
+                        Height: =38
+                        OnCheck: |-
+                            =//Collect(ColGallerySelectedActions, ThisItem.Value)
+                            Collect(ColGallerySelectedActions,{Value:ThisItem.Value,BU:Dropdown1_3.SelectedText.Value})
+                        OnSelect: =Select(Parent)
+                        OnUncheck: =RemoveIf(ColGallerySelectedActions, Value = ThisItem.Value)
+                        Text: =ThisItem.Value
+                        Width: =580
+                        X: =40
+                        ZIndex: =1
+
+        "'Business Unit_DataCard2_1' As typedDataCard.comboBoxEditCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Business_x0020_Unit"
+            Default: =ThisItem.'Business Unit'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'Power Outage Recovery Activity'],DataSourceInfo.DisplayName,"Business_x0020_Unit")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =true
+            Update: =DataCardValue11_1.Selected
+            Width: =800
+            X: =0
+            Y: =1
+            ZIndex: =1
+
+            DataCardKey11_1 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue11_1 As combobox:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                Default: =Dropdown1_3.Selected
+                DefaultSelectedItems: |-
+                    =//Parent.Default
+                    Dropdown1_3.SelectedText
+                DisplayFields: =["Value"]
+                DisplayMode: =Parent.DisplayMode
+                IsSearchable: =false
+                Items: =Choices([@'Power Outage Recovery Activity'].'Business Unit')
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                SearchFields: =["Value"]
+                SearchItems: =[]
+                SelectMultiple: =false
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey11_1.Y + DataCardKey11_1.Height + 5
+                ZIndex: =2
+
+            ErrorMessage9_1 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue11_1.Y + DataCardValue11_1.Height
+                ZIndex: =3
+
+            StarVisible9_1 As label:
+                Align: =Align.Center
+                Height: =DataCardKey11_1.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey11_1.Y
+                ZIndex: =4
+
+        Phase_DataCard2_1 As typedDataCard.comboBoxEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Phase"
+            Default: =ThisItem.Phase
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'Power Outage Recovery Activity'],DataSourceInfo.DisplayName,"Phase")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =false
+            Update: =DataCardValue12_1.Selected
+            Width: =800
+            X: =0
+            Y: =2
+            ZIndex: =1
+
+            DataCardKey12_1 As label:
+                AutoHeight: =true
+                Height: =34
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue12_1 As combobox:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                DefaultSelectedItems: |-
+                    =//Parent.Default
+                    //Dropdown1_3.SelectedText.Phase
+                    If(CountRows(colActions)>0,["Production Safety"])
+                DisplayFields: =["Value"]
+                DisplayMode: =Parent.DisplayMode
+                IsSearchable: =false
+                Items: =Choices([@'Power Outage Recovery Activity'].Phase)
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                SearchFields: =["Value"]
+                SearchItems: =[]
+                SelectMultiple: =false
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey12_1.Y + DataCardKey12_1.Height + 5
+                ZIndex: =2
+
+            ErrorMessage10_1 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue12_1.Y + DataCardValue12_1.Height
+                ZIndex: =3
+
+            StarVisible10_1 As label:
+                Align: =Align.Center
+                Height: =DataCardKey12_1.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey12_1.Y
+                ZIndex: =4
+
+    Button2 As button:
+        OnSelect: |
+            =ClearCollect(colActions,Filter(collll4,'Business Unit'.Value = Dropdown1_3.Selected.Business_Unit_Name && Phase.Value = "Production Restart")) ;
+            Set(c,CountRows(colActions));
+            //Collect(AllPhasesCollection,  DataCardValue12_1.Selected.Value);
+            Navigate(Screen5);
+        Text: ="Continue"
+        X: =510
+        Y: =685
+        ZIndex: =2
+
+    Button1_6 As button:
+        OnSelect: |-
+            =Set(LFTab, false);
+            Set(PSCTab, true);
+            Set(PRTab, false);
+            ClearCollect(colActions,Filter(collll4,'Business Unit'.Value = Dropdown1_3.Selected.Business_Unit_Name && Phase.Value = "Production Safety"))
+        Size: =10
+        Text: ="Production Safety Check"
+        X: =596
+        Y: =72
+        ZIndex: =3
+
+    Icon1_1 As icon.BackArrow:
+        Icon: =Icon.BackArrow
+        OnSelect: |-
+            =ClearCollect(colActions,Filter(collll4,'Business Unit'.Value = Dropdown1_3.Selected.Business_Unit_Name && Phase.Value = "Life Safety"));
+            Navigate(Screen3)
+        X: =75
+        Y: =25
+        ZIndex: =4
+

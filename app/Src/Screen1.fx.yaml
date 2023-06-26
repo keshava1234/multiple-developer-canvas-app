@@ -1,0 +1,73 @@
+Screen1 As screen:
+    OnVisible: |-
+        =
+        ClearCollect(collll1,'Business Units');
+        ClearCollect(collll2,ShowColumns('Business Units',"Phase"));
+
+    Dropdown1 As dropdown:
+        Items: |-
+            =
+            collll1
+        OnChange: =ClearCollect(colPhases,Filter(collll1,ID = Dropdown1.Selected.ID).Phase)
+        X: =470
+        Y: =125
+        ZIndex: =1
+
+    Label1 As label:
+        Text: ="Business Unit"
+        X: =187
+        Y: =125
+        ZIndex: =2
+
+    Dropdown1_1 As dropdown:
+        Items: |+
+            =First(colPhases).Phase
+            
+        X: =470
+        Y: =185
+        ZIndex: =3
+
+    Label1_1 As label:
+        Text: ="Phases"
+        X: =187
+        Y: =185
+        ZIndex: =4
+
+    Label2 As label:
+        Text: ="Actions"
+        X: =187
+        Y: =247
+        ZIndex: =5
+
+    ComboBox2 As combobox:
+        Items: =ComboBoxSample
+        SearchItems: =Search(ComboBoxSample,ComboBox2.SearchText,"Value1")
+        X: =470
+        Y: =247
+        ZIndex: =6
+
+    DataTable1 As dataTable.datatable:
+        BorderStyle: =BorderStyle.Solid
+        DisplayMode: =DisplayMode.Edit
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =300
+        Items: =AllPhasesCollection
+        Width: =800
+        X: =40
+        Y: =445
+        ZIndex: =7
+
+        Value_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Value"
+            FieldName: ="Value"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =1
+            Text: =ThisItem.Value
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =1
+
