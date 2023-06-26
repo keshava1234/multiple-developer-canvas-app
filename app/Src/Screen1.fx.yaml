@@ -46,6 +46,7 @@ Screen1 As screen:
 
     Label3 As label:
         Height: =93
+        Size: =25
         Text: ="This Label added by Sundar"
         Width: =286
         X: =1080
