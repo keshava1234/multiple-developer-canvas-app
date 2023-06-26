@@ -5,8 +5,8 @@ Screen1 As screen:
     Dropdown1 As dropdown:
         Items: |-
             =
-            collll1
-        OnChange: =ClearCollect(colPhases,Filter(collll1,ID = Dropdown1.Selected.ID).Phase)
+            //collll1
+        OnChange: =//ClearCollect(colPhases,Filter(collll1,ID = Dropdown1.Selected.ID).Phase)
         X: =470
         Y: =125
         ZIndex: =1
@@ -19,7 +19,7 @@ Screen1 As screen:
 
     Dropdown1_1 As dropdown:
         Items: |+
-            =First(colPhases).Phase
+            =//First(colPhases).Phase
             
         X: =470
         Y: =185
@@ -44,20 +44,12 @@ Screen1 As screen:
         Y: =247
         ZIndex: =6
 
-    Label3 As label:
-        Height: =93
-        Size: =25
-        Text: ="This Label added by Sundar"
-        Width: =286
-        X: =1080
-        Y: =674
-        ZIndex: =7
-
     Button1 As button:
         OnSelect: |-
             =//Sundar
             Set(var1,"Sundar kESHVA");
-            Set(var2,"")
+            Set(var2,"");
+            //
         Text: ="Button"
         X: =224
         Y: =716
