@@ -7,7 +7,9 @@ Screen1 As screen:
         ZIndex: =1
 
     Form1 As form:
-        X: =40
-        Y: =40
+        BorderThickness: =5
+        Height: =190
+        Width: =646
+        X: =720
         ZIndex: =2
 
