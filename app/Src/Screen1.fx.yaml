@@ -51,7 +51,7 @@ Screen1 As screen:
             Set(var1,"Sundar kESHVA");
             Set(var2,"");
             //
-        Text: ="Button"
+        Text: ="Submit"
         X: =1206
         ZIndex: =8
 
