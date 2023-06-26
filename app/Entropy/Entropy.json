@@ -22,7 +22,7 @@
   "DoesTestStepsMetadataExist": true,
   "FunctionParamsInvariantScripts": {},
   "FunctionParamsInvariantScriptsOnInstances": {},
-  "HeaderLastSavedDateTimeUTC": "06/26/2023 07:38:46",
+  "HeaderLastSavedDateTimeUTC": "06/26/2023 07:41:09",
   "IsLegacyComponentAllowGlobalScopeCase": false,
   "LocalConnectionIDReferences": {},
   "LocalDatabaseReferencesAsEmpty": false,
@@ -31,10 +31,12 @@
   "OrderComponentMetadata": {},
   "OrderComponentTemplate": {},
   "OrderDataSource": {
-    "colPhases": 3,
-    "ComboBoxSample": 0,
-    "CustomGallerySample": 1,
-    "DropDownSample": 2
+    "AAD Users": 5,
+    "AAD Users\\adduser_account_enabled": 0,
+    "AAD Users\\default.cds_aaduser_views": 1,
+    "ComboBoxSample": 2,
+    "CustomGallerySample": 3,
+    "DropDownSample": 4
   },
   "OrderGroupControls": {},
   "OrderPcfTemplate": {},
@@ -101,5 +103,5 @@
     },
     "DeserializationLoadTime": 0.3010065
   },
-  "WasLocalDatabaseReferencesEmpty": true
+  "WasLocalDatabaseReferencesEmpty": false
 }
