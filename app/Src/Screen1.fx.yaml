@@ -1,8 +1,6 @@
 Screen1 As screen:
-    OnVisible: |-
+    OnVisible: |
         =
-        ClearCollect(collll1,'Business Units');
-        ClearCollect(collll2,ShowColumns('Business Units',"Phase"));
 
     Dropdown1 As dropdown:
         Items: |-
