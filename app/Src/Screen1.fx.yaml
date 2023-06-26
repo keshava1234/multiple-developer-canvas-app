@@ -46,28 +46,3 @@ Screen1 As screen:
         Y: =247
         ZIndex: =6
 
-    DataTable1 As dataTable.datatable:
-        BorderStyle: =BorderStyle.Solid
-        DisplayMode: =DisplayMode.Edit
-        Fill: =RGBA(0, 0, 0, 0)
-        Height: =300
-        Items: =AllPhasesCollection
-        Width: =800
-        X: =40
-        Y: =445
-        ZIndex: =7
-
-        Value_Column1 As dataTableColumn.textualColumn:
-            DisplayMode: =DisplayMode.Edit
-            FieldDisplayName: ="Value"
-            FieldName: ="Value"
-            FieldVariantName: ="textualColumn"
-            Height: =Parent.Height
-            LayoutHeight: =Parent.Height
-            Order: =1
-            Text: =ThisItem.Value
-            Width: =100
-            X: =0
-            Y: =0
-            ZIndex: =1
-

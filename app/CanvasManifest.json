@@ -98,7 +98,7 @@
       "zeroalltabindexes": false
     },
     "Author": "",
-    "BindingErrorCount": 0,
+    "BindingErrorCount": 5,
     "ContainsThirdPartyPcfControls": false,
     "DefaultConnectedDataSourceMaxGetRowsCount": 500,
     "DocumentAppType": "DesktopOrTablet",
@@ -115,12 +115,12 @@
     "InstrumentationKey": "",
     "LocalDatabaseReferences": "{}",
     "ManualOfflineProfileId": "",
-    "Name": "app",
+    "Name": "PowerApps_Co-Authoring App",
     "OriginatingVersion": "1.330",
     "ParserErrorCount": 0
   },
   "PublishInfo": {
-    "AppName": "app",
+    "AppName": "PowerApps_Co-Authoring App",
     "BackgroundColor": "RGBA(0,176,240,1)",
     "IconColor": "RGBA(255,255,255,1)",
     "IconName": "Edit",
@@ -131,12 +131,6 @@
     "UserLocale": "en-US"
   },
   "ScreenOrder": [
-    "Screen1",
-    "Screen2",
-    "Screen3",
-    "Screen4",
-    "Screen5",
-    "Screen6",
-    "Screen6_1"
+    "Screen1"
   ]
 }
