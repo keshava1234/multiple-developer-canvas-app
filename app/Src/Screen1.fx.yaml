@@ -46,3 +46,11 @@ Screen1 As screen:
         Y: =247
         ZIndex: =6
 
+    Label3 As label:
+        Height: =140
+        Text: ="This Label added by Sundar"
+        Width: =353
+        X: =1013
+        Y: =628
+        ZIndex: =7
+
