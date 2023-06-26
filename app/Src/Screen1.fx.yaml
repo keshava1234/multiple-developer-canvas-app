@@ -44,15 +44,6 @@ Screen1 As screen:
         Y: =247
         ZIndex: =6
 
-    Label3 As label:
-        Height: =93
-        Size: =25
-        Text: ="This Label added by Sundar"
-        Width: =286
-        X: =1080
-        Y: =674
-        ZIndex: =7
-
     Button1 As button:
         OnSelect: |-
             =//Sundar
