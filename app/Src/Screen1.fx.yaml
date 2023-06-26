@@ -53,5 +53,6 @@ Screen1 As screen:
             //
         Text: ="Done"
         X: =1206
+        Y: =9
         ZIndex: =8
 
