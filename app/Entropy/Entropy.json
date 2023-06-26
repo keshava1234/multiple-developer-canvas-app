@@ -1,9 +1,27 @@
 {
   "ComponentIndexes": {},
   "ControlUniqueGuids": {},
-  "ControlUniqueIds": {},
+  "ControlUniqueIds": {
+    "207d310d-e0ca-4a50-b6bb-5c649e65838c": 13,
+    "6a4e4c21-880a-42ca-86b2-4e0f15b9a0a7": 12,
+    "84f8f537-16fc-4a37-96f2-8eb977902326": 14,
+    "App": 1,
+    "Button1": 6,
+    "ComboBox2": 11,
+    "ddacac4f-9786-4740-8413-b8a52b5646d4": 15,
+    "Dropdown1": 7,
+    "Dropdown1_1": 9,
+    "Host": 3,
+    "Label1": 5,
+    "Label1_1": 8,
+    "Label2": 10,
+    "Screen1": 4,
+    "Test_7F478737223C4B69": 2
+  },
+  "DoesTestStepsMetadataExist": true,
   "FunctionParamsInvariantScripts": {},
   "FunctionParamsInvariantScriptsOnInstances": {},
+  "HeaderLastSavedDateTimeUTC": "06/26/2023 07:43:43",
   "IsLegacyComponentAllowGlobalScopeCase": false,
   "LocalConnectionIDReferences": {},
   "LocalDatabaseReferencesAsEmpty": false,
@@ -11,16 +29,76 @@
   "LocalResourceRootPaths": {},
   "OrderComponentMetadata": {},
   "OrderComponentTemplate": {},
-  "OrderDataSource": {},
+  "OrderDataSource": {
+    "AAD Users": 5,
+    "AAD Users\\adduser_account_enabled": 0,
+    "AAD Users\\default.cds_aaduser_views": 1,
+    "ComboBoxSample": 2,
+    "CustomGallerySample": 3,
+    "DropDownSample": 4
+  },
   "OrderGroupControls": {},
   "OrderPcfTemplate": {},
   "OrderTemplate": {},
-  "OrderXMLTemplate": {},
-  "OverridablePropertiesEntry": {},
+  "OrderXMLTemplate": {
+    "button": 1,
+    "combobox": 3,
+    "dropdown": 2,
+    "label": 0
+  },
+  "OverridablePropertiesEntry": {
+    "207d310d-e0ca-4a50-b6bb-5c649e65838c": {},
+    "6a4e4c21-880a-42ca-86b2-4e0f15b9a0a7": {},
+    "84f8f537-16fc-4a37-96f2-8eb977902326": {},
+    "App": {},
+    "Button1": {},
+    "ComboBox2": {},
+    "ddacac4f-9786-4740-8413-b8a52b5646d4": {},
+    "Dropdown1": {},
+    "Dropdown1_1": {},
+    "Host": {},
+    "Label1": {},
+    "Label1_1": {},
+    "Label2": {},
+    "Screen1": {},
+    "Test_7F478737223C4B69": {}
+  },
   "PCFDynamicSchemaForIRRetrievalEntry": {},
   "PCFTemplateEntry": {},
-  "PublishOrderIndices": {},
-  "ResourcesJsonIndices": {},
+  "PublishOrderIndices": {
+    "207d310d-e0ca-4a50-b6bb-5c649e65838c": 14,
+    "6a4e4c21-880a-42ca-86b2-4e0f15b9a0a7": 12,
+    "84f8f537-16fc-4a37-96f2-8eb977902326": 13,
+    "App": 0,
+    "Button1": 5,
+    "ComboBox2": 10,
+    "ddacac4f-9786-4740-8413-b8a52b5646d4": 15,
+    "Dropdown1": 6,
+    "Dropdown1_1": 8,
+    "Host": 0,
+    "Label1": 4,
+    "Label1_1": 7,
+    "Label2": 9,
+    "Screen1": 3,
+    "Test_7F478737223C4B69": 0
+  },
+  "ResourcesJsonIndices": {
+    "Image-SampleImage": 0
+  },
   "RuleScreenIdWithoutScreen": {},
-  "TemplateVersions": {}
+  "TemplateVersions": {},
+  "VolatileProperties": {
+    "AnalysisLoadTime": 0.0195354,
+    "ControlCount": {
+      "button": 1,
+      "combobox": 1,
+      "dropdown": 2,
+      "label": 3,
+      "screen": 1,
+      "TestCase": 2,
+      "TestSuite": 2
+    },
+    "DeserializationLoadTime": 0.3498933
+  },
+  "WasLocalDatabaseReferencesEmpty": false
 }
