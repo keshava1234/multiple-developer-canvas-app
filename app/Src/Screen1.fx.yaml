@@ -50,8 +50,8 @@ Screen1 As screen:
             Set(var1,"Sundar kESHVA");
             Set(var2,"");
             //
-        Text: ="Button"
-        X: =224
-        Y: =716
+        Text: ="Submit"
+        X: =508
+        Y: =440
         ZIndex: =8
 
