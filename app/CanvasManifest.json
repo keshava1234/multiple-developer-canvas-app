@@ -129,7 +129,5 @@
     "PublishTarget": "player",
     "UserLocale": "en-US"
   },
-  "ScreenOrder": [
-    "Screen1"
-  ]
+  "ScreenOrder": []
 }
