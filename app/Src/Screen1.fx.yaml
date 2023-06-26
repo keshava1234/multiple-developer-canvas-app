@@ -2,8 +2,8 @@ Screen1 As screen:
     Fill: =RGBA(187, 221, 140, 1)
 
     Label1 As label:
-        Height: =62
+        Height: =172
         Text: ="Text"
-        Width: =189
+        Width: =325
         ZIndex: =1
 
