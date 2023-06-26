@@ -47,8 +47,9 @@ Screen1 As screen:
     Button1 As button:
         OnSelect: |-
             =//Sundar
-            Set(var1,"Sundar KESHAVA");
-            Set(var2,"")
+            Set(var1,"Sundar kESHVA");
+            Set(var2,"");
+            //
         Text: ="Button"
         X: =224
         Y: =716
