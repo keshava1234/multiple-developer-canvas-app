@@ -3,11 +3,11 @@
   "ControlUniqueGuids": {},
   "ControlUniqueIds": {
     "App": 1,
-    "Test_7F478737223C4B69": 2
+    "Host": 3
   },
   "FunctionParamsInvariantScripts": {},
   "FunctionParamsInvariantScriptsOnInstances": {},
-  "HeaderLastSavedDateTimeUTC": "06/26/2023 07:44:54",
+  "HeaderLastSavedDateTimeUTC": "06/26/2023 07:46:45",
   "IsLegacyComponentAllowGlobalScopeCase": false,
   "LocalConnectionIDReferences": {},
   "LocalDatabaseReferencesAsEmpty": false,
@@ -22,29 +22,21 @@
   "OrderXMLTemplate": {},
   "OverridablePropertiesEntry": {
     "App": {},
-    "Test_7F478737223C4B69": {}
+    "Host": {}
   },
   "PCFDynamicSchemaForIRRetrievalEntry": {},
   "PCFTemplateEntry": {},
   "PublishOrderIndices": {
     "App": 0,
-    "Test_7F478737223C4B69": 0
+    "Host": 0
   },
   "ResourcesJsonIndices": {},
   "RuleScreenIdWithoutScreen": {},
   "TemplateVersions": {},
   "VolatileProperties": {
-    "AnalysisLoadTime": 0.0178054,
-    "ControlCount": {
-      "button": 1,
-      "combobox": 1,
-      "dropdown": 2,
-      "label": 3,
-      "screen": 1,
-      "TestCase": 2,
-      "TestSuite": 2
-    },
-    "DeserializationLoadTime": 0.4391997
+    "AnalysisLoadTime": 0.014646,
+    "ControlCount": {},
+    "DeserializationLoadTime": 0.3284893
   },
   "WasLocalDatabaseReferencesEmpty": false
 }

@@ -13,20 +13,6 @@
     "OverridableProperties": {},
     "Version": "1.0"
   },
-  "AppTest": {
-    "CustomGroupControlTemplateName": "",
-    "FirstParty": true,
-    "Id": "http://microsoft.com/appmagic/apptest",
-    "IsComponentTemplate": false,
-    "IsCustomGroupControlTemplate": false,
-    "IsPcfControl": false,
-    "IsPremiumPcfControl": false,
-    "IsWidgetTemplate": false,
-    "LastModifiedTimestamp": "0",
-    "Name": "AppTest",
-    "OverridableProperties": {},
-    "Version": "1.0"
-  },
   "groupContainer": {
     "FirstParty": true,
     "Id": "http://microsoft.com/appmagic/groupContainer",
@@ -36,6 +22,21 @@
     "LastModifiedTimestamp": "0",
     "Name": "groupContainer",
     "Version": "1.0"
+  },
+  "Host": {
+    "CustomGroupControlTemplateName": "",
+    "FirstParty": true,
+    "HostType": "Default",
+    "Id": "http://microsoft.com/appmagic/hostcontrol",
+    "IsComponentTemplate": false,
+    "IsCustomGroupControlTemplate": false,
+    "IsPcfControl": false,
+    "IsPremiumPcfControl": false,
+    "IsWidgetTemplate": false,
+    "LastModifiedTimestamp": "0",
+    "Name": "hostControl",
+    "OverridableProperties": {},
+    "Version": "1.5.4"
   },
   "screen": {
     "FirstParty": true,
