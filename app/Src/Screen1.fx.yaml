@@ -1,8 +1,8 @@
 Screen1 As screen:
 
     Label1 As label:
-        Height: =62
+        Height: =172
         Text: ="Text"
-        Width: =189
+        Width: =325
         ZIndex: =1
 
