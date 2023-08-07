@@ -314,32 +314,6 @@
     ],
     "id": "5867dfa2-c11f-4590-8528-e575cc1e8f82"
   },
-  "66dc0aa3-afa2-4317-a8b1-fd435b7bae09": {
-    "connectionRef": {
-      "apiTier": "Standard",
-      "displayName": "SharePoint",
-      "iconUri": "https://connectoricons-prod.azureedge.net/u/shgogna/globalperconnector-train1/1.0.1639.3312/sharepointonline/icon.png",
-      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
-      "parameterHints": {},
-      "parameterHintsV2": {}
-    },
-    "datasets": {
-      "https://ilinksystemsinc449.sharepoint.com/sites/CertificationApp": {
-        "dataSources": {
-          "TaskList": {
-            "tableName": "734aa91b-4e62-4596-929a-07d6cfd129c0"
-          }
-        }
-      }
-    },
-    "dataSources": [
-      "TaskList",
-      "MeetingList_1"
-    ],
-    "dependencies": {},
-    "dependents": [],
-    "id": "66dc0aa3-afa2-4317-a8b1-fd435b7bae09"
-  },
   "6b2de656-facb-41aa-b502-bb84e6da4768": {
     "connectionRef": {
       "apiTier": "Standard",
@@ -683,41 +657,6 @@
       "6cb4726e-6fae-4420-816c-c5d08d438b90"
     ],
     "id": "b84d29d0-5308-4b11-89e9-65a038c53cff"
-  },
-  "d22a0e68-a995-47a4-bf9b-0dcf496e0010": {
-    "connectionRef": {
-      "apiTier": "Standard",
-      "displayName": "Logic flows",
-      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1645/1.0.1645.3345/logicflows/icon.png",
-      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
-      "parameterHints": {
-        "b84d29d0-5308-4b11-89e9-65a038c53cff": {
-          "value": "shared_office365"
-        },
-        "workflowEntityId": {},
-        "workflowName": {
-          "value": "45c73592-7e08-44de-bffd-819d4a6fe6f2"
-        }
-      },
-      "parameterHintsV2": {
-        "shared_office365": {
-          "value": "b84d29d0-5308-4b11-89e9-65a038c53cff"
-        },
-        "workflowEntityId": {},
-        "workflowName": {
-          "value": "45c73592-7e08-44de-bffd-819d4a6fe6f2"
-        }
-      }
-    },
-    "datasets": {},
-    "dataSources": [
-      "meeting2"
-    ],
-    "dependencies": {
-      "shared_office365": "b84d29d0-5308-4b11-89e9-65a038c53cff"
-    },
-    "dependents": [],
-    "id": "d22a0e68-a995-47a4-bf9b-0dcf496e0010"
   },
   "d4807981-e8c9-488b-9198-aaf266de9575": {
     "connectionRef": {
