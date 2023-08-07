@@ -99,6 +99,7 @@ ViewPollScreen As screen:
         Height: =535
         Items: =Filter(Questions,MeetingID=variCalUID.icaluid)
         Layout: =Layout.Vertical
+        TabIndex: =0
         TemplateSize: =200
         Width: =505
         X: =154
@@ -127,6 +128,7 @@ ViewPollScreen As screen:
                    Question.Id = ThisItem.ID
                 )
             Layout: =Layout.Vertical
+            TabIndex: =0
             TemplateSize: =29
             Width: =475
             Y: =45
@@ -166,6 +168,7 @@ ViewPollScreen As screen:
         Height: =22
         Icon: =Icon.BackArrow
         OnSelect: =Navigate('MeetingDetails Screen', ScreenTransition.Fade)
+        TabIndex: =0
         Width: =22
         X: =220
         Y: =713
@@ -181,6 +184,7 @@ ViewPollScreen As screen:
         bg_14 As rectangle:
             Fill: =RGBA(248, 249, 255, 1)
             Height: =718
+            TabIndex: =0
             Width: =61
             X: =2
             Y: =50
@@ -190,6 +194,7 @@ ViewPollScreen As screen:
             Height: =24
             Icon: =Icon.Hamburger
             OnSelect: =Navigate('MeetingDetails Screen', ScreenTransition.Fade)
+            TabIndex: =0
             Tooltip: ="MeetingDetails"
             Width: =24
             X: =18
@@ -200,6 +205,7 @@ ViewPollScreen As screen:
             Height: =24
             Icon: =Icon.Home
             OnSelect: =Navigate(HomePage,BorderStyle.None)
+            TabIndex: =0
             Tooltip: ="Home Page"
             Width: =24
             X: =21
@@ -210,6 +216,7 @@ ViewPollScreen As screen:
             Height: =24
             Icon: =Icon.Add
             OnSelect: =Navigate(ResourceScreen, ScreenTransition.Fade)
+            TabIndex: =0
             Tooltip: ="Resource"
             Width: =24
             X: =18
@@ -276,7 +283,7 @@ ViewPollScreen As screen:
             PressedColor: =lblExportMeetingSubject_4.Color
             PressedFill: =lblExportMeetingSubject_4.Fill
             Size: =15
-            TabIndex: =1
+            TabIndex: =0
             Text: =
             Tooltip: ="Meeting Title"
             Width: =1366
@@ -285,7 +292,7 @@ ViewPollScreen As screen:
         imageLogo_16 As image:
             Height: =45
             Image: =logo
-            TabIndex: =1
+            TabIndex: =0
             X: =5
             Y: =5
             ZIndex: =24
@@ -302,7 +309,7 @@ ViewPollScreen As screen:
             PressedColor: ='lbl_selected meeting dt & time_3'.Color
             PressedFill: ='lbl_selected meeting dt & time_3'.Fill
             Size: =10
-            TabIndex: =2
+            TabIndex: =0
             Text: |-
                 =Text(SelectedMeeting.Start,"[$-en-US]mmmm dd, yyyy")&" | " & Lower(Text(SelectedMeeting.Start,"[$-en-US]hh:mm am/pm"))&" - "&Lower(Text(SelectedMeeting.End,"[$-en-US]hh:mm am/pm")) & " (" & DateDiff(SelectedMeeting.Start, SelectedMeeting.End, TimeUnit.Minutes) & " minutes)"
             Tooltip: ="Meeting Title"
@@ -324,6 +331,7 @@ ViewPollScreen As screen:
             PressedColor: ='lbl_selected meeting sub._3'.Color
             PressedFill: ='lbl_selected meeting sub._3'.Fill
             Size: =10
+            TabIndex: =0
             Text: =SelectedMeeting.Subject
             Width: =407
             X: =200
@@ -335,6 +343,7 @@ ViewPollScreen As screen:
             Height: =35
             Icon: =Icon.ArrowLeft
             OnSelect: =Back()
+            TabIndex: =0
             Width: =50
             X: =104
             Y: =8
@@ -346,6 +355,7 @@ ViewPollScreen As screen:
             Font: =Font.Lato
             Height: =46
             Size: =14
+            TabIndex: =0
             Text: ="V1.0"
             Width: =103
             X: =1263

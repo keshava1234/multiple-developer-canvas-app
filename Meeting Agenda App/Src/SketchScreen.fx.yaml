@@ -31,6 +31,7 @@ SketchScreen As screen:
             ImagePosition: =ImagePosition.Center
             PressedBorderColor: =ColorFade(AppLogo2.BorderColor, -20%)
             PressedFill: =ColorFade(AppLogo2.Fill, -20%)
+            TabIndex: =0
             Width: =75
             ZIndex: =2
 
@@ -41,6 +42,7 @@ SketchScreen As screen:
             Height: =702
             HoverFill: =HomeMenuBkg_2.Fill
             PressedFill: =HomeMenuBkg_2.Fill
+            TabIndex: =0
             Width: =75
             Y: =66
             ZIndex: =3
@@ -56,6 +58,7 @@ SketchScreen As screen:
             OnSelect: =Navigate('MeetingDetails Screen')
             PressedBorderColor: =ColorFade(NavHome2.BorderColor, -20%)
             PressedFill: =ColorFade(NavHome2.Fill, -20%)
+            TabIndex: =0
             Width: =HomeMenuBkg_2.Width
             Y: =66
             ZIndex: =4
@@ -70,6 +73,7 @@ SketchScreen As screen:
             ImagePosition: =ImagePosition.Center
             PressedBorderColor: =ColorFade(NavSketch2.BorderColor, -20%)
             PressedFill: =ColorFade(NavSketch2.Fill, -20%)
+            TabIndex: =0
             Width: =HomeMenuBkg_2.Width
             Y: =141
             ZIndex: =5
@@ -84,6 +88,7 @@ SketchScreen As screen:
             OnSelect: =Navigate(CameraScreen, BorderStyle.None)
             PressedBorderColor: =ColorFade(NavPhotos2.BorderColor, -20%)
             PressedFill: =ColorFade(NavPhotos2.Fill, -20%)
+            TabIndex: =0
             Width: =HomeMenuBkg_2.Width
             Y: =216
             ZIndex: =6
@@ -102,6 +107,7 @@ SketchScreen As screen:
             Height: =66
             HoverFill: =BackgroundBanner.Fill
             PressedFill: =BackgroundBanner.Fill
+            TabIndex: =0
             Width: =1366
             ZIndex: =1
 
@@ -151,6 +157,7 @@ SketchScreen As screen:
             PressedBorderColor: =ColorFade(SaveSketchIcon.BorderColor, -20%)
             PressedColor: =ColorFade(SaveSketchIcon.Color, -20%)
             PressedFill: =SaveSketchIcon.Fill
+            TabIndex: =0
             Visible: =!ShowSketchSaved
             Width: =22
             X: =636
@@ -169,6 +176,7 @@ SketchScreen As screen:
             PressedBorderColor: =ColorFade(SavedIndicator2.BorderColor, -20%)
             PressedColor: =ColorFade(SavedIndicator2.Color, -20%)
             PressedFill: =SavedIndicator2.Fill
+            TabIndex: =0
             Visible: =ShowSketchSaved
             Width: =22
             X: =674
@@ -184,6 +192,7 @@ SketchScreen As screen:
             Height: =36
             HoverFill: =SavedIndicator1.Fill
             PressedFill: =SavedIndicator1.Fill
+            TabIndex: =0
             Visible: =ShowSketchSaved
             Width: =36
             X: =667
@@ -201,6 +210,7 @@ SketchScreen As screen:
             PressedColor: =SavedIndicator.Color
             PressedFill: =SavedIndicator.Fill
             Size: =12
+            TabIndex: =0
             Text: ="Saved!"
             Visible: =ShowSketchSaved
             Width: =120

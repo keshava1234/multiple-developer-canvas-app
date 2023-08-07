@@ -145,6 +145,7 @@ FollowUpScreen As screen:
             PressedColor: =FollowUpAttendeeCount.Color
             PressedFill: =FollowUpAttendeeCount.Fill
             Size: =15
+            TabIndex: =0
             Text: ="*Attendees (" & CountRows(FollowUpMeetingAttendees) & ")"
             Width: =507
             X: =70
@@ -152,6 +153,7 @@ FollowUpScreen As screen:
             ZIndex: =7
 
         FollowUpAttendeesGall As gallery.galleryVertical:
+            AccessibleLabel: ="FollowUpAttendeesGall"
             DisabledBorderColor: =FollowUpAttendeesGall.BorderColor
             DisabledFill: =FollowUpAttendeesGall.Fill
             Fill: =RGBA(255, 255, 255, 1)
@@ -164,6 +166,7 @@ FollowUpScreen As screen:
             PressedBorderColor: =FollowUpAttendeesGall.BorderColor
             PressedFill: =FollowUpAttendeesGall.Fill
             ShowScrollbar: =false
+            TabIndex: =0
             TemplatePadding: =10
             TemplateSize: =50
             Width: =521
@@ -206,10 +209,12 @@ FollowUpScreen As screen:
                 ZIndex: =1
 
             Icon17 As icon.Cancel:
+                AccessibleLabel: ="Icon"
                 Color: =RGBA(48, 55, 120, 1)
                 Height: =22
                 Icon: =Icon.Cancel
                 OnSelect: =Remove(FollowUpMeetingAttendees,ThisItem)
+                TabIndex: =0
                 Width: =22
                 X: =215
                 Y: =17
@@ -290,6 +295,7 @@ FollowUpScreen As screen:
             PressedColor: =AddFollowUpAttendee.Color
             PressedFill: =AddFollowUpAttendee.Fill
             Size: =10.5
+            TabIndex: =0
             Text: ="Add attendee"
             Width: =507
             X: =70
@@ -297,6 +303,7 @@ FollowUpScreen As screen:
             ZIndex: =9
 
         FollowUpSearchText As text:
+            AccessibleLabel: ="FollowUpSearchText"
             BorderColor: =RGBA(227, 227, 227, 1)
             Default: =""
             FocusedBorderColor: =FollowUpSearchText.BorderColor
@@ -331,12 +338,14 @@ FollowUpScreen As screen:
             PressedBorderColor: =ColorFade(FollowUpSearchIcon.BorderColor, -20%)
             PressedColor: =ColorFade(FollowUpSearchIcon.Color, -20%)
             PressedFill: =FollowUpSearchIcon.Fill
+            TabIndex: =0
             Width: =24
             X: =75
             Y: =489
             ZIndex: =11
 
         FollowUpSearchUserResults As gallery.galleryVertical:
+            AccessibleLabel: ="FollowUpSearchUserResults"
             DisabledBorderColor: =FollowUpSearchUserResults.BorderColor
             DisabledFill: =FollowUpSearchUserResults.Fill
             Height: =153
@@ -350,6 +359,7 @@ FollowUpScreen As screen:
             PressedBorderColor: =FollowUpSearchUserResults.BorderColor
             PressedFill: =FollowUpSearchUserResults.Fill
             ShowScrollbar: =false
+            TabIndex: =0
             TemplatePadding: =15
             TemplateSize: =40
             Width: =521
@@ -468,6 +478,7 @@ FollowUpScreen As screen:
             ZIndex: =13
 
         FollowUpSubject As text:
+            AccessibleLabel: ="FollowUpSubject"
             BorderColor: =RGBA(227, 227, 227, 1)
             Default: |-
                 ="Follow Up: " & SelectedMeeting.Subject
@@ -506,6 +517,7 @@ FollowUpScreen As screen:
             ZIndex: =15
 
         FollowUpMessage As text:
+            AccessibleLabel: ="FollowUpMessage"
             BorderColor: =RGBA(227, 227, 227, 1)
             Default: =""
             FocusedBorderColor: =FollowUpMessage.BorderColor
@@ -541,9 +553,11 @@ FollowUpScreen As screen:
             ZIndex: =18
 
         iconHamburger_10 As icon.Hamburger:
+            AccessibleLabel: ="iconHamburger"
             Height: =24
             Icon: =Icon.Hamburger
             OnSelect: =Navigate('MeetingDetails Screen', ScreenTransition.Fade)
+            TabIndex: =
             Tooltip: ="MeetingDetails"
             Width: =24
             X: =18
@@ -551,9 +565,11 @@ FollowUpScreen As screen:
             ZIndex: =19
 
         "'Home Icon_10' As icon.Home":
+            AccessibleLabel: ="Home Icon"
             Height: =24
             Icon: =Icon.Home
             OnSelect: =Navigate(HomePage,BorderStyle.None)
+            TabIndex: =
             Tooltip: ="Home Page"
             Width: =24
             X: =21
@@ -561,9 +577,11 @@ FollowUpScreen As screen:
             ZIndex: =20
 
         iconResourceAdd_10 As icon.Add:
+            AccessibleLabel: ="iconResourceAdd"
             Height: =24
             Icon: =Icon.Add
             OnSelect: =Navigate(ResourceScreen, ScreenTransition.Fade)
+            TabIndex: =
             Tooltip: ="Resource"
             Width: =24
             X: =18
@@ -581,21 +599,24 @@ FollowUpScreen As screen:
             AccessibleLabel: ="ss"
             Fill: =RGBA(48, 55, 120, 1)
             Height: =43
-            TabIndex: =1
+            TabIndex: =0
             Width: =1366
             ZIndex: =22
 
         imageLogo_6 As image:
+            AccessibleLabel: ="imageLogo"
             Height: =43
             Image: =logo
-            TabIndex: =1
+            TabIndex: =0
             ZIndex: =23
 
         Icon_Back_2 As icon.ArrowLeft:
+            AccessibleLabel: ="Icon_Back"
             Color: =RGBA(255, 255, 255, 1)
             Height: =30
             Icon: =Icon.ArrowLeft
             OnSelect: =Back()
+            TabIndex: =
             Width: =40
             X: =90
             Y: =8

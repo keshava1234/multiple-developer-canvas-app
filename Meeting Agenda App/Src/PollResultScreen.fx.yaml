@@ -100,6 +100,7 @@ PollResultScreen As screen:
         bg_15 As rectangle:
             Fill: =RGBA(248, 249, 255, 1)
             Height: =718
+            TabIndex: =0
             Width: =61
             X: =2
             Y: =50
@@ -109,6 +110,7 @@ PollResultScreen As screen:
             Height: =24
             Icon: =Icon.Hamburger
             OnSelect: =Navigate('MeetingDetails Screen', ScreenTransition.Fade)
+            TabIndex: =0
             Tooltip: ="MeetingDetails"
             Width: =24
             X: =18
@@ -119,6 +121,7 @@ PollResultScreen As screen:
             Height: =24
             Icon: =Icon.Home
             OnSelect: =Navigate(HomePage,BorderStyle.None)
+            TabIndex: =0
             Tooltip: ="Home Page"
             Width: =24
             X: =21
@@ -129,6 +132,7 @@ PollResultScreen As screen:
             Height: =24
             Icon: =Icon.Add
             OnSelect: =Navigate(ResourceScreen, ScreenTransition.Fade)
+            TabIndex: =0
             Tooltip: ="Resource"
             Width: =24
             X: =18
@@ -161,7 +165,7 @@ PollResultScreen As screen:
             PressedColor: =lblExportMeetingSubject_5.Color
             PressedFill: =lblExportMeetingSubject_5.Fill
             Size: =15
-            TabIndex: =1
+            TabIndex: =0
             Text: =
             Tooltip: ="Meeting Title"
             Width: =1366
@@ -170,7 +174,7 @@ PollResultScreen As screen:
         imageLogo_17 As image:
             Height: =45
             Image: =logo
-            TabIndex: =1
+            TabIndex: =0
             X: =5
             Y: =5
             ZIndex: =14
@@ -187,7 +191,7 @@ PollResultScreen As screen:
             PressedColor: ='lbl_selected meeting dt & time_4'.Color
             PressedFill: ='lbl_selected meeting dt & time_4'.Fill
             Size: =10
-            TabIndex: =2
+            TabIndex: =0
             Text: |-
                 =Text(SelectedMeeting.Start,"[$-en-US]mmmm dd, yyyy")&" | " & Lower(Text(SelectedMeeting.Start,"[$-en-US]hh:mm am/pm"))&" - "&Lower(Text(SelectedMeeting.End,"[$-en-US]hh:mm am/pm")) & " (" & DateDiff(SelectedMeeting.Start, SelectedMeeting.End, TimeUnit.Minutes) & " minutes)"
             Tooltip: ="Meeting Title"
@@ -209,6 +213,7 @@ PollResultScreen As screen:
             PressedColor: ='lbl_selected meeting sub._4'.Color
             PressedFill: ='lbl_selected meeting sub._4'.Fill
             Size: =10
+            TabIndex: =0
             Text: =SelectedMeeting.Subject
             Width: =407
             X: =200
@@ -220,6 +225,7 @@ PollResultScreen As screen:
             Height: =35
             Icon: =Icon.ArrowLeft
             OnSelect: =Back()
+            TabIndex: =0
             Width: =50
             X: =104
             Y: =8
@@ -231,6 +237,7 @@ PollResultScreen As screen:
             Font: =Font.Lato
             Height: =46
             Size: =14
+            TabIndex: =0
             Text: ="V1.0"
             Width: =103
             X: =1263

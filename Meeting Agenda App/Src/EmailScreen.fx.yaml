@@ -35,7 +35,7 @@ EmailScreen As screen:
             PressedColor: =EmailBannerText.Color
             PressedFill: =EmailBannerText.Fill
             Size: =18
-            TabIndex: =2
+            TabIndex: =0
             Text: |-
                 ="Email attendee" & If(MultiRecipients, "s") & ":"
             Width: =351
@@ -51,6 +51,7 @@ EmailScreen As screen:
             Height: =1
             HoverFill: =Rectangle6.Fill
             PressedFill: =Rectangle6.Fill
+            TabIndex: =0
             Width: =1285
             X: =81
             Y: =156
@@ -124,7 +125,6 @@ EmailScreen As screen:
             RadiusTopLeft: =3
             RadiusTopRight: =3
             Size: =10.5
-            TabIndex: =6
             Text: ="Send"
             Tooltip: ="Send Email"
             Width: =100
@@ -185,6 +185,7 @@ EmailScreen As screen:
                     Reset(AAAttachmentcontrol_2)
                 )
                 //Navigate(ConfirmScreen, None)
+            TabIndex: =0
             Width: =22
             X: =1237
             Y: =100
@@ -454,6 +455,7 @@ EmailScreen As screen:
         bg_12 As rectangle:
             Fill: =RGBA(248, 249, 255, 1)
             Height: =718
+            TabIndex: =0
             Width: =61
             Y: =50
             ZIndex: =15
@@ -462,6 +464,7 @@ EmailScreen As screen:
             Height: =24
             Icon: =Icon.Hamburger
             OnSelect: =Navigate('MeetingDetails Screen', ScreenTransition.Fade)
+            TabIndex: =0
             Tooltip: ="MeetingDetails"
             Width: =24
             X: =16
@@ -481,6 +484,7 @@ EmailScreen As screen:
                     DisableButton,
                     false
                 );
+            TabIndex: =0
             Tooltip: ="Home Page"
             Width: =24
             X: =19
@@ -491,6 +495,7 @@ EmailScreen As screen:
             Height: =24
             Icon: =Icon.Add
             OnSelect: =Navigate(ResourceScreen, ScreenTransition.Fade)
+            TabIndex: =0
             Tooltip: ="Resource"
             Width: =24
             X: =16

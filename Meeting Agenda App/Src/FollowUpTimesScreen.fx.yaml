@@ -405,6 +405,7 @@ FollowUpTimesScreen As screen:
             ZIndex: =7
 
         DatePicker1 As datepicker:
+            AccessibleLabel: ="DatePicker1"
             BorderColor: =RGBA(227, 227, 227, 1)
             Color: =RGBA(62, 96, 170, 1)
             FocusedBorderColor: =DatePicker1.BorderColor
@@ -445,6 +446,7 @@ FollowUpTimesScreen As screen:
             ZIndex: =19
 
         MeetingEndRange As dropdown:
+            AccessibleLabel: ="MeetingEndRange"
             BorderColor: =RGBA(0, 18, 107, 1)
             BorderThickness: =1
             ChevronBackground: =RGBA(255, 255, 255, 1)
@@ -469,6 +471,7 @@ FollowUpTimesScreen As screen:
             ZIndex: =20
 
         MeetingStartRange As dropdown:
+            AccessibleLabel: ="MeetingStartRange"
             BorderColor: =RGBA(0, 18, 107, 1)
             BorderThickness: =1
             ChevronBackground: =RGBA(255, 255, 255, 1)
@@ -515,6 +518,7 @@ FollowUpTimesScreen As screen:
             ZIndex: =22
 
         MeetingDurationSelection As dropdown:
+            AccessibleLabel: ="MeetingDurationSelection"
             BorderColor: =RGBA(0, 18, 107, 1)
             BorderThickness: =1
             ChevronBackground: =RGBA(255, 255, 255, 1)
@@ -621,6 +625,7 @@ FollowUpTimesScreen As screen:
             ZIndex: =24
 
         TimeLine As gallery.galleryHorizontal:
+            AccessibleLabel: ="TimeLine"
             DisabledBorderColor: =TimeLine.BorderColor
             DisabledFill: =TimeLine.Fill
             Height: =93
@@ -630,6 +635,7 @@ FollowUpTimesScreen As screen:
             LoadingSpinnerColor: =TimeLine.BorderColor
             PressedBorderColor: =TimeLine.BorderColor
             PressedFill: =TimeLine.Fill
+            TabIndex: =1
             TemplatePadding: =0
             TemplateSize: =8
             Width: =395
@@ -735,6 +741,7 @@ FollowUpTimesScreen As screen:
             ZIndex: =13
 
         AvailableTimesGall As gallery.galleryVertical:
+            AccessibleLabel: ="AvailableTimesGall"
             DisabledBorderColor: =AvailableTimesGall.BorderColor
             DisabledFill: =AvailableTimesGall.Fill
             Fill: =RGBA(255, 255, 255, 1)
@@ -746,6 +753,7 @@ FollowUpTimesScreen As screen:
             LoadingSpinnerColor: =AvailableTimesGall.BorderColor
             PressedBorderColor: =AvailableTimesGall.BorderColor
             PressedFill: =AvailableTimesGall.Fill
+            TabIndex: =1
             TemplateFill: |-
                 =/*ensures top gallery item doesn't appear selected on first load*/
                 If(FollowUpStart = ThisItem.StartTime && FollowUpEnd = ThisItem.EndTime && ThisItem.IsSelected, RGBA(241,244,249, 1), RGBA(0,0,0,0))
@@ -910,9 +918,11 @@ FollowUpTimesScreen As screen:
             ZIndex: =30
 
         iconHamburger_11 As icon.Hamburger:
+            AccessibleLabel: ="iconHamburger"
             Height: =24
             Icon: =Icon.Hamburger
             OnSelect: =Navigate('MeetingDetails Screen', ScreenTransition.Fade)
+            TabIndex: =1
             Tooltip: ="MeetingDetails"
             Width: =24
             X: =18
@@ -920,9 +930,11 @@ FollowUpTimesScreen As screen:
             ZIndex: =31
 
         "'Home Icon_11' As icon.Home":
+            AccessibleLabel: ="Home Icon"
             Height: =24
             Icon: =Icon.Home
             OnSelect: =Navigate(HomePage,BorderStyle.None)
+            TabIndex: =1
             Tooltip: ="Home Page"
             Width: =24
             X: =21
@@ -930,9 +942,11 @@ FollowUpTimesScreen As screen:
             ZIndex: =32
 
         iconResourceAdd_11 As icon.Add:
+            AccessibleLabel: ="iconResourceAdd"
             Height: =24
             Icon: =Icon.Add
             OnSelect: =Navigate(ResourceScreen, ScreenTransition.Fade)
+            TabIndex: =1
             Tooltip: ="Resource"
             Width: =24
             X: =18
@@ -947,19 +961,22 @@ FollowUpTimesScreen As screen:
         ZIndex: =38
 
         rectTopMenu_11 As rectangle:
+            AccessibleLabel: ="rectTopMenu"
             Fill: =RGBA(48, 55, 120, 1)
             Height: =43
-            TabIndex: =1
+            TabIndex: =0
             Width: =1366
             ZIndex: =34
 
         imageLogo_11 As image:
+            AccessibleLabel: ="imageLogo"
             Height: =43
             Image: =logo
-            TabIndex: =1
+            TabIndex: =0
             ZIndex: =35
 
         Icon_Back_1 As icon.ArrowLeft:
+            AccessibleLabel: ="Icon_Back"
             Color: =RGBA(255, 255, 255, 1)
             Height: =30
             Icon: =Icon.ArrowLeft
@@ -976,6 +993,7 @@ FollowUpTimesScreen As screen:
             Color: =RGBA(255, 255, 255, 1)
             Font: =Font.Lato
             Size: =14
+            TabIndex: =0
             Text: ="V1.0"
             Width: =103
             X: =1263

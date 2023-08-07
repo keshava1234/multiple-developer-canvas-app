@@ -943,6 +943,7 @@ ExportScreen As screen:
                 PressedBorderColor: =ColorFade(iconRemoveRecipient.BorderColor, -20%)
                 PressedColor: =ColorFade(iconRemoveRecipient.Color, -20%)
                 PressedFill: =iconRemoveRecipient.Fill
+                TabIndex: =0
                 Width: =28
                 X: =210
                 Y: =6
@@ -1240,7 +1241,7 @@ ExportScreen As screen:
             PressedColor: =lblExportBannerHeader_1.Color
             PressedFill: =lblExportBannerHeader_1.Fill
             Size: =18
-            TabIndex: =2
+            TabIndex: =0
             Text: ="Export " & SelectedMeeting.Subject
             Width: =1131
             X: =104
@@ -1256,6 +1257,7 @@ ExportScreen As screen:
             Height: =1
             HoverFill: =shapeRectangleExport.Fill
             PressedFill: =shapeRectangleExport.Fill
+            TabIndex: =0
             Width: =1115
             X: =lblExportBannerHeader_1.X
             Y: =164
@@ -1275,6 +1277,7 @@ ExportScreen As screen:
             PressedColor: =lblExportQuestion.Color
             PressedFill: =lblExportQuestion.Fill
             Size: =14
+            TabIndex: =0
             Text: ="Where would you like to export to?"
             Width: =335
             X: =104
@@ -1300,6 +1303,7 @@ ExportScreen As screen:
             PressedColor: =lblDataLossWarnText.Color
             PressedFill: =lblDataLossWarnText.Fill
             Size: =9
+            TabIndex: =0
             Text: ="Unless you select an export location, your meeting notes, attachments, estimations and tasks will be lost once you exit the application."
             Visible: =!OneNotecheck.Value && !checkEmail.Value 
             Width: =670
@@ -1322,6 +1326,7 @@ ExportScreen As screen:
             PressedBorderColor: =ColorFade(iconDataLossWarn.BorderColor, -20%)
             PressedColor: =ColorFade(iconDataLossWarn.Color, -20%)
             PressedFill: =iconDataLossWarn.Fill
+            TabIndex: =0
             Visible: =!OneNotecheck.Value && !checkEmail.Value 
             Width: =24
             X: =41
@@ -1590,7 +1595,6 @@ ExportScreen As screen:
             RadiusTopLeft: =0
             RadiusTopRight: =0
             Size: =10.5
-            TabIndex: =18
             Text: ="Export"
             Tooltip: ="Export"
             Width: =125
@@ -1609,6 +1613,7 @@ ExportScreen As screen:
             Image: =export
             PressedBorderColor: =ColorFade(imgExportIcon.BorderColor, -20%)
             PressedFill: =ColorFade(imgExportIcon.Fill, -20%)
+            TabIndex: =0
             Width: =26
             X: =1221
             Y: =113
@@ -1629,6 +1634,7 @@ ExportScreen As screen:
         PressedBorderColor: =ColorFade(iconCheckOneNoteSection.BorderColor, -20%)
         PressedColor: =ColorFade(iconCheckOneNoteSection.Color, -20%)
         PressedFill: =iconCheckOneNoteSection.Fill
+        TabIndex: =0
         Visible: =(ShowOneNote ) && SectionAdded
         Width: =30
         X: =790
@@ -1650,6 +1656,7 @@ ExportScreen As screen:
             Height: =768
             HoverFill: =shapeExportOverlay.Fill
             PressedFill: =shapeExportOverlay.Fill
+            TabIndex: =0
             Visible: =ShowOneNote || ShowPlanner || ShowOverlay
             Width: =1366
             ZIndex: =64
@@ -1662,6 +1669,7 @@ ExportScreen As screen:
             Height: =468
             HoverFill: =shapeExportForeground.Fill
             PressedFill: =shapeExportForeground.Fill
+            TabIndex: =0
             Visible: =ShowOneNote || ShowPlanner || ShowOverlay
             Width: =428
             X: =549
@@ -1683,6 +1691,7 @@ ExportScreen As screen:
             PressedColor: =lblOverlayHeader.Color
             PressedFill: =lblOverlayHeader.Fill
             Size: =28
+            TabIndex: =0
             Text: =If(ShowOverlay, "Are you finished taking notes?", "Select Location") 
             Visible: =ShowOneNote || ShowPlanner || ShowOverlay
             Width: =shapeExportForeground.Width - 40
@@ -1705,6 +1714,7 @@ ExportScreen As screen:
             PressedColor: =lblNotebookOrPlan.Color
             PressedFill: =lblNotebookOrPlan.Fill
             Size: =10.5
+            TabIndex: =0
             Text: =If(ShowOneNote, "Notebook", "Plan")
             Visible: =ShowOneNote || ShowPlanner
             Width: =shapeExportForeground.Width - 40
@@ -1727,6 +1737,7 @@ ExportScreen As screen:
             PressedColor: =lblSectionOrBucket.Color
             PressedFill: =lblSectionOrBucket.Fill
             Size: =10.5
+            TabIndex: =0
             Text: =If(ShowOneNote, "Section", "Bucket")
             Visible: =ShowOneNote || ShowPlanner
             Width: =shapeExportForeground.Width - 40
@@ -2134,6 +2145,7 @@ ExportScreen As screen:
             PressedColor: =lblExportConfirmText.Color
             PressedFill: =lblExportConfirmText.Fill
             Size: =13.5
+            TabIndex: =0
             Text: ="Once you Export, your meeting summary will be shared and you will no longer have access to the edit page."
             Visible: =ShowOverlay
             Width: =378
@@ -2492,7 +2504,7 @@ ExportScreen As screen:
             PressedColor: =lblExportMeetingSubject_2.Color
             PressedFill: =lblExportMeetingSubject_2.Fill
             Size: =15
-            TabIndex: =1
+            TabIndex: =0
             Text: =
             Tooltip: ="Meeting Title"
             Width: =1366
@@ -2501,7 +2513,7 @@ ExportScreen As screen:
         imageLogo_14 As image:
             Height: =45
             Image: =logo
-            TabIndex: =1
+            TabIndex: =0
             X: =5
             Y: =5
             ZIndex: =82
@@ -2518,7 +2530,7 @@ ExportScreen As screen:
             PressedColor: ='lbl_selected meeting dt & time_1'.Color
             PressedFill: ='lbl_selected meeting dt & time_1'.Fill
             Size: =10
-            TabIndex: =2
+            TabIndex: =0
             Text: |-
                 =Text(SelectedMeeting.Start,"[$-en-US]mmmm dd, yyyy")&" | " & Lower(Text(SelectedMeeting.Start,"[$-en-US]hh:mm am/pm"))&" - "&Lower(Text(SelectedMeeting.End,"[$-en-US]hh:mm am/pm")) & " (" & DateDiff(SelectedMeeting.Start, SelectedMeeting.End, TimeUnit.Minutes) & " minutes)"
             Tooltip: ="Meeting Title"
@@ -2540,6 +2552,7 @@ ExportScreen As screen:
             PressedColor: ='lbl_selected meeting sub._1'.Color
             PressedFill: ='lbl_selected meeting sub._1'.Fill
             Size: =10
+            TabIndex: =0
             Text: =SelectedMeeting.Subject
             Width: =407
             X: =200
@@ -2551,6 +2564,7 @@ ExportScreen As screen:
             Height: =35
             Icon: =Icon.ArrowLeft
             OnSelect: =Back()
+            TabIndex: =0
             Width: =50
             X: =104
             Y: =8
@@ -2562,6 +2576,7 @@ ExportScreen As screen:
             Font: =Font.Lato
             Height: =46
             Size: =14
+            TabIndex: =0
             Text: ="V1.0"
             Width: =103
             X: =1263
@@ -2768,6 +2783,7 @@ ExportScreen As screen:
         bg_22 As rectangle:
             Fill: =RGBA(248, 249, 255, 1)
             Height: =718
+            TabIndex: =0
             Width: =72
             Y: =50
             ZIndex: =57
@@ -2776,6 +2792,7 @@ ExportScreen As screen:
             Height: =24
             Icon: =Icon.Hamburger
             OnSelect: =Navigate('MeetingDetails Screen', ScreenTransition.Fade)
+            TabIndex: =0
             Tooltip: ="MeetingDetails"
             Width: =25
             X: =17
@@ -2795,6 +2812,7 @@ ExportScreen As screen:
                     DisableButton,
                     false
                 );
+            TabIndex: =0
             Tooltip: ="Home Page"
             Width: =25
             X: =20
@@ -2805,6 +2823,7 @@ ExportScreen As screen:
             Height: =24
             Icon: =Icon.Add
             OnSelect: =Navigate(ResourceScreen, ScreenTransition.Fade)
+            TabIndex: =0
             Tooltip: ="Resource"
             Width: =25
             X: =17

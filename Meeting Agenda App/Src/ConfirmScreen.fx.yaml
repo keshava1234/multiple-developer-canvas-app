@@ -276,6 +276,7 @@ ConfirmScreen As screen:
         bg_9 As rectangle:
             Fill: =RGBA(248, 249, 255, 1)
             Height: =718
+            TabIndex: =0
             Width: =61
             X: =2
             Y: =50
@@ -285,6 +286,7 @@ ConfirmScreen As screen:
             Height: =24
             Icon: =Icon.Hamburger
             OnSelect: =Navigate('MeetingDetails Screen', ScreenTransition.Fade)
+            TabIndex: =0
             Tooltip: ="MeetingDetails"
             Width: =24
             X: =18
@@ -295,6 +297,7 @@ ConfirmScreen As screen:
             Height: =24
             Icon: =Icon.Home
             OnSelect: =Navigate(HomePage,BorderStyle.None)
+            TabIndex: =0
             Tooltip: ="Home Page"
             Width: =24
             X: =21
@@ -305,6 +308,7 @@ ConfirmScreen As screen:
             Height: =24
             Icon: =Icon.Add
             OnSelect: =Navigate(ResourceScreen, ScreenTransition.Fade)
+            TabIndex: =0
             Tooltip: ="Resource"
             Width: =24
             X: =18
@@ -378,6 +382,7 @@ ConfirmScreen As screen:
             PressedColor: ='lbl__home pg.'.Color
             PressedFill: ='lbl__home pg.'.Fill
             Size: =10.5
+            TabIndex: =0
             Text: ="Capture another meeting"
             Visible: =!EmailConfirmed
             Width: =261
@@ -399,6 +404,7 @@ ConfirmScreen As screen:
             PressedBorderColor: =ColorFade('Icon_home pg.'.BorderColor, -20%)
             PressedColor: =ColorFade('Icon_home pg.'.Color, -20%)
             PressedFill: ='Icon_home pg.'.Fill
+            TabIndex: =0
             Visible: =!EmailConfirmed
             Width: =31
             X: =277
@@ -431,7 +437,7 @@ ConfirmScreen As screen:
             PressedColor: =lblExportMeetingSubject_1.Color
             PressedFill: =lblExportMeetingSubject_1.Fill
             Size: =15
-            TabIndex: =1
+            TabIndex: =0
             Text: =
             Tooltip: ="Meeting Title"
             Width: =1366
@@ -440,7 +446,7 @@ ConfirmScreen As screen:
         imageLogo_13 As image:
             Height: =45
             Image: =logo
-            TabIndex: =1
+            TabIndex: =0
             X: =5
             Y: =5
             ZIndex: =22
@@ -457,7 +463,7 @@ ConfirmScreen As screen:
             PressedColor: ='lbl_selected meeting dt & time'.Color
             PressedFill: ='lbl_selected meeting dt & time'.Fill
             Size: =10
-            TabIndex: =2
+            TabIndex: =0
             Text: |-
                 =Text(SelectedMeeting.Start,"[$-en-US]mmmm dd, yyyy")&" | " & Lower(Text(SelectedMeeting.Start,"[$-en-US]hh:mm am/pm"))&" - "&Lower(Text(SelectedMeeting.End,"[$-en-US]hh:mm am/pm")) & " (" & DateDiff(SelectedMeeting.Start, SelectedMeeting.End, TimeUnit.Minutes) & " minutes)"
             Tooltip: ="Meeting Title"
@@ -479,6 +485,7 @@ ConfirmScreen As screen:
             PressedColor: ='lbl_selected meeting sub.'.Color
             PressedFill: ='lbl_selected meeting sub.'.Fill
             Size: =10
+            TabIndex: =0
             Text: =SelectedMeeting.Subject
             Width: =407
             X: =200
@@ -490,6 +497,7 @@ ConfirmScreen As screen:
             Height: =35
             Icon: =Icon.ArrowLeft
             OnSelect: =Back()
+            TabIndex: =0
             Width: =50
             X: =100
             Y: =8
@@ -501,6 +509,7 @@ ConfirmScreen As screen:
             Font: =Font.Lato
             Height: =46
             Size: =14
+            TabIndex: =0
             Text: ="V1.0"
             Width: =103
             X: =1263

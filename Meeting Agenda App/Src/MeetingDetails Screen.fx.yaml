@@ -425,6 +425,7 @@
             RadiusTopLeft: =5
             RadiusTopRight: =5
             Size: =0
+            TabIndex: =1
             Text: =""
             Width: =911
             X: =441
@@ -454,7 +455,7 @@
             Layout: =Layout.Vertical
             OnSelect: =
             ShowScrollbar: =false
-            TabIndex: =8
+            TabIndex: =1
             TemplateSize: =96
             Visible: =varAgendaTab
             Width: =888
@@ -761,6 +762,7 @@
                 Items: =LookUp(MeetingAgendaLists,ID=ThisItem.ID).'{Attachments}'
                 Layout: =Layout.Vertical
                 ShowScrollbar: =false
+                TabIndex: =1
                 TemplateSize: =45
                 Visible: =ThisItem.'{HasAttachments}'
                 Width: =357
@@ -774,6 +776,7 @@
                     Height: =27
                     OnSelect: =Launch(ThisItem.AbsoluteUri)
                     Size: =9
+                    TabIndex: =1
                     Text: =ThisItem.DisplayName
                     Width: =290
                     X: =40
@@ -797,6 +800,7 @@
             Font: =Font.Lato
             Height: =15
             Size: =8
+            TabIndex: =1
             Text: |-
                 =//"Last update " & Text(Now(),"HH:mm:AM/PM")
                 //"Last update " & Last(Filter(AgendaGallery_2.AllItems,true)).Created
@@ -831,6 +835,7 @@
                 =//AgendaGallery_2.AllItems
                 Refresh(MeetingAgendaLists)
             Rotation: =45
+            TabIndex: =1
             Tooltip: ="Reload"
             Visible: =varAgendaTab
             Width: =20
@@ -958,6 +963,7 @@
                 );
                 
             Rotation: =45
+            TabIndex: =1
             Tooltip: ="Add Agenda"
             Visible: |-
                 =/*varAgendaTab And If(UMRadio.Selected.Value="Organizer" && VarUserEmail=SelectedMeeting.Organizer,true,If(UMRadio.Selected.Value="Attendees",true,false));*/
@@ -997,6 +1003,7 @@
                     )
                 )
             Size: =12
+            TabIndex: =1
             Text: ="Agenda"
             Width: =80
             X: =440
@@ -1008,6 +1015,7 @@
             Fill: =If(varAgendaTab,RGBA(48, 55, 120, 1),Color.Transparent)
             Font: =Font.'Segoe UI'
             Height: =2
+            TabIndex: =1
             Text: =""
             Width: =80
             X: =440
@@ -1018,6 +1026,7 @@
             Font: =Font.Lato
             Height: =61
             Size: =12
+            TabIndex: =1
             Text: ="There is no agenda  for this meeting"
             Visible: = If(CountRows(AgendaGallery_2.AllItems) > 0, false, true) And varNoAgenda 
             Width: =489
@@ -1035,6 +1044,7 @@
         Rectangle3_1 As rectangle:
             Fill: =RGBA(62,96,170,0.5)
             Height: =768
+            TabIndex: =0
             Visible: =varShowPopUp
             Width: =1366
             ZIndex: =55
@@ -1042,6 +1052,7 @@
         Rectangle5_1 As rectangle:
             Fill: =RGBA(255, 255, 255, 1)
             Height: =295
+            TabIndex: =0
             Visible: =varShowPopUp
             Width: =485
             X: =433
@@ -1055,6 +1066,7 @@
             FontWeight: =FontWeight.Semibold
             Height: =35
             Size: =14
+            TabIndex: =0
             Text: ="Send Invite"
             Visible: =varShowPopUp
             Width: =485
@@ -1173,6 +1185,7 @@
             BorderThickness: =1
             Height: =81
             Items: =AddNewAttendees_2.SelectedItems
+            TabIndex: =0
             TemplateSize: =230
             Visible: =varShowPopUp
             Width: =424
@@ -1239,6 +1252,7 @@
         bg_21 As rectangle:
             Fill: =RGBA(248, 249, 255, 1)
             Height: =718
+            TabIndex: =1
             Width: =61
             Y: =50
             ZIndex: =62
@@ -1247,6 +1261,7 @@
             Height: =24
             Icon: =Icon.Hamburger
             OnSelect: =Navigate('MeetingDetails Screen', ScreenTransition.Fade)
+            TabIndex: =1
             Tooltip: ="MeetingDetails"
             Width: =24
             X: =16
@@ -1267,6 +1282,7 @@
                     false
                 );
                 Navigate(HomePage,BorderStyle.None);
+            TabIndex: =1
             Tooltip: ="Home Page"
             Width: =24
             X: =19
@@ -1282,6 +1298,7 @@
             OnSelect: |-
                 =//Patch(MeetingList,LookUp(MeetingList,MeetingID=variCalUID.icaluid), {Notes:'MeetingDetails notes'.HtmlText});
                 Navigate(ResourceScreen, ScreenTransition.Fade)
+            TabIndex: =1
             Tooltip: ="Resource"
             Width: =24
             X: =16
@@ -1305,6 +1322,7 @@
                 Set(varNoAgenda,false);
                 If(IsBlank(PlannerGallery_1),Set(varNoPlanner,true),Set(varNoPlanner,false))
             Size: =12
+            TabIndex: =1
             Text: ="Planner Tasks"
             Width: =140
             X: =529
@@ -1316,6 +1334,7 @@
             Fill: =If(varAgendaTab,Color.Transparent,RGBA(48, 55, 120, 1))
             Height: =2
             OnSelect: =true
+            TabIndex: =1
             Text: =""
             Width: =120
             X: =532
@@ -1344,7 +1363,7 @@
             Layout: =Layout.Vertical
             OnSelect: =PlannerGallery_1.AllItems
             ShowScrollbar: =false
-            TabIndex: =11
+            TabIndex: =1
             TemplateSize: =96
             Visible: =!varAgendaTab
             Width: =889
@@ -1720,6 +1739,7 @@
                 
                 If(CountRows(PlannerBucketList)>0,Set(varBucketlabel,false),Set(varBucketlabel,true));
             Rotation: =45
+            TabIndex: =1
             Tooltip: ="Add Task"
             Visible: |-
                 =!varAgendaTab And If(varOrganizerName=VarUserEmail,true,false)
@@ -1735,6 +1755,7 @@
             Font: =Font.Lato
             Height: =61
             Size: =12
+            TabIndex: =1
             Text: ="There is no planner task  for this meeting"
             Visible: =varNoPlanner And If(CountRows(PlannerGallery_1.AllItems) > 0, false, true)
             Width: =489
@@ -1750,6 +1771,7 @@
                 =//PlannerGallery_1.AllItems
                 Refresh(TaskList)
             Rotation: =45
+            TabIndex: =1
             Tooltip: ="Reload"
             Visible: =!varAgendaTab
             Width: =20
@@ -1763,6 +1785,7 @@
             Font: =Font.Lato
             Height: =15
             Size: =8
+            TabIndex: =1
             Text: |-
                 =//"Last update " & Text(Now(),"HH:mm:AM/PM")
                 
@@ -1787,6 +1810,7 @@
             Height: =299
             HoverFill: =AttendeesBackground_3.Fill
             PressedFill: =AttendeesBackground_3.Fill
+            TabIndex: =0
             Width: =341
             X: =77
             Y: =454
@@ -1845,7 +1869,7 @@
             PressedBorderColor: =ColorFade(MailAllIcon_3.BorderColor, -20%)
             PressedColor: =ColorFade(MailAllIcon_3.Color, -20%)
             PressedFill: =MailAllIcon_3.Fill
-            TabIndex: =19
+            TabIndex: =0
             Tooltip: ="Add Resources"
             Visible: =varResources
             Width: =26
@@ -1880,7 +1904,7 @@
                     )
                 );
             Size: =12
-            TabIndex: =16
+            TabIndex: =0
             Text: ="Resources"
             Width: =120
             X: =82
@@ -1915,7 +1939,7 @@
                     )
                 );
             Size: =12
-            TabIndex: =17
+            TabIndex: =0
             Text: ="Polls"
             Visible: =If(varOrganizerName=VarUserEmail,true,false)
             Width: =80
@@ -1942,6 +1966,7 @@
                     MeetingID = variCalUID.icaluid
                 ).'{Attachments}'
             Layout: =Layout.Vertical
+            TabIndex: =0
             TemplateSize: =45
             Visible: =varResources
             Width: =344
@@ -1983,6 +2008,7 @@
                 PaddingLeft: =4
                 PaddingRight: =4
                 PaddingTop: =4
+                TabIndex: =0
                 Tooltip: ="View"
                 Width: =25
                 X: =264
@@ -2021,6 +2047,7 @@
                 PaddingLeft: =4
                 PaddingRight: =4
                 PaddingTop: =4
+                TabIndex: =0
                 Tooltip: ="Delete"
                 Width: =25
                 X: =294
@@ -2040,6 +2067,7 @@
         Label23 As label:
             Font: =Font.Lato
             Height: =25
+            TabIndex: =0
             Text: ="No Resources Yet"
             Visible: =If(CountRows(Gallery8_1.AllItems) > 0, false, true) And varNoResources 
             Width: =222
@@ -2055,6 +2083,7 @@
             PaddingLeft: =4
             PaddingRight: =4
             PaddingTop: =4
+            TabIndex: =0
             Tooltip: ="view poll results"
             Visible: |-
                 =//varPollPopup
@@ -2068,6 +2097,7 @@
             Height: =267
             Items: =MeetingAttendees
             Layout: =Layout.Vertical
+            TabIndex: =0
             TemplateSize: =37
             Visible: =!varResources And If(varOrganizerName=VarUserEmail,true,false) And If(IsBlank(Gallery_Save),false,true)
             Width: =331
@@ -2099,6 +2129,7 @@
                     =//Select(Parent)
                     Navigate(PollResultScreen, ScreenTransition.Fade)
                 Size: =9
+                TabIndex: =0
                 Text: =ThisItem.DisplayName
                 X: =22
                 Y: =10
@@ -2111,6 +2142,7 @@
                     =//Select(Parent)
                     Navigate(PollResultScreen, ScreenTransition.Fade)
                 Size: =9
+                TabIndex: =0
                 Text: =If(ThisItem.DisplayName in varmeetingattendee.Title,"Polled","Not Polled")
                 X: =171
                 Y: =14
@@ -2128,6 +2160,7 @@
             BorderThickness: =2
             Fill: =RGBA(242, 242, 242, 1)
             Height: =721
+            TabIndex: =1
             Visible: =varShowUpdateAgenda
             Width: =600
             X: =766
@@ -2142,6 +2175,7 @@
             FontWeight: =FontWeight.Semibold
             Height: =24
             Size: =16
+            TabIndex: =1
             Text: ="Update Agenda"
             Visible: =varShowUpdateAgenda
             Width: =215
@@ -2157,6 +2191,7 @@
             FontWeight: =FontWeight.Lighter
             Height: =22
             Size: =12
+            TabIndex: =1
             Text: ="Lets update a  Agenda Item"
             Visible: =varShowUpdateAgenda
             Width: =284
@@ -2173,6 +2208,7 @@
             FontWeight: =FontWeight.Semibold
             Height: =32
             Size: =12
+            TabIndex: =1
             Text: ="Title"
             Visible: =varShowUpdateAgenda
             Width: =85
@@ -2188,6 +2224,7 @@
             FontWeight: =FontWeight.Semibold
             Height: =32
             Size: =12
+            TabIndex: =1
             Text: ="Meeting Date"
             Tooltip: ="Meeting Date"
             Visible: =varShowUpdateAgenda
@@ -2205,6 +2242,7 @@
             FontWeight: =FontWeight.Semibold
             Height: =32
             Size: =12
+            TabIndex: =1
             Text: ="StartTime"
             Visible: =varShowUpdateAgenda
             Width: =153
@@ -2220,6 +2258,7 @@
             FontWeight: =FontWeight.Semibold
             Height: =32
             Size: =12
+            TabIndex: =1
             Text: ="EndTime"
             Visible: =varShowUpdateAgenda
             Width: =153
@@ -2235,6 +2274,7 @@
             FontWeight: =FontWeight.Semibold
             Height: =32
             Size: =12
+            TabIndex: =1
             Text: ="Actor"
             Visible: =varShowUpdateAgenda
             Width: =62
@@ -2250,6 +2290,7 @@
             FontWeight: =FontWeight.Semibold
             Height: =32
             Size: =12
+            TabIndex: =1
             Text: ="Description"
             Visible: =varShowUpdateAgenda
             Width: =153
@@ -2277,6 +2318,7 @@
             PressedColor: =RGBA(0, 0, 0, 1)
             PressedFill: =RGBA(227, 234, 243, 1)
             Size: =10
+            TabIndex: =1
             Tooltip: ="Description"
             Visible: =varShowUpdateAgenda
             Width: =358
@@ -2292,6 +2334,7 @@
             FontWeight: =FontWeight.Semibold
             Height: =32
             Size: =12
+            TabIndex: =1
             Text: ="Add Attachments"
             Visible: =varShowUpdateAgenda
             Width: =153
@@ -2319,6 +2362,7 @@
             PaddingTop: =5
             SelectedDateFill: =RGBA(56, 96, 178, 1)
             Size: =10
+            TabIndex: =1
             Visible: =varShowUpdateAgenda
             Width: =358
             X: =976
@@ -2345,6 +2389,7 @@
             RadiusTopLeft: =3
             RadiusTopRight: =3
             Size: =10
+            TabIndex: =1
             Tooltip: ="Update Agenda Title"
             Visible: =varShowUpdateAgenda
             Width: =358
@@ -2363,6 +2408,7 @@
             PaddingLeft: =2
             PaddingRight: =2
             PaddingTop: =2
+            TabIndex: =1
             Visible: =varShowUpdateAgenda
             Width: =25
             X: =1295
@@ -2377,6 +2423,7 @@
             Height: =45
             Icon: =Icon.CancelBadge
             OnSelect: =Set(varShowUpdateAgenda, false)
+            TabIndex: =1
             Visible: =varShowUpdateAgenda
             Width: =36
             X: =1320
@@ -2416,6 +2463,7 @@
             SelectionFill: =RGBA(56, 96, 178, 1)
             SelectMultiple: =false
             Size: =10
+            TabIndex: =1
             Visible: =varShowUpdateAgenda
             Width: =358
             X: =976
@@ -2449,6 +2497,7 @@
             SelectionColor: =RGBA(175, 191, 224, 1)
             SelectionFill: =RGBA(56, 96, 178, 1)
             Size: =10
+            TabIndex: =1
             Visible: =
             Width: =153
             X: =986
@@ -2481,6 +2530,7 @@
             SelectionColor: =RGBA(136, 160, 209, 1)
             SelectionFill: =RGBA(56, 96, 178, 1)
             Size: =10
+            TabIndex: =1
             Visible: =
             Width: =153
             X: =976
@@ -2576,6 +2626,7 @@
             RadiusTopLeft: =2
             RadiusTopRight: =2
             Size: =9
+            TabIndex: =1
             Text: ="Update Agenda"
             Visible: =varShowUpdateAgenda
             Width: =110
@@ -2612,6 +2663,7 @@
             RadiusTopLeft: =2
             RadiusTopRight: =2
             Size: =9
+            TabIndex: =1
             Text: ="Cancel"
             Visible: =varShowUpdateAgenda
             Width: =110
@@ -2625,6 +2677,7 @@
             Height: =65
             Items: =UAAttendees.SelectedItems
             OnSelect: =
+            TabIndex: =1
             TemplatePadding: =0
             TemplateSize: =149
             Visible: =varShowUpdateAgenda
@@ -2812,6 +2865,7 @@
             RadiusTopLeft: =
             RadiusTopRight: =
             Size: =12
+            TabIndex: =1
             Text: ="Availability"
             Visible: =
             Width: =110
@@ -2873,6 +2927,7 @@
             PressedColor: =RGBA(255, 255, 255, 1)
             PressedFill: =RGBA(0, 18, 107, 1)
             Size: =9
+            TabIndex: =1
             Tooltip: =
             Visible: =varShowUpdateAgenda And If(IsBlank(Gallery8_2),true,false)
             Width: =358
@@ -2886,6 +2941,7 @@
             DisabledFill: =RGBA(244, 244, 244, 1)
             Height: =36
             Image: =Last(UAAttachmentcontrol.Attachments).Value
+            TabIndex: =1
             Visible: =false
             Width: =11
             X: =1125
@@ -2935,6 +2991,7 @@
             SelectionColor: =RGBA(175, 191, 224, 1)
             SelectionFill: =RGBA(56, 96, 178, 1)
             Size: =10
+            TabIndex: =1
             Visible: =varShowUpdateAgenda
             Width: =153
             X: =976
@@ -2977,6 +3034,7 @@
             SelectionColor: =RGBA(175, 191, 224, 1)
             SelectionFill: =RGBA(56, 96, 178, 1)
             Size: =10
+            TabIndex: =1
             Visible: =varShowUpdateAgenda
             Width: =153
             X: =976
@@ -2990,6 +3048,7 @@
             PaddingLeft: =0
             PaddingRight: =0
             PaddingTop: =0
+            TabIndex: =1
             Text: ="*"
             VerticalAlign: =VerticalAlign.Top
             Visible: =varShowUpdateAgenda
@@ -3005,6 +3064,7 @@
             PaddingLeft: =0
             PaddingRight: =0
             PaddingTop: =0
+            TabIndex: =1
             Text: ="*"
             VerticalAlign: =VerticalAlign.Top
             Visible: =varShowUpdateAgenda
@@ -3019,6 +3079,7 @@
             Items: =LookUp(MeetingAgendaLists,ID=AgendaGallery_2.Selected.ID).'{Attachments}'
             Layout: =Layout.Vertical
             ShowScrollbar: =false
+            TabIndex: =1
             TemplateSize: =47
             Visible: =varShowUpdateAgenda And If(IsBlank(Gallery8_2),false,true)
             Width: =358
@@ -3069,6 +3130,7 @@
                 PaddingBottom: =2
                 PaddingLeft: =2
                 PaddingTop: =2
+                TabIndex: =0
                 Tooltip: ="Delete Attachment"
                 Width: =24
                 X: =324
@@ -3086,7 +3148,9 @@
             BorderColor: =RGBA(0, 18, 107, 1)
             BorderThickness: =1
             Fill: =RGBA(242, 242, 242, 1)
+            FocusedBorderThickness: =1
             Height: =722
+            TabIndex: =0
             Visible: =varShowCreateTask
             Width: =600
             X: =762
@@ -3097,10 +3161,12 @@
             BorderColor: =RGBA(0, 18, 107, 1)
             Color: =RGBA(0, 0, 0, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Semibold
             Height: =30
             Size: =12
+            TabIndex: =0
             Text: ="Due Date"
             Visible: =varShowCreateTask
             X: =824
@@ -3116,6 +3182,7 @@
             DisabledBorderColor: =RGBA(255, 255, 255, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
             DisabledFill: =RGBA(255, 255, 255, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             Height: =32
             HoverDateFill: =RGBA(186, 202, 226, 1)
@@ -3135,10 +3202,12 @@
             BorderColor: =RGBA(0, 18, 107, 1)
             Color: =RGBA(0, 0, 0, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Semibold
             Height: =30
             Size: =12
+            TabIndex: =0
             Text: ="Priority"
             Visible: =varShowCreateTask
             X: =824
@@ -3160,6 +3229,7 @@
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             Height: =32
             HoverColor: =RGBA(0, 0, 0, 1)
@@ -3201,6 +3271,7 @@
             DisabledColor: =RGBA(166, 166, 166, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
             Fill: =RGBA(230, 229, 229, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Normal
             Height: =32
@@ -3243,6 +3314,7 @@
             DisabledColor: =RGBA(166, 166, 166, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
             DisplayFields: =["DisplayName"]
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             Height: =32
             HoverColor: =RGBA(0, 0, 0, 1)
@@ -3271,9 +3343,11 @@
             BorderColor: =RGBA(255, 255, 255, 1)
             BorderThickness: =1
             Fill: =RGBA(255, 255, 255, 1)
+            FocusedBorderThickness: =1
             Height: =55
             Items: =AddTaskAssignTo.SelectedItems
             OnSelect: =
+            TabIndex: =0
             TemplatePadding: =0
             TemplateSize: =202
             Visible: =varShowCreateTask
@@ -3382,6 +3456,7 @@
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             Height: =32
             HoverColor: =RGBA(0, 0, 0, 1)
@@ -3416,6 +3491,7 @@
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             Height: =32
             HoverColor: =RGBA(0, 0, 0, 1)
@@ -3441,6 +3517,7 @@
             DisabledColor: =RGBA(166, 166, 166, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
             Fill: =RGBA(21, 52, 112, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Normal
             Height: =32
@@ -3577,6 +3654,7 @@
             DisabledBorderColor: =RGBA(255, 255, 255, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
             DisabledFill: =RGBA(255, 255, 255, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             Height: =32
             HoverDateFill: =RGBA(186, 202, 226, 1)
@@ -3596,10 +3674,12 @@
             BorderColor: =RGBA(0, 18, 107, 1)
             Color: =RGBA(0, 0, 0, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Semibold
             Height: =30
             Size: =12
+            TabIndex: =0
             Text: ="AssignTo"
             Visible: =varShowCreateTask
             X: =824
@@ -3614,6 +3694,7 @@
             CheckmarkFill: =RGBA(179, 179, 179, 1)
             Color: =RGBA(153,153,153, 1)
             Fill: =RGBA(255, 255, 255, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             Height: =32
             HoverColor: =RGBA(0, 18, 107, 1)
@@ -3629,10 +3710,12 @@
             BorderColor: =RGBA(0, 18, 107, 1)
             Color: =RGBA(0, 0, 0, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Semibold
             Height: =30
             Size: =12
+            TabIndex: =0
             Text: ="Note"
             Visible: =varShowCreateTask
             X: =824
@@ -3647,6 +3730,7 @@
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             Height: =55
             HintText: ="Add Note"
@@ -3667,6 +3751,7 @@
             DisabledColor: =RGBA(166, 166, 166, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
             Fill: =RGBA(21, 52, 112, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Arial
             FontWeight: =FontWeight.Normal
             Height: =34
@@ -3766,8 +3851,10 @@
             BorderColor: =RGBA(0, 18, 107, 1)
             Color: =RGBA(0, 0, 0, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             Size: =16
+            TabIndex: =0
             Text: ="Create a New Task"
             Visible: =varShowCreateTask
             Width: =206
@@ -3779,9 +3866,11 @@
             BorderColor: =RGBA(0, 18, 107, 1)
             Color: =RGBA(0, 0, 0, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             Height: =38
             Size: =12
+            TabIndex: =0
             Text: ="Let's create a new Task"
             Visible: |-
                 =//varShowCreateTask
@@ -3795,10 +3884,12 @@
             BorderColor: =RGBA(0, 18, 107, 1)
             Color: =RGBA(0, 0, 0, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Semibold
             Height: =30
             Size: =12
+            TabIndex: =0
             Text: ="Task"
             Visible: =varShowCreateTask
             X: =824
@@ -3813,6 +3904,7 @@
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             Height: =32
             HintText: ="Enter task title"
@@ -3835,10 +3927,12 @@
             BorderColor: =RGBA(0, 18, 107, 1)
             Color: =RGBA(0, 0, 0, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Semibold
             Height: =30
             Size: =12
+            TabIndex: =0
             Text: ="Start Date"
             Visible: =varShowCreateTask
             X: =824
@@ -3859,6 +3953,7 @@
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             Height: =32
             HoverColor: =RGBA(0, 0, 0, 1)
@@ -3890,6 +3985,7 @@
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             Height: =32
             HoverColor: =RGBA(0, 0, 0, 1)
@@ -3912,9 +4008,11 @@
             Color: =RGBA(0, 18, 107, 1)
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledColor: =RGBA(244, 244, 244, 1)
+            FocusedBorderThickness: =1
             Height: =45
             Icon: =Icon.CancelBadge
             OnSelect: =Set(varShowCreateTask,false)
+            TabIndex: =0
             Visible: =varShowCreateTask
             Width: =30
             X: =1318
@@ -3922,10 +4020,12 @@
             ZIndex: =185
 
         Label11 As label:
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Semibold
             Height: =30
             Size: =12
+            TabIndex: =0
             Text: ="Plan"
             Visible: =varShowCreateTask
             X: =824
@@ -3933,10 +4033,12 @@
             ZIndex: =186
 
         Label24 As label:
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Semibold
             Height: =30
             Size: =12
+            TabIndex: =0
             Text: ="Buckets"
             Visible: =varShowCreateTask
             X: =824
@@ -3957,6 +4059,7 @@
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             Height: =32
             HoverColor: =RGBA(0, 0, 0, 1)
@@ -3985,10 +4088,12 @@
             ZIndex: =188
 
         Label28 As label:
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Semibold
             Height: =30
             Size: =12
+            TabIndex: =0
             Text: ="Group"
             Visible: =varShowCreateTask
             X: =824
@@ -3998,9 +4103,11 @@
         Label31 As label:
             Color: =RGBA(153,153,153, 1)
             Fill: =RGBA(255, 255, 255, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             Height: =32
             Size: =10
+            TabIndex: =0
             Text: ="No Plans"
             Visible: =varPlannerlabel And varShowCreateTask
             X: =995
@@ -4010,9 +4117,11 @@
         Label32 As label:
             Color: =RGBA(153,153,153, 1)
             Fill: =RGBA(255, 255, 255, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             Height: =32
             Size: =10
+            TabIndex: =0
             Text: ="No Buckets"
             Visible: =varBucketlabel And varShowCreateTask
             X: =995
@@ -4021,11 +4130,13 @@
 
         Label34_4 As label:
             Color: =RGBA(255, 0, 0, 1)
+            FocusedBorderThickness: =1
             Height: =32
             PaddingBottom: =0
             PaddingLeft: =0
             PaddingRight: =0
             PaddingTop: =0
+            TabIndex: =0
             Text: ="*"
             VerticalAlign: =VerticalAlign.Top
             Visible: =varShowCreateTask
@@ -4036,11 +4147,13 @@
 
         Label34_5 As label:
             Color: =RGBA(255, 0, 0, 1)
+            FocusedBorderThickness: =1
             Height: =30
             PaddingBottom: =0
             PaddingLeft: =0
             PaddingRight: =0
             PaddingTop: =0
+            TabIndex: =0
             Text: ="*"
             VerticalAlign: =VerticalAlign.Top
             Visible: =varShowCreateTask
@@ -4121,7 +4234,6 @@
                         }
                     )
                 );
-            TabIndex: =15
             Visible: =!varMeetingDetails
             Width: =888
             X: =453
@@ -4136,7 +4248,7 @@
             Height: =30
             OnSelect: =Set(varMeetingDetails,true);
             Size: =12
-            TabIndex: =13
+            TabIndex: =0
             Text: ="Meeting Details"
             X: =443
             Y: =459
@@ -4161,7 +4273,7 @@
             Height: =30
             OnSelect: =Set(varMeetingDetails,false)
             Size: =12
-            TabIndex: =14
+            TabIndex: =0
             Text: ="Notes"
             Width: =80
             X: =598
@@ -4282,6 +4394,7 @@
                         NotificationType.Success
                     )
                 );
+            TabIndex: =0
             Visible: =!varMeetingDetails
             Width: =43
             X: =1195
@@ -4300,6 +4413,7 @@
             BorderThickness: =1
             Fill: =RGBA(242, 242, 242, 1)
             Height: =722
+            TabIndex: =1
             Visible: =varShowUpdateTask
             Width: =600
             X: =766
@@ -4312,6 +4426,7 @@
             DisabledColor: =RGBA(166, 166, 166, 1)
             Font: =Font.Lato
             Size: =16
+            TabIndex: =1
             Text: ="Update a Task"
             Visible: =varShowUpdateTask
             Width: =206
@@ -4326,6 +4441,7 @@
             Font: =Font.Lato
             Height: =37
             Size: =12
+            TabIndex: =1
             Text: ="Let's update a task"
             Visible: =varShowUpdateTask
             Width: =237
@@ -4341,6 +4457,7 @@
             FontWeight: =FontWeight.Semibold
             Height: =30
             Size: =12
+            TabIndex: =1
             Text: ="Title"
             Visible: =varShowUpdateTask
             X: =807
@@ -4363,6 +4480,7 @@
             HoverFill: =RGBA(255, 255, 255, 1)
             PaddingLeft: =5
             Size: =10
+            TabIndex: =1
             Visible: =varShowUpdateTask
             Width: =355
             X: =965
@@ -4377,6 +4495,7 @@
             FontWeight: =FontWeight.Semibold
             Height: =30
             Size: =12
+            TabIndex: =1
             Text: ="Start Date"
             Visible: =varShowUpdateTask
             X: =807
@@ -4402,6 +4521,7 @@
             PaddingTop: =5
             SelectedDateFill: =RGBA(56, 96, 178, 1)
             Size: =10
+            TabIndex: =1
             Visible: =varShowUpdateTask
             Width: =165
             X: =965
@@ -4437,6 +4557,7 @@
             SelectionColor: =RGBA(255, 255, 255, 1)
             SelectionFill: =RGBA(56, 96, 178, 1)
             Size: =10
+            TabIndex: =1
             Visible: |-
                 =//varShowUpdateTask
                 false
@@ -4453,6 +4574,7 @@
             FontWeight: =FontWeight.Semibold
             Height: =30
             Size: =12
+            TabIndex: =1
             Text: ="Assign Users"
             Visible: =varShowUpdateTask
             X: =807
@@ -4539,6 +4661,7 @@
             RadiusTopLeft: =2
             RadiusTopRight: =2
             Size: =9
+            TabIndex: =1
             Text: ="Update Task"
             Visible: =varShowUpdateTask
             Width: =110
@@ -4572,6 +4695,7 @@
             RadiusTopLeft: =2
             RadiusTopRight: =2
             Size: =9
+            TabIndex: =1
             Text: ="Cancel"
             Visible: =varShowUpdateTask
             Width: =110
@@ -4587,6 +4711,7 @@
             FontWeight: =FontWeight.Semibold
             Height: =30
             Size: =12
+            TabIndex: =1
             Text: ="Due Date"
             Visible: =varShowUpdateTask
             X: =807
@@ -4612,6 +4737,7 @@
             PaddingTop: =5
             SelectedDateFill: =RGBA(56, 96, 178, 1)
             Size: =10
+            TabIndex: =1
             Visible: =varShowUpdateTask
             Width: =165
             X: =965
@@ -4665,6 +4791,7 @@
             SelectionColor: =RGBA(255, 255, 255, 1)
             SelectionFill: =RGBA(56, 96, 178, 1)
             Size: =10
+            TabIndex: =1
             Visible: |-
                 =//varShowUpdateTask
                 false
@@ -4681,6 +4808,7 @@
             FontWeight: =FontWeight.Semibold
             Height: =30
             Size: =12
+            TabIndex: =1
             Text: ="Progress"
             Visible: =varShowUpdateTask
             X: =807
@@ -4717,6 +4845,7 @@
             SelectionColor: =RGBA(255, 255, 255, 1)
             SelectionFill: =RGBA(56, 96, 178, 1)
             Size: =10
+            TabIndex: =1
             Visible: =varShowUpdateTask
             Width: =165
             X: =965
@@ -4730,6 +4859,7 @@
             DisabledColor: =RGBA(244, 244, 244, 1)
             Height: =24
             Icon: =Icon.Edit
+            TabIndex: =1
             Visible: =varShowUpdateTask
             Width: =24
             X: =1288
@@ -4742,6 +4872,7 @@
             Height: =62
             Items: =UpdateTaskAssignUser.SelectedItems
             OnSelect: =
+            TabIndex: =1
             TemplatePadding: =0
             TemplateSize: =194
             Visible: =varShowUpdateTask
@@ -4937,6 +5068,7 @@
             RadiusTopLeft: =
             RadiusTopRight: =
             Size: =12
+            TabIndex: =1
             Text: ="Availability"
             Visible: =false
             Width: =110
@@ -4978,6 +5110,7 @@
             SelectionFill: =RGBA(56, 96, 178, 1)
             SelectMultiple: =false
             Size: =10
+            TabIndex: =1
             Visible: =varShowUpdateTask
             Width: =355
             X: =965
@@ -4992,6 +5125,7 @@
             Height: =45
             Icon: =Icon.CancelBadge
             OnSelect: =Set(varShowUpdateTask,false)
+            TabIndex: =1
             Visible: =varShowUpdateTask
             Width: =35
             X: =1311
@@ -5005,6 +5139,7 @@
             PaddingLeft: =0
             PaddingRight: =0
             PaddingTop: =0
+            TabIndex: =1
             Text: ="*"
             VerticalAlign: =VerticalAlign.Top
             Visible: =varShowUpdateTask
@@ -5020,6 +5155,7 @@
             PaddingLeft: =0
             PaddingRight: =0
             PaddingTop: =0
+            TabIndex: =1
             Text: ="*"
             VerticalAlign: =VerticalAlign.Top
             Visible: =varShowUpdateTask
@@ -5239,7 +5375,7 @@
             RadiusTopLeft: =3
             RadiusTopRight: =3
             Size: =9
-            TabIndex: =4
+            TabIndex: =1
             Text: ="Next Meeting"
             Tooltip: ="Show Upcoming Meeting"
             Visible: =If(IsBlank(SelectedMeeting.SeriesMasterId),false,true)
@@ -5417,7 +5553,7 @@
             RadiusTopLeft: =3
             RadiusTopRight: =3
             Size: =9
-            TabIndex: =3
+            TabIndex: =1
             Text: ="    Previous Meeting"
             Tooltip: ="Show Past Meetings"
             Visible: =If(IsBlank(SelectedMeeting.SeriesMasterId),false,true)
@@ -5588,6 +5724,7 @@
                     SelectedStartDatetime,
                     SelectedMeeting.Start
                 );*/
+            TabIndex: =1
             Visible: =If(IsBlank(SelectedMeeting.SeriesMasterId),false,true)
             Width: =40
             X: =830
@@ -5755,6 +5892,7 @@
                 
                 PastButton.DisplayMode.Edit;
                 UpdateContext({Start:true})
+            TabIndex: =1
             Visible: =If(IsBlank(SelectedMeeting.SeriesMasterId),false,true)
             Width: =40
             X: =1040
@@ -5794,7 +5932,7 @@
             RadiusTopLeft: =3
             RadiusTopRight: =3
             Size: =9
-            TabIndex: =6
+            TabIndex: =1
             Text: ="Finish & Save"
             Tooltip: ="Finish and Save"
             Visible: |-
@@ -5817,6 +5955,7 @@
                 =Navigate(ExportScreen, BorderStyle.None);
                 Select(icon_RefreshMeeting_1);
                 
+            TabIndex: =1
             Width: =43
             X: =1198
             Y: =84
@@ -5850,6 +5989,7 @@
             RadiusTopLeft: =3
             RadiusTopRight: =3
             Size: =9
+            TabIndex: =1
             Text: ="Create Poll"
             Visible: =If(varOrganizerName=VarUserEmail,true,false)
             Width: =118
@@ -5865,6 +6005,7 @@
             Height: =15
             Icon: =Icon.ThumbsUp
             OnSelect: =Navigate(AddPollScreen, ScreenTransition.Fade)
+            TabIndex: =1
             Visible: =If(varOrganizerName=VarUserEmail,true,false)
             Width: =24
             X: =1082
@@ -5904,7 +6045,7 @@
             RadiusTopLeft: =3
             RadiusTopRight: =3
             Size: =9
-            TabIndex: =5
+            TabIndex: =1
             Text: ="Poll"
             Tooltip: ="Show Poll"
             Visible: =If(!(varOrganizerName=VarUserEmail),true,false)
@@ -5938,6 +6079,7 @@
                     )
                 );
                 If(User().FullName in varmeetingattendee.Title,Notify("You have already submitted Poll",NotificationType.Error, 0),Navigate(ViewPollScreen))
+            TabIndex: =1
             Visible: =If(!(varOrganizerName=VarUserEmail),true,false)
             Width: =43
             X: =1103
@@ -5949,6 +6091,7 @@
             Duration: =DateDiff(Now(),DateTimeValue(SelectedMeeting.End),TimeUnit.Milliseconds)
             OnTimerEnd: =Now()<=SelectedMeeting.End;Set(IsShow, true)
             OnTimerStart: =If(Now()>=SelectedMeeting.Start,true,false)
+            TabIndex: =1
             Visible: =false
             X: =602
             Y: =64
@@ -6574,6 +6717,7 @@
             BorderThickness: =2
             Fill: =RGBA(250, 250, 250, 1)
             Height: =721
+            TabIndex: =0
             Visible: =varShowUpdateMeeting
             Width: =600
             X: =766
@@ -6584,10 +6728,12 @@
             BorderColor: =RGBA(0, 18, 107, 1)
             Color: =RGBA(0, 0, 0, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Semibold
             Height: =30
             Size: =16
+            TabIndex: =0
             Text: ="Update Meeting"
             Visible: =varShowUpdateMeeting
             Width: =196
@@ -6603,6 +6749,7 @@
             FontWeight: =FontWeight.Semibold
             Height: =16
             Size: =12
+            TabIndex: =0
             Text: ="Let's create a new team event"
             Visible: =varShowUpdateMeeting
             Width: =245
@@ -6618,6 +6765,7 @@
             FontWeight: =FontWeight.Semibold
             Height: =35
             Size: =12
+            TabIndex: =0
             Text: ="Required Agenda Approval"
             Visible: =varShowUpdateMeeting
             Width: =210
@@ -6658,6 +6806,7 @@
             FontWeight: =FontWeight.Semibold
             Height: =32
             Size: =12
+            TabIndex: =0
             Text: ="Attendees"
             Visible: =varShowUpdateMeeting
             X: =790
@@ -6672,6 +6821,7 @@
             FontWeight: =FontWeight.Semibold
             Height: =32
             Size: =12
+            TabIndex: =0
             Text: ="Date From"
             Visible: =varShowUpdateMeeting
             X: =790
@@ -6712,6 +6862,7 @@
             FontWeight: =FontWeight.Semibold
             Height: =32
             Size: =12
+            TabIndex: =0
             Text: ="Date To"
             Visible: =varShowUpdateMeeting
             X: =790
@@ -6754,6 +6905,7 @@
             FontWeight: =FontWeight.Semibold
             Height: =32
             Size: =12
+            TabIndex: =0
             Text: ="Location"
             Visible: =varShowUpdateMeeting
             X: =790
@@ -6768,6 +6920,7 @@
             FontWeight: =FontWeight.Semibold
             Height: =32
             Size: =12
+            TabIndex: =0
             Text: ="Meeting Details"
             Visible: =varShowUpdateMeeting
             X: =789
@@ -6987,6 +7140,7 @@
             FontWeight: =FontWeight.Semibold
             Height: =32
             Size: =12
+            TabIndex: =0
             Text: ="Meeting Title"
             Visible: =varShowUpdateMeeting
             X: =790
@@ -7001,6 +7155,7 @@
             FontWeight: =FontWeight.Semibold
             Height: =32
             Size: =12
+            TabIndex: =0
             Text: ="Agenda Creator"
             Visible: =varShowUpdateMeeting
             X: =790
@@ -7015,6 +7170,7 @@
             DisabledColor: =RGBA(244, 244, 244, 1)
             Height: =30
             Icon: =Icon.Edit
+            TabIndex: =0
             Visible: =varShowUpdateMeeting
             Width: =2
             X: =1310
@@ -7028,6 +7184,7 @@
             DisabledColor: =RGBA(244, 244, 244, 1)
             Height: =30
             Icon: =Icon.Waypoint
+            TabIndex: =0
             Visible: =varShowUpdateMeeting
             Width: =30
             X: =1296
@@ -7041,6 +7198,7 @@
             DisabledColor: =RGBA(244, 244, 244, 1)
             Height: =30
             Icon: =Icon.AddUser
+            TabIndex: =0
             Visible: =varShowUpdateMeeting
             Width: =30
             X: =1254
@@ -7091,6 +7249,7 @@
             Height: =45
             Icon: =Icon.CancelBadge
             OnSelect: =Set(varShowUpdateMeeting, false)
+            TabIndex: =0
             Visible: =varShowUpdateMeeting
             Width: =35
             X: =1311
@@ -7166,6 +7325,7 @@
                     )
                 )
             OnSelect: =
+            TabIndex: =0
             TemplatePadding: =0
             TemplateSize: =149
             Visible: =varShowUpdateMeeting
@@ -7241,6 +7401,7 @@
                 PaddingLeft: =2
                 PaddingRight: =2
                 PaddingTop: =2
+                TabIndex: =0
                 Width: =14
                 X: =135
                 Y: =24
@@ -7505,6 +7666,7 @@
             PaddingLeft: =0
             PaddingRight: =0
             PaddingTop: =0
+            TabIndex: =0
             Text: ="*"
             VerticalAlign: =VerticalAlign.Top
             Visible: =varShowUpdateMeeting
@@ -7520,6 +7682,7 @@
             PaddingLeft: =0
             PaddingRight: =0
             PaddingTop: =0
+            TabIndex: =0
             Text: ="*"
             VerticalAlign: =VerticalAlign.Top
             Visible: =varShowUpdateMeeting
@@ -7568,6 +7731,7 @@
             BorderThickness: =2
             Fill: =RGBA(242, 242, 242, 1)
             Height: =722
+            TabIndex: =1
             Visible: =varShowCreateAgenda
             Width: =600
             X: =766
@@ -7581,6 +7745,7 @@
             Font: =Font.Lato
             Height: =32
             Size: =16
+            TabIndex: =1
             Text: ="Add Agenda"
             Visible: =varShowCreateAgenda
             X: =800
@@ -7595,6 +7760,7 @@
             FontWeight: =FontWeight.Lighter
             Height: =32
             Size: =12
+            TabIndex: =1
             Text: ="Lets create a  Agenda Item"
             Visible: =varShowCreateAgenda
             Width: =271
@@ -7611,6 +7777,7 @@
             FontWeight: =FontWeight.Semibold
             Height: =32
             Size: =12
+            TabIndex: =1
             Text: ="Title"
             Visible: =varShowCreateAgenda
             X: =800
@@ -7625,6 +7792,7 @@
             FontWeight: =FontWeight.Semibold
             Height: =32
             Size: =12
+            TabIndex: =1
             Text: ="Meeting Date"
             Tooltip: ="Meeting Date"
             Visible: =varShowCreateAgenda
@@ -7641,6 +7809,7 @@
             FontWeight: =FontWeight.Semibold
             Height: =32
             Size: =12
+            TabIndex: =1
             Text: ="StartTime"
             Visible: =varShowCreateAgenda
             X: =800
@@ -7655,6 +7824,7 @@
             FontWeight: =FontWeight.Semibold
             Height: =32
             Size: =12
+            TabIndex: =1
             Text: ="EndTime"
             Visible: =varShowCreateAgenda
             X: =800
@@ -7669,6 +7839,7 @@
             FontWeight: =FontWeight.Semibold
             Height: =32
             Size: =12
+            TabIndex: =1
             Text: ="Actor"
             Visible: =varShowCreateAgenda
             X: =800
@@ -7683,6 +7854,7 @@
             FontWeight: =FontWeight.Semibold
             Height: =32
             Size: =12
+            TabIndex: =1
             Text: ="Description"
             Visible: =varShowCreateAgenda
             X: =800
@@ -7713,6 +7885,7 @@
             RadiusTopLeft: =3
             RadiusTopRight: =3
             Size: =10
+            TabIndex: =1
             Tooltip: ="Description"
             Visible: =varShowCreateAgenda
             Width: =350
@@ -7728,6 +7901,7 @@
             FontWeight: =FontWeight.Semibold
             Height: =32
             Size: =12
+            TabIndex: =1
             Text: ="Add Attachments"
             Visible: =varShowCreateAgenda
             X: =800
@@ -7756,6 +7930,7 @@
             PaddingTop: =2
             SelectedDateFill: =RGBA(56, 96, 178, 1)
             Size: =10
+            TabIndex: =1
             Visible: =varShowCreateAgenda
             Width: =350
             X: =956
@@ -7782,6 +7957,7 @@
             RadiusTopLeft: =3
             RadiusTopRight: =3
             Size: =10
+            TabIndex: =1
             Tooltip: ="Update Agenda Title"
             Visible: =varShowCreateAgenda
             Width: =350
@@ -7800,6 +7976,7 @@
             PaddingLeft: =2
             PaddingRight: =2
             PaddingTop: =2
+            TabIndex: =1
             Visible: =varShowCreateAgenda
             Width: =30
             X: =1270
@@ -7814,6 +7991,7 @@
             Height: =45
             Icon: =Icon.CancelBadge
             OnSelect: =Set(varShowCreateAgenda,false)
+            TabIndex: =1
             Visible: =varShowCreateAgenda
             Width: =30
             X: =1320
@@ -7855,6 +8033,7 @@
             SelectionFill: =RGBA(56, 96, 178, 1)
             SelectMultiple: =false
             Size: =10
+            TabIndex: =1
             Visible: =varShowCreateAgenda
             Width: =350
             X: =956
@@ -7891,6 +8070,7 @@
             SelectionColor: =RGBA(175, 191, 224, 1)
             SelectionFill: =RGBA(56, 96, 178, 1)
             Size: =10
+            TabIndex: =1
             Visible: |
                 =false
             Width: =150
@@ -7928,6 +8108,7 @@
             SelectionColor: =RGBA(136, 160, 209, 1)
             SelectionFill: =RGBA(50, 86, 160, 1)
             Size: =10
+            TabIndex: =1
             Visible: =false
             Width: =150
             X: =956
@@ -8061,6 +8242,7 @@
             RadiusTopLeft: =2
             RadiusTopRight: =2
             Size: =9
+            TabIndex: =1
             Text: ="Create Agenda"
             Visible: |-
                 =//varShowCreateAgenda
@@ -8097,6 +8279,7 @@
             RadiusTopLeft: =2
             RadiusTopRight: =2
             Size: =9
+            TabIndex: =1
             Text: ="Cancel"
             Visible: =varShowCreateAgenda
             Width: =110
@@ -8110,6 +8293,7 @@
             DisabledFill: =RGBA(244, 244, 244, 1)
             Height: =55
             Image: =Last(AAAttachmentcontrol.Attachments).Value
+            TabIndex: =1
             Visible: =false
             Width: =27
             X: =780
@@ -8164,6 +8348,7 @@
             PressedColor: =RGBA(255, 255, 255, 1)
             PressedFill: =RGBA(0, 18, 107, 1)
             Size: =10
+            TabIndex: =1
             Tooltip: =
             Visible: =varShowCreateAgenda
             Width: =350
@@ -8177,6 +8362,7 @@
             Height: =77
             Items: =AAAttendees.SelectedItems
             OnSelect: =
+            TabIndex: =1
             TemplatePadding: =0
             TemplateSize: =149
             Visible: =varShowCreateAgenda
@@ -8356,6 +8542,7 @@
             RadiusTopLeft: =
             RadiusTopRight: =
             Size: =12
+            TabIndex: =1
             Text: ="Availability"
             Visible: =false
             Width: =110
@@ -8408,6 +8595,7 @@
             SelectionColor: =RGBA(175, 191, 224, 1)
             SelectionFill: =RGBA(56, 96, 178, 1)
             Size: =10
+            TabIndex: =1
             Visible: =varShowCreateAgenda
             Width: =150
             X: =956
@@ -8458,6 +8646,7 @@
             SelectionColor: =RGBA(136, 160, 209, 1)
             SelectionFill: =RGBA(50, 86, 160, 1)
             Size: =10
+            TabIndex: =1
             Visible: =varShowCreateAgenda
             Width: =150
             X: =956
@@ -8471,6 +8660,7 @@
             PaddingLeft: =0
             PaddingRight: =0
             PaddingTop: =0
+            TabIndex: =1
             Text: ="*"
             VerticalAlign: =VerticalAlign.Top
             Visible: =varShowCreateAgenda
@@ -8486,6 +8676,7 @@
             PaddingLeft: =0
             PaddingRight: =0
             PaddingTop: =0
+            TabIndex: =1
             Text: ="*"
             VerticalAlign: =VerticalAlign.Top
             Visible: =varShowCreateAgenda
@@ -8622,6 +8813,7 @@
             RadiusTopLeft: =2
             RadiusTopRight: =2
             Size: =9
+            TabIndex: =1
             Text: ="Create Agenda"
             Visible: =varShowCreateAgenda
             Width: =110
@@ -8666,6 +8858,7 @@
         Height: =20
         Icon: =Icon.Add
         OnSelect: =Set(grouppopup,true)
+        TabIndex: =1
         Tooltip: ="Add Group"
         Visible: =varShowCreateTask
         Width: =20
@@ -8685,6 +8878,7 @@
                     true
                 )
             )
+        TabIndex: =1
         Tooltip: ="Add Bucket"
         Visible: =varShowCreateTask
         Width: =20

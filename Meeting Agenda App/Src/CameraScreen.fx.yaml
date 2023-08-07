@@ -53,6 +53,7 @@ CameraScreen As screen:
             ImagePosition: =ImagePosition.Center
             PressedBorderColor: =ColorFade(AppLogo3.BorderColor, -20%)
             PressedFill: =ColorFade(AppLogo3.Fill, -20%)
+            TabIndex: =0
             Width: =75
             ZIndex: =2
 
@@ -63,6 +64,7 @@ CameraScreen As screen:
             Height: =702
             HoverFill: =HomeMenuBkg_3.Fill
             PressedFill: =HomeMenuBkg_3.Fill
+            TabIndex: =0
             Width: =75
             Y: =66
             ZIndex: =3
@@ -78,6 +80,7 @@ CameraScreen As screen:
             OnSelect: =Navigate('MeetingDetails Screen')
             PressedBorderColor: =ColorFade(NavHome3.BorderColor, -20%)
             PressedFill: =ColorFade(NavHome3.Fill, -20%)
+            TabIndex: =0
             Width: =HomeMenuBkg_3.Width
             Y: =66
             ZIndex: =4
@@ -92,6 +95,7 @@ CameraScreen As screen:
             OnSelect: =Navigate(SketchScreen, BorderStyle.None)
             PressedBorderColor: =ColorFade(NavSketch3.BorderColor, -20%)
             PressedFill: =ColorFade(NavSketch3.Fill, -20%)
+            TabIndex: =0
             Width: =HomeMenuBkg_3.Width
             Y: =141
             ZIndex: =5
@@ -106,6 +110,7 @@ CameraScreen As screen:
             ImagePosition: =ImagePosition.Center
             PressedBorderColor: =ColorFade(NavPhotos3.BorderColor, -20%)
             PressedFill: =ColorFade(NavPhotos3.Fill, -20%)
+            TabIndex: =0
             Width: =HomeMenuBkg_3.Width
             Y: =216
             ZIndex: =6
@@ -124,6 +129,7 @@ CameraScreen As screen:
             Height: =66
             HoverFill: =BannerBackground1.Fill
             PressedFill: =BannerBackground1.Fill
+            TabIndex: =0 
             Width: =1366
             ZIndex: =1
 
@@ -142,6 +148,7 @@ CameraScreen As screen:
             PressedBorderColor: =BannerText.BorderColor
             PressedColor: =BannerText.Color
             PressedFill: =BannerText.Fill
+            TabIndex: =0 
             Text: =If(ShowTakenImage, "Keep or discard this image?", ShowImageSaved, "Saved!", "Tap the image to take a photo")
             Width: =315
             X: =If(ShowTakenImage, 440, Parent.Width/2 - BannerText.Width/2)
@@ -160,6 +167,7 @@ CameraScreen As screen:
             PressedBorderColor: =ColorFade(SaveConfirm1.BorderColor, -20%)
             PressedColor: =ColorFade(SaveConfirm1.Color, -20%)
             PressedFill: =SaveConfirm1.Fill
+            TabIndex: =0 
             Visible: =ShowTakenImage
             Width: =22
             X: =SaveConfirm2.X+7
@@ -181,6 +189,7 @@ CameraScreen As screen:
                 Set(ShowImageSaved, true);
                 Set(ShowTakenImage,false)
             PressedFill: =SaveConfirm2.Fill
+            TabIndex: =0 
             Visible: =ShowTakenImage
             Width: =36
             X: =BannerText.X + BannerText.Width+9
@@ -199,6 +208,7 @@ CameraScreen As screen:
             PressedBorderColor: =ColorFade(DiscardConfirm1.BorderColor, -20%)
             PressedColor: =ColorFade(DiscardConfirm1.Color, -20%)
             PressedFill: =DiscardConfirm1.Fill
+            TabIndex: =0 
             Visible: =ShowTakenImage
             Width: =22
             X: =834
@@ -215,6 +225,7 @@ CameraScreen As screen:
             HoverFill: =DiscardConfirm2.Fill
             OnSelect: =Set(ShowTakenImage, false)
             PressedFill: =DiscardConfirm2.Fill
+            TabIndex: =0 
             Visible: =ShowTakenImage
             Width: =36
             X: =827
@@ -233,6 +244,7 @@ CameraScreen As screen:
             PressedBorderColor: =ColorFade(SavedIndicator3.BorderColor, -20%)
             PressedColor: =ColorFade(SavedIndicator3.Color, -20%)
             PressedFill: =SavedIndicator3.Fill
+            TabIndex: =0 
             Visible: =ShowImageSaved
             Width: =22
             X: =614
@@ -249,6 +261,7 @@ CameraScreen As screen:
             HoverFill: =SavedIndicator4.Fill
             OnSelect: =
             PressedFill: =SavedIndicator4.Fill
+            TabIndex: =0 
             Visible: =ShowImageSaved
             Width: =36
             X: =607

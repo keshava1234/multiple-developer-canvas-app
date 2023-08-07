@@ -20,6 +20,7 @@ AttachmentsScreen As screen:
             Image: ='attachments-camera'
             PressedBorderColor: =ColorFade(PhotosIcon.BorderColor, -20%)
             PressedFill: =ColorFade(PhotosIcon.Fill, -20%)
+            TabIndex: =0
             Width: =54
             X: =74
             Y: =189
@@ -36,6 +37,7 @@ AttachmentsScreen As screen:
             PressedColor: =PhotosHeader.Color
             PressedFill: =PhotosHeader.Fill
             Size: =15
+            TabIndex: =0
             Text: ="Photos"
             X: =153
             Y: =196
@@ -54,6 +56,7 @@ AttachmentsScreen As screen:
                 Set(SelectedImage, ThisItem)
             PressedBorderColor: =PhotosGallery.BorderColor
             PressedFill: =PhotosGallery.Fill
+            TabIndex: =0
             TemplatePadding: =10
             TemplateSize: =203
             Width: =1168
@@ -84,6 +87,7 @@ AttachmentsScreen As screen:
             PressedColor: =PhotosCount.Color
             PressedFill: =PhotosCount.Fill
             Size: =10.5
+            TabIndex: =0
             Text: =CountRows(Photos) & If(CountRows(Photos) = 1, " photo has", " photos have") & " been attached to this meeting"
             Width: =397
             X: =153
@@ -105,6 +109,7 @@ AttachmentsScreen As screen:
             Image: ='attachments-sketch'
             PressedBorderColor: =ColorFade(SketchesIcon.BorderColor, -20%)
             PressedFill: =ColorFade(SketchesIcon.Fill, -20%)
+            TabIndex: =0
             Width: =54
             X: =74
             Y: =494
@@ -118,6 +123,7 @@ AttachmentsScreen As screen:
             Height: =1
             HoverFill: =Rectangle6_3.Fill
             PressedFill: =Rectangle6_3.Fill
+            TabIndex: =0
             Width: =AttachmentsHeader.Width
             X: =AttachmentsHeader.X
             Y: =464
@@ -134,6 +140,7 @@ AttachmentsScreen As screen:
             PressedColor: =SketchesHeader.Color
             PressedFill: =SketchesHeader.Fill
             Size: =15
+            TabIndex: =0
             Text: ="Sketches"
             X: =153
             Y: =500
@@ -150,6 +157,7 @@ AttachmentsScreen As screen:
             PressedColor: =SketchCount.Color
             PressedFill: =SketchCount.Fill
             Size: =10.5
+            TabIndex: =0
             Text: =CountRows(Sketches) & If(CountRows(Sketches) = 1, " sketch has", " sketches have") & " been attached to this meeting"
             Width: =397
             X: =153
@@ -169,6 +177,7 @@ AttachmentsScreen As screen:
                 Set(SelectedImage, ThisItem)
             PressedBorderColor: =SketchesGallery.BorderColor
             PressedFill: =SketchesGallery.Fill
+            TabIndex: =0
             TemplatePadding: =10
             TemplateSize: =203
             Width: =1168
@@ -202,6 +211,7 @@ AttachmentsScreen As screen:
             Height: =768
             HoverFill: =ModalOverlay_1.Fill
             PressedFill: =ModalOverlay_1.Fill
+            TabIndex: =0
             Visible: =ShowOverlay
             Width: =1366
             ZIndex: =15
@@ -215,6 +225,7 @@ AttachmentsScreen As screen:
             Image: =SelectedImage.Image
             PressedBorderColor: =ColorFade(AttachmentToDelete.BorderColor, -20%)
             PressedFill: =ColorFade(AttachmentToDelete.Fill, -20%)
+            TabIndex: =0
             Visible: =ShowOverlay
             Width: =907
             X: =230
@@ -228,6 +239,7 @@ AttachmentsScreen As screen:
             Height: =45
             HoverFill: =DeleteAttachment1.Fill
             PressedFill: =DeleteAttachment1.Fill
+            TabIndex: =0
             Visible: =ShowOverlay && !AttachmentDeleteConfirm
             Width: =45
             X: =661
@@ -246,6 +258,7 @@ AttachmentsScreen As screen:
                 =Set(ShowOverlay, false);
                 Set(AttachmentDeleteConfirm, false)
             PressedFill: =HideDelete2.Fill
+            TabIndex: =0
             Visible: =ShowOverlay
             Width: =45
             X: =1147
@@ -271,6 +284,7 @@ AttachmentsScreen As screen:
             PressedBorderColor: =ColorFade(HideDelete1.BorderColor, -20%)
             PressedColor: =ColorFade(HideDelete1.Color, -20%)
             PressedFill: =HideDelete1.Fill
+            TabIndex: =0
             Visible: =ShowOverlay
             Width: =HideDelete2.Width
             X: =HideDelete2.X
@@ -294,6 +308,7 @@ AttachmentsScreen As screen:
             PressedBorderColor: =ColorFade(icon15.BorderColor, -20%)
             PressedColor: =ColorFade(icon15.Color, -20%)
             PressedFill: =icon15.Fill
+            TabIndex: =0
             Visible: =ShowOverlay && !AttachmentDeleteConfirm
             Width: =DeleteAttachment1.Width
             X: =DeleteAttachment1.X
@@ -311,6 +326,7 @@ AttachmentsScreen As screen:
             PressedColor: =DeleteCertaintyText.Color
             PressedFill: =DeleteCertaintyText.Fill
             Size: =10.5
+            TabIndex: =0
             Text: ="Are you sure you want to delete?"
             Visible: =ShowOverlay && AttachmentDeleteConfirm
             Width: =318
@@ -360,6 +376,7 @@ AttachmentsScreen As screen:
         bg_20 As rectangle:
             Fill: =RGBA(248, 249, 255, 1)
             Height: =718
+            TabIndex: =0
             Width: =61
             Y: =50
             ZIndex: =24
@@ -368,6 +385,7 @@ AttachmentsScreen As screen:
             Height: =24
             Icon: =Icon.Hamburger
             OnSelect: =Navigate('MeetingDetails Screen', ScreenTransition.Fade)
+            TabIndex: =0
             Tooltip: ="MeetingDetails"
             Width: =24
             X: =16
@@ -378,6 +396,7 @@ AttachmentsScreen As screen:
             Height: =24
             Icon: =Icon.Home
             OnSelect: =Navigate(HomePage,BorderStyle.None)
+            TabIndex: =0
             Tooltip: ="Home Page"
             Width: =24
             X: =19
@@ -388,6 +407,7 @@ AttachmentsScreen As screen:
             Height: =24
             Icon: =Icon.Add
             OnSelect: =Navigate(ResourceScreen, ScreenTransition.Fade)
+            TabIndex: =0
             Tooltip: ="Resource"
             Width: =24
             X: =16
@@ -408,6 +428,7 @@ AttachmentsScreen As screen:
             Height: =43
             HoverFill: =Rectangle2_5.Fill
             PressedFill: =Rectangle2_5.Fill
+            TabIndex: =0
             Width: =1366
             ZIndex: =1
 
@@ -423,6 +444,7 @@ AttachmentsScreen As screen:
             PressedColor: =AttachmentsHeader.Color
             PressedFill: =AttachmentsHeader.Fill
             Size: =18
+            TabIndex: =0
             Text: ="Meeting Attachments"
             Width: =1251
             X: =70+0
@@ -437,6 +459,7 @@ AttachmentsScreen As screen:
             Height: =1
             HoverFill: =Rectangle6_2.Fill
             PressedFill: =Rectangle6_2.Fill
+            TabIndex: =0
             Width: =AttachmentsHeader.Width
             X: =AttachmentsHeader.X
             Y: =155
@@ -450,6 +473,7 @@ AttachmentsScreen As screen:
             PaddingLeft: =9
             PaddingRight: =9
             PaddingTop: =9
+            TabIndex: =0
             Width: =40
             X: =88
             ZIndex: =30
@@ -473,6 +497,7 @@ AttachmentsScreen As screen:
             PressedBorderColor: =lblUploadedFilesText.BorderColor
             PressedColor: =lblUploadedFilesText.Color
             PressedFill: =lblUploadedFilesText.Fill
+            TabIndex: =0
             Text: ="Uploaded Files"
             Width: =171
             X: =153
@@ -495,6 +520,7 @@ AttachmentsScreen As screen:
             PressedBorderColor: =ColorFade(iconAttachFiles.BorderColor, -20%)
             PressedColor: =ColorFade(iconAttachFiles.Color, -20%)
             PressedFill: =iconAttachFiles.Fill
+            TabIndex: =0
             Width: =23
             X: =301
             Y: =279

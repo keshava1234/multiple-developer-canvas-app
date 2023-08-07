@@ -94,6 +94,7 @@ AddPollScreen As screen:
             Height: =331
             Items: =CountCollection
             Layout: =Layout.Vertical
+            TabIndex: =0
             TemplateSize: =49
             Width: =507
             Y: =88
@@ -114,6 +115,7 @@ AddPollScreen As screen:
                 PaddingLeft: =4
                 PaddingRight: =4
                 PaddingTop: =4
+                TabIndex: =0
                 Width: =25
                 X: =465
                 Y: =17
@@ -146,6 +148,7 @@ AddPollScreen As screen:
                 OnSelect: |-
                     =Collect(arrQuestionOptions, {questionID : varCurrentQuestionID, optionValue: TextInput1.Text,CountRowNo:ThisItem.Value, optionID: CountRows(Filter(arrQuestionOptions, questionID = varCurrentQuestionID))+1 });
                     Set(Disable1,true)
+                TabIndex: =0
                 Visible: =false
                 Width: =22
                 X: =351
@@ -156,6 +159,7 @@ AddPollScreen As screen:
                 Height: =22
                 Icon: =Icon.Save
                 OnSelect: =Collect(DisaButton, ThisItem.Value)
+                TabIndex: =0
                 Visible: =false
                 Width: =22
                 X: =415
@@ -229,6 +233,7 @@ AddPollScreen As screen:
             PaddingLeft: =4
             PaddingRight: =4
             PaddingTop: =4
+            TabIndex: =0
             Width: =25
             X: =470
             Y: =55
@@ -406,6 +411,7 @@ AddPollScreen As screen:
             PaddingLeft: =4
             PaddingRight: =4
             PaddingTop: =4
+            TabIndex: =0
             Visible: =false
             Width: =25
             X: =480
@@ -574,6 +580,7 @@ AddPollScreen As screen:
         bg_13 As rectangle:
             Fill: =RGBA(248, 249, 255, 1)
             Height: =718
+            TabIndex: =0
             Width: =61
             X: =2
             Y: =50
@@ -584,6 +591,7 @@ AddPollScreen As screen:
             Icon: =Icon.Hamburger
             OnSelect: |
                 =Navigate('MeetingDetails Screen', ScreenTransition.Fade);
+            TabIndex: =0
             Tooltip: ="MeetingDetails"
             Width: =24
             X: =18
@@ -603,6 +611,7 @@ AddPollScreen As screen:
                     DisableButton,
                     false
                 );
+            TabIndex: =0
             Tooltip: ="Home Page"
             Width: =24
             X: =21
@@ -622,6 +631,7 @@ AddPollScreen As screen:
                     DisableButton,
                     false
                 );
+            TabIndex: =0
             Tooltip: ="Resource"
             Width: =24
             X: =18
@@ -654,7 +664,7 @@ AddPollScreen As screen:
             PressedColor: =lblExportMeetingSubject_3.Color
             PressedFill: =lblExportMeetingSubject_3.Fill
             Size: =15
-            TabIndex: =1
+            TabIndex: =0
             Text: =
             Tooltip: ="Meeting Title"
             Width: =1366
@@ -663,7 +673,7 @@ AddPollScreen As screen:
         imageLogo_15 As image:
             Height: =45
             Image: =logo
-            TabIndex: =1
+            TabIndex: =0
             X: =5
             Y: =5
             ZIndex: =31
@@ -680,7 +690,7 @@ AddPollScreen As screen:
             PressedColor: ='lbl_selected meeting dt & time_2'.Color
             PressedFill: ='lbl_selected meeting dt & time_2'.Fill
             Size: =10
-            TabIndex: =2
+            TabIndex: =0
             Text: |-
                 =Text(SelectedMeeting.Start,"[$-en-US]mmmm dd, yyyy")&" | " & Lower(Text(SelectedMeeting.Start,"[$-en-US]hh:mm am/pm"))&" - "&Lower(Text(SelectedMeeting.End,"[$-en-US]hh:mm am/pm")) & " (" & DateDiff(SelectedMeeting.Start, SelectedMeeting.End, TimeUnit.Minutes) & " minutes)"
             Tooltip: ="Meeting Title"
@@ -702,6 +712,7 @@ AddPollScreen As screen:
             PressedColor: ='lbl_selected meeting sub._2'.Color
             PressedFill: ='lbl_selected meeting sub._2'.Fill
             Size: =10
+            TabIndex: =0
             Text: =SelectedMeeting.Subject
             Width: =407
             X: =200
@@ -713,6 +724,7 @@ AddPollScreen As screen:
             Height: =35
             Icon: =Icon.ArrowLeft
             OnSelect: =Back()
+            TabIndex: =0
             Width: =50
             X: =104
             Y: =8
@@ -724,6 +736,7 @@ AddPollScreen As screen:
             Font: =Font.Lato
             Height: =46
             Size: =14
+            TabIndex: =0
             Text: ="V1.0"
             Width: =103
             X: =1263
