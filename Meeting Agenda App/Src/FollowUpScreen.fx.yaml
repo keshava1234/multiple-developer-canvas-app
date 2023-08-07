@@ -331,6 +331,7 @@ FollowUpScreen As screen:
             ZIndex: =10
 
         FollowUpSearchIcon As icon.Search:
+            AccessibleLabel: ="FollowUpAttendees"
             Color: =RGBA(62, 96, 170, 1)
             DisabledFill: =FollowUpSearchIcon.Fill
             FocusedBorderColor: =FollowUpSearchIcon.BorderColor

@@ -1054,6 +1054,7 @@
         ZIndex: =201
 
         Rectangle3_1 As rectangle:
+            AccessibleLabel: ="Rectangle3_1"
             Fill: =RGBA(62,96,170,0.5)
             FocusedBorderThickness: =1
             Height: =768
@@ -1063,6 +1064,7 @@
             ZIndex: =55
 
         Rectangle5_1 As rectangle:
+            AccessibleLabel: ="Rectangle5_1"
             Fill: =RGBA(255, 255, 255, 1)
             FocusedBorderThickness: =1
             Height: =295
@@ -6808,6 +6810,7 @@
         ZIndex: =221
 
         rectBG_3 As rectangle:
+            AccessibleLabel: ="rectBG_3"
             BorderColor: =RGBA(91, 115, 168, 1)
             BorderThickness: =2
             Fill: =RGBA(250, 250, 250, 1)
