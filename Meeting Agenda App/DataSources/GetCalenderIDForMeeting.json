@@ -1,0 +1,10 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_logicflows",
+    "FlowNameId": "344c8d9d-1318-4aa2-83c3-b15afa692c09",
+    "Name": "GetCalenderIDForMeeting",
+    "ServiceKind": "ConnectedWadl",
+    "Type": "ServiceInfo",
+    "WorkflowEntityId": "8155b7fb-9618-ed11-b83e-00224804de57"
+  }
+]

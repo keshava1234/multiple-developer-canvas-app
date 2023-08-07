@@ -1,0 +1,9 @@
+[
+  {
+    "AddinConnectorId": "45db97f8-062b-4834-926d-8790a3cfac53",
+    "AddinId": "6d1f157d-95bf-406d-b65d-cfd3240f724e",
+    "Name": "GetPastMeetings-MeetingAgendaApp",
+    "ServiceKind": "AddinWadl",
+    "Type": "ServiceInfo"
+  }
+]

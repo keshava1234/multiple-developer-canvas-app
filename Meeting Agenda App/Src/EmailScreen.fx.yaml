@@ -1,0 +1,625 @@
+EmailScreen As screen:
+    Fill: =RGBA(241, 244, 249, 1)
+    Height: =Max(App.Height, App.DesignHeight)
+    Orientation: =If(EmailScreen.Width < EmailScreen.Height, Layout.Vertical, Layout.Horizontal)
+    Size: =1 + CountRows(App.SizeBreakpoints) - CountIf(App.SizeBreakpoints, Value >= EmailScreen.Width)
+    Width: =Max(App.Width, App.DesignWidth)
+
+    Label20 As label:
+        Font: =Font.Lato
+        FontWeight: =FontWeight.Semibold
+        Height: =27
+        Size: =15
+        Text: ="Add Attachments"
+        Width: =272
+        X: =81
+        Y: =581
+        ZIndex: =25
+
+    EmailBanner As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =25
+
+        EmailBannerText As label:
+            FocusedBorderColor: =EmailBannerText.BorderColor
+            Font: =Font.Lato
+            FontWeight: =FontWeight.Semibold
+            Height: =45
+            HoverBorderColor: =EmailBannerText.BorderColor
+            HoverColor: =EmailBannerText.Color
+            HoverFill: =EmailBannerText.Fill
+            PressedBorderColor: =EmailBannerText.BorderColor
+            PressedColor: =EmailBannerText.Color
+            PressedFill: =EmailBannerText.Fill
+            Size: =18
+            TabIndex: =2
+            Text: |-
+                ="Email attendee" & If(MultiRecipients, "s") & ":"
+            Width: =351
+            X: =81
+            Y: =88
+            ZIndex: =3
+
+        Rectangle6 As rectangle:
+            DisabledFill: =Rectangle6.Fill
+            Fill: =RGBA(227, 227, 227, 1)
+            FocusedBorderColor: =Rectangle6.BorderColor
+            FocusedBorderThickness: =0
+            Height: =1
+            HoverFill: =Rectangle6.Fill
+            PressedFill: =Rectangle6.Fill
+            Width: =1285
+            X: =81
+            Y: =156
+            ZIndex: =4
+
+        SendEmail As button:
+            BorderColor: =ColorFade(SendEmail.Fill, -15%)
+            DisabledBorderColor: =ColorFade(SendEmail.BorderColor, 70%)
+            Fill: =RGBA(62, 96, 170, 1)
+            FocusedBorderColor: =SendEmail.BorderColor
+            FocusedBorderThickness: =2
+            Font: =Font.Lato
+            Height: =39
+            HoverBorderColor: =ColorFade(SendEmail.BorderColor, 20%)
+            HoverColor: =SendEmail.Color
+            HoverFill: =ColorFade(SendEmail.Fill, 20%)
+            OnSelect: |
+                =If(
+                    IsBlank(EmailSubject.Text) || IsBlank(EmailMessage.Text),
+                    Notify(
+                        "Please check you are provided Email Subject and Message",
+                        NotificationType.Error
+                    ),
+                    Set(
+                        EmailConfirmed,
+                        true
+                    );
+                    Office365Outlook.SendEmail(
+                        Concat(
+                            EmailRecipients,
+                            Mail & ";"
+                        ),
+                        EmailSubject.Text,
+                        EmailMessage.Text,
+                        {Importance: "Normal",Attachments:AddColumns(
+                            RenameColumns(
+                                AAAttachmentcontrol_2.Attachments,
+                                "Value",
+                                "ContentBytes"
+                            ),
+                            "@odata.type",
+                            ""
+                        )}
+                    );
+                    
+                /*Sets text to display email confirmation info*/
+                
+                    If(
+                        EmailConfirmed,
+                        Notify(
+                            "Your Email has been Sent",
+                            NotificationType.Success,
+                            0
+                        ),
+                        Notify(
+                            "Error While sending Email",
+                            NotificationType.Error,
+                            0
+                        )
+                    );
+                    Reset(EmailSubject);
+                    Reset(EmailMessage);
+                    Reset(AAAttachmentcontrol_2)
+                )
+                //Navigate(ConfirmScreen, None)
+            PressedBorderColor: =SendEmail.Fill
+            PressedColor: =SendEmail.Fill
+            PressedFill: =SendEmail.Color
+            RadiusBottomLeft: =3
+            RadiusBottomRight: =3
+            RadiusTopLeft: =3
+            RadiusTopRight: =3
+            Size: =10.5
+            TabIndex: =6
+            Text: ="Send"
+            Tooltip: ="Send Email"
+            Width: =100
+            X: =1230
+            Y: =92
+            ZIndex: =11
+
+        Icon_Send As icon.Mail:
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =22
+            Icon: =Icon.Mail
+            OnSelect: |
+                =If(
+                    IsBlank(EmailSubject.Text) || IsBlank(EmailMessage.Text),
+                    Notify(
+                        "Please check you are provided Email Subject and Message",
+                        NotificationType.Error
+                    ),
+                    Set(
+                        EmailConfirmed,
+                        true
+                    );
+                    Office365Outlook.SendEmail(
+                        Concat(
+                            EmailRecipients,
+                            Mail & ";"
+                        ),
+                        EmailSubject.Text,
+                        EmailMessage.Text,
+                        {Importance: "Normal",Attachments:AddColumns(
+                            RenameColumns(
+                                AAAttachmentcontrol_2.Attachments,
+                                "Value",
+                                "ContentBytes"
+                            ),
+                            "@odata.type",
+                            ""
+                        )}
+                    );
+                    
+                /*Sets text to display email confirmation info*/
+                
+                    If(
+                        EmailConfirmed,
+                        Notify(
+                            "Your Email has been Sent",
+                            NotificationType.Success,
+                            0
+                        ),
+                        Notify(
+                            "Error While sending Email",
+                            NotificationType.Error,
+                            0
+                        )
+                    );
+                    Reset(EmailSubject);
+                    Reset(EmailMessage);
+                    Reset(AAAttachmentcontrol_2)
+                )
+                //Navigate(ConfirmScreen, None)
+            Width: =22
+            X: =1237
+            Y: =100
+            ZIndex: =19
+
+    EmailDetails As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =25
+
+        GalleryBkg As button:
+            BorderColor: =RGBA(227, 227, 227, 1)
+            Color: =RGBA(227, 227, 227, 1)
+            DisabledBorderColor: =ColorFade(GalleryBkg.BorderColor, 70%)
+            Fill: =RGBA(255, 255, 255, 1)
+            FocusedBorderColor: =GalleryBkg.BorderColor
+            Height: =91
+            HoverBorderColor: =ColorFade(GalleryBkg.BorderColor, 20%)
+            HoverColor: =GalleryBkg.Color
+            HoverFill: =ColorFade(GalleryBkg.Fill, 20%)
+            PressedBorderColor: =GalleryBkg.Fill
+            PressedColor: =GalleryBkg.Fill
+            PressedFill: =GalleryBkg.Color
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            Text: =""
+            Width: =255
+            X: =81
+            Y: =220
+            ZIndex: =2
+
+        Label16 As label:
+            FocusedBorderColor: =Label16.BorderColor
+            Font: =Font.Lato
+            FontWeight: =FontWeight.Semibold
+            Height: =41
+            HoverBorderColor: =Label16.BorderColor
+            HoverColor: =Label16.Color
+            HoverFill: =Label16.Fill
+            PressedBorderColor: =Label16.BorderColor
+            PressedColor: =Label16.Color
+            PressedFill: =Label16.Fill
+            Size: =15
+            Text: ="Recipient" & If(MultiRecipients, "s (" & CountRows(EmailRecipients) & ")")
+            Width: =300
+            X: =EmailBannerText.X
+            Y: =Rectangle6.Y + 15
+            ZIndex: =5
+
+        EmailRecipientGallery As gallery.galleryHorizontal:
+            BorderColor: =RGBA(227, 227, 227, 1)
+            BorderStyle: =
+            DisabledBorderColor: =EmailRecipientGallery.BorderColor
+            DisabledFill: =EmailRecipientGallery.Fill
+            Height: =116
+            HoverBorderColor: =EmailRecipientGallery.BorderColor
+            HoverFill: =EmailRecipientGallery.Fill
+            Items: =EmailRecipients
+            LoadingSpinnerColor: =EmailRecipientGallery.BorderColor
+            PressedBorderColor: =EmailRecipientGallery.BorderColor
+            PressedFill: =EmailRecipientGallery.Fill
+            TabIndex: =3
+            TemplatePadding: =10
+            TemplateSize: =251
+            Width: =534
+            X: =EmailBannerText.X
+            Y: =208
+            ZIndex: =6
+
+            btnRect_5 As button:
+                BorderColor: =Color.Transparent
+                DisplayMode: =DisplayMode.View
+                Fill: =RGBA(242, 244, 249, 1)
+                Height: =45
+                OnSelect: =
+                RadiusBottomLeft: =20
+                RadiusBottomRight: =20
+                RadiusTopLeft: =20
+                RadiusTopRight: =20
+                Text: =""
+                Width: =177
+                X: =13
+                Y: =22
+                ZIndex: =3
+
+            EmailRecipientName As button:
+                Align: =If(MultiRecipients, TextPosition.Left, LayoutAlignItems.Center)
+                BorderColor: =If(MultiRecipients, RGBA(27, 35, 85, 1), RGBA(0,0,0,0))
+                BorderThickness: =1
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledBorderColor: =ColorFade(EmailRecipientName.BorderColor, 70%)
+                Fill: =If(MultiRecipients,RGBA(209, 210, 240, 0.15), RGBA(0,0,0,0))
+                FocusedBorderColor: =EmailRecipientName.BorderColor
+                FocusedBorderThickness: =1
+                Font: =Font.Lato
+                FontWeight: =FontWeight.Normal
+                Height: =61
+                HoverBorderColor: =ColorFade(EmailRecipientName.BorderColor, 20%)
+                HoverColor: =EmailRecipientName.Color
+                HoverFill: =ColorFade(EmailRecipientName.Fill,20%)
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =If(MultiRecipients,15,0)
+                PaddingRight: =If(MultiRecipients, 40, 5)
+                PaddingTop: =0
+                PressedBorderColor: =EmailRecipientName.Fill
+                PressedColor: =EmailRecipientName.Color
+                PressedFill: =EmailRecipientName.Fill
+                RadiusBottomLeft: =4
+                RadiusBottomRight: =4
+                RadiusTopLeft: =4
+                RadiusTopRight: =4
+                Size: =8
+                Text: =ThisItem.DisplayName
+                Width: =111
+                X: =53
+                Y: =13
+                ZIndex: =4
+
+            EmailRecipientImage As image:
+                Height: =40
+                Image: =ThisItem.AttendeeImage_5.Image
+                OnSelect: =Select(Parent)
+                RadiusBottomLeft: =EmailRecipientImage.Height
+                RadiusBottomRight: =EmailRecipientImage.Height
+                RadiusTopLeft: =EmailRecipientImage.Height
+                RadiusTopRight: =EmailRecipientImage.Height
+                Width: =40
+                X: =13
+                Y: =25
+                ZIndex: =5
+
+            Button5 As button:
+                Font: =Font.Lato
+                Height: =35
+                OnSelect: =Select(Parent)
+                RadiusBottomLeft: =40
+                RadiusBottomRight: =40
+                RadiusTopLeft: =40
+                RadiusTopRight: =40
+                Size: =8
+                Text: =ThisItem.Initials
+                Visible: =IsBlank(EmailRecipientImage)
+                Width: =35
+                X: =13
+                Y: =27
+                ZIndex: =7
+
+        Label16_1 As label:
+            FocusedBorderColor: =Label16_1.BorderColor
+            Font: =Font.Lato
+            FontWeight: =FontWeight.Semibold
+            Height: =41
+            HoverBorderColor: =Label16_1.BorderColor
+            HoverColor: =Label16_1.Color
+            HoverFill: =Label16_1.Fill
+            PressedBorderColor: =Label16_1.BorderColor
+            PressedColor: =Label16_1.Color
+            PressedFill: =Label16_1.Fill
+            Size: =15
+            Text: ="Subject"
+            Width: =300
+            X: =81
+            Y: =325
+            ZIndex: =7
+
+        EmailSubject As text:
+            BorderColor: =RGBA(227, 227, 227, 1)
+            Default: =
+            FocusedBorderColor: =EmailSubject.BorderColor
+            Font: =Font.Lato
+            Height: =44
+            HintText: =SelectedMeeting.Subject
+            PressedBorderColor: =EmailSubject.HoverBorderColor
+            PressedColor: =EmailSubject.Color
+            PressedFill: =EmailSubject.Fill
+            RadiusBottomLeft: =3
+            RadiusBottomRight: =3
+            RadiusTopLeft: =3
+            RadiusTopRight: =3
+            Size: =13.5
+            TabIndex: =4
+            Tooltip: ="Meeting Subject"
+            Width: =608
+            X: =EmailBannerText.X
+            Y: =384
+            ZIndex: =8
+
+        Label16_2 As label:
+            FocusedBorderColor: =Label16_2.BorderColor
+            Font: =Font.Lato
+            FontWeight: =FontWeight.Semibold
+            Height: =41
+            HoverBorderColor: =Label16_2.BorderColor
+            HoverColor: =Label16_2.Color
+            HoverFill: =Label16_2.Fill
+            PressedBorderColor: =Label16_2.BorderColor
+            PressedColor: =Label16_2.Color
+            PressedFill: =Label16_2.Fill
+            Size: =15
+            Text: ="Message"
+            Width: =300
+            X: =EmailBannerText.X
+            Y: =432
+            ZIndex: =9
+
+        EmailMessage As text:
+            BorderColor: =RGBA(227, 227, 227, 1)
+            Default: =""
+            FocusedBorderColor: =EmailMessage.BorderColor
+            Font: =Font.Lato
+            Height: =77
+            Mode: =TextMode.MultiLine
+            PressedBorderColor: =EmailMessage.HoverBorderColor
+            PressedColor: =EmailMessage.Color
+            PressedFill: =EmailMessage.Fill
+            RadiusBottomLeft: =3
+            RadiusBottomRight: =3
+            RadiusTopLeft: =3
+            RadiusTopRight: =3
+            Size: =13.5
+            TabIndex: =5
+            Width: =608
+            X: =EmailBannerText.X
+            Y: =483
+            ZIndex: =10
+
+        "'lbl_create mee attendees *_1' As label":
+            Color: =RGBA(255, 0, 0, 1)
+            Height: =15
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: ="*"
+            VerticalAlign: =VerticalAlign.Top
+            Width: =15
+            X: =158
+            Y: =326
+            ZIndex: =23
+
+        "'lbl_create mee attendees *_2' As label":
+            Color: =RGBA(255, 0, 0, 1)
+            Height: =15
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: ="*"
+            VerticalAlign: =VerticalAlign.Top
+            Width: =15
+            X: =167
+            Y: =434
+            ZIndex: =24
+
+    "'Group vertical_menu_1' As group":
+        Height: =5
+        Width: =5
+        X: =20
+        Y: =40
+        ZIndex: =25
+
+        bg_12 As rectangle:
+            Fill: =RGBA(248, 249, 255, 1)
+            Height: =718
+            Width: =61
+            Y: =50
+            ZIndex: =15
+
+        iconHamburger_5 As icon.Hamburger:
+            Height: =24
+            Icon: =Icon.Hamburger
+            OnSelect: =Navigate('MeetingDetails Screen', ScreenTransition.Fade)
+            Tooltip: ="MeetingDetails"
+            Width: =24
+            X: =16
+            Y: =128
+            ZIndex: =16
+
+        "'Home Icon_5' As icon.Home":
+            Height: =24
+            Icon: =Icon.Home
+            OnSelect: |-
+                =Navigate(HomePage,BorderStyle.None);
+                Clear(arrQuestions);
+                Clear(arrQuestionOptions);
+                Clear(CountCollection);
+                Clear(DisaButton);
+                Set(
+                    DisableButton,
+                    false
+                );
+            Tooltip: ="Home Page"
+            Width: =24
+            X: =19
+            Y: =66
+            ZIndex: =17
+
+        iconResourceAdd_5 As icon.Add:
+            Height: =24
+            Icon: =Icon.Add
+            OnSelect: =Navigate(ResourceScreen, ScreenTransition.Fade)
+            Tooltip: ="Resource"
+            Width: =24
+            X: =16
+            Y: =189
+            ZIndex: =18
+
+    Group1 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =25
+
+        rectTopMenu_10 As rectangle:
+            Fill: =RGBA(48, 55, 120, 1)
+            Height: =50
+            TabIndex: =1
+            Width: =1366
+            ZIndex: =12
+
+        imageLogo_10 As image:
+            Height: =50
+            Image: =logo
+            TabIndex: =1
+            ZIndex: =13
+
+        "'Label_Selected Meeting Subj.' As label":
+            Align: =Align.Center
+            Color: =RGBA(255, 255, 255, 1)
+            Fill: =RGBA(0,0,0,0)
+            Font: =Font.Lato
+            FontWeight: =FontWeight.Bold
+            Height: =50
+            Size: =10
+            TabIndex: =0
+            Text: =SelectedMeeting.Subject
+            Tooltip: ="Meeting Subject(Title)"
+            Width: =330
+            X: =200
+            ZIndex: =14
+
+        "'lbl_Selected Meeting Time & Dt' As label":
+            Color: =RGBA(255, 255, 255, 1)
+            FocusedBorderColor: ='lbl_Selected Meeting Time & Dt'.BorderColor
+            Font: =Font.Lato
+            Height: =50
+            HoverBorderColor: ='lbl_Selected Meeting Time & Dt'.BorderColor
+            HoverColor: ='lbl_Selected Meeting Time & Dt'.Color
+            HoverFill: ='lbl_Selected Meeting Time & Dt'.Fill
+            PaddingLeft: =2
+            PressedBorderColor: ='lbl_Selected Meeting Time & Dt'.BorderColor
+            PressedColor: ='lbl_Selected Meeting Time & Dt'.Color
+            PressedFill: ='lbl_Selected Meeting Time & Dt'.Fill
+            Size: =10
+            TabIndex: =2
+            Text: |-
+                =Text(SelectedMeeting.Start,"[$-en-US]mmmm dd, yyyy")&" | " & Lower(Text(SelectedMeeting.Start,"[$-en-US]hh:mm am/pm"))&" - "&Lower(Text(SelectedMeeting.End,"[$-en-US]hh:mm am/pm")) & " (" & DateDiff(SelectedMeeting.Start, SelectedMeeting.End, TimeUnit.Minutes) & " minutes)"
+            Tooltip: ="Meeting Title"
+            Width: =330
+            X: =680
+            ZIndex: =20
+
+        "'Icon_Nav Back' As icon.ArrowLeft":
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =30
+            Icon: =Icon.ArrowLeft
+            OnSelect: =Back()
+            TabIndex: =0
+            Tooltip: ="Back"
+            Width: =40
+            X: =90
+            Y: =10
+            ZIndex: =21
+
+        "'Label_Version no.' As label":
+            Align: =Align.Center
+            Color: =RGBA(255, 255, 255, 1)
+            Font: =Font.Lato
+            Size: =14
+            Text: ="V1.0"
+            Width: =103
+            X: =1263
+            Y: =5
+            ZIndex: =22
+
+    AAAttachmentcontrol_2 As attachments:
+        BorderColor: =
+        DisplayMode: =
+        Height: =115
+        IsInDataCard: =true
+        Items: =
+        MaxAttachments: =1
+        MaxAttachmentSize: =50
+        OnAddFile: |-
+            =Set(
+                varAttachmentcontrol2,
+                JSON(
+                    Image2.Image,
+                    JSONFormat.IncludeBinaryData
+                )
+            );
+            Set(
+                varBase64Only2,
+                Mid(
+                    varAttachmentcontrol2,
+                    Find(
+                        ",",
+                        varAttachmentcontrol2
+                    ) + 1,
+                    Len(varAttachmentcontrol2) - Find(
+                        ",",
+                        varAttachmentcontrol2
+                    ) - 1
+                )
+            )
+        PaddingBottom: =5
+        PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+        PaddingRight: =5
+        PaddingTop: =5
+        Tooltip: =
+        Width: =608
+        X: =81
+        Y: =623
+        ZIndex: =26
+
+    Image2 As image:
+        Image: =Last(AAAttachmentcontrol_2.Attachments).Value
+        Visible: =false
+        X: =795
+        Y: =61
+        ZIndex: =27
+

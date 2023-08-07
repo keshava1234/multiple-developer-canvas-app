@@ -1,0 +1,509 @@
+ConfirmScreen As screen:
+    Fill: =RGBA(242,244,249,1)
+    OnVisible: |-
+        =Set(
+            SelectedMeetingDuration,
+            DateDiff(
+                SelectedMeeting.Start,
+                SelectedMeeting.End,
+                TimeUnit.Seconds
+            )
+        );
+        If(
+            ExportConfirmed,
+            Set(
+                Loading,
+                true
+            );
+           
+        /*Set(arrG_ResourcesList,
+        LookUp(
+            MeetingList,
+             ID = First(Filter(
+                    MeetingList,
+                    MeetingID = SelectedMeeting.Id
+                )
+            ).ID
+        ).'{Attachments}'
+        );*/
+        If(
+                checkEmail.Value || OneNotecheck.Value || chkCheckPlanner_1.Value || chkCheckPlanner_2.Value,
+                ClearCollect(
+                    TemplateData,
+                    {
+                        Field: "{MeetingName}",
+                        Data: SelectedMeeting.Subject
+                    },
+                    {
+                        Field: "{MeetingStartDate}",
+                        Data: Text(
+                            SelectedMeeting.Start,
+                            "[$-en-US]mmm. dd, yyyy"
+                        )
+                    },
+                    {
+                        Field: "{MeetingStartTime}",
+                        Data: Lower(
+                            Text(
+                                SelectedMeeting.Start,
+                                "[$-en-US]hh:mm am/pm"
+                            )
+                        )
+                    },
+                    {
+                        Field: "{MeetingEndTime}",
+                        Data: Lower(
+                            Text(
+                                SelectedMeeting.End,
+                                "[$-en-US]hh:mm am/pm"
+                            )
+                        )
+                    },
+                    {
+                        Field: "{MeetingMinutes}",
+                        Data: Text(SelectedMeetingDuration / 60)
+                    },
+                    {
+                        Field: "{MeetingAttendeeNum}",
+                        Data: Text(CountRows(MeetingAttendees))
+                    },
+                    {
+                        Field: "{1}",
+                        Data: Concat(
+                            GroupBy(
+                                ForAll(
+                                    MeetingAttendees,
+                                    Collect(
+                                        Indexes,
+                                        {Index: Last(Indexes).Index + 1}
+                                    );
+                                    {
+                                        Page: RoundDown(
+                                            Last(Indexes).Index / 3,
+                                            0
+                                        ),
+                                        Id: Id,
+                                        DisplayName: DisplayName,
+                                        JobTitle: JobTitle
+                                    }
+                                ),
+                                "Page",
+                                "Attendees"
+                            ),
+                            "<tr>" & Concat(
+                                Attendees,
+                                "<td class='user-name' width='221'>" & DisplayName & "</td>"
+                            ) & If(
+                                CountRows(Attendees) = 2,
+                                "<td class='user-name' width='221'></td>",
+                                CountRows(Attendees) = 1,
+                                "<td class='user-name' width='221'></td><td class='user-name' width='221'></td>"
+                            ) & "</tr><tr>" & Concat(
+                                Attendees,
+                                "<td class='job-title'>" & JobTitle & "</td>"
+                            ) & If(
+                                CountRows(Attendees) = 2,
+                                "<td class='job-title'></td>",
+                                CountRows(Attendees) = 1,
+                                "<td class='job-title'></td><td class='job-title'></td>"
+                            ) & "</tr><tr><td colspan='3' style='height:10px;'></td></tr>"
+                        )
+                    },
+                    {
+                        Field: "{MeetingDetails}",
+                        Data: SelectedMeeting.Body
+                    },
+                    {
+                        Field: "{MeetingNotes}",
+                        Data: 'MeetingDetails notes'.HtmlText
+                    },
+                    {
+                        Field: "{2}",
+                        Data: If(
+                            CountRows(arrMeetingAgendaList) > 0,
+                            "<tr><td colspan='2'><table border='0' ellpadding='0' cellspacing='0' class='no-border'><tr><td class='header' style='padding-bottom:10px;'>Agenda</td></tr>" & Concat(
+                                arrMeetingAgendaList,
+                                "<tr><td class='Agenda'><table border='0' cellpadding='0' cellspacing='0' class='no-border'          style='table-layout:auto'><tr><td class='name' style='font-size:13px;'>" & Title & "</td><td class='due-time'>" & Description & "</td></tr><tr><td  class='assign-to'>" & Modified & "</td><td></tr><tr><td colspan='2'  class='Link' style='font-size:10px;'> <a class='link-name' href='" & Icon.Link & "' target='_blank'>" & "Attachment" & "</a></td></tr><td></tr></table></td></tr>"
+                            ) & "</table></td></tr>",
+                            ""
+                        )
+                    },
+                    {
+                        Field: "{3}",
+                        Data: If(
+                            CountRows(arrResourceList) > 0,
+                            "<tr><td colspan='2' ><table border='0' ellpadding='0' cellspacing='0' class='no-border'><tr><td class='header' style='padding-bottom:10px;'>Resources</td></tr>" & Concat(
+                                arrResourceList,
+                                "<tr><td class='Resources'><table border='0' cellpadding='0' cellspacing='0' class='no-border'          style='table-layout:auto'><tr><td class='name' style='font-size:13px;'>" & DisplayName & "</td>
+                                <tr><td class=Link style='font-size:10px;'> <a class='link-name' href='" & AbsoluteUri & "' target='_blank'>" & "Attachment" & "</a></td></tr><td></tr></table></td></tr>"
+                            ) & "</table></td></tr>",
+                            ""
+                        )
+                    }
+                )
+            );
+            If(
+                checkEmail.Value,
+                ForAll(
+                    TemplateData,
+                    Patch(
+                        Templates,
+                        LookUp(
+                            Templates,
+                            Template = "Email"
+                        ),
+                        {
+                            Value: Substitute(
+                                LookUp(
+                                    Templates,
+                                    Template = "Email"
+                                ).Value,
+                                Field,
+                                Data
+                            )
+                        }
+                    )
+                );
+                Office365Outlook.SendEmailV2(
+                    Concat(
+                        EmailRecipients,
+                        Mail & ";"
+                    ),
+                    "MEETING NOTES - " & SelectedMeeting.Subject & " - " & Text(
+                        SelectedMeeting.Start,
+                        "[$-en-US]mmmm dd, yyyy"
+                    ) & " | " & Lower(
+                        Text(
+                            SelectedMeeting.Start,
+                            "[$-en-US]hh:mm am/pm"
+                        )
+                    ) & " - " & Lower(
+                        Text(
+                            SelectedMeeting.End,
+                            "[$-en-US]hh:mm am/pm"
+                        )
+                    ) & " (" & DateDiff(
+                        SelectedMeeting.Start,
+                        SelectedMeeting.End,
+                        TimeUnit.Minutes
+                    ) & " minutes)",
+                    LookUp(
+                        Templates,
+                        Template = "Email"
+                    ).Value
+                )
+            );
+        If(
+                OneNotecheck.Value,
+                ForAll(
+                    TemplateData,
+                    Patch(
+                        Templates,
+                        LookUp(
+                            Templates,
+                            Template = "OneNote"
+                        ),
+                        {
+                            Value: Substitute(
+                                LookUp(
+                                    Templates,
+                                    Template = "OneNote"
+                                ).Value,
+                                Field,
+                                Data
+                            )
+                        }
+                    )
+                );
+                'OneNote(Business)'.CreatePageInSection(
+                    SelectedNoteBook.'data-ADB4D7A662F548B49FAC2B986E348A1BKey',
+                    SelectedSection.'data-ADB4D7A662F548B49FAC2B986E348A1BpagesUrl',
+                    LookUp(
+                        Templates,
+                        Template = "OneNote"
+                    ).Value
+                )
+            );
+            Set(
+                Loading,
+                false
+            );
+           
+        );
+        
+        Reset(OneNotecheck);
+        Reset(chkCheckPlanner_1);
+        Reset(chkCheckPlanner_2);
+
+    ConfirmSubHeader_1 As label:
+        FocusedBorderColor: =ConfirmSubHeader_1.BorderColor
+        Font: =Font.Lato
+        FontWeight: =FontWeight.Lighter
+        Height: =49
+        HoverBorderColor: =ConfirmSubHeader_1.BorderColor
+        HoverColor: =ConfirmSubHeader_1.Color
+        HoverFill: =ConfirmSubHeader_1.Fill
+        PressedBorderColor: =ConfirmSubHeader_1.BorderColor
+        PressedColor: =ConfirmSubHeader_1.Color
+        PressedFill: =ConfirmSubHeader_1.Fill
+        Size: =27
+        Text: =If(EmailConfirmed, "Your email has been sent.", FollowUpConfirmed, "Invitations have been sent!", Loading, "Working on export", "Export Complete!")
+        Width: =1251
+        X: =80
+        Y: =100
+        ZIndex: =2
+
+    Rectangle6_9 As rectangle:
+        DisabledFill: =Rectangle6_9.Fill
+        Fill: =RGBA(227, 227, 227, 1)
+        FocusedBorderColor: =Rectangle6_9.BorderColor
+        FocusedBorderThickness: =0
+        Height: =1
+        HoverFill: =Rectangle6_9.Fill
+        PressedFill: =Rectangle6_9.Fill
+        Width: =ConfirmSubHeader_1.Width
+        X: =ConfirmSubHeader_1.X
+        Y: =165
+        ZIndex: =3
+
+    "'Group vertical_menu' As group":
+        Height: =5
+        Width: =5
+        X: =20
+        Y: =40
+        ZIndex: =18
+
+        bg_9 As rectangle:
+            Fill: =RGBA(248, 249, 255, 1)
+            Height: =718
+            Width: =61
+            X: =2
+            Y: =50
+            ZIndex: =14
+
+        iconHamburger_3 As icon.Hamburger:
+            Height: =24
+            Icon: =Icon.Hamburger
+            OnSelect: =Navigate('MeetingDetails Screen', ScreenTransition.Fade)
+            Tooltip: ="MeetingDetails"
+            Width: =24
+            X: =18
+            Y: =128
+            ZIndex: =15
+
+        "'Home Icon_3' As icon.Home":
+            Height: =24
+            Icon: =Icon.Home
+            OnSelect: =Navigate(HomePage,BorderStyle.None)
+            Tooltip: ="Home Page"
+            Width: =24
+            X: =21
+            Y: =66
+            ZIndex: =16
+
+        iconResourceAdd_3 As icon.Add:
+            Height: =24
+            Icon: =Icon.Add
+            OnSelect: =Navigate(ResourceScreen, ScreenTransition.Fade)
+            Tooltip: ="Resource"
+            Width: =24
+            X: =18
+            Y: =189
+            ZIndex: =17
+
+    "'Group_follow up' As group":
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =28
+
+        FollowUpButton_1 As button:
+            BorderColor: =ColorFade(FollowUpButton_1.Fill, -15%)
+            DisabledBorderColor: =ColorFade(FollowUpButton_1.BorderColor, 70%)
+            Fill: =RGBA(56, 86, 153, 1)
+            FocusedBorderColor: =FollowUpButton_1.BorderColor
+            Font: =Font.Lato
+            Height: =44
+            HoverBorderColor: =ColorFade(FollowUpButton_1.BorderColor, 20%)
+            HoverColor: =FollowUpButton_1.Color
+            HoverFill: =ColorFade(FollowUpButton_1.Fill, 20%)
+            OnSelect: =Navigate(FollowUpScreen, BorderStyle.None)
+            PaddingBottom: =0
+            PaddingLeft: =35
+            PaddingRight: =0
+            PaddingTop: =0
+            PressedBorderColor: =FollowUpButton_1.Fill
+            PressedColor: =FollowUpButton_1.Fill
+            PressedFill: =FollowUpButton_1.Color
+            RadiusBottomLeft: =2
+            RadiusBottomRight: =2
+            RadiusTopLeft: =2
+            RadiusTopRight: =2
+            Size: =11
+            Text: ="Schedule a follow up meeting"
+            Visible: =!FollowUpConfirmed
+            Width: =270
+            X: =85
+            Y: =210
+            ZIndex: =4
+
+        Icon_Sechedule As icon.CalendarBlank:
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =24
+            Icon: =Icon.CalendarBlank
+            Visible: =!FollowUpConfirmed
+            Width: =24
+            X: =100
+            Y: =220
+            ZIndex: =26
+
+    Group_back As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =28
+
+        "'lbl__home pg.' As label":
+            Color: =RGBA(62, 96, 170, 1)
+            FocusedBorderColor: ='lbl__home pg.'.BorderColor
+            Font: =Font.Lato
+            Height: =27
+            HoverBorderColor: ='lbl__home pg.'.BorderColor
+            HoverColor: ='lbl__home pg.'.Color
+            HoverFill: ='lbl__home pg.'.Fill
+            OnSelect: =Navigate(HomePage, BorderStyle.None)
+            PressedBorderColor: ='lbl__home pg.'.BorderColor
+            PressedColor: ='lbl__home pg.'.Color
+            PressedFill: ='lbl__home pg.'.Fill
+            Size: =10.5
+            Text: ="Capture another meeting"
+            Visible: =!EmailConfirmed
+            Width: =261
+            X: =85
+            Y: =293
+            ZIndex: =5
+
+        "'Icon_home pg.' As icon.ArrowRight":
+            Color: =RGBA(9, 33, 98, 1)
+            DisabledFill: ='Icon_home pg.'.Fill
+            FocusedBorderColor: ='Icon_home pg.'.BorderColor
+            FocusedBorderThickness: =0
+            Height: =36
+            HoverBorderColor: =ColorFade('Icon_home pg.'.BorderColor, 20%)
+            HoverColor: =ColorFade('Icon_home pg.'.Color, 20%)
+            HoverFill: ='Icon_home pg.'.Fill
+            Icon: =Icon.ArrowRight
+            OnSelect: =Navigate(HomePage, BorderStyle.None)
+            PressedBorderColor: =ColorFade('Icon_home pg.'.BorderColor, -20%)
+            PressedColor: =ColorFade('Icon_home pg.'.Color, -20%)
+            PressedFill: ='Icon_home pg.'.Fill
+            Visible: =!EmailConfirmed
+            Width: =31
+            X: =277
+            Y: =288
+            ZIndex: =6
+
+    "'Group_TopMenu.' As group":
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =28
+
+        lblExportMeetingSubject_1 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(89, 0, 0, 1)
+            Color: =Color.WhiteSmoke
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(48, 55, 120, 1)
+            FocusedBorderColor: =lblExportMeetingSubject_1.BorderColor
+            Font: =Font.Lato
+            FontWeight: =FontWeight.Semibold
+            Height: =50
+            HoverBorderColor: =lblExportMeetingSubject_1.BorderColor
+            HoverColor: =lblExportMeetingSubject_1.Color
+            HoverFill: =lblExportMeetingSubject_1.Fill
+            PaddingLeft: =2
+            PaddingRight: =2
+            PressedBorderColor: =lblExportMeetingSubject_1.BorderColor
+            PressedColor: =lblExportMeetingSubject_1.Color
+            PressedFill: =lblExportMeetingSubject_1.Fill
+            Size: =15
+            TabIndex: =1
+            Text: =
+            Tooltip: ="Meeting Title"
+            Width: =1366
+            ZIndex: =21
+
+        imageLogo_13 As image:
+            Height: =45
+            Image: =logo
+            TabIndex: =1
+            X: =5
+            Y: =5
+            ZIndex: =22
+
+        "'lbl_selected meeting dt & time' As label":
+            Color: =RGBA(255, 255, 255, 1)
+            FocusedBorderColor: ='lbl_selected meeting dt & time'.BorderColor
+            Font: =Font.Lato
+            Height: =50
+            HoverBorderColor: ='lbl_selected meeting dt & time'.BorderColor
+            HoverColor: ='lbl_selected meeting dt & time'.Color
+            HoverFill: ='lbl_selected meeting dt & time'.Fill
+            PressedBorderColor: ='lbl_selected meeting dt & time'.BorderColor
+            PressedColor: ='lbl_selected meeting dt & time'.Color
+            PressedFill: ='lbl_selected meeting dt & time'.Fill
+            Size: =10
+            TabIndex: =2
+            Text: |-
+                =Text(SelectedMeeting.Start,"[$-en-US]mmmm dd, yyyy")&" | " & Lower(Text(SelectedMeeting.Start,"[$-en-US]hh:mm am/pm"))&" - "&Lower(Text(SelectedMeeting.End,"[$-en-US]hh:mm am/pm")) & " (" & DateDiff(SelectedMeeting.Start, SelectedMeeting.End, TimeUnit.Minutes) & " minutes)"
+            Tooltip: ="Meeting Title"
+            Width: =350
+            X: =680
+            ZIndex: =23
+
+        "'lbl_selected meeting sub.' As label":
+            Align: =Align.Center
+            Color: =RGBA(255, 255, 255, 1)
+            FocusedBorderColor: ='lbl_selected meeting sub.'.BorderColor
+            Font: =Font.Lato
+            FontWeight: =FontWeight.Bold
+            Height: =49
+            HoverBorderColor: ='lbl_selected meeting sub.'.BorderColor
+            HoverColor: ='lbl_selected meeting sub.'.Color
+            HoverFill: ='lbl_selected meeting sub.'.Fill
+            PressedBorderColor: ='lbl_selected meeting sub.'.BorderColor
+            PressedColor: ='lbl_selected meeting sub.'.Color
+            PressedFill: ='lbl_selected meeting sub.'.Fill
+            Size: =10
+            Text: =SelectedMeeting.Subject
+            Width: =407
+            X: =200
+            Y: =1
+            ZIndex: =24
+
+        Icon_back As icon.ArrowLeft:
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =35
+            Icon: =Icon.ArrowLeft
+            OnSelect: =Back()
+            Width: =50
+            X: =100
+            Y: =8
+            ZIndex: =25
+
+        "'lbl_version no..' As label":
+            Align: =Align.Center
+            Color: =RGBA(255, 255, 255, 1)
+            Font: =Font.Lato
+            Height: =46
+            Size: =14
+            Text: ="V1.0"
+            Width: =103
+            X: =1263
+            Y: =4
+            ZIndex: =27
+

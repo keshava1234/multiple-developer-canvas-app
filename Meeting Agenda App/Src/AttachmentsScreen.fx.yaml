@@ -1,0 +1,572 @@
+AttachmentsScreen As screen:
+    Fill: =RGBA(241, 244, 249, 1)
+    Height: =Max(App.Height, App.DesignHeight)
+    Orientation: =If(AttachmentsScreen.Width < AttachmentsScreen.Height, Layout.Vertical, Layout.Horizontal)
+    Size: =1 + CountRows(App.SizeBreakpoints) - CountIf(App.SizeBreakpoints, Value >= AttachmentsScreen.Width)
+    Width: =Max(App.Width, App.DesignWidth)
+
+    AttachmentsPhotos As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =24
+
+        PhotosIcon As image:
+            FocusedBorderColor: =PhotosIcon.BorderColor
+            Height: =54
+            HoverBorderColor: =ColorFade(PhotosIcon.BorderColor, 20%)
+            HoverFill: =ColorFade(PhotosIcon.Fill, 20%)
+            Image: ='attachments-camera'
+            PressedBorderColor: =ColorFade(PhotosIcon.BorderColor, -20%)
+            PressedFill: =ColorFade(PhotosIcon.Fill, -20%)
+            Width: =54
+            X: =74
+            Y: =189
+            ZIndex: =5
+
+        PhotosHeader As label:
+            FocusedBorderColor: =PhotosHeader.BorderColor
+            Font: =Font.Lato
+            FontWeight: =FontWeight.Semibold
+            HoverBorderColor: =PhotosHeader.BorderColor
+            HoverColor: =PhotosHeader.Color
+            HoverFill: =PhotosHeader.Fill
+            PressedBorderColor: =PhotosHeader.BorderColor
+            PressedColor: =PhotosHeader.Color
+            PressedFill: =PhotosHeader.Fill
+            Size: =15
+            Text: ="Photos"
+            X: =153
+            Y: =196
+            ZIndex: =7
+
+        PhotosGallery As gallery.galleryHorizontal:
+            DisabledBorderColor: =PhotosGallery.BorderColor
+            DisabledFill: =PhotosGallery.Fill
+            Height: =200
+            HoverBorderColor: =PhotosGallery.BorderColor
+            HoverFill: =PhotosGallery.Fill
+            Items: =Photos
+            LoadingSpinnerColor: =PhotosGallery.BorderColor
+            OnSelect: |-
+                =Set(ShowOverlay, true);
+                Set(SelectedImage, ThisItem)
+            PressedBorderColor: =PhotosGallery.BorderColor
+            PressedFill: =PhotosGallery.Fill
+            TemplatePadding: =10
+            TemplateSize: =203
+            Width: =1168
+            X: =115
+            Y: =268
+            ZIndex: =8
+
+            AttachmentPhoto As image:
+                FocusedBorderColor: =AttachmentPhoto.BorderColor
+                Height: =190
+                HoverBorderColor: =ColorFade(AttachmentPhoto.BorderColor, 20%)
+                HoverFill: =ColorFade(AttachmentPhoto.Fill, 20%)
+                Image: =ThisItem.Image
+                OnSelect: =Select(Parent)
+                PressedBorderColor: =ColorFade(AttachmentPhoto.BorderColor, -20%)
+                PressedFill: =ColorFade(AttachmentPhoto.Fill, -20%)
+                Width: =203
+                ZIndex: =1
+
+        PhotosCount As label:
+            FocusedBorderColor: =PhotosCount.BorderColor
+            Font: =Font.Lato
+            Height: =20
+            HoverBorderColor: =PhotosCount.BorderColor
+            HoverColor: =PhotosCount.Color
+            HoverFill: =PhotosCount.Fill
+            PressedBorderColor: =PhotosCount.BorderColor
+            PressedColor: =PhotosCount.Color
+            PressedFill: =PhotosCount.Fill
+            Size: =10.5
+            Text: =CountRows(Photos) & If(CountRows(Photos) = 1, " photo has", " photos have") & " been attached to this meeting"
+            Width: =397
+            X: =153
+            Y: =233
+            ZIndex: =11
+
+    AttachmentsSketches As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =24
+
+        SketchesIcon As image:
+            FocusedBorderColor: =SketchesIcon.BorderColor
+            Height: =54
+            HoverBorderColor: =ColorFade(SketchesIcon.BorderColor, 20%)
+            HoverFill: =ColorFade(SketchesIcon.Fill, 20%)
+            Image: ='attachments-sketch'
+            PressedBorderColor: =ColorFade(SketchesIcon.BorderColor, -20%)
+            PressedFill: =ColorFade(SketchesIcon.Fill, -20%)
+            Width: =54
+            X: =74
+            Y: =494
+            ZIndex: =6
+
+        Rectangle6_3 As rectangle:
+            DisabledFill: =Rectangle6_3.Fill
+            Fill: =RGBA(227, 227, 227, 1)
+            FocusedBorderColor: =Rectangle6_3.BorderColor
+            FocusedBorderThickness: =0
+            Height: =1
+            HoverFill: =Rectangle6_3.Fill
+            PressedFill: =Rectangle6_3.Fill
+            Width: =AttachmentsHeader.Width
+            X: =AttachmentsHeader.X
+            Y: =464
+            ZIndex: =9
+
+        SketchesHeader As label:
+            FocusedBorderColor: =SketchesHeader.BorderColor
+            Font: =Font.Lato
+            FontWeight: =FontWeight.Semibold
+            HoverBorderColor: =SketchesHeader.BorderColor
+            HoverColor: =SketchesHeader.Color
+            HoverFill: =SketchesHeader.Fill
+            PressedBorderColor: =SketchesHeader.BorderColor
+            PressedColor: =SketchesHeader.Color
+            PressedFill: =SketchesHeader.Fill
+            Size: =15
+            Text: ="Sketches"
+            X: =153
+            Y: =500
+            ZIndex: =10
+
+        SketchCount As label:
+            FocusedBorderColor: =SketchCount.BorderColor
+            Font: =Font.Lato
+            Height: =20
+            HoverBorderColor: =SketchCount.BorderColor
+            HoverColor: =SketchCount.Color
+            HoverFill: =SketchCount.Fill
+            PressedBorderColor: =SketchCount.BorderColor
+            PressedColor: =SketchCount.Color
+            PressedFill: =SketchCount.Fill
+            Size: =10.5
+            Text: =CountRows(Sketches) & If(CountRows(Sketches) = 1, " sketch has", " sketches have") & " been attached to this meeting"
+            Width: =397
+            X: =153
+            Y: =540
+            ZIndex: =12
+
+        SketchesGallery As gallery.galleryHorizontal:
+            DisabledBorderColor: =SketchesGallery.BorderColor
+            DisabledFill: =SketchesGallery.Fill
+            Height: =200
+            HoverBorderColor: =SketchesGallery.BorderColor
+            HoverFill: =SketchesGallery.Fill
+            Items: =Sketches
+            LoadingSpinnerColor: =SketchesGallery.BorderColor
+            OnSelect: |-
+                =Set(ShowOverlay, true);
+                Set(SelectedImage, ThisItem)
+            PressedBorderColor: =SketchesGallery.BorderColor
+            PressedFill: =SketchesGallery.Fill
+            TemplatePadding: =10
+            TemplateSize: =203
+            Width: =1168
+            X: =153
+            Y: =568
+            ZIndex: =13
+
+            SketchImage As image:
+                FocusedBorderColor: =SketchImage.BorderColor
+                Height: =180
+                HoverBorderColor: =ColorFade(SketchImage.BorderColor, 20%)
+                HoverFill: =ColorFade(SketchImage.Fill, 20%)
+                Image: =ThisItem.Image
+                OnSelect: =Select(Parent)
+                PressedBorderColor: =ColorFade(SketchImage.BorderColor, -20%)
+                PressedFill: =ColorFade(SketchImage.Fill, -20%)
+                Width: =203
+                ZIndex: =1
+
+    AttachmentsModal As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =24
+
+        ModalOverlay_1 As rectangle:
+            DisabledFill: =ModalOverlay_1.Fill
+            Fill: =RGBA(0,0,0,.7)
+            FocusedBorderColor: =ModalOverlay_1.BorderColor
+            Height: =768
+            HoverFill: =ModalOverlay_1.Fill
+            PressedFill: =ModalOverlay_1.Fill
+            Visible: =ShowOverlay
+            Width: =1366
+            ZIndex: =15
+
+        AttachmentToDelete As image:
+            Fill: =RGBA(255, 255, 255, 1)
+            FocusedBorderColor: =AttachmentToDelete.BorderColor
+            Height: =600
+            HoverBorderColor: =ColorFade(AttachmentToDelete.BorderColor, 20%)
+            HoverFill: =ColorFade(AttachmentToDelete.Fill, 20%)
+            Image: =SelectedImage.Image
+            PressedBorderColor: =ColorFade(AttachmentToDelete.BorderColor, -20%)
+            PressedFill: =ColorFade(AttachmentToDelete.Fill, -20%)
+            Visible: =ShowOverlay
+            Width: =907
+            X: =230
+            Y: =81
+            ZIndex: =16
+
+        DeleteAttachment1 As circle:
+            DisabledFill: =DeleteAttachment1.Fill
+            Fill: =RGBA(237, 41, 85, 1)
+            FocusedBorderColor: =DeleteAttachment1.BorderColor
+            Height: =45
+            HoverFill: =DeleteAttachment1.Fill
+            PressedFill: =DeleteAttachment1.Fill
+            Visible: =ShowOverlay && !AttachmentDeleteConfirm
+            Width: =45
+            X: =661
+            Y: =708
+            ZIndex: =17
+
+        HideDelete2 As circle:
+            BorderColor: =RGBA(255, 255, 255, 1)
+            BorderThickness: =2
+            DisabledFill: =HideDelete2.Fill
+            Fill: =RGBA(0, 0, 0, 0)
+            FocusedBorderColor: =HideDelete2.BorderColor
+            Height: =45
+            HoverFill: =HideDelete2.Fill
+            OnSelect: |-
+                =Set(ShowOverlay, false);
+                Set(AttachmentDeleteConfirm, false)
+            PressedFill: =HideDelete2.Fill
+            Visible: =ShowOverlay
+            Width: =45
+            X: =1147
+            Y: =28
+            ZIndex: =18
+
+        HideDelete1 As icon.Cancel:
+            Color: =Color.White
+            DisabledFill: =HideDelete1.Fill
+            FocusedBorderColor: =HideDelete1.BorderColor
+            Height: =HideDelete2.Height
+            HoverBorderColor: =ColorFade(HideDelete1.BorderColor, 20%)
+            HoverColor: =ColorFade(HideDelete1.Color, 20%)
+            HoverFill: =HideDelete1.Fill
+            Icon: =Icon.Cancel
+            OnSelect: |-
+                =Set(ShowOverlay, false);
+                Set(AttachmentDeleteConfirm, false)
+            PaddingBottom: =7
+            PaddingLeft: =7
+            PaddingRight: =7
+            PaddingTop: =7
+            PressedBorderColor: =ColorFade(HideDelete1.BorderColor, -20%)
+            PressedColor: =ColorFade(HideDelete1.Color, -20%)
+            PressedFill: =HideDelete1.Fill
+            Visible: =ShowOverlay
+            Width: =HideDelete2.Width
+            X: =HideDelete2.X
+            Y: =HideDelete2.Y
+            ZIndex: =19
+
+        icon15 As icon.Trash:
+            Color: =Color.White
+            DisabledFill: =icon15.Fill
+            FocusedBorderColor: =icon15.BorderColor
+            Height: =DeleteAttachment1.Height
+            HoverBorderColor: =ColorFade(icon15.BorderColor, 20%)
+            HoverColor: =ColorFade(icon15.Color, 20%)
+            HoverFill: =icon15.Fill
+            Icon: =Icon.Trash
+            OnSelect: =Set(AttachmentDeleteConfirm, true)
+            PaddingBottom: =9
+            PaddingLeft: =9
+            PaddingRight: =9
+            PaddingTop: =9
+            PressedBorderColor: =ColorFade(icon15.BorderColor, -20%)
+            PressedColor: =ColorFade(icon15.Color, -20%)
+            PressedFill: =icon15.Fill
+            Visible: =ShowOverlay && !AttachmentDeleteConfirm
+            Width: =DeleteAttachment1.Width
+            X: =DeleteAttachment1.X
+            Y: =DeleteAttachment1.Y
+            ZIndex: =20
+
+        DeleteCertaintyText As label:
+            Align: =TextPosition.Right
+            Color: =RGBA(255, 255, 255, 1)
+            FocusedBorderColor: =DeleteCertaintyText.BorderColor
+            HoverBorderColor: =DeleteCertaintyText.BorderColor
+            HoverColor: =DeleteCertaintyText.Color
+            HoverFill: =DeleteCertaintyText.Fill
+            PressedBorderColor: =DeleteCertaintyText.BorderColor
+            PressedColor: =DeleteCertaintyText.Color
+            PressedFill: =DeleteCertaintyText.Fill
+            Size: =10.5
+            Text: ="Are you sure you want to delete?"
+            Visible: =ShowOverlay && AttachmentDeleteConfirm
+            Width: =318
+            X: =230
+            Y: =703
+            ZIndex: =21
+
+        ConfirmDeleteAttach As button:
+            BorderColor: =RGBA(237, 41, 85, 1)
+            BorderThickness: =1
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledBorderColor: =ColorFade(ConfirmDeleteAttach.BorderColor, 70%)
+            Fill: =RGBA(237, 41, 85, 1)
+            FocusedBorderColor: =ConfirmDeleteAttach.BorderColor
+            FocusedBorderThickness: =1
+            Height: =44
+            HoverBorderColor: =ColorFade(ConfirmDeleteAttach.BorderColor, 20%)
+            HoverColor: =ConfirmDeleteAttach.Color
+            HoverFill: =ColorFade(ConfirmDeleteAttach.Fill, 20%)
+            OnSelect: |
+                =Set(ShowOverlay, false);
+                Set(AttachmentDeleteConfirm, false);
+                RemoveIf(Sketches, SelectedImage.Name = Name);
+                RemoveIf(Photos, SelectedImage.Name = Name)
+            PressedBorderColor: =ConfirmDeleteAttach.Fill
+            PressedColor: =ConfirmDeleteAttach.Fill
+            PressedFill: =ConfirmDeleteAttach.Color
+            RadiusBottomLeft: =3
+            RadiusBottomRight: =3
+            RadiusTopLeft: =3
+            RadiusTopRight: =3
+            Size: =10.5
+            Text: ="Yes, delete"
+            Visible: =ShowOverlay && AttachmentDeleteConfirm
+            Width: =100
+            X: =689
+            Y: =699
+            ZIndex: =23
+
+    "'Group vertical_menu_10' As group":
+        Height: =5
+        Width: =5
+        X: =20
+        Y: =40
+        ZIndex: =28
+
+        bg_20 As rectangle:
+            Fill: =RGBA(248, 249, 255, 1)
+            Height: =718
+            Width: =61
+            Y: =50
+            ZIndex: =24
+
+        iconHamburger_13 As icon.Hamburger:
+            Height: =24
+            Icon: =Icon.Hamburger
+            OnSelect: =Navigate('MeetingDetails Screen', ScreenTransition.Fade)
+            Tooltip: ="MeetingDetails"
+            Width: =24
+            X: =16
+            Y: =128
+            ZIndex: =25
+
+        "'Home Icon_13' As icon.Home":
+            Height: =24
+            Icon: =Icon.Home
+            OnSelect: =Navigate(HomePage,BorderStyle.None)
+            Tooltip: ="Home Page"
+            Width: =24
+            X: =19
+            Y: =66
+            ZIndex: =26
+
+        iconResourceAdd_13 As icon.Add:
+            Height: =24
+            Icon: =Icon.Add
+            OnSelect: =Navigate(ResourceScreen, ScreenTransition.Fade)
+            Tooltip: ="Resource"
+            Width: =24
+            X: =16
+            Y: =189
+            ZIndex: =27
+
+    AttachmentsBanner As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =31
+
+        Rectangle2_5 As rectangle:
+            DisabledFill: =Rectangle2_5.Fill
+            Fill: =RGBA(234, 237, 239, 1)
+            FocusedBorderColor: =Rectangle2_5.BorderColor
+            Height: =43
+            HoverFill: =Rectangle2_5.Fill
+            PressedFill: =Rectangle2_5.Fill
+            Width: =1366
+            ZIndex: =1
+
+        AttachmentsHeader As label:
+            FocusedBorderColor: =AttachmentsHeader.BorderColor
+            Font: =Font.Lato
+            FontWeight: =FontWeight.Semibold
+            Height: =49
+            HoverBorderColor: =AttachmentsHeader.BorderColor
+            HoverColor: =AttachmentsHeader.Color
+            HoverFill: =AttachmentsHeader.Fill
+            PressedBorderColor: =AttachmentsHeader.BorderColor
+            PressedColor: =AttachmentsHeader.Color
+            PressedFill: =AttachmentsHeader.Fill
+            Size: =18
+            Text: ="Meeting Attachments"
+            Width: =1251
+            X: =70+0
+            Y: =91
+            ZIndex: =3
+
+        Rectangle6_2 As rectangle:
+            DisabledFill: =Rectangle6_2.Fill
+            Fill: =RGBA(227, 227, 227, 1)
+            FocusedBorderColor: =Rectangle6_2.BorderColor
+            FocusedBorderThickness: =0
+            Height: =1
+            HoverFill: =Rectangle6_2.Fill
+            PressedFill: =Rectangle6_2.Fill
+            Width: =AttachmentsHeader.Width
+            X: =AttachmentsHeader.X
+            Y: =155
+            ZIndex: =4
+
+        AttachmentsPrevScreen As icon.ArrowLeft:
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =40
+            Icon: =Icon.ArrowLeft
+            OnSelect: =Back()
+            PaddingLeft: =9
+            PaddingRight: =9
+            PaddingTop: =9
+            Width: =40
+            X: =88
+            ZIndex: =30
+
+    grpAttachFiles As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =35
+
+        lblUploadedFilesText As label:
+            BorderColor: =RGBA(89, 0, 0, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderColor: =lblUploadedFilesText.BorderColor
+            Height: =38
+            HoverBorderColor: =lblUploadedFilesText.BorderColor
+            HoverColor: =lblUploadedFilesText.Color
+            HoverFill: =lblUploadedFilesText.Fill
+            PressedBorderColor: =lblUploadedFilesText.BorderColor
+            PressedColor: =lblUploadedFilesText.Color
+            PressedFill: =lblUploadedFilesText.Fill
+            Text: ="Uploaded Files"
+            Width: =171
+            X: =153
+            Y: =283
+            ZIndex: =33
+
+        iconAttachFiles As icon.ForkKnife:
+            BorderColor: =RGBA(89, 0, 0, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(244, 244, 244, 1)
+            DisabledFill: =iconAttachFiles.Fill
+            FocusedBorderColor: =iconAttachFiles.BorderColor
+            Height: =45
+            HoverBorderColor: =ColorFade(iconAttachFiles.BorderColor, 20%)
+            HoverColor: =ColorFade(iconAttachFiles.Color, 20%)
+            HoverFill: =iconAttachFiles.Fill
+            Icon: =Icon.PaperClip
+            OnSelect: =Navigate(ResourceScreen)
+            PressedBorderColor: =ColorFade(iconAttachFiles.BorderColor, -20%)
+            PressedColor: =ColorFade(iconAttachFiles.Color, -20%)
+            PressedFill: =iconAttachFiles.Fill
+            Width: =23
+            X: =301
+            Y: =279
+            ZIndex: =34
+
+    "'Grop_Top Menu' As group":
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =36
+
+        rectTopMenu_12 As rectangle:
+            Fill: =RGBA(48, 55, 120, 1)
+            Height: =43
+            TabIndex: =1
+            Width: =1366
+            ZIndex: =28
+
+        imageLogo_2 As image:
+            Height: =43
+            Image: =logo
+            TabIndex: =1
+            Width: =115
+            ZIndex: =29
+
+        "'lbl_Selected Meeting Sub.' As label":
+            Align: =LayoutAlignItems.Center
+            Color: =RGBA(255, 255, 255, 1)
+            Fill: =RGBA(48, 55, 120, 1)
+            FocusedBorderColor: ='lbl_Selected Meeting Sub.'.BorderColor
+            Font: =Font.Lato
+            FontWeight: =FontWeight.Bold
+            HoverBorderColor: ='lbl_Selected Meeting Sub.'.BorderColor
+            HoverColor: ='lbl_Selected Meeting Sub.'.Color
+            HoverFill: ='lbl_Selected Meeting Sub.'.Fill
+            PressedBorderColor: ='lbl_Selected Meeting Sub.'.BorderColor
+            PressedColor: ='lbl_Selected Meeting Sub.'.Color
+            PressedFill: ='lbl_Selected Meeting Sub.'.Fill
+            Size: =10
+            Text: =SelectedMeeting.Subject
+            Width: =330
+            X: =200
+            ZIndex: =31
+
+        "'lbl_Selected eeting Dt & Time' As label":
+            Color: =RGBA(255, 255, 255, 1)
+            FocusedBorderColor: ='lbl_Selected eeting Dt & Time'.BorderColor
+            Font: =Font.Lato
+            HoverBorderColor: ='lbl_Selected eeting Dt & Time'.BorderColor
+            HoverColor: ='lbl_Selected eeting Dt & Time'.Color
+            HoverFill: ='lbl_Selected eeting Dt & Time'.Fill
+            PressedBorderColor: ='lbl_Selected eeting Dt & Time'.BorderColor
+            PressedColor: ='lbl_Selected eeting Dt & Time'.Color
+            PressedFill: ='lbl_Selected eeting Dt & Time'.Fill
+            Size: =10
+            TabIndex: =2
+            Text: |-
+                =Text(SelectedMeeting.Start,"[$-en-US]mmmm dd, yyyy")&" | " & Lower(Text(SelectedMeeting.Start,"[$-en-US]hh:mm am/pm"))&" - "&Lower(Text(SelectedMeeting.End,"[$-en-US]hh:mm am/pm")) & " (" & DateDiff(SelectedMeeting.Start, SelectedMeeting.End, TimeUnit.Minutes) & " minutes)"
+            Tooltip: ="Meeting Title"
+            Width: =330
+            X: =680
+            ZIndex: =32
+
+        "'Lbl_Version No.' As label":
+            Align: =Align.Center
+            Color: =RGBA(255, 255, 255, 1)
+            Font: =Font.Lato
+            Size: =14
+            Text: ="V1.0"
+            Width: =103
+            X: =1263
+            Y: =5
+            ZIndex: =35
+

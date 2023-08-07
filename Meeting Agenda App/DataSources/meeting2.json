@@ -1,0 +1,9 @@
+[
+  {
+    "AddinConnectorId": "45c73592-7e08-44de-bffd-819d4a6fe6f2",
+    "AddinId": "6d1f157d-95bf-406d-b65d-cfd3240f724e",
+    "Name": "meeting2",
+    "ServiceKind": "AddinWadl",
+    "Type": "ServiceInfo"
+  }
+]

@@ -1,0 +1,10 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_logicflows",
+    "FlowNameId": "32c809cd-9e3c-400b-bb6e-899d0e1d2ed7",
+    "Name": "GetrecurrenceID-MeetingAgendaApp",
+    "ServiceKind": "ConnectedWadl",
+    "Type": "ServiceInfo",
+    "WorkflowEntityId": "bd77e966-fe2f-ed11-9db1-000d3a5b45a2"
+  }
+]

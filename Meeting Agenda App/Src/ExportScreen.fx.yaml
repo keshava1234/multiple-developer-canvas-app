@@ -1,0 +1,2813 @@
+ExportScreen As screen:
+    Height: =Max(App.Height, App.DesignHeight)
+    OnVisible: |
+        =Set(
+            ShowSketchSaved,
+            false
+        );
+        If(
+            CountRows(Calculations) = 0,
+            ClearCollect(
+                Calculations,
+                {
+                    Task: "",
+                    EstimateLow: "",
+                    EstimateHigh: ""
+                }
+            )
+        );
+        ClearCollect(
+            EmailRecipients,
+            AttendeeGallery.AllItems
+        );
+        If(
+            IsEmpty(OneNoteBooks),
+            ClearCollect(
+                OneNoteBooks,
+                'OneNote(Business)'.GetNotebooks()
+            )
+        );
+        If(
+            !IsEmpty(OneNoteBooks),
+            ClearCollect(
+                OneNoteSections,
+                'OneNote(Business)'.GetSectionsInNotebook(OneNoteBookSelect.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BKey').value
+            )
+        );
+        If(
+            IsEmpty(PlannerPlans),
+            ClearCollect(
+                PlannerPlans,
+                Planner.ListMyPlans().value
+            )
+        );
+        If(
+            !IsEmpty(PlannerPlans),
+            ClearCollect(
+                PlannerBuckets,
+                Planner.ListBuckets(drpPlannerPlanSelect.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1Bid').value
+            )
+        );
+        Set(
+            ExportEstimation,
+            false
+        );
+        If(
+            CountRows(Calculations) > 0,
+            Set(
+                ExportEstimation,
+                true
+            )
+        );
+        UpdateContext({emailType: "All"});
+        ClearCollect(
+            Templates,
+            {
+                Template: "Email",
+                Value: "<html><head><title>" & "{MeetingName}" & "</title><style>div{box-sizing:border-box}table{table-layout:fixed;background-color:#eaedef;width:829px;font-family:'Open Sans',sans-serif;color:#2c3034}table.with-border td{border:2px solid #e3e3e3;background-color:#fff;vertical-align:top}td.caption{height:65px;background:#385699;color:white;font-weight:bold;text-align:center;vertical-align:middle}.details{font-size:14px;color:#2c3034;padding-top:10px}.header{font-size:16px;font-weight:600}.mark{font-weight:400;color:#617281}.name{font-size:12px;font-weight:600;color:#ed2955}table.no-border td.user-name{font-size:14px;font-weight:600;color:#2c3034;vertical-align:middle;height:20px;}.due-time{text-align:right;font-size:10px;vertical-align:middle;color:#617281;font-weight:400}.assign-to{font-size:12px;color:#617281}.job-title{font-size:12px;color:#4a4a4a;height:20px}table.no-border{width:100%}table.no-border td{border:0}table.no-border td.task{padding:10px 0;border-top:1px solid #f1f1f1}.user-img img{width:17px;height:19px;border:0;}.name a.link-name,.name a.link-name:visited{color:#ed2955;text-decoration:none;}</style></head><body><table border='0' width='100%'><tr><td><center><img src=https://www.ilink-digital.com/wp-content/uploads/2020/04/iLink-Digital-RGB-800px-1-e1587616428292.png></center></td></tr><tr><td class='caption'> Meeting Agenda App </td></tr><tr><td style='border: 0;background-color: #eaedef;padding: 9px 0 10px 0;text-align: center;font-weight:bold;color: #2c3034;font-size: 20px;'>{MeetingName}</td></tr><tr><td style='border: 0;background-color: #eaedef;padding: 9px 0 10px 0;text-align: center;color: #2c3034;font-size: 14px;'>" & "{MeetingStartDate}" & " | " & "{MeetingStartTime}" & " - " & "{MeetingEndTime}" & " (" & "{MeetingMinutes}" & " Minutes)</td></tr></table><table width='100%' class='with-border' border='0' cellpadding='20' cellspacing='20'><tr>
+        <td colspan='2' style='padding-bottom:10px;'><table border='0' cellpadding='0' cellspacing='0' class='no-border' style='table-layout:auto;'><tr><td colspan='3' class='header'>Attendees <span class='mark'>(" & "{MeetingAttendeeNum}" & ")</span></td></tr><tr><td colspan='3' style='height:10px;'></td></tr>" & "{1}" & "</table></td></tr><tr><td colspan='2'><table border='0' cellpadding='0' cellspacing='0' class='no-border'><tr><td class='header'>Meeting Notes</td></tr><tr><td class='details'>" & "{MeetingNotes}" & "</td></tr></table></tr>{2}{3}<tr><td  colspan='2'><table border='0' cellpadding='0' cellspacing='0' class='no-border'><tr><td class='header'>Meeting details</td></tr><tr><td class='details'>" & "{MeetingDetails}" & "</td></tr></table></td></tr><tr><td style='border:0;background-color:#eaedef;padding:0;height:10px;'></td></tr></table></body></html>"
+            },
+            {
+                Template: "OneNote",
+                Value: "<!DOCTYPE html><html><head><title>" & "{MeetingName}" & "</title><meta http-equiv='Content-Type' content='text/html; charset=utf-8'/><tr><td><center><img src=https://www.ilink-digital.com/wp-content/uploads/2020/04/iLink-Digital-RGB-800px-1-e1587616428292.png></center></td></tr></head><body data-absolute-enabled='true' style='font-family:Calibri;font-size:11pt'><div data-id='_default' style='position:absolute;left:48px;top:120px;width:829px;'><table border='0' cellpadding='0' cellspacing='0' width='829'><tr><td style='background-color:#385699;font-size:10pt;'>&nbsp;</td></tr><tr><td style='background-color:#385699;border:0px;text-align:center;font-weight:600;'><span style='color:white'> Meeting Agenda App </span></td></tr><tr><td style='background-color:#385699;font-size:8pt;'>&nbsp;</td></tr><tr><td style='background-color:#eaedef;font-size:14pt;'>&nbsp;</td></tr><tr><td style='background-color:#eaedef;border:0px;text-align:center;'><span style='font-size:15pt;color:#2c3034;font-weight:bold'>" & "{MeetingName}" & "</span></td></tr><tr><td style='background-color:#eaedef;border:0px;text-align:center;'><span style='font-size:10.5pt;color:#2c3034'>" & "{MeetingStartDate}" & " | " & "{MeetingStartTime}" & " - " & "{MeetingEndTime}" & " (" & "{MeetingMinutes}" & " Minutes)</span></td></tr><tr><td style='background-color:#eaedef;font-size:14pt;'>&nbsp;</td></tr><tr><td style='background-color:white;'><table border='0' cellpadding='0' cellspacing='0' width='829'><colgroup><col style='width: 210px;'><col style='width: 210px;'><col style='width: 210px;'><col style='width: 210px;'></colgroup><tr><td colspan='4' style='font-size:14pt;'><span style='font-weight:600;color:#2c3034'>Attendees</span>&nbsp;<span style='color:#617281'>(" & "{MeetingAttendeeNum}" & ")</span></td></tr>" & "{1}" & "</table></td></tr><tr><td style='background-color:#ffffff;font-size:8pt;'>&nbsp;</td></tr><tr><td style='background-color:#ffffff;font-size:8pt;'>&nbsp;</td></tr><tr><td style='background-color:white;'><table border='0' cellpadding='0' cellspacing='0' width='829'><tr><td width='420' style='font-size:14pt;font-weight:600;color:#2c3034'>Meeting Notes</td></tr><tr><td style='font-size:12pt;color:#2c3034'>" & "{MeetingNotes}" & "</td><td style='font-size:14pt;font-weight:600;color:#2c3034'><table border='0' cellpadding='0' cellspacing='0' width='420'>" & "{2}" & "{3}" & "</table></td></tr></table></td></tr><tr><td style='background-color:#ffffff;font-size:8pt;'>&nbsp;</td></tr><tr><td style='background-color:white;'></td></tr><tr><td style='background-color:#eaedef;font-size:26.5pt;'>&nbsp;</td></tr></table></div></body></html>"
+            }
+        )
+    Orientation: =If(ExportScreen.Width < ExportScreen.Height, Layout.Vertical, Layout.Horizontal)
+    Size: =1 + CountRows(App.SizeBreakpoints) - CountIf(App.SizeBreakpoints, Value >= ExportScreen.Width)
+    Width: =Max(App.Width, App.DesignWidth)
+
+    lblExportBannerHeader As label:
+        AutoHeight: =true
+        BorderColor: =RGBA(89, 0, 0, 1)
+        Color: =RGBA(48, 55, 120, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FocusedBorderColor: =lblExportBannerHeader.BorderColor
+        Font: =Font.'Lato Black'
+        FontWeight: =FontWeight.Lighter
+        Height: =49
+        HoverBorderColor: =lblExportBannerHeader.BorderColor
+        HoverColor: =lblExportBannerHeader.Color
+        HoverFill: =lblExportBannerHeader.Fill
+        PressedBorderColor: =lblExportBannerHeader.BorderColor
+        PressedColor: =lblExportBannerHeader.Color
+        PressedFill: =lblExportBannerHeader.Fill
+        Size: =22
+        Text: ="Export " & SelectedMeeting.Subject
+        Width: =1115
+        X: =167
+        Y: =80
+        ZIndex: =1
+
+    Rectangle7 As rectangle:
+        BorderColor: =RGBA(48, 55, 120, 1)
+        Fill: =RGBA(226, 225, 249, 1)
+        Height: =134
+        Width: =1366
+        Y: =50
+        ZIndex: =2
+
+    Rectangle4_1 As rectangle:
+        BorderColor: =RGBA(89, 0, 0, 1)
+        Fill: =RGBA(251, 251, 251, 1)
+        Height: =127
+        Width: =518
+        X: =848
+        Y: =438
+        ZIndex: =3
+
+    Rectangle2_1 As rectangle:
+        BorderColor: =RGBA(48, 55, 120, 1)
+        Fill: =RGBA(242, 244, 249, 1)
+        Height: =583
+        Width: =1366
+        Y: =181
+        ZIndex: =4
+
+    btnInternalEmailExport As button:
+        BorderColor: =ColorFade(btnInternalEmailExport.Fill, -15%)
+        Color: =RGBA(48, 55, 120, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        DisplayMode: =If(Loading, DisplayMode.Disabled, DisplayMode.Edit)
+        Fill: =RGBA(251, 251, 251, 1)
+        FocusedBorderColor: =btnInternalEmailExport.BorderColor
+        Font: =Font.Lato
+        Height: =btnAllEmailExport.Height
+        HoverBorderColor: =Self.BorderColor
+        HoverFill: =Self.Fill
+        OnSelect: |-
+            =ClearCollect(EmailRecipients, Filter(AttendeeGallery.AllItems, Lower(MyDomain) = Lower(Last(ForAll(Split(Mail, "@"), {Result: ThisRecord.Value})).Result)));UpdateContext({emailType:"Internal"})
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0
+        PaddingTop: =0
+        PressedBorderColor: =btnInternalEmailExport.Fill
+        PressedColor: =btnInternalEmailExport.Fill
+        PressedFill: =btnInternalEmailExport.Color
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Text: ="Internal Only"
+        Visible: =checkEmail.Value
+        Width: =158
+        X: =btnAllEmailExport.X+170
+        Y: =btnAllEmailExport.Y
+        ZIndex: =6
+
+    btnAllEmailExport As button:
+        BorderColor: =ColorFade(btnAllEmailExport.Fill, -15%)
+        Color: =RGBA(48, 55, 120, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        DisplayMode: =If(Loading, DisplayMode.Disabled, DisplayMode.Edit)
+        Fill: =RGBA(251, 251, 251, 1)
+        FocusedBorderColor: =btnAllEmailExport.BorderColor
+        Font: =Font.Lato
+        Height: =33
+        HoverBorderColor: =Self.BorderColor
+        HoverFill: =Self.Fill
+        OnSelect: |-
+            =ClearCollect(EmailRecipients, AttendeeGallery.AllItems);UpdateContext({emailType:"All"})
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0
+        PaddingTop: =0
+        PressedBorderColor: =btnAllEmailExport.Fill
+        PressedColor: =btnAllEmailExport.Fill
+        PressedFill: =btnAllEmailExport.Color
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Text: ="All Attendees"
+        Visible: =checkEmail.Value
+        Width: =158
+        X: =920
+        Y: =204
+        ZIndex: =7
+
+    btnMeEmail As button:
+        BorderColor: =ColorFade(btnMeEmail.Fill, -15%)
+        Color: =RGBA(48, 55, 120, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        DisplayMode: =If(Loading, DisplayMode.Disabled, DisplayMode.Edit)
+        Fill: =RGBA(251, 251, 251, 1)
+        FocusedBorderColor: =btnMeEmail.BorderColor
+        Font: =Font.Lato
+        Height: =btnAllEmailExport.Height
+        HoverBorderColor: =Self.BorderColor
+        HoverFill: =Self.Fill
+        OnSelect: |
+            =ClearCollect(EmailRecipients, Filter(AttendeeGallery.AllItems,Mail = User().Email));
+            UpdateContext({emailType:"Me"});
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0
+        PaddingTop: =0
+        PressedBorderColor: =btnMeEmail.Fill
+        PressedColor: =btnMeEmail.Fill
+        PressedFill: =btnMeEmail.Color
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Text: ="Me"
+        Visible: =checkEmail.Value
+        Width: =75
+        X: =1259
+        Y: =204
+        ZIndex: =8
+
+    grpExportOneNote As group:
+        Height: =5
+        Width: =5
+        X: =80
+        Y: =80
+        ZIndex: =57
+
+        OneNotecheck As checkbox:
+            BorderColor: =RGBA(48,55,120,1)
+            CheckboxBackgroundFill: =RGBA(255,255,255,1)
+            CheckboxBorderColor: =Color.DarkBlue
+            CheckboxSize: =45
+            CheckmarkFill: =Color.DarkBlue
+            Color: =RGBA(48, 55, 120, 1)
+            FocusedBorderColor: =OneNotecheck.BorderColor
+            FocusedBorderThickness: =0
+            Height: =49
+            HoverBorderColor: =Self.BorderColor
+            HoverColor: =Self.Color
+            HoverFill: =Self.Fill
+            OnCheck: |-
+                =Set(
+                    SelectedMeetingDuration,
+                    DateDiff(
+                        SelectedMeeting.Start,
+                        SelectedMeeting.End,
+                        TimeUnit.Seconds
+                    )
+                );
+                If(
+                    ExportConfirmed,
+                    Set(
+                        Loading,
+                        true
+                    );
+                    
+                /*Set(arrG_ResourcesList,
+                LookUp(
+                    MeetingList,
+                     ID = First(Filter(
+                            MeetingList,
+                            MeetingID = SelectedMeeting.Id
+                        )
+                    ).ID
+                ).'{Attachments}'
+                );*/
+                If(
+                        checkEmail.Value || chkCheckPlanner_1.Value || chkCheckPlanner_2.Value,
+                        ClearCollect(
+                            TemplateData,
+                            {
+                                Field: "{MeetingName}",
+                                Data: SelectedMeeting.Subject
+                            },
+                            {
+                                Field: "{MeetingStartDate}",
+                                Data: Text(
+                                    SelectedMeeting.Start,
+                                    "[$-en-US]mmm. dd, yyyy"
+                                )
+                            },
+                            {
+                                Field: "{MeetingStartTime}",
+                                Data: Lower(
+                                    Text(
+                                        SelectedMeeting.Start,
+                                        "[$-en-US]hh:mm am/pm"
+                                    )
+                                )
+                            },
+                            {
+                                Field: "{MeetingEndTime}",
+                                Data: Lower(
+                                    Text(
+                                        SelectedMeeting.End,
+                                        "[$-en-US]hh:mm am/pm"
+                                    )
+                                )
+                            },
+                            {
+                                Field: "{MeetingMinutes}",
+                                Data: Text(SelectedMeetingDuration / 60)
+                            },
+                            {
+                                Field: "{MeetingAttendeeNum}",
+                                Data: Text(CountRows(MeetingAttendees))
+                            },
+                            {
+                                Field: "{1}",
+                                Data: Concat(
+                                    GroupBy(
+                                        ForAll(
+                                            MeetingAttendees,
+                                            Collect(
+                                                Indexes,
+                                                {Index: Last(Indexes).Index + 1}
+                                            );
+                                            {
+                                                Page: RoundDown(
+                                                    Last(Indexes).Index / 3,
+                                                    0
+                                                ),
+                                                Id: Id,
+                                                DisplayName: DisplayName,
+                                                JobTitle: JobTitle
+                                            }
+                                        ),
+                                        "Page",
+                                        "Attendees"
+                                    ),
+                                    "<tr>" & Concat(
+                                        Attendees,
+                                        "<td class='user-name' width='221'>" & DisplayName & "</td>"
+                                    ) & If(
+                                        CountRows(Attendees) = 2,
+                                        "<td class='user-name' width='221'></td>",
+                                        CountRows(Attendees) = 1,
+                                        "<td class='user-name' width='221'></td><td class='user-name' width='221'></td>"
+                                    ) & "</tr><tr>" & Concat(
+                                        Attendees,
+                                        "<td class='job-title'>" & JobTitle & "</td>"
+                                    ) & If(
+                                        CountRows(Attendees) = 2,
+                                        "<td class='job-title'></td>",
+                                        CountRows(Attendees) = 1,
+                                        "<td class='job-title'></td><td class='job-title'></td>"
+                                    ) & "</tr><tr><td colspan='3' style='height:10px;'></td></tr>"
+                                )
+                            },
+                            {
+                                Field: "{MeetingDetails}",
+                                Data: SelectedMeeting.Body
+                            },
+                            {
+                                Field: "{MeetingNotes}",
+                                Data: 'MeetingDetails notes'.HtmlText
+                            },
+                            {
+                                Field: "{2}",
+                                Data: If(
+                                    CountRows(arrMeetingAgendaList) > 0,
+                                    "<tr><td colspan='2'><table border='0' ellpadding='0' cellspacing='0' class='no-border'><tr><td class='header' style='padding-bottom:10px;'>Agenda</td></tr>" & Concat(
+                                        arrMeetingAgendaList,
+                                        "<tr><td class='Agenda'><table border='0' cellpadding='0' cellspacing='0' class='no-border'          style='table-layout:auto'><tr><td class='name' style='font-size:13px;'>" & Title & "</td><td class='due-time'>" & Description & "</td></tr><tr><td  class='assign-to'>" & Modified & "</td><td></tr><tr><td colspan='2'  class='Link' style='font-size:10px;'> <a class='link-name' href='" & Icon.Link & "' target='_blank'>" & "Attachment" & "</a></td></tr><td></tr></table></td></tr>"
+                                    ) & "</table></td></tr>",
+                                    ""
+                                )
+                            },
+                            {
+                                Field: "{3}",
+                                Data: If(
+                                    CountRows(arrResourceList) > 0,
+                                    "<tr><td colspan='2' ><table border='0' ellpadding='0' cellspacing='0' class='no-border'><tr><td class='header' style='padding-bottom:10px;'>Resources</td></tr>" & Concat(
+                                        arrResourceList,
+                                        "<tr><td class='Resources'><table border='0' cellpadding='0' cellspacing='0' class='no-border'          style='table-layout:auto'><tr><td class='name' style='font-size:13px;'>" & DisplayName & "</td>
+                                        <tr><td class=Link style='font-size:10px;'> <a class='link-name' href='" & AbsoluteUri & "' target='_blank'>" & "Attachment" & "</a></td></tr><td></tr></table></td></tr>"
+                                    ) & "</table></td></tr>",
+                                    ""
+                                )
+                            }
+                        )
+                    );
+                    ForAll(
+                        TemplateData,
+                        Patch(
+                            Templates,
+                            LookUp(
+                                Templates,
+                                Template = "Email"
+                            ),
+                            {
+                                Value: Substitute(
+                                    LookUp(
+                                        Templates,
+                                        Template = "Email"
+                                    ).Value,
+                                    Field,
+                                    Data
+                                )
+                            }
+                        )
+                    );
+                    Office365Outlook.SendEmailV2(
+                        Concat(
+                            EmailRecipients,
+                            UserPrincipalName & ";"
+                        ),
+                        "MEETING NOTES - " & SelectedMeeting.Subject & " - " & Text(
+                            SelectedMeeting.Start,
+                            "[$-en-US]mmmm dd, yyyy"
+                        ) & " | " & Lower(
+                            Text(
+                                SelectedMeeting.Start,
+                                "[$-en-US]hh:mm am/pm"
+                            )
+                        ) & " - " & Lower(
+                            Text(
+                                SelectedMeeting.End,
+                                "[$-en-US]hh:mm am/pm"
+                            )
+                        ) & " (" & DateDiff(
+                            SelectedMeeting.Start,
+                            SelectedMeeting.End,
+                            TimeUnit.Minutes
+                        ) & " minutes)",
+                        LookUp(
+                            Templates,
+                            Template = "Email"
+                        ).Value
+                    );
+                    Set(
+                        Loading,
+                        false
+                    );
+                    
+                )
+            OnUncheck: |-
+                =Set(SelectedNoteBook, Blank());
+                Set(SelectedSection, Blank())
+            PressedBorderColor: =ColorFade(OneNotecheck.BorderColor, -30%)
+            PressedFill: =ColorFade(OneNotecheck.Fill, -30%)
+            TabIndex: =3
+            Text: =""
+            Tooltip: ="Click Here if you want to save data in OneNote"
+            Width: =63
+            X: =72
+            Y: =201
+            ZIndex: =14
+
+        imgOneNoteIcon As image:
+            BorderColor: =RGBA(48,55,120,1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            FocusedBorderColor: =imgOneNoteIcon.BorderColor
+            Height: =24
+            HoverBorderColor: =ColorFade(imgOneNoteIcon.BorderColor, 20%)
+            HoverFill: =ColorFade(imgOneNoteIcon.Fill, 20%)
+            Image: ='one-note'
+            PressedBorderColor: =ColorFade(imgOneNoteIcon.BorderColor, -20%)
+            PressedFill: =ColorFade(imgOneNoteIcon.Fill, -20%)
+            Width: =24
+            X: =135
+            Y: =215
+            ZIndex: =16
+
+        lblOneNoteHeader As label:
+            BorderColor: =RGBA(48,55,120,1)
+            Color: =RGBA(48, 55, 120, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderColor: =lblOneNoteHeader.BorderColor
+            Font: =Font.Lato
+            FontWeight: =FontWeight.Semibold
+            Height: =53
+            HoverBorderColor: =lblOneNoteHeader.BorderColor
+            HoverColor: =lblOneNoteHeader.Color
+            HoverFill: =lblOneNoteHeader.Fill
+            PressedBorderColor: =lblOneNoteHeader.BorderColor
+            PressedColor: =lblOneNoteHeader.Color
+            PressedFill: =lblOneNoteHeader.Fill
+            Size: =15
+            TabIndex: =4
+            Text: ="OneNote"
+            Width: =176
+            X: =168
+            Y: =201
+            ZIndex: =17
+
+        lblOneNoteExportDescript As label:
+            BorderColor: =RGBA(48,55,120,1)
+            Color: =RGBA(48, 55, 120, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderColor: =lblOneNoteExportDescript.BorderColor
+            Font: =Font.Lato
+            FontWeight: =FontWeight.Semibold
+            Height: =28
+            HoverBorderColor: =lblOneNoteExportDescript.BorderColor
+            HoverColor: =lblOneNoteExportDescript.Color
+            HoverFill: =lblOneNoteExportDescript.Fill
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            PressedBorderColor: =lblOneNoteExportDescript.BorderColor
+            PressedColor: =lblOneNoteExportDescript.Color
+            PressedFill: =lblOneNoteExportDescript.Fill
+            Size: =10.5
+            Text: ="Export meeting summary, notes, attachments, and tasks to your OneNote."
+            Width: =507
+            X: =135
+            Y: =247
+            ZIndex: =18
+
+        btnShowOneNoteSelection As button:
+            BorderColor: =RGBA(48,55,120,1)
+            BorderThickness: =1
+            Color: =RGBA(242, 244, 249, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: =RGBA(48, 55, 120, 1)
+            FocusedBorderColor: =btnShowOneNoteSelection.BorderColor
+            FocusedBorderThickness: =1
+            Font: =Font.Lato
+            Height: =43
+            HoverBorderColor: =Self.BorderColor
+            HoverFill: =Self.Fill
+            OnSelect: |-
+                =Set(
+                    ShowOneNote,
+                    true
+                );
+                ClearCollect(
+                    OneNoteSections,
+                    'OneNote(Business)'.GetSectionsInNotebook(OneNoteBookSelect.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BKey').value
+                );
+                UpdateContext({SectionAdded: false})
+            PressedBorderColor: =btnShowOneNoteSelection.Fill
+            PressedColor: =btnShowOneNoteSelection.Fill
+            PressedFill: =btnShowOneNoteSelection.Color
+            RadiusBottomLeft: =3
+            RadiusBottomRight: =3
+            RadiusTopLeft: =3
+            RadiusTopRight: =3
+            Size: =10.5
+            TabIndex: =5
+            Text: =If(lblExportToOneNote.Height > 0, "Select new location", "Select Location")
+            Visible: =OneNotecheck.Value
+            Width: =170
+            X: =135
+            Y: =328
+            ZIndex: =19
+
+        lblOneNoteDataLossDescript As label:
+            BorderColor: =RGBA(48,55,120,1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(234, 237, 239, 1)
+            FocusedBorderColor: =lblOneNoteDataLossDescript.BorderColor
+            HoverBorderColor: =lblOneNoteDataLossDescript.BorderColor
+            HoverColor: =lblOneNoteDataLossDescript.Color
+            HoverFill: =lblOneNoteDataLossDescript.Fill
+            PaddingLeft: =57
+            PressedBorderColor: =lblOneNoteDataLossDescript.BorderColor
+            PressedColor: =lblOneNoteDataLossDescript.Color
+            PressedFill: =lblOneNoteDataLossDescript.Fill
+            Size: =9
+            Text: ="Photos and sketches cannot be exported to OneNote. ‘Export to Email’ to prevent attachments from being lost."
+            Visible: =OneNotecheck.Value && !checkEmail.Value
+            Width: =480
+            X: =135
+            Y: =380
+            ZIndex: =30
+
+        iconOneNoteDataLossWarn As icon.Warning:
+            BorderColor: =RGBA(48,55,120,1)
+            Color: =RGBA(44, 48, 52, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(244, 244, 244, 1)
+            DisabledFill: =iconOneNoteDataLossWarn.Fill
+            FocusedBorderColor: =iconOneNoteDataLossWarn.BorderColor
+            Height: =24
+            HoverBorderColor: =ColorFade(iconOneNoteDataLossWarn.BorderColor, 20%)
+            HoverColor: =ColorFade(iconOneNoteDataLossWarn.Color, 20%)
+            HoverFill: =iconOneNoteDataLossWarn.Fill
+            Icon: =Icon.Warning
+            PressedBorderColor: =ColorFade(iconOneNoteDataLossWarn.BorderColor, -20%)
+            PressedColor: =ColorFade(iconOneNoteDataLossWarn.Color, -20%)
+            PressedFill: =iconOneNoteDataLossWarn.Fill
+            Visible: =OneNotecheck.Value && !checkEmail.Value
+            Width: =24
+            X: =150
+            Y: =388
+            ZIndex: =31
+
+        lblOneNoteExportLocation As label:
+            BorderColor: =RGBA(48,55,120,1)
+            Color: =RGBA(43, 67, 119, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderColor: =lblOneNoteExportLocation.BorderColor
+            Font: =Font.Lato
+            Height: =41
+            HoverBorderColor: =lblOneNoteExportLocation.BorderColor
+            HoverColor: =lblOneNoteExportLocation.Color
+            HoverFill: =lblOneNoteExportLocation.Fill
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            PressedBorderColor: =lblOneNoteExportLocation.BorderColor
+            PressedColor: =lblOneNoteExportLocation.Color
+            PressedFill: =lblOneNoteExportLocation.Fill
+            Size: =12
+            Text: =SelectedNoteBook.Value & " - " & SelectedSection.'data-ADB4D7A662F548B49FAC2B986E348A1Bname'
+            Visible: =OneNotecheck.Value && lblExportToOneNote.Height > 0
+            Width: =423
+            X: =208
+            Y: =277
+            ZIndex: =34
+
+        lblExportToOneNote As label:
+            BorderColor: =RGBA(48,55,120,1)
+            Color: =RGBA(155, 155, 155, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderColor: =lblExportToOneNote.BorderColor
+            Font: =Font.Lato
+            Height: =41
+            HoverBorderColor: =lblExportToOneNote.BorderColor
+            HoverColor: =lblExportToOneNote.Color
+            HoverFill: =lblExportToOneNote.Fill
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            PressedBorderColor: =lblExportToOneNote.BorderColor
+            PressedColor: =lblExportToOneNote.Color
+            PressedFill: =lblExportToOneNote.Fill
+            Size: =10.5
+            Text: |-
+                ="Export to:"
+            Visible: =OneNotecheck.Value
+            Width: =73
+            X: =135
+            Y: =277
+            ZIndex: =35
+
+        shapeRectangle2OneNote As rectangle:
+            BorderColor: =RGBA(48,55,120,1)
+            DisabledFill: =shapeRectangle2OneNote.Fill
+            DisplayMode: =DisplayMode.View
+            Fill: =RGBA(215, 218, 221, 1)
+            FocusedBorderColor: =shapeRectangle2OneNote.BorderColor
+            Height: =2
+            HoverFill: =shapeRectangle2OneNote.Fill
+            PressedFill: =shapeRectangle2OneNote.Fill
+            Visible: =OneNotecheck.Value && lblExportToOneNote.Height > 0
+            Width: =496
+            X: =135
+            Y: =277
+            ZIndex: =36
+
+        shapeRectangleOneNote As rectangle:
+            BorderColor: =RGBA(48,55,120,1)
+            DisabledFill: =shapeRectangleOneNote.Fill
+            DisplayMode: =DisplayMode.View
+            Fill: =RGBA(215, 218, 221, 1)
+            FocusedBorderColor: =shapeRectangleOneNote.BorderColor
+            Height: =2
+            HoverFill: =shapeRectangleOneNote.Fill
+            PressedFill: =shapeRectangleOneNote.Fill
+            Visible: =OneNotecheck.Value && lblExportToOneNote.Height > 0
+            Width: =496
+            X: =135
+            Y: =277
+            ZIndex: =37
+
+    grpExportEmail As group:
+        Height: =5
+        Width: =5
+        X: =80
+        Y: =80
+        ZIndex: =58
+
+        checkEmail As checkbox:
+            BorderColor: =RGBA(237, 41, 85, 1)
+            CheckboxBackgroundFill: =RGBA(255,255,255,1)
+            CheckboxBorderColor: =Color.DarkBlue
+            CheckboxSize: =45
+            CheckmarkFill: =Color.DarkBlue
+            Color: =RGBA(0, 0, 0, 1)
+            Default: =true
+            FocusedBorderColor: =checkEmail.BorderColor
+            FocusedBorderThickness: =0
+            HoverBorderColor: =ColorFade(checkEmail.BorderColor, 30%)
+            HoverColor: =RGBA(89, 0, 0, 1)
+            HoverFill: =ColorFade(checkEmail.Fill, 30%)
+            PressedBorderColor: =ColorFade(checkEmail.BorderColor, -30%)
+            PressedFill: =ColorFade(checkEmail.Fill, -30%)
+            TabIndex: =13
+            Text: =""
+            Tooltip: ="Click Here If you want to send through Email"
+            Width: =63
+            X: =750
+            Y: =193
+            ZIndex: =15
+
+        imgEmailIcon As image:
+            BorderColor: =RGBA(89, 0, 0, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            FocusedBorderColor: =imgEmailIcon.BorderColor
+            Height: =24
+            HoverBorderColor: =ColorFade(imgEmailIcon.BorderColor, 20%)
+            HoverFill: =ColorFade(imgEmailIcon.Fill, 20%)
+            Image: =outlook
+            PressedBorderColor: =ColorFade(imgEmailIcon.BorderColor, -20%)
+            PressedFill: =ColorFade(imgEmailIcon.Fill, -20%)
+            Width: =24
+            X: =813
+            Y: =211
+            ZIndex: =20
+
+        lblEmailHeader As label:
+            BorderColor: =RGBA(48, 55, 120, 1)
+            Color: =RGBA(251, 251, 251, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(48, 55, 120, 1)
+            FocusedBorderColor: =lblEmailHeader.BorderColor
+            Font: =Font.Lato
+            FontWeight: =FontWeight.Semibold
+            Height: =34
+            HoverBorderColor: =lblEmailHeader.BorderColor
+            HoverColor: =lblEmailHeader.Color
+            HoverFill: =lblEmailHeader.Fill
+            PressedBorderColor: =lblEmailHeader.BorderColor
+            PressedColor: =lblEmailHeader.Color
+            PressedFill: =lblEmailHeader.Fill
+            Size: =15
+            TabIndex: =14
+            Text: ="Email"
+            Width: =66
+            X: =842
+            Y: =203
+            ZIndex: =21
+
+        lblEmailExportDescript As label:
+            BorderColor: =RGBA(48, 55, 120, 1)
+            Color: =RGBA(48, 55, 120, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderColor: =lblEmailExportDescript.BorderColor
+            Font: =Font.Lato
+            FontWeight: =FontWeight.Semibold
+            Height: =28
+            HoverBorderColor: =lblEmailExportDescript.BorderColor
+            HoverColor: =lblEmailExportDescript.Color
+            HoverFill: =lblEmailExportDescript.Fill
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            PressedBorderColor: =lblEmailExportDescript.BorderColor
+            PressedColor: =lblEmailExportDescript.Color
+            PressedFill: =lblEmailExportDescript.Fill
+            Size: =10.5
+            Text: ="Email meeting summary, notes, attachments, and tasks to the attendees."
+            Width: =507
+            X: =813
+            Y: =240
+            ZIndex: =22
+
+        btnRecipientGalleryBkg As button:
+            BorderColor: =RGBA(227, 227, 227, 1)
+            Color: =RGBA(227, 227, 227, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: =RGBA(62,96,170,0)
+            FocusedBorderColor: =btnRecipientGalleryBkg.BorderColor
+            Height: =130
+            HoverBorderColor: =ColorFade(btnRecipientGalleryBkg.BorderColor, 20%)
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =ColorFade(RGBA(48, 55, 120, 1), -20%)
+            PressedBorderColor: =btnRecipientGalleryBkg.Fill
+            PressedColor: =btnRecipientGalleryBkg.Fill
+            PressedFill: =btnRecipientGalleryBkg.Color
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            Text: =""
+            Width: =521
+            X: =810
+            Y: =305
+            ZIndex: =23
+
+        lblAttendeeCount As label:
+            BorderColor: =RGBA(48, 55, 120, 1)
+            Color: =RGBA(48, 55, 120, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderColor: =lblAttendeeCount.BorderColor
+            Font: =Font.Lato
+            FontWeight: =FontWeight.Semibold
+            Height: =28
+            HoverBorderColor: =lblAttendeeCount.BorderColor
+            HoverColor: =lblAttendeeCount.Color
+            HoverFill: =lblAttendeeCount.Fill
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            PressedBorderColor: =lblAttendeeCount.BorderColor
+            PressedColor: =lblAttendeeCount.Color
+            PressedFill: =lblAttendeeCount.Fill
+            Size: =10.5
+            Text: ="Attendees (" & CountRows(EmailRecipients) & ")"
+            Visible: =checkEmail.Value
+            Width: =507
+            X: =813
+            Y: =270
+            ZIndex: =24
+
+        galEmailRecipients As gallery.galleryVertical:
+            BorderColor: =RGBA(48, 55, 120, 0.01)
+            DisabledBorderColor: =galEmailRecipients.BorderColor
+            DisabledFill: =galEmailRecipients.Fill
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =211
+            HoverBorderColor: =galEmailRecipients.BorderColor
+            HoverFill: =galEmailRecipients.Fill
+            Items: |-
+                =EmailRecipients
+                /*AddColumns(
+                    EmailRecipients,
+                    "UserPhoto1",
+                        // check if the the user has an email and a profile picture
+                    If(
+                        Not(IsBlank(Id)) && Office365Users.UserPhotoMetadata(Id).HasPhoto,
+                        Office365Users.UserPhotoV2(Id)
+                    ),
+                    "Initials1",
+                    With(
+                        {
+                            // get the user record
+                            varRecordUser: If(
+                                !IsBlank(Id) && "@ilink-systems.com" in Mail,
+                                Office365Users.UserProfileV2(Id),
+                                {
+                                displayName: Mail,
+                                surname: Mail
+                            }
+                            )
+                        },
+                        // find the user initials
+                        Concatenate(
+                            Left(
+                                varRecordUser.displayName,
+                                1
+                            ),
+                            Left(
+                                varRecordUser.surname,
+                                1
+                            )
+                        )
+                    )
+                )*/
+            Layout: =Layout.Vertical
+            PressedBorderColor: =galEmailRecipients.BorderColor
+            PressedFill: =galEmailRecipients.Fill
+            TabIndex: =
+            TemplatePadding: =10
+            TemplateSize: =50
+            Visible: =checkEmail.Value
+            Width: =521
+            WrapCount: =2
+            X: =810
+            Y: =305
+            ZIndex: =25
+
+            Rectangle1 As rectangle:
+                BorderThickness: =1
+                Fill: =RGBA(242, 244, 249, 1)
+                Height: =50
+                OnSelect: =Select(Parent)
+                Width: =241
+                X: =3
+                ZIndex: =1
+
+            lblRecipientName As button:
+                Align: =If(MultiRecipients, TextPosition.Left, LayoutAlignItems.Center)
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderThickness: =0
+                Color: =RGBA(48, 55, 120, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Fill: =RGBA(0, 0, 0, 0)
+                FocusedBorderColor: =lblRecipientName.BorderColor
+                FocusedBorderThickness: =1
+                Font: =Font.Lato
+                FontWeight: =FontWeight.Normal
+                HoverBorderColor: =ColorFade(lblRecipientName.BorderColor, 20%)
+                HoverColor: =RGBA(48, 55, 120, 1)
+                HoverFill: =RGBA(242, 244, 249, 1)
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =15
+                PaddingRight: =40
+                PaddingTop: =0
+                PressedBorderColor: =lblRecipientName.Fill
+                PressedColor: =lblRecipientName.Color
+                PressedFill: =lblRecipientName.Fill
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =9
+                Text: =ThisItem.DisplayName
+                Width: =173
+                X: =43
+                Y: =6
+                ZIndex: =2
+
+            iconRemoveRecipient As icon.Cancel:
+                BorderColor: =RGBA(48, 55, 120, 1)
+                Color: =RGBA(48, 55, 120, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(244, 244, 244, 1)
+                DisabledFill: =iconRemoveRecipient.Fill
+                FocusedBorderColor: =iconRemoveRecipient.BorderColor
+                FocusedBorderThickness: =0
+                Height: =38
+                HoverBorderColor: =ColorFade(iconRemoveRecipient.BorderColor, 20%)
+                HoverColor: =ColorFade(iconRemoveRecipient.Color, 20%)
+                HoverFill: =iconRemoveRecipient.Fill
+                Icon: =Icon.Cancel
+                OnSelect: =Remove(EmailRecipients,ThisItem)
+                PaddingLeft: =3
+                PaddingRight: =3
+                PressedBorderColor: =ColorFade(iconRemoveRecipient.BorderColor, -20%)
+                PressedColor: =ColorFade(iconRemoveRecipient.Color, -20%)
+                PressedFill: =iconRemoveRecipient.Fill
+                Width: =28
+                X: =210
+                Y: =6
+                ZIndex: =3
+
+            imgResult_1 As image:
+                BorderColor: =RGBA(48, 55, 120, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                FocusedBorderColor: =imgResult_1.BorderColor
+                Height: =40
+                HoverBorderColor: =ColorFade(imgResult_1.BorderColor, 20%)
+                HoverFill: =ColorFade(imgResult_1.Fill, 20%)
+                Image: |-
+                    =/*If(Not(IsBlank(ThisItem.Id)) && Office365Users.UserPhotoMetadata(ThisItem.Id).HasPhoto,Office365Users.UserPhoto(ThisItem.Id),'default-profile')*/
+                    ThisItem.UserPhoto
+                OnSelect: =Select(Parent)
+                PressedBorderColor: =ColorFade(imgResult_1.BorderColor, -20%)
+                PressedFill: =ColorFade(imgResult_1.Fill, -20%)
+                RadiusBottomLeft: =20
+                RadiusBottomRight: =20
+                RadiusTopLeft: =20
+                RadiusTopRight: =20
+                Width: =40
+                X: =8
+                Y: =6
+                ZIndex: =4
+
+            initils_btn As button:
+                DisplayMode: =DisplayMode.View
+                Font: =Font.Lato
+                OnSelect: =Select(Parent)
+                RadiusBottomLeft: =20
+                RadiusBottomRight: =20
+                RadiusTopLeft: =20
+                RadiusTopRight: =20
+                Size: =9
+                Text: =ThisItem.Initials
+                Visible: =IsBlank(imgResult_1)
+                Width: =40
+                X: =8
+                Y: =6
+                ZIndex: =5
+
+        lblAddAttendee As label:
+            BorderColor: =RGBA(48, 55, 120, 1)
+            Color: =RGBA(48, 55, 120, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderColor: =lblAddAttendee.BorderColor
+            Font: =Font.Lato
+            FontWeight: =FontWeight.Semibold
+            Height: =28
+            HoverBorderColor: =lblAddAttendee.BorderColor
+            HoverColor: =lblAddAttendee.Color
+            HoverFill: =lblAddAttendee.Fill
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            PressedBorderColor: =lblAddAttendee.BorderColor
+            PressedColor: =lblAddAttendee.Color
+            PressedFill: =lblAddAttendee.Fill
+            Size: =10.5
+            Text: ="Add attendee"
+            Visible: =checkEmail.Value
+            Width: =507
+            X: =816
+            Y: =525
+            ZIndex: =26
+
+        txtSearchUser As text:
+            BorderColor: =RGBA(227, 227, 227, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            Default: =""
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            FocusedBorderColor: =txtSearchUser.BorderColor
+            FocusedBorderThickness: =2
+            Font: =Font.Lato
+            HintText: ="Search for users in your org"
+            HoverBorderColor: =Self.BorderColor
+            HoverColor: =Self.Color
+            HoverFill: =Self.Fill
+            Mode: =TextMode.MultiLine
+            PaddingBottom: =0
+            PaddingLeft: =40
+            PaddingTop: =10
+            PressedBorderColor: =txtSearchUser.HoverBorderColor
+            PressedColor: =txtSearchUser.Color
+            PressedFill: =txtSearchUser.Fill
+            RadiusBottomLeft: =3
+            RadiusBottomRight: =3
+            RadiusTopLeft: =3
+            RadiusTopRight: =3
+            TabIndex: =15
+            Visible: =checkEmail.Value
+            Width: =521
+            X: =813
+            Y: =555
+            ZIndex: =27
+
+        iconSearchUser As icon.Search:
+            BorderColor: =RGBA(89, 0, 0, 1)
+            Color: =RGBA(48, 55, 120, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(244, 244, 244, 1)
+            DisabledFill: =iconSearchUser.Fill
+            FocusedBorderColor: =iconSearchUser.BorderColor
+            Height: =40
+            HoverBorderColor: =ColorFade(iconSearchUser.BorderColor, 20%)
+            HoverColor: =ColorFade(iconSearchUser.Color, 20%)
+            HoverFill: =iconSearchUser.Fill
+            Icon: =Icon.Search
+            PressedBorderColor: =ColorFade(iconSearchUser.BorderColor, -20%)
+            PressedColor: =ColorFade(iconSearchUser.Color, -20%)
+            PressedFill: =iconSearchUser.Fill
+            Visible: =checkEmail.Value
+            Width: =24
+            X: =819
+            Y: =557
+            ZIndex: =28
+
+        galUserSearchResults As gallery.galleryVertical:
+            BorderColor: =RGBA(48, 55, 120, 1)
+            DisabledBorderColor: =galUserSearchResults.BorderColor
+            DisabledFill: =galUserSearchResults.Fill
+            Height: =153
+            HoverBorderColor: =galUserSearchResults.BorderColor
+            HoverFill: =galUserSearchResults.Fill
+            Items: |-
+                =If(!IsBlank(txtSearchUser.Text), Office365Users.SearchUser({searchTerm:Trim(txtSearchUser.Text)}))
+            Layout: =Layout.Vertical
+            OnSelect: =If(Not(ThisItem.Id in EmailRecipients.Id), Collect(EmailRecipients, ThisItem))
+            PressedBorderColor: =galUserSearchResults.BorderColor
+            PressedFill: =galUserSearchResults.Fill
+            ShowScrollbar: =false
+            TabIndex: =16
+            TemplatePadding: =10
+            TemplateSize: =40
+            Visible: =checkEmail.Value
+            Width: =521
+            X: =813
+            Y: =600
+            ZIndex: =29
+
+            Rectangle6_1 As rectangle:
+                BorderColor: =RGBA(48, 55, 120, 1)
+                Fill: =RGBA(251, 251, 251, 1)
+                Height: =40
+                OnSelect: =Select(Parent)
+                Width: =486
+                X: =5
+                ZIndex: =1
+
+            imgResult As image:
+                BorderColor: =RGBA(89, 0, 0, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                FocusedBorderColor: =imgResult.BorderColor
+                Height: =40
+                HoverBorderColor: =ColorFade(imgResult.BorderColor, 20%)
+                HoverFill: =ColorFade(imgResult.Fill, 20%)
+                Image: |-
+                    =If(!IsBlank(txtSearchUser.Text) && Not(IsBlank(ThisItem.Id)) && Office365Users.UserPhotoMetadata(ThisItem.Id).HasPhoto,
+                        Office365Users.UserPhoto(ThisItem.Id),
+                        'default-profile'
+                    )
+                OnSelect: =Select(Parent)
+                PressedBorderColor: =ColorFade(imgResult.BorderColor, -20%)
+                PressedFill: =ColorFade(imgResult.Fill, -20%)
+                RadiusBottomLeft: =20
+                RadiusBottomRight: =20
+                RadiusTopLeft: =20
+                RadiusTopRight: =20
+                Width: =40
+                X: =5
+                ZIndex: =2
+
+            lblResultDisplayName As label:
+                BorderColor: =RGBA(89, 0, 0, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderColor: =lblResultDisplayName.BorderColor
+                Font: =Font.Lato
+                FontWeight: =FontWeight.Semibold
+                Height: =19
+                HoverBorderColor: =lblResultDisplayName.BorderColor
+                HoverColor: =lblResultDisplayName.Color
+                HoverFill: =lblResultDisplayName.Fill
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                PressedBorderColor: =lblResultDisplayName.BorderColor
+                PressedColor: =lblResultDisplayName.Color
+                PressedFill: =lblResultDisplayName.Fill
+                Size: =12
+                Text: =ThisItem.DisplayName
+                VerticalAlign: =VerticalAlign.Top
+                Width: =270
+                X: =55
+                Y: =2
+                ZIndex: =3
+
+            lblResultJobTitle As label:
+                BorderColor: =RGBA(89, 0, 0, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderColor: =lblResultJobTitle.BorderColor
+                Font: =Font.Lato
+                Height: =14.4
+                HoverBorderColor: =lblResultJobTitle.BorderColor
+                HoverColor: =lblResultJobTitle.Color
+                HoverFill: =lblResultJobTitle.Fill
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                PressedBorderColor: =lblResultJobTitle.BorderColor
+                PressedColor: =lblResultJobTitle.Color
+                PressedFill: =lblResultJobTitle.Fill
+                Size: =8
+                Text: =ThisItem.JobTitle
+                Width: =270
+                X: =55
+                Y: =21
+                ZIndex: =4
+
+            iconAddUser As icon.Add:
+                BorderColor: =RGBA(89, 0, 0, 1)
+                Color: =RGBA(48, 55, 120, 1)
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledColor: =RGBA(244, 244, 244, 1)
+                DisabledFill: =iconAddUser.Fill
+                FocusedBorderColor: =iconAddUser.BorderColor
+                FocusedBorderThickness: =0
+                Height: =40
+                HoverBorderColor: =ColorFade(iconAddUser.BorderColor, 20%)
+                HoverColor: =ColorFade(iconAddUser.Color, 20%)
+                HoverFill: =iconAddUser.Fill
+                Icon: =Icon.Add
+                OnSelect: =Select(Parent)
+                PaddingBottom: =7
+                PaddingLeft: =7
+                PaddingRight: =7
+                PaddingTop: =7
+                PressedBorderColor: =ColorFade(iconAddUser.BorderColor, -20%)
+                PressedColor: =ColorFade(iconAddUser.Color, -20%)
+                PressedFill: =iconAddUser.Fill
+                Width: =40
+                X: =451
+                ZIndex: =5
+
+        lblLoadingIndicatorUsers As label:
+            Align: =LayoutAlignItems.Center
+            BorderColor: =RGBA(89, 0, 0, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderColor: =lblLoadingIndicatorUsers.BorderColor
+            HoverBorderColor: =lblLoadingIndicatorUsers.BorderColor
+            HoverColor: =lblLoadingIndicatorUsers.Color
+            HoverFill: =lblLoadingIndicatorUsers.Fill
+            PressedBorderColor: =lblLoadingIndicatorUsers.BorderColor
+            PressedColor: =lblLoadingIndicatorUsers.Color
+            PressedFill: =lblLoadingIndicatorUsers.Fill
+            Text: ="Searching for users..."
+            Visible: =CountRows(galUserSearchResults.AllItems) < 0 && checkEmail.Value
+            Width: =370
+            X: =881
+            Y: =595
+            ZIndex: =38
+
+    grpExportBanner As group:
+        Height: =5
+        Width: =5
+        X: =80
+        Y: =80
+        ZIndex: =60
+
+        lblExportBannerHeader_1 As label:
+            BorderColor: =RGBA(89, 0, 0, 1)
+            Color: =RGBA(48, 55, 120, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderColor: =lblExportBannerHeader_1.BorderColor
+            Font: =Font.Lato
+            FontWeight: =FontWeight.Lighter
+            Height: =38
+            HoverBorderColor: =lblExportBannerHeader_1.BorderColor
+            HoverColor: =lblExportBannerHeader_1.Color
+            HoverFill: =lblExportBannerHeader_1.Fill
+            PressedBorderColor: =lblExportBannerHeader_1.BorderColor
+            PressedColor: =lblExportBannerHeader_1.Color
+            PressedFill: =lblExportBannerHeader_1.Fill
+            Size: =18
+            TabIndex: =2
+            Text: ="Export " & SelectedMeeting.Subject
+            Width: =1131
+            X: =104
+            Y: =80
+            ZIndex: =11
+
+        shapeRectangleExport As rectangle:
+            BorderColor: =RGBA(89, 0, 0, 1)
+            DisabledFill: =shapeRectangleExport.Fill
+            Fill: =RGBA(227, 227, 227, 1)
+            FocusedBorderColor: =shapeRectangleExport.BorderColor
+            FocusedBorderThickness: =0
+            Height: =1
+            HoverFill: =shapeRectangleExport.Fill
+            PressedFill: =shapeRectangleExport.Fill
+            Width: =1115
+            X: =lblExportBannerHeader_1.X
+            Y: =164
+            ZIndex: =12
+
+        lblExportQuestion As label:
+            BorderColor: =RGBA(89, 0, 0, 1)
+            Color: =RGBA(48, 55, 120, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderColor: =lblExportQuestion.BorderColor
+            Font: =Font.Lato
+            Height: =27
+            HoverBorderColor: =lblExportQuestion.BorderColor
+            HoverColor: =lblExportQuestion.Color
+            HoverFill: =lblExportQuestion.Fill
+            PressedBorderColor: =lblExportQuestion.BorderColor
+            PressedColor: =lblExportQuestion.Color
+            PressedFill: =lblExportQuestion.Fill
+            Size: =14
+            Text: ="Where would you like to export to?"
+            Width: =335
+            X: =104
+            Y: =118
+            ZIndex: =13
+
+        lblDataLossWarnText As label:
+            BorderColor: =RGBA(89, 0, 0, 1)
+            Color: =RGBA(48,50,120,1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Fill: =Color.White
+            FocusedBorderColor: =lblDataLossWarnText.BorderColor
+            Font: =Font.Lato
+            Height: =26
+            HoverBorderColor: =lblDataLossWarnText.BorderColor
+            HoverColor: =lblDataLossWarnText.Color
+            HoverFill: =lblDataLossWarnText.Fill
+            PaddingBottom: =10
+            PaddingLeft: =62
+            PaddingRight: =27
+            PaddingTop: =9
+            PressedBorderColor: =lblDataLossWarnText.BorderColor
+            PressedColor: =lblDataLossWarnText.Color
+            PressedFill: =lblDataLossWarnText.Fill
+            Size: =9
+            Text: ="Unless you select an export location, your meeting notes, attachments, estimations and tasks will be lost once you exit the application."
+            Visible: =!OneNotecheck.Value && !checkEmail.Value 
+            Width: =670
+            X: =104
+            Y: =147
+            ZIndex: =32
+
+        iconDataLossWarn As icon.Warning:
+            BorderColor: =RGBA(89, 0, 0, 1)
+            Color: =RGBA(48,55,120,1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(244, 244, 244, 1)
+            DisabledFill: =iconDataLossWarn.Fill
+            FocusedBorderColor: =iconDataLossWarn.BorderColor
+            Height: =16
+            HoverBorderColor: =ColorFade(iconDataLossWarn.BorderColor, 20%)
+            HoverColor: =ColorFade(iconDataLossWarn.Color, 20%)
+            HoverFill: =iconDataLossWarn.Fill
+            Icon: =Icon.Warning
+            PressedBorderColor: =ColorFade(iconDataLossWarn.BorderColor, -20%)
+            PressedColor: =ColorFade(iconDataLossWarn.Color, -20%)
+            PressedFill: =iconDataLossWarn.Fill
+            Visible: =!OneNotecheck.Value && !checkEmail.Value 
+            Width: =24
+            X: =41
+            Y: =156
+            ZIndex: =33
+
+        btnExport As button:
+            BorderColor: =ColorFade(btnExport.Fill, -15%)
+            Color: =Color.WhiteSmoke
+            DisabledBorderColor: =btnExport.DisabledFill
+            DisabledColor: =Color.White
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            DisplayMode: |-
+                =/*If(And(Not(OneNotecheck.Value && (IsBlank(SelectedNoteBook) || IsBlank(SelectedSection))),
+                Not(chkCheckPlanner_1.Value && (IsBlank(SelectedPlan) || IsBlank(SelectedBucket))),Not(chkCheckPlanner_2.Value && (IsBlank(SelectedPlan) || IsBlank(SelectedBucket))),
+                Not(checkEmail.Value && (CountRows(EmailRecipients) = 0)),
+                OneNotecheck.Value || chkCheckPlanner_1.Value || checkEmail.Value || chkCheckPlanner_2.Value),Edit,Disabled)*/
+                DisplayMode.Edit
+            Fill: =RGBA(48, 55, 120, 1)
+            FocusedBorderColor: =btnExport.BorderColor
+            Font: =Font.Lato
+            Height: =31
+            HoverBorderColor: =ColorFade(btnExport.BorderColor, 20%)
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =Color.DarkBlue
+            OnSelect: |-
+                =Set(ShowOverlay, true);Set(ShowOneNote, false);
+                Set(
+                    SelectedMeetingDuration,
+                    DateDiff(
+                        SelectedMeeting.Start,
+                        SelectedMeeting.End,
+                        TimeUnit.Seconds
+                    )
+                );
+                If(
+                    ExportConfirmed,
+                    Set(
+                        Loading,
+                        true
+                    );
+                   
+                /*Set(arrG_ResourcesList,
+                LookUp(
+                    MeetingList,
+                     ID = First(Filter(
+                            MeetingList,
+                            MeetingID = SelectedMeeting.Id
+                        )
+                    ).ID
+                ).'{Attachments}'
+                );*/
+                If(
+                        checkEmail.Value || OneNotecheck.Value || chkCheckPlanner_1.Value || chkCheckPlanner_2.Value,
+                        ClearCollect(
+                            TemplateData,
+                            {
+                                Field: "{MeetingName}",
+                                Data: SelectedMeeting.Subject
+                            },
+                            {
+                                Field: "{MeetingStartDate}",
+                                Data: Text(
+                                    SelectedMeeting.Start,
+                                    "[$-en-US]mmm. dd, yyyy"
+                                )
+                            },
+                            {
+                                Field: "{MeetingStartTime}",
+                                Data: Lower(
+                                    Text(
+                                        SelectedMeeting.Start,
+                                        "[$-en-US]hh:mm am/pm"
+                                    )
+                                )
+                            },
+                            {
+                                Field: "{MeetingEndTime}",
+                                Data: Lower(
+                                    Text(
+                                        SelectedMeeting.End,
+                                        "[$-en-US]hh:mm am/pm"
+                                    )
+                                )
+                            },
+                            {
+                                Field: "{MeetingMinutes}",
+                                Data: Text(SelectedMeetingDuration / 60)
+                            },
+                            {
+                                Field: "{MeetingAttendeeNum}",
+                                Data: Text(CountRows(MeetingAttendees))
+                            },
+                            {
+                                Field: "{1}",
+                                Data: Concat(
+                                    GroupBy(
+                                        ForAll(
+                                            MeetingAttendees,
+                                            Collect(
+                                                Indexes,
+                                                {Index: Last(Indexes).Index + 1}
+                                            );
+                                            {
+                                                Page: RoundDown(
+                                                    Last(Indexes).Index / 3,
+                                                    0
+                                                ),
+                                                Id: Id,
+                                                DisplayName: DisplayName,
+                                                JobTitle: JobTitle
+                                            }
+                                        ),
+                                        "Page",
+                                        "Attendees"
+                                    ),
+                                    "<tr>" & Concat(
+                                        Attendees,
+                                        "<td class='user-name' width='221'>" & DisplayName & "</td>"
+                                    ) & If(
+                                        CountRows(Attendees) = 2,
+                                        "<td class='user-name' width='221'></td>",
+                                        CountRows(Attendees) = 1,
+                                        "<td class='user-name' width='221'></td><td class='user-name' width='221'></td>"
+                                    ) & "</tr><tr>" & Concat(
+                                        Attendees,
+                                        "<td class='job-title'>" & JobTitle & "</td>"
+                                    ) & If(
+                                        CountRows(Attendees) = 2,
+                                        "<td class='job-title'></td>",
+                                        CountRows(Attendees) = 1,
+                                        "<td class='job-title'></td><td class='job-title'></td>"
+                                    ) & "</tr><tr><td colspan='3' style='height:10px;'></td></tr>"
+                                )
+                            },
+                            {
+                                Field: "{MeetingDetails}",
+                                Data: SelectedMeeting.Body
+                            },
+                            {
+                                Field: "{MeetingNotes}",
+                                Data: 'MeetingDetails notes'.HtmlText
+                            },
+                            {
+                                Field: "{2}",
+                                Data: If(
+                                    CountRows(arrMeetingAgendaList) > 0,
+                                    "<tr><td colspan='2'><table border='0' ellpadding='0' cellspacing='0' class='no-border'><tr><td class='header' style='padding-bottom:10px;'>Agenda</td></tr>" & Concat(
+                                        arrMeetingAgendaList,
+                                        "<tr><td class='Agenda'><table border='0' cellpadding='0' cellspacing='0' class='no-border'          style='table-layout:auto'><tr><td class='name' style='font-size:13px;'>" & Title & "</td><td class='due-time'>" & Description & "</td></tr><tr><td  class='assign-to'>" & Modified & "</td><td></tr><tr><td colspan='2'  class='Link' style='font-size:10px;'> <a class='link-name' href='" & Icon.Link & "' target='_blank'>" & "Attachment" & "</a></td></tr><td></tr></table></td></tr>"
+                                    ) & "</table></td></tr>",
+                                    ""
+                                )
+                            },
+                            {
+                                Field: "{3}",
+                                Data: If(
+                                    CountRows(arrResourceList) > 0,
+                                    "<tr><td colspan='2' ><table border='0' ellpadding='0' cellspacing='0' class='no-border'><tr><td class='header' style='padding-bottom:10px;'>Resources</td></tr>" & Concat(
+                                        arrResourceList,
+                                        "<tr><td class='Resources'><table border='0' cellpadding='0' cellspacing='0' class='no-border'          style='table-layout:auto'><tr><td class='name' style='font-size:13px;'>" & DisplayName & "</td>
+                                        <tr><td class=Link style='font-size:10px;'> <a class='link-name' href='" & AbsoluteUri & "' target='_blank'>" & "Attachment" & "</a></td></tr><td></tr></table></td></tr>"
+                                    ) & "</table></td></tr>",
+                                    ""
+                                )
+                            }
+                        )
+                    );
+                    If(
+                        checkEmail.Value,
+                        ForAll(
+                            TemplateData,
+                            Patch(
+                                Templates,
+                                LookUp(
+                                    Templates,
+                                    Template = "Email"
+                                ),
+                                {
+                                    Value: Substitute(
+                                        LookUp(
+                                            Templates,
+                                            Template = "Email"
+                                        ).Value,
+                                        Field,
+                                        Data
+                                    )
+                                }
+                            )
+                        );
+                        Office365Outlook.SendEmailV2(
+                            Concat(
+                                EmailRecipients,
+                                Mail & ";"
+                            ),
+                            "MEETING NOTES - " & SelectedMeeting.Subject & " - " & Text(
+                                SelectedMeeting.Start,
+                                "[$-en-US]mmmm dd, yyyy"
+                            ) & " | " & Lower(
+                                Text(
+                                    SelectedMeeting.Start,
+                                    "[$-en-US]hh:mm am/pm"
+                                )
+                            ) & " - " & Lower(
+                                Text(
+                                    SelectedMeeting.End,
+                                    "[$-en-US]hh:mm am/pm"
+                                )
+                            ) & " (" & DateDiff(
+                                SelectedMeeting.Start,
+                                SelectedMeeting.End,
+                                TimeUnit.Minutes
+                            ) & " minutes)",
+                            LookUp(
+                                Templates,
+                                Template = "Email"
+                            ).Value
+                        )
+                    );
+                If(
+                        OneNotecheck.Value,
+                        ForAll(
+                            TemplateData,
+                            Patch(
+                                Templates,
+                                LookUp(
+                                    Templates,
+                                    Template = "OneNote"
+                                ),
+                                {
+                                    Value: Substitute(
+                                        LookUp(
+                                            Templates,
+                                            Template = "OneNote"
+                                        ).Value,
+                                        Field,
+                                        Data
+                                    )
+                                }
+                            )
+                        );
+                        'OneNote(Business)'.CreatePageInSection(
+                            SelectedNoteBook.'data-ADB4D7A662F548B49FAC2B986E348A1BKey',
+                            SelectedSection.'data-ADB4D7A662F548B49FAC2B986E348A1BpagesUrl',
+                            LookUp(
+                                Templates,
+                                Template = "OneNote"
+                            ).Value
+                        )
+                    );
+                    Set(
+                        Loading,
+                        false
+                    );
+                   
+                )
+            PaddingBottom: =0
+            PaddingLeft: =40
+            PaddingRight: =0
+            PaddingTop: =0
+            PressedBorderColor: =btnExport.Fill
+            PressedColor: =btnExport.Fill
+            PressedFill: =btnExport.Color
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =10.5
+            TabIndex: =18
+            Text: ="Export"
+            Tooltip: ="Export"
+            Width: =125
+            X: =1206
+            Y: =106
+            ZIndex: =39
+
+        imgExportIcon As image:
+            BorderColor: =RGBA(89, 0, 0, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            FocusedBorderColor: =imgExportIcon.BorderColor
+            Height: =16
+            HoverBorderColor: =ColorFade(imgExportIcon.BorderColor, 20%)
+            HoverFill: =ColorFade(imgExportIcon.Fill, 20%)
+            Image: =export
+            PressedBorderColor: =ColorFade(imgExportIcon.BorderColor, -20%)
+            PressedFill: =ColorFade(imgExportIcon.Fill, -20%)
+            Width: =26
+            X: =1221
+            Y: =113
+            ZIndex: =40
+
+    iconCheckOneNoteSection As icon.Check:
+        BorderColor: =RGBA(89, 0, 0, 1)
+        Color: =Color.Green
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(244, 244, 244, 1)
+        DisabledFill: =iconCheckOneNoteSection.Fill
+        FocusedBorderColor: =iconCheckOneNoteSection.BorderColor
+        Height: =40
+        HoverBorderColor: =ColorFade(iconCheckOneNoteSection.BorderColor, 20%)
+        HoverColor: =ColorFade(iconCheckOneNoteSection.Color, 20%)
+        HoverFill: =iconCheckOneNoteSection.Fill
+        Icon: =Icon.Check
+        PressedBorderColor: =ColorFade(iconCheckOneNoteSection.BorderColor, -20%)
+        PressedColor: =ColorFade(iconCheckOneNoteSection.Color, -20%)
+        PressedFill: =iconCheckOneNoteSection.Fill
+        Visible: =(ShowOneNote ) && SectionAdded
+        Width: =30
+        X: =790
+        Y: =566
+        ZIndex: =80
+
+    grpExportModal As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =80
+
+        shapeExportOverlay As rectangle:
+            BorderColor: =RGBA(89, 0, 0, 1)
+            DisabledFill: =shapeExportOverlay.Fill
+            Fill: =RGBA(0,0,0,.7)
+            FocusedBorderColor: =shapeExportOverlay.BorderColor
+            Height: =768
+            HoverFill: =shapeExportOverlay.Fill
+            PressedFill: =shapeExportOverlay.Fill
+            Visible: =ShowOneNote || ShowPlanner || ShowOverlay
+            Width: =1366
+            ZIndex: =64
+
+        shapeExportForeground As rectangle:
+            BorderColor: =RGBA(48, 55, 120, 1)
+            DisabledFill: =shapeExportForeground.Fill
+            Fill: =RGBA(255, 255, 255, 1)
+            FocusedBorderColor: =shapeExportForeground.BorderColor
+            Height: =468
+            HoverFill: =shapeExportForeground.Fill
+            PressedFill: =shapeExportForeground.Fill
+            Visible: =ShowOneNote || ShowPlanner || ShowOverlay
+            Width: =428
+            X: =549
+            Y: =279
+            ZIndex: =65
+
+        lblOverlayHeader As label:
+            BorderColor: =RGBA(48, 55, 120, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderColor: =lblOverlayHeader.BorderColor
+            Font: =Font.Lato
+            FontWeight: =FontWeight.Lighter
+            Height: =If(ShowOverlay, 110, 60)
+            HoverBorderColor: =lblOverlayHeader.BorderColor
+            HoverColor: =lblOverlayHeader.Color
+            HoverFill: =lblOverlayHeader.Fill
+            PressedBorderColor: =lblOverlayHeader.BorderColor
+            PressedColor: =lblOverlayHeader.Color
+            PressedFill: =lblOverlayHeader.Fill
+            Size: =28
+            Text: =If(ShowOverlay, "Are you finished taking notes?", "Select Location") 
+            Visible: =ShowOneNote || ShowPlanner || ShowOverlay
+            Width: =shapeExportForeground.Width - 40
+            X: =shapeExportForeground.X + 20
+            Y: =shapeExportForeground.Y + 30
+            ZIndex: =66
+
+        lblNotebookOrPlan As label:
+            BorderColor: =RGBA(48, 55, 120, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderColor: =lblNotebookOrPlan.BorderColor
+            Font: =Font.Lato
+            FontWeight: =FontWeight.Semibold
+            Height: =20
+            HoverBorderColor: =lblNotebookOrPlan.BorderColor
+            HoverColor: =lblNotebookOrPlan.Color
+            HoverFill: =lblNotebookOrPlan.Fill
+            PressedBorderColor: =lblNotebookOrPlan.BorderColor
+            PressedColor: =lblNotebookOrPlan.Color
+            PressedFill: =lblNotebookOrPlan.Fill
+            Size: =10.5
+            Text: =If(ShowOneNote, "Notebook", "Plan")
+            Visible: =ShowOneNote || ShowPlanner
+            Width: =shapeExportForeground.Width - 40
+            X: =shapeExportForeground.X + 20
+            Y: =381
+            ZIndex: =67
+
+        lblSectionOrBucket As label:
+            BorderColor: =RGBA(48, 55, 120, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderColor: =lblSectionOrBucket.BorderColor
+            Font: =Font.Lato
+            FontWeight: =FontWeight.Semibold
+            Height: =20
+            HoverBorderColor: =lblSectionOrBucket.BorderColor
+            HoverColor: =lblSectionOrBucket.Color
+            HoverFill: =lblSectionOrBucket.Fill
+            PressedBorderColor: =lblSectionOrBucket.BorderColor
+            PressedColor: =lblSectionOrBucket.Color
+            PressedFill: =lblSectionOrBucket.Fill
+            Size: =10.5
+            Text: =If(ShowOneNote, "Section", "Bucket")
+            Visible: =ShowOneNote || ShowPlanner
+            Width: =shapeExportForeground.Width - 40
+            X: =shapeExportForeground.X + 20
+            Y: =470
+            ZIndex: =70
+
+        btnExportCancel As button:
+            BorderColor: =Color.DarkBlue
+            BorderThickness: =1
+            Color: =RGBA(247, 247, 247, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: =RGBA(48, 55, 120, 1)
+            FocusedBorderColor: =btnExportCancel.BorderColor
+            FocusedBorderThickness: =1
+            Font: =Font.Lato
+            Height: =44
+            HoverBorderColor: =ColorFade(btnExportCancel.BorderColor, 20%)
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =Color.DarkBlue
+            OnSelect: |-
+                =Set(ShowOneNote, false);
+                Set(ShowPlanner, false);
+                Set(ShowOverlay, false);
+                Set(TaskSelected,false);
+            PressedBorderColor: =btnExportCancel.Fill
+            PressedColor: =btnExportCancel.Fill
+            PressedFill: =btnExportCancel.Color
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =10.5
+            Text: =If(TaskSelected, "Delete", "Cancel")
+            Visible: =ShowOneNote || ShowPlanner || ShowOverlay
+            Width: =170
+            X: =566
+            Y: =684
+            ZIndex: =71
+
+        btnExportConfirm As button:
+            BorderColor: =Color.DarkBlue
+            BorderThickness: =1
+            Color: =RGBA(247, 247, 247, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            DisplayMode: |-
+                =If(ShowOneNote, 
+                    If(IsBlank(OneNoteBookSelect.SelectedText) || IsBlank(SectionsSelect.SelectedText), DisplayMode.Disabled, DisplayMode.Edit), 
+                   ShowPlanner, If(IsBlank(drpPlannerPlanSelect.SelectedText) || IsBlank(drpPlannerBucketSelect.SelectedText), DisplayMode.Disabled, DisplayMode.Edit),
+                   DisplayMode.Edit
+                ) 
+            Fill: =RGBA(48, 55, 120, 1)
+            FocusedBorderColor: =btnExportConfirm.BorderColor
+            FocusedBorderThickness: =1
+            Font: =Font.Lato
+            Height: =44
+            HoverBorderColor: =ColorFade(btnExportConfirm.BorderColor, 20%)
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =Color.DarkBlue
+            OnSelect: |+
+                =If(ShowOneNote,
+                    Set(ShowOneNote, false);
+                    Set(SelectedNoteBook, OneNoteBookSelect.SelectedText);
+                    Set(SelectedSection, SectionsSelect.SelectedText),
+                 ShowPlanner,
+                    Set(ShowPlanner, false);
+                    Set(SelectedPlan, drpPlannerPlanSelect.SelectedText);
+                    Set(SelectedBucket, drpPlannerBucketSelect.SelectedText),
+                   ShowOverlay,
+                    Set(ShowOverlay, false);
+                    Set(ExportConfirmed, true);
+                    Set(
+                    SelectedMeetingDuration,
+                    DateDiff(
+                        SelectedMeeting.Start,
+                        SelectedMeeting.End,
+                        TimeUnit.Seconds
+                    )
+                );
+                If(
+                    ExportConfirmed,
+                    Set(
+                        Loading,
+                        true
+                    );
+                    
+                /*Set(arrG_ResourcesList,
+                LookUp(
+                    MeetingList,
+                     ID = First(Filter(
+                            MeetingList,
+                            MeetingID = SelectedMeeting.Id
+                        )
+                    ).ID
+                ).'{Attachments}'
+                );*/
+                If(
+                        checkEmail.Value || OneNotecheck.Value || chkCheckPlanner_1.Value || chkCheckPlanner_2.Value,
+                        ClearCollect(
+                            TemplateData,
+                            {
+                                Field: "{MeetingName}",
+                                Data: SelectedMeeting.Subject
+                            },
+                            {
+                                Field: "{MeetingStartDate}",
+                                Data: Text(
+                                    SelectedMeeting.Start,
+                                    "[$-en-US]mmm. dd, yyyy"
+                                )
+                            },
+                            {
+                                Field: "{MeetingStartTime}",
+                                Data: Lower(
+                                    Text(
+                                        SelectedMeeting.Start,
+                                        "[$-en-US]hh:mm am/pm"
+                                    )
+                                )
+                            },
+                            {
+                                Field: "{MeetingEndTime}",
+                                Data: Lower(
+                                    Text(
+                                        SelectedMeeting.End,
+                                        "[$-en-US]hh:mm am/pm"
+                                    )
+                                )
+                            },
+                            {
+                                Field: "{MeetingMinutes}",
+                                Data: Text(SelectedMeetingDuration / 60)
+                            },
+                            {
+                                Field: "{MeetingAttendeeNum}",
+                                Data: Text(CountRows(MeetingAttendees))
+                            },
+                            {
+                                Field: "{1}",
+                                Data: Concat(
+                                    GroupBy(
+                                        ForAll(
+                                            MeetingAttendees,
+                                            Collect(
+                                                Indexes,
+                                                {Index: Last(Indexes).Index + 1}
+                                            );
+                                            {
+                                                Page: RoundDown(
+                                                    Last(Indexes).Index / 3,
+                                                    0
+                                                ),
+                                                Id: Id,
+                                                DisplayName: DisplayName,
+                                                JobTitle: JobTitle
+                                            }
+                                        ),
+                                        "Page",
+                                        "Attendees"
+                                    ),
+                                    "<tr>" & Concat(
+                                        Attendees,
+                                        "<td class='user-name' width='221'>" & DisplayName & "</td>"
+                                    ) & If(
+                                        CountRows(Attendees) = 2,
+                                        "<td class='user-name' width='221'></td>",
+                                        CountRows(Attendees) = 1,
+                                        "<td class='user-name' width='221'></td><td class='user-name' width='221'></td>"
+                                    ) & "</tr><tr>" & Concat(
+                                        Attendees,
+                                        "<td class='job-title'>" & JobTitle & "</td>"
+                                    ) & If(
+                                        CountRows(Attendees) = 2,
+                                        "<td class='job-title'></td>",
+                                        CountRows(Attendees) = 1,
+                                        "<td class='job-title'></td><td class='job-title'></td>"
+                                    ) & "</tr><tr><td colspan='3' style='height:10px;'></td></tr>"
+                                )
+                            },
+                            {
+                                Field: "{MeetingDetails}",
+                                Data: SelectedMeeting.Body
+                            },
+                            {
+                                Field: "{MeetingNotes}",
+                                Data: 'MeetingDetails notes'.HtmlText
+                            },
+                            {
+                                Field: "{2}",
+                                Data: If(
+                                    CountRows(arrMeetingAgendaList) > 0,
+                                    "<tr><td colspan='2'><table border='0' ellpadding='0' cellspacing='0' class='no-border'><tr><td class='header' style='padding-bottom:10px;'>Agenda</td></tr>" & Concat(
+                                        arrMeetingAgendaList,
+                                        "<tr><td class='Agenda'><table border='0' cellpadding='0' cellspacing='0' class='no-border'          style='table-layout:auto'><tr><td class='name' style='font-size:13px;'>" & Title & "</td><td class='due-time'>" & Description & "</td></tr><tr><td  class='assign-to'>" & Modified & "</td><td></tr><tr><td colspan='2'  class='Link' style='font-size:10px;'> <a class='link-name' href='" & Icon.Link & "' target='_blank'>" & "Attachment" & "</a></td></tr><td></tr></table></td></tr>"
+                                    ) & "</table></td></tr>",
+                                    ""
+                                )
+                            },
+                            {
+                                Field: "{3}",
+                                Data: If(
+                                    CountRows(arrResourceList) > 0,
+                                    "<tr><td colspan='2' ><table border='0' ellpadding='0' cellspacing='0' class='no-border'><tr><td class='header' style='padding-bottom:10px;'>Resources</td></tr>" & Concat(
+                                        arrResourceList,
+                                        "<tr><td class='Resources'><table border='0' cellpadding='0' cellspacing='0' class='no-border'          style='table-layout:auto'><tr><td class='name' style='font-size:13px;'>" & DisplayName & "</td>
+                                        <tr><td class=Link style='font-size:10px;'> <a class='link-name' href='" & AbsoluteUri & "' target='_blank'>" & "Attachment" & "</a></td></tr><td></tr></table></td></tr>"
+                                    ) & "</table></td></tr>",
+                                    ""
+                                )
+                            }
+                        )
+                    );
+                    If(
+                        checkEmail.Value,
+                        ForAll(
+                            TemplateData,
+                            Patch(
+                                Templates,
+                                LookUp(
+                                    Templates,
+                                    Template = "Email"
+                                ),
+                                {
+                                    Value: Substitute(
+                                        LookUp(
+                                            Templates,
+                                            Template = "Email"
+                                        ).Value,
+                                        Field,
+                                        Data
+                                    )
+                                }
+                            )
+                        );
+                        Office365Outlook.SendEmailV2(
+                            Concat(
+                                EmailRecipients,
+                                Mail & ";"
+                            ),
+                            "MEETING NOTES - " & SelectedMeeting.Subject & " - " & Text(
+                                SelectedMeeting.Start,
+                                "[$-en-US]mmmm dd, yyyy"
+                            ) & " | " & Lower(
+                                Text(
+                                    SelectedMeeting.Start,
+                                    "[$-en-US]hh:mm am/pm"
+                                )
+                            ) & " - " & Lower(
+                                Text(
+                                    SelectedMeeting.End,
+                                    "[$-en-US]hh:mm am/pm"
+                                )
+                            ) & " (" & DateDiff(
+                                SelectedMeeting.Start,
+                                SelectedMeeting.End,
+                                TimeUnit.Minutes
+                            ) & " minutes)",
+                            LookUp(
+                                Templates,
+                                Template = "Email"
+                            ).Value
+                        )
+                    );
+                    If(
+                        OneNotecheck.Value,
+                        ForAll(
+                            TemplateData,
+                            Patch(
+                                Templates,
+                                LookUp(
+                                    Templates,
+                                    Template = "OneNote"
+                                ),
+                                {
+                                    Value: Substitute(
+                                        LookUp(
+                                            Templates,
+                                            Template = "OneNote"
+                                        ).Value,
+                                        Field,
+                                        Data
+                                    )
+                                }
+                            )
+                        );
+                        'OneNote(Business)'.CreatePageInSection(
+                            SelectedNoteBook.'data-ADB4D7A662F548B49FAC2B986E348A1BKey',
+                            SelectedSection.'data-ADB4D7A662F548B49FAC2B986E348A1BpagesUrl',
+                            LookUp(
+                                Templates,
+                                Template = "OneNote"
+                            ).Value
+                        )
+                    );
+                    Set(
+                        Loading,
+                        false
+                    );
+                    
+                );
+                Reset(OneNotecheck);
+                Reset(chkCheckPlanner_1);
+                Reset(chkCheckPlanner_2);
+                
+                If(ExportConfirmed,Notify("Your Export has done Successfully",NotificationType.Success,1700))
+                
+                
+                
+                
+                    //Notify(SelectedMeeting.Subject,NotificationType.Information,20)
+                
+                    //Navigate(ConfirmScreen, None,{nofollowup:false})
+                );
+                
+            PressedBorderColor: =btnExportConfirm.Fill
+            PressedColor: =btnExportConfirm.Fill
+            PressedFill: =btnExportConfirm.Color
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =10.5
+            Text: =If(ShowOverlay, "Yes, continue", "OK")
+            Visible: =ShowOneNote || ShowPlanner || ShowOverlay
+            Width: =170
+            X: =775
+            Y: =683
+            ZIndex: =72
+
+        drpPlannerPlanSelect As dropdown:
+            BorderColor: =RGBA(155, 155, 155, 1)
+            BorderThickness: =1
+            ChevronBackground: =RGBA(0, 0, 0, 0)
+            ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+            ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+            ChevronFill: =RGBA(48,55,120,1)
+            ChevronHoverBackground: =drpPlannerPlanSelect.ChevronBackground
+            ChevronHoverFill: =RGBA(255,255,255,1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            FocusedBorderColor: =drpPlannerPlanSelect.BorderColor
+            HoverBorderColor: =ColorFade(drpPlannerPlanSelect.BorderColor, 15%)
+            HoverColor: =RGBA(0, 0, 0, 1)
+            HoverFill: =RGBA(222, 179, 184, 1)
+            Items: =PlannerPlans
+            OnChange: =ClearCollect(PlannerBuckets,Planner.ListBuckets(drpPlannerPlanSelect.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1Bid').value)
+            PressedBorderColor: =drpPlannerPlanSelect.HoverBorderColor
+            PressedColor: =RGBA(255, 255, 255, 1)
+            PressedFill: =RGBA(89, 0, 0, 1)
+            SelectionColor: =RGBA(255, 255, 255, 1)
+            SelectionFill: =RGBA(164, 38, 44, 1)
+            Visible: =ShowPlanner
+            Width: =388
+            X: =489+0
+            Y: =333+0
+            ZIndex: =73
+
+        drpPlannerBucketSelect As dropdown:
+            BorderColor: =RGBA(155, 155, 155, 1)
+            BorderThickness: =1
+            ChevronBackground: =RGBA(0, 0, 0, 0)
+            ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+            ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+            ChevronFill: =RGBA(48,55,120,1)
+            ChevronHoverBackground: =drpPlannerBucketSelect.ChevronBackground
+            ChevronHoverFill: =RGBA(255,255,255,1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            FocusedBorderColor: =drpPlannerBucketSelect.BorderColor
+            HoverBorderColor: =ColorFade(drpPlannerBucketSelect.BorderColor, 15%)
+            HoverColor: =RGBA(0, 0, 0, 1)
+            HoverFill: =RGBA(222, 179, 184, 1)
+            Items: =PlannerBuckets
+            PressedBorderColor: =drpPlannerBucketSelect.HoverBorderColor
+            PressedColor: =RGBA(255, 255, 255, 1)
+            PressedFill: =RGBA(89, 0, 0, 1)
+            SelectionColor: =RGBA(255, 255, 255, 1)
+            SelectionFill: =RGBA(164, 38, 44, 1)
+            Visible: =ShowPlanner
+            Width: =388
+            X: =569
+            Y: =514
+            ZIndex: =74
+
+        lblExportConfirmText As label:
+            BorderColor: =RGBA(89, 0, 0, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderColor: =lblExportConfirmText.BorderColor
+            FontWeight: =FontWeight.Lighter
+            Height: =107
+            HoverBorderColor: =lblExportConfirmText.BorderColor
+            HoverColor: =lblExportConfirmText.Color
+            HoverFill: =lblExportConfirmText.Fill
+            LineHeight: =1.5
+            PressedBorderColor: =lblExportConfirmText.BorderColor
+            PressedColor: =lblExportConfirmText.Color
+            PressedFill: =lblExportConfirmText.Fill
+            Size: =13.5
+            Text: ="Once you Export, your meeting summary will be shared and you will no longer have access to the edit page."
+            Visible: =ShowOverlay
+            Width: =378
+            X: =574
+            Y: =438
+            ZIndex: =75
+
+        OneNoteBookSelect As dropdown:
+            BorderColor: =RGBA(155, 155, 155, 1)
+            BorderThickness: =1
+            ChevronBackground: =RGBA(255, 255, 255, 1)
+            ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+            ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+            ChevronFill: =RGBA(48, 55, 120, 1)
+            ChevronHoverBackground: =ColorFade(RGBA(56, 96, 178, 1), -20%)
+            ChevronHoverFill: =RGBA(255, 255, 255, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            Default: |-
+                =Lower(Text(SelectedMeeting.Start,"[$-en-US]hh:mm am/pm"))
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(128, 128, 128, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            DisplayMode: =
+            Font: =Font.Lato
+            HoverColor: =RGBA(0, 0, 0, 1)
+            HoverFill: =RGBA(186, 202, 226, 1)
+            Items: =OneNoteBooks
+            OnChange: =ClearCollect(OneNoteSections,'OneNote(Business)'.GetSectionsInNotebook(OneNoteBookSelect.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BKey').value)
+            OnSelect: =
+            PressedColor: =RGBA(255, 255, 255, 1)
+            PressedFill: =RGBA(0, 18, 107, 1)
+            SelectionColor: =RGBA(136, 160, 209, 1)
+            SelectionFill: =RGBA(50, 86, 160, 1)
+            Visible: =ShowOneNote
+            Width: =388
+            X: =569
+            Y: =418
+            ZIndex: =76
+
+        SectionsSelect As dropdown:
+            BorderColor: =RGBA(155, 155, 155, 1)
+            BorderThickness: =1
+            ChevronBackground: =RGBA(255, 255, 255, 1)
+            ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+            ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+            ChevronFill: =RGBA(48, 55, 120, 1)
+            ChevronHoverBackground: =ColorFade(RGBA(56, 96, 178, 1), -20%)
+            ChevronHoverFill: =RGBA(255, 255, 255, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            Default: =
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(128, 128, 128, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            DisplayMode: =
+            Font: =Font.Lato
+            HoverColor: =RGBA(0, 0, 0, 1)
+            HoverFill: =RGBA(186, 202, 226, 1)
+            Items: =OneNoteSections
+            OnSelect: =
+            PressedColor: =RGBA(255, 255, 255, 1)
+            PressedFill: =RGBA(0, 18, 107, 1)
+            SelectionColor: =RGBA(136, 160, 209, 1)
+            SelectionFill: =RGBA(50, 86, 160, 1)
+            Visible: =ShowOneNote
+            Width: =388
+            X: =569
+            Y: =504
+            ZIndex: =77
+
+        btnNewOneNote As button:
+            BorderColor: =RGBA(48, 55, 120, 1)
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            DisplayMode: =If(IsBlank(txtNewOneNote.Text),DisplayMode.Disabled,DisplayMode.Edit)
+            Fill: =RGBA(48, 55, 120, 1)
+            FocusedBorderColor: =btnNewOneNote.BorderColor
+            HoverBorderColor: =ColorFade(btnNewOneNote.BorderColor, 20%)
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =RGBA(48, 55, 120, 1)
+            OnSelect: |
+                =Set(
+                    sectionpopup,
+                    true
+                );
+                'OneNote(Business)'.CreateSectionInNotebook(
+                    OneNoteBookSelect.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BKey',
+                    {name: txtNewOneNote.Text}
+                );
+                ClearCollect(
+                    OneNoteSections,
+                    'OneNote(Business)'.GetSectionsInNotebook(OneNoteBookSelect.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BKey').value
+                );
+                Reset(txtNewOneNote);
+                UpdateContext({SectionAdded: true});
+                If(
+                    sectionpopup,
+                    Notify(
+                        "New Section has been added Successfully",
+                        NotificationType.Success,
+                        70
+                    ),
+                    Notify(
+                        "Error While sending Email",
+                        NotificationType.Error,
+                        0
+                    )
+                );
+            PressedBorderColor: =btnNewOneNote.Fill
+            PressedColor: =btnNewOneNote.Fill
+            PressedFill: =btnNewOneNote.Color
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Text: ="Add New Section"
+            Visible: =ShowOneNote && Not(false)
+            Width: =208
+            X: =569
+            Y: =558
+            ZIndex: =78
+
+        txtNewOneNote As text:
+            BorderColor: =RGBA(48, 55, 120, 1)
+            BorderThickness: =1
+            Color: =RGBA(0, 0, 0, 1)
+            Default: =""
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            FocusedBorderColor: =txtNewOneNote.BorderColor
+            HintText: =If(false,"Please select a Notebook","Add section name")
+            HoverBorderColor: =RGBA(48, 55, 120, 1)
+            HoverColor: =RGBA(0, 0, 0, 1)
+            HoverFill: =RGBA(242, 244, 249, 1)
+            OnSelect: |
+                =UpdateContext({SectionAdded:false});
+            PressedBorderColor: =txtNewOneNote.HoverBorderColor
+            PressedColor: =txtNewOneNote.Color
+            PressedFill: =txtNewOneNote.Fill
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Visible: =ShowOneNote
+            X: =569
+            Y: =615
+            ZIndex: =79
+
+    grpExportPlanner_1 As group:
+        Height: =5
+        Width: =5
+        X: =20
+        Y: =20
+        ZIndex: =80
+
+        chkCheckPlanner_1 As checkbox:
+            BorderColor: =RGBA(48,55,120,1)
+            CheckboxBackgroundFill: =RGBA(255,255,255,1)
+            CheckboxBorderColor: =Color.DarkBlue
+            CheckboxSize: =45
+            CheckmarkFill: =Color.DarkBlue
+            Color: =RGBA(0, 0, 0, 1)
+            FocusedBorderColor: =chkCheckPlanner_1.BorderColor
+            FocusedBorderThickness: =0
+            HoverBorderColor: =ColorFade(chkCheckPlanner_1.BorderColor, 30%)
+            HoverColor: =RGBA(89, 0, 0, 1)
+            HoverFill: =ColorFade(chkCheckPlanner_1.Fill, 30%)
+            OnCheck: |
+                =ClearCollect(
+                    arrMeetingAgendaList,
+                    Filter(
+                        MeetingAgendaLists,
+                         //true
+                        MeetingID = variCalUID.icaluid
+                    )
+                );
+            OnUncheck: |-
+                =Set(SelectedPlan, Blank());
+                Set(SelectedBucket, Blank())
+            PressedBorderColor: =ColorFade(chkCheckPlanner_1.BorderColor, -30%)
+            PressedFill: =ColorFade(chkCheckPlanner_1.Fill, -30%)
+            TabIndex: =9
+            Text: =""
+            Tooltip: ="Click Here if you want to save data in Agenda"
+            Width: =63
+            X: =72
+            Y: =454
+            ZIndex: =41
+
+        imgPlannerIcon_1 As image:
+            BorderColor: =RGBA(48,55,120,1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            FocusedBorderColor: =imgPlannerIcon_1.BorderColor
+            Height: =24
+            HoverBorderColor: =ColorFade(imgPlannerIcon_1.BorderColor, 20%)
+            HoverFill: =ColorFade(imgPlannerIcon_1.Fill, 20%)
+            Image: =planner
+            PressedBorderColor: =ColorFade(imgPlannerIcon_1.BorderColor, -20%)
+            PressedFill: =ColorFade(imgPlannerIcon_1.Fill, -20%)
+            Width: =24
+            X: =135
+            Y: =469
+            ZIndex: =42
+
+        lblOfficePlanner_1 As label:
+            BorderColor: =RGBA(48,55,120,1)
+            Color: =RGBA(48, 55, 120, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderColor: =lblOfficePlanner_1.BorderColor
+            Font: =Font.Lato
+            FontWeight: =FontWeight.Semibold
+            Height: =54
+            HoverBorderColor: =lblOfficePlanner_1.BorderColor
+            HoverColor: =lblOfficePlanner_1.Color
+            HoverFill: =lblOfficePlanner_1.Fill
+            PressedBorderColor: =lblOfficePlanner_1.BorderColor
+            PressedColor: =lblOfficePlanner_1.Color
+            PressedFill: =lblOfficePlanner_1.Fill
+            Size: =15
+            TabIndex: =10
+            Text: ="Meeting Agenda"
+            Width: =176
+            X: =168
+            Y: =456
+            ZIndex: =43
+
+        lblPlannerExportDescript_1 As label:
+            BorderColor: =RGBA(48,55,120,1)
+            Color: =RGBA(48, 55, 120, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderColor: =lblPlannerExportDescript_1.BorderColor
+            Font: =Font.Lato
+            FontWeight: =FontWeight.Semibold
+            Height: =28
+            HoverBorderColor: =lblPlannerExportDescript_1.BorderColor
+            HoverColor: =lblPlannerExportDescript_1.Color
+            HoverFill: =lblPlannerExportDescript_1.Fill
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            PressedBorderColor: =lblPlannerExportDescript_1.BorderColor
+            PressedColor: =lblPlannerExportDescript_1.Color
+            PressedFill: =lblPlannerExportDescript_1.Fill
+            Size: =10.5
+            Text: ="Send agenda to email"
+            Width: =507
+            X: =153
+            Y: =501
+            ZIndex: =44
+
+        lblPlannerExportLocation_1 As label:
+            BorderColor: =RGBA(48,55,120,1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderColor: =lblPlannerExportLocation_1.BorderColor
+            Height: =28
+            HoverBorderColor: =lblPlannerExportLocation_1.BorderColor
+            HoverColor: =lblPlannerExportLocation_1.Color
+            HoverFill: =lblPlannerExportLocation_1.Fill
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            PressedBorderColor: =lblPlannerExportLocation_1.BorderColor
+            PressedColor: =lblPlannerExportLocation_1.Color
+            PressedFill: =lblPlannerExportLocation_1.Fill
+            Size: =10.5
+            Text: =SelectedPlan.'data-ADB4D7A662F548B49FAC2B986E348A1Btitle' & " - " & SelectedBucket.'data-ADB4D7A662F548B49FAC2B986E348A1Bname'
+            Visible: =chkCheckPlanner_1.Value && lblPlannerExportTo_1.Height > 0
+            Width: =423
+            X: =226
+            Y: =532
+            ZIndex: =45
+
+        lblPlannerExportTo_1 As label:
+            BorderColor: =RGBA(48,55,120,1)
+            Color: =RGBA(155, 155, 155, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderColor: =lblPlannerExportTo_1.BorderColor
+            Height: =If(IsBlank(SelectedBucket), 0, 28)
+            HoverBorderColor: =lblPlannerExportTo_1.BorderColor
+            HoverColor: =lblPlannerExportTo_1.Color
+            HoverFill: =lblPlannerExportTo_1.Fill
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            PressedBorderColor: =lblPlannerExportTo_1.BorderColor
+            PressedColor: =lblPlannerExportTo_1.Color
+            PressedFill: =lblPlannerExportTo_1.Fill
+            Size: =10.5
+            Text: |-
+                ="Export to:"
+            Visible: =chkCheckPlanner_1.Value
+            Width: =73
+            X: =153
+            Y: =532
+            ZIndex: =46
+
+        shapeRectangle2Planner_1 As rectangle:
+            BorderColor: =RGBA(48,55,120,1)
+            DisabledFill: =shapeRectangle2Planner_1.Fill
+            DisplayMode: =DisplayMode.View
+            Fill: =RGBA(215, 218, 221, 1)
+            FocusedBorderColor: =shapeRectangle2Planner_1.BorderColor
+            Height: =2
+            HoverFill: =shapeRectangle2Planner_1.Fill
+            PressedFill: =shapeRectangle2Planner_1.Fill
+            Visible: =chkCheckPlanner_1.Value && lblPlannerExportTo_1.Height > 0
+            Width: =lblPlannerExportLocation_1.Width + lblPlannerExportTo_1.Width
+            X: =153
+            Y: =532
+            ZIndex: =47
+
+        shapeRectanglePlanner_1 As rectangle:
+            BorderColor: =RGBA(48,55,120,1)
+            DisabledFill: =shapeRectanglePlanner_1.Fill
+            DisplayMode: =DisplayMode.View
+            Fill: =RGBA(215, 218, 221, 1)
+            FocusedBorderColor: =shapeRectanglePlanner_1.BorderColor
+            Height: =2
+            HoverFill: =shapeRectanglePlanner_1.Fill
+            PressedFill: =shapeRectanglePlanner_1.Fill
+            Visible: =chkCheckPlanner_1.Value && lblPlannerExportTo_1.Height > 0
+            Width: =lblPlannerExportLocation_1.Width + lblPlannerExportTo_1.Width
+            X: =153
+            Y: =532
+            ZIndex: =48
+
+    "'Group_TopMenu._1' As group":
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =87
+
+        lblExportMeetingSubject_2 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(89, 0, 0, 1)
+            Color: =Color.WhiteSmoke
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(48, 55, 120, 1)
+            FocusedBorderColor: =lblExportMeetingSubject_2.BorderColor
+            Font: =Font.Lato
+            FontWeight: =FontWeight.Semibold
+            Height: =50
+            HoverBorderColor: =lblExportMeetingSubject_2.BorderColor
+            HoverColor: =lblExportMeetingSubject_2.Color
+            HoverFill: =lblExportMeetingSubject_2.Fill
+            PaddingLeft: =2
+            PaddingRight: =2
+            PressedBorderColor: =lblExportMeetingSubject_2.BorderColor
+            PressedColor: =lblExportMeetingSubject_2.Color
+            PressedFill: =lblExportMeetingSubject_2.Fill
+            Size: =15
+            TabIndex: =1
+            Text: =
+            Tooltip: ="Meeting Title"
+            Width: =1366
+            ZIndex: =81
+
+        imageLogo_14 As image:
+            Height: =45
+            Image: =logo
+            TabIndex: =1
+            X: =5
+            Y: =5
+            ZIndex: =82
+
+        "'lbl_selected meeting dt & time_1' As label":
+            Color: =RGBA(255, 255, 255, 1)
+            FocusedBorderColor: ='lbl_selected meeting dt & time_1'.BorderColor
+            Font: =Font.Lato
+            Height: =50
+            HoverBorderColor: ='lbl_selected meeting dt & time_1'.BorderColor
+            HoverColor: ='lbl_selected meeting dt & time_1'.Color
+            HoverFill: ='lbl_selected meeting dt & time_1'.Fill
+            PressedBorderColor: ='lbl_selected meeting dt & time_1'.BorderColor
+            PressedColor: ='lbl_selected meeting dt & time_1'.Color
+            PressedFill: ='lbl_selected meeting dt & time_1'.Fill
+            Size: =10
+            TabIndex: =2
+            Text: |-
+                =Text(SelectedMeeting.Start,"[$-en-US]mmmm dd, yyyy")&" | " & Lower(Text(SelectedMeeting.Start,"[$-en-US]hh:mm am/pm"))&" - "&Lower(Text(SelectedMeeting.End,"[$-en-US]hh:mm am/pm")) & " (" & DateDiff(SelectedMeeting.Start, SelectedMeeting.End, TimeUnit.Minutes) & " minutes)"
+            Tooltip: ="Meeting Title"
+            Width: =350
+            X: =680
+            ZIndex: =83
+
+        "'lbl_selected meeting sub._1' As label":
+            Align: =Align.Center
+            Color: =RGBA(255, 255, 255, 1)
+            FocusedBorderColor: ='lbl_selected meeting sub._1'.BorderColor
+            Font: =Font.Lato
+            FontWeight: =FontWeight.Bold
+            Height: =49
+            HoverBorderColor: ='lbl_selected meeting sub._1'.BorderColor
+            HoverColor: ='lbl_selected meeting sub._1'.Color
+            HoverFill: ='lbl_selected meeting sub._1'.Fill
+            PressedBorderColor: ='lbl_selected meeting sub._1'.BorderColor
+            PressedColor: ='lbl_selected meeting sub._1'.Color
+            PressedFill: ='lbl_selected meeting sub._1'.Fill
+            Size: =10
+            Text: =SelectedMeeting.Subject
+            Width: =407
+            X: =200
+            Y: =1
+            ZIndex: =84
+
+        Icon_back_1 As icon.ArrowLeft:
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =35
+            Icon: =Icon.ArrowLeft
+            OnSelect: =Back()
+            Width: =50
+            X: =104
+            Y: =8
+            ZIndex: =85
+
+        "'lbl_version no.._1' As label":
+            Align: =Align.Center
+            Color: =RGBA(255, 255, 255, 1)
+            Font: =Font.Lato
+            Height: =46
+            Size: =14
+            Text: ="V1.0"
+            Width: =103
+            X: =1263
+            Y: =4
+            ZIndex: =86
+
+    grpExportPlanner_2 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =88
+
+        chkCheckPlanner_2 As checkbox:
+            BorderColor: =RGBA(48,55,120,1)
+            CheckboxBackgroundFill: =RGBA(255,255,255,1)
+            CheckboxBorderColor: =Color.DarkBlue
+            CheckboxSize: =45
+            CheckmarkFill: =Color.DarkBlue
+            Color: =RGBA(0, 0, 0, 1)
+            FocusedBorderColor: =chkCheckPlanner_2.BorderColor
+            FocusedBorderThickness: =0
+            HoverBorderColor: =ColorFade(chkCheckPlanner_2.BorderColor, 30%)
+            HoverColor: =RGBA(89, 0, 0, 1)
+            HoverFill: =ColorFade(chkCheckPlanner_2.Fill, 30%)
+            OnCheck: |-
+                =/*ClearCollect(arrResourceList,LookUp(
+                    MeetingList,
+                     ID = First(Filter(
+                            MeetingList,
+                            MeetingID = SelectedMeeting.Id
+                        )
+                    ).ID
+                ).'{Attachments}'
+                );*/
+                ClearCollect(
+                    arrResourceList,
+                    LookUp(
+                        MeetingList,
+                        MeetingID = variCalUID.icaluid
+                    ).'{Attachments}'
+                )
+            OnUncheck: |-
+                =Set(SelectedPlan, Blank());
+                Set(SelectedBucket, Blank())
+            PressedBorderColor: =ColorFade(chkCheckPlanner_2.BorderColor, -30%)
+            PressedFill: =ColorFade(chkCheckPlanner_2.Fill, -30%)
+            TabIndex: =11
+            Text: =""
+            Tooltip: ="Click Here if you want to save data in Meeting Resource"
+            Width: =63
+            X: =72
+            Y: =595
+            ZIndex: =49
+
+        imgPlannerIcon_2 As image:
+            BorderColor: =RGBA(48,55,120,1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            FocusedBorderColor: =imgPlannerIcon_2.BorderColor
+            Height: =24
+            HoverBorderColor: =ColorFade(imgPlannerIcon_2.BorderColor, 20%)
+            HoverFill: =ColorFade(imgPlannerIcon_2.Fill, 20%)
+            Image: =planner
+            PressedBorderColor: =ColorFade(imgPlannerIcon_2.BorderColor, -20%)
+            PressedFill: =ColorFade(imgPlannerIcon_2.Fill, -20%)
+            Width: =24
+            X: =135
+            Y: =610
+            ZIndex: =50
+
+        lblOfficePlanner_2 As label:
+            BorderColor: =RGBA(48,55,120,1)
+            Color: =RGBA(48, 55, 120, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderColor: =lblOfficePlanner_2.BorderColor
+            Font: =Font.Lato
+            FontWeight: =FontWeight.Semibold
+            Height: =54
+            HoverBorderColor: =lblOfficePlanner_2.BorderColor
+            HoverColor: =lblOfficePlanner_2.Color
+            HoverFill: =lblOfficePlanner_2.Fill
+            PressedBorderColor: =lblOfficePlanner_2.BorderColor
+            PressedColor: =lblOfficePlanner_2.Color
+            PressedFill: =lblOfficePlanner_2.Fill
+            Size: =15
+            TabIndex: =12
+            Text: ="Meeting Resources"
+            Width: =258
+            X: =168
+            Y: =595
+            ZIndex: =51
+
+        lblPlannerExportDescript_2 As label:
+            BorderColor: =RGBA(48,55,120,1)
+            Color: =RGBA(48, 55, 120, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderColor: =lblPlannerExportDescript_2.BorderColor
+            Font: =Font.Lato
+            FontWeight: =FontWeight.Semibold
+            Height: =28
+            HoverBorderColor: =lblPlannerExportDescript_2.BorderColor
+            HoverColor: =lblPlannerExportDescript_2.Color
+            HoverFill: =lblPlannerExportDescript_2.Fill
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            PressedBorderColor: =lblPlannerExportDescript_2.BorderColor
+            PressedColor: =lblPlannerExportDescript_2.Color
+            PressedFill: =lblPlannerExportDescript_2.Fill
+            Size: =10.5
+            Text: ="Send agenda to email"
+            Width: =507
+            X: =135
+            Y: =642
+            ZIndex: =52
+
+        lblPlannerExportLocation_2 As label:
+            BorderColor: =RGBA(48,55,120,1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderColor: =lblPlannerExportLocation_2.BorderColor
+            Height: =28
+            HoverBorderColor: =lblPlannerExportLocation_2.BorderColor
+            HoverColor: =lblPlannerExportLocation_2.Color
+            HoverFill: =lblPlannerExportLocation_2.Fill
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            PressedBorderColor: =lblPlannerExportLocation_2.BorderColor
+            PressedColor: =lblPlannerExportLocation_2.Color
+            PressedFill: =lblPlannerExportLocation_2.Fill
+            Size: =10.5
+            Text: =SelectedPlan.'data-ADB4D7A662F548B49FAC2B986E348A1Btitle' & " - " & SelectedBucket.'data-ADB4D7A662F548B49FAC2B986E348A1Bname'
+            Visible: =chkCheckPlanner_2.Value && lblPlannerExportTo_2.Height > 0
+            Width: =423
+            X: =208
+            Y: =673
+            ZIndex: =53
+
+        lblPlannerExportTo_2 As label:
+            BorderColor: =RGBA(48,55,120,1)
+            Color: =RGBA(155, 155, 155, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderColor: =lblPlannerExportTo_2.BorderColor
+            Height: =If(IsBlank(SelectedBucket), 0, 28)
+            HoverBorderColor: =lblPlannerExportTo_2.BorderColor
+            HoverColor: =lblPlannerExportTo_2.Color
+            HoverFill: =lblPlannerExportTo_2.Fill
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            PressedBorderColor: =lblPlannerExportTo_2.BorderColor
+            PressedColor: =lblPlannerExportTo_2.Color
+            PressedFill: =lblPlannerExportTo_2.Fill
+            Size: =10.5
+            Text: |-
+                ="Export to:"
+            Visible: =chkCheckPlanner_2.Value
+            Width: =73
+            X: =135
+            Y: =673
+            ZIndex: =54
+
+        shapeRectangle2Planner_2 As rectangle:
+            BorderColor: =RGBA(48,55,120,1)
+            DisabledFill: =shapeRectangle2Planner_2.Fill
+            DisplayMode: =DisplayMode.View
+            Fill: =RGBA(215, 218, 221, 1)
+            FocusedBorderColor: =shapeRectangle2Planner_2.BorderColor
+            Height: =2
+            HoverFill: =shapeRectangle2Planner_2.Fill
+            PressedFill: =shapeRectangle2Planner_2.Fill
+            Visible: =chkCheckPlanner_2.Value && lblPlannerExportTo_2.Height > 0
+            Width: =lblPlannerExportLocation_2.Width + lblPlannerExportTo_2.Width
+            X: =135
+            Y: =673
+            ZIndex: =55
+
+        shapeRectanglePlanner_2 As rectangle:
+            BorderColor: =RGBA(48,55,120,1)
+            DisabledFill: =shapeRectanglePlanner_2.Fill
+            DisplayMode: =DisplayMode.View
+            Fill: =RGBA(215, 218, 221, 1)
+            FocusedBorderColor: =shapeRectanglePlanner_2.BorderColor
+            Height: =2
+            HoverFill: =shapeRectanglePlanner_2.Fill
+            PressedFill: =shapeRectanglePlanner_2.Fill
+            Visible: =chkCheckPlanner_2.Value && lblPlannerExportTo_2.Height > 0
+            Width: =lblPlannerExportLocation_2.Width + lblPlannerExportTo_2.Width
+            X: =135
+            Y: =673
+            ZIndex: =56
+
+    "'Group vertical_menu_12' As group":
+        Height: =5
+        Width: =5
+        X: =20
+        Y: =40
+        ZIndex: =92
+
+        bg_22 As rectangle:
+            Fill: =RGBA(248, 249, 255, 1)
+            Height: =718
+            Width: =72
+            Y: =50
+            ZIndex: =57
+
+        iconHamburger_15 As icon.Hamburger:
+            Height: =24
+            Icon: =Icon.Hamburger
+            OnSelect: =Navigate('MeetingDetails Screen', ScreenTransition.Fade)
+            Tooltip: ="MeetingDetails"
+            Width: =25
+            X: =17
+            Y: =118
+            ZIndex: =58
+
+        "'Home Icon_15' As icon.Home":
+            Height: =24
+            Icon: =Icon.Home
+            OnSelect: |-
+                =Navigate(HomePage,BorderStyle.None);
+                Clear(arrQuestions);
+                Clear(arrQuestionOptions);
+                Clear(CountCollection);
+                Clear(DisaButton);
+                Set(
+                    DisableButton,
+                    false
+                );
+            Tooltip: ="Home Page"
+            Width: =25
+            X: =20
+            Y: =57
+            ZIndex: =59
+
+        iconResourceAdd_15 As icon.Add:
+            Height: =24
+            Icon: =Icon.Add
+            OnSelect: =Navigate(ResourceScreen, ScreenTransition.Fade)
+            Tooltip: ="Resource"
+            Width: =25
+            X: =17
+            Y: =180
+            ZIndex: =60
+

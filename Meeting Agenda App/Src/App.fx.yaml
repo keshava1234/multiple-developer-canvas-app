@@ -1,0 +1,530 @@
+App As appinfo:
+    BackEnabled: =false
+    OnStart: |
+        =Set(
+            varPrimaryColor,
+            RGBA(
+                255,
+                255,
+                255,
+                255
+            )
+        );
+        Set(
+            varAgendaTab,
+            true
+        );
+        Set(
+            varUpcomingTab,
+            UpcomingGallery.Selected.Start
+        );
+        Set(
+            varShowUpcomingMeeting,
+            true
+        );
+        Set(
+            varMeetingDetails,
+            true
+        );
+        Set(
+            varResources,
+            true
+        );
+        Set(
+            varPollPopup,
+            false
+        );
+        If(
+            IsBlank(Gallery8_1),
+            Set(
+                varNoResources,
+                true
+            ),
+            Set(
+                varNoResources,
+                false
+            )
+        );
+        Collect(
+            CalendarLocalizedLabel,
+            {Value: "Calendar"},
+            {Value: "Kalender"},
+            {Value: "Təqvim"},
+            {Value: "Kalendar"},
+            {Value: "Calendari"},
+            {Value: "Kalendář"},
+            {Value: "Calendr"},
+            {Value: "Calendario"},
+            {Value: "Egutegia"},
+            {Value: "Kalendaryo"},
+            {Value: "Calendrier"},
+            {Value: "Féilire"},
+            {Value: "Am mìosachan"},
+            {Value: "Kalanda"},
+            {Value: "Dagbók"},
+            {Value: "Kalenda"},
+            {Value: "Kalendārs"},
+            {Value: "Kalenner"},
+            {Value: "Kalendorius"},
+            {Value: "Naptár"},
+            {Value: "Kalendarju"},
+            {Value: "Agenda"},
+            {Value: "Taqvim"},
+            {Value: "Kalendarz"},
+            {Value: "Calendário"},
+            {Value: "Intiwatana"},
+            {Value: "Kalendari"},
+            {Value: "Kalendár"},
+            {Value: "Koledar"},
+            {Value: "Kalenteri"},
+            {Value: "Maramataka"},
+            {Value: "Lịch"},
+            {Value: "Takvim"},
+            {Value: "Senenama"},
+            {Value: "Ημερολόγιο"},
+            {Value: "კალენდარი"},
+            {Value: "לוח שנה"},
+            {Value: "کیلنڈر"},
+            {Value: "التقويم"},
+            {Value: "कैलेंडर"},
+            {Value: "दिनदर्शिका"},
+            {Value: "ক্যালেন্ডার"},
+            {Value: "કૅલેન્ડર"},
+            {Value: "予定表"},
+            {Value: "行事曆"},
+            {Value: "日历"},
+            {Value: "క్యాలెండర్"}
+        );
+        Concurrent(
+            Set(
+                MyCalendarID,
+                LookUp(
+                    Office365Outlook.CalendarGetTables().value,
+                    DisplayName = LookUp(
+                        CalendarLocalizedLabel,
+                        Value = DisplayName
+                    ).Value
+                ).Name
+            );
+            ClearCollect(
+                AllFutureEvents,
+                Office365Outlook.GetEventsCalendarView(
+                    MyCalendarID,
+                    Text(
+                        Now(),
+                        DateTimeFormat.UTC
+                    ),
+                    //Text(
+                    //    DateAdd(
+                     //       Today(),
+                    //        -10,
+                     //       Days
+                     //   ),
+                     //   UTC
+                    //),
+                    Text(
+                        DateAdd(
+                            Today(),
+                            5,
+                            TimeUnit.Days
+                        ),
+                        DateTimeFormat.UTC
+                    )
+                ).Values
+            );
+            Remove(
+                AllFutureEvents,
+                Filter(
+                    AllFutureEvents,
+                    StartsWith(
+                        Subject,
+                        "Canceled:"
+                    )
+                )
+            );
+            ClearCollect(
+                AllPastEvents,
+                Office365Outlook.GetEventsCalendarView(
+                    MyCalendarID,
+                    Text(
+                        DateAdd(
+                            Today(),
+                            -5,
+                            TimeUnit.Days
+                        ),
+                        DateTimeFormat.UTC
+                    ),
+                    Text(
+                        DateAdd(
+                            Now(),
+                            0,
+                            TimeUnit.Days
+                        ),
+                        DateTimeFormat.UTC
+                    )
+                ). Values
+            );
+            Remove(
+                AllPastEvents,
+                Filter(
+                    AllPastEvents,
+                    StartsWith(
+                        Subject,
+                        "Canceled:"
+                    )
+                )
+            );
+            ClearCollect(
+                AllPastEvents,
+                Filter(
+                    AllPastEvents,
+                    Not(Id in AllFutureEvents.Id)
+                )
+            );
+            Set(
+                varShowUpcomingMeeting,
+                true
+            );
+            ,
+            Set(
+                MyUserProfile,
+                Office365Users.MyProfile().Id
+            ),
+            /*used to determine if meeting attendees are in app user's org*/
+            Set(
+                MyDomain,
+                Last(
+                    ForAll(Split(
+                        User().Email,
+                        "@"
+                    ), {Result: ThisRecord.Value})
+                ).Result
+            ),
+            /*used to determine countdown to end of selected meeting*/
+            Set(
+                HomeTimerStart,
+                Now()
+            )
+        );
+        /*Meetings are defined to be calendar events less than 6 hours in length*/
+        ClearCollect(
+            MeetingsOnly,
+            Filter(
+                AddColumns(
+                    AllFutureEvents,
+                    "isCurrent",
+                    DateDiff(
+                        Start,
+                        Now(),
+                        TimeUnit.Seconds
+                    ) > 0 && DateDiff(
+                        Now(),
+                        End,
+                        TimeUnit.Seconds
+                    ) > 0
+                ),
+                DateDiff(
+                    Start,
+                    End,
+                    TimeUnit.Hours
+                ) < 6
+            )
+        );
+        Set(
+            NumberOfCurrentMeetings,
+            CountRows(
+                Filter(
+                    MeetingsOnly,
+                    isCurrent
+                )
+            )
+        );
+        /*If a single meeting is happening now, autoselect it*/
+        If(
+            NumberOfCurrentMeetings = 3,
+            Set(
+                AutoSelectMeeting,
+                true
+            );
+            Set(
+                SelectedMeeting,
+                LookUp(
+                    MeetingsOnly,
+                    isCurrent
+                )
+            )
+        );
+        /*Collect(
+            Templates,
+            {
+                Template: "Email",
+                Value: "<!DOCTYPE html><html><head><title>" & "{MeetingName}" & "</title><style>div{box-sizing:border-box}table{table-layout:fixed;background-color:#eaedef;width:829px;font-family:'Open Sans',sans-serif;color:#2c3034}table.with-border td{border:2px solid #e3e3e3;background-color:#fff;vertical-align:top}td.caption{height:65px;background:#ed2955;color:#fff;text-align:center;vertical-align:middle}.details{font-size:14px;color:#2c3034;padding-top:10px}.header{font-size:16px;font-weight:600}.mark{font-weight:400;color:#617281}.name{font-size:12px;font-weight:600;color:#ed2955}table.no-border td.user-name{font-size:14px;font-weight:600;color:#2c3034;vertical-align:middle;height:20px;}.due-time{text-align:right;font-size:10px;vertical-align:middle;color:#617281;font-weight:400}.assign-to{font-size:12px;color:#617281}.job-title{font-size:12px;color:#4a4a4a;height:20px}table.no-border{width:100%}table.no-border td{border:0}table.no-border td.task{padding:10px 0;border-top:1px solid #f1f1f1}.user-img img{width:17px;height:19px;border:0;}.name a.link-name,.name a.link-name:visited{color:#ed2955;text-decoration:none;}</style></head><body><table border='0' cellpadding='0' cellspacing='0'><tr><td class='caption'>[ Meeting Capture ]</td></tr><tr><td style='border: 0;background-color: #eaedef;padding:30px 0 0 0;text-align: center;color: #2c3034;font-size: 20px;font-weight: 600;'>" & "{MeetingName}" & "</td></tr><tr><td style='border: 0;background-color: #eaedef;padding: 9px 0 10px 0;text-align: center;color: #2c3034;font-size: 14px;'>" & "{MeetingStartDate}" & " | " & "{MeetingStartTime}" & " - " & "{MeetingEndTime}" & " (" & "{MeetingMinutes}" & " Minutes)</td></tr></table><table class='with-border' border='0' cellpadding='20' cellspacing='20'><tr>
+        <td colspan='2' style='padding-bottom:10px;'><table border='0' cellpadding='0' cellspacing='0' class='no-border' style='table-layout:auto;'><tr><td colspan='3' class='header'>Attendees <span class='mark'>(" & "{MeetingAttendeeNum}" & ")</span></td></tr><tr><td colspan='3' style='height:10px;'></td></tr>" & "{1}" & "</table></td></tr><tr><td colspan='2'><table border='0' cellpadding='0' cellspacing='0' class='no-border'><tr><td class='header'>Meeting details</td></tr><tr><td class='details'>" & "{MeetingDetails}" & "</td></tr></table></td></tr><tr><td width='50%'><table border='0' cellpadding='0' cellspacing='0' class='no-border'><tr><td class='header'>Meeting Notes</td></tr><tr><td class='details'>" & "{MeetingNotes}" & "</td></tr></table></tr>{2}{Calculations1}{3}{4}<tr><td  colspan='2'><table border='0' cellpadding='0' cellspacing='0' class='no-border'><tr><td class='header'>Meeting details</td></tr><tr><td class='details'>" & "{MeetingDetails}" & "</td></tr></table></td></tr><tr><td style='border:0;background-color:#eaedef;padding:0;height:10px;'></td></tr></table></body></html>"
+            },
+            {
+                Template: "OneNote",
+                Value: "<!DOCTYPE html><html><head><title>" & "{MeetingName}" & "</title><meta http-equiv='Content-Type' content='text/html; charset=utf-8'/></head><body data-absolute-enabled='true' style='font-family:Calibri;font-size:11pt'><div data-id='_default' style='position:absolute;left:48px;top:120px;width:829px;'><table border='0' cellpadding='0' cellspacing='0' width='829'><tr><td style='background-color:#ed2955;font-size:10pt;'>&nbsp;</td></tr><tr><td style='background-color:#ed2955;border:0px;text-align:center;font-weight:600;'><span style='color:white'>[ Meeting Capture ]</span></td></tr><tr><td style='background-color:#ed2955;font-size:8pt;'>&nbsp;</td></tr><tr><td style='background-color:#eaedef;font-size:14pt;'>&nbsp;</td></tr><tr><td style='background-color:#eaedef;border:0px;text-align:center;'><span style='font-size:15pt;color:#2c3034;font-weight:bold'>" & "{MeetingName}" & "</span></td></tr><tr><td style='background-color:#eaedef;border:0px;text-align:center;'><span style='font-size:10.5pt;color:#2c3034'>" & "{MeetingStartDate}" & " | " & "{MeetingStartTime}" & " - " & "{MeetingEndTime}" & " (" & "{MeetingMinutes}" & " Minutes)</span></td></tr><tr><td style='background-color:#eaedef;font-size:14pt;'>&nbsp;</td></tr><tr><td style='background-color:white;'><table border='0' cellpadding='0' cellspacing='0' width='829'><colgroup><col style='width: 210px;'><col style='width: 210px;'><col style='width: 210px;'><col style='width: 210px;'></colgroup><tr><td colspan='4' style='font-size:14pt;'><span style='font-weight:600;color:#2c3034'>Attendees</span>&nbsp;<span style='color:#617281'>(" & "{MeetingAttendeeNum}" & ")</span></td></tr>" & "{1}" & "</table></td></tr><tr><td style='background-color:#ffffff;font-size:8pt;'>&nbsp;</td></tr><tr><td style='background-color:#ffffff;font-size:8pt;'>&nbsp;</td></tr><tr><td style='background-color:white;'><table border='0' cellpadding='0' cellspacing='0' width='829'><tr><td width='420' style='font-size:14pt;font-weight:600;color:#2c3034'>Meeting Notes</td><td width='420' style='font-size:14pt;font-weight:600;color:#2c3034;border:10px solid red;'>Tasks</td></tr><tr><td style='font-size:12pt;color:#2c3034'>" & "{MeetingNotes}" & "</td><td style='font-size:14pt;font-weight:600;color:#2c3034'><table border='0' cellpadding='0' cellspacing='0' width='420'>" & "{2}" & "</table></td></tr></table></td></tr><tr><td style='background-color:#ffffff;font-size:8pt;'>&nbsp;</td></tr><tr><td style='background-color:white;'></td></tr><tr><td style='background-color:#eaedef;font-size:26.5pt;'>&nbsp;</td></tr></table></div></body></html>"
+            }
+        );*/
+        ClearCollect(
+            HoursList,
+            {
+                Name: "12:00 am",
+                Minutes: 0
+            },
+            {
+                Name: "12:30 am",
+                Minutes: 30
+            },
+            {
+                Name: "01:00 am",
+                Minutes: 60
+            },
+            {
+                Name: "01:30 am",
+                Minutes: 90
+            },
+            {
+                Name: "02:00 am",
+                Minutes: 120
+            },
+            {
+                Name: "02:30 am",
+                Minutes: 150
+            },
+            {
+                Name: "03:00 am",
+                Minutes: 180
+            },
+            {
+                Name: "03:30 am",
+                Minutes: 210
+            },
+            {
+                Name: "04:00 am",
+                Minutes: 240,
+                Short: "4 am"
+            },
+            {
+                Name: "04:30 am",
+                Minutes: 270
+            },
+            {
+                Name: "05:00 am",
+                Minutes: 300
+            },
+            {
+                Name: "05:30 am",
+                Minutes: 330
+            },
+            {
+                Name: "06:00 am",
+                Minutes: 360
+            },
+            {
+                Name: "06:30 am",
+                Minutes: 390
+            },
+            {
+                Name: "07:00 am",
+                Minutes: 420
+            },
+            {
+                Name: "07:30 am",
+                Minutes: 450
+            },
+            {
+                Name: "08:00 am",
+                Minutes: 480,
+                Short: "8 am"
+            },
+            {
+                Name: "08:30 am",
+                Minutes: 510
+            },
+            {
+                Name: "09:00 am",
+                Minutes: 540
+            },
+            {
+                Name: "09:30 am",
+                Minutes: 570
+            },
+            {
+                Name: "10:00 am",
+                Minutes: 600
+            },
+            {
+                Name: "10:30 am",
+                Minutes: 630
+            },
+            {
+                Name: "11:00 am",
+                Minutes: 660
+            },
+            {
+                Name: "11:30 am",
+                Minutes: 690
+            },
+            {
+                Name: "12:00 pm",
+                Minutes: 720,
+                Short: "12 pm"
+            },
+            {
+                Name: "12:30 pm",
+                Minutes: 750
+            },
+            {
+                Name: "01:00 pm",
+                Minutes: 780
+            },
+            {
+                Name: "01:30 pm",
+                Minutes: 810
+            },
+            {
+                Name: "02:00 pm",
+                Minutes: 840
+            },
+            {
+                Name: "02:30 pm",
+                Minutes: 870
+            },
+            {
+                Name: "03:00 pm",
+                Minutes: 900
+            },
+            {
+                Name: "03:30 pm",
+                Minutes: 930
+            },
+            {
+                Name: "04:00 pm",
+                Minutes: 960,
+                Short: "4 pm"
+            },
+            {
+                Name: "04:30 pm",
+                Minutes: 990
+            },
+            {
+                Name: "05:00 pm",
+                Minutes: 1020
+            },
+            {
+                Name: "05:30 pm",
+                Minutes: 1050
+            },
+            {
+                Name: "06:00 pm",
+                Minutes: 1080
+            },
+            {
+                Name: "06:30 pm",
+                Minutes: 1110
+            },
+            {
+                Name: "07:00 pm",
+                Minutes: 1140
+            },
+            {
+                Name: "07:30 pm",
+                Minutes: 1170
+            },
+            {
+                Name: "08:00 pm",
+                Minutes: 1200,
+                Short: "8 pm"
+            },
+            {
+                Name: "08:30 pm",
+                Minutes: 1230
+            },
+            {
+                Name: "09:00 pm",
+                Minutes: 1260
+            },
+            {
+                Name: "09:30 pm",
+                Minutes: 1290
+            },
+            {
+                Name: "10:00 pm",
+                Minutes: 1320
+            },
+            {
+                Name: "10:30 pm",
+                Minutes: 1350
+            },
+            {
+                Name: "11:00 pm",
+                Minutes: 1380
+            },
+            {
+                Name: "11:30 pm",
+                Minutes: 1410
+            }
+        );
+        ClearCollect(
+            MinutesList,
+            ForAll(
+                Sequence(
+                    Text(
+                        1440,
+                        "#.00#"
+                    ),
+                    Text(
+                        00,
+                        "#.00#"
+                    ),
+                    Text(
+                        05,
+                        "#.00#"
+                    )
+                ),
+                {
+                    Name: Concatenate(
+                        Text(
+                            RoundDown(
+                                Value / 60,
+                                00
+                            ),
+                            "[$-en-US]00"
+                        ),
+                        ":",
+                        Text(
+                            Mod(
+                                Value,
+                                60
+                            ),
+                            "[$-en-US]00"
+                        ),
+                        If(
+                            (Value < 720),
+                            "am",
+                            "pm"
+                        )
+                    ),
+                    Minutes: Value
+                }
+            )
+        );
+        /*Set(arrUiparamList, First(Filter(MeetingAgendaSettingList, true)));
+        Set(
+            arrUIParameters,
+            {
+                TitleFont: arrUiparamList.FontFamily,
+                TitleFontSize:arrUiparamList.TitleFontSize,
+                SubTitleFontSize: arrUiparamList.SubtitleFontSize
+            }
+        );*/
+    StartScreen: =HomePage
+
+    Host As hostControl.DefaultHostControlVariant:
+        OnCancel: =false
+        OnEdit: =false
+        OnNew: =false
+        OnSave: =false
+        OnView: =false
+
