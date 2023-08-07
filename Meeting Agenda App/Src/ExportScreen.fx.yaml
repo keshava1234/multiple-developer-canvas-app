@@ -238,7 +238,7 @@ ExportScreen As screen:
             CheckmarkFill: =Color.DarkBlue
             Color: =RGBA(48, 55, 120, 1)
             FocusedBorderColor: =OneNotecheck.BorderColor
-            FocusedBorderThickness: =0
+            FocusedBorderThickness: =1
             Height: =49
             HoverBorderColor: =Self.BorderColor
             HoverColor: =Self.Color
@@ -457,6 +457,7 @@ ExportScreen As screen:
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
             FocusedBorderColor: =imgOneNoteIcon.BorderColor
+            FocusedBorderThickness: =1
             Height: =24
             HoverBorderColor: =ColorFade(imgOneNoteIcon.BorderColor, 20%)
             HoverFill: =ColorFade(imgOneNoteIcon.Fill, 20%)
@@ -473,6 +474,7 @@ ExportScreen As screen:
             Color: =RGBA(48, 55, 120, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
             FocusedBorderColor: =lblOneNoteHeader.BorderColor
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Semibold
             Height: =53
@@ -495,6 +497,7 @@ ExportScreen As screen:
             Color: =RGBA(48, 55, 120, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
             FocusedBorderColor: =lblOneNoteExportDescript.BorderColor
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Semibold
             Height: =28
@@ -561,6 +564,7 @@ ExportScreen As screen:
             DisabledColor: =RGBA(166, 166, 166, 1)
             Fill: =RGBA(234, 237, 239, 1)
             FocusedBorderColor: =lblOneNoteDataLossDescript.BorderColor
+            FocusedBorderThickness: =1
             HoverBorderColor: =lblOneNoteDataLossDescript.BorderColor
             HoverColor: =lblOneNoteDataLossDescript.Color
             HoverFill: =lblOneNoteDataLossDescript.Fill
@@ -583,6 +587,7 @@ ExportScreen As screen:
             DisabledColor: =RGBA(244, 244, 244, 1)
             DisabledFill: =iconOneNoteDataLossWarn.Fill
             FocusedBorderColor: =iconOneNoteDataLossWarn.BorderColor
+            FocusedBorderThickness: =1
             Height: =24
             HoverBorderColor: =ColorFade(iconOneNoteDataLossWarn.BorderColor, 20%)
             HoverColor: =ColorFade(iconOneNoteDataLossWarn.Color, 20%)
@@ -602,6 +607,7 @@ ExportScreen As screen:
             Color: =RGBA(43, 67, 119, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
             FocusedBorderColor: =lblOneNoteExportLocation.BorderColor
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             Height: =41
             HoverBorderColor: =lblOneNoteExportLocation.BorderColor
@@ -627,6 +633,7 @@ ExportScreen As screen:
             Color: =RGBA(155, 155, 155, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
             FocusedBorderColor: =lblExportToOneNote.BorderColor
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             Height: =41
             HoverBorderColor: =lblExportToOneNote.BorderColor
@@ -654,6 +661,7 @@ ExportScreen As screen:
             DisplayMode: =DisplayMode.View
             Fill: =RGBA(215, 218, 221, 1)
             FocusedBorderColor: =shapeRectangle2OneNote.BorderColor
+            FocusedBorderThickness: =1
             Height: =2
             HoverFill: =shapeRectangle2OneNote.Fill
             PressedFill: =shapeRectangle2OneNote.Fill
@@ -669,6 +677,7 @@ ExportScreen As screen:
             DisplayMode: =DisplayMode.View
             Fill: =RGBA(215, 218, 221, 1)
             FocusedBorderColor: =shapeRectangleOneNote.BorderColor
+            FocusedBorderThickness: =1
             Height: =2
             HoverFill: =shapeRectangleOneNote.Fill
             PressedFill: =shapeRectangleOneNote.Fill
@@ -694,7 +703,7 @@ ExportScreen As screen:
             Color: =RGBA(0, 0, 0, 1)
             Default: =true
             FocusedBorderColor: =checkEmail.BorderColor
-            FocusedBorderThickness: =0
+            FocusedBorderThickness: =1
             HoverBorderColor: =ColorFade(checkEmail.BorderColor, 30%)
             HoverColor: =RGBA(89, 0, 0, 1)
             HoverFill: =ColorFade(checkEmail.Fill, 30%)
@@ -713,6 +722,7 @@ ExportScreen As screen:
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
             FocusedBorderColor: =imgEmailIcon.BorderColor
+            FocusedBorderThickness: =1
             Height: =24
             HoverBorderColor: =ColorFade(imgEmailIcon.BorderColor, 20%)
             HoverFill: =ColorFade(imgEmailIcon.Fill, 20%)
@@ -730,6 +740,7 @@ ExportScreen As screen:
             DisabledColor: =RGBA(166, 166, 166, 1)
             Fill: =RGBA(48, 55, 120, 1)
             FocusedBorderColor: =lblEmailHeader.BorderColor
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Semibold
             Height: =34
@@ -752,6 +763,7 @@ ExportScreen As screen:
             Color: =RGBA(48, 55, 120, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
             FocusedBorderColor: =lblEmailExportDescript.BorderColor
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Semibold
             Height: =28
@@ -780,6 +792,7 @@ ExportScreen As screen:
             DisabledFill: =RGBA(244, 244, 244, 1)
             Fill: =RGBA(62,96,170,0)
             FocusedBorderColor: =btnRecipientGalleryBkg.BorderColor
+            FocusedBorderThickness: =1
             Height: =130
             HoverBorderColor: =ColorFade(btnRecipientGalleryBkg.BorderColor, 20%)
             HoverColor: =RGBA(255, 255, 255, 1)
@@ -802,6 +815,7 @@ ExportScreen As screen:
             Color: =RGBA(48, 55, 120, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
             FocusedBorderColor: =lblAttendeeCount.BorderColor
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Semibold
             Height: =28
@@ -828,6 +842,7 @@ ExportScreen As screen:
             DisabledBorderColor: =galEmailRecipients.BorderColor
             DisabledFill: =galEmailRecipients.Fill
             Fill: =RGBA(255, 255, 255, 1)
+            FocusedBorderThickness: =1
             Height: =211
             HoverBorderColor: =galEmailRecipients.BorderColor
             HoverFill: =galEmailRecipients.Fill
@@ -931,7 +946,7 @@ ExportScreen As screen:
                 DisabledColor: =RGBA(244, 244, 244, 1)
                 DisabledFill: =iconRemoveRecipient.Fill
                 FocusedBorderColor: =iconRemoveRecipient.BorderColor
-                FocusedBorderThickness: =0
+                FocusedBorderThickness: =1
                 Height: =38
                 HoverBorderColor: =ColorFade(iconRemoveRecipient.BorderColor, 20%)
                 HoverColor: =ColorFade(iconRemoveRecipient.Color, 20%)
@@ -993,6 +1008,7 @@ ExportScreen As screen:
             Color: =RGBA(48, 55, 120, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
             FocusedBorderColor: =lblAddAttendee.BorderColor
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Semibold
             Height: =28
@@ -1022,7 +1038,7 @@ ExportScreen As screen:
             DisabledColor: =RGBA(166, 166, 166, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
             FocusedBorderColor: =txtSearchUser.BorderColor
-            FocusedBorderThickness: =2
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             HintText: ="Search for users in your org"
             HoverBorderColor: =Self.BorderColor
@@ -1053,6 +1069,7 @@ ExportScreen As screen:
             DisabledColor: =RGBA(244, 244, 244, 1)
             DisabledFill: =iconSearchUser.Fill
             FocusedBorderColor: =iconSearchUser.BorderColor
+            FocusedBorderThickness: =1
             Height: =40
             HoverBorderColor: =ColorFade(iconSearchUser.BorderColor, 20%)
             HoverColor: =ColorFade(iconSearchUser.Color, 20%)
@@ -1071,6 +1088,7 @@ ExportScreen As screen:
             BorderColor: =RGBA(48, 55, 120, 1)
             DisabledBorderColor: =galUserSearchResults.BorderColor
             DisabledFill: =galUserSearchResults.Fill
+            FocusedBorderThickness: =1
             Height: =153
             HoverBorderColor: =galUserSearchResults.BorderColor
             HoverFill: =galUserSearchResults.Fill
@@ -1206,6 +1224,7 @@ ExportScreen As screen:
             Color: =RGBA(0, 0, 0, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
             FocusedBorderColor: =lblLoadingIndicatorUsers.BorderColor
+            FocusedBorderThickness: =1
             HoverBorderColor: =lblLoadingIndicatorUsers.BorderColor
             HoverColor: =lblLoadingIndicatorUsers.Color
             HoverFill: =lblLoadingIndicatorUsers.Fill
@@ -1231,6 +1250,7 @@ ExportScreen As screen:
             Color: =RGBA(48, 55, 120, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
             FocusedBorderColor: =lblExportBannerHeader_1.BorderColor
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Lighter
             Height: =38
@@ -1253,7 +1273,7 @@ ExportScreen As screen:
             DisabledFill: =shapeRectangleExport.Fill
             Fill: =RGBA(227, 227, 227, 1)
             FocusedBorderColor: =shapeRectangleExport.BorderColor
-            FocusedBorderThickness: =0
+            FocusedBorderThickness: =1
             Height: =1
             HoverFill: =shapeRectangleExport.Fill
             PressedFill: =shapeRectangleExport.Fill
@@ -1268,6 +1288,7 @@ ExportScreen As screen:
             Color: =RGBA(48, 55, 120, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
             FocusedBorderColor: =lblExportQuestion.BorderColor
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             Height: =27
             HoverBorderColor: =lblExportQuestion.BorderColor
@@ -1290,6 +1311,7 @@ ExportScreen As screen:
             DisabledColor: =RGBA(166, 166, 166, 1)
             Fill: =Color.White
             FocusedBorderColor: =lblDataLossWarnText.BorderColor
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             Height: =26
             HoverBorderColor: =lblDataLossWarnText.BorderColor
@@ -1318,6 +1340,7 @@ ExportScreen As screen:
             DisabledColor: =RGBA(244, 244, 244, 1)
             DisabledFill: =iconDataLossWarn.Fill
             FocusedBorderColor: =iconDataLossWarn.BorderColor
+            FocusedBorderThickness: =1
             Height: =16
             HoverBorderColor: =ColorFade(iconDataLossWarn.BorderColor, 20%)
             HoverColor: =ColorFade(iconDataLossWarn.Color, 20%)
@@ -1347,6 +1370,7 @@ ExportScreen As screen:
                 DisplayMode.Edit
             Fill: =RGBA(48, 55, 120, 1)
             FocusedBorderColor: =btnExport.BorderColor
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             Height: =31
             HoverBorderColor: =ColorFade(btnExport.BorderColor, 20%)
@@ -1607,6 +1631,7 @@ ExportScreen As screen:
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
             FocusedBorderColor: =imgExportIcon.BorderColor
+            FocusedBorderThickness: =1
             Height: =16
             HoverBorderColor: =ColorFade(imgExportIcon.BorderColor, 20%)
             HoverFill: =ColorFade(imgExportIcon.Fill, 20%)
@@ -1681,6 +1706,7 @@ ExportScreen As screen:
             Color: =RGBA(0, 0, 0, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
             FocusedBorderColor: =lblOverlayHeader.BorderColor
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Lighter
             Height: =If(ShowOverlay, 110, 60)
@@ -1704,6 +1730,7 @@ ExportScreen As screen:
             Color: =RGBA(0, 0, 0, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
             FocusedBorderColor: =lblNotebookOrPlan.BorderColor
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Semibold
             Height: =20
@@ -1727,6 +1754,7 @@ ExportScreen As screen:
             Color: =RGBA(0, 0, 0, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
             FocusedBorderColor: =lblSectionOrBucket.BorderColor
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Semibold
             Height: =20
@@ -2135,6 +2163,7 @@ ExportScreen As screen:
             Color: =RGBA(0, 0, 0, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
             FocusedBorderColor: =lblExportConfirmText.BorderColor
+            FocusedBorderThickness: =1
             FontWeight: =FontWeight.Lighter
             Height: =107
             HoverBorderColor: =lblExportConfirmText.BorderColor
@@ -2311,7 +2340,7 @@ ExportScreen As screen:
             CheckmarkFill: =Color.DarkBlue
             Color: =RGBA(0, 0, 0, 1)
             FocusedBorderColor: =chkCheckPlanner_1.BorderColor
-            FocusedBorderThickness: =0
+            FocusedBorderThickness: =1
             HoverBorderColor: =ColorFade(chkCheckPlanner_1.BorderColor, 30%)
             HoverColor: =RGBA(89, 0, 0, 1)
             HoverFill: =ColorFade(chkCheckPlanner_1.Fill, 30%)
@@ -2358,6 +2387,7 @@ ExportScreen As screen:
             Color: =RGBA(48, 55, 120, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
             FocusedBorderColor: =lblOfficePlanner_1.BorderColor
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Semibold
             Height: =54
@@ -2492,6 +2522,7 @@ ExportScreen As screen:
             DisabledColor: =RGBA(166, 166, 166, 1)
             Fill: =RGBA(48, 55, 120, 1)
             FocusedBorderColor: =lblExportMeetingSubject_2.BorderColor
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Semibold
             Height: =50
@@ -2511,6 +2542,7 @@ ExportScreen As screen:
             ZIndex: =81
 
         imageLogo_14 As image:
+            FocusedBorderThickness: =1
             Height: =45
             Image: =logo
             TabIndex: =0
@@ -2521,6 +2553,7 @@ ExportScreen As screen:
         "'lbl_selected meeting dt & time_1' As label":
             Color: =RGBA(255, 255, 255, 1)
             FocusedBorderColor: ='lbl_selected meeting dt & time_1'.BorderColor
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             Height: =50
             HoverBorderColor: ='lbl_selected meeting dt & time_1'.BorderColor
@@ -2542,6 +2575,7 @@ ExportScreen As screen:
             Align: =Align.Center
             Color: =RGBA(255, 255, 255, 1)
             FocusedBorderColor: ='lbl_selected meeting sub._1'.BorderColor
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Bold
             Height: =49
@@ -2561,6 +2595,7 @@ ExportScreen As screen:
 
         Icon_back_1 As icon.ArrowLeft:
             Color: =RGBA(255, 255, 255, 1)
+            FocusedBorderThickness: =1
             Height: =35
             Icon: =Icon.ArrowLeft
             OnSelect: =Back()
@@ -2573,6 +2608,7 @@ ExportScreen As screen:
         "'lbl_version no.._1' As label":
             Align: =Align.Center
             Color: =RGBA(255, 255, 255, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             Height: =46
             Size: =14
@@ -2598,7 +2634,7 @@ ExportScreen As screen:
             CheckmarkFill: =Color.DarkBlue
             Color: =RGBA(0, 0, 0, 1)
             FocusedBorderColor: =chkCheckPlanner_2.BorderColor
-            FocusedBorderThickness: =0
+            FocusedBorderThickness: =1
             HoverBorderColor: =ColorFade(chkCheckPlanner_2.BorderColor, 30%)
             HoverColor: =RGBA(89, 0, 0, 1)
             HoverFill: =ColorFade(chkCheckPlanner_2.Fill, 30%)
@@ -2653,6 +2689,7 @@ ExportScreen As screen:
             Color: =RGBA(48, 55, 120, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
             FocusedBorderColor: =lblOfficePlanner_2.BorderColor
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Semibold
             Height: =54

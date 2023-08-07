@@ -112,6 +112,7 @@ FollowUpScreen As screen:
             DisabledBorderColor: =ColorFade(FollowUpGallBkg.BorderColor, 70%)
             Fill: =RGBA(62,96,170,0)
             FocusedBorderColor: =FollowUpGallBkg.BorderColor
+            FocusedBorderThickness: =1
             Height: =197
             HoverBorderColor: =ColorFade(FollowUpGallBkg.BorderColor, 20%)
             HoverColor: =FollowUpGallBkg.Color
@@ -131,6 +132,7 @@ FollowUpScreen As screen:
 
         FollowUpAttendeeCount As label:
             FocusedBorderColor: =FollowUpAttendeeCount.BorderColor
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Semibold
             Height: =41
@@ -157,6 +159,7 @@ FollowUpScreen As screen:
             DisabledBorderColor: =FollowUpAttendeesGall.BorderColor
             DisabledFill: =FollowUpAttendeesGall.Fill
             Fill: =RGBA(255, 255, 255, 1)
+            FocusedBorderThickness: =1
             Height: =197
             HoverBorderColor: =FollowUpAttendeesGall.BorderColor
             HoverFill: =FollowUpAttendeesGall.Fill
@@ -281,6 +284,7 @@ FollowUpScreen As screen:
 
         AddFollowUpAttendee As label:
             FocusedBorderColor: =AddFollowUpAttendee.BorderColor
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Semibold
             Height: =28
@@ -307,7 +311,7 @@ FollowUpScreen As screen:
             BorderColor: =RGBA(227, 227, 227, 1)
             Default: =""
             FocusedBorderColor: =FollowUpSearchText.BorderColor
-            FocusedBorderThickness: =2
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             HintText: ="Search for users in your org"
             Mode: =TextMode.MultiLine
@@ -330,6 +334,7 @@ FollowUpScreen As screen:
             Color: =RGBA(62, 96, 170, 1)
             DisabledFill: =FollowUpSearchIcon.Fill
             FocusedBorderColor: =FollowUpSearchIcon.BorderColor
+            FocusedBorderThickness: =1
             Height: =40
             HoverBorderColor: =ColorFade(FollowUpSearchIcon.BorderColor, 20%)
             HoverColor: =ColorFade(FollowUpSearchIcon.Color, 20%)
@@ -348,6 +353,7 @@ FollowUpScreen As screen:
             AccessibleLabel: ="FollowUpSearchUserResults"
             DisabledBorderColor: =FollowUpSearchUserResults.BorderColor
             DisabledFill: =FollowUpSearchUserResults.Fill
+            FocusedBorderThickness: =1
             Height: =153
             HoverBorderColor: =FollowUpSearchUserResults.BorderColor
             HoverFill: =FollowUpSearchUserResults.Fill

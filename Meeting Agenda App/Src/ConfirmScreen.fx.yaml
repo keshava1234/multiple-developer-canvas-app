@@ -372,6 +372,7 @@ ConfirmScreen As screen:
         "'lbl__home pg.' As label":
             Color: =RGBA(62, 96, 170, 1)
             FocusedBorderColor: ='lbl__home pg.'.BorderColor
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             Height: =27
             HoverBorderColor: ='lbl__home pg.'.BorderColor
@@ -394,7 +395,7 @@ ConfirmScreen As screen:
             Color: =RGBA(9, 33, 98, 1)
             DisabledFill: ='Icon_home pg.'.Fill
             FocusedBorderColor: ='Icon_home pg.'.BorderColor
-            FocusedBorderThickness: =0
+            FocusedBorderThickness: =1
             Height: =36
             HoverBorderColor: =ColorFade('Icon_home pg.'.BorderColor, 20%)
             HoverColor: =ColorFade('Icon_home pg.'.Color, 20%)
@@ -425,6 +426,7 @@ ConfirmScreen As screen:
             DisabledColor: =RGBA(166, 166, 166, 1)
             Fill: =RGBA(48, 55, 120, 1)
             FocusedBorderColor: =lblExportMeetingSubject_1.BorderColor
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Semibold
             Height: =50
@@ -444,6 +446,7 @@ ConfirmScreen As screen:
             ZIndex: =21
 
         imageLogo_13 As image:
+            FocusedBorderThickness: =1
             Height: =45
             Image: =logo
             TabIndex: =0
@@ -454,6 +457,7 @@ ConfirmScreen As screen:
         "'lbl_selected meeting dt & time' As label":
             Color: =RGBA(255, 255, 255, 1)
             FocusedBorderColor: ='lbl_selected meeting dt & time'.BorderColor
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             Height: =50
             HoverBorderColor: ='lbl_selected meeting dt & time'.BorderColor
@@ -475,6 +479,7 @@ ConfirmScreen As screen:
             Align: =Align.Center
             Color: =RGBA(255, 255, 255, 1)
             FocusedBorderColor: ='lbl_selected meeting sub.'.BorderColor
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Bold
             Height: =49
@@ -494,6 +499,7 @@ ConfirmScreen As screen:
 
         Icon_back As icon.ArrowLeft:
             Color: =RGBA(255, 255, 255, 1)
+            FocusedBorderThickness: =1
             Height: =35
             Icon: =Icon.ArrowLeft
             OnSelect: =Back()
@@ -506,6 +512,7 @@ ConfirmScreen As screen:
         "'lbl_version no..' As label":
             Align: =Align.Center
             Color: =RGBA(255, 255, 255, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             Height: =46
             Size: =14

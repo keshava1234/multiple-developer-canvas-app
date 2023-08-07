@@ -6,6 +6,7 @@ AddPollScreen As screen:
         BorderColor: =RGBA(0, 18, 107, 1)
         Color: =RGBA(48, 55, 120, 1)
         DisabledColor: =RGBA(166, 166, 166, 1)
+        FocusedBorderThickness: =1
         Font: =Font.Lato
         FontWeight: =FontWeight.Bold
         Height: =30
@@ -652,6 +653,7 @@ AddPollScreen As screen:
             DisabledColor: =RGBA(166, 166, 166, 1)
             Fill: =RGBA(48, 55, 120, 1)
             FocusedBorderColor: =lblExportMeetingSubject_3.BorderColor
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Semibold
             Height: =50
@@ -671,6 +673,7 @@ AddPollScreen As screen:
             ZIndex: =30
 
         imageLogo_15 As image:
+            FocusedBorderThickness: =1
             Height: =45
             Image: =logo
             TabIndex: =0
@@ -681,6 +684,7 @@ AddPollScreen As screen:
         "'lbl_selected meeting dt & time_2' As label":
             Color: =RGBA(255, 255, 255, 1)
             FocusedBorderColor: ='lbl_selected meeting dt & time_2'.BorderColor
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             Height: =50
             HoverBorderColor: ='lbl_selected meeting dt & time_2'.BorderColor
@@ -702,6 +706,7 @@ AddPollScreen As screen:
             Align: =Align.Center
             Color: =RGBA(255, 255, 255, 1)
             FocusedBorderColor: ='lbl_selected meeting sub._2'.BorderColor
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Bold
             Height: =49
@@ -721,6 +726,7 @@ AddPollScreen As screen:
 
         Icon_back_2 As icon.ArrowLeft:
             Color: =RGBA(255, 255, 255, 1)
+            FocusedBorderThickness: =1
             Height: =35
             Icon: =Icon.ArrowLeft
             OnSelect: =Back()
@@ -733,6 +739,7 @@ AddPollScreen As screen:
         "'lbl_version no.._2' As label":
             Align: =Align.Center
             Color: =RGBA(255, 255, 255, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             Height: =46
             Size: =14

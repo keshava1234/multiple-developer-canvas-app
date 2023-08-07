@@ -25,6 +25,7 @@ EmailScreen As screen:
 
         EmailBannerText As label:
             FocusedBorderColor: =EmailBannerText.BorderColor
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Semibold
             Height: =45
@@ -47,7 +48,7 @@ EmailScreen As screen:
             DisabledFill: =Rectangle6.Fill
             Fill: =RGBA(227, 227, 227, 1)
             FocusedBorderColor: =Rectangle6.BorderColor
-            FocusedBorderThickness: =0
+            FocusedBorderThickness: =1
             Height: =1
             HoverFill: =Rectangle6.Fill
             PressedFill: =Rectangle6.Fill
@@ -526,6 +527,7 @@ EmailScreen As screen:
             Align: =Align.Center
             Color: =RGBA(255, 255, 255, 1)
             Fill: =RGBA(0,0,0,0)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Bold
             Height: =50
@@ -540,6 +542,7 @@ EmailScreen As screen:
         "'lbl_Selected Meeting Time & Dt' As label":
             Color: =RGBA(255, 255, 255, 1)
             FocusedBorderColor: ='lbl_Selected Meeting Time & Dt'.BorderColor
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             Height: =50
             HoverBorderColor: ='lbl_Selected Meeting Time & Dt'.BorderColor

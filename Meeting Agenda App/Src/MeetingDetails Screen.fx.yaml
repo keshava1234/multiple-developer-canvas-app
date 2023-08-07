@@ -54,6 +54,7 @@
             DisabledFill: =AttendeesBackground_2.Fill
             Fill: =Color.White
             FocusedBorderColor: =AttendeesBackground_2.BorderColor
+            FocusedBorderThickness: =1
             Height: =314
             HoverFill: =AttendeesBackground_2.Fill
             PressedFill: =AttendeesBackground_2.Fill
@@ -66,6 +67,7 @@
         AttendeesBanner_1 As label:
             Color: =RGBA(48, 55, 120, 1)
             FocusedBorderColor: =AttendeesBanner_1.BorderColor
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Semibold
             Height: =27
@@ -86,6 +88,7 @@
         LoadingIndicator1_2 As label:
             Align: =LayoutAlignItems.Center
             FocusedBorderColor: =LoadingIndicator1_2.BorderColor
+            FocusedBorderThickness: =1
             Height: =45
             HoverBorderColor: =LoadingIndicator1_2.BorderColor
             HoverColor: =LoadingIndicator1_2.Color
@@ -111,7 +114,7 @@
             DisabledBorderColor: =ColorFade(MailAllButton_2.BorderColor, 70%)
             Fill: =RGBA(0, 0, 0, 0)
             FocusedBorderColor: =MailAllButton_2.BorderColor
-            FocusedBorderThickness: =2
+            FocusedBorderThickness: =1
             Height: =30
             HoverBorderColor: =ColorFade(MailAllButton_2.BorderColor, 20%)
             HoverColor: =MailAllButton_2.Color
@@ -139,7 +142,7 @@
             Color: =RGBA(71, 90, 131, 1)
             DisabledFill: =MailAllIcon_2.Fill
             FocusedBorderColor: =MailAllIcon_2.BorderColor
-            FocusedBorderThickness: =0
+            FocusedBorderThickness: =1
             Height: =30
             HoverBorderColor: =ColorFade(MailAllIcon_2.BorderColor, 20%)
             HoverColor: =ColorFade(MailAllIcon_2.Color, 20%)
@@ -163,6 +166,7 @@
         AttendeeGallery As gallery.galleryVertical:
             DisabledBorderColor: =AttendeeGallery.BorderColor
             DisabledFill: =AttendeeGallery.Fill
+            FocusedBorderThickness: =1
             Height: =276
             HoverBorderColor: =AttendeeGallery.BorderColor
             HoverFill: =AttendeeGallery.Fill
@@ -300,7 +304,7 @@
                 Color: =RGBA(48, 55, 120, 1)
                 DisabledFill: =MailAttendeeIcon_7.Fill
                 FocusedBorderColor: =MailAttendeeIcon_7.BorderColor
-                FocusedBorderThickness: =0
+                FocusedBorderThickness: =1
                 Height: =25
                 HoverBorderColor: =ColorFade(MailAttendeeIcon_7.BorderColor, 20%)
                 HoverColor: =ColorFade(MailAttendeeIcon_7.Color, 20%)
@@ -418,6 +422,7 @@
         btnBgAgenda_2 As button:
             BorderThickness: =0
             Fill: =RGBA(255, 255, 255, 1)
+            FocusedBorderThickness: =1
             Font: =Font.'Segoe UI'
             Height: =310
             RadiusBottomLeft: =5
@@ -434,6 +439,7 @@
 
         "AgendaGallery_2 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
             Fill: =RGBA(255, 255, 255, 1)
+            FocusedBorderThickness: =1
             Height: =254
             Items: |-
                 =/*Filter(
@@ -772,6 +778,7 @@
 
                 Label7 As label:
                     Color: =RGBA(128, 128, 128, 1)
+                    FocusedBorderThickness: =1
                     Font: =Font.Lato
                     Height: =27
                     OnSelect: =Launch(ThisItem.AbsoluteUri)
@@ -797,6 +804,7 @@
         Label65_4 As label:
             Align: =Align.Center
             Color: =RGBA(101, 128, 187, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             Height: =15
             Size: =8
@@ -829,6 +837,7 @@
 
         "'Refresh Icon_2' As icon.Reload":
             Color: =RGBA(62, 96, 170, 1)
+            FocusedBorderThickness: =1
             Height: =15
             Icon: =Icon.Reload
             OnSelect: |-
@@ -849,7 +858,7 @@
                 =//If(!IsBlank(SelectedMeeting.SeriesMasterId),If( Now()>=DateTimeValue(SelectedMeeting.End),Disabled,Edit),Edit)
                 
                 If( Now()>=DateTimeValue(SelectedMeeting.End),DisplayMode.Disabled,DisplayMode.Edit)
-            FocusedBorderThickness: =4
+            FocusedBorderThickness: =1
             Height: =15
             Icon: =Icon.Cancel
             OnSelect: |+
@@ -978,6 +987,7 @@
 
         Label12_1 As label:
             Color: =If(varAgendaTab,RGBA(48, 55, 120, 1),Color.LightGray)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Semibold
             Height: =30
@@ -1013,6 +1023,7 @@
         Button3_6 As button:
             DisplayMode: =DisplayMode.View
             Fill: =If(varAgendaTab,RGBA(48, 55, 120, 1),Color.Transparent)
+            FocusedBorderThickness: =1
             Font: =Font.'Segoe UI'
             Height: =2
             TabIndex: =1
@@ -1023,6 +1034,7 @@
             ZIndex: =32
 
         Label17 As label:
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             Height: =61
             Size: =12
@@ -1043,6 +1055,7 @@
 
         Rectangle3_1 As rectangle:
             Fill: =RGBA(62,96,170,0.5)
+            FocusedBorderThickness: =1
             Height: =768
             TabIndex: =0
             Visible: =varShowPopUp
@@ -1051,6 +1064,7 @@
 
         Rectangle5_1 As rectangle:
             Fill: =RGBA(255, 255, 255, 1)
+            FocusedBorderThickness: =1
             Height: =295
             TabIndex: =0
             Visible: =varShowPopUp
@@ -1063,6 +1077,7 @@
             Align: =Align.Center
             Color: =RGBA(255, 255, 255, 1)
             Fill: =RGBA(62, 96, 170, 1)
+            FocusedBorderThickness: =1
             FontWeight: =FontWeight.Semibold
             Height: =35
             Size: =14
@@ -1088,6 +1103,7 @@
             DisabledColor: =RGBA(166, 166, 166, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
             DisplayFields: =["DisplayName"]
+            FocusedBorderThickness: =1
             Height: =30
             HoverColor: =RGBA(0, 0, 0, 1)
             HoverFill: =RGBA(230, 230, 230, 1)
@@ -1114,6 +1130,7 @@
         btnCancel As button:
             BorderThickness: =0
             Fill: =RGBA(153, 153, 153, 1)
+            FocusedBorderThickness: =1
             Height: =30
             OnSelect: |-
                 =Set(varShowPopUp,false);
@@ -1136,6 +1153,7 @@
 
         btnSendInvite As button:
             BorderThickness: =0
+            FocusedBorderThickness: =1
             Height: =30
             OnSelect: |
                 =/*AddNewAttendees.Run(With(
@@ -1183,6 +1201,7 @@
         Gallery2 As gallery.galleryHorizontal:
             BorderColor: =RGBA(128, 128, 128, 1)
             BorderThickness: =1
+            FocusedBorderThickness: =1
             Height: =81
             Items: =AddNewAttendees_2.SelectedItems
             TabIndex: =0
@@ -1314,6 +1333,7 @@
 
         Label12_7 As label:
             Color: =If(varAgendaTab,Color.LightGray,RGBA(48, 55, 120, 1))
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Semibold
             Height: =30
@@ -1332,6 +1352,7 @@
         Button3_7 As button:
             DisplayMode: =DisplayMode.View
             Fill: =If(varAgendaTab,Color.Transparent,RGBA(48, 55, 120, 1))
+            FocusedBorderThickness: =1
             Height: =2
             OnSelect: =true
             TabIndex: =1
@@ -1343,6 +1364,7 @@
 
         "PlannerGallery_1 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
             Fill: =RGBA(255, 255, 255, 1)
+            FocusedBorderThickness: =1
             Height: =254
             Items: |-
                 =/*Filter(
@@ -1721,6 +1743,7 @@
                 If( Now()>=DateTimeValue(SelectedMeeting.End),DisplayMode.Disabled,DisplayMode.Edit)
                 //Edit
                 
+            FocusedBorderThickness: =1
             Height: =15
             Icon: =Icon.Cancel
             OnSelect: |-
@@ -1752,6 +1775,7 @@
 
         Label18 As label:
             Align: =Align.Center
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             Height: =61
             Size: =12
@@ -1765,6 +1789,7 @@
 
         "'Refresh Icon_3' As icon.Reload":
             Color: =RGBA(62, 96, 170, 1)
+            FocusedBorderThickness: =1
             Height: =15
             Icon: =Icon.Reload
             OnSelect: |-
@@ -1782,6 +1807,7 @@
         Label65_5 As label:
             Align: =Align.Center
             Color: =RGBA(101, 128, 187, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             Height: =15
             Size: =8
@@ -1807,6 +1833,7 @@
             DisabledFill: =AttendeesBackground_3.Fill
             Fill: =Color.White
             FocusedBorderColor: =AttendeesBackground_3.BorderColor
+            FocusedBorderThickness: =1
             Height: =299
             HoverFill: =AttendeesBackground_3.Fill
             PressedFill: =AttendeesBackground_3.Fill
@@ -1823,7 +1850,7 @@
             DisabledBorderColor: =ColorFade(MailAllButton_3.BorderColor, 70%)
             Fill: =RGBA(0, 0, 0, 0)
             FocusedBorderColor: =MailAllButton_3.BorderColor
-            FocusedBorderThickness: =2
+            FocusedBorderThickness: =1
             Height: =29
             HoverBorderColor: =ColorFade(MailAllButton_3.BorderColor, 20%)
             HoverColor: =MailAllButton_3.Color
@@ -1854,7 +1881,7 @@
                 //If(!IsBlank(SelectedMeeting.SeriesMasterId),If( Now()>=DateTimeValue(SelectedMeeting.End),Disabled,Edit),Edit)
                 If( Now()>=DateTimeValue(SelectedMeeting.End),DisplayMode.Disabled,DisplayMode.Edit)
             FocusedBorderColor: =MailAllIcon_3.BorderColor
-            FocusedBorderThickness: =0
+            FocusedBorderThickness: =1
             Height: =29
             HoverBorderColor: =ColorFade(MailAllIcon_3.BorderColor, 20%)
             HoverColor: =ColorFade(MailAllIcon_3.Color, 20%)
@@ -1880,6 +1907,7 @@
         ResourcesLabel As label:
             Align: =Align.Center
             Color: =If(varResources,RGBA(48, 55, 120, 1),Color.LightGray)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Semibold
             Height: =30
@@ -1914,6 +1942,7 @@
         ResourceTabSlider As button:
             DisplayMode: =DisplayMode.View
             Fill: =If(varResources,RGBA(48, 55, 120, 1),Color.Transparent)
+            FocusedBorderThickness: =1
             Height: =2
             Text: =""
             Width: =120
@@ -1924,6 +1953,7 @@
         PollsLabel As label:
             Align: =Align.Center
             Color: =If(varResources,Color.LightGray,RGBA(48, 55, 120, 1))
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Semibold
             Height: =30
@@ -1950,6 +1980,7 @@
         PollsTabSlider As button:
             DisplayMode: =DisplayMode.View
             Fill: =If(varResources,Color.Transparent,RGBA(48, 55, 120, 1))
+            FocusedBorderThickness: =1
             Height: =2
             Text: =""
             Visible: =!varResources And If(varOrganizerName=VarUserEmail,true,false)
@@ -1959,6 +1990,7 @@
             ZIndex: =41
 
         Gallery8_1 As gallery.galleryVertical:
+            FocusedBorderThickness: =1
             Height: =252
             Items: |-
                 =LookUp(
@@ -2065,6 +2097,7 @@
                 ZIndex: =6
 
         Label23 As label:
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             Height: =25
             TabIndex: =0
@@ -2076,6 +2109,7 @@
             ZIndex: =45
 
         Icon15 As icon.Add:
+            FocusedBorderThickness: =1
             Height: =29
             Icon: =Icon.Add
             OnSelect: =Navigate(PollResultScreen, ScreenTransition.Fade)
@@ -2094,6 +2128,7 @@
             ZIndex: =61
 
         Pollgallery As gallery.galleryVertical:
+            FocusedBorderThickness: =1
             Height: =267
             Items: =MeetingAttendees
             Layout: =Layout.Vertical
@@ -2124,6 +2159,7 @@
                 ZIndex: =1
 
             Label32_1 As label:
+                FocusedBorderThickness: =1
                 Font: =Font.Lato
                 OnSelect: |-
                     =//Select(Parent)
@@ -2136,6 +2172,7 @@
                 ZIndex: =2
 
             Label33_1 As label:
+                FocusedBorderThickness: =1
                 Font: =Font.Lato
                 Height: =30
                 OnSelect: |-
@@ -2159,6 +2196,7 @@
             BorderColor: =RGBA(91, 115, 168, 1)
             BorderThickness: =2
             Fill: =RGBA(242, 242, 242, 1)
+            FocusedBorderThickness: =1
             Height: =721
             TabIndex: =1
             Visible: =varShowUpdateAgenda
@@ -2171,6 +2209,7 @@
             BorderColor: =RGBA(0, 18, 107, 1)
             Color: =RGBA(0, 0, 0, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Semibold
             Height: =24
@@ -2187,6 +2226,7 @@
             BorderColor: =RGBA(0, 18, 107, 1)
             Color: =RGBA(0, 0, 0, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Lighter
             Height: =22
@@ -2204,6 +2244,7 @@
             Color: =RGBA(0, 0, 0, 1)
             ContentLanguage: =
             DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Semibold
             Height: =32
@@ -2220,6 +2261,7 @@
             BorderColor: =RGBA(0, 18, 107, 1)
             Color: =RGBA(0, 0, 0, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Semibold
             Height: =32
@@ -2238,6 +2280,7 @@
             Color: =RGBA(0, 0, 0, 1)
             ContentLanguage: =
             DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Semibold
             Height: =32
@@ -2254,6 +2297,7 @@
             BorderColor: =RGBA(0, 18, 107, 1)
             Color: =RGBA(0, 0, 0, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =1
             Font: =Font.'Segoe UI'
             FontWeight: =FontWeight.Semibold
             Height: =32
@@ -2270,6 +2314,7 @@
             BorderColor: =RGBA(0, 18, 107, 1)
             Color: =RGBA(0, 0, 0, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Semibold
             Height: =32
@@ -2286,6 +2331,7 @@
             BorderColor: =RGBA(0, 18, 107, 1)
             Color: =RGBA(0, 0, 0, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Semibold
             Height: =32
@@ -2306,6 +2352,7 @@
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledColor: =RGBA(128, 128, 128, 1)
             DisabledFill: =RGBA(237, 237, 237, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             Height: =76
             HintText: ="Description"
@@ -2330,6 +2377,7 @@
             BorderColor: =RGBA(0, 18, 107, 1)
             Color: =RGBA(0, 0, 0, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Semibold
             Height: =32
@@ -2352,6 +2400,7 @@
             DisabledColor: =RGBA(128, 128, 128, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
             DisplayMode: =DisplayMode.View
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             Height: =32
             HoverDateFill: =RGBA(186, 202, 226, 1)
@@ -2377,6 +2426,7 @@
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledColor: =RGBA(128, 128, 128, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             Height: =32
             HintText: ="Update Agenda Title"
@@ -2402,6 +2452,7 @@
             Color: =RGBA(48, 55, 120, 1)
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledColor: =RGBA(244, 244, 244, 1)
+            FocusedBorderThickness: =1
             Height: =25
             Icon: =Icon.Edit
             PaddingBottom: =2
@@ -2420,6 +2471,7 @@
             Color: =RGBA(0, 18, 107, 1)
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledColor: =RGBA(244, 244, 244, 1)
+            FocusedBorderThickness: =1
             Height: =45
             Icon: =Icon.CancelBadge
             OnSelect: =Set(varShowUpdateAgenda, false)
@@ -2446,6 +2498,7 @@
             DisabledColor: =RGBA(128, 128, 128, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
             DisplayFields: =["DisplayName"]
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             Height: =34
             HoverColor: =RGBA(0, 0, 0, 1)
@@ -2486,6 +2539,7 @@
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledColor: =RGBA(128, 128, 128, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             Height: =32
             HoverColor: =RGBA(0, 0, 0, 1)
@@ -2519,6 +2573,7 @@
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledColor: =RGBA(128, 128, 128, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             Height: =32
             HoverColor: =RGBA(0, 0, 0, 1)
@@ -2543,6 +2598,7 @@
             DisabledColor: =RGBA(166, 166, 166, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
             Fill: =RGBA(21, 52, 112, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Normal
             Height: =32
@@ -2641,6 +2697,7 @@
             DisabledColor: =RGBA(166, 166, 166, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
             Fill: =RGBA(230, 229, 229, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Normal
             Height: =32
@@ -2674,6 +2731,7 @@
         "Gallery4_5 As gallery.'BrowseLayout_Horizontal_TwoTextOneImageVariant_ver4.0'":
             BorderColor: =RGBA(0, 0, 0, 0)
             Fill: =RGBA(255, 255, 255, 1)
+            FocusedBorderThickness: =1
             Height: =65
             Items: =UAAttendees.SelectedItems
             OnSelect: =
@@ -2777,6 +2835,7 @@
             DisabledColor: =RGBA(166, 166, 166, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
             Fill: =RGBA(21, 52, 112, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Arial
             FontWeight: =FontWeight.Normal
             Height: =34
@@ -2880,6 +2939,7 @@
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             Height: =80
             HoverColor: =RGBA(0, 0, 0, 1)
@@ -2939,6 +2999,7 @@
             BorderColor: =RGBA(0, 18, 107, 1)
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
+            FocusedBorderThickness: =1
             Height: =36
             Image: =Last(UAAttachmentcontrol.Attachments).Value
             TabIndex: =1
@@ -2969,6 +3030,7 @@
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledColor: =RGBA(128, 128, 128, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             Height: =32
             HoverColor: =RGBA(0, 0, 0, 1)
@@ -3012,6 +3074,7 @@
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledColor: =RGBA(128, 128, 128, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             Height: =32
             HoverColor: =RGBA(0, 0, 0, 1)
@@ -3043,6 +3106,7 @@
 
         Label34 As label:
             Color: =RGBA(255, 0, 0, 1)
+            FocusedBorderThickness: =1
             Height: =32
             PaddingBottom: =0
             PaddingLeft: =0
@@ -3059,6 +3123,7 @@
 
         Label34_1 As label:
             Color: =RGBA(255, 0, 0, 1)
+            FocusedBorderThickness: =1
             Height: =32
             PaddingBottom: =0
             PaddingLeft: =0
@@ -3075,6 +3140,7 @@
 
         Gallery8_2 As gallery.galleryVertical:
             Fill: =RGBA(255, 255, 255, 1)
+            FocusedBorderThickness: =1
             Height: =55
             Items: =LookUp(MeetingAgendaLists,ID=AgendaGallery_2.Selected.ID).'{Attachments}'
             Layout: =Layout.Vertical
@@ -4243,6 +4309,7 @@
         Label12_11 As label:
             Align: =Align.Center
             Color: =If(varMeetingDetails,RGBA(48, 55, 120, 1),Color.LightGray)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Semibold
             Height: =30
@@ -4268,6 +4335,7 @@
         Notes As label:
             Align: =Align.Center
             Color: =If(varMeetingDetails,Color.LightGray,RGBA(48, 55, 120, 1))
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Semibold
             Height: =30
@@ -4412,6 +4480,7 @@
             BorderColor: =RGBA(0, 18, 107, 1)
             BorderThickness: =1
             Fill: =RGBA(242, 242, 242, 1)
+            FocusedBorderThickness: =1
             Height: =722
             TabIndex: =1
             Visible: =varShowUpdateTask
@@ -4424,10 +4493,11 @@
             BorderColor: =RGBA(0, 18, 107, 1)
             Color: =RGBA(0, 0, 0, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             Size: =16
             TabIndex: =1
-            Text: ="Update a Task"
+            Text: =1
             Visible: =varShowUpdateTask
             Width: =206
             X: =804
@@ -4438,6 +4508,7 @@
             BorderColor: =RGBA(0, 18, 107, 1)
             Color: =RGBA(0, 0, 0, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             Height: =37
             Size: =12
@@ -4453,6 +4524,7 @@
             BorderColor: =RGBA(0, 18, 107, 1)
             Color: =RGBA(0, 0, 0, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Semibold
             Height: =30
@@ -4472,6 +4544,7 @@
             DisabledBorderColor: =RGBA(255, 255, 255, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             Height: =32
             HintText: =""
@@ -4491,6 +4564,7 @@
             BorderColor: =RGBA(0, 18, 107, 1)
             Color: =RGBA(0, 0, 0, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Semibold
             Height: =30
@@ -4511,6 +4585,7 @@
             DisabledBorderColor: =RGBA(255, 255, 255, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
             DisabledFill: =RGBA(255, 255, 255, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             Height: =32
             HoverDateFill: =RGBA(186, 202, 226, 1)
@@ -4543,6 +4618,7 @@
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             Height: =32
             HoverColor: =RGBA(0, 0, 0, 1)
@@ -4570,6 +4646,7 @@
             BorderColor: =RGBA(0, 18, 107, 1)
             Color: =RGBA(0, 0, 0, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Semibold
             Height: =30
@@ -4587,6 +4664,7 @@
             DisabledColor: =RGBA(166, 166, 166, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
             Fill: =RGBA(21, 52, 112, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Normal
             Height: =32
@@ -4676,6 +4754,7 @@
             DisabledColor: =RGBA(166, 166, 166, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
             Fill: =RGBA(230, 229, 229, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Normal
             Height: =32
@@ -4707,6 +4786,7 @@
             BorderColor: =RGBA(0, 18, 107, 1)
             Color: =RGBA(0, 0, 0, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Semibold
             Height: =30
@@ -4727,6 +4807,7 @@
             DisabledBorderColor: =RGBA(255, 255, 255, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
             DisabledFill: =RGBA(255, 255, 255, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             Height: =32
             HoverDateFill: =RGBA(186, 202, 226, 1)
@@ -4777,6 +4858,7 @@
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             Height: =32
             HoverColor: =RGBA(0, 0, 0, 1)
@@ -4804,6 +4886,7 @@
             BorderColor: =RGBA(0, 18, 107, 1)
             Color: =RGBA(0, 0, 0, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Semibold
             Height: =30
@@ -4832,6 +4915,7 @@
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             Height: =32
             HoverColor: =RGBA(0, 0, 0, 1)
@@ -4857,6 +4941,7 @@
             Color: =RGBA(0, 18, 107, 1)
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledColor: =RGBA(244, 244, 244, 1)
+            FocusedBorderThickness: =1
             Height: =24
             Icon: =Icon.Edit
             TabIndex: =1
@@ -4869,6 +4954,7 @@
         "Gallery4_6 As gallery.'BrowseLayout_Horizontal_TwoTextOneImageVariant_ver4.0'":
             BorderColor: =RGBA(0, 0, 0, 0)
             Fill: =RGBA(255, 255, 255, 1)
+            FocusedBorderThickness: =1
             Height: =62
             Items: =UpdateTaskAssignUser.SelectedItems
             OnSelect: =
@@ -4980,6 +5066,7 @@
             DisabledColor: =RGBA(166, 166, 166, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
             Fill: =RGBA(21, 52, 112, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Arial
             FontWeight: =FontWeight.Normal
             Height: =34
@@ -5093,6 +5180,7 @@
             DisabledColor: =RGBA(0, 0, 0, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
             DisplayFields: =["DisplayName"]
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             Height: =31
             HoverColor: =RGBA(0, 0, 0, 1)
@@ -5122,6 +5210,7 @@
             Color: =RGBA(0, 18, 107, 1)
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledColor: =RGBA(244, 244, 244, 1)
+            FocusedBorderThickness: =1
             Height: =45
             Icon: =Icon.CancelBadge
             OnSelect: =Set(varShowUpdateTask,false)
@@ -5134,6 +5223,7 @@
 
         Label34_6 As label:
             Color: =RGBA(255, 0, 0, 1)
+            FocusedBorderThickness: =1
             Height: =32
             PaddingBottom: =0
             PaddingLeft: =0
@@ -5150,6 +5240,7 @@
 
         Label34_7 As label:
             Color: =RGBA(255, 0, 0, 1)
+            FocusedBorderThickness: =1
             Height: =32
             PaddingBottom: =0
             PaddingLeft: =0
@@ -6108,6 +6199,7 @@
             BorderColor: =RGBA(48, 55, 120, 1)
             BorderThickness: =1
             Color: =RGBA(48, 55, 120, 1)
+            FocusedBorderThickness: =1
             Height: =20
             Icon: =Icon.Edit
             OnSelect: |
@@ -6146,6 +6238,7 @@
         MeetingTitle_1 As label:
             Color: =RGBA(48, 55, 120, 1)
             FocusedBorderColor: =MeetingTitle_1.BorderColor
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Semibold
             Height: =22
@@ -6170,6 +6263,7 @@
         HomeTimeRange_1 As label:
             Color: =RGBA(48, 55, 120, 1)
             FocusedBorderColor: =HomeTimeRange_1.BorderColor
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             Height: =25
             HoverBorderColor: =HomeTimeRange_1.BorderColor
@@ -6194,6 +6288,7 @@
 
         icon_RefreshMeeting_1 As icon.Reload:
             Color: =RGBA(56, 86, 153, 1)
+            FocusedBorderThickness: =1
             Height: =20
             Icon: =Icon.Reload
             OnSelect: |
@@ -6745,6 +6840,7 @@
             BorderColor: =RGBA(0, 18, 107, 1)
             Color: =RGBA(116, 116, 116, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Semibold
             Height: =16
@@ -6761,6 +6857,7 @@
             BorderColor: =RGBA(0, 18, 107, 1)
             Color: =RGBA(0, 0, 0, 0.84)
             DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Semibold
             Height: =35
@@ -6802,6 +6899,7 @@
             BorderColor: =RGBA(0, 18, 107, 1)
             Color: =RGBA(0, 0, 0, 0.84)
             DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Semibold
             Height: =32
@@ -6817,6 +6915,7 @@
             BorderColor: =RGBA(0, 18, 107, 1)
             Color: =RGBA(0, 0, 0, 0.84)
             DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Semibold
             Height: =32
@@ -6858,6 +6957,7 @@
             BorderColor: =RGBA(0, 18, 107, 1)
             Color: =RGBA(0, 0, 0, 0.84)
             DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Semibold
             Height: =32
@@ -6901,6 +7001,7 @@
             BorderColor: =RGBA(0, 18, 107, 1)
             Color: =RGBA(0, 0, 0, 0.84)
             DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Semibold
             Height: =32
@@ -6916,6 +7017,7 @@
             BorderColor: =RGBA(0, 18, 107, 1)
             Color: =RGBA(0, 0, 0, 0.84)
             DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Semibold
             Height: =32
@@ -7136,6 +7238,7 @@
             BorderColor: =RGBA(0, 18, 107, 1)
             Color: =RGBA(0, 0, 0, 0.84)
             DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Semibold
             Height: =32
@@ -7151,6 +7254,7 @@
             BorderColor: =RGBA(0, 18, 107, 1)
             Color: =RGBA(0, 0, 0, 0.84)
             DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Semibold
             Height: =32
@@ -7661,6 +7765,7 @@
 
         Label34_8 As label:
             Color: =RGBA(255, 0, 0, 1)
+            FocusedBorderThickness: =1
             Height: =32
             PaddingBottom: =0
             PaddingLeft: =0
@@ -7677,6 +7782,7 @@
 
         Label34_9 As label:
             Color: =RGBA(255, 0, 0, 1)
+            FocusedBorderThickness: =1
             Height: =32
             PaddingBottom: =0
             PaddingLeft: =0
@@ -7730,6 +7836,7 @@
             BorderColor: =RGBA(91, 115, 168, 1)
             BorderThickness: =2
             Fill: =RGBA(242, 242, 242, 1)
+            FocusedBorderThickness: =1
             Height: =722
             TabIndex: =1
             Visible: =varShowCreateAgenda
@@ -7742,11 +7849,12 @@
             BorderColor: =RGBA(0, 18, 107, 1)
             Color: =RGBA(0, 0, 0, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             Height: =32
             Size: =16
             TabIndex: =1
-            Text: ="Add Agenda"
+            Text: =1
             Visible: =varShowCreateAgenda
             X: =800
             Y: =84
@@ -7756,6 +7864,7 @@
             BorderColor: =RGBA(0, 18, 107, 1)
             Color: =RGBA(0, 0, 0, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Lighter
             Height: =32
@@ -7773,6 +7882,7 @@
             Color: =RGBA(0, 0, 0, 1)
             ContentLanguage: =
             DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Semibold
             Height: =32
@@ -7788,6 +7898,7 @@
             BorderColor: =RGBA(0, 18, 107, 1)
             Color: =RGBA(0, 0, 0, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Semibold
             Height: =32
@@ -7805,6 +7916,7 @@
             Color: =RGBA(0, 0, 0, 1)
             ContentLanguage: =
             DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Semibold
             Height: =32
@@ -7820,6 +7932,7 @@
             BorderColor: =RGBA(0, 18, 107, 1)
             Color: =RGBA(0, 0, 0, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Semibold
             Height: =32
@@ -7835,6 +7948,7 @@
             BorderColor: =RGBA(0, 18, 107, 1)
             Color: =RGBA(0, 0, 0, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Semibold
             Height: =32
@@ -7850,6 +7964,7 @@
             BorderColor: =RGBA(0, 18, 107, 1)
             Color: =RGBA(0, 0, 0, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Semibold
             Height: =32
@@ -7869,6 +7984,7 @@
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledColor: =RGBA(128, 128, 128, 1)
             DisabledFill: =RGBA(237, 237, 237, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             Height: =80
             HintText: ="Description"
@@ -7897,6 +8013,7 @@
             BorderColor: =RGBA(0, 18, 107, 1)
             Color: =RGBA(0, 0, 0, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Semibold
             Height: =32
@@ -7918,6 +8035,7 @@
             DisabledColor: =RGBA(128, 128, 128, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
             DisplayMode: =DisplayMode.View
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             Height: =32
             HoverDateFill: =RGBA(186, 202, 226, 1)
@@ -7945,6 +8063,7 @@
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledColor: =RGBA(128, 128, 128, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             Height: =32
             HintText: ="Enter Agenda Title"
@@ -7970,6 +8089,7 @@
             Color: =RGBA(48, 55, 120, 1)
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledColor: =RGBA(244, 244, 244, 1)
+            FocusedBorderThickness: =1
             Height: =30
             Icon: =Icon.Edit
             PaddingBottom: =2
@@ -7988,6 +8108,7 @@
             Color: =RGBA(0, 18, 107, 1)
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledColor: =RGBA(244, 244, 244, 1)
+            FocusedBorderThickness: =1
             Height: =45
             Icon: =Icon.CancelBadge
             OnSelect: =Set(varShowCreateAgenda,false)
@@ -8012,6 +8133,7 @@
             DisabledColor: =RGBA(128, 128, 128, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
             DisplayFields: =["DisplayName"]
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             Height: =32
             HoverColor: =RGBA(0, 0, 0, 1)
@@ -8055,6 +8177,7 @@
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledColor: =RGBA(128, 128, 128, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             Height: =32
             HoverColor: =RGBA(0, 0, 0, 1)
@@ -8093,6 +8216,7 @@
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledColor: =RGBA(128, 128, 128, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             Height: =32
             HoverColor: =RGBA(0, 0, 0, 1)
@@ -8121,6 +8245,7 @@
             DisabledColor: =RGBA(166, 166, 166, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
             Fill: =RGBA(21, 52, 112, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Normal
             Height: =32
@@ -8259,6 +8384,7 @@
             DisabledColor: =RGBA(166, 166, 166, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
             Fill: =RGBA(230, 229, 229, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Normal
             Height: =32
@@ -8291,6 +8417,7 @@
             BorderColor: =RGBA(0, 18, 107, 1)
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
+            FocusedBorderThickness: =1
             Height: =55
             Image: =Last(AAAttachmentcontrol.Attachments).Value
             TabIndex: =1
@@ -8307,6 +8434,7 @@
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             Height: =84
             HoverColor: =RGBA(0, 0, 0, 1)
@@ -8359,6 +8487,7 @@
         "Gallery4_4 As gallery.'BrowseLayout_Horizontal_TwoTextOneImageVariant_ver4.0'":
             BorderColor: =RGBA(0, 0, 0, 0)
             Fill: =RGBA(255, 255, 255, 1)
+            FocusedBorderThickness: =1
             Height: =77
             Items: =AAAttendees.SelectedItems
             OnSelect: =
@@ -8454,6 +8583,7 @@
             DisabledColor: =RGBA(166, 166, 166, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
             Fill: =RGBA(21, 52, 112, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Arial
             FontWeight: =FontWeight.Normal
             Height: =34
@@ -8565,6 +8695,7 @@
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledColor: =RGBA(128, 128, 128, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             Height: =32
             HoverColor: =RGBA(0, 0, 0, 1)
@@ -8618,6 +8749,7 @@
             DisabledColor: =RGBA(128, 128, 128, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
             DisplayMode: =
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             Height: =32
             HoverColor: =RGBA(0, 0, 0, 1)
@@ -8655,6 +8787,7 @@
 
         Label34_2 As label:
             Color: =RGBA(255, 0, 0, 1)
+            FocusedBorderThickness: =1
             Height: =32
             PaddingBottom: =0
             PaddingLeft: =0
@@ -8671,6 +8804,7 @@
 
         Label34_3 As label:
             Color: =RGBA(255, 0, 0, 1)
+            FocusedBorderThickness: =1
             Height: =32
             PaddingBottom: =0
             PaddingLeft: =0
@@ -8691,6 +8825,7 @@
             DisabledColor: =RGBA(166, 166, 166, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
             Fill: =RGBA(21, 52, 112, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Normal
             Height: =32

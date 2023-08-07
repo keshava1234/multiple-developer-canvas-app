@@ -104,6 +104,7 @@ SketchScreen As screen:
             DisabledFill: =BackgroundBanner.Fill
             Fill: =RGBA(234, 237, 239, 1)
             FocusedBorderColor: =BackgroundBanner.BorderColor
+            FocusedBorderThickness: =1
             Height: =66
             HoverFill: =BackgroundBanner.Fill
             PressedFill: =BackgroundBanner.Fill
@@ -117,6 +118,7 @@ SketchScreen As screen:
             DisabledBorderColor: =ColorFade(SaveSketch.BorderColor, 70%)
             Fill: =RGBA(255, 255, 255, 1)
             FocusedBorderColor: =SaveSketch.BorderColor
+            FocusedBorderThickness: =1
             Height: =44
             HoverBorderColor: =ColorFade(SaveSketch.BorderColor, 20%)
             HoverColor: =SaveSketch.Color
@@ -148,6 +150,7 @@ SketchScreen As screen:
             Color: =SaveSketch.Color
             DisabledFill: =SaveSketchIcon.Fill
             FocusedBorderColor: =SaveSketchIcon.BorderColor
+            FocusedBorderThickness: =1
             Height: =22
             HoverBorderColor: =ColorFade(SaveSketchIcon.BorderColor, 20%)
             HoverColor: =ColorFade(SaveSketchIcon.Color, 20%)
@@ -168,6 +171,7 @@ SketchScreen As screen:
             Color: =RGBA(96, 181, 2, 1)
             DisabledFill: =SavedIndicator2.Fill
             FocusedBorderColor: =SavedIndicator2.BorderColor
+            FocusedBorderThickness: =1
             Height: =22
             HoverBorderColor: =ColorFade(SavedIndicator2.BorderColor, 20%)
             HoverColor: =ColorFade(SavedIndicator2.Color, 20%)
@@ -189,6 +193,7 @@ SketchScreen As screen:
             DisabledFill: =SavedIndicator1.Fill
             Fill: =RGBA(62,96,170,0)
             FocusedBorderColor: =SavedIndicator1.BorderColor
+            FocusedBorderThickness: =1
             Height: =36
             HoverFill: =SavedIndicator1.Fill
             PressedFill: =SavedIndicator1.Fill
@@ -201,6 +206,7 @@ SketchScreen As screen:
 
         SavedIndicator As label:
             FocusedBorderColor: =SavedIndicator.BorderColor
+            FocusedBorderThickness: =1
             FontWeight: =FontWeight.Semibold
             Height: =34
             HoverBorderColor: =SavedIndicator.BorderColor

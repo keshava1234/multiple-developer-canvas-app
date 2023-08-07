@@ -10,7 +10,7 @@ CameraScreen As screen:
     Camera1 As camera:
         Camera: =0
         FocusedBorderColor: =Camera1.BorderColor
-        FocusedBorderThickness: =0
+        FocusedBorderThickness: =1
         Height: =704
         OnSelect: |-
             =Set(ShowTakenImage, true);
@@ -126,6 +126,7 @@ CameraScreen As screen:
             DisabledFill: =BannerBackground1.Fill
             Fill: =RGBA(234, 237, 239, 1)
             FocusedBorderColor: =BannerBackground1.BorderColor
+            FocusedBorderThickness: =1
             Height: =66
             HoverFill: =BannerBackground1.Fill
             PressedFill: =BannerBackground1.Fill
@@ -136,6 +137,7 @@ CameraScreen As screen:
         BannerText As label:
             Align: =LayoutAlignItems.Center
             FocusedBorderColor: =BannerText.BorderColor
+            FocusedBorderThickness: =1
             FontWeight: =FontWeight.Semibold
             Height: =23
             HoverBorderColor: =BannerText.BorderColor
@@ -159,6 +161,7 @@ CameraScreen As screen:
             Color: =RGBA(96, 181, 2, 1)
             DisabledFill: =SaveConfirm1.Fill
             FocusedBorderColor: =SaveConfirm1.BorderColor
+            FocusedBorderThickness: =1
             Height: =22
             HoverBorderColor: =ColorFade(SaveConfirm1.BorderColor, 20%)
             HoverColor: =ColorFade(SaveConfirm1.Color, 20%)
@@ -180,6 +183,7 @@ CameraScreen As screen:
             DisabledFill: =SaveConfirm2.Fill
             Fill: =RGBA(62,96,170,0)
             FocusedBorderColor: =SaveConfirm2.BorderColor
+            FocusedBorderThickness: =1
             Height: =36
             HoverFill: =SaveConfirm2.Fill
             OnSelect: |-
@@ -200,6 +204,7 @@ CameraScreen As screen:
             Color: =RGBA(208, 5, 30, 1)
             DisabledFill: =DiscardConfirm1.Fill
             FocusedBorderColor: =DiscardConfirm1.BorderColor
+            FocusedBorderThickness: =1
             Height: =22
             HoverBorderColor: =ColorFade(DiscardConfirm1.BorderColor, 20%)
             HoverColor: =ColorFade(DiscardConfirm1.Color, 20%)
@@ -221,6 +226,7 @@ CameraScreen As screen:
             DisabledFill: =DiscardConfirm2.Fill
             Fill: =RGBA(62,96,170,0)
             FocusedBorderColor: =DiscardConfirm2.BorderColor
+            FocusedBorderThickness: =1
             Height: =36
             HoverFill: =DiscardConfirm2.Fill
             OnSelect: =Set(ShowTakenImage, false)
@@ -236,6 +242,7 @@ CameraScreen As screen:
             Color: =RGBA(96, 181, 2, 1)
             DisabledFill: =SavedIndicator3.Fill
             FocusedBorderColor: =SavedIndicator3.BorderColor
+            FocusedBorderThickness: =1
             Height: =22
             HoverBorderColor: =ColorFade(SavedIndicator3.BorderColor, 20%)
             HoverColor: =ColorFade(SavedIndicator3.Color, 20%)
@@ -257,6 +264,7 @@ CameraScreen As screen:
             DisabledFill: =SavedIndicator4.Fill
             Fill: =RGBA(62,96,170,0)
             FocusedBorderColor: =SavedIndicator4.BorderColor
+            FocusedBorderThickness: =1
             Height: =36
             HoverFill: =SavedIndicator4.Fill
             OnSelect: =

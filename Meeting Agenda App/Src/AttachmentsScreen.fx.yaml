@@ -14,6 +14,7 @@ AttachmentsScreen As screen:
 
         PhotosIcon As image:
             FocusedBorderColor: =PhotosIcon.BorderColor
+            FocusedBorderThickness: =1
             Height: =54
             HoverBorderColor: =ColorFade(PhotosIcon.BorderColor, 20%)
             HoverFill: =ColorFade(PhotosIcon.Fill, 20%)
@@ -28,6 +29,7 @@ AttachmentsScreen As screen:
 
         PhotosHeader As label:
             FocusedBorderColor: =PhotosHeader.BorderColor
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Semibold
             HoverBorderColor: =PhotosHeader.BorderColor
@@ -46,6 +48,7 @@ AttachmentsScreen As screen:
         PhotosGallery As gallery.galleryHorizontal:
             DisabledBorderColor: =PhotosGallery.BorderColor
             DisabledFill: =PhotosGallery.Fill
+            FocusedBorderThickness: =1
             Height: =200
             HoverBorderColor: =PhotosGallery.BorderColor
             HoverFill: =PhotosGallery.Fill
@@ -78,6 +81,7 @@ AttachmentsScreen As screen:
 
         PhotosCount As label:
             FocusedBorderColor: =PhotosCount.BorderColor
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             Height: =20
             HoverBorderColor: =PhotosCount.BorderColor
@@ -103,6 +107,7 @@ AttachmentsScreen As screen:
 
         SketchesIcon As image:
             FocusedBorderColor: =SketchesIcon.BorderColor
+            FocusedBorderThickness: =1
             Height: =54
             HoverBorderColor: =ColorFade(SketchesIcon.BorderColor, 20%)
             HoverFill: =ColorFade(SketchesIcon.Fill, 20%)
@@ -119,7 +124,7 @@ AttachmentsScreen As screen:
             DisabledFill: =Rectangle6_3.Fill
             Fill: =RGBA(227, 227, 227, 1)
             FocusedBorderColor: =Rectangle6_3.BorderColor
-            FocusedBorderThickness: =0
+            FocusedBorderThickness: =1
             Height: =1
             HoverFill: =Rectangle6_3.Fill
             PressedFill: =Rectangle6_3.Fill
@@ -131,6 +136,7 @@ AttachmentsScreen As screen:
 
         SketchesHeader As label:
             FocusedBorderColor: =SketchesHeader.BorderColor
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Semibold
             HoverBorderColor: =SketchesHeader.BorderColor
@@ -148,6 +154,7 @@ AttachmentsScreen As screen:
 
         SketchCount As label:
             FocusedBorderColor: =SketchCount.BorderColor
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             Height: =20
             HoverBorderColor: =SketchCount.BorderColor
@@ -167,6 +174,7 @@ AttachmentsScreen As screen:
         SketchesGallery As gallery.galleryHorizontal:
             DisabledBorderColor: =SketchesGallery.BorderColor
             DisabledFill: =SketchesGallery.Fill
+            FocusedBorderThickness: =1
             Height: =200
             HoverBorderColor: =SketchesGallery.BorderColor
             HoverFill: =SketchesGallery.Fill
@@ -208,6 +216,7 @@ AttachmentsScreen As screen:
             DisabledFill: =ModalOverlay_1.Fill
             Fill: =RGBA(0,0,0,.7)
             FocusedBorderColor: =ModalOverlay_1.BorderColor
+            FocusedBorderThickness: =1
             Height: =768
             HoverFill: =ModalOverlay_1.Fill
             PressedFill: =ModalOverlay_1.Fill
@@ -219,6 +228,7 @@ AttachmentsScreen As screen:
         AttachmentToDelete As image:
             Fill: =RGBA(255, 255, 255, 1)
             FocusedBorderColor: =AttachmentToDelete.BorderColor
+            FocusedBorderThickness: =1
             Height: =600
             HoverBorderColor: =ColorFade(AttachmentToDelete.BorderColor, 20%)
             HoverFill: =ColorFade(AttachmentToDelete.Fill, 20%)
@@ -236,6 +246,7 @@ AttachmentsScreen As screen:
             DisabledFill: =DeleteAttachment1.Fill
             Fill: =RGBA(237, 41, 85, 1)
             FocusedBorderColor: =DeleteAttachment1.BorderColor
+            FocusedBorderThickness: =1
             Height: =45
             HoverFill: =DeleteAttachment1.Fill
             PressedFill: =DeleteAttachment1.Fill
@@ -252,6 +263,7 @@ AttachmentsScreen As screen:
             DisabledFill: =HideDelete2.Fill
             Fill: =RGBA(0, 0, 0, 0)
             FocusedBorderColor: =HideDelete2.BorderColor
+            FocusedBorderThickness: =1
             Height: =45
             HoverFill: =HideDelete2.Fill
             OnSelect: |-
@@ -269,6 +281,7 @@ AttachmentsScreen As screen:
             Color: =Color.White
             DisabledFill: =HideDelete1.Fill
             FocusedBorderColor: =HideDelete1.BorderColor
+            FocusedBorderThickness: =1
             Height: =HideDelete2.Height
             HoverBorderColor: =ColorFade(HideDelete1.BorderColor, 20%)
             HoverColor: =ColorFade(HideDelete1.Color, 20%)
@@ -295,6 +308,7 @@ AttachmentsScreen As screen:
             Color: =Color.White
             DisabledFill: =icon15.Fill
             FocusedBorderColor: =icon15.BorderColor
+            FocusedBorderThickness: =1
             Height: =DeleteAttachment1.Height
             HoverBorderColor: =ColorFade(icon15.BorderColor, 20%)
             HoverColor: =ColorFade(icon15.Color, 20%)
@@ -319,6 +333,7 @@ AttachmentsScreen As screen:
             Align: =TextPosition.Right
             Color: =RGBA(255, 255, 255, 1)
             FocusedBorderColor: =DeleteCertaintyText.BorderColor
+            FocusedBorderThickness: =1
             HoverBorderColor: =DeleteCertaintyText.BorderColor
             HoverColor: =DeleteCertaintyText.Color
             HoverFill: =DeleteCertaintyText.Fill
@@ -425,6 +440,7 @@ AttachmentsScreen As screen:
             DisabledFill: =Rectangle2_5.Fill
             Fill: =RGBA(234, 237, 239, 1)
             FocusedBorderColor: =Rectangle2_5.BorderColor
+            FocusedBorderThickness: =1
             Height: =43
             HoverFill: =Rectangle2_5.Fill
             PressedFill: =Rectangle2_5.Fill
@@ -434,6 +450,7 @@ AttachmentsScreen As screen:
 
         AttachmentsHeader As label:
             FocusedBorderColor: =AttachmentsHeader.BorderColor
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Semibold
             Height: =49
@@ -455,7 +472,7 @@ AttachmentsScreen As screen:
             DisabledFill: =Rectangle6_2.Fill
             Fill: =RGBA(227, 227, 227, 1)
             FocusedBorderColor: =Rectangle6_2.BorderColor
-            FocusedBorderThickness: =0
+            FocusedBorderThickness: =1
             Height: =1
             HoverFill: =Rectangle6_2.Fill
             PressedFill: =Rectangle6_2.Fill
@@ -467,6 +484,7 @@ AttachmentsScreen As screen:
 
         AttachmentsPrevScreen As icon.ArrowLeft:
             Color: =RGBA(255, 255, 255, 1)
+            FocusedBorderThickness: =1
             Height: =40
             Icon: =Icon.ArrowLeft
             OnSelect: =Back()
@@ -490,6 +508,7 @@ AttachmentsScreen As screen:
             Color: =RGBA(0, 0, 0, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
             FocusedBorderColor: =lblUploadedFilesText.BorderColor
+            FocusedBorderThickness: =1
             Height: =38
             HoverBorderColor: =lblUploadedFilesText.BorderColor
             HoverColor: =lblUploadedFilesText.Color
@@ -511,6 +530,7 @@ AttachmentsScreen As screen:
             DisabledColor: =RGBA(244, 244, 244, 1)
             DisabledFill: =iconAttachFiles.Fill
             FocusedBorderColor: =iconAttachFiles.BorderColor
+            FocusedBorderThickness: =1
             Height: =45
             HoverBorderColor: =ColorFade(iconAttachFiles.BorderColor, 20%)
             HoverColor: =ColorFade(iconAttachFiles.Color, 20%)
@@ -535,12 +555,14 @@ AttachmentsScreen As screen:
 
         rectTopMenu_12 As rectangle:
             Fill: =RGBA(48, 55, 120, 1)
+            FocusedBorderThickness: =1
             Height: =43
             TabIndex: =1
             Width: =1366
             ZIndex: =28
 
         imageLogo_2 As image:
+            FocusedBorderThickness: =1
             Height: =43
             Image: =logo
             TabIndex: =1
@@ -552,6 +574,7 @@ AttachmentsScreen As screen:
             Color: =RGBA(255, 255, 255, 1)
             Fill: =RGBA(48, 55, 120, 1)
             FocusedBorderColor: ='lbl_Selected Meeting Sub.'.BorderColor
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Bold
             HoverBorderColor: ='lbl_Selected Meeting Sub.'.BorderColor
@@ -569,6 +592,7 @@ AttachmentsScreen As screen:
         "'lbl_Selected eeting Dt & Time' As label":
             Color: =RGBA(255, 255, 255, 1)
             FocusedBorderColor: ='lbl_Selected eeting Dt & Time'.BorderColor
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             HoverBorderColor: ='lbl_Selected eeting Dt & Time'.BorderColor
             HoverColor: ='lbl_Selected eeting Dt & Time'.Color
@@ -588,6 +612,7 @@ AttachmentsScreen As screen:
         "'Lbl_Version No.' As label":
             Align: =Align.Center
             Color: =RGBA(255, 255, 255, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             Size: =14
             Text: ="V1.0"

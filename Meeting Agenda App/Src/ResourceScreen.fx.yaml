@@ -514,6 +514,7 @@ ResourceScreen As screen:
             Align: =Align.Center
             Color: =RGBA(255, 255, 255, 1)
             Fill: =RGBA(0,0,0,0)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Bold
             Height: =50
@@ -528,6 +529,7 @@ ResourceScreen As screen:
         "'lbl_SelectedMeeting Time and Dt.' As label":
             Color: =RGBA(255, 255, 255, 1)
             FocusedBorderColor: ='lbl_SelectedMeeting Time and Dt.'.BorderColor
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             Height: =50
             HoverBorderColor: ='lbl_SelectedMeeting Time and Dt.'.BorderColor

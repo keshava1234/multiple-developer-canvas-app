@@ -153,6 +153,7 @@ PollResultScreen As screen:
             DisabledColor: =RGBA(166, 166, 166, 1)
             Fill: =RGBA(48, 55, 120, 1)
             FocusedBorderColor: =lblExportMeetingSubject_5.BorderColor
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Semibold
             Height: =50
@@ -172,6 +173,7 @@ PollResultScreen As screen:
             ZIndex: =13
 
         imageLogo_17 As image:
+            FocusedBorderThickness: =1
             Height: =45
             Image: =logo
             TabIndex: =0
@@ -182,6 +184,7 @@ PollResultScreen As screen:
         "'lbl_selected meeting dt & time_4' As label":
             Color: =RGBA(255, 255, 255, 1)
             FocusedBorderColor: ='lbl_selected meeting dt & time_4'.BorderColor
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             Height: =50
             HoverBorderColor: ='lbl_selected meeting dt & time_4'.BorderColor
@@ -203,6 +206,7 @@ PollResultScreen As screen:
             Align: =Align.Center
             Color: =RGBA(255, 255, 255, 1)
             FocusedBorderColor: ='lbl_selected meeting sub._4'.BorderColor
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Bold
             Height: =49
@@ -222,6 +226,7 @@ PollResultScreen As screen:
 
         Icon_back_4 As icon.ArrowLeft:
             Color: =RGBA(255, 255, 255, 1)
+            FocusedBorderThickness: =1
             Height: =35
             Icon: =Icon.ArrowLeft
             OnSelect: =Back()
@@ -234,6 +239,7 @@ PollResultScreen As screen:
         "'lbl_version no.._4' As label":
             Align: =Align.Center
             Color: =RGBA(255, 255, 255, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             Height: =46
             Size: =14
