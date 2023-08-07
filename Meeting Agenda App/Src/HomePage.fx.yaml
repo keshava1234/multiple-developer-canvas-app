@@ -2775,8 +2775,8 @@ HomePage As screen:
             Height: =640
             Visible: =varShowCreateMeeting
             Width: =592
-            X: =776
-            Y: =128
+            X: =772
+            Y: =125
             ZIndex: =16
 
         lblCreateMeeting_3 As label:
