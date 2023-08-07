@@ -423,7 +423,7 @@ HomePage As screen:
                     false
                 )
             );
-            Collect(
+            ClearCollect(
                 CalendarLocalizedLabel,
                 {Value: "Calendar"},
                 {Value: "Kalender"},
