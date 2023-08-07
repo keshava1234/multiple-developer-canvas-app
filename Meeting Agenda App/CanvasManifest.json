@@ -108,11 +108,11 @@
     "DocumentType": "App",
     "EnableInstrumentation": false,
     "FileID": "785549d1-f3cd-4684-a7a1-a571bc725ba5",
-    "Id": "f0572a0f-0ff7-45fc-9d11-535d14534c9c",
+    "Id": "062106b9-09d8-4a9f-b2a8-0630359b3a51",
     "InstrumentationKey": "",
     "LocalDatabaseReferences": "{}",
     "ManualOfflineProfileId": "",
-    "Name": "Meeting Agenda App",
+    "Name": "Meeting+Agenda+App.msapp",
     "OriginatingVersion": "1.243",
     "ParserErrorCount": 0,
     "ShowStatusBar": false

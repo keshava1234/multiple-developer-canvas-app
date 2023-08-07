@@ -94,6 +94,7 @@ ViewPollScreen As screen:
         ZIndex: =3
 
     "'Gallery_ for question' As gallery.galleryVertical":
+        AccessibleLabel: ="Gallery_ for question"
         BorderColor: =RGBA(56, 86, 153, 1)
         Fill: =Color.White
         Height: =535
@@ -121,6 +122,7 @@ ViewPollScreen As screen:
             ZIndex: =1
 
         Gallery1 As gallery.galleryVertical:
+            AccessibleLabel: ="Gallery1"
             Height: =149
             Items: |-
                 =Filter(
@@ -164,6 +166,7 @@ ViewPollScreen As screen:
         ZIndex: =15
 
     "'Icon_Go back' As icon.BackArrow":
+        AccessibleLabel: ="Icon_Go back"
         Color: =RGBA(255, 255, 255, 1)
         Height: =22
         Icon: =Icon.BackArrow
@@ -182,6 +185,7 @@ ViewPollScreen As screen:
         ZIndex: =20
 
         bg_14 As rectangle:
+            AccessibleLabel: ="bg_14"
             Fill: =RGBA(248, 249, 255, 1)
             Height: =718
             TabIndex: =0
@@ -191,6 +195,7 @@ ViewPollScreen As screen:
             ZIndex: =16
 
         iconHamburger_7 As icon.Hamburger:
+            AccessibleLabel: ="iconHamburger_7"
             Height: =24
             Icon: =Icon.Hamburger
             OnSelect: =Navigate('MeetingDetails Screen', ScreenTransition.Fade)
@@ -202,6 +207,7 @@ ViewPollScreen As screen:
             ZIndex: =17
 
         "'Home Icon_7' As icon.Home":
+            AccessibleLabel: ="Home Icon_7"
             Height: =24
             Icon: =Icon.Home
             OnSelect: =Navigate(HomePage,BorderStyle.None)
@@ -213,6 +219,7 @@ ViewPollScreen As screen:
             ZIndex: =18
 
         iconResourceAdd_7 As icon.Add:
+            AccessibleLabel: ="iconResourceAdd_7"
             Height: =24
             Icon: =Icon.Add
             OnSelect: =Navigate(ResourceScreen, ScreenTransition.Fade)
@@ -252,7 +259,7 @@ ViewPollScreen As screen:
         FontWeight: =FontWeight.Bold
         Height: =30
         Size: =11
-        TabIndex: =2
+        TabIndex: =
         Text: ="POLLS"
         X: =220
         Y: =75
@@ -292,6 +299,7 @@ ViewPollScreen As screen:
             ZIndex: =23
 
         imageLogo_16 As image:
+            AccessibleLabel: ="imageLogo_16"
             FocusedBorderThickness: =1
             Height: =45
             Image: =logo
@@ -344,6 +352,7 @@ ViewPollScreen As screen:
             ZIndex: =26
 
         Icon_back_3 As icon.ArrowLeft:
+            AccessibleLabel: ="Icon_back_3"
             Color: =RGBA(255, 255, 255, 1)
             FocusedBorderThickness: =1
             Height: =35
@@ -384,13 +393,14 @@ ViewPollScreen As screen:
         ZIndex: =30
 
     imageLogo_19 As image:
+        AccessibleLabel: ="imageLogo_19"
         Height: =60
         Image: =logo
         RadiusBottomLeft: =20
         RadiusBottomRight: =20
         RadiusTopLeft: =20
         RadiusTopRight: =20
-        TabIndex: =1
+        TabIndex: =
         Width: =60
         X: =154
         Y: =70

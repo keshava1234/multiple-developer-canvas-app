@@ -11,7 +11,7 @@ AddPollScreen As screen:
         FontWeight: =FontWeight.Bold
         Height: =30
         Size: =11
-        TabIndex: =2
+        TabIndex: =
         Text: ="POLLS"
         X: =180
         Y: =90
@@ -51,7 +51,6 @@ AddPollScreen As screen:
         RadiusTopLeft: =3
         RadiusTopRight: =3
         Size: =10
-        TabIndex: =3
         Text: ="       Add Question"
         Tooltip: ="Add Poll Question "
         Width: =122
@@ -60,13 +59,14 @@ AddPollScreen As screen:
         ZIndex: =3
 
     "'Gallery_Add question' As gallery.galleryVertical":
+        AccessibleLabel: ="Gallery_Add question"
         BorderColor: =RGBA(0, 18, 107, 1)
         Fill: =Color.White
         Height: =540
         Items: =arrQuestions
         Layout: =Layout.Vertical
         ShowScrollbar: =false
-        TabIndex: =4
+        TabIndex: =
         TemplateSize: =534
         Width: =517
         X: =112
@@ -91,6 +91,7 @@ AddPollScreen As screen:
             ZIndex: =1
 
         Gallery_Options As gallery.galleryVertical:
+            AccessibleLabel: ="Gallery_Options"
             BorderColor: =RGBA(0, 18, 107, 1)
             Height: =331
             Items: =CountCollection
@@ -102,6 +103,7 @@ AddPollScreen As screen:
             ZIndex: =1
 
             Icon_DeleteOption As icon.Trash:
+                AccessibleLabel: ="Icon_DeleteOption"
                 BorderColor: =RGBA(0, 18, 107, 1)
                 Color: =RGBA(0, 18, 107, 1)
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
@@ -123,6 +125,7 @@ AddPollScreen As screen:
                 ZIndex: =3
 
             TextInput1 As text:
+                AccessibleLabel: ="TextInput1"
                 Default: =""
                 DisplayMode: =If(ThisItem.Value in DisaButton, DisplayMode.View, DisplayMode.Edit)
                 Font: =Font.Lato
@@ -144,6 +147,7 @@ AddPollScreen As screen:
                 ZIndex: =4
 
             Icon4 As icon.Save:
+                AccessibleLabel: ="Icon4"
                 Height: =22
                 Icon: =Icon.Save
                 OnSelect: |-
@@ -157,6 +161,7 @@ AddPollScreen As screen:
                 ZIndex: =5
 
             Icon5 As icon.Save:
+                AccessibleLabel: ="Icon5"
                 Height: =22
                 Icon: =Icon.Save
                 OnSelect: =Collect(DisaButton, ThisItem.Value)
@@ -212,7 +217,7 @@ AddPollScreen As screen:
             RadiusTopLeft: =2
             RadiusTopRight: =2
             Size: =10
-            TabIndex: =5
+            TabIndex: =
             Text: ="Add Option"
             Width: =122
             X: =15
@@ -220,6 +225,7 @@ AddPollScreen As screen:
             ZIndex: =4
 
         Icon_Delete As icon.Trash:
+            AccessibleLabel: ="Icon_Delete"
             BorderColor: =RGBA(0, 18, 107, 1)
             Color: =RGBA(48, 55, 120, 1)
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
@@ -338,7 +344,7 @@ AddPollScreen As screen:
         RadiusTopLeft: =3
         RadiusTopRight: =3
         Size: =9
-        TabIndex: =7
+        TabIndex: =
         Text: ="Save Poll"
         Tooltip: ="Save Poll to your list"
         Width: =120
@@ -347,12 +353,13 @@ AddPollScreen As screen:
         ZIndex: =5
 
     Gallery_Save As gallery.galleryVertical:
+        AccessibleLabel: ="Gallery_Save"
         BorderColor: =RGBA(0, 18, 107, 1)
         Fill: =Color.White
         Height: =540
         Items: =Filter(Questions,MeetingID=variCalUID.icaluid)
         Layout: =Layout.Vertical
-        TabIndex: =6
+        TabIndex: =
         TemplateSize: =171
         Width: =530
         X: =775
@@ -374,6 +381,7 @@ AddPollScreen As screen:
             ZIndex: =1
 
         "'Radiofor opt' As radio":
+            AccessibleLabel: ="Radiofor opt"
             BorderStyle: =
             Color: =RGBA(48, 55, 120, 1)
             DisplayMode: =DisplayMode.View
@@ -397,6 +405,7 @@ AddPollScreen As screen:
             ZIndex: =3
 
         "'Icon_Save Delete' As icon.Trash":
+            AccessibleLabel: ="Icon_Save Delete"
             BorderColor: =RGBA(0, 18, 107, 1)
             Color: =RGBA(0, 18, 107, 1)
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
@@ -499,6 +508,7 @@ AddPollScreen As screen:
             ZIndex: =21
 
         inputQuestion As text:
+            AccessibleLabel: ="inputQuestion"
             BorderColor: =RGBA(0, 18, 107, 1)
             BorderThickness: =1
             Color: =RGBA(0, 0, 0, 1)
@@ -559,13 +569,14 @@ AddPollScreen As screen:
             ZIndex: =23
 
     imageLogo_18 As image:
+        AccessibleLabel: ="imageLogo_18"
         Height: =60
         Image: =logo
         RadiusBottomLeft: =20
         RadiusBottomRight: =20
         RadiusTopLeft: =20
         RadiusTopRight: =20
-        TabIndex: =1
+        TabIndex: =0
         Width: =60
         X: =112
         Y: =87
@@ -579,6 +590,7 @@ AddPollScreen As screen:
         ZIndex: =36
 
         bg_13 As rectangle:
+            AccessibleLabel: ="bg_13"
             Fill: =RGBA(248, 249, 255, 1)
             Height: =718
             TabIndex: =0
@@ -588,6 +600,7 @@ AddPollScreen As screen:
             ZIndex: =10
 
         iconHamburger_6 As icon.Hamburger:
+            AccessibleLabel: ="iconHamburger_6"
             Height: =24
             Icon: =Icon.Hamburger
             OnSelect: |
@@ -600,6 +613,7 @@ AddPollScreen As screen:
             ZIndex: =11
 
         "'Home Icon_6' As icon.Home":
+            AccessibleLabel: ="Home Icon_6"
             Height: =24
             Icon: =Icon.Home
             OnSelect: |-
@@ -620,6 +634,7 @@ AddPollScreen As screen:
             ZIndex: =12
 
         iconResourceAdd_6 As icon.Add:
+            AccessibleLabel: ="iconResourceAdd_6"
             Height: =24
             Icon: =Icon.Add
             OnSelect: |-
@@ -673,6 +688,7 @@ AddPollScreen As screen:
             ZIndex: =30
 
         imageLogo_15 As image:
+            AccessibleLabel: ="imageLogo_15"
             FocusedBorderThickness: =1
             Height: =45
             Image: =logo
@@ -725,6 +741,7 @@ AddPollScreen As screen:
             ZIndex: =33
 
         Icon_back_2 As icon.ArrowLeft:
+            AccessibleLabel: ="Icon_back_2"
             Color: =RGBA(255, 255, 255, 1)
             FocusedBorderThickness: =1
             Height: =35

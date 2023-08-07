@@ -98,6 +98,7 @@ PollResultScreen As screen:
         ZIndex: =13
 
         bg_15 As rectangle:
+            AccessibleLabel: ="bg_15"
             Fill: =RGBA(248, 249, 255, 1)
             Height: =718
             TabIndex: =0
@@ -107,6 +108,7 @@ PollResultScreen As screen:
             ZIndex: =9
 
         iconHamburger_8 As icon.Hamburger:
+            AccessibleLabel: ="iconHamburger_8"
             Height: =24
             Icon: =Icon.Hamburger
             OnSelect: =Navigate('MeetingDetails Screen', ScreenTransition.Fade)
@@ -118,6 +120,7 @@ PollResultScreen As screen:
             ZIndex: =10
 
         "'Home Icon_8' As icon.Home":
+            AccessibleLabel: ="Home Icon_8"
             Height: =24
             Icon: =Icon.Home
             OnSelect: =Navigate(HomePage,BorderStyle.None)
@@ -129,6 +132,7 @@ PollResultScreen As screen:
             ZIndex: =11
 
         iconResourceAdd_8 As icon.Add:
+            AccessibleLabel: ="iconResourceAdd_8"
             Height: =24
             Icon: =Icon.Add
             OnSelect: =Navigate(ResourceScreen, ScreenTransition.Fade)
@@ -173,6 +177,7 @@ PollResultScreen As screen:
             ZIndex: =13
 
         imageLogo_17 As image:
+            AccessibleLabel: ="imageLogo_17"
             FocusedBorderThickness: =1
             Height: =45
             Image: =logo
@@ -225,6 +230,7 @@ PollResultScreen As screen:
             ZIndex: =16
 
         Icon_back_4 As icon.ArrowLeft:
+            AccessibleLabel: ="Icon_back_4"
             Color: =RGBA(255, 255, 255, 1)
             FocusedBorderThickness: =1
             Height: =35

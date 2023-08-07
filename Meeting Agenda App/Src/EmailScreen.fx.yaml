@@ -45,6 +45,7 @@ EmailScreen As screen:
             ZIndex: =3
 
         Rectangle6 As rectangle:
+            AccessibleLabel: ="Rectangle6"
             DisabledFill: =Rectangle6.Fill
             Fill: =RGBA(227, 227, 227, 1)
             FocusedBorderColor: =Rectangle6.BorderColor
@@ -134,6 +135,7 @@ EmailScreen As screen:
             ZIndex: =11
 
         Icon_Send As icon.Mail:
+            AccessibleLabel: ="Icon_Send"
             Color: =RGBA(255, 255, 255, 1)
             Height: =22
             Icon: =Icon.Mail
@@ -241,6 +243,7 @@ EmailScreen As screen:
             ZIndex: =5
 
         EmailRecipientGallery As gallery.galleryHorizontal:
+            AccessibleLabel: ="EmailRecipientGallery"
             BorderColor: =RGBA(227, 227, 227, 1)
             BorderStyle: =
             DisabledBorderColor: =EmailRecipientGallery.BorderColor
@@ -252,7 +255,7 @@ EmailScreen As screen:
             LoadingSpinnerColor: =EmailRecipientGallery.BorderColor
             PressedBorderColor: =EmailRecipientGallery.BorderColor
             PressedFill: =EmailRecipientGallery.Fill
-            TabIndex: =3
+            TabIndex: =0
             TemplatePadding: =10
             TemplateSize: =251
             Width: =534
@@ -358,6 +361,7 @@ EmailScreen As screen:
             ZIndex: =7
 
         EmailSubject As text:
+            AccessibleLabel: ="EmailSubject"
             BorderColor: =RGBA(227, 227, 227, 1)
             Default: =
             FocusedBorderColor: =EmailSubject.BorderColor
@@ -372,7 +376,7 @@ EmailScreen As screen:
             RadiusTopLeft: =3
             RadiusTopRight: =3
             Size: =13.5
-            TabIndex: =4
+            TabIndex: =
             Tooltip: ="Meeting Subject"
             Width: =608
             X: =EmailBannerText.X
@@ -398,6 +402,7 @@ EmailScreen As screen:
             ZIndex: =9
 
         EmailMessage As text:
+            AccessibleLabel: ="EmailMessage"
             BorderColor: =RGBA(227, 227, 227, 1)
             Default: =""
             FocusedBorderColor: =EmailMessage.BorderColor
@@ -412,7 +417,7 @@ EmailScreen As screen:
             RadiusTopLeft: =3
             RadiusTopRight: =3
             Size: =13.5
-            TabIndex: =5
+            TabIndex: =
             Width: =608
             X: =EmailBannerText.X
             Y: =483
@@ -454,6 +459,7 @@ EmailScreen As screen:
         ZIndex: =25
 
         bg_12 As rectangle:
+            AccessibleLabel: ="bg_12"
             Fill: =RGBA(248, 249, 255, 1)
             Height: =718
             TabIndex: =0
@@ -462,6 +468,7 @@ EmailScreen As screen:
             ZIndex: =15
 
         iconHamburger_5 As icon.Hamburger:
+            AccessibleLabel: ="iconHamburger_5"
             Height: =24
             Icon: =Icon.Hamburger
             OnSelect: =Navigate('MeetingDetails Screen', ScreenTransition.Fade)
@@ -473,6 +480,7 @@ EmailScreen As screen:
             ZIndex: =16
 
         "'Home Icon_5' As icon.Home":
+            AccessibleLabel: ="Home Icon_5"
             Height: =24
             Icon: =Icon.Home
             OnSelect: |-
@@ -493,6 +501,7 @@ EmailScreen As screen:
             ZIndex: =17
 
         iconResourceAdd_5 As icon.Add:
+            AccessibleLabel: ="iconResourceAdd_5"
             Height: =24
             Icon: =Icon.Add
             OnSelect: =Navigate(ResourceScreen, ScreenTransition.Fade)
@@ -511,16 +520,18 @@ EmailScreen As screen:
         ZIndex: =25
 
         rectTopMenu_10 As rectangle:
+            AccessibleLabel: ="rectTopMenu_10"
             Fill: =RGBA(48, 55, 120, 1)
             Height: =50
-            TabIndex: =1
+            TabIndex: =0
             Width: =1366
             ZIndex: =12
 
         imageLogo_10 As image:
+            AccessibleLabel: ="imageLogo_10"
             Height: =50
             Image: =logo
-            TabIndex: =1
+            TabIndex: =0
             ZIndex: =13
 
         "'Label_Selected Meeting Subj.' As label":
@@ -553,7 +564,7 @@ EmailScreen As screen:
             PressedColor: ='lbl_Selected Meeting Time & Dt'.Color
             PressedFill: ='lbl_Selected Meeting Time & Dt'.Fill
             Size: =10
-            TabIndex: =2
+            TabIndex: =0
             Text: |-
                 =Text(SelectedMeeting.Start,"[$-en-US]mmmm dd, yyyy")&" | " & Lower(Text(SelectedMeeting.Start,"[$-en-US]hh:mm am/pm"))&" - "&Lower(Text(SelectedMeeting.End,"[$-en-US]hh:mm am/pm")) & " (" & DateDiff(SelectedMeeting.Start, SelectedMeeting.End, TimeUnit.Minutes) & " minutes)"
             Tooltip: ="Meeting Title"
@@ -562,6 +573,7 @@ EmailScreen As screen:
             ZIndex: =20
 
         "'Icon_Nav Back' As icon.ArrowLeft":
+            AccessibleLabel: ="Icon_Nav Back"
             Color: =RGBA(255, 255, 255, 1)
             Height: =30
             Icon: =Icon.ArrowLeft
@@ -576,8 +588,10 @@ EmailScreen As screen:
         "'Label_Version no.' As label":
             Align: =Align.Center
             Color: =RGBA(255, 255, 255, 1)
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             Size: =14
+            TabIndex: =0
             Text: ="V1.0"
             Width: =103
             X: =1263
@@ -585,6 +599,7 @@ EmailScreen As screen:
             ZIndex: =22
 
     AAAttachmentcontrol_2 As attachments:
+        AccessibleLabel: ="AAAttachmentcontrol_2"
         BorderColor: =
         DisplayMode: =
         Height: =115

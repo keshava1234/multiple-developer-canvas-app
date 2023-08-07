@@ -6,6 +6,7 @@ SketchScreen As screen:
     Width: =Max(App.Width, App.DesignWidth)
 
     SketchCanvas As inkControl:
+        AccessibleLabel: ="SketchCanvas"
         BorderThickness: =0
         Height: =705
         OnSelect: =Set(ShowSketchSaved, false)
@@ -22,6 +23,7 @@ SketchScreen As screen:
         ZIndex: =13
 
         AppLogo2 As image:
+            AccessibleLabel: ="AppLogo2"
             Fill: =RGBA(237, 41, 85, 1)
             FocusedBorderColor: =AppLogo2.BorderColor
             Height: =66
@@ -36,6 +38,7 @@ SketchScreen As screen:
             ZIndex: =2
 
         HomeMenuBkg_2 As rectangle:
+            AccessibleLabel: ="HomeMenuBkg_2"
             DisabledFill: =HomeMenuBkg_2.Fill
             Fill: =RGBA(74, 91, 104, 1)
             FocusedBorderColor: =HomeMenuBkg_2.BorderColor
@@ -48,6 +51,7 @@ SketchScreen As screen:
             ZIndex: =3
 
         NavHome2 As image:
+            AccessibleLabel: ="NavHome2"
             Fill: =RGBA(44, 48, 52, 0)
             FocusedBorderColor: =NavHome2.BorderColor
             Height: =NavHome2.Width
@@ -64,6 +68,7 @@ SketchScreen As screen:
             ZIndex: =4
 
         NavSketch2 As image:
+            AccessibleLabel: ="NavSketch2"
             Fill: =RGBA(44, 48, 52, 1)
             FocusedBorderColor: =NavSketch2.BorderColor
             Height: =NavSketch2.Width
@@ -79,6 +84,7 @@ SketchScreen As screen:
             ZIndex: =5
 
         NavPhotos2 As image:
+            AccessibleLabel: ="NavPhotos2"
             FocusedBorderColor: =NavPhotos2.BorderColor
             Height: =NavPhotos2.Width
             HoverBorderColor: =ColorFade(NavPhotos2.BorderColor, 20%)
@@ -101,6 +107,7 @@ SketchScreen As screen:
         ZIndex: =13
 
         BackgroundBanner As rectangle:
+            AccessibleLabel: ="BackgroundBanner"
             DisabledFill: =BackgroundBanner.Fill
             Fill: =RGBA(234, 237, 239, 1)
             FocusedBorderColor: =BackgroundBanner.BorderColor
@@ -147,6 +154,7 @@ SketchScreen As screen:
             ZIndex: =8
 
         SaveSketchIcon As icon.Save:
+            AccessibleLabel: ="SaveSketchIcon"
             Color: =SaveSketch.Color
             DisabledFill: =SaveSketchIcon.Fill
             FocusedBorderColor: =SaveSketchIcon.BorderColor
@@ -168,6 +176,7 @@ SketchScreen As screen:
             ZIndex: =9
 
         SavedIndicator2 As icon.Check:
+            AccessibleLabel: ="SavedIndicator2"
             Color: =RGBA(96, 181, 2, 1)
             DisabledFill: =SavedIndicator2.Fill
             FocusedBorderColor: =SavedIndicator2.BorderColor
@@ -188,6 +197,7 @@ SketchScreen As screen:
             ZIndex: =10
 
         SavedIndicator1 As circle:
+            AccessibleLabel: ="SavedIndicator1"
             BorderColor: =SavedIndicator2.Color
             BorderThickness: =2
             DisabledFill: =SavedIndicator1.Fill

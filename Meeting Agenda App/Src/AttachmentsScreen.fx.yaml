@@ -13,6 +13,7 @@ AttachmentsScreen As screen:
         ZIndex: =24
 
         PhotosIcon As image:
+            AccessibleLabel: ="PhotosIcon"
             FocusedBorderColor: =PhotosIcon.BorderColor
             FocusedBorderThickness: =1
             Height: =54
@@ -46,6 +47,7 @@ AttachmentsScreen As screen:
             ZIndex: =7
 
         PhotosGallery As gallery.galleryHorizontal:
+            AccessibleLabel: ="PhotosGallery"
             DisabledBorderColor: =PhotosGallery.BorderColor
             DisabledFill: =PhotosGallery.Fill
             FocusedBorderThickness: =1
@@ -106,6 +108,7 @@ AttachmentsScreen As screen:
         ZIndex: =24
 
         SketchesIcon As image:
+            AccessibleLabel: ="SketchesIcon"
             FocusedBorderColor: =SketchesIcon.BorderColor
             FocusedBorderThickness: =1
             Height: =54
@@ -121,6 +124,7 @@ AttachmentsScreen As screen:
             ZIndex: =6
 
         Rectangle6_3 As rectangle:
+            AccessibleLabel: ="Rectangle6_3"
             DisabledFill: =Rectangle6_3.Fill
             Fill: =RGBA(227, 227, 227, 1)
             FocusedBorderColor: =Rectangle6_3.BorderColor
@@ -172,6 +176,7 @@ AttachmentsScreen As screen:
             ZIndex: =12
 
         SketchesGallery As gallery.galleryHorizontal:
+            AccessibleLabel: ="SketchesGallery"
             DisabledBorderColor: =SketchesGallery.BorderColor
             DisabledFill: =SketchesGallery.Fill
             FocusedBorderThickness: =1
@@ -213,6 +218,7 @@ AttachmentsScreen As screen:
         ZIndex: =24
 
         ModalOverlay_1 As rectangle:
+            AccessibleLabel: ="ModalOverlay_1"
             DisabledFill: =ModalOverlay_1.Fill
             Fill: =RGBA(0,0,0,.7)
             FocusedBorderColor: =ModalOverlay_1.BorderColor
@@ -226,6 +232,7 @@ AttachmentsScreen As screen:
             ZIndex: =15
 
         AttachmentToDelete As image:
+            AccessibleLabel: ="AttachmentToDelete"
             Fill: =RGBA(255, 255, 255, 1)
             FocusedBorderColor: =AttachmentToDelete.BorderColor
             FocusedBorderThickness: =1
@@ -243,6 +250,7 @@ AttachmentsScreen As screen:
             ZIndex: =16
 
         DeleteAttachment1 As circle:
+            AccessibleLabel: ="DeleteAttachment1"
             DisabledFill: =DeleteAttachment1.Fill
             Fill: =RGBA(237, 41, 85, 1)
             FocusedBorderColor: =DeleteAttachment1.BorderColor
@@ -258,6 +266,7 @@ AttachmentsScreen As screen:
             ZIndex: =17
 
         HideDelete2 As circle:
+            AccessibleLabel: ="HideDelete2"
             BorderColor: =RGBA(255, 255, 255, 1)
             BorderThickness: =2
             DisabledFill: =HideDelete2.Fill
@@ -278,6 +287,7 @@ AttachmentsScreen As screen:
             ZIndex: =18
 
         HideDelete1 As icon.Cancel:
+            AccessibleLabel: ="HideDelete1"
             Color: =Color.White
             DisabledFill: =HideDelete1.Fill
             FocusedBorderColor: =HideDelete1.BorderColor
@@ -305,6 +315,7 @@ AttachmentsScreen As screen:
             ZIndex: =19
 
         icon15 As icon.Trash:
+            AccessibleLabel: ="icon15"
             Color: =Color.White
             DisabledFill: =icon15.Fill
             FocusedBorderColor: =icon15.BorderColor
@@ -389,6 +400,7 @@ AttachmentsScreen As screen:
         ZIndex: =28
 
         bg_20 As rectangle:
+            AccessibleLabel: ="bg_20"
             Fill: =RGBA(248, 249, 255, 1)
             Height: =718
             TabIndex: =0
@@ -397,6 +409,7 @@ AttachmentsScreen As screen:
             ZIndex: =24
 
         iconHamburger_13 As icon.Hamburger:
+            AccessibleLabel: ="iconHamburger_13"
             Height: =24
             Icon: =Icon.Hamburger
             OnSelect: =Navigate('MeetingDetails Screen', ScreenTransition.Fade)
@@ -408,6 +421,7 @@ AttachmentsScreen As screen:
             ZIndex: =25
 
         "'Home Icon_13' As icon.Home":
+            AccessibleLabel: ="Home Icon_13"
             Height: =24
             Icon: =Icon.Home
             OnSelect: =Navigate(HomePage,BorderStyle.None)
@@ -419,6 +433,7 @@ AttachmentsScreen As screen:
             ZIndex: =26
 
         iconResourceAdd_13 As icon.Add:
+            AccessibleLabel: ="iconResourceAdd_13"
             Height: =24
             Icon: =Icon.Add
             OnSelect: =Navigate(ResourceScreen, ScreenTransition.Fade)
@@ -437,6 +452,7 @@ AttachmentsScreen As screen:
         ZIndex: =31
 
         Rectangle2_5 As rectangle:
+            AccessibleLabel: ="Rectangle2_5"
             DisabledFill: =Rectangle2_5.Fill
             Fill: =RGBA(234, 237, 239, 1)
             FocusedBorderColor: =Rectangle2_5.BorderColor
@@ -469,6 +485,7 @@ AttachmentsScreen As screen:
             ZIndex: =3
 
         Rectangle6_2 As rectangle:
+            AccessibleLabel: ="Rectangle6_2"
             DisabledFill: =Rectangle6_2.Fill
             Fill: =RGBA(227, 227, 227, 1)
             FocusedBorderColor: =Rectangle6_2.BorderColor
@@ -483,6 +500,7 @@ AttachmentsScreen As screen:
             ZIndex: =4
 
         AttachmentsPrevScreen As icon.ArrowLeft:
+            AccessibleLabel: ="AttachmentsPrevScreen"
             Color: =RGBA(255, 255, 255, 1)
             FocusedBorderThickness: =1
             Height: =40
@@ -524,6 +542,7 @@ AttachmentsScreen As screen:
             ZIndex: =33
 
         iconAttachFiles As icon.ForkKnife:
+            AccessibleLabel: ="iconAttachFiles"
             BorderColor: =RGBA(89, 0, 0, 1)
             Color: =RGBA(0, 0, 0, 1)
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
@@ -554,18 +573,20 @@ AttachmentsScreen As screen:
         ZIndex: =36
 
         rectTopMenu_12 As rectangle:
+            AccessibleLabel: ="rectTopMenu_12"
             Fill: =RGBA(48, 55, 120, 1)
             FocusedBorderThickness: =1
             Height: =43
-            TabIndex: =1
+            TabIndex: =0
             Width: =1366
             ZIndex: =28
 
         imageLogo_2 As image:
+            AccessibleLabel: ="imageLogo_2"
             FocusedBorderThickness: =1
             Height: =43
             Image: =logo
-            TabIndex: =1
+            TabIndex: =0
             Width: =115
             ZIndex: =29
 
@@ -584,6 +605,7 @@ AttachmentsScreen As screen:
             PressedColor: ='lbl_Selected Meeting Sub.'.Color
             PressedFill: ='lbl_Selected Meeting Sub.'.Fill
             Size: =10
+            TabIndex: =0
             Text: =SelectedMeeting.Subject
             Width: =330
             X: =200
@@ -601,7 +623,7 @@ AttachmentsScreen As screen:
             PressedColor: ='lbl_Selected eeting Dt & Time'.Color
             PressedFill: ='lbl_Selected eeting Dt & Time'.Fill
             Size: =10
-            TabIndex: =2
+            TabIndex: =0
             Text: |-
                 =Text(SelectedMeeting.Start,"[$-en-US]mmmm dd, yyyy")&" | " & Lower(Text(SelectedMeeting.Start,"[$-en-US]hh:mm am/pm"))&" - "&Lower(Text(SelectedMeeting.End,"[$-en-US]hh:mm am/pm")) & " (" & DateDiff(SelectedMeeting.Start, SelectedMeeting.End, TimeUnit.Minutes) & " minutes)"
             Tooltip: ="Meeting Title"
@@ -615,6 +637,7 @@ AttachmentsScreen As screen:
             FocusedBorderThickness: =1
             Font: =Font.Lato
             Size: =14
+            TabIndex: =0
             Text: ="V1.0"
             Width: =103
             X: =1263

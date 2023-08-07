@@ -444,7 +444,6 @@ ExportScreen As screen:
                 Set(SelectedSection, Blank())
             PressedBorderColor: =ColorFade(OneNotecheck.BorderColor, -30%)
             PressedFill: =ColorFade(OneNotecheck.Fill, -30%)
-            TabIndex: =3
             Text: =""
             Tooltip: ="Click Here if you want to save data in OneNote"
             Width: =63
@@ -453,6 +452,7 @@ ExportScreen As screen:
             ZIndex: =14
 
         imgOneNoteIcon As image:
+            AccessibleLabel: ="imgOneNoteIcon"
             BorderColor: =RGBA(48,55,120,1)
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
@@ -464,6 +464,7 @@ ExportScreen As screen:
             Image: ='one-note'
             PressedBorderColor: =ColorFade(imgOneNoteIcon.BorderColor, -20%)
             PressedFill: =ColorFade(imgOneNoteIcon.Fill, -20%)
+            TabIndex: =0
             Width: =24
             X: =135
             Y: =215
@@ -485,7 +486,7 @@ ExportScreen As screen:
             PressedColor: =lblOneNoteHeader.Color
             PressedFill: =lblOneNoteHeader.Fill
             Size: =15
-            TabIndex: =4
+            TabIndex: =0
             Text: ="OneNote"
             Width: =176
             X: =168
@@ -512,6 +513,7 @@ ExportScreen As screen:
             PressedColor: =lblOneNoteExportDescript.Color
             PressedFill: =lblOneNoteExportDescript.Fill
             Size: =10.5
+            TabIndex: =0
             Text: ="Export meeting summary, notes, attachments, and tasks to your OneNote."
             Width: =507
             X: =135
@@ -550,7 +552,6 @@ ExportScreen As screen:
             RadiusTopLeft: =3
             RadiusTopRight: =3
             Size: =10.5
-            TabIndex: =5
             Text: =If(lblExportToOneNote.Height > 0, "Select new location", "Select Location")
             Visible: =OneNotecheck.Value
             Width: =170
@@ -573,6 +574,7 @@ ExportScreen As screen:
             PressedColor: =lblOneNoteDataLossDescript.Color
             PressedFill: =lblOneNoteDataLossDescript.Fill
             Size: =9
+            TabIndex: =0
             Text: ="Photos and sketches cannot be exported to OneNote. ‘Export to Email’ to prevent attachments from being lost."
             Visible: =OneNotecheck.Value && !checkEmail.Value
             Width: =480
@@ -581,6 +583,7 @@ ExportScreen As screen:
             ZIndex: =30
 
         iconOneNoteDataLossWarn As icon.Warning:
+            AccessibleLabel: ="iconOneNoteDataLossWarn"
             BorderColor: =RGBA(48,55,120,1)
             Color: =RGBA(44, 48, 52, 1)
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
@@ -596,6 +599,7 @@ ExportScreen As screen:
             PressedBorderColor: =ColorFade(iconOneNoteDataLossWarn.BorderColor, -20%)
             PressedColor: =ColorFade(iconOneNoteDataLossWarn.Color, -20%)
             PressedFill: =iconOneNoteDataLossWarn.Fill
+            TabIndex: =0
             Visible: =OneNotecheck.Value && !checkEmail.Value
             Width: =24
             X: =150
@@ -621,6 +625,7 @@ ExportScreen As screen:
             PressedColor: =lblOneNoteExportLocation.Color
             PressedFill: =lblOneNoteExportLocation.Fill
             Size: =12
+            TabIndex: =0
             Text: =SelectedNoteBook.Value & " - " & SelectedSection.'data-ADB4D7A662F548B49FAC2B986E348A1Bname'
             Visible: =OneNotecheck.Value && lblExportToOneNote.Height > 0
             Width: =423
@@ -647,6 +652,7 @@ ExportScreen As screen:
             PressedColor: =lblExportToOneNote.Color
             PressedFill: =lblExportToOneNote.Fill
             Size: =10.5
+            TabIndex: =0
             Text: |-
                 ="Export to:"
             Visible: =OneNotecheck.Value
@@ -656,6 +662,7 @@ ExportScreen As screen:
             ZIndex: =35
 
         shapeRectangle2OneNote As rectangle:
+            AccessibleLabel: ="shapeRectangle2OneNote"
             BorderColor: =RGBA(48,55,120,1)
             DisabledFill: =shapeRectangle2OneNote.Fill
             DisplayMode: =DisplayMode.View
@@ -665,6 +672,7 @@ ExportScreen As screen:
             Height: =2
             HoverFill: =shapeRectangle2OneNote.Fill
             PressedFill: =shapeRectangle2OneNote.Fill
+            TabIndex: =0
             Visible: =OneNotecheck.Value && lblExportToOneNote.Height > 0
             Width: =496
             X: =135
@@ -672,6 +680,7 @@ ExportScreen As screen:
             ZIndex: =36
 
         shapeRectangleOneNote As rectangle:
+            AccessibleLabel: ="shapeRectangleOneNote"
             BorderColor: =RGBA(48,55,120,1)
             DisabledFill: =shapeRectangleOneNote.Fill
             DisplayMode: =DisplayMode.View
@@ -681,6 +690,7 @@ ExportScreen As screen:
             Height: =2
             HoverFill: =shapeRectangleOneNote.Fill
             PressedFill: =shapeRectangleOneNote.Fill
+            TabIndex: =0
             Visible: =OneNotecheck.Value && lblExportToOneNote.Height > 0
             Width: =496
             X: =135
@@ -709,7 +719,6 @@ ExportScreen As screen:
             HoverFill: =ColorFade(checkEmail.Fill, 30%)
             PressedBorderColor: =ColorFade(checkEmail.BorderColor, -30%)
             PressedFill: =ColorFade(checkEmail.Fill, -30%)
-            TabIndex: =13
             Text: =""
             Tooltip: ="Click Here If you want to send through Email"
             Width: =63
@@ -718,6 +727,7 @@ ExportScreen As screen:
             ZIndex: =15
 
         imgEmailIcon As image:
+            AccessibleLabel: ="imgEmailIcon"
             BorderColor: =RGBA(89, 0, 0, 1)
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
@@ -729,6 +739,7 @@ ExportScreen As screen:
             Image: =outlook
             PressedBorderColor: =ColorFade(imgEmailIcon.BorderColor, -20%)
             PressedFill: =ColorFade(imgEmailIcon.Fill, -20%)
+            TabIndex: =0
             Width: =24
             X: =813
             Y: =211
@@ -751,7 +762,7 @@ ExportScreen As screen:
             PressedColor: =lblEmailHeader.Color
             PressedFill: =lblEmailHeader.Fill
             Size: =15
-            TabIndex: =14
+            TabIndex: =0
             Text: ="Email"
             Width: =66
             X: =842
@@ -778,6 +789,7 @@ ExportScreen As screen:
             PressedColor: =lblEmailExportDescript.Color
             PressedFill: =lblEmailExportDescript.Fill
             Size: =10.5
+            TabIndex: =0
             Text: ="Email meeting summary, notes, attachments, and tasks to the attendees."
             Width: =507
             X: =813
@@ -830,6 +842,7 @@ ExportScreen As screen:
             PressedColor: =lblAttendeeCount.Color
             PressedFill: =lblAttendeeCount.Fill
             Size: =10.5
+            TabIndex: =0
             Text: ="Attendees (" & CountRows(EmailRecipients) & ")"
             Visible: =checkEmail.Value
             Width: =507
@@ -838,6 +851,7 @@ ExportScreen As screen:
             ZIndex: =24
 
         galEmailRecipients As gallery.galleryVertical:
+            AccessibleLabel: ="galEmailRecipients"
             BorderColor: =RGBA(48, 55, 120, 0.01)
             DisabledBorderColor: =galEmailRecipients.BorderColor
             DisabledFill: =galEmailRecipients.Fill
@@ -885,7 +899,7 @@ ExportScreen As screen:
             Layout: =Layout.Vertical
             PressedBorderColor: =galEmailRecipients.BorderColor
             PressedFill: =galEmailRecipients.Fill
-            TabIndex: =
+            TabIndex: =0
             TemplatePadding: =10
             TemplateSize: =50
             Visible: =checkEmail.Value
@@ -940,6 +954,7 @@ ExportScreen As screen:
                 ZIndex: =2
 
             iconRemoveRecipient As icon.Cancel:
+                AccessibleLabel: ="iconRemoveRecipient"
                 BorderColor: =RGBA(48, 55, 120, 1)
                 Color: =RGBA(48, 55, 120, 1)
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
@@ -1023,6 +1038,7 @@ ExportScreen As screen:
             PressedColor: =lblAddAttendee.Color
             PressedFill: =lblAddAttendee.Fill
             Size: =10.5
+            TabIndex: =0
             Text: ="Add attendee"
             Visible: =checkEmail.Value
             Width: =507
@@ -1031,6 +1047,7 @@ ExportScreen As screen:
             ZIndex: =26
 
         txtSearchUser As text:
+            AccessibleLabel: ="txtSearchUser"
             BorderColor: =RGBA(227, 227, 227, 1)
             Color: =RGBA(0, 0, 0, 1)
             Default: =""
@@ -1055,7 +1072,6 @@ ExportScreen As screen:
             RadiusBottomRight: =3
             RadiusTopLeft: =3
             RadiusTopRight: =3
-            TabIndex: =15
             Visible: =checkEmail.Value
             Width: =521
             X: =813
@@ -1063,6 +1079,7 @@ ExportScreen As screen:
             ZIndex: =27
 
         iconSearchUser As icon.Search:
+            AccessibleLabel: ="iconSearchUser"
             BorderColor: =RGBA(89, 0, 0, 1)
             Color: =RGBA(48, 55, 120, 1)
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
@@ -1078,6 +1095,7 @@ ExportScreen As screen:
             PressedBorderColor: =ColorFade(iconSearchUser.BorderColor, -20%)
             PressedColor: =ColorFade(iconSearchUser.Color, -20%)
             PressedFill: =iconSearchUser.Fill
+            TabIndex: =0
             Visible: =checkEmail.Value
             Width: =24
             X: =819
@@ -1085,6 +1103,7 @@ ExportScreen As screen:
             ZIndex: =28
 
         galUserSearchResults As gallery.galleryVertical:
+            AccessibleLabel: ="galUserSearchResults"
             BorderColor: =RGBA(48, 55, 120, 1)
             DisabledBorderColor: =galUserSearchResults.BorderColor
             DisabledFill: =galUserSearchResults.Fill
@@ -1099,7 +1118,7 @@ ExportScreen As screen:
             PressedBorderColor: =galUserSearchResults.BorderColor
             PressedFill: =galUserSearchResults.Fill
             ShowScrollbar: =false
-            TabIndex: =16
+            TabIndex: =0
             TemplatePadding: =10
             TemplateSize: =40
             Visible: =checkEmail.Value
@@ -1231,6 +1250,7 @@ ExportScreen As screen:
             PressedBorderColor: =lblLoadingIndicatorUsers.BorderColor
             PressedColor: =lblLoadingIndicatorUsers.Color
             PressedFill: =lblLoadingIndicatorUsers.Fill
+            TabIndex: =0
             Text: ="Searching for users..."
             Visible: =CountRows(galUserSearchResults.AllItems) < 0 && checkEmail.Value
             Width: =370
@@ -1269,6 +1289,7 @@ ExportScreen As screen:
             ZIndex: =11
 
         shapeRectangleExport As rectangle:
+            AccessibleLabel: ="shapeRectangleExport"
             BorderColor: =RGBA(89, 0, 0, 1)
             DisabledFill: =shapeRectangleExport.Fill
             Fill: =RGBA(227, 227, 227, 1)
@@ -1334,6 +1355,7 @@ ExportScreen As screen:
             ZIndex: =32
 
         iconDataLossWarn As icon.Warning:
+            AccessibleLabel: ="iconDataLossWarn"
             BorderColor: =RGBA(89, 0, 0, 1)
             Color: =RGBA(48,55,120,1)
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
@@ -1627,6 +1649,7 @@ ExportScreen As screen:
             ZIndex: =39
 
         imgExportIcon As image:
+            AccessibleLabel: ="imgExportIcon"
             BorderColor: =RGBA(89, 0, 0, 1)
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
@@ -1645,6 +1668,7 @@ ExportScreen As screen:
             ZIndex: =40
 
     iconCheckOneNoteSection As icon.Check:
+        AccessibleLabel: ="iconCheckOneNoteSection"
         BorderColor: =RGBA(89, 0, 0, 1)
         Color: =Color.Green
         DisabledBorderColor: =RGBA(166, 166, 166, 1)
@@ -1674,6 +1698,7 @@ ExportScreen As screen:
         ZIndex: =80
 
         shapeExportOverlay As rectangle:
+            AccessibleLabel: ="shapeExportOverlay"
             BorderColor: =RGBA(89, 0, 0, 1)
             DisabledFill: =shapeExportOverlay.Fill
             Fill: =RGBA(0,0,0,.7)
@@ -1687,6 +1712,7 @@ ExportScreen As screen:
             ZIndex: =64
 
         shapeExportForeground As rectangle:
+            AccessibleLabel: ="shapeExportForeground"
             BorderColor: =RGBA(48, 55, 120, 1)
             DisabledFill: =shapeExportForeground.Fill
             Fill: =RGBA(255, 255, 255, 1)
@@ -2100,6 +2126,7 @@ ExportScreen As screen:
             ZIndex: =72
 
         drpPlannerPlanSelect As dropdown:
+            AccessibleLabel: ="drpPlannerPlanSelect"
             BorderColor: =RGBA(155, 155, 155, 1)
             BorderThickness: =1
             ChevronBackground: =RGBA(0, 0, 0, 0)
@@ -2130,6 +2157,7 @@ ExportScreen As screen:
             ZIndex: =73
 
         drpPlannerBucketSelect As dropdown:
+            AccessibleLabel: ="drpPlannerBucketSelect"
             BorderColor: =RGBA(155, 155, 155, 1)
             BorderThickness: =1
             ChevronBackground: =RGBA(0, 0, 0, 0)
@@ -2183,6 +2211,7 @@ ExportScreen As screen:
             ZIndex: =75
 
         OneNoteBookSelect As dropdown:
+            AccessibleLabel: ="OneNoteBookSelect"
             BorderColor: =RGBA(155, 155, 155, 1)
             BorderThickness: =1
             ChevronBackground: =RGBA(255, 255, 255, 1)
@@ -2215,6 +2244,7 @@ ExportScreen As screen:
             ZIndex: =76
 
         SectionsSelect As dropdown:
+            AccessibleLabel: ="SectionsSelect"
             BorderColor: =RGBA(155, 155, 155, 1)
             BorderThickness: =1
             ChevronBackground: =RGBA(255, 255, 255, 1)
@@ -2299,6 +2329,7 @@ ExportScreen As screen:
             ZIndex: =78
 
         txtNewOneNote As text:
+            AccessibleLabel: ="txtNewOneNote"
             BorderColor: =RGBA(48, 55, 120, 1)
             BorderThickness: =1
             Color: =RGBA(0, 0, 0, 1)
@@ -2358,7 +2389,6 @@ ExportScreen As screen:
                 Set(SelectedBucket, Blank())
             PressedBorderColor: =ColorFade(chkCheckPlanner_1.BorderColor, -30%)
             PressedFill: =ColorFade(chkCheckPlanner_1.Fill, -30%)
-            TabIndex: =9
             Text: =""
             Tooltip: ="Click Here if you want to save data in Agenda"
             Width: =63
@@ -2367,6 +2397,7 @@ ExportScreen As screen:
             ZIndex: =41
 
         imgPlannerIcon_1 As image:
+            AccessibleLabel: ="imgPlannerIcon_1"
             BorderColor: =RGBA(48,55,120,1)
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
@@ -2377,6 +2408,7 @@ ExportScreen As screen:
             Image: =planner
             PressedBorderColor: =ColorFade(imgPlannerIcon_1.BorderColor, -20%)
             PressedFill: =ColorFade(imgPlannerIcon_1.Fill, -20%)
+            TabIndex: =0
             Width: =24
             X: =135
             Y: =469
@@ -2398,7 +2430,7 @@ ExportScreen As screen:
             PressedColor: =lblOfficePlanner_1.Color
             PressedFill: =lblOfficePlanner_1.Fill
             Size: =15
-            TabIndex: =10
+            TabIndex: =0
             Text: ="Meeting Agenda"
             Width: =176
             X: =168
@@ -2410,6 +2442,7 @@ ExportScreen As screen:
             Color: =RGBA(48, 55, 120, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
             FocusedBorderColor: =lblPlannerExportDescript_1.BorderColor
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Semibold
             Height: =28
@@ -2424,6 +2457,7 @@ ExportScreen As screen:
             PressedColor: =lblPlannerExportDescript_1.Color
             PressedFill: =lblPlannerExportDescript_1.Fill
             Size: =10.5
+            TabIndex: =0
             Text: ="Send agenda to email"
             Width: =507
             X: =153
@@ -2434,6 +2468,7 @@ ExportScreen As screen:
             BorderColor: =RGBA(48,55,120,1)
             DisabledColor: =RGBA(166, 166, 166, 1)
             FocusedBorderColor: =lblPlannerExportLocation_1.BorderColor
+            FocusedBorderThickness: =1
             Height: =28
             HoverBorderColor: =lblPlannerExportLocation_1.BorderColor
             HoverColor: =lblPlannerExportLocation_1.Color
@@ -2446,6 +2481,7 @@ ExportScreen As screen:
             PressedColor: =lblPlannerExportLocation_1.Color
             PressedFill: =lblPlannerExportLocation_1.Fill
             Size: =10.5
+            TabIndex: =0
             Text: =SelectedPlan.'data-ADB4D7A662F548B49FAC2B986E348A1Btitle' & " - " & SelectedBucket.'data-ADB4D7A662F548B49FAC2B986E348A1Bname'
             Visible: =chkCheckPlanner_1.Value && lblPlannerExportTo_1.Height > 0
             Width: =423
@@ -2458,6 +2494,7 @@ ExportScreen As screen:
             Color: =RGBA(155, 155, 155, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
             FocusedBorderColor: =lblPlannerExportTo_1.BorderColor
+            FocusedBorderThickness: =1
             Height: =If(IsBlank(SelectedBucket), 0, 28)
             HoverBorderColor: =lblPlannerExportTo_1.BorderColor
             HoverColor: =lblPlannerExportTo_1.Color
@@ -2470,6 +2507,7 @@ ExportScreen As screen:
             PressedColor: =lblPlannerExportTo_1.Color
             PressedFill: =lblPlannerExportTo_1.Fill
             Size: =10.5
+            TabIndex: =0
             Text: |-
                 ="Export to:"
             Visible: =chkCheckPlanner_1.Value
@@ -2479,6 +2517,7 @@ ExportScreen As screen:
             ZIndex: =46
 
         shapeRectangle2Planner_1 As rectangle:
+            AccessibleLabel: ="shapeRectangle2Planner_1"
             BorderColor: =RGBA(48,55,120,1)
             DisabledFill: =shapeRectangle2Planner_1.Fill
             DisplayMode: =DisplayMode.View
@@ -2487,6 +2526,7 @@ ExportScreen As screen:
             Height: =2
             HoverFill: =shapeRectangle2Planner_1.Fill
             PressedFill: =shapeRectangle2Planner_1.Fill
+            TabIndex: =0
             Visible: =chkCheckPlanner_1.Value && lblPlannerExportTo_1.Height > 0
             Width: =lblPlannerExportLocation_1.Width + lblPlannerExportTo_1.Width
             X: =153
@@ -2494,6 +2534,7 @@ ExportScreen As screen:
             ZIndex: =47
 
         shapeRectanglePlanner_1 As rectangle:
+            AccessibleLabel: ="shapeRectanglePlanner_1"
             BorderColor: =RGBA(48,55,120,1)
             DisabledFill: =shapeRectanglePlanner_1.Fill
             DisplayMode: =DisplayMode.View
@@ -2502,6 +2543,7 @@ ExportScreen As screen:
             Height: =2
             HoverFill: =shapeRectanglePlanner_1.Fill
             PressedFill: =shapeRectanglePlanner_1.Fill
+            TabIndex: =0
             Visible: =chkCheckPlanner_1.Value && lblPlannerExportTo_1.Height > 0
             Width: =lblPlannerExportLocation_1.Width + lblPlannerExportTo_1.Width
             X: =153
@@ -2542,6 +2584,7 @@ ExportScreen As screen:
             ZIndex: =81
 
         imageLogo_14 As image:
+            AccessibleLabel: ="imageLogo_14"
             FocusedBorderThickness: =1
             Height: =45
             Image: =logo
@@ -2594,6 +2637,7 @@ ExportScreen As screen:
             ZIndex: =84
 
         Icon_back_1 As icon.ArrowLeft:
+            AccessibleLabel: ="Icon_back_1"
             Color: =RGBA(255, 255, 255, 1)
             FocusedBorderThickness: =1
             Height: =35
@@ -2660,7 +2704,6 @@ ExportScreen As screen:
                 Set(SelectedBucket, Blank())
             PressedBorderColor: =ColorFade(chkCheckPlanner_2.BorderColor, -30%)
             PressedFill: =ColorFade(chkCheckPlanner_2.Fill, -30%)
-            TabIndex: =11
             Text: =""
             Tooltip: ="Click Here if you want to save data in Meeting Resource"
             Width: =63
@@ -2669,16 +2712,19 @@ ExportScreen As screen:
             ZIndex: =49
 
         imgPlannerIcon_2 As image:
+            AccessibleLabel: ="imgPlannerIcon_2"
             BorderColor: =RGBA(48,55,120,1)
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
             FocusedBorderColor: =imgPlannerIcon_2.BorderColor
+            FocusedBorderThickness: =1
             Height: =24
             HoverBorderColor: =ColorFade(imgPlannerIcon_2.BorderColor, 20%)
             HoverFill: =ColorFade(imgPlannerIcon_2.Fill, 20%)
             Image: =planner
             PressedBorderColor: =ColorFade(imgPlannerIcon_2.BorderColor, -20%)
             PressedFill: =ColorFade(imgPlannerIcon_2.Fill, -20%)
+            TabIndex: =0
             Width: =24
             X: =135
             Y: =610
@@ -2700,7 +2746,7 @@ ExportScreen As screen:
             PressedColor: =lblOfficePlanner_2.Color
             PressedFill: =lblOfficePlanner_2.Fill
             Size: =15
-            TabIndex: =12
+            TabIndex: =0
             Text: ="Meeting Resources"
             Width: =258
             X: =168
@@ -2712,6 +2758,7 @@ ExportScreen As screen:
             Color: =RGBA(48, 55, 120, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
             FocusedBorderColor: =lblPlannerExportDescript_2.BorderColor
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Semibold
             Height: =28
@@ -2726,6 +2773,7 @@ ExportScreen As screen:
             PressedColor: =lblPlannerExportDescript_2.Color
             PressedFill: =lblPlannerExportDescript_2.Fill
             Size: =10.5
+            TabIndex: =0
             Text: ="Send agenda to email"
             Width: =507
             X: =135
@@ -2736,6 +2784,7 @@ ExportScreen As screen:
             BorderColor: =RGBA(48,55,120,1)
             DisabledColor: =RGBA(166, 166, 166, 1)
             FocusedBorderColor: =lblPlannerExportLocation_2.BorderColor
+            FocusedBorderThickness: =1
             Height: =28
             HoverBorderColor: =lblPlannerExportLocation_2.BorderColor
             HoverColor: =lblPlannerExportLocation_2.Color
@@ -2748,6 +2797,7 @@ ExportScreen As screen:
             PressedColor: =lblPlannerExportLocation_2.Color
             PressedFill: =lblPlannerExportLocation_2.Fill
             Size: =10.5
+            TabIndex: =0
             Text: =SelectedPlan.'data-ADB4D7A662F548B49FAC2B986E348A1Btitle' & " - " & SelectedBucket.'data-ADB4D7A662F548B49FAC2B986E348A1Bname'
             Visible: =chkCheckPlanner_2.Value && lblPlannerExportTo_2.Height > 0
             Width: =423
@@ -2760,6 +2810,7 @@ ExportScreen As screen:
             Color: =RGBA(155, 155, 155, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
             FocusedBorderColor: =lblPlannerExportTo_2.BorderColor
+            FocusedBorderThickness: =1
             Height: =If(IsBlank(SelectedBucket), 0, 28)
             HoverBorderColor: =lblPlannerExportTo_2.BorderColor
             HoverColor: =lblPlannerExportTo_2.Color
@@ -2772,6 +2823,7 @@ ExportScreen As screen:
             PressedColor: =lblPlannerExportTo_2.Color
             PressedFill: =lblPlannerExportTo_2.Fill
             Size: =10.5
+            TabIndex: =0
             Text: |-
                 ="Export to:"
             Visible: =chkCheckPlanner_2.Value
@@ -2781,14 +2833,17 @@ ExportScreen As screen:
             ZIndex: =54
 
         shapeRectangle2Planner_2 As rectangle:
+            AccessibleLabel: ="shapeRectangle2Planner_2"
             BorderColor: =RGBA(48,55,120,1)
             DisabledFill: =shapeRectangle2Planner_2.Fill
             DisplayMode: =DisplayMode.View
             Fill: =RGBA(215, 218, 221, 1)
             FocusedBorderColor: =shapeRectangle2Planner_2.BorderColor
+            FocusedBorderThickness: =1
             Height: =2
             HoverFill: =shapeRectangle2Planner_2.Fill
             PressedFill: =shapeRectangle2Planner_2.Fill
+            TabIndex: =0
             Visible: =chkCheckPlanner_2.Value && lblPlannerExportTo_2.Height > 0
             Width: =lblPlannerExportLocation_2.Width + lblPlannerExportTo_2.Width
             X: =135
@@ -2796,14 +2851,17 @@ ExportScreen As screen:
             ZIndex: =55
 
         shapeRectanglePlanner_2 As rectangle:
+            AccessibleLabel: ="shapeRectanglePlanner_2"
             BorderColor: =RGBA(48,55,120,1)
             DisabledFill: =shapeRectanglePlanner_2.Fill
             DisplayMode: =DisplayMode.View
             Fill: =RGBA(215, 218, 221, 1)
             FocusedBorderColor: =shapeRectanglePlanner_2.BorderColor
+            FocusedBorderThickness: =1
             Height: =2
             HoverFill: =shapeRectanglePlanner_2.Fill
             PressedFill: =shapeRectanglePlanner_2.Fill
+            TabIndex: =0
             Visible: =chkCheckPlanner_2.Value && lblPlannerExportTo_2.Height > 0
             Width: =lblPlannerExportLocation_2.Width + lblPlannerExportTo_2.Width
             X: =135
@@ -2818,6 +2876,7 @@ ExportScreen As screen:
         ZIndex: =92
 
         bg_22 As rectangle:
+            AccessibleLabel: ="bg_22"
             Fill: =RGBA(248, 249, 255, 1)
             Height: =718
             TabIndex: =0
@@ -2826,6 +2885,7 @@ ExportScreen As screen:
             ZIndex: =57
 
         iconHamburger_15 As icon.Hamburger:
+            AccessibleLabel: ="iconHamburger_15"
             Height: =24
             Icon: =Icon.Hamburger
             OnSelect: =Navigate('MeetingDetails Screen', ScreenTransition.Fade)
@@ -2837,6 +2897,7 @@ ExportScreen As screen:
             ZIndex: =58
 
         "'Home Icon_15' As icon.Home":
+            AccessibleLabel: ="Home Icon_15"
             Height: =24
             Icon: =Icon.Home
             OnSelect: |-
@@ -2857,6 +2918,7 @@ ExportScreen As screen:
             ZIndex: =59
 
         iconResourceAdd_15 As icon.Add:
+            AccessibleLabel: ="iconResourceAdd_15"
             Height: =24
             Icon: =Icon.Add
             OnSelect: =Navigate(ResourceScreen, ScreenTransition.Fade)

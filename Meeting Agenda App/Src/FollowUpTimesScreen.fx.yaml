@@ -635,7 +635,7 @@ FollowUpTimesScreen As screen:
             LoadingSpinnerColor: =TimeLine.BorderColor
             PressedBorderColor: =TimeLine.BorderColor
             PressedFill: =TimeLine.Fill
-            TabIndex: =1
+            TabIndex: =0
             TemplatePadding: =0
             TemplateSize: =8
             Width: =395
@@ -723,6 +723,7 @@ FollowUpTimesScreen As screen:
 
         SelectAvailableTime As label:
             FocusedBorderColor: =SelectAvailableTime.BorderColor
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             FontWeight: =FontWeight.Semibold
             Height: =41
@@ -733,6 +734,7 @@ FollowUpTimesScreen As screen:
             PressedColor: =SelectAvailableTime.Color
             PressedFill: =SelectAvailableTime.Fill
             Size: =15
+            TabIndex: =0
             Text: ="Select an available time"
             Visible: =ShowMeetingTimes
             Width: =300
@@ -753,7 +755,7 @@ FollowUpTimesScreen As screen:
             LoadingSpinnerColor: =AvailableTimesGall.BorderColor
             PressedBorderColor: =AvailableTimesGall.BorderColor
             PressedFill: =AvailableTimesGall.Fill
-            TabIndex: =1
+            TabIndex: =0
             TemplateFill: |-
                 =/*ensures top gallery item doesn't appear selected on first load*/
                 If(FollowUpStart = ThisItem.StartTime && FollowUpEnd = ThisItem.EndTime && ThisItem.IsSelected, RGBA(241,244,249, 1), RGBA(0,0,0,0))
@@ -887,6 +889,7 @@ FollowUpTimesScreen As screen:
 
         LoadingIndicator3 As label:
             FocusedBorderColor: =LoadingIndicator3.BorderColor
+            FocusedBorderThickness: =1
             Font: =Font.Lato
             Height: =70
             HoverBorderColor: =LoadingIndicator3.BorderColor
@@ -895,6 +898,7 @@ FollowUpTimesScreen As screen:
             PressedBorderColor: =LoadingIndicator3.BorderColor
             PressedColor: =LoadingIndicator3.Color
             PressedFill: =LoadingIndicator3.Fill
+            TabIndex: =0
             Text: ="Retrieving available times..."
             Visible: =Loading
             Width: =472
@@ -922,7 +926,7 @@ FollowUpTimesScreen As screen:
             Height: =24
             Icon: =Icon.Hamburger
             OnSelect: =Navigate('MeetingDetails Screen', ScreenTransition.Fade)
-            TabIndex: =1
+            TabIndex: =0
             Tooltip: ="MeetingDetails"
             Width: =24
             X: =18
@@ -934,7 +938,7 @@ FollowUpTimesScreen As screen:
             Height: =24
             Icon: =Icon.Home
             OnSelect: =Navigate(HomePage,BorderStyle.None)
-            TabIndex: =1
+            TabIndex: =0
             Tooltip: ="Home Page"
             Width: =24
             X: =21
@@ -946,7 +950,7 @@ FollowUpTimesScreen As screen:
             Height: =24
             Icon: =Icon.Add
             OnSelect: =Navigate(ResourceScreen, ScreenTransition.Fade)
-            TabIndex: =1
+            TabIndex: =0
             Tooltip: ="Resource"
             Width: =24
             X: =18

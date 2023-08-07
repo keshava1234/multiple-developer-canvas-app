@@ -8,6 +8,7 @@ CameraScreen As screen:
     Width: =Max(App.Width, App.DesignWidth)
 
     Camera1 As camera:
+        AccessibleLabel: ="Camera1"
         Camera: =0
         FocusedBorderColor: =Camera1.BorderColor
         FocusedBorderThickness: =1
@@ -43,6 +44,7 @@ CameraScreen As screen:
         ZIndex: =16
 
         AppLogo3 As image:
+            AccessibleLabel: ="AppLogo3"
             DisplayMode: =DisplayMode.View
             Fill: =RGBA(237, 41, 85, 1)
             FocusedBorderColor: =AppLogo3.BorderColor
@@ -58,6 +60,7 @@ CameraScreen As screen:
             ZIndex: =2
 
         HomeMenuBkg_3 As rectangle:
+            AccessibleLabel: ="HomeMenuBkg_3"
             DisabledFill: =HomeMenuBkg_3.Fill
             Fill: =RGBA(74, 91, 104, 1)
             FocusedBorderColor: =HomeMenuBkg_3.BorderColor
@@ -70,6 +73,7 @@ CameraScreen As screen:
             ZIndex: =3
 
         NavHome3 As image:
+            AccessibleLabel: ="NavHome3"
             Fill: =RGBA(44, 48, 52, 0)
             FocusedBorderColor: =NavHome3.BorderColor
             Height: =NavHome3.Width
@@ -86,6 +90,7 @@ CameraScreen As screen:
             ZIndex: =4
 
         NavSketch3 As image:
+            AccessibleLabel: ="NavSketch3"
             FocusedBorderColor: =NavSketch3.BorderColor
             Height: =NavSketch3.Width
             HoverBorderColor: =ColorFade(NavSketch3.BorderColor, 20%)
@@ -101,6 +106,7 @@ CameraScreen As screen:
             ZIndex: =5
 
         NavPhotos3 As image:
+            AccessibleLabel: ="NavPhotos3"
             Fill: =RGBA(44, 48, 52, 1)
             FocusedBorderColor: =NavPhotos3.BorderColor
             Height: =NavPhotos3.Width
@@ -123,6 +129,7 @@ CameraScreen As screen:
         ZIndex: =16
 
         BannerBackground1 As rectangle:
+            AccessibleLabel: ="BannerBackground1"
             DisabledFill: =BannerBackground1.Fill
             Fill: =RGBA(234, 237, 239, 1)
             FocusedBorderColor: =BannerBackground1.BorderColor
@@ -158,6 +165,7 @@ CameraScreen As screen:
             ZIndex: =9
 
         SaveConfirm1 As icon.Check:
+            AccessibleLabel: ="SaveConfirm1"
             Color: =RGBA(96, 181, 2, 1)
             DisabledFill: =SaveConfirm1.Fill
             FocusedBorderColor: =SaveConfirm1.BorderColor
@@ -178,6 +186,7 @@ CameraScreen As screen:
             ZIndex: =10
 
         SaveConfirm2 As circle:
+            AccessibleLabel: ="SaveConfirm2"
             BorderColor: =SaveConfirm1.Color
             BorderThickness: =2
             DisabledFill: =SaveConfirm2.Fill
@@ -201,6 +210,7 @@ CameraScreen As screen:
             ZIndex: =11
 
         DiscardConfirm1 As icon.Cancel:
+            AccessibleLabel: ="DiscardConfirm1"
             Color: =RGBA(208, 5, 30, 1)
             DisabledFill: =DiscardConfirm1.Fill
             FocusedBorderColor: =DiscardConfirm1.BorderColor
@@ -221,6 +231,7 @@ CameraScreen As screen:
             ZIndex: =12
 
         DiscardConfirm2 As circle:
+            AccessibleLabel: ="DiscardConfirm2"
             BorderColor: =DiscardConfirm1.Color
             BorderThickness: =2
             DisabledFill: =DiscardConfirm2.Fill
@@ -239,6 +250,7 @@ CameraScreen As screen:
             ZIndex: =13
 
         SavedIndicator3 As icon.Check:
+            AccessibleLabel: ="SavedIndicator3"
             Color: =RGBA(96, 181, 2, 1)
             DisabledFill: =SavedIndicator3.Fill
             FocusedBorderColor: =SavedIndicator3.BorderColor
@@ -259,6 +271,7 @@ CameraScreen As screen:
             ZIndex: =14
 
         SavedIndicator4 As circle:
+            AccessibleLabel: ="SavedIndicator4"
             BorderColor: =SavedIndicator3.Color
             BorderThickness: =2
             DisabledFill: =SavedIndicator4.Fill

@@ -274,6 +274,7 @@ ConfirmScreen As screen:
         ZIndex: =18
 
         bg_9 As rectangle:
+            AccessibleLabel: ="bg_9"
             Fill: =RGBA(248, 249, 255, 1)
             Height: =718
             TabIndex: =0
@@ -283,6 +284,7 @@ ConfirmScreen As screen:
             ZIndex: =14
 
         iconHamburger_3 As icon.Hamburger:
+            AccessibleLabel: ="iconHamburger_3"
             Height: =24
             Icon: =Icon.Hamburger
             OnSelect: =Navigate('MeetingDetails Screen', ScreenTransition.Fade)
@@ -294,6 +296,7 @@ ConfirmScreen As screen:
             ZIndex: =15
 
         "'Home Icon_3' As icon.Home":
+            AccessibleLabel: ="Home Icon_3"
             Height: =24
             Icon: =Icon.Home
             OnSelect: =Navigate(HomePage,BorderStyle.None)
@@ -305,6 +308,7 @@ ConfirmScreen As screen:
             ZIndex: =16
 
         iconResourceAdd_3 As icon.Add:
+            AccessibleLabel: ="iconResourceAdd_3"
             Height: =24
             Icon: =Icon.Add
             OnSelect: =Navigate(ResourceScreen, ScreenTransition.Fade)
@@ -392,6 +396,7 @@ ConfirmScreen As screen:
             ZIndex: =5
 
         "'Icon_home pg.' As icon.ArrowRight":
+            AccessibleLabel: ="Icon_home pg."
             Color: =RGBA(9, 33, 98, 1)
             DisabledFill: ='Icon_home pg.'.Fill
             FocusedBorderColor: ='Icon_home pg.'.BorderColor
@@ -446,6 +451,7 @@ ConfirmScreen As screen:
             ZIndex: =21
 
         imageLogo_13 As image:
+            AccessibleLabel: ="imageLogo_13"
             FocusedBorderThickness: =1
             Height: =45
             Image: =logo
@@ -498,6 +504,7 @@ ConfirmScreen As screen:
             ZIndex: =24
 
         Icon_back As icon.ArrowLeft:
+            AccessibleLabel: ="Icon_back"
             Color: =RGBA(255, 255, 255, 1)
             FocusedBorderThickness: =1
             Height: =35
