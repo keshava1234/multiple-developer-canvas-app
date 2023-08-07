@@ -2513,7 +2513,7 @@ HomePage As screen:
                 Text: |-
                     =//Office365Users.UserProfile(ThisItem.Organizer).DisplayName
                     //If(!IsBlank(ThisItem.Organizer), Office365Users.UserProfile(ThisItem.Organizer).DisplayName,false)
-                    If(
+                    /*If(
                         !IsBlank(ThisItem.Organizer) && "@ilink-systems.com" in ThisItem.Organizer,
                         If(!IsEmpty(
                             Office365Users.SearchUser(
@@ -2526,7 +2526,9 @@ HomePage As screen:
                         Office365Users.UserProfile(ThisItem.Organizer).DisplayName,
                     ThisItem.Organizer),
                         ThisItem.Organizer
-                    )
+                    )*/
+                    
+                    ThisItem.Organizer
                 Width: =300
                 X: =168
                 Y: =60
