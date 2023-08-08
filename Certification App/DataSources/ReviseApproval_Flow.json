@@ -1,0 +1,10 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_logicflows",
+    "FlowNameId": "885cde5b-064d-4fbd-bb86-fc45892dd56d",
+    "Name": "ReviseApproval_Flow",
+    "ServiceKind": "ConnectedWadl",
+    "Type": "ServiceInfo",
+    "WorkflowEntityId": "5a2b7b76-0c60-ed11-9561-002248041795"
+  }
+]

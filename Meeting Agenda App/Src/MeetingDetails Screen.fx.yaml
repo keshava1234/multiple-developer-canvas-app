@@ -4435,7 +4435,7 @@
                             MeetingID = variCalUID.icaluid && Displayname = User().FullName
                         )
                     ),
-                    Patch(
+                    IfError(Patch(
                         'Notes-MeetingList',
                         LookUp(
                             'Notes-MeetingList',
@@ -4446,8 +4446,14 @@
                             Title: SelectedMeeting.Subject,
                             Displayname: User().FullName
                         }
-                    ),
-                    Patch(
+                    ),Notify(
+                            "Error while Saving Notes",
+                            NotificationType.Error
+                        ),Notify(
+                            "Notes Saved Successfully",
+                            NotificationType.Success
+                        )),
+                    IfError(Patch(
                         'Notes-MeetingList',
                         Defaults('Notes-MeetingList'),
                         {
@@ -4456,13 +4462,20 @@
                             Notes: 'MeetingDetails notes'.HtmlText,
                             Displayname: User().FullName
                         }
-                    )
-                );
-                    Notify(
+                    ),
+                Notify(
+                            "Error while Saving Notes",
+                            NotificationType.Error
+                        ),Notify(
+                            "Notes Saved Successfully",
+                            NotificationType.Success
+                        )
+                   /* Notify(
                         "You notes has been saved",
                         NotificationType.Success
-                    )
-                );
+                    )*/
+                    
+                )))
             RadiusBottomLeft: =3
             RadiusBottomRight: =3
             RadiusTopLeft: =3
@@ -4474,60 +4487,6 @@
             X: =1205
             Y: =465
             ZIndex: =11
-
-        Icon2 As icon.Save:
-            AccessibleLabel: ="Icon2"
-            Color: =RGBA(255, 255, 255, 1)
-            Height: =15
-            Icon: =Icon.Save
-            OnSelect: |
-                =If(
-                    IsBlank('MeetingDetails notes'.HtmlText),
-                    Notify(
-                        "Please check you are taken notes",
-                        NotificationType.Error
-                    ),
-                    If(
-                    !IsBlank(
-                        LookUp(
-                            'Notes-MeetingList',
-                            MeetingID = variCalUID.icaluid && Displayname = User().FullName
-                        )
-                    ),
-                    Patch(
-                        'Notes-MeetingList',
-                        LookUp(
-                            'Notes-MeetingList',
-                            MeetingID = variCalUID.icaluid
-                        ),
-                        {
-                            Notes: 'MeetingDetails notes'.HtmlText,
-                            Title: SelectedMeeting.Subject,
-                            Displayname: User().FullName
-                        }
-                    ),
-                    Patch(
-                        'Notes-MeetingList',
-                        Defaults('Notes-MeetingList'),
-                        {
-                            Title: SelectedMeeting.Subject,
-                            MeetingID: variCalUID.icaluid,
-                            Notes: 'MeetingDetails notes'.HtmlText,
-                            Displayname: User().FullName
-                        }
-                    )
-                );
-                    Notify(
-                        "You notes has been saved",
-                        NotificationType.Success
-                    )
-                );
-            TabIndex: =0
-            Visible: =!varMeetingDetails
-            Width: =43
-            X: =1195
-            Y: =472
-            ZIndex: =12
 
     "'Update Task Group' As group":
         Height: =5

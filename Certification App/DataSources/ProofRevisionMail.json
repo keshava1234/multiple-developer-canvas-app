@@ -1,0 +1,10 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_logicflows",
+    "FlowNameId": "de4b8d73-d1ec-4b07-a324-7411a33ef317",
+    "Name": "ProofRevisionMail",
+    "ServiceKind": "ConnectedWadl",
+    "Type": "ServiceInfo",
+    "WorkflowEntityId": "918b267f-6624-ed11-b83e-000d3a37f02a"
+  }
+]

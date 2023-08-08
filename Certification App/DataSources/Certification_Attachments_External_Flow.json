@@ -1,0 +1,10 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_logicflows",
+    "FlowNameId": "e2710aa5-ced2-42cc-bc40-54a24942083e",
+    "Name": "Certification_Attachments_External_Flow",
+    "ServiceKind": "ConnectedWadl",
+    "Type": "ServiceInfo",
+    "WorkflowEntityId": "13d6540e-4645-ed11-bba1-0022480498a4"
+  }
+]

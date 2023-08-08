@@ -1,0 +1,10 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_logicflows",
+    "FlowNameId": "3b1e684a-a279-4905-aed4-a6111cf4019e",
+    "Name": "DeleteAttachments-CertificationApp",
+    "ServiceKind": "ConnectedWadl",
+    "Type": "ServiceInfo",
+    "WorkflowEntityId": "22220801-4b87-ed11-81ac-00224803ac10"
+  }
+]
