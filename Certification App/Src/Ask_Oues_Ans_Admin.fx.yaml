@@ -610,7 +610,7 @@ Ask_Oues_Ans_Admin As screen:
                                     "SUPER-ADMIN"
                                 ]) Or CountRows(
                                     Filter(
-                                        'BU-List',
+                                        BUList,
                                         'BU-Head'.Email = User().Email
                                     )
                                 ) = 1,
@@ -981,7 +981,7 @@ Ask_Oues_Ans_Admin As screen:
                                         "SUPER-ADMIN"
                                     ]) Or CountRows(
                                         Filter(
-                                            'BU-List',
+                                            BUList,
                                             'BU-Head'.Email = User().Email
                                         )
                                     ) = 1,
@@ -1026,7 +1026,7 @@ Ask_Oues_Ans_Admin As screen:
                                         "SUPER-ADMIN"
                                     ]) Or CountRows(
                                         Filter(
-                                            'BU-List',
+                                            BUList,
                                             'BU-Head'.Email = User().Email
                                         )
                                     ) = 1,
@@ -1888,7 +1888,7 @@ Ask_Oues_Ans_Admin As screen:
                             "SUPER-ADMIN"
                         ]) Or CountRows(
                             Filter(
-                                'BU-List',
+                                BUList,
                                 'BU-Head'.Email = User().Email
                             )
                         ) = 1,
@@ -1929,7 +1929,7 @@ Ask_Oues_Ans_Admin As screen:
                             "SUPER-ADMIN"
                         ]) Or CountRows(
                             Filter(
-                                'BU-List',
+                                BUList,
                                 'BU-Head'.Email = User().Email
                             )
                         ) = 1,
@@ -2333,7 +2333,7 @@ Ask_Oues_Ans_Admin As screen:
                             "SUPER-ADMIN"
                         ]) Or CountRows(
                             Filter(
-                                'BU-List',
+                                BUList,
                                 'BU-Head'.Email = User().Email
                             )
                         ) = 1,

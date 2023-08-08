@@ -554,7 +554,7 @@
                                         Provider: "Amazon",
                                         Count: CountRows(
                                             Filter(
-                                                Certifications,(DateValue(Created)>=FromDate_1.SelectedDate && DateValue(Created)<=ToDate_1.SelectedDate) &&
+                                                Certification,(DateValue(Created)>=FromDate_1.SelectedDate && DateValue(Created)<=ToDate_1.SelectedDate) &&
                                                 'Provider Name' = "Amazon"
                                             )
                                         )
@@ -563,7 +563,7 @@
                                         Provider: "Microsoft",
                                         Count: CountRows(
                                             Filter(
-                                                Certifications,(DateValue(Created)>=FromDate_1.SelectedDate && DateValue(Created)<=ToDate_1.SelectedDate) &&
+                                                Certification,(DateValue(Created)>=FromDate_1.SelectedDate && DateValue(Created)<=ToDate_1.SelectedDate) &&
                                                 'Provider Name' = "Microsoft"
                                             )
                                         )
@@ -572,16 +572,16 @@
                                         Provider: "Google",
                                         Count: CountRows(
                                             Filter(
-                                                Certifications,(DateValue(Created)>=FromDate_1.SelectedDate && DateValue(Created)<=ToDate_1.SelectedDate) &&
+                                                Certification,(DateValue(Created)>=FromDate_1.SelectedDate && DateValue(Created)<=ToDate_1.SelectedDate) &&
                                                 'Provider Name' = "Google"
                                             )
                                         )
                                     },
                                     {
                                         Provider: "Other",
-                                        Count: (CountRows(Certifications) - CountRows(
+                                        Count: (CountRows(Certification) - CountRows(
                                             Filter(
-                                                Certifications,(DateValue(Created)>=FromDate_1.SelectedDate && DateValue(Created)<=ToDate_1.SelectedDate) &&
+                                                Certification,(DateValue(Created)>=FromDate_1.SelectedDate && DateValue(Created)<=ToDate_1.SelectedDate) &&
                                                 'Provider Name' in [
                                                     "Amazon",
                                                     "Microsoft",
@@ -1808,7 +1808,7 @@
                                     "SUPER-ADMIN"
                                 ]) Or CountRows(
                                     Filter(
-                                        'BU-List',
+                                        BUList,
                                         'BU-Head'.Email = User().Email
                                     )
                                 ) = 1,
@@ -2164,7 +2164,7 @@
                                         "SUPER-ADMIN"
                                     ]) Or CountRows(
                                         Filter(
-                                            'BU-List',
+                                            BUList,
                                             'BU-Head'.Email = User().Email
                                         )
                                     ) = 1,
@@ -2207,7 +2207,7 @@
                                         "SUPER-ADMIN"
                                     ]) Or CountRows(
                                         Filter(
-                                            'BU-List',
+                                            BUList,
                                             'BU-Head'.Email = User().Email
                                         )
                                     ) = 1,
@@ -4261,7 +4261,7 @@
                         "SUPER-ADMIN"
                     ]) Or CountRows(
                         Filter(
-                            'BU-List',
+                            BUList,
                             'BU-Head'.Email = User().Email
                         )
                     ) = 1,
@@ -4630,7 +4630,7 @@
                             "SUPER-ADMIN"
                         ]) Or CountRows(
                             Filter(
-                                'BU-List',
+                                BUList,
                                 'BU-Head'.Email = User().Email
                             )
                         ) = 1,
@@ -4671,7 +4671,7 @@
                             "SUPER-ADMIN"
                         ]) Or CountRows(
                             Filter(
-                                'BU-List',
+                                BUList,
                                 'BU-Head'.Email = User().Email
                             )
                         ) = 1,

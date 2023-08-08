@@ -614,7 +614,7 @@
                                         "SUPER-ADMIN"
                                     ]) Or CountRows(
                                         Filter(
-                                            'BU-List',
+                                            BUList,
                                             'BU-Head'.Email = User().Email
                                         )
                                     ) = 1,
@@ -658,7 +658,7 @@
                                         "SUPER-ADMIN"
                                     ]) Or CountRows(
                                         Filter(
-                                            'BU-List',
+                                            BUList,
                                             'BU-Head'.Email = User().Email
                                         )
                                     ) = 1,
@@ -1089,7 +1089,7 @@
                                         "SUPER-ADMIN"
                                     ]) Or CountRows(
                                         Filter(
-                                            'BU-List',
+                                            BUList,
                                             'BU-Head'.Email = User().Email
                                         )
                                     ) = 1,
@@ -2039,7 +2039,7 @@
                             "SUPER-ADMIN"
                         ]) Or CountRows(
                             Filter(
-                                'BU-List',
+                                BUList,
                                 'BU-Head'.Email = User().Email
                             )
                         ) = 1,
@@ -2080,7 +2080,7 @@
                             "SUPER-ADMIN"
                         ]) Or CountRows(
                             Filter(
-                                'BU-List',
+                                BUList,
                                 'BU-Head'.Email = User().Email
                             )
                         ) = 1,
@@ -2484,7 +2484,7 @@
                             "SUPER-ADMIN"
                         ]) Or CountRows(
                             Filter(
-                                'BU-List',
+                                BUList,
                                 'BU-Head'.Email = User().Email
                             )
                         ) = 1,

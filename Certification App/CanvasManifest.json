@@ -95,7 +95,7 @@
       "zeroalltabindexes": false
     },
     "Author": "",
-    "BindingErrorCount": 201,
+    "BindingErrorCount": 0,
     "ContainsThirdPartyPcfControls": false,
     "DefaultConnectedDataSourceMaxGetRowsCount": 500,
     "DocumentAppType": "DesktopOrTablet",
@@ -144,7 +144,6 @@
     "Responsive Settings Screen",
     "Responsive Approval Status Screen",
     "CertificationRecommendationScreen",
-    "External reimbursement status",
-    "Screen1"
+    "External reimbursement status"
   ]
 }
