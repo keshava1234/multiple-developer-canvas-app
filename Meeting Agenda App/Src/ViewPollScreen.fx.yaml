@@ -15,7 +15,7 @@ ViewPollScreen As screen:
                 ),
                 ForAll(
                     colselectedoptions,
-                    Patch(
+                    IfError(Patch(
                         PollResult,
                         Defaults(PollResult),
                         {
@@ -27,12 +27,15 @@ ViewPollScreen As screen:
                                 Value: Question.Id
                             }
                         }
-                    )
-                );
+                    ),
                 Notify(
-                    "You have submitted Poll successfully",
-                    NotificationType.Success,
-                    1700
+                        "Error while submitting the Poll",
+                        NotificationType.Error
+                    ),
+                Notify(
+                    "Your Poll has been submitted successfully",
+                    NotificationType.Success))
+                    
                 );
                 Navigate('MeetingDetails Screen');
                 Clear(colselectedoptions);

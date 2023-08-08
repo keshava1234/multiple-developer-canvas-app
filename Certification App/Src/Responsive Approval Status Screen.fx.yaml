@@ -57,6 +57,7 @@
                     ZIndex: =2
 
                 txtSearch_16 As text:
+                    AccessibleLabel: ="txtSearch_16"
                     BorderColor: =RGBA(219, 219, 219, 1)
                     BorderThickness: =1
                     Color: =RGBA(161, 161, 161, 1)
@@ -85,6 +86,7 @@
                     ZIndex: =4
 
                 Image7_50 As image:
+                    AccessibleLabel: ="Image7_50"
                     BorderColor: =RGBA(0, 0, 0, 0)
                     Height: =40
                     Image: =User().Image
@@ -109,6 +111,7 @@
                     ZIndex: =13
 
                     icoEnrollList_34 As icon.ShoppingCart:
+                        AccessibleLabel: ="icoEnrollList_34"
                         Height: =53
                         Icon: =Icon.ShoppingCart
                         OnSelect: =Navigate('Responsive EnrollCertificate Screen', ScreenTransition.None)
@@ -143,6 +146,7 @@
                         ZIndex: =6
 
                         Bell_icon_31 As icon.Bell:
+                            AccessibleLabel: ="Bell_icon_31"
                             Height: =30
                             Icon: =Icon.Bell
                             OnSelect: |-
@@ -219,6 +223,7 @@
                         ZIndex: =14
 
                     userdrp_down_28 As dropdown:
+                        AccessibleLabel: ="userdrp_down_28"
                         BorderColor: =Color.Gray
                         BorderThickness: =0
                         ChevronBackground: =RGBA(0, 0, 0, 0)
@@ -286,6 +291,7 @@
                         ZIndex: =18
 
                     Icon17_29 As icon.Settings:
+                        AccessibleLabel: ="Icon17_29"
                         BorderColor: =RGBA(0, 0, 0, 1)
                         Color: =RGBA(0, 0, 0, 1)
                         Height: =23
@@ -316,6 +322,7 @@
                 ZIndex: =1
 
                 icoEnrollList_35 As icon.ShoppingCart:
+                    AccessibleLabel: ="icoEnrollList_35"
                     Height: =40
                     Icon: =Icon.ShoppingCart
                     OnSelect: =Navigate('Responsive EnrollCertificate Screen', ScreenTransition.None)
@@ -344,6 +351,7 @@
                         ZIndex: =1
 
                     userdrp_down_29 As dropdown:
+                        AccessibleLabel: ="userdrp_down_29"
                         BorderColor: =Color.Gray
                         BorderThickness: =0
                         ChevronBackground: =RGBA(0, 0, 0, 0)
@@ -409,6 +417,7 @@
                         ZIndex: =5
 
                     Icon17_30 As icon.Settings:
+                        AccessibleLabel: ="Icon17_30"
                         BorderColor: =RGBA(0, 0, 0, 1)
                         Color: =RGBA(0, 0, 0, 1)
                         Height: =15
@@ -446,6 +455,7 @@
                     ZIndex: =12
 
                     Bell_icon_32 As icon.Bell:
+                        AccessibleLabel: ="Bell_icon_32"
                         Height: =22
                         Icon: =Icon.Bell
                         OnSelect: |-
@@ -699,6 +709,7 @@
                         ZIndex: =5
 
                     Icon11_27 As icon.Home:
+                        AccessibleLabel: ="Icon11_27"
                         BorderColor: =RGBA(0, 0, 0, 1)
                         Color: =RGBA(0, 0, 0, 1)
                         Height: =23
@@ -741,6 +752,7 @@
                         ZIndex: =7
 
                     Icon22_27 As icon.ChevronRight:
+                        AccessibleLabel: ="Icon22_27"
                         BorderColor: =RGBA(0, 0, 0, 1)
                         Color: =RGBA(0, 0, 0, 1)
                         Height: =17
@@ -789,6 +801,7 @@
                         ZIndex: =9
 
                     Icon29_27 As icon.ChevronRight:
+                        AccessibleLabel: ="Icon29_27"
                         BorderColor: =RGBA(0, 0, 0, 1)
                         Color: =RGBA(0, 0, 0, 1)
                         Height: =20
@@ -804,6 +817,7 @@
                         ZIndex: =10
 
                     Icon32_27 As icon.Database:
+                        AccessibleLabel: ="Icon32_27"
                         BorderColor: =RGBA(0, 0, 0, 1)
                         Color: =RGBA(0, 0, 0, 1)
                         Height: =22
@@ -937,6 +951,7 @@
                         ZIndex: =20
 
                     Image12_27 As image:
+                        AccessibleLabel: ="Image12_27"
                         Height: =22
                         Image: ='question-octagon'
                         OnSelect: =Navigate(AskQuestion_Admin,ScreenTransition.UnCover);
@@ -949,6 +964,7 @@
                         ZIndex: =22
 
                     Icon5_8 As icon.ChevronDown:
+                        AccessibleLabel: ="Icon5_8"
                         Color: =RGBA(0, 0, 0, 1)
                         Height: =17
                         Icon: =Icon.ChevronDown
@@ -979,6 +995,7 @@
                         ZIndex: =32
 
                     Icon6_8 As icon.ChevronDown:
+                        AccessibleLabel: ="Icon6_8"
                         Color: =RGBA(0, 0, 0, 1)
                         Height: =20
                         Icon: =Icon.ChevronDown
@@ -1151,6 +1168,7 @@
                             ZIndex: =28
 
                         Icon23_27 As icon.Download:
+                            AccessibleLabel: ="Icon23_27"
                             BorderColor: =RGBA(0, 0, 0, 1)
                             Color: =RGBA(0, 0, 0, 1)
                             FocusedBorderThickness: |
@@ -1451,6 +1469,7 @@
                             ZIndex: =1
 
                         "Gallery12_5 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+                            AccessibleLabel: ="Gallery12_5"
                             Height: =75
                             Items: =LookUp(CertificationOrder,ID=varCertificateStatus.ID).Attachments
                             Layout: =Layout.Vertical
@@ -1513,6 +1532,7 @@
                             ZIndex: =4
 
                             Radio2_2 As radio:
+                                AccessibleLabel: ="Radio2_2"
                                 BorderStyle: =BorderStyle.None
                                 Color: =RGBA(0, 100, 181, 1)
                                 Default: =If(varCertificateStatus.PaymentMode="Cash","Paid with cash","Paid with Voucher")
@@ -2311,6 +2331,7 @@
                                     ZIndex: =1
 
                                 "Gallery12_4 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+                                    AccessibleLabel: ="Gallery12_4"
                                     Height: =131
                                     Items: =LookUp(CertificationOrder,ID=varCertificateStatus.ID).Attachments
                                     Layout: =Layout.Vertical
@@ -2372,6 +2393,7 @@
                                     ZIndex: =4
 
                                     Radio2_1 As radio:
+                                        AccessibleLabel: ="Radio2_1"
                                         BorderStyle: =BorderStyle.None
                                         Color: =RGBA(0, 100, 181, 1)
                                         Default: =If(varCertificateStatus.PaymentMode="Cash","Paid with cash","Paid with Voucher")
@@ -2851,6 +2873,7 @@
                 ZIndex: =2
 
             TextInput4 As text:
+                AccessibleLabel: ="TextInput4"
                 Clear: =true
                 Default: =
                 Height: =203
@@ -3006,6 +3029,7 @@
                 ZIndex: =2
 
             TextInput4_2 As text:
+                AccessibleLabel: ="TextInput4_2"
                 Clear: =true
                 Default: =
                 Height: =203
@@ -3143,6 +3167,7 @@
         ZIndex: =4
 
         Icon29_50 As icon.ChevronRight:
+            AccessibleLabel: ="Icon29_50"
             BorderColor: =RGBA(0, 0, 0, 1)
             Color: =RGBA(0, 0, 0, 1)
             Height: =20
@@ -3177,6 +3202,7 @@
             ZIndex: =32
 
         Icon13_16 As icon.ChevronDown:
+            AccessibleLabel: ="Icon13_16"
             Color: =RGBA(0, 0, 0, 1)
             Height: =20
             Icon: =Icon.ChevronDown
@@ -3339,6 +3365,7 @@
                 ZIndex: =28
 
             Icon23_50 As icon.Download:
+                AccessibleLabel: ="Icon23_50"
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =RGBA(0, 0, 0, 1)
                 Height: =20
@@ -3414,6 +3441,7 @@
                 ZIndex: =3
 
             Icon22_50 As icon.ChevronRight:
+                AccessibleLabel: ="Icon22_50"
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =RGBA(0, 0, 0, 1)
                 Height: =17
@@ -3523,6 +3551,7 @@
                 ZIndex: =20
 
             Icon12_17 As icon.ChevronDown:
+                AccessibleLabel: ="Icon12_17"
                 Height: =17
                 HoverFill: =
                 Icon: =Icon.ChevronDown
@@ -3585,6 +3614,7 @@
                 ZIndex: =5
 
             Icon11_50 As icon.Home:
+                AccessibleLabel: ="Icon11_50"
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =RGBA(0, 0, 0, 1)
                 Height: =23
@@ -3680,6 +3710,7 @@
                 ZIndex: =4
 
             Icon32_50 As icon.Database:
+                AccessibleLabel: ="Icon32_50"
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =RGBA(0, 0, 0, 1)
                 Height: =22
@@ -3722,6 +3753,7 @@
                 ZIndex: =13
 
             Image12_52 As image:
+                AccessibleLabel: ="Image12_52"
                 Height: =22
                 Image: ='question-octagon'
                 OnSelect: =Navigate(AskQuestion_Admin,ScreenTransition.UnCover);
@@ -3732,6 +3764,7 @@
                 ZIndex: =22
 
     Icon2_13 As icon.Hamburger:
+        AccessibleLabel: ="Icon2_13"
         Color: =RGBA(0, 0, 0, 1)
         Height: =21
         Icon: =Icon.Hamburger
@@ -3744,6 +3777,7 @@
         ZIndex: =5
 
     Icon4_20 As icon.Reload:
+        AccessibleLabel: ="Icon4_20"
         Color: =RGBA(0, 0, 0, 1)
         Height: =21
         Icon: =Icon.Reload
@@ -3789,6 +3823,7 @@
             ZIndex: =7
 
         "UserGallery_14 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+            AccessibleLabel: ="UserGallery_14"
             BorderColor: =RGBA(0, 0, 0, 1)
             Fill: |-
                 =//RGBA(0, 0, 0, 0)
@@ -3832,6 +3867,7 @@
                 ZIndex: =5
 
         UserGalleryCancelIcon_15 As icon.Cancel:
+            AccessibleLabel: ="UserGalleryCancelIcon_15"
             Color: =RGBA(255, 255, 255, 1)
             Fill: =RGBA(255, 0, 0, 1)
             Height: =32
@@ -3844,6 +3880,7 @@
             ZIndex: =9
 
         "ManagerGallery_12 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+            AccessibleLabel: ="ManagerGallery_12"
             Fill: |-
                 =//RGBA(0, 0, 0, 0)
                 Color.White
@@ -3887,6 +3924,7 @@
                 ZIndex: =5
 
         MngrCancelicon_12 As icon.Cancel:
+            AccessibleLabel: ="MngrCancelicon_12"
             BorderThickness: =1
             Color: =RGBA(255, 255, 255, 1)
             Fill: =RGBA(255, 0, 0, 1)
@@ -3901,6 +3939,7 @@
             ZIndex: =11
 
         "ILDGAllery_12 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+            AccessibleLabel: ="ILDGAllery_12"
             Fill: |-
                 =//RGBA(0, 0, 0, 0)
                 Color.White
@@ -3938,6 +3977,7 @@
                 ZIndex: =5
 
         ILDCancelicon_12 As icon.Cancel:
+            AccessibleLabel: ="ILDCancelicon_12"
             Color: =RGBA(255, 255, 255, 1)
             Fill: =RGBA(255, 0, 0, 1)
             Height: =32
