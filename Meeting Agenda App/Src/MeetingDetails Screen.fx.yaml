@@ -773,7 +773,7 @@
             Gallery4 As gallery.galleryVertical:
                 AccessibleLabel: ="Gallery4"
                 Height: =50
-                Items: =LookUp(MeetingAgendaLists,ID=ThisItem.ID).'{Attachments}'
+                Items: =LookUp(ColMeetingAgendaLists,ID=ThisItem.ID).'{Attachments}'
                 Layout: =Layout.Vertical
                 ShowScrollbar: =false
                 TabIndex: =0
