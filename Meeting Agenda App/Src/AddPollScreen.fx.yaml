@@ -276,7 +276,7 @@ AddPollScreen As screen:
         OnSelect: |-
             =If(IsEmpty(arrQuestions) || IsEmpty(arrQuestionOptions),
             Notify(
-                    "Please check you are provided Question and Options",
+                    "Please check you have provided Question and Options",
                     NotificationType.Error,
                     0
                 ),
@@ -288,18 +288,24 @@ AddPollScreen As screen:
             );
             ForAll(
                 arrQuestions,
-                Patch(
+                IfError(Patch(
                     Questions,
                     Defaults(Questions),
                     {
                         Title: Text,
                         MeetingID: variCalUID.icaluid
                     }
-                )
-            );
+                ),Notify(
+                        "Error while saving your Poll",
+                        NotificationType.Error
+                    ),Notify(
+                        "Your Poll has been saved successfully",
+                        NotificationType.Success
+                    )
+            ));
             ForAll(
                 arrQuestionOptions,
-                Patch(
+                IfError(Patch(
                     QuestionOptions,
                     Defaults(QuestionOptions),
                     {
@@ -311,8 +317,14 @@ AddPollScreen As screen:
                             Value: questionID
                         }
                     }
-                )
-            );
+                ),Notify(
+                        "Error while saving your Poll",
+                        NotificationType.Error
+                    ),Notify(
+                        "Your Poll has been saved successfully",
+                        NotificationType.Success
+                    )
+            ));
             Set(
                 varcreatepoll,
                 true
