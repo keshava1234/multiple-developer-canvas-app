@@ -47,7 +47,7 @@
       "enableruntimepolicies": false,
       "enablesaveloadcleardataonweb": false,
       "enableupdateifdelegation": false,
-      "enhanceddelegation": false,
+      "enhanceddelegation": true,
       "enhancedgalleryinitialization": true,
       "errorhandling": false,
       "expandedsavedatasupport": true,
@@ -90,7 +90,7 @@
       "useexperimentalcdsconnector": true,
       "useexperimentalsqlconnector": false,
       "useguiddatatypes": false,
-      "usenonblockingonstartrule": false,
+      "usenonblockingonstartrule": true,
       "webbarcodescanner": false,
       "zeroalltabindexes": false
     },
