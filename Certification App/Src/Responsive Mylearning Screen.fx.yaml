@@ -2306,7 +2306,7 @@
                                     =Search(
                                         Sort(
                                             Filter(
-                                                ExternalCertificationList,
+                                               FirstN( ExternalCertificationList,5000),
                                                 Office365Users.ManagerV2('Created By'.Email).displayName = User().FullName || varUserLevel = "SUPER-ADMIN" || varUserLevel = "ADMIN" 
                                             ),
                                             Created,
