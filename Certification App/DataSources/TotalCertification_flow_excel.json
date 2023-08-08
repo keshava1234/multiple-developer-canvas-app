@@ -1,0 +1,10 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_logicflows",
+    "FlowNameId": "8f4d1e0b-1c78-4887-b0c8-d53cda4cb075",
+    "Name": "TotalCertification_flow_excel",
+    "ServiceKind": "ConnectedWadl",
+    "Type": "ServiceInfo",
+    "WorkflowEntityId": "fe5f3a2b-0e81-ed11-81ac-00224803ac10"
+  }
+]
