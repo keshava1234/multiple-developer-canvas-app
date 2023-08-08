@@ -955,7 +955,7 @@
   },
   "FunctionParamsInvariantScripts": {},
   "FunctionParamsInvariantScriptsOnInstances": {},
-  "HeaderLastSavedDateTimeUTC": "08/08/2023 07:18:25",
+  "HeaderLastSavedDateTimeUTC": "08/08/2023 07:21:42",
   "IsLegacyComponentAllowGlobalScopeCase": false,
   "LocalConnectionIDReferences": {
     "0709996f-842f-4d9b-9d21-618afede1a91": "\"/providers/microsoft.powerapps/apis/shared_onenote/connections/125fbd14ed364375bd1e4b1f50873808\"",
@@ -1033,6 +1033,7 @@
     "Attachment-MeetingAgendaApp": 5,
     "Calculations": 40,
     "CalendarLocalizedLabel": 41,
+    "ColMeetingAgendaLists": 82,
     "ColMeetingList": 42,
     "ColQuestionOptions": 43,
     "colselectedoptions": 44,
