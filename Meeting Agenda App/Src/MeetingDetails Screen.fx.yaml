@@ -6371,11 +6371,11 @@
                 Set(
                     varResources,
                     true
-                );
+                );/*
                 Set(
                     varPollPopup,
                     false
-                );
+                );*/
                 If(
                     IsBlank(Gallery8_1),
                     Set(
