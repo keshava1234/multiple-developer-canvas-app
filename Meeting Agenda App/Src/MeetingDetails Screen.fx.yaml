@@ -5455,7 +5455,7 @@
                             MeetingID = variCalUID.icaluid
                         )
                     ) = 0,
-                    Patch(
+                    IfError(Patch(
                         MeetingList,
                         Defaults(MeetingList),
                         {
@@ -5464,7 +5464,11 @@
                             AllowAttendeesToCreateAgenda: 0,
                             RequiredAgendaApproval: 0
                         }
-                    )
+                    ),
+                    Notify(
+                            "Error while meeting creation",
+                            NotificationType.Error
+                        ),false)
                 );
                 Set(
                     varradio1,
@@ -5631,7 +5635,7 @@
                             MeetingID = variCalUID.icaluid
                         )
                     ) = 0,
-                    Patch(
+                    IfError(Patch(
                         MeetingList,
                         Defaults(MeetingList),
                         {
@@ -5640,7 +5644,11 @@
                             AllowAttendeesToCreateAgenda: 0,
                             RequiredAgendaApproval: 0
                         }
-                    )
+                    ),
+                    Notify(
+                            "Error while retrieving previous meeting details",
+                            NotificationType.Error
+                        ),false)
                 );
                 Set(
                     varradio1,
@@ -5712,41 +5720,63 @@
             Icon: =Icon.ArrowLeft
             OnSelect: |
                 =/*Set(arrMeetingSeries, Filter(AllFutureEvents,SeriesMasterId=SelectedMeeting.SeriesMasterId));*/
-                
-                If(!IsBlank(arrMeetingSeries.SeriesMasterId),
-                Set(varFirstPastMeeting, Last(Filter(arrMeetingSeries,Start<SelectedMeeting.Start)));
-                Set(SelectedMeeting, varFirstPastMeeting);
-                
-                ClearCollect(
-                    MeetingAttendeeEmails,
-                    Filter(
-                        ForAll(Split(
-                            Concatenate(
-                                SelectedMeeting.RequiredAttendees,
-                                SelectedMeeting.OptionalAttendees
-                            ),
-                            ";"
-                        ), {Result: ThisRecord.Value}),
-                        Result <> ""
-                    )
-                );
-                ClearCollect(
-                    MeetingAttendeesTemp,
-                    ForAll(
+                If(
+                    !IsBlank(arrMeetingSeries.SeriesMasterId),
+                    Set(
+                        varFirstPastMeeting,
+                        Last(
+                            Filter(
+                                arrMeetingSeries,
+                                Start < SelectedMeeting.Start
+                            )
+                        )
+                    );
+                    Set(
+                        SelectedMeeting,
+                        varFirstPastMeeting
+                    );
+                    ClearCollect(
                         MeetingAttendeeEmails,
-                        If(
-                            Not(IsBlank(Result)) && "@ilink-systems.com" in Result,
-                            //Office365Users.UserProfileV2(Result),
-                            If(
-                                !IsEmpty(
-                                    Office365Users.SearchUser(
-                                        {
-                                            searchTerm: Result,
-                                            top: 999
-                                        }
-                                    )
+                        Filter(
+                            ForAll(
+                                Split(
+                                    Concatenate(
+                                        SelectedMeeting.RequiredAttendees,
+                                        SelectedMeeting.OptionalAttendees
+                                    ),
+                                    ";"
                                 ),
-                                Office365Users.UserProfileV2(Result),
+                                {Result: ThisRecord.Value}
+                            ),
+                            Result <> ""
+                        )
+                    );
+                    ClearCollect(
+                        MeetingAttendeesTemp,
+                        ForAll(
+                            MeetingAttendeeEmails,
+                            If(
+                                Not(IsBlank(Result)) && "@ilink-systems.com" in Result,
+                            //Office365Users.UserProfileV2(Result),
+                                If(
+                                    !IsEmpty(
+                                        Office365Users.SearchUser(
+                                            {
+                                                searchTerm: Result,
+                                                top: 999
+                                            }
+                                        )
+                                    ),
+                                    Office365Users.UserProfileV2(Result),
+                                    {
+                                        displayName: Result,
+                                        id: "",
+                                        image: Blank(),
+                                        jobTitle: "",
+                                        userPrincipalName: Result,
+                                        Mail: Result
+                                    }
+                                ),
                                 {
                                     displayName: Result,
                                     id: "",
@@ -5755,94 +5785,97 @@
                                     userPrincipalName: Result,
                                     Mail: Result
                                 }
-                            ),
-                            {
-                                displayName: Result,
-                                id: "",
-                                image: Blank(),
-                                jobTitle: "",
-                                userPrincipalName: Result,
-                                Mail: Result
-                            }
+                            )
                         )
-                    )
-                );
-                ClearCollect(
-                    MeetingAttendees,
-                    RenameColumns(
-                        MeetingAttendeesTemp,
-                        "id",
-                        "Id",
-                        "jobTitle",
-                        "JobTitle",
-                        "displayName",
-                        "DisplayName",
-                        "userPrincipalName",
-                        "Mail"
-                    )
-                );
-                
-                Set(
-                    variCalUID,
-                    GetCalenderIDForMeeting.Run(
-                        MyCalendarID,
-                        SelectedMeeting.Id
-                    )
-                );
-                If(
-                    !IsBlank(SelectedMeeting.SeriesMasterId),
+                    );
+                    ClearCollect(
+                        MeetingAttendees,
+                        RenameColumns(
+                            MeetingAttendeesTemp,
+                            "id",
+                            "Id",
+                            "jobTitle",
+                            "JobTitle",
+                            "displayName",
+                            "DisplayName",
+                            "userPrincipalName",
+                            "Mail"
+                        )
+                    );
                     Set(
-                        ICalRecurrenceId,
+                        variCalUID,
                         GetCalenderIDForMeeting.Run(
                             MyCalendarID,
-                            SelectedMeeting.SeriesMasterId
+                            SelectedMeeting.Id
                         )
-                    ),
+                    );
+                    If(
+                        !IsBlank(SelectedMeeting.SeriesMasterId),
+                        Set(
+                            ICalRecurrenceId,
+                            GetCalenderIDForMeeting.Run(
+                                MyCalendarID,
+                                SelectedMeeting.SeriesMasterId
+                            )
+                        ),
+                        false
+                    );
+                    If(
+                        CountRows(
+                            Filter(
+                                ColMeetingList,
+                                MeetingID = variCalUID.icaluid
+                            )
+                        ) = 0,
+                        IfError(
+                            Patch(
+                                MeetingList,
+                                Defaults(MeetingList),
+                                {
+                                    Title: SelectedMeeting.Subject,
+                                    MeetingID: variCalUID.icaluid,
+                                    AllowAttendeesToCreateAgenda: 0,
+                                    RequiredAgendaApproval: 0
+                                }
+                            ),
+                            Notify(
+                                "Error while retrieving previous meeting details",
+                                NotificationType.Error
+                            ),
+                            false
+                        )
+                    );
+                    Set(
+                        varradio1,
+                        LookUp(
+                            MeetingList,
+                            MeetingID = variCalUID.icaluid
+                        ).AllowAttendeesToCreateAgenda
+                    );
+                    Set(
+                        vartoggle,
+                        LookUp(
+                            MeetingList,
+                            MeetingID = variCalUID.icaluid
+                        ).RequiredAgendaApproval
+                    );
+                    Set(
+                        varmeetingattendee,
+                        Filter(
+                            PollResult,
+                            Question_x003a__x0020_MeetingID.Value = variCalUID.icaluid
+                        )
+                    );
+                    
+                );
+                Navigate(
+                    'MeetingDetails Screen',
+                    BorderStyle.None
+                );
+                Set(
+                    IsShow,
                     false
                 );
-                If(
-                    CountRows(
-                        Filter(
-                            ColMeetingList,
-                            MeetingID = variCalUID.icaluid
-                        )
-                    ) = 0,
-                    Patch(
-                        MeetingList,
-                        Defaults(MeetingList),
-                        {
-                            Title: SelectedMeeting.Subject,
-                            MeetingID: variCalUID.icaluid,
-                            AllowAttendeesToCreateAgenda: 0,
-                            RequiredAgendaApproval: 0
-                        }
-                    )
-                );
-                Set(
-                    varradio1,
-                    LookUp(
-                        MeetingList,
-                        MeetingID = variCalUID.icaluid
-                    ).AllowAttendeesToCreateAgenda
-                );
-                Set(
-                    vartoggle,
-                    LookUp(
-                        MeetingList,
-                        MeetingID = variCalUID.icaluid
-                    ).RequiredAgendaApproval
-                );
-                Set(
-                    varmeetingattendee,
-                    Filter(
-                        PollResult,
-                        Question_x003a__x0020_MeetingID.Value = variCalUID.icaluid
-                    )
-                );
-                
-                );
-                Navigate('MeetingDetails Screen',BorderStyle.None);
-                Set(IsShow,false);
                 /*To enable Next button*/
                 /*Set(
                     LastStartDateTime,
@@ -5853,8 +5886,6 @@
                     SelectedMeeting.Start
                 );
                 NextButton.DisplayMode.Edit;
-                
-                
                 /*Set(
                     FirstStartDateTime,
                     (First(arrMeetingSeries).Start)
@@ -5882,41 +5913,63 @@
             Icon: =Icon.ArrowRight
             OnSelect: |-
                 =/*Set(arrMeetingSeries, Filter(AllFutureEvents,SeriesMasterId=SelectedMeeting.SeriesMasterId));*/
-                
-                If(!IsBlank(arrMeetingSeries.SeriesMasterId),
-                Set(varFirstNextMeeting, First(Filter(arrMeetingSeries,Start>SelectedMeeting.Start)));
-                Set(SelectedMeeting, varFirstNextMeeting);
-                
-                ClearCollect(
-                    MeetingAttendeeEmails,
-                    Filter(
-                        ForAll(Split(
-                            Concatenate(
-                                SelectedMeeting.RequiredAttendees,
-                                SelectedMeeting.OptionalAttendees
-                            ),
-                            ";"
-                        ), {Result: ThisRecord.Value}),
-                        Result <> ""
-                    )
-                );
-                ClearCollect(
-                    MeetingAttendeesTemp,
-                    ForAll(
+                If(
+                    !IsBlank(arrMeetingSeries.SeriesMasterId),
+                    Set(
+                        varFirstNextMeeting,
+                        First(
+                            Filter(
+                                arrMeetingSeries,
+                                Start > SelectedMeeting.Start
+                            )
+                        )
+                    );
+                    Set(
+                        SelectedMeeting,
+                        varFirstNextMeeting
+                    );
+                    ClearCollect(
                         MeetingAttendeeEmails,
-                        If(
-                            Not(IsBlank(Result)) && "@ilink-systems.com" in Result,
-                            //Office365Users.UserProfileV2(Result),
-                            If(
-                                !IsEmpty(
-                                    Office365Users.SearchUser(
-                                        {
-                                            searchTerm: Result,
-                                            top: 999
-                                        }
-                                    )
+                        Filter(
+                            ForAll(
+                                Split(
+                                    Concatenate(
+                                        SelectedMeeting.RequiredAttendees,
+                                        SelectedMeeting.OptionalAttendees
+                                    ),
+                                    ";"
                                 ),
-                                Office365Users.UserProfileV2(Result),
+                                {Result: ThisRecord.Value}
+                            ),
+                            Result <> ""
+                        )
+                    );
+                    ClearCollect(
+                        MeetingAttendeesTemp,
+                        ForAll(
+                            MeetingAttendeeEmails,
+                            If(
+                                Not(IsBlank(Result)) && "@ilink-systems.com" in Result,
+                            //Office365Users.UserProfileV2(Result),
+                                If(
+                                    !IsEmpty(
+                                        Office365Users.SearchUser(
+                                            {
+                                                searchTerm: Result,
+                                                top: 999
+                                            }
+                                        )
+                                    ),
+                                    Office365Users.UserProfileV2(Result),
+                                    {
+                                        displayName: Result,
+                                        id: "",
+                                        image: Blank(),
+                                        jobTitle: "",
+                                        userPrincipalName: Result,
+                                        Mail: Result
+                                    }
+                                ),
                                 {
                                     displayName: Result,
                                     id: "",
@@ -5925,95 +5978,101 @@
                                     userPrincipalName: Result,
                                     Mail: Result
                                 }
-                            ),
-                            {
-                                displayName: Result,
-                                id: "",
-                                image: Blank(),
-                                jobTitle: "",
-                                userPrincipalName: Result,
-                                Mail: Result
-                            }
+                            )
                         )
-                    )
-                );
-                ClearCollect(
-                    MeetingAttendees,
-                    RenameColumns(
-                        MeetingAttendeesTemp,
-                        "id",
-                        "Id",
-                        "jobTitle",
-                        "JobTitle",
-                        "displayName",
-                        "DisplayName",
-                        "userPrincipalName",
-                        "Mail"
-                    )
-                );
-                Set(
-                    variCalUID,
-                    GetCalenderIDForMeeting.Run(
-                        MyCalendarID,
-                        SelectedMeeting.Id
-                    )
-                );
-                If(
-                    !IsBlank(SelectedMeeting.SeriesMasterId),
+                    );
+                    ClearCollect(
+                        MeetingAttendees,
+                        RenameColumns(
+                            MeetingAttendeesTemp,
+                            "id",
+                            "Id",
+                            "jobTitle",
+                            "JobTitle",
+                            "displayName",
+                            "DisplayName",
+                            "userPrincipalName",
+                            "Mail"
+                        )
+                    );
                     Set(
-                        ICalRecurrenceId,
+                        variCalUID,
                         GetCalenderIDForMeeting.Run(
                             MyCalendarID,
-                            SelectedMeeting.SeriesMasterId
+                            SelectedMeeting.Id
                         )
-                    ),
+                    );
+                    If(
+                        !IsBlank(SelectedMeeting.SeriesMasterId),
+                        Set(
+                            ICalRecurrenceId,
+                            GetCalenderIDForMeeting.Run(
+                                MyCalendarID,
+                                SelectedMeeting.SeriesMasterId
+                            )
+                        ),
+                        false
+                    );
+                    ClearCollect(
+                        ColMeetingList,
+                        MeetingList
+                    );
+                    If(
+                        CountRows(
+                            Filter(
+                                ColMeetingList,
+                                Value(MeetingID) = Value(variCalUID.icaluid)
+                            )
+                        ) = 0,
+                        IfError(
+                            Patch(
+                                MeetingList,
+                                Defaults(MeetingList),
+                                {
+                                    Title: SelectedMeeting.Subject,
+                                    MeetingID: variCalUID.icaluid,
+                                    AllowAttendeesToCreateAgenda: 0,
+                                    RequiredAgendaApproval: 0
+                                }
+                            ),
+                            Notify(
+                                "Error while retrieving Next meeting details",
+                                NotificationType.Error
+                            ),
+                            false
+                        )
+                    );
+                    Set(
+                        varradio1,
+                        LookUp(
+                            MeetingList,
+                            MeetingID = variCalUID.icaluid
+                        ).AllowAttendeesToCreateAgenda
+                    );
+                    Set(
+                        vartoggle,
+                        LookUp(
+                            MeetingList,
+                            MeetingID = variCalUID.icaluid
+                        ).RequiredAgendaApproval
+                    );
+                    Set(
+                        varmeetingattendee,
+                        Filter(
+                            PollResult,
+                            Question_x003a__x0020_MeetingID.Value = variCalUID.icaluid
+                        )
+                    );
+                    
+                );
+                Navigate(
+                    'MeetingDetails Screen',
+                    BorderStyle.None
+                );
+                Set(
+                    IsShow,
                     false
                 );
-                ClearCollect(ColMeetingList,MeetingList);
-                If(
-                    CountRows(
-                        Filter(
-                            ColMeetingList,
-                           Value( MeetingID) = Value(variCalUID.icaluid)
-                        )
-                    ) = 0,
-                    Patch(
-                        MeetingList,
-                        Defaults(MeetingList),
-                        {
-                            Title: SelectedMeeting.Subject,
-                            MeetingID: variCalUID.icaluid,
-                            AllowAttendeesToCreateAgenda: 0,
-                            RequiredAgendaApproval: 0
-                        }
-                    )
-                );
-                Set(
-                    varradio1,
-                    LookUp(
-                        MeetingList,
-                        MeetingID = variCalUID.icaluid
-                    ).AllowAttendeesToCreateAgenda
-                );
-                Set(
-                    vartoggle,
-                    LookUp(
-                        MeetingList,
-                        MeetingID = variCalUID.icaluid
-                    ).RequiredAgendaApproval
-                );
-                Set(
-                    varmeetingattendee,
-                    Filter(
-                        PollResult,
-                        Question_x003a__x0020_MeetingID.Value = variCalUID.icaluid
-                    )
-                );
-                
-                );
-                Navigate('MeetingDetails Screen',BorderStyle.None);
-                
-                Set(IsShow,false);
                 /*Set(
                     LastStartDateTime,
                     (Last(arrMeetingSeries).Start)
@@ -6022,16 +6081,13 @@
                     SelectedStartDatetime,
                     SelectedMeeting.Start
                 );
-                
                 /*To Enable past button*/
                 /*Set(
                     FirstStartDateTime,
                     (First(arrMeetingSeries).Start)
                 );*/
-                
-                
                 PastButton.DisplayMode.Edit;
-                UpdateContext({Start:true})
+                UpdateContext({Start: true})
             TabIndex: =0
             Visible: =If(IsBlank(SelectedMeeting.SeriesMasterId),false,true)
             Width: =40
