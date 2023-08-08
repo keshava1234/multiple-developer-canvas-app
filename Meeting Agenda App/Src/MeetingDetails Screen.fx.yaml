@@ -1939,10 +1939,11 @@
                     varResources,
                     true
                 );
+                /*
                 Set(
                     varPollPopup,
                     false
-                );
+                );*/
                 If(
                     IsBlank(Gallery8_1),
                     Set(
@@ -1982,7 +1983,7 @@
             Height: =30
             OnSelect: |-
                 =Set(varResources,false);
-                Set(varPollPopup,true);
+                //Set(varPollPopup,true);
                 Set(varNoResources,false);
                 Set(
                     varmeetingattendee,
@@ -2146,9 +2147,7 @@
             PaddingTop: =4
             TabIndex: =0
             Tooltip: ="view poll results"
-            Visible: |-
-                =//varPollPopup
-                false
+            Visible: =false
             Width: =26
             X: =389
             Y: =454
@@ -6371,11 +6370,11 @@
                 Set(
                     varResources,
                     true
-                );
+                );/*
                 Set(
                     varPollPopup,
                     false
-                );
+                );*/
                 If(
                     IsBlank(Gallery8_1),
                     Set(
