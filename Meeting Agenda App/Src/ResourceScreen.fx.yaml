@@ -233,11 +233,9 @@ ResourceScreen As screen:
                     varDeleteflow,
                     DeleteAttachmentsFlow.Run(
                         ThisItem.Id,
-                       First(
-                            Filter(
-                                MeetingList,
-                                 MeetingID = variCalUID.icaluid
-                            )
+                        LookUp(
+                            MeetingList,
+                            MeetingID = variCalUID.icaluid
                         ).ID
                     ).result
                 );
@@ -245,8 +243,8 @@ ResourceScreen As screen:
                     varResultFlow = "success",
                     Notify(
                         "File Deleted successfully",
-                        NotificationType.Success 
-                    ); 
+                        NotificationType.Success
+                    );
                     Refresh(MeetingList),
                     Notify(
                         "File Deleted failed",

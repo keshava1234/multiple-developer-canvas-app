@@ -1232,11 +1232,9 @@ HomePage As screen:
                 );
                 Set(
                     varG_SelectedMeetingSPData,
-                    First(
-                        Filter(
-                            MeetingList,
-                            MeetingID = SelectedMeeting.Id
-                        )
+                    LookUp(
+                        MeetingList,
+                        MeetingID = SelectedMeeting.Id
                     )
                 );
                 ClearCollect(
