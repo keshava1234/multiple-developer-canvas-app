@@ -1383,7 +1383,7 @@ Ask_Ques_Answers As screen:
                             BorderThickness: =0.2
                             Fill: =RGBA(255, 255, 255, 1)
                             Height: =450
-                            Items: =Search(Sort(Filter(AnswerList,Question.Value=varSelectedQn.ID),Created,SortOrder.Descending),txtSearch_10.Text,"Answers","Title")
+                            Items: =Search(Sort(col_Answerlist,Created,SortOrder.Descending),txtSearch_17.Text,"Answers","Title")
                             Layout: =Layout.Vertical
                             TemplateSize: =144
                             Width: =290

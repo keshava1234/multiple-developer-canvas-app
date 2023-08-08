@@ -1539,8 +1539,8 @@
                                                         varBase64Only,
                                                         Last(
                                                             Filter(
-                                                                CertificationRequest,
-                                                                true
+                                                                Cert_Req,
+                                                                 Boolean(1)
                                                             )
                                                         ).ID
                                                     ).result;
@@ -2073,7 +2073,7 @@
                                         Fill: =RGBA(242, 242, 242, 1)
                                         FocusedBorderThickness: =0
                                         Height: =400
-                                        Items: =Search(Sort(CertificationRequest,Created,SortOrder.Descending),txtSearch_13.Text,"Title")
+                                        Items: =Search(Sort(Cert_Req,Created,SortOrder.Descending),txtSearch_13.Text,"Title")
                                         Layout: =Layout.Vertical
                                         OnSelect: =false;
                                         ShowNavigation: =true

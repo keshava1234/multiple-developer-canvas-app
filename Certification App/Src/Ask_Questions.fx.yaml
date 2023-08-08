@@ -1509,7 +1509,7 @@ Ask_Questions As screen:
                                 BorderThickness: =0.1
                                 Fill: =RGBA(255, 255, 255, 1)
                                 Height: =450
-                                Items: =Search(Sort(Filter(QuestionList,CertificationName.Value = varCertificationName),Created,SortOrder.Descending),txtSearch_1.Text,"QuestionTitle","Description")
+                                Items: =Search(Sort(questiondetails,Created,SortOrder.Descending),txtSearch_2.Text,"QuestionTitle","Description")
                                 Layout: =Layout.Vertical
                                 TemplateSize: =139
                                 Width: =375

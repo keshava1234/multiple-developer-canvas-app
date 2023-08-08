@@ -1765,7 +1765,7 @@
                             =If(
                                 CountRows(
                                     Filter(
-                                        CertificationOrder,
+                                        userCertifications,
                                         ThisItem.'Certification Name'.Value = 'Certification:Title'.Value And Requestor.DisplayName = User().FullName
                                     )
                                 ) > 0,
@@ -1840,7 +1840,7 @@
                         SortByColumns(
                             Search(
                                 Filter(
-                                    Certifications,'Provider Name'="Microsoft",
+                                    Certification,'Provider Name'="Microsoft",
                                     IsBlank(cmbRole.Selected.Value) || cmbRole.Selected.Value in Role.Value,
                                     IsBlank(cmbTechnology.Selected.Value) || cmbTechnology.Selected.Value in Technology.Value ,
                                     (Price > 0) && radCost.Selected.Value = "Paid" || (Price = 0) && radCost.Selected.Value = "Free"
@@ -1859,7 +1859,7 @@
                         SortByColumns(
                             Search(
                                 Filter(
-                                    Certifications,'Provider Name'="Microsoft",
+                                    Certification,'Provider Name'="Microsoft",
                                     IsBlank(cmbRole_1.Selected.Value) || cmbRole_1.Selected.Value in Role.Value,
                                     IsBlank(cmbTechnology_1.Selected.Value) || cmbTechnology_1.Selected.Value in Technology.Value ,
                                     (Price > 0) && radCost_1.Selected.Value = "Paid" || (Price = 0) && radCost_1.Selected.Value = "Free"
@@ -1928,7 +1928,7 @@
                             =If(
                                 CountRows(
                                     Filter(
-                                        CertificationOrder,
+                                        userCertifications,
                                         ThisItem.Title = 'Certification:Title'.Value And Requestor.DisplayName = User().FullName
                                     )
                                 ) > 0,
@@ -2009,7 +2009,7 @@
                         SortByColumns(
                             Search(
                                 Filter(
-                                    Certifications,'Provider Name'="Amazon",
+                                    Certification,'Provider Name'="Amazon",
                                     IsBlank(cmbRole.Selected.Value) || cmbRole.Selected.Value in Role.Value,
                                     IsBlank(cmbTechnology.Selected.Value) || cmbTechnology.Selected.Value in Technology.Value ,
                                     (Price > 0) && radCost.Selected.Value = "Paid" || (Price = 0) && radCost.Selected.Value = "Free"
@@ -2027,7 +2027,7 @@
                         SortByColumns(
                             Search(
                                 Filter(
-                                    Certifications,'Provider Name'="Amazon",
+                                    Certification,'Provider Name'="Amazon",
                                     IsBlank(cmbRole_1.Selected.Value) || cmbRole_1.Selected.Value in Role.Value,
                                     IsBlank(cmbTechnology_1.Selected.Value) || cmbTechnology_1.Selected.Value in Technology.Value ,
                                     (Price > 0) && radCost_1.Selected.Value = "Paid" || (Price = 0) && radCost_1.Selected.Value = "Free"
@@ -2096,7 +2096,7 @@
                             =If(
                                 CountRows(
                                     Filter(
-                                        CertificationOrder,
+                                        userCertifications,
                                         ThisItem.Title = 'Certification:Title'.Value And Requestor.DisplayName = User().FullName
                                     )
                                 ) > 0,

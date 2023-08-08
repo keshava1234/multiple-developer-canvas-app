@@ -1,8 +1,7 @@
 App As appinfo:
     BackEnabled: =false
     OnStart: |-
-        =
-        Set(
+        =Set(
             screenColor,
             RGBA(
                 215,
@@ -71,11 +70,14 @@ App As appinfo:
             varUserLevel,
             If(
                 CountRows(
-                    FirstN(Filter(
-                        'CertificationApp-Security',
-                        Title = "Certification-User"
-                    ),50
-                ) )= 1,
+                    FirstN(
+                        Filter(
+                            'CertificationApp-Security',
+                            Title = "Certification-User"
+                        ),
+                        50
+                    )
+                ) = 1,
                 "USER",
                 varUserLevel
             )
@@ -84,11 +86,14 @@ App As appinfo:
             varUserLevel,
             If(
                 CountRows(
-                   FirstN( Filter(
-                        'CertificationApp-Security',
-                        Title = "Certification-Admin"
+                    FirstN(
+                        Filter(
+                            'CertificationApp-Security',
+                            Title = "Certification-Admin"
+                        ),
+                        50
                     )
-                ,50)) = 1,
+                ) = 1,
                 "ADMIN",
                 varUserLevel
             )
@@ -97,11 +102,14 @@ App As appinfo:
             varUserLevel,
             If(
                 CountRows(
-                    FirstN(Filter(
-                        'CertificationApp-Security',
-                        Title = "Certification-SuperAdmin"
+                    FirstN(
+                        Filter(
+                            'CertificationApp-Security',
+                            Title = "Certification-SuperAdmin"
+                        ),
+                        50
                     )
-                ,50)) = 1,
+                ) = 1,
                 "SUPER-ADMIN",
                 varUserLevel
             )
@@ -235,8 +243,14 @@ App As appinfo:
                 Admin_Approval = false
             )
         );
-        ClearCollect(Certification,Certifications);
-        ClearCollect(BU_Cert,'BU-CertificationList')
+        ClearCollect(
+            Certification,
+            Certifications
+        );
+        ClearCollect(
+            BU_Cert,
+            'BU-CertificationList'
+        )
     StartScreen: |-
         =If (
             !IsBlank(Param("View")),

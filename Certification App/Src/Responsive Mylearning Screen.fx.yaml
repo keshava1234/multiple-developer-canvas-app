@@ -1544,7 +1544,7 @@
                                     =Search(
                                         Sort(
                                             Filter(
-                                                CertificationOrder,
+                                                userCertifications,
                                                  Office365Users.ManagerV2(Requestor.Email).displayName=User().FullName  || varUserLevel = "SUPER-ADMIN" || varUserLevel = "ADMIN" 
                                             ),
                                             Created,
@@ -2788,7 +2788,7 @@
                                                 userdrp_down.SelectedText.Value = "Admin",
                                                 CountRows(
                                                     Filter(
-                                                        CertificationOrder,
+                                                        userCertifications,
                                                         'Examination Date' = DateAdd(
                                                             _firstDayInView,
                                                             ThisItem.Value,
@@ -2798,7 +2798,7 @@
                                                 ) > 0,
                                                 CountRows(
                                                     Filter(
-                                                        CertificationOrder,
+                                                        userCertifications,
                                                         Requestor.Email = User().Email,
                                                         'Examination Date' = DateAdd(
                                                             _firstDayInView,
@@ -2848,7 +2848,7 @@
                                             ),
                                             CountRows(
                                                 Filter(
-                                                    CertificationOrder,
+                                                    userCertifications,
                                                     Requestor.Email = User().Email,
                                                     'Examination Date' = DateAdd(
                                                         _firstDayInView,
@@ -3750,7 +3750,6 @@
             Refresh('BU-List');
             Refresh(CertificationOrder);
             Refresh(AnswerList);
-            Refresh(Question_Answers);
             Refresh('CertificationApp-Security');
             Refresh(NotificationList_CertificationApp);
             Refresh(Question_Answers);

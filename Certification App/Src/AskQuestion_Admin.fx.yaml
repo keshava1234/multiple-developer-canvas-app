@@ -1614,7 +1614,7 @@ AskQuestion_Admin As screen:
                                 BorderThickness: =0.1
                                 Fill: =RGBA(255, 255, 255, 1)
                                 Height: =450
-                                Items: =Search(Sort(QuestionList_Admin,Created,SortOrder.Descending),txtSearch_4.Text,"Title","Description")
+                                Items: =Search(Sort(FirstN(QuestionList_Admin,5000),Created,SortOrder.Descending),txtSearch_4.Text,"Title","Description")
                                 Layout: =Layout.Vertical
                                 ShowNavigation: =true
                                 ShowScrollbar: =false

@@ -1253,7 +1253,7 @@
                         PaddingRight: =0
                         PaddingTop: =0
                         Size: =8
-                        Text: =ThisItem.'Certification Name'
+                        Text: =ThisItem.Certification_x0020_Name
                         Width: =227
                         X: =52
                         ZIndex: =2
@@ -1264,7 +1264,7 @@
                         Icon: =Icon.Trash
                         OnSelect: |-
                             =Remove(EnrollList, ThisItem);
-                            Notify(ThisItem.'Certification Name'&" Removed From your Cart Successfully", NotificationType.Success, 2000)
+                            Notify(ThisItem.Certification_x0020_Name &" Removed From your Cart Successfully", NotificationType.Success, 2000)
                         Width: =24
                         X: =340
                         Y: =117
@@ -1276,7 +1276,7 @@
                         Height: =33
                         OnSelect: =Select(Parent)
                         Size: =7
-                        Text: = "Timeline" & Char(10) & "Tentative Days " & ThisItem.'Tentative Days'
+                        Text: = "Timeline" & Char(10) & "Tentative Days " & ThisItem.Tentative_x0020_Days
                         Width: =105
                         X: =52
                         Y: =19
@@ -1465,90 +1465,98 @@
                                     CertificationID = 1
                                 )
                             );
-                            If(IsBlank(DatePicker1_1) Or IsBlank(Radio1_1),Notify("Please Fill Required Feilds",NotificationType.Error,1000),
                             If(
-                                IsBlankOrError(
-                                    ForAll(
-                                        EnrollGallery_3.AllItems,
-                                        Patch(
-                                            CertificationOrder,
-                                            Defaults(CertificationOrder),
-                                            {
-                                                Title: User().FullName,
-                                                Requestor: If(
-                                                    Toggle2_2.Value = false,
-                                                    {
-                                                        '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
-                                                        DisplayName: User().FullName,
-                                                        Claims: "i:0#.f|membership|" & Lower(User().Email),
-                                                        Department: "",
-                                                        Email: User().Email,
-                                                        JobTitle: "",
-                                                        Picture: ""
-                                                    },
-                                                    {
-                                                        '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
-                                                        DisplayName: combo_CandidateSelection_2.Selected.DisplayName,
-                                                        Claims: "i:0#.f|membership|" & Lower(combo_CandidateSelection_2.Selected.Mail),
-                                                        Department: "",
-                                                        Email: combo_CandidateSelection_2.Selected.Mail,
-                                                        JobTitle: "",
-                                                        Picture: ""
-                                                    }
-                                                ),
-                                                CertificationID: {
-                                                    '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
-                                                    Id: ID,
-                                                    Value: ID
-                                                },
-                                                Status: "Enrolled",
-                                                Location:Dropdown4.SelectedText.Value,
-                                                Email:User().Email,
-                                                'Examination Date':DatePicker1.SelectedDate,
-                                                PaymentMode:Radio1.Selected.Value,
-                                                'Provider Type':'Provider Name',
-                                                BU: {
-                                                    '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
-                                                    Id: LookUp(
-                                                        'BU-List',
-                                                        Code = Office365Users.MyProfile().Department
-                                                    ).ID,
-                                                    Value: LookUp(
-                                                        'BU-List',
-                                                        Code = Office365Users.MyProfile().Department
-                                                    ).Code
-                                                }
-                                                
-                                            }
-                                        )
-                                    )
-                                ),
+                                IsBlank(DatePicker1_1) Or IsBlank(Radio1_1),
                                 Notify(
-                                    "Error coming ",
-                                    NotificationType.Error
+                                    "Please Fill Required Feilds",
+                                    NotificationType.Error,
+                                    1000
                                 ),
-                                 Clear([@EnrollList]);
-                                 Notify(
-                                    "Successfully submitted ",
-                                    NotificationType.Success
-                                 );
-                                Navigate(
-                                    'Responsive Mylearning Screen',
-                                    ScreenTransition.Fade
-                                ));
+                                If(
+                                    IsBlankOrError(
+                                        ForAll(
+                                            EnrollGallery_3.AllItems,
+                                            Patch(
+                                                CertificationOrder,
+                                                Defaults(CertificationOrder),
+                                                {
+                                                    Title: User().FullName,
+                                                    Requestor: If(
+                                                        Toggle2_2.Value = false,
+                                                        {
+                                                            '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
+                                                            DisplayName: User().FullName,
+                                                            Claims: "i:0#.f|membership|" & Lower(User().Email),
+                                                            Department: "",
+                                                            Email: User().Email,
+                                                            JobTitle: "",
+                                                            Picture: ""
+                                                        },
+                                                        {
+                                                            '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
+                                                            DisplayName: combo_CandidateSelection_2.Selected.DisplayName,
+                                                            Claims: "i:0#.f|membership|" & Lower(combo_CandidateSelection_2.Selected.Mail),
+                                                            Department: "",
+                                                            Email: combo_CandidateSelection_2.Selected.Mail,
+                                                            JobTitle: "",
+                                                            Picture: ""
+                                                        }
+                                                    ),
+                                                    CertificationID: {
+                                                        '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
+                                                        Id: ID,
+                                                        Value: ID
+                                                    },
+                                                    Status: "Enrolled",
+                                                    Location: Dropdown4.SelectedText.Value,
+                                                    Email: User().Email,
+                                                    'Examination Date': DatePicker1.SelectedDate,
+                                                    PaymentMode: Radio1.Selected.Value,
+                                                    'Provider Type': Provider_x0020_Name,
+                                                    BU: {
+                                                        '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
+                                                        Id: LookUp(
+                                                            'BU-List',
+                                                            Code = Office365Users.MyProfile().Department
+                                                        ).ID,
+                                                        Value: LookUp(
+                                                            'BU-List',
+                                                            Code = Office365Users.MyProfile().Department
+                                                        ).Code
+                                                    }
+                                                }
+                                            )
+                                        )
+                                    ),
+                                    Notify(
+                                        "Error coming ",
+                                        NotificationType.Error
+                                    ),
+                                    Clear([@EnrollList]);
+                                    Notify(
+                                        "Successfully submitted ",
+                                        NotificationType.Success
+                                    );
+                                    Navigate(
+                                        'Responsive Mylearning Screen',
+                                        ScreenTransition.Fade
+                                    )
+                                );
+                                Refresh(CertificationOrder);
                                 
-                            Refresh(CertificationOrder);
                             );
-                            
-                            ForAll(EnrollList,
+                            ForAll(
+                                EnrollList,
                                 Patch(
-                                           NotificationList_CertificationApp,
-                                            Defaults(NotificationList_CertificationApp),
-                                            {
-                                                Title:User().FullName,
-                                                Notification:User().FullName &" has requested for the approval of "& 'Certification Name',
-                                                Manager: varMngrname }
-                             )) ;
+                                    NotificationList_CertificationApp,
+                                    Defaults(NotificationList_CertificationApp),
+                                    {
+                                        Title: User().FullName,
+                                        Notification: User().FullName & " has requested for the approval of " & Certification_x0020_Name,
+                                        Manager: varMngrname
+                                    }
+                                )
+                            );
                         PressedColor: =RGBA(255, 255, 255, 1)
                         PressedFill: =RGBA(213, 39, 26, 1)
                         Size: =10
@@ -1654,7 +1662,7 @@
                             PaddingTop: =0
                             Size: |
                                 =12
-                            Text: =ThisItem.'Certification Name'
+                            Text: =ThisItem.Certification_x0020_Name
                             Width: =199
                             X: =135
                             ZIndex: =2
@@ -1665,7 +1673,7 @@
                             Icon: =Icon.Trash
                             OnSelect: |-
                                 =Remove(EnrollList, ThisItem);
-                                Notify(ThisItem.'Certification Name'&" Removed From your Cart Successfully", NotificationType.Success, 2000)
+                                Notify(ThisItem.Certification_x0020_Name &" Removed From your Cart Successfully", NotificationType.Success, 2000)
                             Width: =20
                             X: =1040
                             Y: =48
@@ -1678,7 +1686,7 @@
                             OnSelect: =Select(Parent)
                             Size: |
                                 =12
-                            Text: = "Timeline" & Char(10) & "Tentative Days " & ThisItem.'Tentative Days'
+                            Text: = "Timeline" & Char(10) & "Tentative Days " & ThisItem.Tentative_x0020_Days
                             Width: =117
                             X: =334
                             ZIndex: =13
@@ -1863,95 +1871,96 @@
                                         CertificationID = 1
                                     )
                                 );
-                                If(IsBlank(DatePicker1) Or IsBlank(Radio1),Notify("Please Fill Required Feilds",NotificationType.Error,1000),
                                 If(
-                                    IsBlankOrError(
-                                        ForAll(
-                                            EnrollGallery_2.AllItems,
-                                            Patch(
-                                                CertificationOrder,
-                                                Defaults(CertificationOrder),
-                                                {
-                                                    Title: User().FullName,
-                                                    Requestor: If(
-                                                        Toggle2_1.Value = false,
-                                                        {
-                                                            '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
-                                                            DisplayName: User().FullName,
-                                                            Claims: "i:0#.f|membership|" & Lower(User().Email),
-                                                            Department: "",
-                                                            Email: User().Email,
-                                                            JobTitle: "",
-                                                            Picture: ""
-                                                        },
-                                                        {
-                                                            '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
-                                                            DisplayName: combo_CandidateSelection_2.Selected.DisplayName,
-                                                            Claims: "i:0#.f|membership|" & Lower(combo_CandidateSelection_2.Selected.Mail),
-                                                            Department: "",
-                                                            Email: combo_CandidateSelection_2.Selected.Mail,
-                                                            JobTitle: "",
-                                                            Picture: ""
-                                                        }
-                                                    ),
-                                                    CertificationID: {
-                                                        '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
-                                                        Id: ID,
-                                                        Value: ID
-                                                    },
-                                                    Status: "Enrolled",
-                                                    Location:Dropdown4.SelectedText.Value,
-                                                    Email:User().Email,
-                                                    'Examination Date':DatePicker1.SelectedDate,
-                                                    PaymentMode:Radio1.Selected.Value,
-                                                    'Provider Type':'Provider Name',
-                                                    BU: {
-                                                        '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
-                                                        Id: LookUp(
-                                                            'BU-List',
-                                                            Code = Office365Users.MyProfile().Department
-                                                        ).ID,
-                                                        Value: LookUp(
-                                                            'BU-List',
-                                                            Code = Office365Users.MyProfile().Department
-                                                        ).Code
-                                                    }
-                                                    
-                                                }
-                                            )
-                                        )
-                                    ),
+                                    IsBlank(DatePicker1_1) And IsBlank(Radio1_1),
                                     Notify(
-                                        "Error coming ",
-                                        NotificationType.Error
+                                        "Please Fill Required Fields",
+                                        NotificationType.Error,
+                                        1000
                                     ),
-                                     Clear([@EnrollList]);
-                                     Notify(
-                                        "Successfully submitted ",
-                                        NotificationType.Success
-                                     );
-                                    Navigate(
-                                        'Responsive Mylearning Screen',
-                                        ScreenTransition.Fade
-                                    ));
+                                    If(
+                                        IsBlankOrError(
+                                            ForAll(
+                                                EnrollGallery_3.AllItems,
+                                                Patch(
+                                                    CertificationOrder,
+                                                    Defaults(CertificationOrder),
+                                                    {
+                                                        Title: User().FullName,
+                                                        Requestor: If(
+                                                            Toggle2_2.Value = false,
+                                                            {
+                                                                '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
+                                                                DisplayName: User().FullName,
+                                                                Claims: "i:0#.f|membership|" & Lower(User().Email),
+                                                                Department: "",
+                                                                Email: User().Email,
+                                                                JobTitle: "",
+                                                                Picture: ""
+                                                            },
+                                                            {
+                                                                '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
+                                                                DisplayName: combo_CandidateSelection_2.Selected.DisplayName,
+                                                                Claims: "i:0#.f|membership|" & Lower(combo_CandidateSelection_2.Selected.Mail),
+                                                                Department: "",
+                                                                Email: combo_CandidateSelection_2.Selected.Mail,
+                                                                JobTitle: "",
+                                                                Picture: ""
+                                                            }
+                                                        ),
+                                                        CertificationID: {
+                                                            '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
+                                                            Id: ID,
+                                                            Value: ID
+                                                        },
+                                                        Status: "Enrolled",
+                                                        Location: Dropdown4.SelectedText.Value,
+                                                        Email: User().Email,
+                                                        'Examination Date': DatePicker1.SelectedDate,
+                                                        PaymentMode: Radio1.Selected.Value,
+                                                        'Provider Type': Provider_x0020_Name,
+                                                        BU: {
+                                                            '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
+                                                            Id: LookUp(
+                                                                'BU-List',
+                                                                Code = Office365Users.MyProfile().Department
+                                                            ).ID,
+                                                            Value: LookUp(
+                                                                'BU-List',
+                                                                Code = Office365Users.MyProfile().Department
+                                                            ).Code
+                                                        }
+                                                    }
+                                                )
+                                            )
+                                        ),
+                                        Notify(
+                                            "Error coming ",
+                                            NotificationType.Error
+                                        ),
+                                        Clear([@EnrollList]);
+                                        Notify(
+                                            "Successfully submitted ",
+                                            NotificationType.Success
+                                        );
+                                        Navigate(
+                                            'Responsive Mylearning Screen',
+                                            ScreenTransition.Fade
+                                        )
+                                    );
+                                    Refresh(CertificationOrder);
                                     
-                                Refresh(CertificationOrder);
                                 );
-                                
-                                ForAll(EnrollList,
+                                ForAll(
+                                    EnrollList,
                                     Patch(
-                                               NotificationList_CertificationApp,
-                                                Defaults(NotificationList_CertificationApp),
-                                                {
-                                                    Title:User().FullName,
-                                                    Notification:User().FullName &" has requested for the approval of "& 'Certification Name',
-                                                    Manager: varMngrname }
-                                 )) ;
-                                 ClearCollect(
-                                    userCertifications,
-                                    Filter(
-                                        CertificationOrder,
-                                        Requestor.Email = User().Email
+                                        NotificationList_CertificationApp,
+                                        Defaults(NotificationList_CertificationApp),
+                                        {
+                                            Title: User().FullName,
+                                            Notification: User().FullName & " has requested for the approval of " & Certification_x0020_Name,
+                                            Manager: varMngrname
+                                        }
                                     )
                                 );
                             PressedColor: =RGBA(255, 255, 255, 1)
