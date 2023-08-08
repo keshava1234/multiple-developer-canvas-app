@@ -114,7 +114,6 @@
         );*/
         UpdateContext({_showLoading: false});
         
-        UpdateContext({locShowSpinner: false});
         ClearCollect(colexternalCertificationList,ExternalCertificationList);
         ClearCollect(colCertOrder,CertificationOrder)
 

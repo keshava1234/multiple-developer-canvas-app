@@ -1942,6 +1942,13 @@
                                                     Notification:User().FullName &" has requested for the approval of "& 'Certification Name',
                                                     Manager: varMngrname }
                                  )) ;
+                                 ClearCollect(
+                                    userCertifications,
+                                    Filter(
+                                        CertificationOrder,
+                                        Requestor.Email = User().Email
+                                    )
+                                );
                             PressedColor: =RGBA(255, 255, 255, 1)
                             PressedFill: =RGBA(213, 39, 26, 1)
                             Size: =10
