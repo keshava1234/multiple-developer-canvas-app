@@ -2082,8 +2082,7 @@
                         varDeleteflow,
                         DeleteAttachmentsFlow.Run(
                             ThisItem.Id,
-                           First(
-                                Filter(
+                           First(Filter(
                                     MeetingList,
                                     MeetingID = variCalUID.icaluid
                                 )
