@@ -381,7 +381,7 @@ HomePage As screen:
         Height: =24
         Icon: =Icon.Reload
         OnSelect: |
-            =Set(
+            =/*Set(
                 varPrimaryColor,
                 RGBA(
                     255,
@@ -389,7 +389,7 @@ HomePage As screen:
                     255,
                     255
                 )
-            );
+            );*/
             Set(
                 varAgendaTab,
                 true
