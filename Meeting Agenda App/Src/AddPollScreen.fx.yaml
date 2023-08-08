@@ -280,12 +280,11 @@ AddPollScreen As screen:
                     NotificationType.Error,
                     0
                 ),
-            First(
-                Filter(
+            LookUp(
                     MeetingList,
                     MeetingID = variCalUID.icaluid
                 )
-            );
+            ;
             ForAll(
                 arrQuestions,
                 IfError(Patch(
