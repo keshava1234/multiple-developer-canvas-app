@@ -7949,7 +7949,7 @@
             Height: =32
             Size: =16
             TabIndex: =0
-            Text: =1
+            Text: ="Create Agenda"
             Visible: =varShowCreateAgenda
             X: =800
             Y: =84

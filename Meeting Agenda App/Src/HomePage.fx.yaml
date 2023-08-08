@@ -1074,18 +1074,22 @@ HomePage As screen:
                             MeetingID = SelectedMeeting.Id
                         )
                     ) = 0,
-                    IfError(Patch(
-                        MeetingList,
-                        Defaults(MeetingList),
-                        {
-                            Title: SelectedMeeting.Subject,
-                            MeetingID: SelectedMeeting.Id,
-                            AllowAttendeesToCreateAgenda: 1
-                        }
-                    ),Notify(
+                    IfError(
+                        Patch(
+                            MeetingList,
+                            Defaults(MeetingList),
+                            {
+                                Title: SelectedMeeting.Subject,
+                                MeetingID: SelectedMeeting.Id,
+                                AllowAttendeesToCreateAgenda: 1
+                            }
+                        ),
+                        Notify(
                             "No details available for this meeting",
                             NotificationType.Error
-                        ),false)
+                        ),
+                        false
+                    )
                 );
                 Set(
                     varSelectedMeetingSpItem,
@@ -1101,13 +1105,16 @@ HomePage As screen:
                 ClearCollect(
                     MeetingAttendeeEmails,
                     Filter(
-                        ForAll(Split(
-                            Concatenate(
-                                SelectedMeeting.RequiredAttendees,
-                                SelectedMeeting.OptionalAttendees
+                        ForAll(
+                            Split(
+                                Concatenate(
+                                    SelectedMeeting.RequiredAttendees,
+                                    SelectedMeeting.OptionalAttendees
+                                ),
+                                ";"
                             ),
-                            ";"
-                        ), {Result: ThisRecord.Value}),
+                            {Result: ThisRecord.Value}
+                        ),
                         Result <> ""
                     )
                 );
@@ -1338,15 +1345,22 @@ HomePage As screen:
                             MeetingID = variCalUID.icaluid
                         )
                     ) = 0,
-                    Patch(
-                        MeetingList,
-                        Defaults(MeetingList),
-                        {
-                            Title: SelectedMeeting.Subject,
-                            MeetingID: variCalUID.icaluid,
-                            AllowAttendeesToCreateAgenda: 0,
-                            RequiredAgendaApproval: 0
-                        }
+                    IfError(
+                        Patch(
+                            MeetingList,
+                            Defaults(MeetingList),
+                            {
+                                Title: SelectedMeeting.Subject,
+                                MeetingID: variCalUID.icaluid,
+                                AllowAttendeesToCreateAgenda: 0,
+                                RequiredAgendaApproval: 0
+                            }
+                        ),
+                        Notify(
+                            "No details available for this meeting",
+                            NotificationType.Error
+                        ),
+                        false
                     )
                 );
                 Set(
@@ -1978,7 +1992,7 @@ HomePage As screen:
                             MeetingID = SelectedMeeting.Id
                         )
                     ) = 0,
-                    Patch(
+                    IfError(Patch(
                         MeetingList,
                         Defaults(MeetingList),
                         {
@@ -1986,7 +2000,10 @@ HomePage As screen:
                             MeetingID: SelectedMeeting.Id,
                             AllowAttendeesToCreateAgenda: 1
                         }
-                    )
+                    ),Notify(
+                            "No details available for this meeting",
+                            NotificationType.Error
+                        ),false)
                 );
                 Set(
                     varSelectedMeetingSpItem,
@@ -2251,7 +2268,7 @@ HomePage As screen:
                             MeetingID = variCalUID.icaluid
                         )
                     ) = 0,
-                    Patch(
+                    IfError(Patch(
                         MeetingList,
                         Defaults(MeetingList),
                         {
@@ -2260,7 +2277,10 @@ HomePage As screen:
                             AllowAttendeesToCreateAgenda: 0,
                             RequiredAgendaApproval: 0
                         }
-                    )
+                    ),Notify(
+                            "No details available for this meeting",
+                            NotificationType.Error
+                        ),false)
                 );
                 Set(
                     varmeetingattendee,

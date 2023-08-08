@@ -1327,6 +1327,7 @@
                                 ZIndex: =8
 
                             TextInput6_1 As text:
+                                AccessibleLabel: ="TextInput6_1"
                                 BorderColor: =RGBA(112, 112, 112, 0.31)
                                 BorderThickness: =1
                                 Default: =""
@@ -1352,6 +1353,7 @@
                                 ZIndex: =10
 
                             DatePicker2_1 As datepicker:
+                                AccessibleLabel: ="DatePicker2_1"
                                 BorderColor: =RGBA(112, 112, 112, 0.31)
                                 BorderThickness: =1
                                 FocusedBorderThickness: =2
@@ -1420,6 +1422,7 @@
                                 ZIndex: =2
 
                             TextInput7_1 As text:
+                                AccessibleLabel: ="TextInput7_1"
                                 BorderColor: =RGBA(112, 112, 112, 0.31)
                                 BorderThickness: =1
                                 Default: =""
@@ -1445,6 +1448,7 @@
                                 ZIndex: =4
 
                             TextInput8_1 As text:
+                                AccessibleLabel: ="TextInput8_1"
                                 BorderColor: =RGBA(112, 112, 112, 0.31)
                                 BorderThickness: =1
                                 Default: =""
@@ -1471,6 +1475,7 @@
                                 ZIndex: =6
 
                             TextInput9_2 As text:
+                                AccessibleLabel: ="TextInput9_2"
                                 BorderColor: =RGBA(112, 112, 112, 0.31)
                                 BorderThickness: =1
                                 Default: =""
@@ -1496,6 +1501,7 @@
                                 ZIndex: =8
 
                             TextInput10_1 As text:
+                                AccessibleLabel: ="TextInput10_1"
                                 BorderColor: =RGBA(112, 112, 112, 0.31)
                                 BorderThickness: =1
                                 Default: =""
@@ -1521,6 +1527,7 @@
                                 ZIndex: =10
 
                             Dropdown3_1 As dropdown:
+                                AccessibleLabel: ="Dropdown3_1"
                                 BorderColor: =RGBA(112, 112, 112, 0.31)
                                 BorderThickness: =1
                                 ChevronBackground: =RGBA(112, 112, 112, 0.31)
@@ -1536,6 +1543,7 @@
                                 ZIndex: =11
 
                             Dropdown6_1 As dropdown:
+                                AccessibleLabel: ="Dropdown6_1"
                                 BorderColor: =RGBA(112, 112, 112, 0.31)
                                 BorderThickness: =1
                                 ChevronBackground: =RGBA(0, 0, 0, 0)
@@ -1588,6 +1596,7 @@
                                 ZIndex: =2
 
                             Radio3_1 As radio:
+                                AccessibleLabel: ="Radio3_1"
                                 BorderColor: =RGBA(0, 0, 0, 0)
                                 FontWeight: =FontWeight.Semibold
                                 Height: =49
@@ -1602,6 +1611,7 @@
                                 ZIndex: =3
 
                             Attachments_9 As attachments:
+                                AccessibleLabel: ="Attachments_9"
                                 BorderColor: =RGBA(112, 112, 112, 0.31)
                                 BorderThickness: =0.1
                                 DropTargetBorderColor: =RGBA(219, 219, 219, 1)
@@ -1660,6 +1670,7 @@
                                 ZIndex: =6
 
                             TextInput9_3 As text:
+                                AccessibleLabel: ="TextInput9_3"
                                 BorderColor: =RGBA(112, 112, 112, 0.31)
                                 BorderThickness: =1
                                 Default: =""
@@ -1826,6 +1837,7 @@
                                 ZIndex: =2
 
                             TextInput2 As text:
+                                AccessibleLabel: ="TextInput2"
                                 BorderColor: =RGBA(112, 112, 112, 0.31)
                                 BorderThickness: =1
                                 Default: =""
@@ -1853,6 +1865,7 @@
                                 ZIndex: =4
 
                             TextInput5 As text:
+                                AccessibleLabel: ="TextInput5"
                                 BorderColor: =RGBA(112, 112, 112, 0.31)
                                 BorderThickness: =1
                                 Default: =""
@@ -1879,6 +1892,7 @@
                                 ZIndex: =6
 
                             Dropdown2 As dropdown:
+                                AccessibleLabel: ="Dropdown2"
                                 BorderColor: =RGBA(112, 112, 112, 0.31)
                                 BorderThickness: =1
                                 ChevronBackground: =RGBA(112, 112, 112, 0.31)
@@ -1904,6 +1918,7 @@
                                 ZIndex: =8
 
                             TextInput6 As text:
+                                AccessibleLabel: ="TextInput6"
                                 BorderColor: =RGBA(112, 112, 112, 0.31)
                                 BorderThickness: =1
                                 Default: =""
@@ -1930,6 +1945,7 @@
                                 ZIndex: =10
 
                             DatePicker2 As datepicker:
+                                AccessibleLabel: ="DatePicker2"
                                 BorderColor: =RGBA(112, 112, 112, 0.31)
                                 BorderThickness: =1
                                 FocusedBorderThickness: =2
@@ -2002,6 +2018,7 @@
                                 ZIndex: =2
 
                             TextInput7 As text:
+                                AccessibleLabel: ="TextInput7"
                                 BorderColor: =RGBA(112, 112, 112, 0.31)
                                 BorderThickness: =1
                                 Default: =""
@@ -2028,6 +2045,7 @@
                                 ZIndex: =4
 
                             TextInput8 As text:
+                                AccessibleLabel: ="TextInput8"
                                 BorderColor: =RGBA(112, 112, 112, 0.31)
                                 BorderThickness: =1
                                 Default: =""
@@ -2055,6 +2073,7 @@
                                 ZIndex: =6
 
                             TextInput9 As text:
+                                AccessibleLabel: ="TextInput9"
                                 BorderColor: =RGBA(112, 112, 112, 0.31)
                                 BorderThickness: =1
                                 Default: =""
@@ -2081,6 +2100,7 @@
                                 ZIndex: =8
 
                             TextInput10 As text:
+                                AccessibleLabel: ="TextInput10"
                                 BorderColor: =RGBA(112, 112, 112, 0.31)
                                 BorderThickness: =1
                                 Default: =""
@@ -2107,6 +2127,7 @@
                                 ZIndex: =10
 
                             Dropdown3 As dropdown:
+                                AccessibleLabel: ="Dropdown3"
                                 BorderColor: =RGBA(112, 112, 112, 0.31)
                                 BorderThickness: =1
                                 ChevronBackground: =RGBA(112, 112, 112, 0.31)
@@ -2122,6 +2143,7 @@
                                 ZIndex: =11
 
                             Dropdown6 As dropdown:
+                                AccessibleLabel: ="Dropdown6"
                                 BorderColor: =RGBA(112, 112, 112, 0.31)
                                 BorderThickness: =1
                                 ChevronBackground: =RGBA(0, 0, 0, 0)
@@ -2176,6 +2198,7 @@
                                 ZIndex: =2
 
                             Radio3 As radio:
+                                AccessibleLabel: ="Radio3"
                                 BorderColor: =RGBA(0, 0, 0, 0)
                                 FontWeight: =FontWeight.Semibold
                                 Height: =49
@@ -2190,6 +2213,7 @@
                                 ZIndex: =3
 
                             Attachments_7 As attachments:
+                                AccessibleLabel: ="Attachments_7"
                                 BorderColor: =RGBA(112, 112, 112, 0.31)
                                 BorderThickness: =0.1
                                 DropTargetBorderColor: =RGBA(219, 219, 219, 1)
@@ -2250,6 +2274,7 @@
                                 ZIndex: =6
 
                             TextInput9_1 As text:
+                                AccessibleLabel: ="TextInput9_1"
                                 BorderColor: =RGBA(112, 112, 112, 0.31)
                                 BorderThickness: =1
                                 Default: =""
@@ -2375,6 +2400,7 @@
         ZIndex: =9
 
         Icon29_49 As icon.ChevronRight:
+            AccessibleLabel: ="Icon29_49"
             BorderColor: =RGBA(0, 0, 0, 1)
             Color: =RGBA(0, 0, 0, 1)
             Height: =20
@@ -2409,6 +2435,7 @@
             ZIndex: =32
 
         Icon13_15 As icon.ChevronDown:
+            AccessibleLabel: ="Icon13_15"
             Color: =RGBA(0, 0, 0, 1)
             Height: =20
             Icon: =Icon.ChevronDown
@@ -2571,6 +2598,7 @@
                 ZIndex: =28
 
             Icon23_49 As icon.Download:
+                AccessibleLabel: ="Icon23_49"
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =RGBA(0, 0, 0, 1)
                 Height: =20
@@ -2646,6 +2674,7 @@
                 ZIndex: =3
 
             Icon22_49 As icon.ChevronRight:
+                AccessibleLabel: ="Icon22_49"
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =RGBA(0, 0, 0, 1)
                 Height: =17
@@ -2755,6 +2784,7 @@
                 ZIndex: =20
 
             Icon12_16 As icon.ChevronDown:
+                AccessibleLabel: ="Icon12_16"
                 Height: =17
                 HoverFill: =
                 Icon: =Icon.ChevronDown
@@ -2817,6 +2847,7 @@
                 ZIndex: =5
 
             Icon11_49 As icon.Home:
+                AccessibleLabel: ="Icon11_49"
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =RGBA(0, 0, 0, 1)
                 Height: =23
@@ -2912,6 +2943,7 @@
                 ZIndex: =4
 
             Icon32_49 As icon.Database:
+                AccessibleLabel: ="Icon32_49"
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =RGBA(0, 0, 0, 1)
                 Height: =22
@@ -2954,6 +2986,7 @@
                 ZIndex: =13
 
             Image12_51 As image:
+                AccessibleLabel: ="Image12_51"
                 Height: =22
                 Image: ='question-octagon'
                 OnSelect: =Navigate(AskQuestion_Admin,ScreenTransition.UnCover);
@@ -2964,6 +2997,7 @@
                 ZIndex: =22
 
     Icon2_8 As icon.Hamburger:
+        AccessibleLabel: ="Icon2_8"
         Color: =RGBA(0, 0, 0, 1)
         Height: =21
         Icon: =Icon.Hamburger
@@ -2992,6 +3026,7 @@
             ZIndex: =11
 
         "UserGallery_15 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+            AccessibleLabel: ="UserGallery_15"
             BorderColor: =RGBA(0, 0, 0, 1)
             Fill: |-
                 =//RGBA(0, 0, 0, 0)
@@ -3035,6 +3070,7 @@
                 ZIndex: =5
 
         UserGalleryCancelIcon_16 As icon.Cancel:
+            AccessibleLabel: ="UserGalleryCancelIcon_16"
             Color: =RGBA(255, 255, 255, 1)
             Fill: =RGBA(255, 0, 0, 1)
             Height: =32
@@ -3047,6 +3083,7 @@
             ZIndex: =13
 
         "ManagerGallery_13 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+            AccessibleLabel: ="ManagerGallery_13"
             Fill: |-
                 =//RGBA(0, 0, 0, 0)
                 Color.White
@@ -3090,6 +3127,7 @@
                 ZIndex: =5
 
         MngrCancelicon_13 As icon.Cancel:
+            AccessibleLabel: ="MngrCancelicon_13"
             BorderThickness: =1
             Color: =RGBA(255, 255, 255, 1)
             Fill: =RGBA(255, 0, 0, 1)
@@ -3104,6 +3142,7 @@
             ZIndex: =15
 
         "ILDGAllery_13 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+            AccessibleLabel: ="ILDGAllery_13"
             Fill: |-
                 =//RGBA(0, 0, 0, 0)
                 Color.White
@@ -3141,6 +3180,7 @@
                 ZIndex: =5
 
         ILDCancelicon_13 As icon.Cancel:
+            AccessibleLabel: ="ILDCancelicon_13"
             Color: =RGBA(255, 255, 255, 1)
             Fill: =RGBA(255, 0, 0, 1)
             Height: =32
