@@ -2810,7 +2810,7 @@
                                             ),
                                             CountRows(
                                                 Filter(
-                                                    CertificationOrder,
+                                                    userCertifications,
                                                     Requestor.Email = User().Email,
                                                     'Examination Date' = DateAdd(
                                                         _firstDayInView,
@@ -2826,7 +2826,7 @@
                                                 userdrp_down_1.SelectedText.Value = "Admin",
                                                 CountRows(
                                                     Filter(
-                                                        CertificationOrder,
+                                                        userCertifications,
                                                         'Examination Date' = DateAdd(
                                                             _firstDayInView,
                                                             ThisItem.Value,
@@ -2836,7 +2836,7 @@
                                                 ) > 0,
                                                 CountRows(
                                                     Filter(
-                                                        CertificationOrder,
+                                                        userCertifications,
                                                         Requestor.Email = User().Email,
                                                         'Examination Date' = DateAdd(
                                                             _firstDayInView,
@@ -2979,25 +2979,25 @@
                                         If(
                                             userdrp_down.SelectedText.Value = "Admin",
                                             Filter(
-                                                CertificationOrder,
-                                                'Examination Date' = Text(
+                                                userCertifications,
+                                                'Examination Date' in Text(
                                                     _dateSelected,
                                                     DateTimeFormat.ShortDate
                                                 )
                                             ),
                                             Filter(
-                                                CertificationOrder,
+                                                userCertifications,
                                                 Requestor.Email = User().Email,
-                                                'Examination Date' = Text(
+                                                'Examination Date' in Text(
                                                     _dateSelected,
                                                     DateTimeFormat.ShortDate
                                                 )
                                             )
                                         ),
                                         Filter(
-                                            CertificationOrder,
+                                            userCertifications,
                                             Requestor.Email = User().Email,
-                                            'Examination Date' = Text(
+                                            'Examination Date' in Text(
                                                 _dateSelected,
                                                 DateTimeFormat.ShortDate
                                             )
@@ -3008,25 +3008,25 @@
                                         If(
                                             userdrp_down_1.SelectedText.Value = "Admin",
                                             Filter(
-                                                FirstN(CertificationOrder,2000),
-                                                'Examination Date' = Text(
+                                                FirstN(userCertifications,2000),
+                                                'Examination Date' in Text(
                                                     _dateSelected,
                                                     DateTimeFormat.ShortDate
                                                 )
                                             ),
                                             Filter(
-                                                FirstN(CertificationOrder,2000),
+                                                FirstN(userCertifications,2000),
                                                 Requestor.Email = User().Email,
-                                                'Examination Date' = Text(
+                                                'Examination Date' in Text(
                                                     _dateSelected,
                                                     DateTimeFormat.ShortDate
                                                 )
                                             )
                                         ),
                                         Filter(
-                                           FirstN(CertificationOrder,2000),
+                                           FirstN(userCertifications,2000),
                                             Requestor.Email = User().Email,
-                                            'Examination Date' = Text(
+                                            'Examination Date' in Text(
                                                 _dateSelected,
                                                 DateTimeFormat.ShortDate
                                             )
@@ -3834,7 +3834,7 @@
             Text: |-
                 ="Completed : " & "                                                                                          "  &CountRows(
                     Filter(
-                        CertificationOrder,
+                        userCertifications,
                         Requestor.Email = User().Email,Status in ["Reimbursed","Completed Using Voucher"]
                     )
                 )
@@ -3850,7 +3850,7 @@
             Text: |-
                 ="In Progress : "& "                                                                                          "  &CountRows(
                     Filter(
-                        CertificationOrder,
+                        userCertifications,
                         Requestor.Email = User().Email,Status in["Manager Approved","Proofs Uploaded","Enrolled"]
                     )
                 )

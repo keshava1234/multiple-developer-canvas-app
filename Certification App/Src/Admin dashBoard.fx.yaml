@@ -612,7 +612,7 @@
                                         Status: "Enrolled",
                                         Count: CountRows(
                                             Filter(
-                                                CertificationOrder,(DateValue(Created)>=FromDate_1.SelectedDate && DateValue(Created)<=ToDate_1.SelectedDate) &&               BU.Value = Dropdown1_2.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BCode',
+                                                userCertifications,(DateValue(Created)>=FromDate_1.SelectedDate && DateValue(Created)<=ToDate_1.SelectedDate) &&               BU.Value = Dropdown1_2.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BCode',
                                                 Status = "Enrolled"
                                             )
                                         )
@@ -621,7 +621,7 @@
                                         Status: "Manager Approved",
                                         Count: CountRows(
                                             Filter(
-                                                CertificationOrder,(DateValue(Created)>=FromDate_1.SelectedDate && DateValue(Created)<=ToDate_1.SelectedDate) &&
+                                                userCertifications,(DateValue(Created)>=FromDate_1.SelectedDate && DateValue(Created)<=ToDate_1.SelectedDate) &&
                                                 BU.Value = Dropdown1_2.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BCode',
                                                 Status = "Manager Approved"
                                             )
@@ -631,7 +631,7 @@
                                         Status: "Proofs Uploaded",
                                         Count: CountRows(
                                             Filter(
-                                                CertificationOrder,(DateValue(Created)>=FromDate_1.SelectedDate && DateValue(Created)<=ToDate_1.SelectedDate) &&
+                                                userCertifications,(DateValue(Created)>=FromDate_1.SelectedDate && DateValue(Created)<=ToDate_1.SelectedDate) &&
                                                 BU.Value = Dropdown1_2.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BCode',
                                                 Status = "Proofs Uploaded"
                                             )
@@ -641,7 +641,7 @@
                                         Status: "Proofs Approved",
                                         Count: CountRows(
                                             Filter(
-                                                CertificationOrder,(DateValue(Created)>=FromDate_1.SelectedDate && DateValue(Created)<=ToDate_1.SelectedDate) &&
+                                                userCertifications,(DateValue(Created)>=FromDate_1.SelectedDate && DateValue(Created)<=ToDate_1.SelectedDate) &&
                                                 BU.Value = Dropdown1_2.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BCode',
                                                 Status = "Proofs Approved"
                                             )
@@ -651,7 +651,7 @@
                                         Status: "Reimbursed",
                                         Count: CountRows(
                                             Filter(
-                                                CertificationOrder,(DateValue(Created)>=FromDate_1.SelectedDate && DateValue(Created)<=ToDate_1.SelectedDate) &&
+                                                userCertifications,(DateValue(Created)>=FromDate_1.SelectedDate && DateValue(Created)<=ToDate_1.SelectedDate) &&
                                                 BU.Value = Dropdown1_2.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BCode',
                                                 Status = "Reimbursed"
                                             )
@@ -661,7 +661,7 @@
                                         Status: "Voucher Based",
                                         Count: CountRows(
                                             Filter(
-                                                CertificationOrder,(DateValue(Created)>=FromDate_1.SelectedDate && DateValue(Created)<=ToDate_1.SelectedDate) &&
+                                                userCertifications,(DateValue(Created)>=FromDate_1.SelectedDate && DateValue(Created)<=ToDate_1.SelectedDate) &&
                                                 BU.Value = Dropdown1_2.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BCode',
                                                 Status = "Completed Using Voucher"
                                             )
@@ -671,7 +671,7 @@
                                         Status: "With finance Team",
                                         Count: CountRows(
                                             Filter(
-                                                CertificationOrder,(DateValue(Created)>=FromDate_1.SelectedDate && DateValue(Created)<=ToDate_1.SelectedDate) &&
+                                                userCertifications,(DateValue(Created)>=FromDate_1.SelectedDate && DateValue(Created)<=ToDate_1.SelectedDate) &&
                                                 BU.Value = Dropdown1_2.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BCode',
                                                 Status = "Processing with Finance"
                                             )
@@ -682,7 +682,7 @@
                                 
                                 
                                 
-                                //CountRows(Filter(CertificationOrder,BU.Id=ThisItem.ID,Status="Proofs Approved"))
+                                //CountRows(Filter(userCertifications,BU.Id=ThisItem.ID,Status="Proofs Approved"))
                             LabelPosition: =LabelPosition.Inside
                             Size: =9
                             Visible: =If(Gallery2_7.Selected.Name="Total Certifications Per BU",true,false)
@@ -1252,7 +1252,7 @@
                                         )
                                 OnSelect: =Select(Parent)
                                 Size: =12
-                                Text: =CountRows(Filter(CertificationOrder,BU.Id=ThisItem.ID,Location=Dropdown1_3.SelectedText.Value )) 
+                                Text: =CountRows(Filter(userCertifications,BU.Id=ThisItem.ID,Location=Dropdown1_3.SelectedText.Value )) 
                                 Width: =92
                                 Y: =84
                                 ZIndex: =3
@@ -1263,7 +1263,7 @@
                                 OnSelect: =Select(Parent)
                                 Size: =12
                                 Text: |
-                                    =CountRows(Filter(CertificationOrder,BU.Id=ThisItem.ID,Status="Enrolled",Location=Dropdown1_3.SelectedText.Value))
+                                    =CountRows(Filter(userCertifications,BU.Id=ThisItem.ID,Status="Enrolled",Location=Dropdown1_3.SelectedText.Value))
                                 Width: =92
                                 Y: =124
                                 ZIndex: =4
@@ -1273,7 +1273,7 @@
                                 Fill: =Color.LightBlue
                                 OnSelect: =Select(Parent)
                                 Size: =12
-                                Text: =CountRows(Filter(CertificationOrder,BU.Id=ThisItem.ID,Status="Reimbursed",Location=Dropdown1_3.SelectedText.Value))
+                                Text: =CountRows(Filter(userCertifications,BU.Id=ThisItem.ID,Status="Reimbursed",Location=Dropdown1_3.SelectedText.Value))
                                 Width: =92
                                 Y: =164
                                 ZIndex: =5
@@ -1290,7 +1290,7 @@
                                 OnSelect: =Select(Parent)
                                 Size: =12
                                 Text: |
-                                    =CountRows(Filter(CertificationOrder,BU.Id=ThisItem.ID,Status="Manager Approved" || Status="Proofs Uploaded",Location=Dropdown1_3.SelectedText.Value ))
+                                    =CountRows(Filter(userCertifications,BU.Id=ThisItem.ID,Status="Manager Approved" || Status="Proofs Uploaded",Location=Dropdown1_3.SelectedText.Value ))
                                 Width: =92
                                 Y: =204
                                 ZIndex: =6
@@ -1317,7 +1317,7 @@
                                 Fill: =Color.LemonChiffon
                                 OnSelect: =Select(Parent)
                                 Size: =12
-                                Text: =CountRows(Filter(CertificationOrder,BU.Id=ThisItem.ID,Status="Reimbursed",Location=Dropdown1_3.SelectedText.Value))
+                                Text: =CountRows(Filter(userCertifications,BU.Id=ThisItem.ID,Status="Reimbursed",Location=Dropdown1_3.SelectedText.Value))
                                 Width: =92
                                 Y: =244
                                 ZIndex: =9
@@ -1481,7 +1481,7 @@
                                 Fill: =Color.LemonChiffon
                                 OnSelect: =Select(Parent)
                                 Size: =12
-                                Text: =CountRows(Filter(CertificationOrder,BU.Id=ThisItem.ID,Text(Modified,"yyyy")=Text(Today(),"yyyy") ) )
+                                Text: =CountRows(Filter(userCertifications,BU.Id=ThisItem.ID,Text(Modified,"yyyy")=Text(Today(),"yyyy") ) )
                                 Width: =86
                                 Y: =124
                                 ZIndex: =4
@@ -1491,7 +1491,7 @@
                                 Fill: =Color.Pink
                                 OnSelect: =Select(Parent)
                                 Size: =12
-                                Text: =CountRows(Filter(CertificationOrder,BU.Id=ThisItem.ID,Status="Reimbursed",Text(Modified,"yyyy")=Text(Today(),"yyyy")))
+                                Text: =CountRows(Filter(userCertifications,BU.Id=ThisItem.ID,Status="Reimbursed",Text(Modified,"yyyy")=Text(Today(),"yyyy")))
                                 Width: =86
                                 Y: =164
                                 ZIndex: =5
@@ -1528,7 +1528,7 @@
                                 Text: |-
                                     =CountRows(
                                         Filter(
-                                            CertificationOrder,
+                                            userCertifications,
                                             BU.Id = ThisItem.ID,
                                             Status = "Enrolled" || Status = "Manager Approved" || Status = "Proofs Uploaded" || Status = "Proofs Approved" || Status = "Processing with Finance",
                                             Text(
@@ -1570,7 +1570,7 @@
                                 BorderThickness: =0.5
                                 Fill: =RGBA(242, 242, 242, 1)
                                 Height: =500
-                                Items: =Search(Sort(CertificationRequest,Created,SortOrder.Descending),txtSearch_2.Text,"Title")
+                                Items: =Search(Sort(Cert_Req,Created,SortOrder.Descending),txtSearch_2.Text,"Title")
                                 Layout: =Layout.Vertical
                                 OnSelect: =false;
                                 ShowNavigation: =true
