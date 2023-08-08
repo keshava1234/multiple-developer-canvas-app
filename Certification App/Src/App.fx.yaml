@@ -245,7 +245,7 @@ App As appinfo:
             If(
                 CountRows(
                     Filter(
-                        'CertificationApp-Security',
+                        FirstN('CertificationApp-Security',100),
                         Title = "Certification-Admin"
                     )
                 ) = 1,

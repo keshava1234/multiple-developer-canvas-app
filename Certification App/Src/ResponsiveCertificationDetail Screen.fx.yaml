@@ -1464,7 +1464,9 @@
                             BorderThickness: =0.2
                             Fill: =RGBA(0,0,0,0)
                             Height: =578
-                            Items: =Sort(Filter(CertificationOrder,CertificationID.Value= varCertificationData.ID,Status="Reimbursed"),SortOrder.Descending)
+                            Items: |-
+                                =//Sort(Filter(CertificationOrder,CertificationID.Value= varCertificationData.ID,Status="Reimbursed"),SortOrder.Descending)
+                                Sort(CertDetails,SortOrder.Descending)
                             Layout: =Layout.Vertical
                             TemplatePadding: =10
                             TemplateSize: =73
