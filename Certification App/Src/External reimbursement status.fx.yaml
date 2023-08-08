@@ -1,0 +1,3233 @@
+"'External reimbursement status' As screen":
+    OnVisible: |-
+        =UpdateContext({varMenuVisible:false});
+        UpdateContext({varreimbursement:false});
+        UpdateContext({varmanagecourse:false});
+        UpdateContext({locShowSpinnercatalog:true});
+        Set(varUser,false);
+        Set(varMngr,false);
+        Set(varAdmin,false);
+        Reset(userdrp_down_18);
+
+    Container1_13 As groupContainer.verticalAutoLayoutContainer:
+        Height: =Parent.Height
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        Width: =Parent.Width
+        ZIndex: =1
+
+        Container2_9 As groupContainer.horizontalAutoLayoutContainer:
+            FillPortions: =0
+            Height: =61
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =1
+
+            Container10_9 As groupContainer.manualLayoutContainer:
+                Height: =61
+                LayoutMinHeight: =61
+                LayoutMinWidth: =61
+                ZIndex: =1
+
+                Image1_13 As image:
+                    Height: =29.85
+                    Image: =ilinkDigitalLogo
+                    Width: =143.78
+                    X: =16
+                    Y: =16
+                    ZIndex: =1
+
+                Label1_10 As label:
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Semibold
+                    Height: =27
+                    Text: ="Certification++"
+                    Width: =139
+                    X: =183
+                    Y: =17
+                    ZIndex: =2
+
+                txtSearch_11 As text:
+                    BorderColor: =RGBA(219, 219, 219, 1)
+                    BorderThickness: =1
+                    Color: =RGBA(161, 161, 161, 1)
+                    Default: =""
+                    Font: ="Source Sans Pro"
+                    Height: =37
+                    HintText: ="Search By Keyword"
+                    HoverBorderColor: =//RGBA(0, 18, 107, 1)
+                    HoverColor: =//RGBA(0, 0, 0, 1)
+                    HoverFill: =//RGBA(186, 202, 226, 1)
+                    Size: =11.5
+                    Visible: =false
+                    Width: =363
+                    X: =374
+                    Y: =12
+                    ZIndex: =3
+
+                Icon1_9 As icon.Search:
+                    Color: =RGBA(213, 39, 26, 1)
+                    Height: =20
+                    Icon: =Icon.Search
+                    Visible: =false
+                    Width: =20
+                    X: =712
+                    Y: =23
+                    ZIndex: =4
+
+                Image7_30 As image:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    Height: =40
+                    Image: =User().Image
+                    ImagePosition: =ImagePosition.Fill
+                    OnSelect: |+
+                        =Navigate('Responsive Mylearning Screen', ScreenTransition.None);
+                        
+                    RadiusBottomLeft: =30
+                    RadiusBottomRight: =30
+                    RadiusTopLeft: =30
+                    RadiusTopRight: =30
+                    Width: =40
+                    X: =1314
+                    Y: =13
+                    ZIndex: =12
+
+                enrollContainer_15 As groupContainer.manualLayoutContainer:
+                    Height: =53
+                    PaddingBottom: =5
+                    Width: =123
+                    X: =1191
+                    ZIndex: =13
+
+                    icoEnrollList_24 As icon.ShoppingCart:
+                        Height: =53
+                        Icon: =Icon.ShoppingCart
+                        OnSelect: =Navigate('Responsive EnrollCertificate Screen', ScreenTransition.None)
+                        PaddingBottom: =10
+                        PaddingLeft: =10
+                        PaddingRight: =10
+                        PaddingTop: =10
+                        Tooltip: ="Cart items"
+                        Width: =48
+                        ZIndex: =1
+
+                    lblEnrollCount_22 As label:
+                        Align: =Align.Center
+                        Color: =RGBA(255, 255, 255, 1)
+                        Fill: =RGBA(168, 0, 0, 1)
+                        Height: =25
+                        PaddingBottom: =0
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Size: =10
+                        Text: =CountRows(EnrollList)   
+                        Width: =18
+                        X: =25
+                        ZIndex: =2
+
+                    BellIcon_21 As group:
+                        Height: =5
+                        Width: =5
+                        X: =-5
+                        Y: =13
+                        ZIndex: =6
+
+                        Bell_icon_21 As icon.Bell:
+                            Height: =30
+                            Icon: =Icon.Bell
+                            OnSelect: |-
+                                =If(varUserLevel="ADMIN",Set(varAdmin,true),
+                                If(
+                                    CountRows(myReports) = 0,
+                                    (Set(
+                                        varUser,
+                                        true
+                                    ) && Set(
+                                        varMngr,
+                                        false
+                                    )),
+                                    Set(
+                                        varMngr,
+                                        true
+                                    ) && Set(
+                                        varUser,
+                                        false
+                                    )
+                                ))
+                            Tooltip: ="Notifications"
+                            Width: =46
+                            X: =60
+                            Y: =17
+                            ZIndex: =3
+
+                        Count_22 As label:
+                            Align: =Align.Center
+                            Color: =RGBA(255, 255, 255, 1)
+                            Fill: =RGBA(168, 0, 0, 1)
+                            Height: =22
+                            Size: =9
+                            Text: |-
+                                =If(
+                                    CountRows(myReports) = 0,
+                                    CountRows(UserGallery_15.AllItems),
+                                    CountRows(ManagerGallery_13.AllItems)
+                                )
+                            Tooltip: ="Notifications"
+                            Visible: =If(varUserLevel="ADMIN",false,true) 
+                            Width: =40
+                            X: =66
+                            Y: =4
+                            ZIndex: =4
+
+                        AdminCount_22 As label:
+                            Align: =Align.Center
+                            Color: =RGBA(255, 255, 255, 1)
+                            Fill: =RGBA(168, 0, 0, 1)
+                            Height: =22
+                            Size: =9
+                            Text: =CountRows(ILDGAllery_13.AllItems)
+                            Tooltip: ="Notifications"
+                            Visible: =If(varUserLevel="ADMIN",true,false)
+                            Width: =40
+                            X: =66
+                            Y: =4
+                            ZIndex: =5
+
+                Group4_15 As group:
+                    Height: =5
+                    Width: =5
+                    X: =-721
+                    Y: =15
+                    ZIndex: =20
+
+                    Image2_21 As image:
+                        Height: =23
+                        Image: ='Layer 3'
+                        Width: =25
+                        X: =780
+                        Y: =23
+                        ZIndex: =14
+
+                    userdrp_down_18 As dropdown:
+                        BorderColor: =Color.Gray
+                        BorderThickness: =0
+                        ChevronBackground: =RGBA(0, 0, 0, 0)
+                        ChevronFill: =Color.Black
+                        ChevronHoverBackground: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
+                        ChevronHoverFill: |-
+                            =//RGBA(255, 255, 255, 1)
+                            Color.Black
+                        Default: ="Employee"
+                        FocusedBorderThickness: =0
+                        Font: ="Montsterrat"
+                        FontWeight: =FontWeight.Semibold
+                        Height: =30
+                        HoverColor: =RGBA(189, 0, 0, 1)
+                        HoverFill: =RGBA(81,82,108,0.5)
+                        Items: |-
+                            =//["Admin","Student"]
+                            
+                            If(varUserLevel="ADMIN" || varUserLevel="SUPER-ADMIN",["Admin","Employee"],["Employee"])
+                        PressedColor: =RGBA(184, 0, 0, 1)
+                        PressedFill: =RGBA(81,82,108,0.5)
+                        SelectionColor: =RGBA(184, 0, 0, 1)
+                        SelectionFill: =RGBA(81,82,108,0.5)
+                        Size: =10
+                        Width: =105
+                        X: =807
+                        Y: =14
+                        ZIndex: =15
+
+                    Image3_25 As image:
+                        Height: =23
+                        Image: ='certificate-outline-badged'
+                        Width: =25
+                        X: =930
+                        Y: =23
+                        ZIndex: =16
+
+                    Label7_35 As label:
+                        Align: =Align.Right
+                        FontWeight: =FontWeight.Semibold
+                        Height: =30
+                        HoverColor: =RGBA(184, 0, 0, 1)
+                        HoverFill: =RGBA(0, 0, 0, 0)
+                        OnSelect: =Navigate('Responsive Mylearning Screen',ScreenTransition.Fade)
+                        Size: =10
+                        Text: ="My Certifications"
+                        Width: =120
+                        X: =955
+                        Y: =14
+                        ZIndex: =17
+
+                    Label36_23 As label:
+                        Align: =Align.Center
+                        Color: =RGBA(0,0,0, 1)
+                        FontWeight: =FontWeight.Semibold
+                        Height: =30
+                        HoverColor: =RGBA(184, 0, 0, 1)
+                        HoverFill: =RGBA(0, 0, 0, 0)
+                        OnSelect: =Navigate('Responsive Settings Screen',ScreenTransition.Cover)
+                        Size: =10
+                        Text: ="Settings"
+                        Visible: =If(varUserLevel="ADMIN" || varUserLevel="SUPER-ADMIN",true,false)
+                        Width: =135
+                        X: =1075
+                        Y: =15
+                        ZIndex: =18
+
+                    Icon17_19 As icon.Settings:
+                        BorderColor: =RGBA(0, 0, 0, 1)
+                        Color: =RGBA(0, 0, 0, 1)
+                        Height: =23
+                        HoverColor: =RGBA(184, 0, 0, 1)
+                        HoverFill: =RGBA(204, 231, 246, 0.5)
+                        Icon: =Icon.Settings
+                        OnSelect: =Navigate('Responsive Settings Screen',ScreenTransition.Cover)
+                        Tooltip: ="SETTINGS"
+                        Visible: =If(varUserLevel="ADMIN" || varUserLevel="SUPER-ADMIN",true,false)
+                        Width: =25
+                        X: =1085
+                        Y: =21
+                        ZIndex: =19
+
+        Container8_9 As groupContainer.horizontalAutoLayoutContainer:
+            FillPortions: =0
+            Height: =40
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            Visible: |
+                =If('External reimbursement status'.Size=1 || 'External reimbursement status'.Size=2,true,false)
+            ZIndex: =2
+
+            Container29_9 As groupContainer.manualLayoutContainer:
+                LayoutMinHeight: =40
+                LayoutMinWidth: =250
+                ZIndex: =1
+
+                icoEnrollList_25 As icon.ShoppingCart:
+                    Height: =40
+                    Icon: =Icon.ShoppingCart
+                    OnSelect: =Navigate('Responsive EnrollCertificate Screen', ScreenTransition.None)
+                    PaddingBottom: =10
+                    PaddingLeft: =10
+                    PaddingRight: =10
+                    PaddingTop: =10
+                    Tooltip: ="Cart items"
+                    Width: =48
+                    X: =296
+                    ZIndex: =7
+
+                Group4_16 As group:
+                    Height: =5
+                    Width: =5
+                    X: =-740
+                    Y: =4
+                    ZIndex: =7
+
+                    Image2_22 As image:
+                        Height: =15
+                        Image: ='Layer 3'
+                        Width: =15
+                        X: =15
+                        Y: =11
+                        ZIndex: =1
+
+                    userdrp_down_19 As dropdown:
+                        BorderColor: =Color.Gray
+                        BorderThickness: =0
+                        ChevronBackground: =RGBA(0, 0, 0, 0)
+                        ChevronFill: =Color.Black
+                        ChevronHoverBackground: =//ColorFade(RGBA(56, 96, 178, 1), -20%)
+                        ChevronHoverFill: |-
+                            =//RGBA(255, 255, 255, 1)
+                            Color.Black
+                        FocusedBorderThickness: =0
+                        Font: ="Montsterrat"
+                        FontWeight: =FontWeight.Semibold
+                        Height: =20
+                        HoverColor: =RGBA(189, 0, 0, 1)
+                        HoverFill: =RGBA(81,82,108,0.5)
+                        Items: |-
+                            =//["Admin","Student"]
+                            
+                            If(varUserLevel="ADMIN" || varUserLevel="SUPER-ADMIN",["Admin","Employee"],["Employee"])
+                        PressedColor: =RGBA(184, 0, 0, 1)
+                        PressedFill: =RGBA(81,82,108,0.5)
+                        SelectionColor: =RGBA(184, 0, 0, 1)
+                        SelectionFill: =RGBA(81,82,108,0.5)
+                        Size: =7
+                        Width: =90
+                        X: =31
+                        Y: =9
+                        ZIndex: =2
+
+                    Image3_26 As image:
+                        Height: =15
+                        Image: ='certificate-outline-badged'
+                        Width: =15
+                        X: =123
+                        Y: =10
+                        ZIndex: =3
+
+                    Label7_36 As label:
+                        FontWeight: =FontWeight.Semibold
+                        Height: =20
+                        HoverColor: =RGBA(184, 0, 0, 1)
+                        HoverFill: =RGBA(204, 231, 246, 0.5)
+                        OnSelect: =Navigate('Responsive Mylearning Screen',ScreenTransition.Fade)
+                        Size: =7
+                        Text: ="My Certifications"
+                        Width: =87
+                        X: =141
+                        Y: =9
+                        ZIndex: =4
+
+                    Label36_24 As label:
+                        Color: =RGBA(0,0,0, 1)
+                        FontWeight: =FontWeight.Semibold
+                        Height: =20
+                        HoverColor: =RGBA(184, 0, 0, 1)
+                        HoverFill: =RGBA(204, 231, 246, 0.5)
+                        OnSelect: =Navigate('Responsive Settings Screen',ScreenTransition.Cover)
+                        Size: =7
+                        Text: ="Settings"
+                        Visible: =If(varUserLevel="ADMIN" || varUserLevel="SUPER-ADMIN",true,false)
+                        Width: =50
+                        X: =246
+                        Y: =9
+                        ZIndex: =5
+
+                    Icon17_20 As icon.Settings:
+                        BorderColor: =RGBA(0, 0, 0, 1)
+                        Color: =RGBA(0, 0, 0, 1)
+                        Height: =15
+                        HoverColor: =RGBA(184, 0, 0, 1)
+                        HoverFill: =RGBA(204, 231, 246, 0.5)
+                        Icon: =Icon.Settings
+                        OnSelect: =Navigate('Responsive Settings Screen',ScreenTransition.Cover)
+                        Tooltip: ="SETTINGS"
+                        Visible: =If(varUserLevel="ADMIN" || varUserLevel="SUPER-ADMIN",true,false)
+                        Width: =15
+                        X: =228
+                        Y: =10
+                        ZIndex: =6
+
+                lblEnrollCount_23 As label:
+                    Align: =Align.Center
+                    Color: =RGBA(255, 255, 255, 1)
+                    Fill: =RGBA(168, 0, 0, 1)
+                    Height: =25
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =10
+                    Text: =CountRows(EnrollList)   
+                    Width: =18
+                    X: =321
+                    ZIndex: =8
+
+                BellIcon_22 As group:
+                    Height: =5
+                    Width: =5
+                    X: =40
+                    Y: =13
+                    ZIndex: =12
+
+                    Bell_icon_22 As icon.Bell:
+                        Height: =22
+                        Icon: =Icon.Bell
+                        OnSelect: |-
+                            =If(varUserLevel="ADMIN",Set(varAdmin,true),
+                            If(
+                                CountRows(myReports) = 0,
+                                (Set(
+                                    varUser,
+                                    true
+                                ) && Set(
+                                    varMngr,
+                                    false
+                                )),
+                                Set(
+                                    varMngr,
+                                    true
+                                ) && Set(
+                                    varUser,
+                                    false
+                                )
+                            ))
+                        Tooltip: ="Notifications"
+                        Width: =34
+                        X: =344
+                        Y: =7
+                        ZIndex: =9
+
+                    Count_23 As label:
+                        Align: =Align.Center
+                        Color: =RGBA(255, 255, 255, 1)
+                        Fill: =RGBA(168, 0, 0, 1)
+                        Height: =16
+                        Size: =9
+                        Text: |-
+                            =If(
+                                CountRows(myReports) = 0,
+                                CountRows(UserGallery_15.AllItems),
+                                CountRows(ManagerGallery_13.AllItems)
+                            )
+                        Tooltip: ="Notifications"
+                        Visible: =If(varUserLevel="ADMIN",false,true) 
+                        Width: =29
+                        X: =361
+                        Y: =1
+                        ZIndex: =10
+
+                    AdminCount_23 As label:
+                        Align: =Align.Center
+                        Color: =RGBA(255, 255, 255, 1)
+                        Fill: =RGBA(168, 0, 0, 1)
+                        Height: =16
+                        Size: =9
+                        Text: =CountRows(ILDGAllery_13.AllItems)
+                        Tooltip: ="Notifications"
+                        Visible: =If(varUserLevel="ADMIN",true,false)
+                        Width: =29
+                        X: =348
+                        Y: =3
+                        ZIndex: =11
+
+        Container7_9 As groupContainer.horizontalAutoLayoutContainer:
+            FillPortions: =0
+            Height: =If('External reimbursement status'.Size=1 || 'External reimbursement status'.Size=2,33,22)
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =3
+
+        Container3_9 As groupContainer.horizontalAutoLayoutContainer:
+            Fill: =RGBA(247, 248, 250, 1)
+            Height: =685
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            LayoutOverflowX: =LayoutOverflow.Scroll
+            LayoutOverflowY: =LayoutOverflow.Scroll
+            ZIndex: =4
+
+            Container84 As groupContainer.verticalAutoLayoutContainer:
+                FillPortions: =0
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                Visible: =If('External reimbursement status'.Size=1 || 'External reimbursement status'.Size=2, true,false)
+                Width: =30
+                ZIndex: =1
+
+            Container4_9 As groupContainer.verticalAutoLayoutContainer:
+                Fill: =RGBA(255, 255, 255, 1)
+                FillPortions: =0
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                Visible: =If('External reimbursement status'.Size=1 || 'External reimbursement status'.Size=2,false,true)
+                Width: =223
+                ZIndex: =2
+
+                Container13_17 As groupContainer.manualLayoutContainer:
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =Parent.Width
+                    ZIndex: =1
+
+                    Label5_15 As label:
+                        Fill: =RGBA(173, 173, 173, 0.16)
+                        Height: =50
+                        Text: =""
+                        Visible: =If(userdrp_down_18.SelectedText.Value="Employee",true,false)
+                        Width: =221
+                        X: =2
+                        Y: =If(varreimbursement=true,296,214)
+                        ZIndex: =1
+
+                    Label6_14 As label:
+                        Fill: =RGBA(213, 39, 26, 1)
+                        Height: =50
+                        Text: =""
+                        Visible: =If(userdrp_down_18.SelectedText.Value="Employee",true,false)
+                        Width: =3
+                        X: =220
+                        Y: =If(varreimbursement=true,296,214)
+                        ZIndex: =2
+
+                    NewCertificationRequest_89 As button:
+                        Align: =Align.Left
+                        BorderColor: =Color.Gray
+                        BorderThickness: =0
+                        Color: =RGBA(0, 0, 0, 1)
+                        Fill: =RGBA(0, 0, 0, 0)
+                        FocusedBorderThickness: =0
+                        Font: ="Source Sans Pro"
+                        Height: =32
+                        HoverColor: =RGBA(184, 0, 0, 1)
+                        HoverFill: |-
+                            =//RGBA(204, 231, 246, 0.5)
+                            //RGBA(173, 173, 173, 0.16)
+                        OnSelect: |
+                            =Navigate('New Certifications request approval',ScreenTransition.UnCover);
+                        PressedBorderColor: =
+                        PressedColor: =RGBA(184, 0, 0, 1)
+                        PressedFill: =//RGBA(204, 231, 246, 0.5)
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Size: =9
+                        Text: ="New Certification Request"
+                        Visible: =If(userdrp_down_18.SelectedText.Value="Employee",true,false)
+                        Width: =180
+                        X: =33
+                        Y: |-
+                            =//140
+                            If(varreimbursement=true,222,140)
+                        ZIndex: =3
+
+                    DownloadForm_54 As button:
+                        Align: =Align.Left
+                        BorderColor: =Color.Gray
+                        BorderThickness: =0
+                        Color: =RGBA(0, 0, 0, 1)
+                        Fill: =RGBA(0, 0, 0, 0)
+                        FocusedBorderThickness: =0
+                        Font: ="Source Sans Pro"
+                        Height: =32
+                        HoverColor: =RGBA(184, 0, 0, 1)
+                        HoverFill: |-
+                            =//RGBA(204, 231, 246, 0.5)
+                            //RGBA(173, 173, 173, 0.16)
+                        OnSelect: |
+                            =If(varreimbursement=false,UpdateContext({varreimbursement:true}),UpdateContext({varreimbursement:false}));
+                        PressedBorderColor: =
+                        PressedColor: =RGBA(184, 0, 0, 1)
+                        PressedFill: =//RGBA(204, 231, 246, 0.5)
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Size: =9
+                        Text: ="Reimbursement Status"
+                        Visible: =If(userdrp_down_18.SelectedText.Value="Employee",true,false)
+                        X: =33
+                        Y: =101
+                        ZIndex: =4
+
+                    AdminDashboard_23 As button:
+                        Align: =Align.Left
+                        BorderColor: =Color.Gray
+                        BorderThickness: =0
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisplayMode: |-
+                            =If(
+                                (varUserLevel in [
+                                    "ADMIN",
+                                    "SUPER-ADMIN"
+                                ]) Or CountRows(
+                                    Filter(
+                                        'BU-List',
+                                        'BU-Head'.Email = User().Email
+                                    )
+                                ) = 1,
+                                DisplayMode.Edit,
+                                DisplayMode.Disabled
+                            )
+                        Fill: =RGBA(255, 255, 255, 1)
+                        FocusedBorderThickness: |
+                            =0
+                        Height: =32
+                        HoverColor: =RGBA(184, 0, 0, 1)
+                        HoverFill: |-
+                            =//RGBA(204, 231, 246, 0.5)
+                            //RGBA(173, 173, 173, 0.16)
+                        OnSelect: =Navigate('Admin dashBoard',ScreenTransition.Cover);
+                        PressedBorderColor: =
+                        PressedColor: =RGBA(184, 0, 0, 1)
+                        PressedFill: =//RGBA(204, 231, 246, 0.5)
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Size: =9
+                        Text: ="Analysis Report"
+                        Visible: =If(userdrp_down_18.SelectedText.Value="Admin",true,false)
+                        Width: =186
+                        X: =34
+                        Y: =If(varmanagecourse=true,189,103)
+                        ZIndex: =5
+
+                    AdminDashboard_77 As button:
+                        Align: =Align.Left
+                        BorderColor: =Color.Gray
+                        BorderStyle: =//BorderStyle.Solid
+                        BorderThickness: =0
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisplayMode: |-
+                            =/*If(
+                                (varUserLevel in [
+                                    "ADMIN",
+                                    "SUPER-ADMIN"
+                                ]) Or CountRows(
+                                    Filter(
+                                        'BU-List',
+                                        'BU-Head'.Email = User().Email
+                                    )
+                                ) = 1,
+                                DisplayMode.Edit,
+                                Disabled
+                            )*/
+                            DisplayMode.Edit
+                        Fill: =RGBA(0, 0, 0, 0)
+                        FocusedBorderThickness: |
+                            =0
+                        Font: ="Source Sans Pro"
+                        Height: =45
+                        HoverColor: =RGBA(184, 0, 0, 1)
+                        HoverFill: |-
+                            =//ColorFade(RGBA(56, 96, 178, 1), -20%)
+                            //RGBA(204, 231, 246, 0.5)
+                        OnSelect: =Navigate('Responsive Mylearning Screen',ScreenTransition.CoverRight);
+                        PressedBorderColor: =
+                        PressedColor: =RGBA(184, 0, 0, 1)
+                        PressedFill: =//RGBA(204, 231, 246, 0.5)
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Size: =9
+                        Text: ="Home"
+                        Width: =170
+                        X: =33
+                        Y: =4
+                        ZIndex: =6
+
+                    Icon11_17 As icon.Home:
+                        BorderColor: =RGBA(0, 0, 0, 1)
+                        Color: =RGBA(0, 0, 0, 1)
+                        Height: =23
+                        HoverFill: =RGBA(204, 231, 246, 0.5)
+                        Icon: =Icon.Home
+                        OnSelect: |
+                            =Navigate('Responsive Mylearning Screen',ScreenTransition.UnCover);
+                        Width: =23
+                        X: =7
+                        Y: =14
+                        ZIndex: =7
+
+                    NewCertificationRequest_88 As button:
+                        Align: =Align.Left
+                        BorderColor: =Color.Gray
+                        BorderThickness: =0
+                        Color: =RGBA(0, 0, 0, 1)
+                        Fill: =RGBA(0, 0, 0, 0)
+                        FocusedBorderThickness: |
+                            =0
+                        Font: ="Source Sans Pro"
+                        Height: =32
+                        HoverColor: =RGBA(184, 0, 0, 1)
+                        HoverFill: |-
+                            =//RGBA(204, 231, 246, 0.5)
+                            //RGBA(173, 173, 173, 0.16)
+                        OnSelect: =If(userdrp_down_18.SelectedText.Value="Employee",Navigate('Responsive Home Screen',ScreenTransition.Cover),false)
+                        PressedBorderColor: =
+                        PressedColor: =RGBA(184, 0, 0, 1)
+                        PressedFill: =//RGBA(204, 231, 246, 0.5)
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Size: =9
+                        Text: ="Register Certifications"
+                        Width: =145
+                        X: =33
+                        Y: =59
+                        ZIndex: =8
+
+                    Icon22_17 As icon.ChevronRight:
+                        BorderColor: =RGBA(0, 0, 0, 1)
+                        Color: =RGBA(0, 0, 0, 1)
+                        Height: =17
+                        HoverColor: =RGBA(184, 0, 0, 1)
+                        HoverFill: =RGBA(173, 173, 173, 0.16)
+                        Icon: =Icon.ChevronRight
+                        OnSelect: |
+                            =If(varreimbursement=false,UpdateContext({varreimbursement:true}),UpdateContext({varreimbursement:false}));
+                        Visible: =If(userdrp_down_18.SelectedText.Value="Employee",!varreimbursement,false)
+                        Width: =22
+                        X: =193
+                        Y: =107
+                        ZIndex: =9
+
+                    NewCertificationRequest_91 As button:
+                        Align: =Align.Left
+                        BorderColor: =Color.Gray
+                        BorderThickness: =0
+                        Color: =RGBA(0, 0, 0, 1)
+                        Fill: =RGBA(0, 0, 0, 0)
+                        FocusedBorderThickness: =0
+                        Font: ="Source Sans Pro"
+                        Height: =32
+                        HoverColor: =RGBA(184, 0, 0, 1)
+                        HoverFill: |-
+                            =//RGBA(204, 231, 246, 0.5)
+                            //RGBA(173, 173, 173, 0.16)
+                        OnSelect: |
+                            =Navigate(AskQuestion_Admin,ScreenTransition.UnCover);
+                        PressedBorderColor: =
+                        PressedColor: =RGBA(184, 0, 0, 1)
+                        PressedFill: =//RGBA(204, 231, 246, 0.5)
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Size: =9
+                        Text: ="Ask Questions to L&D"
+                        Visible: =If(userdrp_down_18.SelectedText.Value="Employee",true,false)
+                        Width: =180
+                        X: =33
+                        Y: |-
+                            =//181
+                            If(varreimbursement=true,263,181)
+                        ZIndex: =10
+
+                    Icon29_17 As icon.ChevronRight:
+                        BorderColor: =RGBA(0, 0, 0, 1)
+                        Color: =RGBA(0, 0, 0, 1)
+                        Height: =20
+                        HoverColor: =RGBA(184, 0, 0, 1)
+                        HoverFill: =//RGBA(204, 231, 246, 0.5)
+                        Icon: =Icon.ChevronRight
+                        OnSelect: |-
+                            =If(varmanagecourse=false,UpdateContext({varmanagecourse:true}),UpdateContext({varmanagecourse:false}));
+                        Visible: =If(userdrp_down_18.SelectedText.Value="Admin",!varmanagecourse,false)
+                        Width: =25
+                        X: =178
+                        Y: =68
+                        ZIndex: =11
+
+                    Icon32_17 As icon.Database:
+                        BorderColor: =RGBA(0, 0, 0, 1)
+                        Color: =RGBA(0, 0, 0, 1)
+                        Height: =22
+                        HoverFill: =RGBA(204, 231, 246, 0.5)
+                        Icon: =Icon.Database
+                        OnSelect: |
+                            =Navigate('Admin dashBoard',ScreenTransition.UnCover);
+                        Visible: =If(userdrp_down_18.SelectedText.Value="Admin",true,false)
+                        Width: =22
+                        X: =5
+                        Y: |-
+                            =//110
+                            If(varmanagecourse=true,196,110)
+                        ZIndex: =12
+
+                    NewCertificationRequest_90 As button:
+                        Align: =Align.Left
+                        BorderColor: =Color.Gray
+                        BorderThickness: =0
+                        Color: =RGBA(0, 0, 0, 1)
+                        Fill: =RGBA(255, 255, 255, 1)
+                        FocusedBorderThickness: |
+                            =0
+                        Height: =32
+                        HoverColor: =RGBA(184, 0, 0, 1)
+                        HoverFill: |-
+                            =//RGBA(204, 231, 246, 0.5)
+                            //RGBA(173, 173, 173, 0.16)
+                        OnSelect: |
+                            =Navigate(AskQuestion_Admin,ScreenTransition.UnCover);
+                        PressedBorderColor: =
+                        PressedColor: =RGBA(184, 0, 0, 1)
+                        PressedFill: =//RGBA(204, 231, 246, 0.5)
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Size: =9
+                        Text: ="Ask Questions to L&D"
+                        Visible: |-
+                            =//varMenuVisible And 
+                            If(userdrp_down_18.SelectedText.Value="Admin",true,false)
+                        Width: =186
+                        X: =34
+                        Y: |-
+                            =//146
+                            If(varmanagecourse=true,232,146)
+                        ZIndex: =13
+
+                    NewCertificationRequest_92 As button:
+                        Align: =Align.Left
+                        BorderColor: =Color.Gray
+                        BorderThickness: =0
+                        Color: =RGBA(213, 39, 26, 1)
+                        Fill: =RGBA(0, 0, 0, 0)
+                        FocusedBorderThickness: =0
+                        Font: ="Source Sans Pro"
+                        Height: =32
+                        HoverColor: =RGBA(184, 0, 0, 1)
+                        HoverFill: |-
+                            =//RGBA(204, 231, 246, 0.5)
+                            //RGBA(173, 173, 173, 0.16)
+                        OnSelect: |
+                            =Navigate('External reimbursement status' ,ScreenTransition.UnCover);
+                        PressedBorderColor: =
+                        PressedColor: =RGBA(184, 0, 0, 1)
+                        PressedFill: =//RGBA(204, 231, 246, 0.5)
+                        RadiusBottomLeft: =0
+                        RadiusBottomRight: =0
+                        RadiusTopLeft: =0
+                        RadiusTopRight: =0
+                        Size: =9
+                        Text: ="External Certification Details"
+                        Tooltip: ="Extrenal Certification Completion Details Form"
+                        Visible: =If(userdrp_down_18.SelectedText.Value="Employee",true,false)
+                        Width: =188
+                        X: =33
+                        Y: |-
+                            =//222
+                            If(varreimbursement=true,304,222)
+                        ZIndex: =14
+
+                    Image5_25 As image:
+                        Height: =34
+                        Image: ='certificate-outline-badged'
+                        ImagePosition: =ImagePosition.Center
+                        Width: =37
+                        Y: =59
+                        ZIndex: =15
+
+                    Image6_17 As image:
+                        Height: =21
+                        Image: =dollar
+                        Visible: =If(userdrp_down_18.SelectedText.Value="Employee",true,false)
+                        Width: =21
+                        X: =7
+                        Y: =106
+                        ZIndex: =16
+
+                    Image7_32 As image:
+                        Height: =19
+                        Image: ='certificate-check'
+                        Visible: =If(userdrp_down_18.SelectedText.Value="Employee",true,false)
+                        Width: =19
+                        X: =7
+                        Y: |-
+                            =//146
+                            If(varreimbursement=true,228,146)
+                        ZIndex: =17
+
+                    Image8_19 As image:
+                        Height: =23
+                        Image: ='question-octagon'
+                        Visible: =If(userdrp_down_18.SelectedText.Value="Employee",true,false)
+                        Width: =23
+                        X: =5
+                        Y: |-
+                            =//187
+                            If(varreimbursement=true,270,187)
+                        ZIndex: =18
+
+                    Image9_17 As image:
+                        Height: =22
+                        Image: ='external-link'
+                        Visible: =If(userdrp_down_18.SelectedText.Value="Employee",true,false)
+                        Width: =23
+                        X: =4
+                        Y: |-
+                            =//228
+                            If(varreimbursement=true,310,228)
+                        ZIndex: =19
+
+                    Image12_17 As image:
+                        Height: =22
+                        Image: ='question-octagon'
+                        OnSelect: =Navigate(AskQuestion_Admin,ScreenTransition.UnCover);
+                        Visible: =If(userdrp_down_18.SelectedText.Value="Admin",true,false)
+                        Width: =24
+                        X: =4
+                        Y: |-
+                            =//151
+                            If(varmanagecourse=true,239,151)
+                        ZIndex: =20
+
+                    Icon5_3 As icon.ChevronDown:
+                        Color: =RGBA(0, 0, 0, 1)
+                        Height: =17
+                        Icon: =Icon.ChevronDown
+                        OnSelect: |
+                            =If(varreimbursement=false,UpdateContext({varreimbursement:true}),UpdateContext({varreimbursement:false}));
+                        Visible: =If(userdrp_down_18.SelectedText.Value="Employee",varreimbursement,false)
+                        Width: =22
+                        X: =193
+                        Y: =107
+                        ZIndex: =26
+
+                    Image5_26 As image:
+                        Height: =34
+                        Image: ='certificate-outline-badged'
+                        ImagePosition: =ImagePosition.Center
+                        Visible: =varmanagecourse And If(userdrp_down_18.SelectedText.Value="Admin",true,false)
+                        Width: =33
+                        Y: =143
+                        ZIndex: =27
+
+                    Image7_31 As image:
+                        Height: =19
+                        Image: ='certificate-check'
+                        Visible: =varmanagecourse And If(userdrp_down_18.SelectedText.Value="Admin",true,false)
+                        Width: =19
+                        X: =7
+                        Y: =110
+                        ZIndex: =28
+
+                    Icon6_3 As icon.ChevronDown:
+                        Color: =RGBA(0, 0, 0, 1)
+                        Height: =20
+                        Icon: =Icon.ChevronDown
+                        OnSelect: |-
+                            =If(varmanagecourse=false,UpdateContext({varmanagecourse:true}),UpdateContext({varmanagecourse:false}));
+                        Visible: =If(userdrp_down_18.SelectedText.Value="Admin",varmanagecourse,false)
+                        Width: =25
+                        X: =178
+                        Y: =68
+                        ZIndex: =29
+
+                    registercert_grp_17 As group:
+                        Height: =5
+                        Width: =5
+                        X: =40
+                        Y: =40
+                        ZIndex: =33
+
+                        AdminDashboard_78 As button:
+                            Align: =Align.Left
+                            BorderColor: =Color.Gray
+                            BorderStyle: =//BorderStyle.Solid
+                            BorderThickness: =0
+                            Color: =RGBA(0, 0, 0, 1)
+                            DisplayMode: |-
+                                =If(
+                                    (varUserLevel in [
+                                        "ADMIN",
+                                        "SUPER-ADMIN"
+                                    ]) Or CountRows(
+                                        Filter(
+                                            'BU-List',
+                                            'BU-Head'.Email = User().Email
+                                        )
+                                    ) = 1,
+                                    DisplayMode.Edit,
+                                    DisplayMode.Disabled
+                                )
+                            Fill: =RGBA(255, 255, 255, 1)
+                            FocusedBorderThickness: |
+                                =0
+                            Height: =32
+                            HoverColor: =RGBA(184, 0, 0, 1)
+                            HoverFill: =//RGBA(204, 231, 246, 0.5)
+                            OnSelect: |-
+                                =//Navigate('Responsive MyLearning Screen',ScreenTransition.Cover);
+                                Navigate(CertificationRecommendationScreen,ScreenTransition.Cover);
+                            PressedBorderColor: =
+                            PressedColor: =RGBA(184, 0, 0, 1)
+                            PressedFill: =//RGBA(204, 231, 246, 0.5)
+                            RadiusBottomLeft: =0
+                            RadiusBottomRight: =0
+                            RadiusTopLeft: =0
+                            RadiusTopRight: =0
+                            Size: =9
+                            Text: |-
+                                =
+                                "Add a Certificate"
+                            Visible: =varmanagecourse And If(userdrp_down_18.SelectedText.Value="Admin",true,false)
+                            Width: =165
+                            X: =29
+                            Y: =103
+                            ZIndex: =21
+
+                        AdminDashboard_79 As button:
+                            Align: =Align.Left
+                            BorderColor: =Color.Gray
+                            BorderStyle: =//BorderStyle.Solid
+                            BorderThickness: =0
+                            Color: =RGBA(0, 0, 0, 1)
+                            DisplayMode: |-
+                                =If(
+                                    (varUserLevel in [
+                                        "ADMIN",
+                                        "SUPER-ADMIN"
+                                    ]) Or CountRows(
+                                        Filter(
+                                            'BU-List',
+                                            'BU-Head'.Email = User().Email
+                                        )
+                                    ) = 1,
+                                    DisplayMode.Edit,
+                                    DisplayMode.Disabled
+                                )
+                            Fill: =RGBA(255, 255, 255, 1)
+                            FocusedBorderThickness: |
+                                =0
+                            Height: =32
+                            HoverColor: =RGBA(184, 0, 0, 1)
+                            HoverFill: =//RGBA(204, 231, 246, 0.5)
+                            OnSelect: |
+                                =Navigate('Responsive Home Screen',ScreenTransition.Cover);
+                            PressedBorderColor: =
+                            PressedColor: =RGBA(184, 0, 0, 1)
+                            PressedFill: =//RGBA(204, 231, 246, 0.5)
+                            RadiusBottomLeft: =0
+                            RadiusBottomRight: =0
+                            RadiusTopLeft: =0
+                            RadiusTopRight: =0
+                            Size: =9
+                            Text: ="Certifications Catalog"
+                            Visible: =varmanagecourse And If(userdrp_down_18.SelectedText.Value="Admin",true,false)
+                            Width: =165
+                            X: =29
+                            Y: =146
+                            ZIndex: =22
+
+                    reimburse_grp_17 As group:
+                        Height: =5
+                        Width: =5
+                        X: =40
+                        Y: =40
+                        ZIndex: =33
+
+                        DownloadForm_55 As button:
+                            Align: =Align.Left
+                            BorderColor: =Color.Gray
+                            BorderStyle: =
+                            BorderThickness: =0
+                            Color: =RGBA(0, 0, 0, 1)
+                            Fill: =RGBA(255, 255, 255, 1)
+                            FocusedBorderThickness: =0
+                            Height: =32
+                            HoverColor: =RGBA(184, 0, 0, 1)
+                            HoverFill: =//RGBA(204, 231, 246, 0.5)
+                            OnSelect: |-
+                                =Download("https://ilinksystemsinc449.sharepoint.com/:w:/r/sites/LDForum/_layouts/15/Doc.aspx?sourcedoc=%7BCE1DB890-5609-41DE-8A99-FF188355049F%7D&file=Certification%20Reimbursement%20Application%20Form_Ver%201.docx&action=default&mobileredirect=true"&"download.aspx")
+                            PressedBorderColor: =
+                            PressedColor: =RGBA(184, 0, 0, 1)
+                            PressedFill: =//RGBA(204, 231, 246, 0.5)
+                            RadiusBottomLeft: =0
+                            RadiusBottomRight: =0
+                            RadiusTopLeft: =0
+                            RadiusTopRight: =0
+                            Size: =9
+                            Text: ="Reimbursement Form"
+                            Visible: =varreimbursement  And If(userdrp_down_18.SelectedText.Value="Employee",true,false)
+                            Width: =165
+                            X: =33
+                            Y: =140
+                            ZIndex: =23
+
+                        DownloadForm_56 As button:
+                            Align: =Align.Left
+                            BorderColor: =Color.Gray
+                            BorderStyle: =
+                            BorderThickness: =0
+                            Color: =RGBA(0, 0, 0, 1)
+                            Fill: =RGBA(255, 255, 255, 1)
+                            FocusedBorderThickness: =0
+                            Height: =32
+                            HoverColor: =RGBA(184, 0, 0, 1)
+                            HoverFill: =//RGBA(204, 231, 246, 0.5)
+                            OnSelect: |-
+                                =/*Download("https://ilinksystemsinc449.sharepoint.com/:b:/s/LDForum/EbDUFfjxo7hFto09CYYc9msB6eqcr_UdjKLw-ar1e-YZyA?e=wSdOHg"&"download.aspx")*/
+                                Navigate('Responsive Mylearning Screen',ScreenTransition.Fade)
+                            PressedBorderColor: =
+                            PressedColor: =RGBA(184, 0, 0, 1)
+                            PressedFill: =//RGBA(204, 231, 246, 0.5)
+                            RadiusBottomLeft: =0
+                            RadiusBottomRight: =0
+                            RadiusTopLeft: =0
+                            RadiusTopRight: =0
+                            Size: =9
+                            Text: ="Status"
+                            Visible: =varreimbursement  And If(userdrp_down_18.SelectedText.Value="Employee",true,false)
+                            Width: =165
+                            X: =33
+                            Y: =181
+                            ZIndex: =24
+
+                        Icon23_17 As icon.Download:
+                            BorderColor: =RGBA(0, 0, 0, 1)
+                            Color: =RGBA(0, 0, 0, 1)
+                            FocusedBorderThickness: =0
+                            Height: =20
+                            HoverColor: =RGBA(184, 0, 0, 1)
+                            HoverFill: =RGBA(204, 231, 246, 0.5)
+                            Icon: =Icon.Download
+                            OnSelect: |
+                                =Download("https://ilinksystemsinc449.sharepoint.com/:b:/s/LDForum/EbDUFfjxo7hFto09CYYc9msB6eqcr_UdjKLw-ar1e-YZyA?e=wSdOHg"&"download.aspx")
+                            Visible: =varreimbursement  And If(userdrp_down_18.SelectedText.Value="Employee",true,false)
+                            Width: =24
+                            X: =4
+                            Y: =146
+                            ZIndex: =25
+
+            Container83 As groupContainer.verticalAutoLayoutContainer:
+                FillPortions: =0
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                LayoutOverflowY: =LayoutOverflow.Scroll
+                Visible: |
+                    =If('External reimbursement status'.Size=1 || 'External reimbursement status'.Size=2, true,false)
+                Width: =400
+                ZIndex: =3
+
+                Container115_2 As groupContainer.verticalAutoLayoutContainer:
+                    FillPortions: =0
+                    Height: =275
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    ZIndex: =1
+
+                    Container117_2 As groupContainer.manualLayoutContainer:
+                        Height: =350
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        ZIndex: =1
+
+                        Rectangle5_5 As rectangle:
+                            Fill: =RGBA(255, 255, 255, 1)
+                            Height: =262
+                            Width: =383
+                            Y: =13
+                            ZIndex: =1
+
+                        Group20_1 As group:
+                            Height: =5
+                            Width: =5
+                            X: =-84
+                            Y: =-5
+                            ZIndex: =14
+
+                            Label92_1 As label:
+                                Color: =RGBA(213, 39, 26, 1)
+                                FontWeight: =FontWeight.Bold
+                                Height: =30
+                                Size: =11
+                                Text: ="Name"
+                                Width: =122
+                                Y: =66
+                                ZIndex: =2
+
+                            TextInput2_1 As text:
+                                BorderColor: =RGBA(112, 112, 112, 0.31)
+                                BorderThickness: =1
+                                Default: =""
+                                FocusedBorderThickness: |
+                                    =2
+                                Height: =30
+                                HintText: ="Enter your Full name"
+                                HoverFill: =RGBA(255, 255, 255, 1)
+                                PaddingLeft: =5
+                                Size: =11
+                                Width: =310
+                                X: =68
+                                Y: =66
+                                ZIndex: =3
+
+                            Label93_1 As label:
+                                Color: =RGBA(213, 39, 26, 1)
+                                FontWeight: =FontWeight.Bold
+                                Height: =30
+                                Size: =11
+                                Text: ="Exam Code"
+                                Width: =122
+                                Y: =106
+                                ZIndex: =4
+
+                            TextInput5_1 As text:
+                                BorderColor: =RGBA(112, 112, 112, 0.31)
+                                BorderThickness: =1
+                                Default: =""
+                                FocusedBorderThickness: =2
+                                Height: =30
+                                HintText: ="Enter your Exam code"
+                                HoverFill: =RGBA(255, 255, 255, 1)
+                                PaddingLeft: =5
+                                Size: =11
+                                Width: =310
+                                X: =68
+                                Y: =106
+                                ZIndex: =5
+
+                            Label94_1 As label:
+                                Color: =RGBA(213, 39, 26, 1)
+                                FontWeight: =FontWeight.Bold
+                                Height: =30
+                                Size: =11
+                                Text: ="Exam Level"
+                                Width: =122
+                                Y: =146
+                                ZIndex: =6
+
+                            Dropdown2_1 As dropdown:
+                                BorderColor: =RGBA(112, 112, 112, 0.31)
+                                BorderThickness: =1
+                                ChevronBackground: =RGBA(112, 112, 112, 0.31)
+                                ChevronFill: =RGBA(0, 0, 0, 1)
+                                FocusedBorderThickness: =2
+                                Height: =30
+                                Items: =["Beginner","Intermediate","Advanced"]
+                                Size: =11
+                                Width: =310
+                                X: =68
+                                Y: =146
+                                ZIndex: =7
+
+                            Label95_1 As label:
+                                Color: =RGBA(213, 39, 26, 1)
+                                FontWeight: =FontWeight.Bold
+                                Height: =30
+                                Size: =11
+                                Text: ="Certification Name"
+                                Width: =122
+                                Y: =186
+                                ZIndex: =8
+
+                            TextInput6_1 As text:
+                                BorderColor: =RGBA(112, 112, 112, 0.31)
+                                BorderThickness: =1
+                                Default: =""
+                                FocusedBorderThickness: =2
+                                Height: =30
+                                HintText: ="Enter your Certification Name"
+                                HoverFill: =RGBA(255, 255, 255, 1)
+                                PaddingLeft: =5
+                                Size: =11
+                                Width: =310
+                                X: =68
+                                Y: =186
+                                ZIndex: =9
+
+                            Label96_1 As label:
+                                Color: =RGBA(213, 39, 26, 1)
+                                FontWeight: =FontWeight.Bold
+                                Height: =30
+                                Size: =11
+                                Text: ="Completion Date"
+                                Width: =122
+                                Y: =226
+                                ZIndex: =10
+
+                            DatePicker2_1 As datepicker:
+                                BorderColor: =RGBA(112, 112, 112, 0.31)
+                                BorderThickness: =1
+                                FocusedBorderThickness: =2
+                                Height: =30
+                                IconBackground: =RGBA(0,0,0,1)
+                                PaddingLeft: =5
+                                PaddingTop: =5
+                                Size: =11
+                                Width: =310
+                                X: =68
+                                Y: =226
+                                ZIndex: =11
+
+                            Label103_1 As label:
+                                Align: =Align.Center
+                                Fill: =RGBA(255, 232, 231, 1)
+                                FontWeight: =FontWeight.Bold
+                                Size: =14
+                                Text: ="External Certification Details"
+                                Width: =442
+                                Y: =4
+                                ZIndex: =12
+
+                            Image12_35 As image:
+                                Height: =33
+                                Image: =Last(Attachments_9.Attachments).Value
+                                Visible: =false
+                                Width: =49
+                                Y: =7
+                                ZIndex: =13
+
+                Container116_2 As groupContainer.horizontalAutoLayoutContainer:
+                    FillPortions: =0
+                    Height: =210
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    ZIndex: =2
+
+                    Container118_2 As groupContainer.manualLayoutContainer:
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        ZIndex: =1
+
+                        Rectangle5_6 As rectangle:
+                            Fill: =RGBA(255, 255, 255, 1)
+                            Height: =Parent.Height
+                            Width: =383
+                            ZIndex: =1
+
+                        Group19_1 As group:
+                            Height: =5
+                            Width: =5
+                            X: =-130
+                            Y: =-250
+                            ZIndex: =12
+
+                            Label97_1 As label:
+                                Color: =RGBA(213, 39, 26, 1)
+                                FontWeight: =FontWeight.Bold
+                                Height: =34
+                                Size: =11
+                                Text: ="Price of Certification"
+                                Width: =122
+                                Y: =4
+                                ZIndex: =2
+
+                            TextInput7_1 As text:
+                                BorderColor: =RGBA(112, 112, 112, 0.31)
+                                BorderThickness: =1
+                                Default: =""
+                                FocusedBorderThickness: =2
+                                Height: =30
+                                HintText: ="Enter price of certification"
+                                HoverFill: =RGBA(255, 255, 255, 1)
+                                PaddingLeft: =95
+                                Size: =11
+                                Width: =310
+                                X: =63
+                                Y: =4
+                                ZIndex: =3
+
+                            Label98_1 As label:
+                                Color: =RGBA(213, 39, 26, 1)
+                                FontWeight: =FontWeight.Bold
+                                Height: =30
+                                Size: =11
+                                Text: ="Provider Name"
+                                Width: =122
+                                Y: =42
+                                ZIndex: =4
+
+                            TextInput8_1 As text:
+                                BorderColor: =RGBA(112, 112, 112, 0.31)
+                                BorderThickness: =1
+                                Default: =""
+                                FocusedBorderThickness: =2
+                                Height: =30
+                                HintText: ="Enter your Provider Name"
+                                HoverFill: =RGBA(255, 255, 255, 1)
+                                PaddingLeft: =5
+                                Size: =11
+                                Tooltip: ="Certification Company Name"
+                                Width: =310
+                                X: =63
+                                Y: =49
+                                ZIndex: =5
+
+                            Label99_2 As label:
+                                Color: =RGBA(213, 39, 26, 1)
+                                FontWeight: =FontWeight.Bold
+                                Height: =30
+                                Size: =11
+                                Text: ="Technology"
+                                Width: =122
+                                Y: =90
+                                ZIndex: =6
+
+                            TextInput9_2 As text:
+                                BorderColor: =RGBA(112, 112, 112, 0.31)
+                                BorderThickness: =1
+                                Default: =""
+                                FocusedBorderThickness: =2
+                                Height: =30
+                                HintText: ="Enter Certification Technology"
+                                HoverFill: =RGBA(255, 255, 255, 1)
+                                PaddingLeft: =5
+                                Size: =11
+                                Width: =310
+                                X: =63
+                                Y: =84
+                                ZIndex: =7
+
+                            Label100_1 As label:
+                                Color: =RGBA(213, 39, 26, 1)
+                                FontWeight: =FontWeight.Bold
+                                Height: =30
+                                Size: =11
+                                Text: ="Role"
+                                Width: =122
+                                Y: =130
+                                ZIndex: =8
+
+                            TextInput10_1 As text:
+                                BorderColor: =RGBA(112, 112, 112, 0.31)
+                                BorderThickness: =1
+                                Default: =""
+                                Height: =30
+                                HintText: ="Enter Role"
+                                HoverFill: =RGBA(255, 255, 255, 1)
+                                PaddingLeft: =5
+                                Size: =11
+                                Tooltip: ="Development Name of Certification"
+                                Width: =310
+                                X: =63
+                                Y: =124
+                                ZIndex: =9
+
+                            Label102_2 As label:
+                                Color: =RGBA(213, 39, 26, 1)
+                                FontWeight: =FontWeight.Bold
+                                Height: =30
+                                Size: =11
+                                Text: ="BU"
+                                Width: =122
+                                Y: =170
+                                ZIndex: =10
+
+                            Dropdown3_1 As dropdown:
+                                BorderColor: =RGBA(112, 112, 112, 0.31)
+                                BorderThickness: =1
+                                ChevronBackground: =RGBA(112, 112, 112, 0.31)
+                                ChevronFill: =RGBA(0, 0, 0, 1)
+                                Default: ="ACS"
+                                FocusedBorderThickness: =2
+                                Height: =30
+                                Items: =Sort('BU-List',Title,SortOrder.Ascending)
+                                Size: =11
+                                Width: =227
+                                X: =63
+                                Y: =164
+                                ZIndex: =11
+
+                            Dropdown6_1 As dropdown:
+                                BorderColor: =RGBA(112, 112, 112, 0.31)
+                                BorderThickness: =1
+                                ChevronBackground: =RGBA(0, 0, 0, 0)
+                                ChevronFill: =RGBA(0, 0, 0, 1)
+                                FocusedBorderThickness: =0
+                                FontWeight: =FontWeight.Semibold
+                                Height: =30
+                                Items: =["Rs","$","Mex$"]
+                                Size: =11
+                                Width: =85
+                                X: =63
+                                Y: =4
+                                ZIndex: =12
+
+                Container119_2 As groupContainer.verticalAutoLayoutContainer:
+                    FillPortions: =0
+                    Height: =280
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    ZIndex: =3
+
+                    Container109_1 As groupContainer.manualLayoutContainer:
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        ZIndex: =1
+
+                        Rectangle5_7 As rectangle:
+                            Fill: =RGBA(255, 255, 255, 1)
+                            Height: =Parent.Height
+                            Width: =383
+                            ZIndex: =1
+
+                        Group8_1 As group:
+                            Height: =5
+                            Width: =5
+                            X: =40
+                            Y: =40
+                            ZIndex: =9
+
+                            Label101_1 As label:
+                                Color: =RGBA(213, 39, 26, 1)
+                                FontWeight: =FontWeight.Bold
+                                Height: =36
+                                Size: =11
+                                Text: ="Microsoft Provider"
+                                Width: =111
+                                Y: =153
+                                ZIndex: =2
+
+                            Radio3_1 As radio:
+                                BorderColor: =RGBA(0, 0, 0, 0)
+                                FontWeight: =FontWeight.Semibold
+                                Height: =49
+                                Items: =["Yes","No"]
+                                Layout: =Layout.Horizontal
+                                LineHeight: =1.8
+                                RadioBorderColor: =RGBA(0, 0, 0, 1)
+                                Size: =9
+                                Width: =310
+                                X: =58
+                                Y: =140
+                                ZIndex: =3
+
+                            Attachments_9 As attachments:
+                                BorderColor: =RGBA(112, 112, 112, 0.31)
+                                BorderThickness: =0.1
+                                DropTargetBorderColor: =RGBA(219, 219, 219, 1)
+                                DropTargetBorderThickness: =0
+                                Height: =80
+                                IsInDataCard: =true
+                                Items: =
+                                MaxAttachments: =1
+                                NoAttachmentsText: ="There is nothing attached (Size below 10mb) "
+                                OnAddFile: |
+                                    =Set(
+                                        varDemoFromAttachmentcontrol,
+                                        JSON(
+                                            Image12_35.Image,
+                                            JSONFormat.IncludeBinaryData
+                                        )
+                                    );
+                                    Set(
+                                        varBase64Only,
+                                        Mid(
+                                            varDemoFromAttachmentcontrol,
+                                            Find(
+                                                ",",
+                                                varDemoFromAttachmentcontrol
+                                            ) + 1,
+                                            Len(varDemoFromAttachmentcontrol) - Find(
+                                                ",",
+                                                varDemoFromAttachmentcontrol
+                                            ) - 1
+                                        )
+                                    );
+                                Size: =10
+                                Tooltip: ="Size should be below(10 mb)"
+                                Width: =310
+                                X: =58
+                                ZIndex: =4
+
+                            Label99_3 As label:
+                                Color: =RGBA(213, 39, 26, 1)
+                                FontWeight: =FontWeight.Bold
+                                Height: =32
+                                Size: =11
+                                Text: ="Certification Copy"
+                                Width: =115
+                                Y: =24
+                                ZIndex: =5
+
+                            Label102_3 As label:
+                                Color: =RGBA(213, 39, 26, 1)
+                                FontWeight: =FontWeight.Bold
+                                Height: =46
+                                Size: =11
+                                Text: ="Certification Validity"
+                                Width: =111
+                                Y: =87
+                                ZIndex: =6
+
+                            TextInput9_3 As text:
+                                BorderColor: =RGBA(112, 112, 112, 0.31)
+                                BorderThickness: =1
+                                Default: =""
+                                FocusedBorderThickness: =2
+                                Height: =30
+                                HintText: ="Enter Certification Validity(in yrs)"
+                                HoverFill: =RGBA(255, 255, 255, 1)
+                                PaddingLeft: =5
+                                Size: =11
+                                Tooltip: ="How many years your certificate validate"
+                                Width: =310
+                                X: =58
+                                Y: =94
+                                ZIndex: =7
+
+                            Button3_2 As button:
+                                DisabledColor: =RGBA(255, 255, 255, 1)
+                                DisabledFill: =RGBA(189, 189,189, 1)
+                                Fill: =RGBA(189, 189, 189, 1)
+                                Height: =25
+                                HoverFill: =RGBA(189, 189, 189, 1)
+                                OnSelect: =Back()
+                                PressedColor: =RGBA(255, 255, 255, 1)
+                                PressedFill: =RGBA(189, 189, 189, 1)
+                                Size: =12
+                                Text: ="Back"
+                                Width: =156
+                                Y: =235
+                                ZIndex: =8
+
+                            Button3_3 As button:
+                                DisabledColor: =RGBA(255, 255, 255, 1)
+                                DisabledFill: =RGBA(213, 39, 26, 1)
+                                Fill: =RGBA(213, 39, 26, 1)
+                                Height: =25
+                                HoverFill: =RGBA(213, 39, 26, 1)
+                                OnSelect: |-
+                                    =If(
+                                        IsBlank(TextInput2_1.Text) || IsBlank(TextInput5_1.Text) || IsBlank(TextInput6_1.Text) || IsBlank(TextInput7_1.Text) || IsBlank(TextInput8_1.Text) || IsBlank(TextInput9_2.Text) || IsBlank(TextInput10_1.Text) || IsBlank(Dropdown2_1.SelectedText.Value) || IsBlank(Dropdown3_1.SelectedText.Value) || IsBlank(DatePicker2_1.SelectedDate) || IsBlank(Radio3_1.SelectedText.Value) || IsEmpty(Attachments_9.Attachments) || IsBlank(TextInput9_3.Text),
+                                        Notify(
+                                            "Please fill all the entries",
+                                            NotificationType.Error
+                                        ),
+                                        UpdateContext({locShowSpinner3:true});
+                                        Patch(
+                                            ExternalCertificationList,
+                                            Defaults(ExternalCertificationList),
+                                            {
+                                                Title: TextInput2_1.Text,
+                                                ExamCode: TextInput5_1.Text,
+                                                ExamLevel: Dropdown2_1.SelectedText.Value,
+                                                CertificationName: TextInput6_1.Text,
+                                                CompletionDate: DatePicker2_1.SelectedDate,
+                                                Price: Dropdown6_1.SelectedText.Value & TextInput7_1.Text,
+                                                ProviderName: TextInput8_1.Text,
+                                                Technology: TextInput9_2.Text,
+                                                Role: TextInput10_1.Text,
+                                                ReimbursementStatus: Radio3_1.SelectedText.Value,
+                                                BU: Dropdown3_1.SelectedText.Value,
+                                                'Certification Validity': TextInput9_3.Text
+                                            }
+                                        );
+                                        Certification_Attachments_External_Flow.Run(
+                                            Last(Attachments_9.Attachments).Name,
+                                            varBase64Only,
+                                            Last(
+                                                Filter(
+                                                    ExternalCertificationList,
+                                                    Boolean(1)
+                                                )
+                                            ).ID
+                                        ).result;
+                                        Notify(
+                                            "You have submitted form Successfully",
+                                            NotificationType.Success
+                                        );
+                                        Reset(TextInput2_1);
+                                        Reset(TextInput5_1);
+                                        Reset(TextInput6_1);
+                                        Reset(TextInput7_1);
+                                        Reset(TextInput8_1);
+                                        Reset(TextInput9_2);
+                                        Reset(TextInput9_3);
+                                        Reset(TextInput10_1);
+                                        Reset(Radio3_1);
+                                        Reset(Attachments_9);
+                                        Reset(Dropdown2_1);
+                                        Reset(Dropdown3_1);
+                                    );
+                                    UpdateContext({locShowSpinner3:false});
+                                PressedColor: =RGBA(255, 255, 255, 1)
+                                PressedFill: =RGBA(213, 39, 26, 1)
+                                Size: =12
+                                Text: ="Submit"
+                                Width: =156
+                                X: =184
+                                Y: =235
+                                ZIndex: =9
+
+                Container111_1 As groupContainer.manualLayoutContainer:
+                    FillPortions: =0
+                    Height: =60
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    ZIndex: =4
+
+                    Rectangle5_8 As rectangle:
+                        Fill: =RGBA(255, 255, 255, 1)
+                        Height: =Parent.Height
+                        Width: =383
+                        ZIndex: =1
+
+            Container5_12 As groupContainer.verticalAutoLayoutContainer:
+                FillPortions: =0
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                LayoutOverflowX: =LayoutOverflow.Scroll
+                LayoutOverflowY: =LayoutOverflow.Scroll
+                Visible: =If('External reimbursement status'.Size=1 || 'External reimbursement status'.Size=2,false,true)
+                Width: =853
+                ZIndex: =4
+
+                Container115_1 As groupContainer.verticalAutoLayoutContainer:
+                    FillPortions: =0
+                    Height: =275
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    ZIndex: =1
+
+                    Container117_1 As groupContainer.manualLayoutContainer:
+                        Height: =350
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        ZIndex: =1
+
+                        Rectangle5 As rectangle:
+                            Fill: =RGBA(255, 255, 255, 1)
+                            Height: =262
+                            Width: =442
+                            X: =210
+                            Y: =13
+                            ZIndex: =1
+
+                        Group20 As group:
+                            Height: =5
+                            Width: =5
+                            X: =-84
+                            Y: =-5
+                            ZIndex: =14
+
+                            Label92 As label:
+                                Color: =RGBA(213, 39, 26, 1)
+                                FontWeight: =FontWeight.Semibold
+                                Height: =30
+                                Size: =10
+                                Text: ="Name"
+                                Width: =122
+                                X: =215
+                                Y: =75
+                                ZIndex: =2
+
+                            TextInput2 As text:
+                                BorderColor: =RGBA(112, 112, 112, 0.31)
+                                BorderThickness: =1
+                                Default: =""
+                                FocusedBorderThickness: |
+                                    =2
+                                Height: =30
+                                HintText: ="Enter your Full name"
+                                HoverFill: =RGBA(255, 255, 255, 1)
+                                PaddingLeft: =5
+                                Size: =11
+                                Width: =310
+                                X: =337
+                                Y: =75
+                                ZIndex: =3
+
+                            Label93 As label:
+                                Color: =RGBA(213, 39, 26, 1)
+                                FontWeight: =FontWeight.Semibold
+                                Height: =30
+                                Size: =10
+                                Text: ="Exam Code"
+                                Width: =122
+                                X: =215
+                                Y: =115
+                                ZIndex: =4
+
+                            TextInput5 As text:
+                                BorderColor: =RGBA(112, 112, 112, 0.31)
+                                BorderThickness: =1
+                                Default: =""
+                                FocusedBorderThickness: =2
+                                Height: =30
+                                HintText: ="Enter your Exam code"
+                                HoverFill: =RGBA(255, 255, 255, 1)
+                                PaddingLeft: =5
+                                Size: =11
+                                Width: =310
+                                X: =337
+                                Y: =115
+                                ZIndex: =5
+
+                            Label94 As label:
+                                Color: =RGBA(213, 39, 26, 1)
+                                FontWeight: =FontWeight.Semibold
+                                Height: =30
+                                Size: =10
+                                Text: ="Exam Level"
+                                Width: =122
+                                X: =215
+                                Y: =155
+                                ZIndex: =6
+
+                            Dropdown2 As dropdown:
+                                BorderColor: =RGBA(112, 112, 112, 0.31)
+                                BorderThickness: =1
+                                ChevronBackground: =RGBA(112, 112, 112, 0.31)
+                                ChevronFill: =RGBA(0, 0, 0, 1)
+                                FocusedBorderThickness: =2
+                                Height: =30
+                                Items: =["Beginner","Intermediate","Advanced"]
+                                Size: =11
+                                Width: =310
+                                X: =337
+                                Y: =155
+                                ZIndex: =7
+
+                            Label95 As label:
+                                Color: =RGBA(213, 39, 26, 1)
+                                FontWeight: =FontWeight.Semibold
+                                Height: =30
+                                Size: =10
+                                Text: ="Certification Name"
+                                Width: =122
+                                X: =215
+                                Y: =195
+                                ZIndex: =8
+
+                            TextInput6 As text:
+                                BorderColor: =RGBA(112, 112, 112, 0.31)
+                                BorderThickness: =1
+                                Default: =""
+                                FocusedBorderThickness: =2
+                                Height: =30
+                                HintText: ="Enter your Certification Name"
+                                HoverFill: =RGBA(255, 255, 255, 1)
+                                PaddingLeft: =5
+                                Size: =11
+                                Width: =310
+                                X: =337
+                                Y: =195
+                                ZIndex: =9
+
+                            Label96 As label:
+                                Color: =RGBA(213, 39, 26, 1)
+                                FontWeight: =FontWeight.Semibold
+                                Height: =30
+                                Size: =10
+                                Text: ="Completion Date"
+                                Width: =122
+                                X: =215
+                                Y: =235
+                                ZIndex: =10
+
+                            DatePicker2 As datepicker:
+                                BorderColor: =RGBA(112, 112, 112, 0.31)
+                                BorderThickness: =1
+                                FocusedBorderThickness: =2
+                                Height: =30
+                                IconBackground: =RGBA(0,0,0,1)
+                                PaddingLeft: =5
+                                PaddingTop: =5
+                                Size: =11
+                                Width: =310
+                                X: =337
+                                Y: =235
+                                ZIndex: =11
+
+                            Label103 As label:
+                                Align: =Align.Center
+                                Fill: =RGBA(255, 232, 231, 1)
+                                FontWeight: =FontWeight.Semibold
+                                Size: =12
+                                Text: ="External Certification Details"
+                                Width: =442
+                                X: =210
+                                Y: =13
+                                ZIndex: =12
+
+                            Image12_34 As image:
+                                Height: =33
+                                Image: =Last(Attachments_7.Attachments).Value
+                                Visible: =false
+                                Width: =49
+                                X: =210
+                                Y: =16
+                                ZIndex: =13
+
+                Container116_1 As groupContainer.horizontalAutoLayoutContainer:
+                    FillPortions: =0
+                    Height: =210
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    ZIndex: =2
+
+                    Container118_1 As groupContainer.manualLayoutContainer:
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        ZIndex: =1
+
+                        Rectangle5_1 As rectangle:
+                            Fill: =RGBA(255, 255, 255, 1)
+                            Height: =Parent.Height
+                            Width: =442
+                            X: =210
+                            ZIndex: =1
+
+                        Group19 As group:
+                            Height: =5
+                            Width: =5
+                            X: =-130
+                            Y: =-250
+                            ZIndex: =12
+
+                            Label97 As label:
+                                Color: =RGBA(213, 39, 26, 1)
+                                FontWeight: =FontWeight.Semibold
+                                Height: =34
+                                Size: =10
+                                Text: ="Price of Certification"
+                                Width: =122
+                                X: =215
+                                Y: =4
+                                ZIndex: =2
+
+                            TextInput7 As text:
+                                BorderColor: =RGBA(112, 112, 112, 0.31)
+                                BorderThickness: =1
+                                Default: =""
+                                FocusedBorderThickness: =2
+                                Height: =30
+                                HintText: ="Enter price of certification"
+                                HoverFill: =RGBA(255, 255, 255, 1)
+                                PaddingLeft: =95
+                                Size: =11
+                                Width: =310
+                                X: =332
+                                Y: =4
+                                ZIndex: =3
+
+                            Label98 As label:
+                                Color: =RGBA(213, 39, 26, 1)
+                                FontWeight: =FontWeight.Semibold
+                                Height: =30
+                                Size: =10
+                                Text: ="Provider Name"
+                                Width: =122
+                                X: =215
+                                Y: =42
+                                ZIndex: =4
+
+                            TextInput8 As text:
+                                BorderColor: =RGBA(112, 112, 112, 0.31)
+                                BorderThickness: =1
+                                Default: =""
+                                FocusedBorderThickness: =2
+                                Height: =30
+                                HintText: ="Enter your Provider Name"
+                                HoverFill: =RGBA(255, 255, 255, 1)
+                                PaddingLeft: =5
+                                Size: =11
+                                Tooltip: ="Certification Company Name"
+                                Width: =310
+                                X: =332
+                                Y: =49
+                                ZIndex: =5
+
+                            Label99 As label:
+                                Color: =RGBA(213, 39, 26, 1)
+                                FontWeight: =FontWeight.Semibold
+                                Height: =30
+                                Size: =10
+                                Text: ="Technology"
+                                Width: =122
+                                X: =215
+                                Y: =90
+                                ZIndex: =6
+
+                            TextInput9 As text:
+                                BorderColor: =RGBA(112, 112, 112, 0.31)
+                                BorderThickness: =1
+                                Default: =""
+                                FocusedBorderThickness: =2
+                                Height: =30
+                                HintText: ="Enter Certification Technology"
+                                HoverFill: =RGBA(255, 255, 255, 1)
+                                PaddingLeft: =5
+                                Size: =11
+                                Width: =310
+                                X: =332
+                                Y: =84
+                                ZIndex: =7
+
+                            Label100 As label:
+                                Color: =RGBA(213, 39, 26, 1)
+                                FontWeight: =FontWeight.Semibold
+                                Height: =30
+                                Size: =10
+                                Text: ="Role"
+                                Width: =122
+                                X: =215
+                                Y: =130
+                                ZIndex: =8
+
+                            TextInput10 As text:
+                                BorderColor: =RGBA(112, 112, 112, 0.31)
+                                BorderThickness: =1
+                                Default: =""
+                                Height: =30
+                                HintText: ="Enter Role"
+                                HoverFill: =RGBA(255, 255, 255, 1)
+                                PaddingLeft: =5
+                                Size: =11
+                                Tooltip: ="Development Name of Certification"
+                                Width: =310
+                                X: =332
+                                Y: =124
+                                ZIndex: =9
+
+                            Label102 As label:
+                                Color: =RGBA(213, 39, 26, 1)
+                                FontWeight: =FontWeight.Semibold
+                                Height: =30
+                                Size: =10
+                                Text: ="BU"
+                                Width: =122
+                                X: =215
+                                Y: =170
+                                ZIndex: =10
+
+                            Dropdown3 As dropdown:
+                                BorderColor: =RGBA(112, 112, 112, 0.31)
+                                BorderThickness: =1
+                                ChevronBackground: =RGBA(112, 112, 112, 0.31)
+                                ChevronFill: =RGBA(0, 0, 0, 1)
+                                Default: ="ACS"
+                                FocusedBorderThickness: =2
+                                Height: =30
+                                Items: =Sort('BU-List',Title,SortOrder.Ascending)
+                                Size: =11
+                                Width: =310
+                                X: =332
+                                Y: =164
+                                ZIndex: =11
+
+                            Dropdown6 As dropdown:
+                                BorderColor: =RGBA(112, 112, 112, 0.31)
+                                BorderThickness: =1
+                                ChevronBackground: =RGBA(0, 0, 0, 0)
+                                ChevronFill: =RGBA(0, 0, 0, 1)
+                                FocusedBorderThickness: =0
+                                FontWeight: =FontWeight.Semibold
+                                Height: =30
+                                Items: =["Rs","$","Mex$"]
+                                Size: =11
+                                Width: =85
+                                X: =332
+                                Y: =4
+                                ZIndex: =12
+
+                Container119_1 As groupContainer.verticalAutoLayoutContainer:
+                    FillPortions: =0
+                    Height: =280
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    ZIndex: =3
+
+                    Container109 As groupContainer.manualLayoutContainer:
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        ZIndex: =1
+
+                        Rectangle5_3 As rectangle:
+                            Fill: =RGBA(255, 255, 255, 1)
+                            Height: =Parent.Height
+                            Width: =442
+                            X: =210
+                            ZIndex: =1
+
+                        Group8 As group:
+                            Height: =5
+                            Width: =5
+                            X: =40
+                            Y: =40
+                            ZIndex: =9
+
+                            Label101 As label:
+                                Color: =RGBA(213, 39, 26, 1)
+                                FontWeight: =FontWeight.Semibold
+                                Height: =36
+                                Size: =10
+                                Text: ="Microsoft Provider"
+                                Width: =111
+                                X: =215
+                                Y: =153
+                                ZIndex: =2
+
+                            Radio3 As radio:
+                                BorderColor: =RGBA(0, 0, 0, 0)
+                                FontWeight: =FontWeight.Semibold
+                                Height: =49
+                                Items: =["Yes","No"]
+                                Layout: =Layout.Horizontal
+                                LineHeight: =1.8
+                                RadioBorderColor: =RGBA(0, 0, 0, 1)
+                                Size: =9
+                                Width: =310
+                                X: =327
+                                Y: =140
+                                ZIndex: =3
+
+                            Attachments_7 As attachments:
+                                BorderColor: =RGBA(112, 112, 112, 0.31)
+                                BorderThickness: =0.1
+                                DropTargetBorderColor: =RGBA(219, 219, 219, 1)
+                                DropTargetBorderThickness: =0
+                                Height: =80
+                                IsInDataCard: =true
+                                Items: =
+                                MaxAttachments: =1
+                                NoAttachmentsText: ="There is nothing attached (Size below 10mb) "
+                                OnAddFile: |
+                                    =Set(
+                                        varDemoFromAttachmentcontrol,
+                                        JSON(
+                                            Image12_34.Image,
+                                            JSONFormat.IncludeBinaryData
+                                        )
+                                    );
+                                    Set(
+                                        varBase64Only,
+                                        Mid(
+                                            varDemoFromAttachmentcontrol,
+                                            Find(
+                                                ",",
+                                                varDemoFromAttachmentcontrol
+                                            ) + 1,
+                                            Len(varDemoFromAttachmentcontrol) - Find(
+                                                ",",
+                                                varDemoFromAttachmentcontrol
+                                            ) - 1
+                                        )
+                                    );
+                                Size: =10
+                                Tooltip: ="Size should be below(10 mb)"
+                                Width: =310
+                                X: =327
+                                ZIndex: =4
+
+                            Label99_1 As label:
+                                Color: =RGBA(213, 39, 26, 1)
+                                FontWeight: =FontWeight.Semibold
+                                Height: =32
+                                Size: =10
+                                Text: ="Certification Copy"
+                                Width: =115
+                                X: =215
+                                Y: =24
+                                ZIndex: =5
+
+                            Label102_1 As label:
+                                Color: =RGBA(213, 39, 26, 1)
+                                FontWeight: =FontWeight.Semibold
+                                Height: =46
+                                Size: =10
+                                Text: ="Certification Validity"
+                                Width: =111
+                                X: =215
+                                Y: =87
+                                ZIndex: =6
+
+                            TextInput9_1 As text:
+                                BorderColor: =RGBA(112, 112, 112, 0.31)
+                                BorderThickness: =1
+                                Default: =""
+                                FocusedBorderThickness: =2
+                                Height: =30
+                                HintText: ="Enter Certification Validity(in yrs)"
+                                HoverFill: =RGBA(255, 255, 255, 1)
+                                PaddingLeft: =5
+                                Size: =11
+                                Tooltip: ="How many years your certificate validate"
+                                Width: =310
+                                X: =327
+                                Y: =94
+                                ZIndex: =7
+
+                            Button3_1 As button:
+                                DisabledColor: =RGBA(255, 255, 255, 1)
+                                DisabledFill: =RGBA(189, 189, 189, 1)
+                                Fill: =RGBA(189, 189, 189, 1)
+                                Height: =25
+                                HoverFill: =RGBA(189, 189, 189, 1)
+                                OnSelect: =Back()
+                                PressedColor: =RGBA(255, 255, 255, 1)
+                                PressedFill: =RGBA(189, 189, 189, 1)
+                                Size: =12
+                                Text: ="Back"
+                                Width: =156
+                                X: =263
+                                Y: =235
+                                ZIndex: =8
+
+                            Button3 As button:
+                                DisabledColor: =RGBA(255, 255, 255, 1)
+                                DisabledFill: =RGBA(213, 39, 26, 1)
+                                Fill: =RGBA(213, 39, 26, 1)
+                                Height: =25
+                                HoverFill: =RGBA(213, 39, 26, 1)
+                                OnSelect: |-
+                                    =If(
+                                        IsBlank(TextInput2.Text) || IsBlank(TextInput5.Text) || IsBlank(TextInput6.Text) || IsBlank(TextInput7.Text) || IsBlank(TextInput8.Text) || IsBlank(TextInput9.Text) || IsBlank(TextInput10.Text) || IsBlank(Dropdown2.SelectedText.Value) || IsBlank(Dropdown3.SelectedText.Value) || IsBlank(DatePicker2.SelectedDate) || IsBlank(Radio3.SelectedText.Value) || IsEmpty(Attachments_7.Attachments) || IsBlank(TextInput9_1.Text),
+                                        Notify(
+                                            "Please fill all the entries",
+                                            NotificationType.Error
+                                        ),
+                                        UpdateContext({locShowSpinner3:true});
+                                        Patch(
+                                            ExternalCertificationList,
+                                            Defaults(ExternalCertificationList),
+                                            {
+                                                Title: TextInput2.Text,
+                                                ExamCode: TextInput5.Text,
+                                                ExamLevel: Dropdown2.SelectedText.Value,
+                                                CertificationName: TextInput6.Text,
+                                                CompletionDate: DatePicker2.SelectedDate,
+                                                Price: Dropdown6.SelectedText.Value & TextInput7.Text,
+                                                ProviderName: TextInput8.Text,
+                                                Technology: TextInput9.Text,
+                                                Role: TextInput10.Text,
+                                                ReimbursementStatus: Radio3.SelectedText.Value,
+                                                BU: Dropdown3.SelectedText.Value,
+                                                'Certification Validity': TextInput9_1.Text
+                                            }
+                                        );
+                                        Certification_Attachments_External_Flow.Run(
+                                            Last(Attachments_7.Attachments).Name,
+                                            varBase64Only,
+                                            Last(
+                                                Filter(
+                                                    ExternalCertificationList,
+                                                    Boolean(1)
+                                                )
+                                            ).ID
+                                        ).result;
+                                        Notify(
+                                            "You have submitted form Successfully",
+                                            NotificationType.Success
+                                        );
+                                        Reset(TextInput2);
+                                        Reset(TextInput5);
+                                        Reset(TextInput6);
+                                        Reset(TextInput7);
+                                        Reset(TextInput8);
+                                        Reset(TextInput9);
+                                        Reset(TextInput9_1);
+                                        Reset(TextInput10);
+                                        Reset(Radio3);
+                                        Reset(Attachments_7);
+                                        Reset(Dropdown2);
+                                        Reset(Dropdown3);
+                                    );
+                                    UpdateContext({locShowSpinner3:false});
+                                PressedColor: =RGBA(255, 255, 255, 1)
+                                PressedFill: =RGBA(213, 39, 26, 1)
+                                Size: =12
+                                Text: ="Submit"
+                                Width: =156
+                                X: =453
+                                Y: =235
+                                ZIndex: =9
+
+                Container111 As groupContainer.manualLayoutContainer:
+                    FillPortions: =0
+                    Height: =60
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    ZIndex: =4
+
+                    Rectangle5_4 As rectangle:
+                        Fill: =RGBA(255, 255, 255, 1)
+                        Height: =Parent.Height
+                        Width: =442
+                        X: =210
+                        ZIndex: =1
+
+    Container13_50 As groupContainer.manualLayoutContainer:
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =648
+        Visible: |
+            =If('External reimbursement status'.Size=1 ||'External reimbursement status'.Size=2,varMenuVisible,false)
+        Width: =222
+        X: =3
+        Y: =93
+        ZIndex: =9
+
+        Icon29_49 As icon.ChevronRight:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            Height: =20
+            HoverColor: =RGBA(184, 0, 0, 1)
+            HoverFill: =RGBA(0, 0, 0, 0)
+            Icon: =Icon.ChevronRight
+            OnSelect: |-
+                =If(varmanagecourse=false,UpdateContext({varmanagecourse:true}),UpdateContext({varmanagecourse:false}));
+            PressedFill: =//Self.Fill
+            Visible: =If(userdrp_down_19.SelectedText.Value="Admin",!varmanagecourse,false) And varMenuVisible
+            Width: =25
+            X: =178
+            Y: =68
+            ZIndex: =10
+
+        Image5_85 As image:
+            Height: =34
+            Image: ='certificate-outline-badged'
+            ImagePosition: =ImagePosition.Center
+            Visible: =varmanagecourse And If(userdrp_down_19.SelectedText.Value="Admin",true,false)
+            Width: =33
+            Y: =143
+            ZIndex: =31
+
+        Image7_98 As image:
+            Height: =19
+            Image: ='certificate-check'
+            Visible: =varmanagecourse And If(userdrp_down_19.SelectedText.Value="Admin",true,false)
+            Width: =19
+            X: =7
+            Y: =110
+            ZIndex: =32
+
+        Icon13_15 As icon.ChevronDown:
+            Color: =RGBA(0, 0, 0, 1)
+            Height: =20
+            Icon: =Icon.ChevronDown
+            OnSelect: |-
+                =If(varmanagecourse=false,UpdateContext({varmanagecourse:true}),UpdateContext({varmanagecourse:false}));
+            Visible: =If(userdrp_down_19.SelectedText.Value="Admin",varmanagecourse,false) And varMenuVisible
+            Width: =25
+            X: =178
+            Y: =68
+            ZIndex: =33
+
+        registercert_grp_49 As group:
+            Height: =5
+            Width: =5
+            X: =40
+            Y: =40
+            ZIndex: =33
+
+            AdminDashboard_202 As button:
+                Align: =Align.Left
+                BorderColor: =Color.Gray
+                BorderThickness: =0
+                Color: =RGBA(0, 0, 0, 1)
+                DisplayMode: |-
+                    =If(
+                        (varUserLevel in [
+                            "ADMIN",
+                            "SUPER-ADMIN"
+                        ]) Or CountRows(
+                            Filter(
+                                'BU-List',
+                                'BU-Head'.Email = User().Email
+                            )
+                        ) = 1,
+                        DisplayMode.Edit,
+                        DisplayMode.Disabled
+                    )
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =32
+                HoverColor: =RGBA(184, 0, 0, 1)
+                HoverFill: =RGBA(0, 0, 0, 0)
+                OnSelect: |-
+                    =//Navigate('Responsive MyLearning Screen',ScreenTransition.Cover);
+                    Navigate(CertificationRecommendationScreen,ScreenTransition.Cover);
+                PressedBorderColor: =
+                PressedColor: =RGBA(184, 0, 0, 1)
+                PressedFill: =RGBA(0, 0, 0, 0)
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =9
+                Text: ="Add a Certificate"
+                Visible: =varmanagecourse And If(userdrp_down_19.SelectedText.Value="Admin",true,false)
+                Width: =165
+                X: =33
+                Y: =103
+                ZIndex: =23
+
+            AdminDashboard_204 As button:
+                Align: =Align.Left
+                BorderColor: =Color.Gray
+                BorderThickness: =0
+                Color: =RGBA(0, 0, 0, 1)
+                DisplayMode: |-
+                    =If(
+                        (varUserLevel in [
+                            "ADMIN",
+                            "SUPER-ADMIN"
+                        ]) Or CountRows(
+                            Filter(
+                                BUList,
+                                'BU-Head'.Email = User().Email
+                            )
+                        ) = 1,
+                        DisplayMode.Edit,
+                        DisplayMode.Disabled
+                    )
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =32
+                HoverColor: =RGBA(184, 0, 0, 1)
+                HoverFill: =RGBA(0, 0, 0, 0)
+                OnSelect: |
+                    =Navigate('Responsive Home Screen',ScreenTransition.Cover);
+                PressedBorderColor: =
+                PressedColor: =RGBA(184, 0, 0, 1)
+                PressedFill: =RGBA(0, 0, 0, 0)
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =9
+                Text: ="Certifications Catalog"
+                Visible: =varmanagecourse And If(userdrp_down_19.SelectedText.Value="Admin",true,false)
+                Width: =165
+                X: =33
+                Y: =146
+                ZIndex: =24
+
+        reimburse_grp_49 As group:
+            Height: =5
+            Width: =5
+            X: =40
+            Y: =40
+            ZIndex: =33
+
+            DownloadForm_151 As button:
+                Align: =Align.Left
+                BorderColor: =Color.Gray
+                BorderStyle: =//BorderStyle.Solid
+                BorderThickness: =0
+                Color: =RGBA(0, 0, 0, 1)
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =32
+                HoverColor: =RGBA(184, 0, 0, 1)
+                HoverFill: =RGBA(0, 0, 0, 0)
+                OnSelect: |
+                    =Download("https://ilinksystemsinc449.sharepoint.com/:b:/s/LDForum/EbDUFfjxo7hFto09CYYc9msB6eqcr_UdjKLw-ar1e-YZyA?e=wSdOHg"&"download.aspx")
+                PressedBorderColor: =
+                PressedColor: =RGBA(184, 0, 0, 1)
+                PressedFill: =RGBA(0, 0, 0, 0)
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =9
+                Text: ="Reimbursement Form"
+                Visible: =varreimbursement  And If(userdrp_down_19.SelectedText.Value="Employee",true,false)
+                Width: =165
+                X: =33
+                Y: =140
+                ZIndex: =27
+
+            DownloadForm_152 As button:
+                Align: =Align.Left
+                BorderColor: =Color.Gray
+                BorderStyle: =//BorderStyle.Solid
+                BorderThickness: =0
+                Color: =RGBA(0, 0, 0, 1)
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =32
+                HoverColor: =RGBA(184, 0, 0, 1)
+                HoverFill: =RGBA(0, 0, 0, 0)
+                OnSelect: |-
+                    =/*Download("https://ilinksystemsinc449.sharepoint.com/:b:/s/LDForum/EbDUFfjxo7hFto09CYYc9msB6eqcr_UdjKLw-ar1e-YZyA?e=wSdOHg"&"download.aspx")*/
+                    Navigate('Responsive Mylearning Screen',ScreenTransition.Fade)
+                PressedBorderColor: =
+                PressedColor: =RGBA(184, 0, 0, 1)
+                PressedFill: =RGBA(0, 0, 0, 0)
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =9
+                Text: ="Status"
+                Visible: =varreimbursement  And If(userdrp_down_19.SelectedText.Value="Employee",true,false)
+                Width: =165
+                X: =33
+                Y: =181
+                ZIndex: =28
+
+            Icon23_49 As icon.Download:
+                BorderColor: =RGBA(0, 0, 0, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                Height: =20
+                HoverColor: =RGBA(184, 0, 0, 1)
+                HoverFill: =RGBA(204, 231, 246, 0.5)
+                Icon: =Icon.Download
+                OnSelect: |
+                    =Download("https://ilinksystemsinc449.sharepoint.com/:b:/s/LDForum/EbDUFfjxo7hFto09CYYc9msB6eqcr_UdjKLw-ar1e-YZyA?e=wSdOHg"&"download.aspx")
+                Visible: =varreimbursement  And If(userdrp_down_19.SelectedText.Value="Employee",true,false)
+                Width: =24
+                X: =4
+                Y: =146
+                ZIndex: =29
+
+        Group10_11 As group:
+            Height: =5
+            Width: =5
+            X: =40
+            Y: =40
+            ZIndex: =34
+
+            NewCertificationRequest_249 As button:
+                Align: =Align.Left
+                BorderColor: =Color.Gray
+                BorderThickness: =0
+                Color: =RGBA(0, 0, 0, 1)
+                Fill: =RGBA(0, 0, 0, 0)
+                Font: ="Source Sans Pro"
+                Height: =32
+                HoverColor: =RGBA(184, 0, 0, 1)
+                HoverFill: =RGBA(0, 0, 0, 0)
+                OnSelect: |
+                    =Navigate('New Certifications request approval',ScreenTransition.UnCover);
+                PressedBorderColor: =
+                PressedColor: =RGBA(184, 0, 0, 1)
+                PressedFill: =RGBA(0, 0, 0, 0)
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =9
+                Text: ="New Certification Request"
+                Visible: =varMenuVisible And If(userdrp_down_19.SelectedText.Value="Employee",true,false)
+                Width: =180
+                X: =33
+                Y: =If(varreimbursement=true,222,140)
+                ZIndex: =2
+
+            DownloadForm_150 As button:
+                Align: =Align.Left
+                BorderColor: =Color.Gray
+                BorderThickness: =0
+                Color: =RGBA(0, 0, 0, 1)
+                Fill: =RGBA(0, 0, 0, 0)
+                Font: ="Source Sans Pro"
+                Height: =32
+                HoverColor: =RGBA(184, 0, 0, 1)
+                HoverFill: =RGBA(0, 0, 0, 0)
+                OnSelect: |
+                    =If(varreimbursement=false,UpdateContext({varreimbursement:true}),UpdateContext({varreimbursement:false}));
+                PressedBorderColor: =
+                PressedColor: =RGBA(184, 0, 0, 1)
+                PressedFill: =RGBA(0, 0, 0, 0)
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =9
+                Text: ="Reimbursement Status"
+                Visible: =varMenuVisible And If(userdrp_down_19.SelectedText.Value="Employee",true,false)
+                X: =33
+                Y: =101
+                ZIndex: =3
+
+            Icon22_49 As icon.ChevronRight:
+                BorderColor: =RGBA(0, 0, 0, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                Height: =17
+                HoverColor: =RGBA(184, 0, 0, 1)
+                HoverFill: =RGBA(0, 0, 0, 0)
+                Icon: =Icon.ChevronRight
+                OnSelect: |
+                    =If(varreimbursement=false,UpdateContext({varreimbursement:true}),UpdateContext({varreimbursement:false}));
+                PressedFill: =//Self.Fill
+                Visible: =varMenuVisible And If(userdrp_down_19.SelectedText.Value="Employee",!varreimbursement,false)
+                Width: =22
+                X: =193
+                Y: =107
+                ZIndex: =8
+
+            NewCertificationRequest_251 As button:
+                Align: =Align.Left
+                BorderColor: =Color.Gray
+                BorderThickness: =0
+                Color: =RGBA(0, 0, 0, 1)
+                Fill: =RGBA(0, 0, 0, 0)
+                Font: ="Source Sans Pro"
+                Height: =32
+                HoverColor: =RGBA(184, 0, 0, 1)
+                HoverFill: =RGBA(0, 0, 0, 0)
+                OnSelect: |
+                    =Navigate(AskQuestion_Admin,ScreenTransition.UnCover);
+                PressedBorderColor: =
+                PressedColor: =RGBA(184, 0, 0, 1)
+                PressedFill: =RGBA(0, 0, 0, 0)
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =9
+                Text: ="Ask Question for LandD"
+                Visible: =varMenuVisible And If(userdrp_down_19.SelectedText.Value="Employee",true,false)
+                Width: =180
+                X: =33
+                Y: =If(varreimbursement=true,263,181)
+                ZIndex: =9
+
+            NewCertificationRequest_252 As button:
+                Align: =Align.Left
+                BorderColor: =Color.Gray
+                BorderThickness: =0
+                Color: =RGBA(0, 0, 0, 1)
+                Fill: =RGBA(0, 0, 0, 0)
+                Font: ="Source Sans Pro"
+                Height: =32
+                HoverColor: =RGBA(184, 0, 0, 1)
+                HoverFill: =RGBA(0, 0, 0, 0)
+                OnSelect: |
+                    =Navigate('External reimbursement status' ,ScreenTransition.UnCover);
+                PressedBorderColor: =
+                PressedColor: =RGBA(184, 0, 0, 1)
+                PressedFill: =RGBA(0, 0, 0, 0)
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =9
+                Text: ="External Certification Details"
+                Tooltip: ="Extrenal Certification Completion Details Form"
+                Visible: =varMenuVisible And If(userdrp_down_19.SelectedText.Value="Employee",true,false)
+                Width: =188
+                X: =33
+                Y: =If(varreimbursement=true,304,222)
+                ZIndex: =15
+
+            Image6_49 As image:
+                Height: =21
+                Image: =dollar
+                Visible: =If(userdrp_down_19.SelectedText.Value="Employee",true,false) And varMenuVisible
+                Width: =21
+                X: =7
+                Y: =106
+                ZIndex: =17
+
+            Image7_99 As image:
+                Height: =19
+                Image: ='certificate-check'
+                Visible: =If(userdrp_down_19.SelectedText.Value="Employee",true,false) And varMenuVisible
+                Width: =19
+                X: =7
+                Y: |
+                    =If(varreimbursement=true,228,146)
+                ZIndex: =18
+
+            Image8_53 As image:
+                Height: =23
+                Image: ='question-octagon'
+                Visible: =If(userdrp_down_19.SelectedText.Value="Employee",true,false) And varMenuVisible
+                Width: =23
+                X: =5
+                Y: |
+                    =If(varreimbursement=true,270,187)
+                ZIndex: =19
+
+            Image9_49 As image:
+                Height: =22
+                Image: ='external-link'
+                Visible: =If(userdrp_down_19.SelectedText.Value="Employee",true,false) And varMenuVisible
+                Width: =23
+                X: =4
+                Y: =If(varreimbursement=true,310,228)
+                ZIndex: =20
+
+            Icon12_16 As icon.ChevronDown:
+                Height: =17
+                HoverFill: =
+                Icon: =Icon.ChevronDown
+                OnSelect: |-
+                    =If(varreimbursement=false,UpdateContext({varreimbursement:true}),UpdateContext({varreimbursement:false}));
+                PressedFill: =//Self.Fill
+                Visible: =varMenuVisible And If(userdrp_down_19.SelectedText.Value="Employee",varreimbursement,false)
+                Width: =22
+                X: =193
+                Y: =107
+                ZIndex: =30
+
+        Group11_11 As group:
+            Height: =5
+            Width: =5
+            X: =40
+            Y: =40
+            ZIndex: =34
+
+            AdminDashboard_201 As button:
+                Align: =Align.Left
+                BorderColor: =Color.Gray
+                BorderStyle: =//BorderStyle.Solid
+                BorderThickness: =0
+                Color: =RGBA(0, 0, 0, 1)
+                DisplayMode: |-
+                    =/*If(
+                        (varUserLevel in [
+                            "ADMIN",
+                            "SUPER-ADMIN"
+                        ]) Or CountRows(
+                            Filter(
+                                'BU-List',
+                                'BU-Head'.Email = User().Email
+                            )
+                        ) = 1,
+                        DisplayMode.Edit,
+                        Disabled
+                    )*/
+                    DisplayMode.Edit
+                Fill: =RGBA(0, 0, 0, 0)
+                Font: ="Source Sans Pro"
+                Height: =45
+                HoverColor: =RGBA(184, 0, 0, 1)
+                HoverFill: =RGBA(0, 0, 0, 0)
+                OnSelect: =Navigate('Responsive Mylearning Screen',ScreenTransition.CoverRight);
+                PressedBorderColor: =
+                PressedColor: =RGBA(184, 0, 0, 1)
+                PressedFill: =RGBA(0, 0, 0, 0)
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =9
+                Text: ="Home"
+                Visible: =varMenuVisible
+                Width: =170
+                X: =33
+                Y: =4
+                ZIndex: =5
+
+            Icon11_49 As icon.Home:
+                BorderColor: =RGBA(0, 0, 0, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                Height: =23
+                HoverFill: =RGBA(204, 231, 246, 0.5)
+                Icon: =Icon.Home
+                OnSelect: |
+                    =Navigate('Responsive Mylearning Screen',ScreenTransition.UnCover);
+                Visible: =varMenuVisible
+                Width: =23
+                X: =7
+                Y: =14
+                ZIndex: =6
+
+            NewCertificationRequest_248 As button:
+                Align: =Align.Left
+                BorderColor: =Color.Gray
+                BorderThickness: =0
+                Color: =RGBA(0, 0, 0, 1)
+                Fill: =RGBA(0, 0, 0, 0)
+                Font: ="Source Sans Pro"
+                Height: =32
+                HoverColor: =RGBA(184, 0, 0, 1)
+                HoverFill: =RGBA(0, 0, 0, 0)
+                OnSelect: =Navigate('Responsive Home Screen',ScreenTransition.Cover)
+                PressedBorderColor: =
+                PressedColor: =RGBA(184, 0, 0, 1)
+                PressedFill: =RGBA(0, 0, 0, 0)
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =9
+                Text: ="Register Certifications"
+                Visible: =varMenuVisible
+                Width: =145
+                X: =33
+                Y: =59
+                ZIndex: =7
+
+            Image5_84 As image:
+                Height: =34
+                Image: ='certificate-outline-badged'
+                ImagePosition: =ImagePosition.Center
+                Visible: =varMenuVisible
+                Width: =37
+                Y: =59
+                ZIndex: =16
+
+        Group12_11 As group:
+            Height: =5
+            Width: =5
+            X: =40
+            Y: =40
+            ZIndex: =34
+
+            AdminDashboard_203 As button:
+                Align: =Align.Left
+                BorderColor: =Color.Gray
+                BorderThickness: =0
+                Color: =RGBA(0, 0, 0, 1)
+                DisplayMode: |-
+                    =If(
+                        (varUserLevel in [
+                            "ADMIN",
+                            "SUPER-ADMIN"
+                        ]) Or CountRows(
+                            Filter(
+                                'BU-List',
+                                'BU-Head'.Email = User().Email
+                            )
+                        ) = 1,
+                        DisplayMode.Edit,
+                        DisplayMode.Disabled
+                    )
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =32
+                HoverColor: =RGBA(184, 0, 0, 1)
+                HoverFill: =RGBA(0, 0, 0, 0)
+                OnSelect: =Navigate('Admin dashBoard',ScreenTransition.Cover);
+                PressedBorderColor: =
+                PressedColor: =RGBA(184, 0, 0, 1)
+                PressedFill: =RGBA(0, 0, 0, 0)
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =9
+                Text: ="Analysis Report"
+                Visible: =If(userdrp_down_19.SelectedText.Value="Admin",true,false) And varMenuVisible
+                Width: =186
+                X: =34
+                Y: =If(varmanagecourse=true,189,103)
+                ZIndex: =4
+
+            Icon32_49 As icon.Database:
+                BorderColor: =RGBA(0, 0, 0, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                Height: =22
+                HoverFill: =RGBA(204, 231, 246, 0.5)
+                Icon: =Icon.Database
+                OnSelect: |
+                    =Navigate('Admin dashBoard',ScreenTransition.UnCover);
+                Visible: =If(userdrp_down_19.SelectedText.Value="Admin",true,false) And varMenuVisible
+                Width: =22
+                X: =7
+                Y: =If(varmanagecourse=true,196,110)
+                ZIndex: =12
+
+            NewCertificationRequest_250 As button:
+                Align: =Align.Left
+                BorderColor: =Color.Gray
+                BorderThickness: =0
+                Color: =RGBA(0, 0, 0, 1)
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =32
+                HoverColor: =RGBA(184, 0, 0, 1)
+                HoverFill: =RGBA(0, 0, 0, 0)
+                OnSelect: |
+                    =Navigate(AskQuestion_Admin,ScreenTransition.UnCover);
+                PressedBorderColor: =
+                PressedColor: =RGBA(184, 0, 0, 1)
+                PressedFill: =RGBA(0, 0, 0, 0)
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =9
+                Text: ="Ask Question for LandD"
+                Visible: |-
+                    =//varMenuVisible And 
+                    If(userdrp_down_19.SelectedText.Value="Admin",true,false) And varMenuVisible
+                Width: =186
+                X: =34
+                Y: =If(varmanagecourse=true,232,146)
+                ZIndex: =13
+
+            Image12_51 As image:
+                Height: =22
+                Image: ='question-octagon'
+                OnSelect: =Navigate(AskQuestion_Admin,ScreenTransition.UnCover);
+                Visible: =If(userdrp_down_19.SelectedText.Value="Admin",true,false) And varMenuVisible
+                Width: =24
+                X: =4
+                Y: =If(varmanagecourse=true,239,151)
+                ZIndex: =22
+
+    Icon2_8 As icon.Hamburger:
+        Color: =RGBA(0, 0, 0, 1)
+        Height: =21
+        Icon: =Icon.Hamburger
+        OnSelect: |-
+            =If(varMenuVisible=false,UpdateContext({varMenuVisible:true}),UpdateContext({varMenuVisible:false}));
+        Visible: =If('Responsive Mylearning Screen'.Size=1 || 'Responsive Mylearning Screen'.Size=2,true,false)
+        Width: =48
+        X: =If(varMenuVisible=true,150,0)
+        Y: =103
+        ZIndex: =10
+
+    Group32_8 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =20
+
+        Rectangle6_8 As rectangle:
+            Fill: =RGBA(230, 230, 230, 1)
+            Height: =416
+            Visible: =varUser || varMngr || varAdmin
+            Width: =450
+            X: =900
+            Y: =72
+            ZIndex: =11
+
+        "UserGallery_15 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+            BorderColor: =RGBA(0, 0, 0, 1)
+            Fill: |-
+                =//RGBA(0, 0, 0, 0)
+                Color.White
+            Height: =359
+            Items: |-
+                =Sort(
+                    col_Notification,
+                    Created,
+                    SortOrder.Descending
+                )
+            Layout: =Layout.Vertical
+            TemplatePadding: =0
+            TemplateSize: =90
+            Visible: =varUser
+            Width: =429
+            X: =906
+            Y: =117
+            ZIndex: =12
+
+            Subtitle3_45 As label:
+                Height: =81
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =11
+                Text: =ThisItem.Notification
+                VerticalAlign: =VerticalAlign.Top
+                Width: =357
+                X: =15
+                Y: =9
+                ZIndex: =3
+
+            Separator2_44 As rectangle:
+                Height: =1
+                OnSelect: =Select(Parent)
+                Width: =Parent.TemplateWidth
+                Y: =Parent.TemplateHeight - 1
+                ZIndex: =5
+
+        UserGalleryCancelIcon_16 As icon.Cancel:
+            Color: =RGBA(255, 255, 255, 1)
+            Fill: =RGBA(255, 0, 0, 1)
+            Height: =32
+            Icon: =Icon.Cancel
+            OnSelect: =Set(varUser,false)
+            Visible: =varUser
+            Width: =31
+            X: =1331
+            Y: =57
+            ZIndex: =13
+
+        "ManagerGallery_13 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+            Fill: |-
+                =//RGBA(0, 0, 0, 0)
+                Color.White
+            Height: =UserGallery_15.Height
+            Items: |-
+                =Sort(
+                    mngr_notify_Col,
+                    Created,
+                    SortOrder.Descending
+                )
+            Layout: =Layout.Vertical
+            TemplatePadding: =0
+            TemplateSize: =83
+            Visible: |
+                =varMngr
+            Width: =UserGallery_15.Width
+            X: =906
+            Y: =117
+            ZIndex: =14
+
+            Subtitle3_44 As label:
+                Height: =60
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =11
+                Text: =ThisItem.Notification
+                VerticalAlign: =VerticalAlign.Top
+                Width: =379
+                X: =14
+                Y: =11
+                ZIndex: =3
+
+            Separator2_43 As rectangle:
+                Height: =1
+                OnSelect: =Select(Parent)
+                Width: =Parent.TemplateWidth
+                Y: =Parent.TemplateHeight - 1
+                ZIndex: =5
+
+        MngrCancelicon_13 As icon.Cancel:
+            BorderThickness: =1
+            Color: =RGBA(255, 255, 255, 1)
+            Fill: =RGBA(255, 0, 0, 1)
+            Height: =32
+            Icon: =Icon.Cancel
+            OnSelect: =Set(varMngr,false)
+            Visible: |
+                =varMngr
+            Width: =31
+            X: =1335
+            Y: =117
+            ZIndex: =15
+
+        "ILDGAllery_13 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+            Fill: |-
+                =//RGBA(0, 0, 0, 0)
+                Color.White
+            Height: =UserGallery_15.Height
+            Items: =ILDGAllery_3.AllItems
+            Layout: =Layout.Vertical
+            TemplatePadding: =0
+            TemplateSize: =79
+            Visible: =varAdmin
+            Width: =UserGallery_15.Width
+            X: =906
+            Y: =117
+            ZIndex: =16
+
+            Subtitle3_43 As label:
+                Height: =57
+                OnSelect: =Select(Parent)
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =11
+                Text: =ThisItem.Notification
+                VerticalAlign: =VerticalAlign.Top
+                Width: =370
+                X: =11
+                Y: =10
+                ZIndex: =3
+
+            Separator2_42 As rectangle:
+                Height: =1
+                OnSelect: =Select(Parent)
+                Width: =Parent.TemplateWidth
+                Y: =Parent.TemplateHeight - 1
+                ZIndex: =5
+
+        ILDCancelicon_13 As icon.Cancel:
+            Color: =RGBA(255, 255, 255, 1)
+            Fill: =RGBA(255, 0, 0, 1)
+            Height: =32
+            Icon: =Icon.Cancel
+            OnSelect: =Set(varAdmin,false)
+            Visible: =varAdmin
+            Width: =31
+            X: =1335
+            Y: =117
+            ZIndex: =17
+
+        NoNotificationsLabel_13 As label:
+            Align: =Align.Center
+            Height: =54
+            Text: ="No Notifications"
+            Visible: |-
+                =If(
+                    CountRows(UserGallery_15.AllItems)=0 && varUser=true,true,false
+                ,
+                
+                If(
+                    CountRows(ManagerGallery_13.AllItems)=0 && varMngr=true,true,false
+                ,
+                
+                If(
+                    CountRows(ILDGAllery_13.AllItems)=0 && varAdmin=true,true,false
+                )))
+            X: =1045
+            Y: =288
+            ZIndex: =18
+
+        Button2_8 As button:
+            DisabledColor: =RGBA(255, 255, 255, 1)
+            DisabledFill: =RGBA(213, 39, 26, 1)
+            Fill: =RGBA(213, 39, 26, 1)
+            Height: =28
+            HoverFill: =RGBA(213, 39, 26, 1)
+            OnSelect: |-
+                =If(
+                    varUser = true,
+                    ForAll(
+                        UserGallery_15.AllItems As MyPatch,
+                        Patch(
+                            NotificationList_CertificationApp,
+                            {ID: MyPatch.ID},
+                            {
+                                Title: MyPatch.Title,
+                                IsDeleted: true
+                            }
+                        )
+                    ),
+                    If(
+                        varMngr = true,
+                        ForAll(
+                            ManagerGallery_13.AllItems As MyPatch,
+                            Patch(
+                                NotificationList_CertificationApp,
+                                {ID: MyPatch.ID},
+                                {
+                                    Title: MyPatch.Title,
+                                    IsDeleted: true
+                                }
+                            )
+                        ),
+                        ForAll(
+                            ILDGAllery_13.AllItems As MyPatch,
+                            Patch(
+                                NotificationList_CertificationApp,
+                                {ID: MyPatch.ID},
+                                {
+                                    Title: MyPatch.Title,
+                                    IsDeleted: true
+                                }
+                            )
+                        )
+                    )
+                )
+            PressedColor: =RGBA(255, 255, 255, 1)
+            PressedFill: =RGBA(213, 39, 26, 1)
+            Size: =11
+            Text: ="ClearAll"
+            Visible: |-
+                =If(
+                    varUser = true,
+                    If(
+                        IsEmpty(UserGallery_15.AllItems),
+                        false,
+                        true
+                    ),
+                    If(
+                        varMngr = true,
+                        If(
+                            IsEmpty(ManagerGallery_13.AllItems),
+                            false,
+                            true
+                        ),
+                        If(
+                            varAdmin = true,
+                            If(
+                                IsEmpty(ILDGAllery_13.AllItems),
+                                false,
+                                true
+                            )
+                        )
+                    )
+                )
+            Width: =92
+            X: =1219
+            Y: =80
+            ZIndex: =19
+

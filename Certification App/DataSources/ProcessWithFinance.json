@@ -1,0 +1,10 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_logicflows",
+    "FlowNameId": "7c2359fc-da5d-48fb-bae6-d67f302ad015",
+    "Name": "ProcessWithFinance",
+    "ServiceKind": "ConnectedWadl",
+    "Type": "ServiceInfo",
+    "WorkflowEntityId": "ce73258c-4a30-ed11-9db1-000d3a5b45a2"
+  }
+]

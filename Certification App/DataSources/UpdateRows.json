@@ -1,0 +1,10 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_logicflows",
+    "FlowNameId": "907c04e5-37c8-4661-a237-c7d0fddf4a73",
+    "Name": "UpdateRows",
+    "ServiceKind": "ConnectedWadl",
+    "Type": "ServiceInfo",
+    "WorkflowEntityId": "2f50c420-132d-ed11-9db1-000d3a5b413d"
+  }
+]
