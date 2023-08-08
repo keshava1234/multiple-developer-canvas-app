@@ -1,14 +1,7 @@
 App As appinfo:
     BackEnabled: =false
     OnStart: |-
-        =Set(
-            locShowSpinnerstart,
-            true
-        );
-        Set(
-            varTabFirst,
-            1
-        );
+        =
         Set(
             screenColor,
             RGBA(

@@ -50,6 +50,7 @@
       "enhanceddelegation": true,
       "enhancedgalleryinitialization": true,
       "errorhandling": true,
+      "excelcompatibility": false,
       "expandedsavedatasupport": true,
       "exportimportcomponents2": true,
       "externalmessage": false,
@@ -73,7 +74,6 @@
       "parallelcodegen": false,
       "pdffunction": false,
       "powerfxdecimal": false,
-      "powerfxv1": false,
       "projectionmapping": true,
       "reactformulabar": false,
       "reliableconcurrent": true,
@@ -95,7 +95,7 @@
       "zeroalltabindexes": false
     },
     "Author": "",
-    "BindingErrorCount": 201,
+    "BindingErrorCount": 0,
     "ContainsThirdPartyPcfControls": false,
     "DefaultConnectedDataSourceMaxGetRowsCount": 500,
     "DocumentAppType": "DesktopOrTablet",
@@ -108,11 +108,11 @@
     "DocumentType": "App",
     "EnableInstrumentation": false,
     "FileID": "e45ca6ae-0108-46e5-8294-677edcb86501",
-    "Id": "e9389220-88e9-4b94-9ef8-bc47eca0d561",
+    "Id": "8beeba80-4eb1-4244-a3ee-614fd6fea1bc",
     "InstrumentationKey": "",
     "LocalDatabaseReferences": "{}",
     "ManualOfflineProfileId": "",
-    "Name": "Certification-Management-SP-3",
+    "Name": "Certification-Management-SP-3.msapp",
     "OriginatingVersion": "1.326",
     "ParserErrorCount": 0,
     "ShowStatusBar": false
@@ -144,7 +144,6 @@
     "Responsive Settings Screen",
     "Responsive Approval Status Screen",
     "CertificationRecommendationScreen",
-    "External reimbursement status",
-    "Screen1"
+    "External reimbursement status"
   ]
 }

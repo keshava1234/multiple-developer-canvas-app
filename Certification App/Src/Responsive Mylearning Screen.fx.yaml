@@ -113,10 +113,7 @@
             ).value
         );*/
         UpdateContext({_showLoading: false});
-        Set(
-            _calendarVisible,
-            true
-        );
+        
         UpdateContext({locShowSpinner: false});
         ClearCollect(colexternalCertificationList,ExternalCertificationList);
         ClearCollect(colCertOrder,CertificationOrder)
