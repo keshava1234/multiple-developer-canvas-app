@@ -49,6 +49,7 @@
                     ZIndex: =2
 
                 txtSearch_11 As text:
+                    AccessibleLabel: ="txtSearch_11"
                     BorderColor: =RGBA(219, 219, 219, 1)
                     BorderThickness: =1
                     Color: =RGBA(161, 161, 161, 1)
@@ -77,6 +78,7 @@
                     ZIndex: =4
 
                 Image7_30 As image:
+                    AccessibleLabel: ="Image7_30"
                     BorderColor: =RGBA(0, 0, 0, 0)
                     Height: =40
                     Image: =User().Image
@@ -101,6 +103,7 @@
                     ZIndex: =13
 
                     icoEnrollList_24 As icon.ShoppingCart:
+                        AccessibleLabel: ="icoEnrollList_24"
                         Height: =53
                         Icon: =Icon.ShoppingCart
                         OnSelect: =Navigate('Responsive EnrollCertificate Screen', ScreenTransition.None)
@@ -135,6 +138,7 @@
                         ZIndex: =6
 
                         Bell_icon_21 As icon.Bell:
+                            AccessibleLabel: ="BellIcon_21"
                             Height: =30
                             Icon: =Icon.Bell
                             OnSelect: |-
@@ -211,6 +215,7 @@
                         ZIndex: =14
 
                     userdrp_down_18 As dropdown:
+                        AccessibleLabel: ="userdrp_down_18"
                         BorderColor: =Color.Gray
                         BorderThickness: =0
                         ChevronBackground: =RGBA(0, 0, 0, 0)
@@ -279,6 +284,7 @@
                         ZIndex: =18
 
                     Icon17_19 As icon.Settings:
+                        AccessibleLabel: ="Icon17_19"
                         BorderColor: =RGBA(0, 0, 0, 1)
                         Color: =RGBA(0, 0, 0, 1)
                         Height: =23
@@ -309,6 +315,7 @@
                 ZIndex: =1
 
                 icoEnrollList_25 As icon.ShoppingCart:
+                    AccessibleLabel: ="icoEnrollList_25"
                     Height: =40
                     Icon: =Icon.ShoppingCart
                     OnSelect: =Navigate('Responsive EnrollCertificate Screen', ScreenTransition.None)
@@ -337,6 +344,7 @@
                         ZIndex: =1
 
                     userdrp_down_19 As dropdown:
+                        AccessibleLabel: ="userdrp_down_19"
                         BorderColor: =Color.Gray
                         BorderThickness: =0
                         ChevronBackground: =RGBA(0, 0, 0, 0)
@@ -402,6 +410,7 @@
                         ZIndex: =5
 
                     Icon17_20 As icon.Settings:
+                        AccessibleLabel: ="Icon17_20"
                         BorderColor: =RGBA(0, 0, 0, 1)
                         Color: =RGBA(0, 0, 0, 1)
                         Height: =15
@@ -439,6 +448,7 @@
                     ZIndex: =12
 
                     Bell_icon_22 As icon.Bell:
+                        AccessibleLabel: ="Bell_icon_22"
                         Height: =22
                         Icon: =Icon.Bell
                         OnSelect: |-
@@ -713,6 +723,7 @@
                         ZIndex: =6
 
                     Icon11_17 As icon.Home:
+                        AccessibleLabel: ="Icon11_17"
                         BorderColor: =RGBA(0, 0, 0, 1)
                         Color: =RGBA(0, 0, 0, 1)
                         Height: =23
@@ -755,6 +766,7 @@
                         ZIndex: =8
 
                     Icon22_17 As icon.ChevronRight:
+                        AccessibleLabel: ="Icon22_17"
                         BorderColor: =RGBA(0, 0, 0, 1)
                         Color: =RGBA(0, 0, 0, 1)
                         Height: =17
@@ -802,6 +814,7 @@
                         ZIndex: =10
 
                     Icon29_17 As icon.ChevronRight:
+                        AccessibleLabel: ="Icon29_17"
                         BorderColor: =RGBA(0, 0, 0, 1)
                         Color: =RGBA(0, 0, 0, 1)
                         Height: =20
@@ -817,6 +830,7 @@
                         ZIndex: =11
 
                     Icon32_17 As icon.Database:
+                        AccessibleLabel: ="Icon32_17"
                         BorderColor: =RGBA(0, 0, 0, 1)
                         Color: =RGBA(0, 0, 0, 1)
                         Height: =22
@@ -950,6 +964,7 @@
                         ZIndex: =19
 
                     Image12_17 As image:
+                        AccessibleLabel: ="Image12_17"
                         Height: =22
                         Image: ='question-octagon'
                         OnSelect: =Navigate(AskQuestion_Admin,ScreenTransition.UnCover);
@@ -962,6 +977,7 @@
                         ZIndex: =20
 
                     Icon5_3 As icon.ChevronDown:
+                        AccessibleLabel: ="Icon5_3"
                         Color: =RGBA(0, 0, 0, 1)
                         Height: =17
                         Icon: =Icon.ChevronDown
@@ -992,6 +1008,7 @@
                         ZIndex: =28
 
                     Icon6_3 As icon.ChevronDown:
+                        AccessibleLabel: ="Icon6_3"
                         Color: =RGBA(0, 0, 0, 1)
                         Height: =20
                         Icon: =Icon.ChevronDown
@@ -1164,6 +1181,7 @@
                             ZIndex: =24
 
                         Icon23_17 As icon.Download:
+                            AccessibleLabel: ="Icon23_17"
                             BorderColor: =RGBA(0, 0, 0, 1)
                             Color: =RGBA(0, 0, 0, 1)
                             FocusedBorderThickness: =0
@@ -1231,6 +1249,7 @@
                                 ZIndex: =2
 
                             TextInput2_1 As text:
+                                AccessibleLabel: ="TextInput2_1"
                                 BorderColor: =RGBA(112, 112, 112, 0.31)
                                 BorderThickness: =1
                                 Default: =""
@@ -1257,6 +1276,7 @@
                                 ZIndex: =4
 
                             TextInput5_1 As text:
+                                AccessibleLabel: ="TextInput5_1"
                                 BorderColor: =RGBA(112, 112, 112, 0.31)
                                 BorderThickness: =1
                                 Default: =""
@@ -1282,6 +1302,7 @@
                                 ZIndex: =6
 
                             Dropdown2_1 As dropdown:
+                                AccessibleLabel: ="Dropdown2_1"
                                 BorderColor: =RGBA(112, 112, 112, 0.31)
                                 BorderThickness: =1
                                 ChevronBackground: =RGBA(112, 112, 112, 0.31)
