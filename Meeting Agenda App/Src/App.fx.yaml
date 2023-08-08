@@ -106,6 +106,7 @@ App As appinfo:
                     ).Value
                 ).Name
             );
+            ClearCollect(ColMeetingAgendaLists,MeetingAgendaLists);
             ClearCollect(
                 AllFutureEvents,
                 Office365Outlook.GetEventsCalendarView(
