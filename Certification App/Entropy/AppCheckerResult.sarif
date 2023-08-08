@@ -65611,6 +65611,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "'Responsive Approval Status Screen'.Container1_18.Container3_14.Container4_14.Container13_27.Icon22_27.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Approval Status Screen'.Container1_18.Container3_14.Container4_14.Container13_27.Icon22_27.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Responsive Approval Status Screen",
+                "type": "'Responsive Approval Status Screen'.Container1_18.Container3_14.Container4_14.Container13_27.Icon22_27"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 11
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "'Responsive Approval Status Screen'.Container1_18.Container3_14.Container4_14.Container13_27.Icon22_27.TabIndex"
                 }
               ],
@@ -65641,6 +65671,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "'Responsive Approval Status Screen'.Container1_18.Container3_14.Container4_14.Container13_27.Icon5_8.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Approval Status Screen'.Container1_18.Container3_14.Container4_14.Container13_27.Icon5_8.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Responsive Approval Status Screen",
+                "type": "'Responsive Approval Status Screen'.Container1_18.Container3_14.Container4_14.Container13_27.Icon5_8"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 11
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "'Responsive Approval Status Screen'.Container1_18.Container3_14.Container4_14.Container13_27.Icon5_8.TabIndex"
                 }
               ],
@@ -65665,6 +65725,36 @@
           },
           "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
           "ruleIndex": 12
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Responsive Approval Status Screen'.Container1_18.Container3_14.Container4_14.Container13_27.Icon32_27.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Approval Status Screen'.Container1_18.Container3_14.Container4_14.Container13_27.Icon32_27.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Responsive Approval Status Screen",
+                "type": "'Responsive Approval Status Screen'.Container1_18.Container3_14.Container4_14.Container13_27.Icon32_27"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 11
         },
         {
           "locations": [
@@ -65755,6 +65845,36 @@
           },
           "ruleId": "acc-FocusBorderShouldBeVisible",
           "ruleIndex": 10
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Responsive Approval Status Screen'.Container1_18.Container3_14.Container4_14.Container13_27.Icon23_27.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Approval Status Screen'.Container1_18.Container3_14.Container4_14.Container13_27.Icon23_27.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Responsive Approval Status Screen",
+                "type": "'Responsive Approval Status Screen'.Container1_18.Container3_14.Container4_14.Container13_27.Icon23_27"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 11
         },
         {
           "locations": [
@@ -65881,6 +66001,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "'Responsive Approval Status Screen'.Container1_18.Container3_14.Container4_14.Container13_27.Image12_27.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Approval Status Screen'.Container1_18.Container3_14.Container4_14.Container13_27.Image12_27.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Responsive Approval Status Screen",
+                "type": "'Responsive Approval Status Screen'.Container1_18.Container3_14.Container4_14.Container13_27.Image12_27"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 11
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "'Responsive Approval Status Screen'.Container1_18.Container3_14.Container4_14.Container13_27.Image12_27.TabIndex"
                 }
               ],
@@ -66001,6 +66151,66 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "'Responsive Approval Status Screen'.Container1_18.Container3_14.Container93.Container100.Container29_17.Container20_3.Radio2_2.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Approval Status Screen'.Container1_18.Container3_14.Container93.Container100.Container29_17.Container20_3.Radio2_2.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Responsive Approval Status Screen",
+                "type": "'Responsive Approval Status Screen'.Container1_18.Container3_14.Container93.Container100.Container29_17.Container20_3.Radio2_2"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 11
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Responsive Approval Status Screen'.Container1_18.Container3_14.Container93.Container100.Container29_17.Gallery12_5.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Approval Status Screen'.Container1_18.Container3_14.Container93.Container100.Container29_17.Gallery12_5.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Responsive Approval Status Screen",
+                "type": "'Responsive Approval Status Screen'.Container1_18.Container3_14.Container93.Container100.Container29_17.Gallery12_5"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 11
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "'Responsive Approval Status Screen'.Container1_18.Container3_14.Container93.Container100.Container29_17.Gallery12_5.TabIndex"
                 }
               ],
@@ -66025,6 +66235,66 @@
           },
           "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
           "ruleIndex": 12
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Responsive Approval Status Screen'.Container1_18.Container3_14.Container5_17.Container86_2.Container89.Container16_3.Container29_1.Container20_1.Radio2_1.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Approval Status Screen'.Container1_18.Container3_14.Container5_17.Container86_2.Container89.Container16_3.Container29_1.Container20_1.Radio2_1.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Responsive Approval Status Screen",
+                "type": "'Responsive Approval Status Screen'.Container1_18.Container3_14.Container5_17.Container86_2.Container89.Container16_3.Container29_1.Container20_1.Radio2_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 11
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Responsive Approval Status Screen'.Container1_18.Container3_14.Container5_17.Container86_2.Container89.Container16_3.Container29_1.Gallery12_4.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Approval Status Screen'.Container1_18.Container3_14.Container5_17.Container86_2.Container89.Container16_3.Container29_1.Gallery12_4.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Responsive Approval Status Screen",
+                "type": "'Responsive Approval Status Screen'.Container1_18.Container3_14.Container5_17.Container86_2.Container89.Container16_3.Container29_1.Gallery12_4"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 11
         },
         {
           "locations": [
@@ -66061,6 +66331,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "'Responsive Approval Status Screen'.UserGalleryCancelIcon_15.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Approval Status Screen'.UserGalleryCancelIcon_15.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Responsive Approval Status Screen",
+                "type": "'Responsive Approval Status Screen'.UserGalleryCancelIcon_15"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 11
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "'Responsive Approval Status Screen'.UserGalleryCancelIcon_15.TabIndex"
                 }
               ],
@@ -66085,6 +66385,36 @@
           },
           "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
           "ruleIndex": 12
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Responsive Approval Status Screen'.Icon4_20.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Approval Status Screen'.Icon4_20.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Responsive Approval Status Screen",
+                "type": "'Responsive Approval Status Screen'.Icon4_20"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 11
         },
         {
           "locations": [
@@ -66121,6 +66451,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "'Responsive Approval Status Screen'.Container13_51.Icon11_50.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Approval Status Screen'.Container13_51.Icon11_50.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Responsive Approval Status Screen",
+                "type": "'Responsive Approval Status Screen'.Container13_51.Icon11_50"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 11
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "'Responsive Approval Status Screen'.Container13_51.Icon11_50.TabIndex"
                 }
               ],
@@ -66145,6 +66505,36 @@
           },
           "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
           "ruleIndex": 12
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Responsive Approval Status Screen'.Container13_51.Icon29_50.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Approval Status Screen'.Container13_51.Icon29_50.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Responsive Approval Status Screen",
+                "type": "'Responsive Approval Status Screen'.Container13_51.Icon29_50"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 11
         },
         {
           "locations": [
@@ -66181,6 +66571,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "'Responsive Approval Status Screen'.Container13_51.Icon13_16.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Approval Status Screen'.Container13_51.Icon13_16.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Responsive Approval Status Screen",
+                "type": "'Responsive Approval Status Screen'.Container13_51.Icon13_16"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 11
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "'Responsive Approval Status Screen'.Container13_51.Icon13_16.TabIndex"
                 }
               ],
@@ -66205,6 +66625,36 @@
           },
           "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
           "ruleIndex": 12
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Responsive Approval Status Screen'.Container13_51.Icon22_50.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Approval Status Screen'.Container13_51.Icon22_50.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Responsive Approval Status Screen",
+                "type": "'Responsive Approval Status Screen'.Container13_51.Icon22_50"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 11
         },
         {
           "locations": [
@@ -66241,6 +66691,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "'Responsive Approval Status Screen'.Container13_51.Icon12_17.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Approval Status Screen'.Container13_51.Icon12_17.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Responsive Approval Status Screen",
+                "type": "'Responsive Approval Status Screen'.Container13_51.Icon12_17"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 11
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "'Responsive Approval Status Screen'.Container13_51.Icon12_17.TabIndex"
                 }
               ],
@@ -66265,6 +66745,36 @@
           },
           "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
           "ruleIndex": 12
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Responsive Approval Status Screen'.Container13_51.Icon32_50.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Approval Status Screen'.Container13_51.Icon32_50.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Responsive Approval Status Screen",
+                "type": "'Responsive Approval Status Screen'.Container13_51.Icon32_50"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 11
         },
         {
           "locations": [
@@ -66301,6 +66811,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "'Responsive Approval Status Screen'.Container13_51.Icon23_50.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Approval Status Screen'.Container13_51.Icon23_50.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Responsive Approval Status Screen",
+                "type": "'Responsive Approval Status Screen'.Container13_51.Icon23_50"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 11
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "'Responsive Approval Status Screen'.Container13_51.Icon23_50.TabIndex"
                 }
               ],
@@ -66325,6 +66865,36 @@
           },
           "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
           "ruleIndex": 12
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Responsive Approval Status Screen'.Container13_51.Image12_52.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Approval Status Screen'.Container13_51.Image12_52.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Responsive Approval Status Screen",
+                "type": "'Responsive Approval Status Screen'.Container13_51.Image12_52"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 11
         },
         {
           "locations": [
@@ -66361,6 +66931,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "'Responsive Approval Status Screen'.Icon2_13.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Approval Status Screen'.Icon2_13.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Responsive Approval Status Screen",
+                "type": "'Responsive Approval Status Screen'.Icon2_13"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 11
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "'Responsive Approval Status Screen'.Icon2_13.TabIndex"
                 }
               ],
@@ -66385,6 +66985,36 @@
           },
           "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
           "ruleIndex": 12
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Responsive Approval Status Screen'.UserGallery_14.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Approval Status Screen'.UserGallery_14.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Responsive Approval Status Screen",
+                "type": "'Responsive Approval Status Screen'.UserGallery_14"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 11
         },
         {
           "locations": [
@@ -66421,6 +67051,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "'Responsive Approval Status Screen'.ManagerGallery_12.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Approval Status Screen'.ManagerGallery_12.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Responsive Approval Status Screen",
+                "type": "'Responsive Approval Status Screen'.ManagerGallery_12"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 11
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "'Responsive Approval Status Screen'.ManagerGallery_12.TabIndex"
                 }
               ],
@@ -66445,6 +67105,36 @@
           },
           "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
           "ruleIndex": 12
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Responsive Approval Status Screen'.ILDGAllery_12.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Approval Status Screen'.ILDGAllery_12.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Responsive Approval Status Screen",
+                "type": "'Responsive Approval Status Screen'.ILDGAllery_12"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 11
         },
         {
           "locations": [
@@ -66481,6 +67171,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "'Responsive Approval Status Screen'.MngrCancelicon_12.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Approval Status Screen'.MngrCancelicon_12.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Responsive Approval Status Screen",
+                "type": "'Responsive Approval Status Screen'.MngrCancelicon_12"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 11
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "'Responsive Approval Status Screen'.MngrCancelicon_12.TabIndex"
                 }
               ],
@@ -66505,6 +67225,36 @@
           },
           "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
           "ruleIndex": 12
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Responsive Approval Status Screen'.ILDCancelicon_12.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Approval Status Screen'.ILDCancelicon_12.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Responsive Approval Status Screen",
+                "type": "'Responsive Approval Status Screen'.ILDCancelicon_12"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 11
         },
         {
           "locations": [
@@ -66541,6 +67291,96 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "'Responsive Approval Status Screen'.Container92.TextInput4.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Approval Status Screen'.Container92.TextInput4.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Responsive Approval Status Screen",
+                "type": "'Responsive Approval Status Screen'.Container92.TextInput4"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 11
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Responsive Approval Status Screen'.Container92_1.TextInput4_2.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Approval Status Screen'.Container92_1.TextInput4_2.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Responsive Approval Status Screen",
+                "type": "'Responsive Approval Status Screen'.Container92_1.TextInput4_2"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 11
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container2_8.Container10_8.enrollContainer_14.icoEnrollList_22.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container2_8.Container10_8.enrollContainer_14.icoEnrollList_22.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Responsive Certification Status Screen",
+                "type": "'Responsive Certification Status Screen'.Container1_12.Container2_8.Container10_8.enrollContainer_14.icoEnrollList_22"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 11
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container2_8.Container10_8.enrollContainer_14.icoEnrollList_22.TabIndex"
                 }
               ],
@@ -66565,6 +67405,36 @@
           },
           "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
           "ruleIndex": 12
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container2_8.Container10_8.enrollContainer_14.Bell_icon_19.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container2_8.Container10_8.enrollContainer_14.Bell_icon_19.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Responsive Certification Status Screen",
+                "type": "'Responsive Certification Status Screen'.Container1_12.Container2_8.Container10_8.enrollContainer_14.Bell_icon_19"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 11
         },
         {
           "locations": [
@@ -66601,6 +67471,66 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container2_8.Container10_8.txtSearch_10.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container2_8.Container10_8.txtSearch_10.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Responsive Certification Status Screen",
+                "type": "'Responsive Certification Status Screen'.Container1_12.Container2_8.Container10_8.txtSearch_10"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 11
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container2_8.Container10_8.Image7_26.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container2_8.Container10_8.Image7_26.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Responsive Certification Status Screen",
+                "type": "'Responsive Certification Status Screen'.Container1_12.Container2_8.Container10_8.Image7_26"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 11
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container2_8.Container10_8.Image7_26.TabIndex"
                 }
               ],
@@ -66625,6 +67555,36 @@
           },
           "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
           "ruleIndex": 12
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container2_8.Container10_8.userdrp_down_16.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container2_8.Container10_8.userdrp_down_16.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Responsive Certification Status Screen",
+                "type": "'Responsive Certification Status Screen'.Container1_12.Container2_8.Container10_8.userdrp_down_16"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 11
         },
         {
           "locations": [
@@ -66781,6 +67741,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container2_8.Container10_8.Icon17_17.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container2_8.Container10_8.Icon17_17.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Responsive Certification Status Screen",
+                "type": "'Responsive Certification Status Screen'.Container1_12.Container2_8.Container10_8.Icon17_17"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 11
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container2_8.Container10_8.Icon17_17.TabIndex"
                 }
               ],
@@ -66805,6 +67795,36 @@
           },
           "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
           "ruleIndex": 12
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container8_8.Container29_8.icoEnrollList_23.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container8_8.Container29_8.icoEnrollList_23.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Responsive Certification Status Screen",
+                "type": "'Responsive Certification Status Screen'.Container1_12.Container8_8.Container29_8.icoEnrollList_23"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 11
         },
         {
           "locations": [
@@ -66841,6 +67861,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container8_8.Container29_8.Bell_icon_20.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container8_8.Container29_8.Bell_icon_20.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Responsive Certification Status Screen",
+                "type": "'Responsive Certification Status Screen'.Container1_12.Container8_8.Container29_8.Bell_icon_20"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 11
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container8_8.Container29_8.Bell_icon_20.TabIndex"
                 }
               ],
@@ -66865,6 +67915,36 @@
           },
           "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
           "ruleIndex": 12
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container8_8.Container29_8.userdrp_down_17.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container8_8.Container29_8.userdrp_down_17.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Responsive Certification Status Screen",
+                "type": "'Responsive Certification Status Screen'.Container1_12.Container8_8.Container29_8.userdrp_down_17"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 11
         },
         {
           "locations": [
@@ -67021,6 +68101,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container8_8.Container29_8.Icon17_18.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container8_8.Container29_8.Icon17_18.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Responsive Certification Status Screen",
+                "type": "'Responsive Certification Status Screen'.Container1_12.Container8_8.Container29_8.Icon17_18"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 11
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container8_8.Container29_8.Icon17_18.TabIndex"
                 }
               ],
@@ -67075,6 +68185,36 @@
           },
           "ruleId": "acc-FocusBorderShouldBeVisible",
           "ruleIndex": 10
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container4_8.Container13_15.Icon11_15.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container4_8.Container13_15.Icon11_15.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Responsive Certification Status Screen",
+                "type": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container4_8.Container13_15.Icon11_15"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 11
         },
         {
           "locations": [
@@ -67141,6 +68281,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container4_8.Container13_15.Icon29_15.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container4_8.Container13_15.Icon29_15.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Responsive Certification Status Screen",
+                "type": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container4_8.Container13_15.Icon29_15"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 11
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container4_8.Container13_15.Icon29_15.TabIndex"
                 }
               ],
@@ -67165,6 +68335,36 @@
           },
           "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
           "ruleIndex": 12
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container4_8.Container13_15.Icon6_2.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container4_8.Container13_15.Icon6_2.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Responsive Certification Status Screen",
+                "type": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container4_8.Container13_15.Icon6_2"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 11
         },
         {
           "locations": [
@@ -67291,6 +68491,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container4_8.Container13_15.Icon22_15.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container4_8.Container13_15.Icon22_15.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Responsive Certification Status Screen",
+                "type": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container4_8.Container13_15.Icon22_15"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 11
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container4_8.Container13_15.Icon22_15.TabIndex"
                 }
               ],
@@ -67321,6 +68551,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container4_8.Container13_15.Icon5_2.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container4_8.Container13_15.Icon5_2.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Responsive Certification Status Screen",
+                "type": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container4_8.Container13_15.Icon5_2"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 11
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container4_8.Container13_15.Icon5_2.TabIndex"
                 }
               ],
@@ -67345,6 +68605,36 @@
           },
           "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
           "ruleIndex": 12
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container4_8.Container13_15.Icon32_15.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container4_8.Container13_15.Icon32_15.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Responsive Certification Status Screen",
+                "type": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container4_8.Container13_15.Icon32_15"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 11
         },
         {
           "locations": [
@@ -67435,6 +68725,36 @@
           },
           "ruleId": "acc-FocusBorderShouldBeVisible",
           "ruleIndex": 10
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container4_8.Container13_15.Icon23_15.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container4_8.Container13_15.Icon23_15.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Responsive Certification Status Screen",
+                "type": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container4_8.Container13_15.Icon23_15"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 11
         },
         {
           "locations": [
@@ -67561,6 +68881,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container4_8.Container13_15.Image12_15.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container4_8.Container13_15.Image12_15.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Responsive Certification Status Screen",
+                "type": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container4_8.Container13_15.Image12_15"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 11
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container4_8.Container13_15.Image12_15.TabIndex"
                 }
               ],
@@ -67681,6 +69031,156 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container6_3.Container105.Container19_9.Radio2_3.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container6_3.Container105.Container19_9.Radio2_3.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Responsive Certification Status Screen",
+                "type": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container6_3.Container105.Container19_9.Radio2_3"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 11
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container6_3.Container105.Container19_9.TextInput1_3.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container6_3.Container105.Container19_9.TextInput1_3.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Responsive Certification Status Screen",
+                "type": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container6_3.Container105.Container19_9.TextInput1_3"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 11
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container5_11.Container10_1.Container19_8.Radio2.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container5_11.Container10_1.Container19_8.Radio2.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Responsive Certification Status Screen",
+                "type": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container5_11.Container10_1.Container19_8.Radio2"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 11
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container5_11.Container10_1.Container19_8.TextInput1.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container5_11.Container10_1.Container19_8.TextInput1.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Responsive Certification Status Screen",
+                "type": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container5_11.Container10_1.Container19_8.TextInput1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 11
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container101.Container16_1.Container17_3.Toggle1.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container101.Container16_1.Container17_3.Toggle1.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Responsive Certification Status Screen",
+                "type": "'Responsive Certification Status Screen'.Container101.Container16_1.Container17_3.Toggle1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 11
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "'Responsive Certification Status Screen'.Container101.Container16_1.Container17_3.Toggle1.FocusedBorderThickness"
                 }
               ],
@@ -67705,6 +69205,66 @@
           },
           "ruleId": "acc-FocusBorderShouldBeVisible",
           "ruleIndex": 10
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container101.Container16_1.Container17_3.Attachments.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container101.Container16_1.Container17_3.Attachments.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Responsive Certification Status Screen",
+                "type": "'Responsive Certification Status Screen'.Container101.Container16_1.Container17_3.Attachments"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 11
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container101.Container16_1.Container17_3.Gallery8.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container101.Container16_1.Container17_3.Gallery8.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Responsive Certification Status Screen",
+                "type": "'Responsive Certification Status Screen'.Container101.Container16_1.Container17_3.Gallery8"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 11
         },
         {
           "locations": [
@@ -67741,6 +69301,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container101.Container16_1.Container17_3.Gallery13.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container101.Container16_1.Container17_3.Gallery13.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Responsive Certification Status Screen",
+                "type": "'Responsive Certification Status Screen'.Container101.Container16_1.Container17_3.Gallery13"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 11
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "'Responsive Certification Status Screen'.Container101.Container16_1.Container17_3.Gallery13.TabIndex"
                 }
               ],
@@ -67765,6 +69355,36 @@
           },
           "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
           "ruleIndex": 12
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container101.Container16_1.Container17_3.Gallery13.RemoveAttachment.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container101.Container16_1.Container17_3.Gallery13.RemoveAttachment.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Responsive Certification Status Screen",
+                "type": "'Responsive Certification Status Screen'.Container101.Container16_1.Container17_3.Gallery13.RemoveAttachment"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 11
         },
         {
           "locations": [
@@ -67801,6 +69421,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container101.Container16_1.Container17_6.Toggle1_1.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container101.Container16_1.Container17_6.Toggle1_1.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Responsive Certification Status Screen",
+                "type": "'Responsive Certification Status Screen'.Container101.Container16_1.Container17_6.Toggle1_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 11
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "'Responsive Certification Status Screen'.Container101.Container16_1.Container17_6.Toggle1_1.FocusedBorderThickness"
                 }
               ],
@@ -67825,6 +69475,66 @@
           },
           "ruleId": "acc-FocusBorderShouldBeVisible",
           "ruleIndex": 10
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container101.Container16_1.Container17_6.Attachments_4.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container101.Container16_1.Container17_6.Attachments_4.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Responsive Certification Status Screen",
+                "type": "'Responsive Certification Status Screen'.Container101.Container16_1.Container17_6.Attachments_4"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 11
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container101.Container16_1.Container17_6.Gallery8_1.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container101.Container16_1.Container17_6.Gallery8_1.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Responsive Certification Status Screen",
+                "type": "'Responsive Certification Status Screen'.Container101.Container16_1.Container17_6.Gallery8_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 11
         },
         {
           "locations": [
@@ -67861,6 +69571,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container101.Container16_1.Container17_6.Gallery13_1.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container101.Container16_1.Container17_6.Gallery13_1.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Responsive Certification Status Screen",
+                "type": "'Responsive Certification Status Screen'.Container101.Container16_1.Container17_6.Gallery13_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 11
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "'Responsive Certification Status Screen'.Container101.Container16_1.Container17_6.Gallery13_1.TabIndex"
                 }
               ],
@@ -67885,6 +69625,36 @@
           },
           "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
           "ruleIndex": 12
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container101.Container16_1.Container17_6.Gallery13_1.RemoveAttachment_1.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container101.Container16_1.Container17_6.Gallery13_1.RemoveAttachment_1.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Responsive Certification Status Screen",
+                "type": "'Responsive Certification Status Screen'.Container101.Container16_1.Container17_6.Gallery13_1.RemoveAttachment_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 11
         },
         {
           "locations": [
@@ -67921,6 +69691,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container101.Container16_1.Container17_14.Toggle1_2.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container101.Container16_1.Container17_14.Toggle1_2.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Responsive Certification Status Screen",
+                "type": "'Responsive Certification Status Screen'.Container101.Container16_1.Container17_14.Toggle1_2"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 11
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "'Responsive Certification Status Screen'.Container101.Container16_1.Container17_14.Toggle1_2.FocusedBorderThickness"
                 }
               ],
@@ -67945,6 +69745,66 @@
           },
           "ruleId": "acc-FocusBorderShouldBeVisible",
           "ruleIndex": 10
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container101.Container16_1.Container17_14.Attachments_5.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container101.Container16_1.Container17_14.Attachments_5.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Responsive Certification Status Screen",
+                "type": "'Responsive Certification Status Screen'.Container101.Container16_1.Container17_14.Attachments_5"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 11
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container101.Container16_1.Container17_14.Gallery8_3.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container101.Container16_1.Container17_14.Gallery8_3.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Responsive Certification Status Screen",
+                "type": "'Responsive Certification Status Screen'.Container101.Container16_1.Container17_14.Gallery8_3"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 11
         },
         {
           "locations": [
@@ -67981,6 +69841,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container101.Container16_1.Container17_14.Gallery13_2.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container101.Container16_1.Container17_14.Gallery13_2.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Responsive Certification Status Screen",
+                "type": "'Responsive Certification Status Screen'.Container101.Container16_1.Container17_14.Gallery13_2"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 11
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "'Responsive Certification Status Screen'.Container101.Container16_1.Container17_14.Gallery13_2.TabIndex"
                 }
               ],
@@ -68005,6 +69895,36 @@
           },
           "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
           "ruleIndex": 12
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container101.Container16_1.Container17_14.Gallery13_2.RemoveAttachment_2.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container101.Container16_1.Container17_14.Gallery13_2.RemoveAttachment_2.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Responsive Certification Status Screen",
+                "type": "'Responsive Certification Status Screen'.Container101.Container16_1.Container17_14.Gallery13_2.RemoveAttachment_2"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 11
         },
         {
           "locations": [
@@ -68041,6 +69961,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container101.Container16_1.Container17_15.Toggle1_3.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container101.Container16_1.Container17_15.Toggle1_3.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Responsive Certification Status Screen",
+                "type": "'Responsive Certification Status Screen'.Container101.Container16_1.Container17_15.Toggle1_3"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 11
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "'Responsive Certification Status Screen'.Container101.Container16_1.Container17_15.Toggle1_3.FocusedBorderThickness"
                 }
               ],
@@ -68065,6 +70015,36 @@
           },
           "ruleId": "acc-FocusBorderShouldBeVisible",
           "ruleIndex": 10
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container101.Container16_1.Container17_15.Attachments_6.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container101.Container16_1.Container17_15.Attachments_6.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Responsive Certification Status Screen",
+                "type": "'Responsive Certification Status Screen'.Container101.Container16_1.Container17_15.Attachments_6"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 11
         },
         {
           "locations": [

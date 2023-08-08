@@ -402,7 +402,7 @@ AddPollScreen As screen:
             Height: =112
             Items: |-
                 =Filter(
-                    QuestionOptions,
+                    ColQuestionOptions,
                     Question.Id = ThisItem.ID
                 ).Title
             OnSelect: |+
