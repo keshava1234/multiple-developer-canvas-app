@@ -222,14 +222,20 @@ App As appinfo:
         ClearCollect(
             col_Notification,
             Filter(
-                NotificationList_CertificationApp,
+                FirstN(
+                    NotificationList_CertificationApp,
+                    5000
+                ),
                 (Title = User().FullName && "been approved by your manager " & varMngrname in Notification) || ("has requested for" in Notification && Manager = User().FullName) || (Title = User().FullName && "been approved by ILD" in Notification) || IsDeleted = false
             )
         );
         ClearCollect(
             mngr_notify_Col,
             Filter(
-                NotificationList_CertificationApp,
+                FirstN(
+                    NotificationList_CertificationApp,
+                    5000
+                ),
                 Title = User().FullName && ("been approved by your manager " & varMngrname in Notification || "been approved by ILD" in Notification) && IsDeleted = false
             )
         );
