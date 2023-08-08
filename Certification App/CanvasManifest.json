@@ -108,11 +108,11 @@
     "DocumentType": "App",
     "EnableInstrumentation": false,
     "FileID": "e45ca6ae-0108-46e5-8294-677edcb86501",
-    "Id": "e9389220-88e9-4b94-9ef8-bc47eca0d561",
+    "Id": "8beeba80-4eb1-4244-a3ee-614fd6fea1bc",
     "InstrumentationKey": "",
     "LocalDatabaseReferences": "{}",
     "ManualOfflineProfileId": "",
-    "Name": "Certification-Management-SP-3",
+    "Name": "Certification-Management-SP-3.msapp",
     "OriginatingVersion": "1.326",
     "ParserErrorCount": 0,
     "ShowStatusBar": false
