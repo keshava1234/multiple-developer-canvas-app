@@ -5162,13 +5162,13 @@
         ZIndex: =8
 
     cert_Status_toggel_1 As toggleSwitch:
-        FalseText: ="Approved"
+        FalseText: ="Waiting for Approval"
         FontWeight: =FontWeight.Semibold
         Height: =22
         OnCheck: = ClearCollect(Cert_Req,Filter(FirstN(CertificationRequest,2000),Admin_Approval=true));
         OnUncheck: =ClearCollect(Cert_Req,Filter(FirstN(CertificationRequest,2000),Admin_Approval=false));
         Size: =10
-        TrueText: ="Waiting for Approval"
+        TrueText: ="Approved"
         Width: =206
         X: =1144
         Y: =134
