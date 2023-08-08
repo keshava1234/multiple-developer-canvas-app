@@ -4328,15 +4328,21 @@
                             MeetingID = variCalUID.icaluid && Displayname = User().FullName
                         )
                     ),
-                    Patch(
+                    IfError(Patch(
                         'Notes-MeetingList',
                         LookUp(
                             'Notes-MeetingList',
                             MeetingID = variCalUID.icaluid
                         ),
                         {Notes: 'MeetingDetails notes'.HtmlText,Title: SelectedMeeting.Subject,Displayname:User().FullName}
-                    ),
-                    Patch(
+                    ),Notify(
+                            "Error while Saving Notes",
+                            NotificationType.Error
+                        ),Notify(
+                            "Notes Saved Successfully",
+                            NotificationType.Success
+                        )),
+                    IfError(Patch(
                         'Notes-MeetingList',
                         Defaults('Notes-MeetingList'),
                         {
@@ -4345,8 +4351,14 @@
                             Notes: 'MeetingDetails notes'.HtmlText,
                             Displayname: User().FullName
                         }
-                    )
-                );
+                    ),Notify(
+                            "Error while Saving Notes",
+                            NotificationType.Error
+                        ),Notify(
+                            "Notes Saved Successfully",
+                            NotificationType.Success
+                        )
+                ));
             Visible: =!varMeetingDetails
             Width: =888
             X: =453
