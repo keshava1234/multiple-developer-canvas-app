@@ -2077,8 +2077,9 @@
                 AccessibleLabel: ="Icon11"
                 Height: =25
                 Icon: =Icon.Trash
-                OnSelect: |
-                    =Set(
+                OnSelect: |+
+                    =/*First(Filter/Search or Last(Filter/Search found. Use LookUp instead
+                    Set(
                         varDeleteflow,
                         DeleteAttachmentsFlow.Run(
                             ThisItem.Id,
@@ -2100,7 +2101,33 @@
                             "File Deleted failed",
                             NotificationType.Error
                         )
+                    );*/
+                    
+                    
+                    Set(
+                        varDeleteflow,
+                        DeleteAttachmentsFlow.Run(
+                            ThisItem.Id,
+                           LookUp(
+                                    MeetingList,
+                                    MeetingID = variCalUID.icaluid
+                                )
+                            .ID
+                        ).result
                     );
+                    If(
+                        varResultFlow = "success",
+                        Notify(
+                            "File Deleted successfully",
+                            NotificationType.Success 
+                        ); 
+                        Refresh(MeetingList),
+                        Notify(
+                            "File Deleted failed",
+                            NotificationType.Error
+                        )
+                    );
+                    
                 PaddingBottom: =4
                 PaddingLeft: =4
                 PaddingRight: =4
@@ -3198,8 +3225,9 @@
                 Color: =RGBA(213, 25, 32, 1)
                 Height: =24
                 Icon: =Icon.Trash
-                OnSelect: |-
-                    =Set(
+                OnSelect: |
+                    =/*First(Filter/Search or Last(Filter/Search found. Use LookUp instead.
+                    Set(
                         varDeleteflow1,
                         AgendaDeleteAttachment.Run(
                             ThisItem.Id,
@@ -3208,6 +3236,28 @@
                                     MeetingAgendaLists,
                                     MeetingID = variCalUID.icaluid
                                 )
+                            ).ID
+                        ).result
+                    );
+                    If(
+                        varDeleteflow1 = "Success",
+                        Notify(
+                            "File Deleted successfully",
+                            NotificationType.Success
+                        );
+                        Refresh(MeetingAgendaLists),
+                        Notify(
+                            "File Deleted failed",
+                            NotificationType.Error
+                        )
+                    );*/
+                    Set(
+                        varDeleteflow1,
+                        AgendaDeleteAttachment.Run(
+                            ThisItem.Id,
+                            LookUp(
+                                MeetingAgendaLists,
+                                MeetingID = variCalUID.icaluid
                             ).ID
                         ).result
                     );
