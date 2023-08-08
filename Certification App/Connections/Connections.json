@@ -48,7 +48,9 @@
       "parameterHintsV2": {}
     },
     "datasets": {},
-    "dataSources": [],
+    "dataSources": [
+      "Certifications"
+    ],
     "dependencies": {},
     "dependents": [
       "7653730f-5965-4cf8-af8d-e944b7ce7c5b"
