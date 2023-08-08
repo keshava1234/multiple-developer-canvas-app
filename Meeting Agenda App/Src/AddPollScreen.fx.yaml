@@ -553,9 +553,22 @@ AddPollScreen As screen:
             HoverColor: =RGBA(255, 255, 255, 1)
             HoverFill: =ColorFade(RGBA(56, 96, 178, 1), -20%)
             OnSelect: |-
-                =
+                =/*First(Filter/Search or Last(Filter/Search found. Use LookUp instead.
+                
                 Refresh(Questions);
                 Set(QuestionID,  Last(Filter(Questions,Boolean(1))).ID);
+                Collect(
+                    arrQuestions,
+                    {
+                        ID: QuestionID+1,
+                        Text: inputQuestion.Text          
+                    }    
+                );
+                Set(varShowpopup,false);
+                Reset(inputQuestion);*/
+                
+                Refresh(Questions);
+                Set(QuestionID,  LookUp(Questions,Boolean(1)).ID);
                 Collect(
                     arrQuestions,
                     {
