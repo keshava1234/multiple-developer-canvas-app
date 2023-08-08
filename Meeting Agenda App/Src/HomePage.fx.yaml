@@ -1074,7 +1074,7 @@ HomePage As screen:
                             MeetingID = SelectedMeeting.Id
                         )
                     ) = 0,
-                    Patch(
+                    IfError(Patch(
                         MeetingList,
                         Defaults(MeetingList),
                         {
@@ -1082,7 +1082,10 @@ HomePage As screen:
                             MeetingID: SelectedMeeting.Id,
                             AllowAttendeesToCreateAgenda: 1
                         }
-                    )
+                    ),Notify(
+                            "No details available for this meeting",
+                            NotificationType.Error
+                        ),false)
                 );
                 Set(
                     varSelectedMeetingSpItem,
