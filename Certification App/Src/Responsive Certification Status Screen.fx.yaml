@@ -4359,6 +4359,7 @@
                 ZIndex: =3
 
                 Attachments_10 As attachments:
+                    AccessibleLabel: ="Attachments_10"
                     BorderColor: =RGBA(202, 202, 202, 1)
                     BorderThickness: =0.1
                     DropTargetBorderColor: =RGBA(219, 219, 219, 1)
@@ -4403,6 +4404,7 @@
                     ZIndex: =1
 
                 "Gallery8_6 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+                    AccessibleLabel: ="Gallery8_6"
                     Height: =17
                     Items: =Attachments_10.Attachments
                     Layout: =Layout.Vertical
@@ -4471,6 +4473,7 @@
                         ZIndex: =5
 
                 Toggle1_5 As toggleSwitch:
+                    AccessibleLabel: ="Toggle1_5"
                     FalseText: ="Add More"
                     FocusedBorderThickness: =0
                     FontWeight: =FontWeight.Bold
@@ -4497,6 +4500,7 @@
                     ZIndex: =5
 
                 "Gallery13_5 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+                    AccessibleLabel: ="Gallery13_5"
                     BorderColor: =RGBA(0, 0, 0, 0)
                     BorderThickness: =0.1
                     Height: =255
@@ -4531,6 +4535,7 @@
                         ZIndex: =6
 
                     RemoveAttachment_5 As icon.Cancel:
+                        AccessibleLabel: ="RemoveAttachment_5"
                         Height: =17
                         Icon: =Icon.Cancel
                         OnSelect: |
@@ -4555,6 +4560,7 @@
                     ZIndex: =7
 
             Icon31_1 As icon.CancelBadge:
+                AccessibleLabel: ="Icon31_1"
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =RGBA(255, 0, 0, 1)
                 Height: =34
@@ -4566,6 +4572,7 @@
                 ZIndex: =4
 
             Icon33_1 As icon.Trash:
+                AccessibleLabel: ="Icon33_1"
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =RGBA(255, 0, 0, 1)
                 Height: =34
@@ -4700,6 +4707,7 @@
                 ZIndex: =5
 
             Icon34_1 As icon.Reload:
+                AccessibleLabel: ="Icon34_1"
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =RGBA(128, 128, 128, 1)
                 Height: =28
@@ -5466,6 +5474,7 @@
                     ZIndex: =1
 
                 "Gallery8_4 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+                    AccessibleLabel: ="Gallery8_4"
                     Height: =75
                     Items: =Attachments_6.Attachments
                     Layout: =Layout.Vertical
@@ -5561,6 +5570,7 @@
                     ZIndex: =5
 
                 "Gallery13_3 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+                    AccessibleLabel: ="Gallery13_3"
                     BorderColor: =RGBA(0, 0, 0, 0)
                     BorderThickness: =0.1
                     Height: =75
@@ -5595,6 +5605,7 @@
                         ZIndex: =6
 
                     RemoveAttachment_3 As icon.Cancel:
+                        AccessibleLabel: ="RemoveAttachment_3"
                         Height: =17
                         Icon: =Icon.Cancel
                         OnSelect: |
@@ -5629,6 +5640,7 @@
                 ZIndex: =6
 
                 Attachments_11 As attachments:
+                    AccessibleLabel: ="Attachments_11"
                     BorderColor: =RGBA(202, 202, 202, 1)
                     BorderThickness: =0.1
                     DropTargetBorderColor: =RGBA(219, 219, 219, 1)
@@ -5673,6 +5685,7 @@
                     ZIndex: =1
 
                 "Gallery8_5 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+                    AccessibleLabel: ="Gallery8_5"
                     Height: =75
                     Items: =Attachments_11.Attachments
                     Layout: =Layout.Vertical
@@ -5741,6 +5754,7 @@
                         ZIndex: =5
 
                 Toggle1_4 As toggleSwitch:
+                    AccessibleLabel: ="Toggle1_4"
                     FalseText: ="Add More"
                     FocusedBorderThickness: =0
                     FontWeight: =FontWeight.Bold
@@ -5767,6 +5781,7 @@
                     ZIndex: =5
 
                 "Gallery13_4 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+                    AccessibleLabel: ="Gallery13_4"
                     BorderColor: =RGBA(0, 0, 0, 0)
                     BorderThickness: =0.1
                     Height: =75
@@ -5801,6 +5816,7 @@
                         ZIndex: =6
 
                     RemoveAttachment_4 As icon.Cancel:
+                        AccessibleLabel: ="RemoveAttachment_4"
                         Height: =17
                         Icon: =Icon.Cancel
                         OnSelect: |
@@ -5825,6 +5841,7 @@
                     ZIndex: =7
 
         Icon31 As icon.CancelBadge:
+            AccessibleLabel: ="Icon31"
             BorderColor: =RGBA(0, 0, 0, 1)
             Color: =RGBA(255, 0, 0, 1)
             Height: =30
@@ -5837,6 +5854,7 @@
             ZIndex: =4
 
         Icon33 As icon.Trash:
+            AccessibleLabel: ="Icon33"
             BorderColor: =RGBA(0, 0, 0, 1)
             Color: =RGBA(255, 0, 0, 1)
             Height: =30
@@ -5971,6 +5989,7 @@
             ZIndex: =5
 
         Icon34 As icon.Reload:
+            AccessibleLabel: ="Icon34"
             BorderColor: =RGBA(0, 0, 0, 1)
             Color: =RGBA(128, 128, 128, 1)
             Height: =25
@@ -6003,6 +6022,7 @@
         ZIndex: =4
 
         Icon29_39 As icon.ChevronRight:
+            AccessibleLabel: ="Icon29_39"
             BorderColor: =RGBA(0, 0, 0, 1)
             Color: =RGBA(0, 0, 0, 1)
             Height: =20
@@ -6037,6 +6057,7 @@
             ZIndex: =32
 
         Icon13_5 As icon.ChevronDown:
+            AccessibleLabel: ="Icon13_5"
             Color: =RGBA(0, 0, 0, 1)
             Height: =20
             Icon: =Icon.ChevronDown
@@ -6199,6 +6220,7 @@
                 ZIndex: =28
 
             Icon23_39 As icon.Download:
+                AccessibleLabel: ="Icon23_39"
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =RGBA(0, 0, 0, 1)
                 Height: =20
@@ -6274,6 +6296,7 @@
                 ZIndex: =3
 
             Icon22_39 As icon.ChevronRight:
+                AccessibleLabel: ="Icon22_39"
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =RGBA(0, 0, 0, 1)
                 Height: =17
@@ -6383,6 +6406,7 @@
                 ZIndex: =20
 
             Icon12_6 As icon.ChevronDown:
+                AccessibleLabel: ="Icon12_6"
                 Height: =17
                 HoverFill: =
                 Icon: =Icon.ChevronDown
@@ -6445,6 +6469,7 @@
                 ZIndex: =5
 
             Icon11_39 As icon.Home:
+                AccessibleLabel: ="Icon11_39"
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =RGBA(0, 0, 0, 1)
                 Height: =23
@@ -6540,6 +6565,7 @@
                 ZIndex: =4
 
             Icon32_39 As icon.Database:
+                AccessibleLabel: ="Icon32_39"
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =RGBA(0, 0, 0, 1)
                 Height: =22
@@ -6582,6 +6608,7 @@
                 ZIndex: =13
 
             Image12_41 As image:
+                AccessibleLabel: ="Image12_41"
                 Height: =22
                 Image: ='question-octagon'
                 OnSelect: =Navigate(AskQuestion_Admin,ScreenTransition.UnCover);
@@ -6592,6 +6619,7 @@
                 ZIndex: =22
 
     Icon2_7 As icon.Hamburger:
+        AccessibleLabel: ="Icon2_7"
         Color: =RGBA(0, 0, 0, 1)
         Height: =21
         Icon: =Icon.Hamburger
@@ -6605,6 +6633,7 @@
         ZIndex: =5
 
     Icon4_3 As icon.Reload:
+        AccessibleLabel: ="Icon4_3"
         Color: =RGBA(0, 0, 0, 1)
         Height: =21
         Icon: =Icon.Reload
@@ -6650,6 +6679,7 @@
             ZIndex: =7
 
         "UserGallery_8 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+            AccessibleLabel: ="UserGallery_8"
             BorderColor: =RGBA(0, 0, 0, 1)
             Fill: |-
                 =//RGBA(0, 0, 0, 0)
@@ -6693,6 +6723,7 @@
                 ZIndex: =5
 
         UserGalleryCancelIcon_9 As icon.Cancel:
+            AccessibleLabel: ="UserGalleryCancelIcon_9"
             Color: =RGBA(255, 255, 255, 1)
             Fill: =RGBA(255, 0, 0, 1)
             Height: =32
@@ -6705,6 +6736,7 @@
             ZIndex: =9
 
         "ManagerGallery_6 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+            AccessibleLabel: ="ManagerGallery_6"
             Fill: |-
                 =//RGBA(0, 0, 0, 0)
                 Color.White
@@ -6748,6 +6780,7 @@
                 ZIndex: =5
 
         MngrCancelicon_6 As icon.Cancel:
+            AccessibleLabel: ="MngrCancelicon_6"
             BorderThickness: =1
             Color: =RGBA(255, 255, 255, 1)
             Fill: =RGBA(255, 0, 0, 1)
@@ -6762,6 +6795,7 @@
             ZIndex: =11
 
         "ILDGAllery_6 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+            AccessibleLabel: ="ILDGAllery_6"
             Fill: |-
                 =//RGBA(0, 0, 0, 0)
                 Color.White
@@ -6799,6 +6833,7 @@
                 ZIndex: =5
 
         ILDCancelicon_6 As icon.Cancel:
+            AccessibleLabel: ="ILDCancelicon_6"
             Color: =RGBA(255, 255, 255, 1)
             Fill: =RGBA(255, 0, 0, 1)
             Height: =32
