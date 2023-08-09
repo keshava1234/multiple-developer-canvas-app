@@ -91,6 +91,10 @@
                     Not(Id in AllFutureEvents.Id)
                 )
             );
+            Set(
+                MyUserProfile,
+                Office365Users.MyProfile().Id
+            );
         Set(varShowUpdateMeeting,false);
         Set(varShowUpdateAgenda, false);
         Set(varShowUpdateTask,false);

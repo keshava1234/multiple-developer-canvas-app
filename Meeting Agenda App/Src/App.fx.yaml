@@ -177,10 +177,10 @@ App As appinfo:
                 true
             );
             ,
-            Set(
+            /*Set(
                 MyUserProfile,
                 Office365Users.MyProfile().Id
-            ),
+            ),*/
             /*used to determine if meeting attendees are in app user's org*/
             Set(
                 MyDomain,

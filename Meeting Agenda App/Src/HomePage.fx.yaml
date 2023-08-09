@@ -86,6 +86,10 @@ HomePage As screen:
                     Not(Id in AllFutureEvents.Id)
                 )
             );
+            Set(
+                MyUserProfile,
+                Office365Users.MyProfile().Id
+            ),
             Clear(MeetingAttendees),
             Clear(MeetingTimes),
             Clear(EmailRecipients),
