@@ -1388,6 +1388,7 @@
                             SearchFields: =["Value"]
                             SearchItems: =Choices(Certifications.Technology,cmbTechnology.SearchText)
                             SelectionFill: =RGBA(81, 82, 108, 1)
+                            SelectMultiple: =false
                             Size: =10
                             Width: =223
                             X: =302
@@ -1514,7 +1515,7 @@
                                     Certification,
                                     IsBlank(cmbRole.Selected.Value) || cmbRole.Selected.Value in Role.Value,
                                     IsBlank(cmbTechnology.Selected.Value) || cmbTechnology.Selected.Value in Technology.Value ,
-                                    (Price > 0) && radCost.Selected.Value = "Paid" || (Price = 0) && radCost.Selected.Value = "Free", ('Exam Level'="Intermediate") && radSkill.Selected.Value = "Intermediate" || ('Exam Level'="Beginner") &&radSkill.Selected.Value = "Beginner" || ('Exam Level'="Advanced") &&  radSkill.Selected.Value = "Advanced"
+                                    (Price > 0) && radCost.Selected.Value = "Paid" || (Price = 0) && radCost.Selected.Value = "Free",IsBlank(radSkill.Selected.Value) || ('Exam Level'="Intermediate") && radSkill.Selected.Value = "Intermediate" || ('Exam Level'="Beginner") &&radSkill.Selected.Value = "Beginner" || ('Exam Level'="Advanced") &&  radSkill.Selected.Value = "Advanced"
                                 ),
                                 txtSearch.Text,
                                 "Title"
@@ -1682,7 +1683,8 @@
                             HoverFill: =bkColor
                             Items: |-
                                 =//Sort('BU-List',Title,Ascending) 
-                                ["ACS","DATA","DEX","ILabs","ILD HR_EE","ILD HR_TA","ILD HR_TM","ILD IT","ILD_L&D","RSBW","SFC","SIMS","ALL"]
+                                //["ACS","DATA","DEX","ILabs","ILD HR_EE","ILD HR_TA","ILD HR_TM","ILD IT","ILD_L&D","RSBW","SFC","SIMS","ALL"]
+                                Sort(BUList,Code)
                             PaddingBottom: =0
                             PaddingTop: =0
                             PressedColor: =RGBA(0, 0, 0, 1)
@@ -1816,28 +1818,63 @@
                     LayoutMode: =LayoutMode.Auto
                     ZIndex: =8
 
-                    lblAllCert_2 As label:
-                        Color: =RGBA(253, 142, 47, 1)
-                        FillPortions: =4
-                        FontWeight: =FontWeight.Bold
-                        Height: =Parent.Height
-                        Size: =If('Responsive Home Screen'.Size=1,10,15)
-                        Text: ="Microsoft Provided Certifications"
-                        VerticalAlign: =VerticalAlign.Top
-                        ZIndex: =1
+                    Container56_2 As groupContainer.manualLayoutContainer:
+                        LayoutMinHeight: =35
+                        LayoutMinWidth: =250
+                        ZIndex: =2
+
+                        lblAllCert_4 As label:
+                            Color: =RGBA(253, 142, 47, 1)
+                            FontWeight: =FontWeight.Bold
+                            Height: =25
+                            Size: =If('Responsive Home Screen'.Size=1,9,15)
+                            Text: ="Microsoft Provided Certifications"
+                            VerticalAlign: =VerticalAlign.Top
+                            Width: =369
+                            ZIndex: =1
+
+                        Microsoft_Tech_drp As dropdown:
+                            BorderColor: =RGBA(0, 0, 0, 1)
+                            BorderThickness: =1
+                            ChevronBackground: =RGBA(0, 0, 0, 0)
+                            ChevronFill: =RGBA(0, 0, 0, 1)
+                            ChevronHoverBackground: =bkColor 
+                            ChevronHoverFill: =RGBA(0, 0, 0, 1)
+                            Default: =Office365Users.UserProfile(User().Email).Department
+                            DisabledColor: =RGBA(244, 244, 244, 1)
+                            Height: =Parent.Height-10
+                            HoverFill: =bkColor
+                            Items: |-
+                                =//Sort('BU-List',Title,Ascending) 
+                                //["ACS","DATA","DEX","ILabs","ILD HR_EE","ILD HR_TA","ILD HR_TM","ILD IT","ILD_L&D","RSBW","SFC","SIMS","ALL"]
+                                Distinct(Filter(Certification,'Provider Name'="Microsoft"),Technology.Value)
+                            PaddingBottom: =0
+                            PaddingTop: =0
+                            PressedColor: =RGBA(0, 0, 0, 1)
+                            PressedFill: =bkColor
+                            SelectionColor: =RGBA(0, 0, 0, 1)    
+                            SelectionFill: =bkColor
+                            Size: =DescFontSize
+                            Width: =200
+                            X: |-
+                                =//If('Responsive Home Screen'.Size=4,1000,If('Responsive Home Screen'.Size=3,750,If('Responsive Home Screen'.Size=2,400,300)))
+                                900
+                            Y: =5
+                            ZIndex: =2
 
                 "AllCertificationsGallery_1 As gallery.'BrowseLayout_Horizontal_TwoTextOneImageVariant_ver4.0'":
                     BorderColor: =RGBA(0, 0, 0, 0)
                     Items: |-
-                        =If('Responsive Home Screen'.Size=3 || 'Responsive Home Screen'.Size=4,
+                        =
                         
                         SortByColumns(
                             Search(
                                 Filter(
                                     Certification,'Provider Name'="Microsoft",
                                     IsBlank(cmbRole.Selected.Value) || cmbRole.Selected.Value in Role.Value,
-                                    IsBlank(cmbTechnology.Selected.Value) || cmbTechnology.Selected.Value in Technology.Value ,
-                                    (Price > 0) && radCost.Selected.Value = "Paid" || (Price = 0) && radCost.Selected.Value = "Free"
+                                    IsBlank(Microsoft_Tech_drp.Selected.Value) || Microsoft_Tech_drp.Selected.Value in Technology.Value ,
+                                   
+                                    (Price > 0) && radCost.Selected.Value = "Paid" || (Price = 0) && radCost.Selected.Value = "Free",IsBlank(radSkill.Selected.Value) || ('Exam Level'="Intermediate") && radSkill.Selected.Value = "Intermediate" || ('Exam Level'="Beginner") &&radSkill.Selected.Value = "Beginner" || ('Exam Level'="Advanced") &&  radSkill.Selected.Value = "Advanced"
                                 ),
                                 txtSearch.Text,
                                 "Title","Certification_x0020_Name","Exam_x0020_Code","Exam_x0020_Level","Provider_x0020_Name"
@@ -1848,26 +1885,7 @@
                                 SortOrder.Descending,
                                 SortOrder.Ascending
                             )
-                        ),
-                        
-                        SortByColumns(
-                            Search(
-                                Filter(
-                                    Certification,'Provider Name'="Microsoft",
-                                    IsBlank(cmbRole_1.Selected.Value) || cmbRole_1.Selected.Value in Role.Value,
-                                    IsBlank(cmbTechnology_1.Selected.Value) || cmbTechnology_1.Selected.Value in Technology.Value ,
-                                    (Price > 0) && radCost_1.Selected.Value = "Paid" || (Price = 0) && radCost_1.Selected.Value = "Free"
-                                ),
-                                txtSearch.Text,
-                                "Title"
-                            ),
-                            "Modified",
-                            If(
-                                drpRecentCert.Selected.Value = "Newest",
-                                SortOrder.Descending,
-                                SortOrder.Ascending
-                            )
-                        ))
+                        )
                     LayoutMinHeight: =250
                     LayoutMinWidth: =If('Responsive Home Screen'.Size=4,1130,If('Responsive Home Screen'.Size=3,900,If('Responsive Home Screen'.Size=2,500,350)))
                     OnSelect: |-
@@ -1984,29 +2002,62 @@
                     LayoutMode: =LayoutMode.Auto
                     ZIndex: =11
 
-                    lblAllCert_3 As label:
-                        Color: =RGBA(253, 142, 47, 1)
-                        FillPortions: =4
-                        FontWeight: =FontWeight.Bold
-                        Height: =Parent.Height
-                        Size: =If('Responsive Home Screen'.Size=1,10,15)
-                        Text: ="Amazon Provided Certifications"
-                        VerticalAlign: =VerticalAlign.Top
-                        ZIndex: =1
+                    Container56_3 As groupContainer.manualLayoutContainer:
+                        LayoutMinHeight: =35
+                        LayoutMinWidth: =250
+                        ZIndex: =2
+
+                        lblAllCert_5 As label:
+                            Color: =RGBA(253, 142, 47, 1)
+                            FontWeight: =FontWeight.Bold
+                            Height: =25
+                            Size: =If('Responsive Home Screen'.Size=1,9,15)
+                            Text: ="Amazon Provided Certifications"
+                            VerticalAlign: =VerticalAlign.Top
+                            Width: =369
+                            ZIndex: =1
+
+                        Amazon_Tech_drp As dropdown:
+                            BorderColor: =RGBA(0, 0, 0, 1)
+                            BorderThickness: =1
+                            ChevronBackground: =RGBA(0, 0, 0, 0)
+                            ChevronFill: =RGBA(0, 0, 0, 1)
+                            ChevronHoverBackground: =bkColor 
+                            ChevronHoverFill: =RGBA(0, 0, 0, 1)
+                            Default: =Office365Users.UserProfile(User().Email).Department
+                            DisabledColor: =RGBA(244, 244, 244, 1)
+                            Height: =Parent.Height-10
+                            HoverFill: =bkColor
+                            Items: |-
+                                =//Sort('BU-List',Title,Ascending) 
+                                //["ACS","DATA","DEX","ILabs","ILD HR_EE","ILD HR_TA","ILD HR_TM","ILD IT","ILD_L&D","RSBW","SFC","SIMS","ALL"]
+                                Distinct(Filter(Certification,'Provider Name'="Amazon"),Technology.Value)
+                            PaddingBottom: =0
+                            PaddingTop: =0
+                            PressedColor: =RGBA(0, 0, 0, 1)
+                            PressedFill: =bkColor
+                            SelectionColor: =RGBA(0, 0, 0, 1)    
+                            SelectionFill: =bkColor
+                            Size: =DescFontSize
+                            Width: =200
+                            X: |-
+                                =//If('Responsive Home Screen'.Size=4,1000,If('Responsive Home Screen'.Size=3,750,If('Responsive Home Screen'.Size=2,400,300)))
+                                900
+                            Y: =5
+                            ZIndex: =2
 
                 "AllCertificationsGallery_2 As gallery.'BrowseLayout_Horizontal_TwoTextOneImageVariant_ver4.0'":
                     BorderColor: =RGBA(0, 0, 0, 0)
-                    Items: |
-                        =If('Responsive Home Screen'.Size=3 || 'Responsive Home Screen'.Size=4,
-                        
-                        
-                        SortByColumns(
+                    Items: |-
+                        =SortByColumns(
                             Search(
                                 Filter(
-                                    Certification,'Provider Name'="Amazon",
+                                    Certification,
+                                    'Provider Name' = "Amazon",
                                     IsBlank(cmbRole.Selected.Value) || cmbRole.Selected.Value in Role.Value,
-                                    IsBlank(cmbTechnology.Selected.Value) || cmbTechnology.Selected.Value in Technology.Value ,
-                                    (Price > 0) && radCost.Selected.Value = "Paid" || (Price = 0) && radCost.Selected.Value = "Free"
+                                    IsBlank(Amazon_Tech_drp.Selected.Value) || Amazon_Tech_drp.Selected.Value in Technology.Value,
+                                    (Price > 0) && radCost.Selected.Value = "Paid" || (Price = 0) && radCost.Selected.Value = "Free",
+                                    IsBlank(radSkill.Selected.Value) || ('Exam Level' = "Intermediate") && radSkill.Selected.Value = "Intermediate" || ('Exam Level' = "Beginner") && radSkill.Selected.Value = "Beginner" || ('Exam Level' = "Advanced") && radSkill.Selected.Value = "Advanced"
                                 ),
                                 txtSearch.Text,
                                 "Title"
@@ -2017,25 +2068,7 @@
                                 SortOrder.Descending,
                                 SortOrder.Ascending
                             )
-                        ),
-                        SortByColumns(
-                            Search(
-                                Filter(
-                                    Certification,'Provider Name'="Amazon",
-                                    IsBlank(cmbRole_1.Selected.Value) || cmbRole_1.Selected.Value in Role.Value,
-                                    IsBlank(cmbTechnology_1.Selected.Value) || cmbTechnology_1.Selected.Value in Technology.Value ,
-                                    (Price > 0) && radCost_1.Selected.Value = "Paid" || (Price = 0) && radCost_1.Selected.Value = "Free"
-                                ),
-                                txtSearch.Text,
-                                "Title"
-                            ),
-                            "Modified",
-                            If(
-                                drpRecentCert.Selected.Value = "Newest",
-                                SortOrder.Descending,
-                                SortOrder.Ascending
-                            )
-                        ))
+                        )
                     LayoutMinHeight: =250
                     LayoutMinWidth: =If('Responsive Home Screen'.Size=4,1130,If('Responsive Home Screen'.Size=3,900,If('Responsive Home Screen'.Size=2,500,350)))
                     OnSelect: |-
