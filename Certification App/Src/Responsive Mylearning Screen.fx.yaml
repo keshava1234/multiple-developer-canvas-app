@@ -3744,7 +3744,7 @@
             =Refresh('Certification History');
             Refresh(Certifications);
             //Refresh(Notifications);
-            Refresh(Documents);
+            //Refresh(Documents);
             Refresh('BU-CertificationList');
             Refresh(CertificationRequest);
             Refresh('BU-List');

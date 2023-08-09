@@ -1441,15 +1441,13 @@
                             OnSelect: |-
                                 =Refresh('Certification History');
                                 Refresh(Certifications);
-                                ClearCollect(Certification,Certifications);
                                 //Refresh(Notifications);
-                                Refresh(Documents);
+                                //Refresh(Documents);
                                 Refresh('BU-CertificationList');
                                 Refresh(CertificationRequest);
                                 Refresh('BU-List');
                                 Refresh(CertificationOrder);
                                 Refresh(AnswerList);
-                                Refresh(Question_Answers);
                                 Refresh('CertificationApp-Security');
                                 Refresh(NotificationList_CertificationApp);
                                 Refresh(Question_Answers);

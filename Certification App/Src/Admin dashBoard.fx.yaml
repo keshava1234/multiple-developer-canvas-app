@@ -829,13 +829,13 @@
                             OnSelect: |-
                                 =Refresh('Certification History');
                                 Refresh(Certifications);
-                                Refresh(Documents);
+                                //Refresh(Notifications);
+                                //Refresh(Documents);
                                 Refresh('BU-CertificationList');
                                 Refresh(CertificationRequest);
                                 Refresh('BU-List');
                                 Refresh(CertificationOrder);
                                 Refresh(AnswerList);
-                                Refresh(Question_Answers);
                                 Refresh('CertificationApp-Security');
                                 Refresh(NotificationList_CertificationApp);
                                 Refresh(Question_Answers);
@@ -843,6 +843,7 @@
                                 Refresh(AnswersList_Admin);
                                 Refresh('Location List_Certification App');
                                 Refresh('Target List');
+                                Refresh(QuestionList);
                             Width: =40
                             X: =330
                             Y: =45
@@ -5141,13 +5142,12 @@
             =Refresh('Certification History');
             Refresh(Certifications);
             //Refresh(Notifications);
-            Refresh(Documents);
+            //Refresh(Documents);
             Refresh('BU-CertificationList');
             Refresh(CertificationRequest);
             Refresh('BU-List');
             Refresh(CertificationOrder);
             Refresh(AnswerList);
-            Refresh(Question_Answers);
             Refresh('CertificationApp-Security');
             Refresh(NotificationList_CertificationApp);
             Refresh(Question_Answers);

@@ -1213,32 +1213,24 @@
                                 Color: =RGBA(0, 0, 0, 1)
                                 Height: =18
                                 Icon: =Icon.Reload
-                                OnSelect: |
-                                    =Refresh(CertificationOrder);
-                                    Notify("Records have been refreshed",NotificationType.Information,1000);
-                                    Refresh('Certification History');
+                                OnSelect: |-
+                                    =Refresh('Certification History');
                                     Refresh(Certifications);
-                                    Refresh(Documents);
+                                    //Refresh(Notifications);
+                                    //Refresh(Documents);
                                     Refresh('BU-CertificationList');
                                     Refresh(CertificationRequest);
                                     Refresh('BU-List');
                                     Refresh(CertificationOrder);
                                     Refresh(AnswerList);
-                                    Refresh(Question_Answers);
                                     Refresh('CertificationApp-Security');
                                     Refresh(NotificationList_CertificationApp);
-                                    ClearCollect(
-                                        colCertOrder,
-                                        Filter(
-                                            CertificationOrder,
-                                            BU.Value = varData.Code And (PaymentMode="Cash" ||PaymentMode= "Voucher")
-                                        )
-                                    );
                                     Refresh(Question_Answers);
                                     Refresh(QuestionList_Admin);
                                     Refresh(AnswersList_Admin);
                                     Refresh('Location List_Certification App');
                                     Refresh('Target List');
+                                    Refresh(QuestionList);
                                 Tooltip: ="Refresh Records"
                                 Width: =18
                                 X: =290
@@ -1909,41 +1901,15 @@
                                 Height: =21
                                 Icon: =Icon.Reload
                                 OnSelect: |-
-                                    =Refresh(CertificationOrder);
-                                    Notify("Records have been refreshed",NotificationType.Information,1000);
-                                    Refresh('Certification History');
-                                    Refresh(Certifications);
-                                    Refresh(Documents);
-                                    Refresh('BU-CertificationList');
-                                    Refresh(CertificationRequest);
-                                    Refresh('BU-List');
-                                    Refresh(CertificationOrder);
-                                    Refresh(AnswerList);
-                                    Refresh(Question_Answers);
-                                    Refresh('CertificationApp-Security');
-                                    Refresh(NotificationList_CertificationApp);
-                                    ClearCollect(
-                                        colCertOrder,
-                                        Filter(
-                                            CertificationOrder,
-                                            BU.Value = varData.Code And (PaymentMode="Cash" ||PaymentMode= "Voucher")
-                                        )
-                                    );
-                                    Refresh(Question_Answers);
-                                    Refresh(QuestionList_Admin);
-                                    Refresh(AnswersList_Admin);
-                                    Refresh('Location List_Certification App');
-                                    Refresh('Target List');
-                                    Refresh('Certification History');
+                                    =Refresh('Certification History');
                                     Refresh(Certifications);
                                     //Refresh(Notifications);
-                                    Refresh(Documents);
+                                    //Refresh(Documents);
                                     Refresh('BU-CertificationList');
                                     Refresh(CertificationRequest);
                                     Refresh('BU-List');
                                     Refresh(CertificationOrder);
                                     Refresh(AnswerList);
-                                    Refresh(Question_Answers);
                                     Refresh('CertificationApp-Security');
                                     Refresh(NotificationList_CertificationApp);
                                     Refresh(Question_Answers);
