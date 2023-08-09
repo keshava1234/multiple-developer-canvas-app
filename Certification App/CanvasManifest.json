@@ -62,7 +62,7 @@
       "improvedmediacapture": false,
       "improvedtabstopbehavior": false,
       "isemptyrequirestableargument": true,
-      "keeprecentscreensloaded": false,
+      "keeprecentscreensloaded": true,
       "longlivingcache": false,
       "mobilenativerendering": false,
       "namedformulas": false,
