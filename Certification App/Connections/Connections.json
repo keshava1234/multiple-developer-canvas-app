@@ -660,8 +660,7 @@
     "datasets": {
       "https://ilinksystemsinc449.sharepoint.com/sites/CertificationApp_cr8b3_CertificationAppSite": {
         "datasetOverride": {
-          "environmentVariableName": "cr8b3_CertificationAppSite",
-          "name": "https://ilinksystemsinc449.sharepoint.com/sites/CertificationApp"
+          "environmentVariableName": "cr8b3_CertificationAppSite"
         },
         "dataSources": {
           "AnswerList": {
@@ -690,13 +689,6 @@
             "tableNameOverride": {
               "environmentVariableName": "cr8b3_shared_sharepointonline_a6ea9316ce414351878758198f8d343f",
               "name": "eb8cd8fd-def7-45b7-987a-0a82bc95d031"
-            }
-          },
-          "Certification History": {
-            "tableName": "fff13ad9-2b2c-4b14-9aac-c59980adb26e",
-            "tableNameOverride": {
-              "environmentVariableName": "cr8b3_shared_sharepointonline_7c08c7310e1b468eb61377381817aaed",
-              "name": "fff13ad9-2b2c-4b14-9aac-c59980adb26e"
             }
           },
           "CertificationApp-Security": {
@@ -762,18 +754,10 @@
               "name": "1c400162-fa41-4e3e-bf27-ad176984448e"
             }
           },
-          "Question_Answers": {
-            "tableName": "8c8a4408-bca4-4206-acf1-40df9f29c121",
-            "tableNameOverride": {
-              "environmentVariableName": "cr8b3_shared_sharepointonline_0c00593784d64e24aec18b25135b6948",
-              "name": "8c8a4408-bca4-4206-acf1-40df9f29c121"
-            }
-          },
           "QuestionList": {
             "tableName": "50b4bf4d-5830-4226-9d0d-cdb5a4c295b4",
             "tableNameOverride": {
-              "environmentVariableName": "cr8b3_shared_sharepointonline_e67f918b22a349babfb7a9973a81bb3b",
-              "name": "50b4bf4d-5830-4226-9d0d-cdb5a4c295b4"
+              "environmentVariableName": "cr8b3_shared_sharepointonline_e67f918b22a349babfb7a9973a81bb3b"
             }
           },
           "QuestionList_Admin": {
@@ -798,7 +782,6 @@
       "AnswersList_Admin",
       "BU-CertificationList",
       "BU-List",
-      "Certification History",
       "CertificationApp-Security",
       "CertificationOrder",
       "CertificationOrderHistory",
@@ -808,10 +791,9 @@
       "Location List_Certification App",
       "Notification",
       "NotificationList_CertificationApp",
-      "QuestionList",
       "QuestionList_Admin",
       "Target List",
-      "Question_Answers"
+      "QuestionList"
     ],
     "dependencies": {},
     "dependents": [

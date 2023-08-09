@@ -97169,36 +97169,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "App.Certification History"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.Certification History",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "Certification History",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-NotOfflineConnectors",
-          "ruleIndex": 8
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "App.BU-CertificationList"
                 }
               ],
@@ -97450,36 +97420,6 @@
               },
               "properties": {
                 "member": "Target List",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-NotOfflineConnectors",
-          "ruleIndex": 8
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.Question_Answers"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.Question_Answers",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "Question_Answers",
                 "module": "App",
                 "type": "App"
               }

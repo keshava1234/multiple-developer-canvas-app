@@ -3781,11 +3781,8 @@
         Color: =RGBA(0, 0, 0, 1)
         Height: =21
         Icon: =Icon.Reload
-        OnSelect: |-
-            =Refresh('Certification History');
-            Refresh(Certifications);
-            //Refresh(Notifications);
-            //Refresh(Documents);
+        OnSelect: |
+            =Refresh(Certifications);
             Refresh('BU-CertificationList');
             Refresh(CertificationRequest);
             Refresh('BU-List');
@@ -3793,7 +3790,6 @@
             Refresh(AnswerList);
             Refresh('CertificationApp-Security');
             Refresh(NotificationList_CertificationApp);
-            Refresh(Question_Answers);
             Refresh(QuestionList_Admin);
             Refresh(AnswersList_Admin);
             Refresh('Location List_Certification App');
