@@ -11433,36 +11433,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "App.MyUserProfile"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.MyUserProfile",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "MyUserProfile",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedVariables",
-          "ruleIndex": 1
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "App.HomeTimerStart"
                 }
               ],
@@ -11504,6 +11474,36 @@
               },
               "properties": {
                 "member": "varUpcomingTab",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedVariables",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.MyUserProfile"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.MyUserProfile",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "MyUserProfile",
                 "module": "App",
                 "type": "App"
               }
