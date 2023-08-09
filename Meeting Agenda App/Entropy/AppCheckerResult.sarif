@@ -11913,19 +11913,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "App.OnStart"
+                  "fullyQualifiedName": "'MeetingDetails Screen'.OnVisible"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "App.OnStart",
+                  "fullyQualifiedName": "'MeetingDetails Screen'.OnVisible",
                   "relativeAddress": 0
                 }
               },
               "properties": {
-                "member": "OnStart",
-                "module": "App",
-                "type": "App"
+                "member": "OnVisible",
+                "module": "MeetingDetails Screen",
+                "type": "'MeetingDetails Screen'"
               }
             }
           ],

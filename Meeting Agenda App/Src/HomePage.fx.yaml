@@ -11,6 +11,81 @@ HomePage As screen:
                     ).Value
                 ).Name
             );
+            ClearCollect(
+                AllFutureEvents,
+                Office365Outlook.GetEventsCalendarView(
+                    MyCalendarID,
+                    Text(
+                        Now(),
+                        DateTimeFormat.UTC
+                    ),
+                    //Text(
+        //    DateAdd(
+        //       Today(),
+        //        -10,
+        //       Days
+        //   ),
+        //   UTC
+        //),
+                    Text(
+                        DateAdd(
+                            Today(),
+                            5,
+                            TimeUnit.Days
+                        ),
+                        DateTimeFormat.UTC
+                    )
+                ).Values
+            );
+            Remove(
+                AllFutureEvents,
+                Filter(
+                    AllFutureEvents,
+                    StartsWith(
+                        Subject,
+                        "Canceled:"
+                    )
+                )
+            );
+            ClearCollect(
+                AllPastEvents,
+                Office365Outlook.GetEventsCalendarView(
+                    MyCalendarID,
+                    Text(
+                        DateAdd(
+                            Today(),
+                            -5,
+                            TimeUnit.Days
+                        ),
+                        DateTimeFormat.UTC
+                    ),
+                    Text(
+                        DateAdd(
+                            Now(),
+                            0,
+                            TimeUnit.Days
+                        ),
+                        DateTimeFormat.UTC
+                    )
+                ). Values
+            );
+            Remove(
+                AllPastEvents,
+                Filter(
+                    AllPastEvents,
+                    StartsWith(
+                        Subject,
+                        "Canceled:"
+                    )
+                )
+            );
+            ClearCollect(
+                AllPastEvents,
+                Filter(
+                    AllPastEvents,
+                    Not(Id in AllFutureEvents.Id)
+                )
+            );
             Clear(MeetingAttendees),
             Clear(MeetingTimes),
             Clear(EmailRecipients),
