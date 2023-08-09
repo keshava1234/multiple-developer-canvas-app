@@ -3,7 +3,7 @@
         =UpdateContext({varMenuVisible:false});
         UpdateContext({varreimbursement:false});
         UpdateContext({varmanagecourse:false});
-        UpdateContext({locShowSpinnercatalog:true});
+        //UpdateContext({locShowSpinnercatalog:true});
         Set(varUser,false);
         Set(varMngr,false);
         Set(varAdmin,false)

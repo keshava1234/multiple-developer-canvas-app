@@ -1,5 +1,5 @@
 "'Responsive Mylearning Screen' As screen":
-    OnVisible: |-
+    OnVisible: |
         =Set(
             varUser,
             false
@@ -67,7 +67,7 @@
             _calendarVisible,
             false
         );
-        UpdateContext({_showLoading: true});
+        //UpdateContext({_showLoading: true});
         Set(
             MyCalendarID,
             LookUp(
@@ -112,10 +112,7 @@
                 )
             ).value
         );*/
-        UpdateContext({_showLoading: false});
-        
-        ClearCollect(colexternalCertificationList,ExternalCertificationList);
-        ClearCollect(colCertOrder,CertificationOrder)
+        //UpdateContext({_showLoading: false});
 
     Container1 As groupContainer.verticalAutoLayoutContainer:
         Height: =Parent.Height

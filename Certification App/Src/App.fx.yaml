@@ -172,10 +172,10 @@ App As appinfo:
             {Value: "日历"},
             {Value: "క్యాలెండర్"}
         );
-        Set(
+        /*Set(
             locShowSpinnerstart,
             false
-        );
+        );*/
         Set(
             MyProfile,
             Office365Users.MyProfile()

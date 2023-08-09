@@ -660,7 +660,8 @@
     "datasets": {
       "https://ilinksystemsinc449.sharepoint.com/sites/CertificationApp_cr8b3_CertificationAppSite": {
         "datasetOverride": {
-          "environmentVariableName": "cr8b3_CertificationAppSite"
+          "environmentVariableName": "cr8b3_CertificationAppSite",
+          "name": "https://ilinksystemsinc449.sharepoint.com/sites/CertificationApp"
         },
         "dataSources": {
           "AnswerList": {
@@ -701,8 +702,7 @@
           "CertificationOrder": {
             "tableName": "11e037ff-5836-44d0-a4f3-c06141179344",
             "tableNameOverride": {
-              "environmentVariableName": "cr8b3_shared_sharepointonline_faecdf1f007a497cb99d35339482efd6",
-              "name": "11e037ff-5836-44d0-a4f3-c06141179344"
+              "environmentVariableName": "cr8b3_shared_sharepointonline_faecdf1f007a497cb99d35339482efd6"
             }
           },
           "CertificationOrderHistory": {
@@ -750,7 +750,8 @@
           "QuestionList": {
             "tableName": "50b4bf4d-5830-4226-9d0d-cdb5a4c295b4",
             "tableNameOverride": {
-              "environmentVariableName": "cr8b3_shared_sharepointonline_e67f918b22a349babfb7a9973a81bb3b"
+              "environmentVariableName": "cr8b3_shared_sharepointonline_e67f918b22a349babfb7a9973a81bb3b",
+              "name": "50b4bf4d-5830-4226-9d0d-cdb5a4c295b4"
             }
           },
           "QuestionList_Admin": {
