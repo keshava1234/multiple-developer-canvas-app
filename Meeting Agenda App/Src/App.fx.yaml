@@ -97,18 +97,7 @@ App As appinfo:
             {Value: "క్యాలెండర్"}
         );
         Concurrent(
-            Set(
-                MyCalendarID,
-                LookUp(
-                    Office365Outlook.CalendarGetTables().value,
-                    DisplayName = LookUp(
-                        CalendarLocalizedLabel,
-                        Value = DisplayName
-                    ).Value
-                ).Name
-            );
-            ClearCollect(ColMeetingAgendaLists,MeetingAgendaLists);
-            ClearCollect(
+            /*ClearCollect(
                 AllFutureEvents,
                 Office365Outlook.GetEventsCalendarView(
                     MyCalendarID,
@@ -117,13 +106,13 @@ App As appinfo:
                         DateTimeFormat.UTC
                     ),
                     //Text(
-                    //    DateAdd(
-                     //       Today(),
-                    //        -10,
-                     //       Days
-                     //   ),
-                     //   UTC
-                    //),
+        //    DateAdd(
+        //       Today(),
+        //        -10,
+        //       Days
+        //   ),
+        //   UTC
+        //),
                     Text(
                         DateAdd(
                             Today(),
@@ -143,8 +132,8 @@ App As appinfo:
                         "Canceled:"
                     )
                 )
-            );
-            ClearCollect(
+            );*/
+            /*ClearCollect(
                 AllPastEvents,
                 Office365Outlook.GetEventsCalendarView(
                     MyCalendarID,
@@ -182,24 +171,27 @@ App As appinfo:
                     AllPastEvents,
                     Not(Id in AllFutureEvents.Id)
                 )
-            );
+            );*/
             Set(
                 varShowUpcomingMeeting,
                 true
             );
             ,
-            Set(
+            /*Set(
                 MyUserProfile,
                 Office365Users.MyProfile().Id
-            ),
+            ),*/
             /*used to determine if meeting attendees are in app user's org*/
             Set(
                 MyDomain,
                 Last(
-                    ForAll(Split(
-                        User().Email,
-                        "@"
-                    ), {Result: ThisRecord.Value})
+                    ForAll(
+                        Split(
+                            User().Email,
+                            "@"
+                        ),
+                        {Result: ThisRecord.Value}
+                    )
                 ).Result
             ),
             /*used to determine countdown to end of selected meeting*/
