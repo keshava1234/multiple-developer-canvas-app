@@ -3726,7 +3726,7 @@
   },
   "FunctionParamsInvariantScripts": {},
   "FunctionParamsInvariantScriptsOnInstances": {},
-  "HeaderLastSavedDateTimeUTC": "08/09/2023 05:04:32",
+  "HeaderLastSavedDateTimeUTC": "08/09/2023 05:05:48",
   "IsLegacyComponentAllowGlobalScopeCase": false,
   "LocalConnectionIDReferences": {
     "052e6fa0-ea9f-4995-b97a-086851826e67": "\"/providers/microsoft.powerapps/apis/shared_logicflows/connections/8d15f3df8ee608f3a25064ead6e0082e-98ace1eadc88c31c\"",
@@ -3765,7 +3765,6 @@
     "ilinkDigitalLogo": "0008.png",
     "Layer 3": "0009.png",
     "question-octagon": "0010.png",
-    "settings": "0011.png",
     "Telecommuting-pana": "0012.png"
   },
   "LocalResourceRootPaths": {
@@ -3777,7 +3776,6 @@
     "ilinkDigitalLogo": "https://docserverpwaprodwus.blob.core.windows.net/4e886566-d8dd-4065-8e28-439989839f43-1/resource/Assets0Images00008.png?sv=2018-03-28&sr=b&sig=0cYcjitrenlm8rTMvhvbE743cMSxNdy6fndTQsmNkjA%3D&spr=https&se=2023-08-10T04%3A48%3A46Z&sp=r",
     "Layer 3": "https://docserverpwaprodwus.blob.core.windows.net/4e886566-d8dd-4065-8e28-439989839f43-1/resource/Assets0Images00009.png?sv=2018-03-28&sr=b&sig=HiPEXdEgvJD6jQd%2Bd9vNQFc%2BqSQuw68Bzb5sCG937Ic%3D&spr=https&se=2023-08-10T04%3A48%3A46Z&sp=r",
     "question-octagon": "https://docserverpwaprodwus.blob.core.windows.net/4e886566-d8dd-4065-8e28-439989839f43-1/resource/Assets0Images00010.png?sv=2018-03-28&sr=b&sig=U1t2ThT1HcBtzal3Vjie3LZ60wN1uAK%2FrjpMAFssN2A%3D&spr=https&se=2023-08-10T04%3A48%3A46Z&sp=r",
-    "settings": "https://docserverpwaprodwus.blob.core.windows.net/4e886566-d8dd-4065-8e28-439989839f43-1/resource/Assets0Images00011.png?sv=2018-03-28&sr=b&sig=kjPabVMftiMdL7He8PRwMHBjRB%2FyoBSDu%2FDySy40cNk%3D&spr=https&se=2023-08-10T04%3A48%3A46Z&sp=r",
     "Telecommuting-pana": "https://docserverpwaprodwus.blob.core.windows.net/4e886566-d8dd-4065-8e28-439989839f43-1/resource/Assets0Images00012.png?sv=2018-03-28&sr=b&sig=uMHIhQWoW1K6%2Bxg%2BCwA7EQzXAikXMQvElAcJpjRrWW4%3D&spr=https&se=2023-08-10T04%3A48%3A46Z&sp=r"
   },
   "OrderComponentMetadata": {},
@@ -13167,8 +13165,7 @@
     "Image-Layer 3": 7,
     "Image-question-octagon": 8,
     "Image-SampleImage": 0,
-    "Image-settings": 9,
-    "Image-Telecommuting-pana": 10
+    "Image-Telecommuting-pana": 9
   },
   "RuleScreenIdWithoutScreen": {},
   "TemplateVersions": {},
