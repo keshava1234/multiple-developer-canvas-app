@@ -95379,6 +95379,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "App._maxDate"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App._maxDate",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "_maxDate",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedVariables",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "App._calendarVisible"
                 }
               ],
@@ -95450,36 +95480,6 @@
               },
               "properties": {
                 "member": "_minDate",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedVariables",
-          "ruleIndex": 4
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App._maxDate"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App._maxDate",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "_maxDate",
                 "module": "App",
                 "type": "App"
               }
@@ -95709,36 +95709,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Responsive Mylearning Screen'.OnVisible"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Responsive Mylearning Screen'.OnVisible",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "OnVisible",
-                "module": "Responsive Mylearning Screen",
-                "type": "'Responsive Mylearning Screen'"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 5
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "App.OnStart"
                 }
               ],
@@ -95812,36 +95782,6 @@
                 "member": "OnStart",
                 "module": "App",
                 "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 5
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Responsive Mylearning Screen'.OnVisible"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Responsive Mylearning Screen'.OnVisible",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "OnVisible",
-                "module": "Responsive Mylearning Screen",
-                "type": "'Responsive Mylearning Screen'"
               }
             }
           ],
@@ -95882,36 +95822,6 @@
           },
           "ruleId": "app-ScreenHasManyControls",
           "ruleIndex": 6
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Responsive EnrollCertificate Screen'.locShowSpinnercatalog"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Responsive EnrollCertificate Screen'.locShowSpinnercatalog",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "locShowSpinnercatalog",
-                "module": "Responsive EnrollCertificate Screen",
-                "type": "'Responsive EnrollCertificate Screen'"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedVariables",
-          "ruleIndex": 4
         },
         {
           "locations": [
@@ -96863,36 +96773,6 @@
           },
           "ruleId": "app-ScreenHasManyControls",
           "ruleIndex": 6
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Responsive Certification Status Screen'.locShowSpinnercatalog"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Responsive Certification Status Screen'.locShowSpinnercatalog",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "locShowSpinnercatalog",
-                "module": "Responsive Certification Status Screen",
-                "type": "'Responsive Certification Status Screen'"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedVariables",
-          "ruleIndex": 4
         },
         {
           "locations": [
@@ -97866,7 +97746,7 @@
               "properties": {
                 "componentType": "app",
                 "howToFix": [
-                  "Limit the data collected from the data source by updating the formula \"ClearCollect(colCertOrder, CertificationOrder)\" to include a filtering function, such as 'Filter' or 'Search'."
+                  "Limit the data collected from the data source by updating the formula \"ClearCollect(BU_Cert, 'BU-CertificationList')\" to include a filtering function, such as 'Filter' or 'Search'."
                 ],
                 "level": "Medium",
                 "primaryCategory": "performance",
