@@ -6,6 +6,16 @@
             Loading,
             false
         );*/
+        Set(
+                MyCalendarID,
+                LookUp(
+                    Office365Outlook.CalendarGetTables().value,
+                    DisplayName = LookUp(
+                        CalendarLocalizedLabel,
+                        Value = DisplayName
+                    ).Value
+                ).Name
+            );
         Set(varShowUpdateMeeting,false);
         Set(varShowUpdateAgenda, false);
         Set(varShowUpdateTask,false);

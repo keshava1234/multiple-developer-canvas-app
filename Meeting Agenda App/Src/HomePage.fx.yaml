@@ -1,6 +1,16 @@
 HomePage As screen:
     OnVisible: |-
         =Concurrent(
+            Set(
+                MyCalendarID,
+                LookUp(
+                    Office365Outlook.CalendarGetTables().value,
+                    DisplayName = LookUp(
+                        CalendarLocalizedLabel,
+                        Value = DisplayName
+                    ).Value
+                ).Name
+            );
             Clear(MeetingAttendees),
             Clear(MeetingTimes),
             Clear(EmailRecipients),

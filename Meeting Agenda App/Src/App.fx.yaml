@@ -97,16 +97,7 @@ App As appinfo:
             {Value: "క్యాలెండర్"}
         );
         Concurrent(
-            Set(
-                MyCalendarID,
-                LookUp(
-                    Office365Outlook.CalendarGetTables().value,
-                    DisplayName = LookUp(
-                        CalendarLocalizedLabel,
-                        Value = DisplayName
-                    ).Value
-                ).Name
-            );
+            
             ClearCollect(ColMeetingAgendaLists,MeetingAgendaLists);
             ClearCollect(
                 AllFutureEvents,

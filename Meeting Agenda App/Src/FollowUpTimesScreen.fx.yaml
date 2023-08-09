@@ -3,6 +3,16 @@ FollowUpTimesScreen As screen:
     Height: =Max(App.Height, App.DesignHeight)
     OnVisible: |
         =/*Collections used in galleries and drop downs on this screen*/
+        Set(
+                MyCalendarID,
+                LookUp(
+                    Office365Outlook.CalendarGetTables().value,
+                    DisplayName = LookUp(
+                        CalendarLocalizedLabel,
+                        Value = DisplayName
+                    ).Value
+                ).Name
+            );
         ClearCollect(
             MeetingDurations,
             {
