@@ -740,13 +740,6 @@
               "name": "633e37c2-db44-483f-abfc-62934205b061"
             }
           },
-          "Notification": {
-            "tableName": "c1dcc50b-311a-4ef2-a5e0-a458e7d3f6da",
-            "tableNameOverride": {
-              "environmentVariableName": "cr8b3_shared_sharepointonline_5d5833ed38714575a6562cab8f1aed49",
-              "name": "c1dcc50b-311a-4ef2-a5e0-a458e7d3f6da"
-            }
-          },
           "NotificationList_CertificationApp": {
             "tableName": "1c400162-fa41-4e3e-bf27-ad176984448e",
             "tableNameOverride": {
@@ -789,7 +782,6 @@
       "Certifications",
       "ExternalCertificationList",
       "Location List_Certification App",
-      "Notification",
       "NotificationList_CertificationApp",
       "QuestionList_Admin",
       "Target List",
