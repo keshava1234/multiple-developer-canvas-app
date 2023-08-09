@@ -2050,7 +2050,7 @@
                                 BorderColor: =RGBA(204, 204, 204, 1)
                                 BorderThickness: =1
                                 DateTimeZone: =Text(DateTimeZone.Local,"mm/dd/yyyy")
-                                DefaultDate: =Today()-7
+                                DefaultDate: =Today()-30
                                 Format: ="dd/mm/yyyy"
                                 Height: =30
                                 IconBackground: =RGBA(255,255,255,1)
@@ -2198,8 +2198,118 @@
                                 =RGBA(0, 0, 0, 0)
                                 //If(OnHover,Gray,White)
                             Height: =407
-                            Items: |-
-                                =Search(
+                            Items: |+
+                                =/*
+                                Search(
+                                    If(
+                                        StatusDropDown_2.SelectedText.Value = "Both",
+                                        If(
+                                            StatusDropDown.SelectedText.Value = "Enrolled",
+                                            Filter(
+                                                new_col_certorder,
+                                                (Created>=From_Date.SelectedDate && Created<=To_Date.SelectedDate) And Status = "Enrolled" And 
+                                                Location=Dropdown1_1.SelectedText.Value
+                                            ),
+                                            If(
+                                                StatusDropDown.SelectedText.Value = "ALL",
+                                                Filter(
+                                                    new_col_certorder,
+                                                   (Created>=From_Date.SelectedDate && Created<=To_Date.SelectedDate) And 
+                                                Location=Dropdown1_1.SelectedText.Value
+                                                ),
+                                                If(
+                                                    StatusDropDown.SelectedText.Value = "Proofs Approved",
+                                                    Filter(
+                                                        new_col_certorder,
+                                                       (Created>=From_Date.SelectedDate && Created<=To_Date.SelectedDate) And Status = "Proofs Approved" And Location=Dropdown1_1.SelectedText.Value
+                                                    ),
+                                                    If(
+                                                        StatusDropDown.SelectedText.Value = "Proofs Uploaded",
+                                                        Filter(
+                                                            new_col_certorder,
+                                                            (Created>=From_Date.SelectedDate && Created<=To_Date.SelectedDate) And Status = "Proofs Uploaded" And Location=Dropdown1_1.SelectedText.Value 
+                                                        ),
+                                                        If(
+                                                            StatusDropDown.SelectedText.Value = "Manager Approved",
+                                                            Filter(
+                                                                new_col_certorder,
+                                                                (Created>=From_Date.SelectedDate && Created<=To_Date.SelectedDate) And Status = "Manager Approved" And Location=Dropdown1_1.SelectedText.Value
+                                                            ),
+                                                            If(
+                                                                StatusDropDown.SelectedText.Value = "Reimbursed",
+                                                                Filter(
+                                                                    new_col_certorder,
+                                                                    (Created>=From_Date.SelectedDate && Created<=To_Date.SelectedDate) And Status = "Reimbursed" And Location=Dropdown1_1.SelectedText.Value
+                                                                ),
+                                                                If(
+                                                                    StatusDropDown.SelectedText.Value = "Processing with Finance",
+                                                                    Filter(
+                                                                        new_col_certorder,
+                                                                        (Created>=From_Date.SelectedDate && Created<=To_Date.SelectedDate) And Status = "Processing with Finance" And Location=Dropdown1_1.SelectedText.Value 
+                                                                    )
+                                                                )
+                                                            )
+                                                        )
+                                                    )
+                                                )
+                                            )
+                                        ),
+                                        If(
+                                            StatusDropDown.SelectedText.Value = "Enrolled",
+                                            Filter(
+                                                new_col_certorder,
+                                                (Created>=From_Date.SelectedDate && Created<=To_Date.SelectedDate) And Status = "Enrolled" And PaymentMode = StatusDropDown_2.SelectedText.Value And Location=Dropdown1_1.SelectedText.Value
+                                            ),
+                                            If(
+                                                StatusDropDown.SelectedText.Value = "ALL",
+                                                Filter(
+                                                    new_col_certorder,
+                                                    (Created>=From_Date.SelectedDate && Created<=To_Date.SelectedDate)And PaymentMode = StatusDropDown_2.SelectedText.Value And Location=Dropdown1_1.SelectedText.Value
+                                                ),
+                                                If(
+                                                    StatusDropDown.SelectedText.Value = "Proofs Approved",
+                                                    Filter(
+                                                        new_col_certorder,
+                                                        (Created>=From_Date.SelectedDate && Created<=To_Date.SelectedDate) And Status = "Proofs Approved" And PaymentMode = StatusDropDown_2.SelectedText.Value And Location=Dropdown1_1.SelectedText.Value
+                                                    ),
+                                                    If(
+                                                        StatusDropDown.SelectedText.Value = "Proofs Uploaded",
+                                                        Filter(
+                                                            new_col_certorder,
+                                                            (Created>=From_Date.SelectedDate && Created<=To_Date.SelectedDate) And Status = "Proofs Uploaded" And PaymentMode = StatusDropDown_2.SelectedText.Value And Location=Dropdown1_1.SelectedText.Value
+                                                        ),
+                                                        If(
+                                                            StatusDropDown.SelectedText.Value = "Manager Approved",
+                                                            Filter(
+                                                                new_col_certorder,
+                                                                (Created>=From_Date.SelectedDate && Created<=To_Date.SelectedDate) And Status = "Manager Approved" And PaymentMode = StatusDropDown_2.SelectedText.Value And Location=Dropdown1_1.SelectedText.Value
+                                                            ),
+                                                            If(
+                                                                StatusDropDown.SelectedText.Value = "Reimbursed",
+                                                                Filter(
+                                                                    new_col_certorder,
+                                                                    (Created>=From_Date.SelectedDate && Created<=To_Date.SelectedDate) And Status = "Reimbursed" And PaymentMode = StatusDropDown_2.SelectedText.Value And Location=Dropdown1_1.SelectedText.Value
+                                                                ),
+                                                                If(
+                                                                    StatusDropDown.SelectedText.Value = "Processing with Finance",
+                                                                    Filter(
+                                                                        new_col_certorder,
+                                                                        (Created>=From_Date.SelectedDate && Created<=To_Date.SelectedDate) And Status = "Processing with Finance" And PaymentMode = StatusDropDown_2.SelectedText.Value And Location=Dropdown1_1.SelectedText.Value
+                                                                    )
+                                                                )
+                                                            )
+                                                        )
+                                                    )
+                                                )
+                                            )
+                                        )
+                                    ),
+                                    txtSearch_15.Text,
+                                    "Title",
+                                    "PaymentMode"
+                                )
+                                */
+                                Search(
                                     If(
                                         StatusDropDown_2.SelectedText.Value = "Both",
                                         If(
@@ -2307,6 +2417,7 @@
                                     "Title",
                                     "PaymentMode"
                                 )
+                                
                             Layout: =Layout.Vertical
                             OnSelect: |-
                                 =Set(varDetailsAdminPg,ThisItem);
@@ -2988,11 +3099,11 @@
                 ZIndex: =19
 
     Container86_1 As groupContainer.manualLayoutContainer:
-        Height: =422
+        Height: =476
         Visible: =If('Admin BU-Wise-Records'.Size=3 || 'Admin BU-Wise-Records'.Size=4,varDetailsPopUp,false)
-        Width: =359
-        X: =222
-        Y: =92
+        Width: =745
+        X: =326
+        Y: =103
         ZIndex: =13
 
         "'details popup screen_1' As group":
@@ -3006,9 +3117,9 @@
                 BorderColor: =RGBA(204, 204, 204, 1)
                 BorderThickness: =0.5
                 Fill: =RGBA(255, 255, 255, 1)
-                Height: =421
+                Height: =469
                 Visible: =varDetailsPopUp
-                Width: =359
+                Width: =742
                 ZIndex: =3
 
             Label83_1 As label:
@@ -3016,103 +3127,107 @@
                 Color: =RGBA(255, 255, 255, 1)
                 Fill: =RGBA(0, 0, 0, 1)
                 FontWeight: =FontWeight.Bold
-                Height: =51
+                Height: =57
                 Size: =12
                 Text: ="Details"
                 Visible: =varDetailsPopUp
-                Width: =359
+                Width: =742
                 ZIndex: =4
 
             Image18_1 As image:
-                Height: =39
+                Height: =65
                 Image: =varDetailsAdminPg.Requestor.Picture
+                RadiusBottomLeft: =30
+                RadiusBottomRight: =30
+                RadiusTopLeft: =30
+                RadiusTopRight: =30
                 Visible: =varDetailsPopUp
-                Width: =51
-                X: =9
-                Y: =70
+                Width: =68
+                X: =573
+                Y: =77
                 ZIndex: =5
 
             Label84_7 As label:
-                Height: =26
+                Height: =29
                 Size: =9
                 Text: |-
                     ="Name                      :    " &varDetailsAdminPg.Requestor.DisplayName
                 Visible: =varDetailsPopUp
-                Width: =280
-                X: =60
-                Y: =70
+                Width: =380
+                X: =127
+                Y: =78
                 ZIndex: =6
 
             Label84_18 As label:
-                Height: =26
+                Height: =28
                 Size: =9
                 Text: |-
                     ="BU                           :    " &varDetailsAdminPg.Requestor.Department  
                 Visible: =varDetailsPopUp
-                Width: =280
-                X: =60
-                Y: =95
+                Width: =380
+                X: =127
+                Y: =107
                 ZIndex: =7
 
             Label84_19 As label:
-                Height: =26
+                Height: =29
                 Size: =9
                 Text: |-
                     ="Certification           :    " &varDetailsAdminPg.'Certification:Title'.Value
                 Visible: =varDetailsPopUp
-                Width: =280
-                X: =25
-                Y: =125
+                Width: =380
+                X: =127
+                Y: =175
                 ZIndex: =8
 
             Label84_20 As label:
-                Height: =26
+                Height: =24
                 Size: =9
                 Text: |-
                     ="Payment Mode      :    " &varDetailsAdminPg.PaymentMode
                 Visible: =varDetailsPopUp
-                Width: =280
-                X: =25
-                Y: =155
+                Width: =380
+                X: =127
+                Y: =142
                 ZIndex: =9
 
             Label84_21 As label:
-                Height: =26
+                Height: =29
                 Size: =9
                 Text: |-
                     =If(IsBlank(varDetailsAdminPg),"Manager                :    ","Manager                 :    " & Office365Users.Manager(varDetailsAdminPg.Requestor.Email).DisplayName)
                 Visible: =varDetailsPopUp
-                Width: =280
-                X: =25
-                Y: =185
+                Width: =592
+                X: =127
+                Y: =206
                 ZIndex: =10
 
             Label84_22 As label:
-                Height: =26
+                Height: =29
                 Size: =9
                 Text: |-
                     ="Record created      :    " &varDetailsAdminPg.Created
                 Visible: =varDetailsPopUp
-                Width: =280
-                X: =25
-                Y: =216
+                Width: =592
+                X: =127
+                Y: =241
                 ZIndex: =11
 
             Label84_23 As label:
-                Height: =26
+                Height: =29
                 Size: =9
                 Text: |-
                     ="Examination Date  :   " &varDetailsAdminPg.'Examination Date'
                 Visible: =varDetailsPopUp
-                Width: =280
-                X: =25
-                Y: =245
+                Width: =592
+                X: =127
+                Y: =273
                 ZIndex: =12
 
             Button21_3 As button:
                 Fill: =RGBA(0, 0, 0, 1)
                 FontWeight: =FontWeight.Bold
-                Height: =27
+                Height: =30
                 OnSelect: =Set(varDetailsPopUp,false)
                 RadiusBottomLeft: =7
                 RadiusBottomRight: =7
@@ -3121,24 +3236,24 @@
                 Size: =10
                 Text: ="Cancel"
                 Visible: =varDetailsPopUp
-                Width: =100
-                X: =89
-                Y: =360
+                Width: =212
+                X: =507
+                Y: =419
                 ZIndex: =13
 
             Label84_24 As label:
-                Height: =26
+                Height: =29
                 Size: =9
                 Text: |-
                     ="Document Link       :   " 
                 Visible: =varDetailsPopUp
-                Width: =280
-                X: =25
-                Y: =302
+                Width: =592
+                X: =127
+                Y: =336
                 ZIndex: =14
 
             HtmlText3_3 As htmlViewer:
-                Height: =35
+                Height: =39
                 HtmlText: ="<b><font color=blue><U> Approve/Reject</U></font></b>"
                 OnSelect: =Navigate('Responsive Mylearning Screen')
                 Visible: |-
@@ -3159,24 +3274,24 @@
                             )
                         )
                     )
-                Width: =143
-                X: =160
-                Y: =325
+                Width: =302
+                X: =127
+                Y: =414
                 ZIndex: =15
 
             Label84_17 As label:
-                Height: =26
+                Height: =29
                 Size: =9
                 Text: |-
                     ="Proofs Uploaded   :    " &varDetailsAdminPg.'Proofs Uploaded on'
                 Visible: =varDetailsPopUp
-                Width: =280
-                X: =25
-                Y: =272
+                Width: =592
+                X: =127
+                Y: =303
                 ZIndex: =16
 
             Label84_16 As label:
-                Height: =30
+                Height: =33
                 PaddingBottom: =0
                 PaddingLeft: =0
                 PaddingRight: =0
@@ -3184,19 +3299,19 @@
                 Size: =9
                 Text: = varDetailsAdminPg.Status 
                 Visible: =varDetailsPopUp And If((varDetailsAdminPg.Status="Reimbursed") , false,If(varDetailsAdminPg.Status="Processing with Finance",false,If(varDetailsAdminPg.Status="Manager Approved",false,If(varDetailsAdminPg.Status="Proofs Uploaded",false,true))))
-                Width: =100
-                X: =25
-                Y: =330
+                Width: =212
+                X: =132
+                Y: =368
                 ZIndex: =17
 
             HtmlText3_2 As htmlViewer:
-                Height: =26
+                Height: =29
                 HtmlText: ="<b><font color=blue><U>Click here to View</U></font></b>"
                 OnSelect: =Launch(varDetailsAdminPg.Documents_Link)
                 Visible: =varDetailsPopUp And !IsBlank(varDetailsAdminPg.Documents_Link)
-                Width: =143
-                X: =160
-                Y: =350
+                Width: =302
+                X: =339
+                Y: =390
                 ZIndex: =18
 
     Container85_1 As groupContainer.manualLayoutContainer:

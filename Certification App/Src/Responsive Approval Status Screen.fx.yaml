@@ -2053,8 +2053,7 @@
                             Label13_5 As label:
                                 FontWeight: =FontWeight.Semibold
                                 Height: =35
-                                Size: |
-                                    =12
+                                Size: =10
                                 Text: |-
                                     =
                                     "Requestor       :  " & varCertificateStatus.Requestor.DisplayName
@@ -2065,8 +2064,7 @@
                             Label38_13 As label:
                                 FontWeight: =FontWeight.Semibold
                                 Height: =19
-                                Size: |
-                                    =12
+                                Size: =10
                                 Text: |-
                                     ="Department    :  "  & varCertificateStatus.BU.Value
                                 Width: =467
@@ -2076,8 +2074,7 @@
                             Label38_14 As label:
                                 FontWeight: =FontWeight.Semibold
                                 Height: =35
-                                Size: |
-                                    =12
+                                Size: =10
                                 Text: |-
                                     =If(
                                         IsBlank(varCertificateStatus),
@@ -2091,8 +2088,7 @@
                             Label38_15 As label:
                                 FontWeight: =FontWeight.Semibold
                                 Height: =19
-                                Size: |
-                                    =12
+                                Size: =10
                                 Text: |-
                                     ="Exam Date       :  " & Text(varCertificateStatus.'Examination Date', "dd-mm-yyyy")
                                 Width: =467
@@ -2102,13 +2098,12 @@
                             DataCardValue14_4 As label:
                                 Color: =RGBA(213, 39, 26, 1)
                                 DisplayMode: =Parent.DisplayMode
-                                FontWeight: =FontWeight.Bold
+                                FontWeight: =FontWeight.Semibold
                                 Height: =50
                                 PaddingLeft: =10
                                 PaddingRight: =0
                                 PaddingTop: =0
-                                Size: |
-                                    =14
+                                Size: =12
                                 Text: ="Requestor Details"
                                 Width: =Parent.Width
                                 Y: =2
@@ -2129,8 +2124,7 @@
                             Label6_6 As label:
                                 FontWeight: =FontWeight.Semibold
                                 Height: =23
-                                Size: |
-                                    =12
+                                Size: =10
                                 Text: |+
                                     =If(IsBlank(varCertificateStatus),"Location","Location           :  " & Office365Users.UserProfile(varCertificateStatus.Requestor.Email).OfficeLocation)
                                     
@@ -2163,7 +2157,7 @@
                             Label13_3 As label:
                                 FontWeight: =FontWeight.Semibold
                                 Height: =20 
-                                Size: =12
+                                Size: =10
                                 Text: |-
                                     =
                                     "Provider        :  " & LookUp(Certifications,ID = varCertificateStatus.CertificationID.Id).'Provider Name'
@@ -2174,7 +2168,7 @@
                             Label38_2 As label:
                                 FontWeight: =FontWeight.Semibold
                                 Height: =21
-                                Size: =12
+                                Size: =10
                                 Text: |-
                                     ="Technology   :  "  & LookUp(Certifications,ID =varCertificateStatus.CertificationID.Id).Technology.Value
                                 Width: =470
@@ -2184,7 +2178,7 @@
                             Label39_3 As label:
                                 FontWeight: =FontWeight.Semibold
                                 Height: =20
-                                Size: =12
+                                Size: =10
                                 Text: |-
                                     ="Level              :   "  & LookUp(Certifications,ID = varCertificateStatus.CertificationID.Id).'Exam Level'
                                 Width: =470
@@ -2194,8 +2188,7 @@
                             Label40_5 As label:
                                 FontWeight: =FontWeight.Semibold
                                 Height: =30
-                                Size: |
-                                    =12
+                                Size: =10
                                 Text: |-
                                     ="Role                :  "  & LookUp(Certifications,ID = varCertificateStatus.CertificationID.Id).Role.Value
                                 Width: =470
@@ -2217,7 +2210,7 @@
                             Label9_3 As label:
                                 FontWeight: =FontWeight.Semibold
                                 Height: =20
-                                Size: =12
+                                Size: =10
                                 Text: |-
                                     ="Exam code    :  " & LookUp(Certifications,ID =varCertificateStatus.CertificationID.Id).'Exam Code' 
                                 Width: =470
@@ -2258,18 +2251,16 @@
                         Label32_2 As label:
                             Color: =RGBA(213, 39, 26, 1)
                             Fill: =RGBA(255, 255, 255, 1)
-                            FontWeight: =FontWeight.Bold
-                            Size: |
-                                =14
+                            FontWeight: =FontWeight.Semibold
+                            Size: =12
                             Text: ="Description"
                             Width: =853
                             ZIndex: =1
 
                         Label33_2 As label:
                             Fill: =RGBA(255, 255, 255, 1)
-                            FontWeight: =FontWeight.Semibold
                             Height: =65
-                            Size: =12
+                            Size: =10
                             Text: =LookUp(Certifications,ID=varCertificateStatus.CertificationID.Id).Description
                             VerticalAlign: =VerticalAlign.Top
                             Width: =823
@@ -2283,10 +2274,10 @@
                             OnSelect: =Launch(LookUp(Certifications,ID = varCertificateStatus.CertificationID.Id).SiteURL)
                             PaddingBottom: =10
                             PaddingTop: =10
-                            Size: =12
-                            Width: =300
-                            X: =626
-                            Y: =138
+                            Size: =10
+                            Width: =250
+                            X: =728
+                            Y: =143
                             ZIndex: =3
 
                 Container86_2 As groupContainer.verticalAutoLayoutContainer:
@@ -2368,6 +2359,7 @@
 
                                     Label75_4 As label:
                                         Color: =RGBA(0,0,0,1)
+                                        FontWeight: =FontWeight.Semibold
                                         Height: =31
                                         OnSelect: =Select(Parent)
                                         Size: =10
@@ -2377,10 +2369,9 @@
 
                                 Label36_7 As label:
                                     Color: =RGBA(213, 39, 26, 1)
-                                    FontWeight: =FontWeight.Bold
+                                    FontWeight: =FontWeight.Semibold
                                     Height: =30
-                                    Size: |
-                                        =12
+                                    Size: =10
                                     Text: ="Supported documents for certifications"
                                     Width: =Parent.Width
                                     Y: =62
@@ -2426,9 +2417,9 @@
 
                                     Label42_1 As label:
                                         Color: =RGBA(0, 100, 181, 1)
-                                        FontWeight: =FontWeight.Bold
+                                        FontWeight: =FontWeight.Semibold
                                         Height: =35
-                                        Size: =11
+                                        Size: =10
                                         Text: ="Certification Payment with "&varCertificateStatus.PaymentMode
                                         Visible: =varPAY
                                         Width: =367
@@ -2462,7 +2453,7 @@
                         Container23_4 As groupContainer.manualLayoutContainer:
                             Height: =280
                             Width: =395
-                            X: =438
+                            X: =632
                             ZIndex: =2
 
                             Label12_23 As label:
@@ -2473,8 +2464,7 @@
                                 Fill: =RGBA(252, 251, 247, 1)
                                 FontWeight: =FontWeight.Semibold
                                 Height: =25
-                                Size: |
-                                    =12
+                                Size: =10
                                 Text: |
                                     =varCertificateStatus.Status
                                 Width: =210
@@ -2487,8 +2477,7 @@
                                 Color: =RGBA(0, 0, 0, 1)
                                 FontWeight: =FontWeight.Semibold
                                 Height: =30
-                                Size: |
-                                    =12
+                                Size: =10
                                 Text: ="Completion Proofs Uploaded"
                                 Width: =Parent.Width - 60
                                 Wrap: =false
@@ -2511,8 +2500,7 @@
                                 Fill: =Color.White
                                 FontWeight: =FontWeight.Semibold
                                 Height: =27
-                                Size: |
-                                    =12
+                                Size: =10
                                 Text: |
                                     =If(
                                         varCertificateStatus.Status in ["Proofs Uploaded","Proofs Approved","Reimbursed","Completed Using Voucher","Processing with finance"],
@@ -2529,8 +2517,7 @@
                                 Color: =RGBA(0, 0, 0, 1)
                                 FontWeight: =FontWeight.Semibold
                                 Height: =30
-                                Size: |
-                                    =12
+                                Size: =10
                                 Text: ="Reimbursement Status"
                                 Width: =Parent.Width - 60
                                 Wrap: =false
@@ -2546,8 +2533,7 @@
                                     =Color.White
                                 FontWeight: =FontWeight.Semibold
                                 Height: =26
-                                Size: |
-                                    =12
+                                Size: =10
                                 Text: |-
                                     =If(
                                         varCertificateStatus.Status in ["Reimbursed"],
@@ -2577,8 +2563,7 @@
                                 DisplayMode: =DisplayMode.View
                                 FontWeight: =FontWeight.Semibold
                                 Height: =30
-                                Size: |
-                                    =12
+                                Size: =10
                                 Text: ="Certification Status"
                                 Width: =Parent.Width - 60
                                 Wrap: =false
