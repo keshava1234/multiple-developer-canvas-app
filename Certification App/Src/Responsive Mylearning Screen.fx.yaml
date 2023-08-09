@@ -1541,7 +1541,7 @@
                                     =Search(
                                         Sort(
                                             Filter(
-                                                userCertifications,
+                                                FirstN(CertificationOrder,5000),
                                                  Office365Users.ManagerV2(Requestor.Email).displayName=User().FullName  || varUserLevel = "SUPER-ADMIN" || varUserLevel = "ADMIN" 
                                             ),
                                             Created,
@@ -1641,7 +1641,6 @@
 
                                 Label28_2 As label:
                                     Color: =RGBA(17, 17, 17, 1)
-                                    FontWeight: =FontWeight.Semibold
                                     Height: =49
                                     OnSelect: =Select(Parent)
                                     PaddingTop: =0
@@ -1667,7 +1666,6 @@
                                 Label30_1 As label:
                                     Align: =Align.Center
                                     Color: =RGBA(17, 17, 17, 1)
-                                    FontWeight: =FontWeight.Semibold
                                     Height: =84
                                     OnSelect: =Select(Parent)
                                     Size: =DescFontSize
@@ -1680,7 +1678,6 @@
                                 Label31_1 As label:
                                     Align: =Align.Center
                                     Color: =RGBA(17, 17, 17, 1)
-                                    FontWeight: =FontWeight.Semibold
                                     Height: =84
                                     OnSelect: =Select(Parent)
                                     Size: =DescFontSize
@@ -1750,7 +1747,6 @@
 
                                 Label37 As label:
                                     Color: =RGBA(213, 39, 26, 1)
-                                    FontWeight: =FontWeight.Semibold
                                     Height: =28
                                     OnSelect: =Select(Parent)
                                     PaddingBottom: =0
@@ -1790,7 +1786,7 @@
                                             Color.Gray,
                                             "Completed Using Voucher",RGBA(247,183,72,1)
                                         )
-                                    FontWeight: =FontWeight.Bold
+                                    FontWeight: =FontWeight.Semibold
                                     Height: =73
                                     OnSelect: =Select(Parent)
                                     Size: =If(ThisItem.Status="Completed Using Voucher",10,10)
@@ -1897,7 +1893,6 @@
                                     ZIndex: =1
 
                                 Label28 As label:
-                                    FontWeight: =FontWeight.Semibold
                                     Height: =100
                                     OnSelect: =Select(Parent)
                                     Size: =DescFontSize
@@ -1916,7 +1911,6 @@
 
                                 Label30 As label:
                                     Align: =Align.Center
-                                    FontWeight: =FontWeight.Semibold
                                     Height: =100
                                     OnSelect: =Select(Parent)
                                     Size: =DescFontSize
@@ -1927,7 +1921,6 @@
 
                                 Label31 As label:
                                     Align: =Align.Center
-                                    FontWeight: =FontWeight.Semibold
                                     Height: =100
                                     OnSelect: =Select(Parent)
                                     Size: =DescFontSize
@@ -1972,7 +1965,7 @@
                                             Color.Gray,
                                             "Completed Using Voucher",RGBA(247,183,72,1)
                                         )
-                                    FontWeight: =FontWeight.Bold
+                                    FontWeight: =FontWeight.Semibold
                                     Height: =45
                                     OnSelect: =Select(Parent)
                                     Size: =If(ThisItem.Status="Completed Using Voucher",10,10)
@@ -2337,18 +2330,17 @@
 
                                 Label105 As label:
                                     Color: =RGBA(26, 26, 26, 1)
-                                    FontWeight: =FontWeight.Bold
                                     Height: =28
                                     OnSelect: =Select(Parent)
                                     Size: =10
                                     Text: =ThisItem.Title
                                     X: =10
-                                    Y: =10
+                                    Y: =15
                                     ZIndex: =2
 
                                 Label105_2 As label:
                                     FontWeight: =FontWeight.Semibold
-                                    Height: =50
+                                    Height: =34
                                     OnSelect: =Select(Parent)
                                     Size: =10
                                     Text: =ThisItem.CertificationName

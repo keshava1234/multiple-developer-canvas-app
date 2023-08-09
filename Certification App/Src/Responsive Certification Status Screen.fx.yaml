@@ -9,6 +9,7 @@
         Set(varAdmin,false)
 
     Container1_12 As groupContainer.verticalAutoLayoutContainer:
+        Fill: =RGBA(255, 255, 255, 1)
         Height: =Parent.Height
         LayoutDirection: =LayoutDirection.Vertical
         LayoutMode: =LayoutMode.Auto
@@ -513,7 +514,7 @@
             ZIndex: =3
 
         Container3_8 As groupContainer.horizontalAutoLayoutContainer:
-            Fill: =RGBA(247, 248, 250,1)
+            Fill: =RGBA(255, 255, 255, 1)
             Height: =685
             LayoutMinHeight: =100
             LayoutMinWidth: =250
@@ -2727,6 +2728,7 @@
                             ZIndex: =6
 
             Container121 As groupContainer.verticalAutoLayoutContainer:
+                Fill: =RGBA(255, 255, 255, 1)
                 FillPortions: =0
                 LayoutDirection: =LayoutDirection.Vertical
                 LayoutMinHeight: =100
@@ -2762,13 +2764,12 @@
                         DataCardValue14_2 As label:
                             Color: =RGBA(213, 39, 26, 1)
                             DisplayMode: =Parent.DisplayMode
-                            FontWeight: =FontWeight.Bold
+                            FontWeight: =FontWeight.Semibold
                             Height: =30
                             PaddingLeft: =0
                             PaddingRight: =0
                             PaddingTop: =0
-                            Size: |
-                                =14
+                            Size: =12
                             Text: =LookUp(Certifications,ID = varCertificateStatus.CertificationID.Id).Title
                             Width: =Parent.Width
                             Y: =14
@@ -2776,7 +2777,7 @@
 
                         Label13_2 As label:
                             FontWeight: =FontWeight.Semibold
-                            Size: =12
+                            Size: =10
                             Text: |-
                                 =
                                 "Provider        :  " & LookUp(Certifications,ID=varCertificateStatus.CertificationID.Id).'Provider Name'
@@ -2786,7 +2787,7 @@
 
                         Label38_6 As label:
                             FontWeight: =FontWeight.Semibold
-                            Size: =12
+                            Size: =10
                             Text: |-
                                 ="Technology   :  "  & LookUp(Certifications,ID =varCertificateStatus.CertificationID.Id).Technology.Value
                             Width: =250
@@ -2795,7 +2796,7 @@
 
                         Label39_5 As label:
                             FontWeight: =FontWeight.Semibold
-                            Size: =12
+                            Size: =10
                             Text: |-
                                 ="Level              :  "  & LookUp(Certifications,ID =varCertificateStatus.CertificationID.Id).'Exam Level'
                             Width: =266
@@ -2804,7 +2805,7 @@
 
                         Label40_6 As label:
                             FontWeight: =FontWeight.Semibold
-                            Size: =12
+                            Size: =10
                             Text: |-
                                 ="Role                :  "  & LookUp(Certifications,ID=varCertificateStatus.CertificationID.Id).Role.Value
                             Width: =346
@@ -2818,13 +2819,13 @@
                             Text: |-
                                 ="Price :   "  & LookUp(Certifications,ID = varCertificateStatus.CertificationID.Id).Price &" INR"
                             Width: =216
-                            X: =317
+                            X: =395
                             Y: =60
                             ZIndex: =7
 
                         Label9_2 As label:
                             FontWeight: =FontWeight.Semibold
-                            Size: =12
+                            Size: =10
                             Text: |-
                                 ="Exam code    :  " & LookUp(Certifications,ID=varCertificateStatus.CertificationID.Id).'Exam Code' 
                             Width: =500
@@ -2851,9 +2852,8 @@
                             ZIndex: =9
 
                         Label42 As label:
-                            Align: =Align.Center
                             Color: =RGBA(213, 39, 26, 1)
-                            FontWeight: =FontWeight.Bold
+                            FontWeight: =FontWeight.Semibold
                             Height: =45
                             Size: =12
                             Text: ="Certification Payment with "&varCertificateStatus.PaymentMode
@@ -2930,10 +2930,9 @@
                         AlignInContainer: =AlignInContainer.Stretch
                         Color: =RGBA(213, 39, 26, 1)
                         FillPortions: =0.2
-                        FontWeight: =FontWeight.Bold
+                        FontWeight: =FontWeight.Semibold
                         LayoutMinHeight: =20
-                        Size: |
-                            =14
+                        Size: =12
                         Text: ="Description"
                         ZIndex: =1
 
@@ -2943,7 +2942,7 @@
                         FillPortions: =0.7
                         Height: =50
                         LayoutMinWidth: =200
-                        Size: =12
+                        Size: =10
                         Text: |
                             =LookUp(Certifications,ID=varCertificateStatus.CertificationID.Id).Description
                         VerticalAlign: =VerticalAlign.Top
@@ -2999,13 +2998,12 @@
                                     =If(varCertificateStatus.Status in ["Payment Approved","Reimbursed"],successColor,RGBA(255,191,0,1))
                                 Fill: =RGBA(252, 251, 247, 1)
                                 FontWeight: =FontWeight.Semibold
-                                Height: =34
-                                Size: |
-                                    =12
+                                Height: =33
+                                Size: =10
                                 Text: |
                                     =(LookUp(CertificationOrder,ID=varCertificateStatus.ID).Status)
-                                Width: =688
-                                X: =105
+                                Width: =284
+                                X: =144
                                 Y: =45
                                 ZIndex: =2
 
@@ -3014,10 +3012,9 @@
                                 Color: =RGBA(0, 0, 0, 1)
                                 FontWeight: =FontWeight.Semibold
                                 Height: =39
-                                Size: |
-                                    =12
+                                Size: =10
                                 Text: ="Completion Proofs Uploaded"
-                                Width: =856
+                                Width: =564
                                 Wrap: =false
                                 Y: =80
                                 ZIndex: =3
@@ -3037,8 +3034,7 @@
                                 Fill: =Color.White
                                 FontWeight: =FontWeight.Semibold
                                 Height: =33
-                                Size: |
-                                    =12
+                                Size: =10
                                 Text: |
                                     =/*If(
                                         varCertificateStatus.Status in ["Proofs Uploaded","Proofs Approved","Reimbursed","Processing with finance"],
@@ -3050,8 +3046,8 @@
                                         "Completed",
                                         "Pending"
                                     )
-                                Width: =431
-                                X: =219
+                                Width: =284
+                                X: =144
                                 Y: =110
                                 ZIndex: =4
 
@@ -3060,10 +3056,9 @@
                                 Color: =RGBA(0, 0, 0, 1)
                                 FontWeight: =FontWeight.Semibold
                                 Height: =39
-                                Size: |
-                                    =12
+                                Size: =10
                                 Text: ="Reimbursement Status"
-                                Width: =856
+                                Width: =564
                                 Wrap: =false
                                 Y: =135
                                 ZIndex: =5
@@ -3076,43 +3071,42 @@
                                     =Color.White
                                 FontWeight: =FontWeight.Semibold
                                 Height: =32
-                                Size: |
-                                    =12
+                                Size: =10
                                 Text: |
                                     =If(
                                         varCertificateStatus.Status in ["Reimbursed"],
                                         "Approved",
                                         "Pending"
                                     )
-                                Width: =431
-                                X: =219
+                                Width: =284
+                                X: =144
                                 Y: =165
                                 ZIndex: =6
 
                             Icon12_46 As icon.CheckBadge:
                                 Color: =successColor
                                 FocusedBorderThickness: =0
-                                Height: =34
+                                Height: =18
                                 Icon: =Icon.CheckBadge
                                 Visible: =Switch(varCertificateStatus.Status,"Reimbursed",true)
-                                Width: =55
-                                X: =250
-                                Y: =45
+                                Width: =36
+                                X: =167
+                                Y: =57
                                 ZIndex: =7
 
                             Icon12_47 As icon.CancelBadge:
                                 Color: =pendingColor
                                 Fill: =Color.White
                                 FocusedBorderThickness: =0
-                                Height: =34
+                                Height: =18
                                 Icon: =Icon.CancelBadge
                                 Visible: |-
                                     =If(Label12_29.Text in ["Proofs Approved","Proofs Uploaded","Reimbursed","Processing with finance"],
                                         false,true
                                     )
-                                Width: =55
-                                X: =250
-                                Y: =110
+                                Width: =36
+                                X: =167
+                                Y: =122
                                 ZIndex: =8
 
                             Icon12_48 As icon.CheckBadge:
@@ -3127,7 +3121,7 @@
                                         )
                                     )
                                 FocusedBorderThickness: =0
-                                Height: =34
+                                Height: =18
                                 Icon: =Icon.CheckBadge
                                 Visible: |-
                                     =If(
@@ -3135,32 +3129,32 @@
                                         true,
                                         false
                                     )
-                                Width: =55
-                                X: =250
-                                Y: =110
+                                Width: =36
+                                X: =167
+                                Y: =122
                                 ZIndex: =9
 
                             Icon12_49 As icon.CancelBadge:
                                 Color: =pendingColor
                                 Fill: =Color.White
                                 FocusedBorderThickness: =0
-                                Height: =31
+                                Height: =18
                                 Icon: =Icon.CancelBadge
                                 Visible: =If(varCertificateStatus.Status in ["Reimbursed"],false,true)
-                                Width: =55
-                                X: =250
-                                Y: =165
+                                Width: =36
+                                X: =167
+                                Y: =177
                                 ZIndex: =10
 
                             Icon12_50 As icon.CheckBadge:
                                 Color: =successColor
                                 FocusedBorderThickness: =0
-                                Height: =31
+                                Height: =18
                                 Icon: =Icon.CheckBadge
                                 Visible: =If(varCertificateStatus.Status in ["Reimbursed"],true,false)
-                                Width: =55
-                                X: =250
-                                Y: =165
+                                Width: =36
+                                X: =167
+                                Y: =177
                                 ZIndex: =11
 
                             DataCardKey3_11 As label:
@@ -3169,10 +3163,9 @@
                                 DisplayMode: =DisplayMode.View
                                 FontWeight: =FontWeight.Semibold
                                 Height: =39
-                                Size: |
-                                    =12
+                                Size: =10
                                 Text: ="Certification Status"
-                                Width: =856
+                                Width: =564
                                 Wrap: =false
                                 Y: =6
                                 ZIndex: =12
@@ -4771,12 +4764,11 @@
             ZIndex: =3
 
             Label36_40 As label:
-                Align: =Align.Center
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =RGBA(213,39,26,1)
-                FontWeight: =FontWeight.Bold
+                FontWeight: =FontWeight.Semibold
                 Height: =30
-                Size: =15
+                Size: =12
                 Text: ="Supported documents for certifications"
                 Width: =Parent.Width
                 Y: =62
@@ -4840,7 +4832,7 @@
 
                 "Gallery8 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
                     AccessibleLabel: ="Gallery8"
-                    Height: =75
+                    Height: =70
                     Items: =Attachments.Attachments
                     Layout: =Layout.Vertical
                     ShowScrollbar: =false
@@ -4848,7 +4840,7 @@
                     TemplateSize: =Min(160, Self.Height - 60)
                     Visible: =false
                     Width: =Parent.Width
-                    Y: =18
+                    Y: =25
                     ZIndex: =3
 
                     Image10 As image:
@@ -4987,10 +4979,11 @@
                         ZIndex: =7
 
                 Label15_3 As label:
+                    Align: =Align.Center
                     BorderColor: =RGBA(0, 0, 0, 1)
-                    FontWeight: =FontWeight.Bold
-                    Height: =18
-                    Size: =12
+                    FontWeight: =FontWeight.Semibold
+                    Height: =22
+                    Size: =10
                     Text: |-
                         ="Microsoft account for Association Screenshot :"
                     Width: =880
@@ -5198,10 +5191,11 @@
                         ZIndex: =7
 
                 Label15_5 As label:
+                    Align: =Align.Center
                     BorderColor: =RGBA(0, 0, 0, 1)
-                    FontWeight: =FontWeight.Bold
+                    FontWeight: =FontWeight.Semibold
                     Height: =18
-                    Size: =12
+                    Size: =10
                     Text: |-
                         ="Certification Receipt Bill :"
                     Width: =880
@@ -5409,10 +5403,11 @@
                         ZIndex: =7
 
                 Label15_12 As label:
+                    Align: =Align.Center
                     BorderColor: =RGBA(0, 0, 0, 1)
-                    FontWeight: =FontWeight.Bold
+                    FontWeight: =FontWeight.Semibold
                     Height: =18
-                    Size: =12
+                    Size: =10
                     Text: |-
                         ="Reimbursement form Filled :"
                     Width: =880
@@ -5620,10 +5615,11 @@
                         ZIndex: =7
 
                 Label15_13 As label:
+                    Align: =Align.Center
                     BorderColor: =RGBA(0, 0, 0, 1)
-                    FontWeight: =FontWeight.Bold
+                    FontWeight: =FontWeight.Semibold
                     Height: =18
-                    Size: =12
+                    Size: =10
                     Text: |-
                         ="Copy of Certification :"
                     Width: =880
@@ -5831,10 +5827,11 @@
                         ZIndex: =7
 
                 Label15_14 As label:
+                    Align: =Align.Center
                     BorderColor: =RGBA(0, 0, 0, 1)
-                    FontWeight: =FontWeight.Bold
+                    FontWeight: =FontWeight.Semibold
                     Height: =18
-                    Size: =12
+                    Size: =10
                     Text: |-
                         ="Manager Approval Mail :"
                     Width: =880
@@ -5843,20 +5840,20 @@
         Icon31 As icon.CancelBadge:
             AccessibleLabel: ="Icon31"
             BorderColor: =RGBA(0, 0, 0, 1)
-            Color: =RGBA(255, 0, 0, 1)
+            Color: =RGBA(172, 62, 11, 1)
             Height: =30
             Icon: =Icon.CancelBadge
             OnSelect: =Set(Attachpopup,false)
             Visible: =Attachpopup
             Width: =30
             X: =1032
-            Y: =44
+            Y: =54
             ZIndex: =4
 
         Icon33 As icon.Trash:
             AccessibleLabel: ="Icon33"
             BorderColor: =RGBA(0, 0, 0, 1)
-            Color: =RGBA(255, 0, 0, 1)
+            Color: =RGBA(184, 0, 0, 1)
             Height: =30
             Icon: =Icon.Trash
             OnSelect: |

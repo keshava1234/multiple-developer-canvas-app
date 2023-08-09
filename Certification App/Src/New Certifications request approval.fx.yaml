@@ -1949,7 +1949,6 @@
                                     Label47 As label:
                                         Align: =Align.Center
                                         Fill: =RGBA(255, 232, 231, 1)
-                                        FontWeight: =FontWeight.Semibold
                                         Height: =36
                                         Text: ="New Certification Request"
                                         Width: =Parent.Width
@@ -2359,7 +2358,6 @@
                             BorderColor: =RGBA(219, 219, 219, 1)
                             BorderThickness: =1
                             Fill: =RGBA(255, 232, 231, 1)
-                            FontWeight: =FontWeight.Semibold
                             Height: =41
                             Text: ="Recent Certification Requests"
                             Width: =317
