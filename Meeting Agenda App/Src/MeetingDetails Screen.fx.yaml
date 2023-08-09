@@ -4635,10 +4635,7 @@
                     ),Notify(
                             "Error while Saving Notes",
                             NotificationType.Error
-                        ),Notify(
-                            "Notes Saved Successfully",
-                            NotificationType.Success
-                        )),
+                        ),false),
                     IfError(Patch(
                         'Notes-MeetingList',
                         Defaults('Notes-MeetingList'),
@@ -4652,16 +4649,11 @@
                 Notify(
                             "Error while Saving Notes",
                             NotificationType.Error
-                        ),Notify(
-                            "Notes Saved Successfully",
-                            NotificationType.Success
-                        )
-                   /* Notify(
+                        ),false
+                )); Notify(
                         "You notes has been saved",
                         NotificationType.Success
-                    )*/
-                    
-                )))
+                    ))
             RadiusBottomLeft: =3
             RadiusBottomRight: =3
             RadiusTopLeft: =3

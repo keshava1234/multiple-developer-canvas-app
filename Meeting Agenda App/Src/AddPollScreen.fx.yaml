@@ -317,12 +317,9 @@ AddPollScreen As screen:
                 ),Notify(
                         "Error while saving your Poll",
                         NotificationType.Error
-                    ),Notify(
-                        "Your Poll has been saved successfully",
-                        NotificationType.Success,5000
-                    )
+                    ),false
             ));
-            /*Set(
+            Set(
                 varcreatepoll,
                 true
             );
@@ -338,7 +335,7 @@ AddPollScreen As screen:
                     NotificationType.Error,
                     0
                 )
-            );*/
+            );
             Clear(arrQuestions);
             Clear(arrQuestionOptions);
             Clear(CountCollection);
