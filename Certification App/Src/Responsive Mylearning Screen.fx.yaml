@@ -1770,7 +1770,7 @@
                                                 208,
                                                 70,
                                                 1
-                                            ),"Processing with Finance",Color.GreenYellow,
+                                            ),"Processing with Finance",RGBA(54,176,75,1),
                                             "Proofs Uploaded",
                                             Color.OrangeRed,
                                             "Proofs Approved",
@@ -1786,7 +1786,6 @@
                                             Color.Gray,
                                             "Completed Using Voucher",RGBA(247,183,72,1)
                                         )
-                                    FontWeight: =FontWeight.Semibold
                                     Height: =73
                                     OnSelect: =Select(Parent)
                                     Size: =If(ThisItem.Status="Completed Using Voucher",10,10)
@@ -1799,7 +1798,6 @@
                                 Label24_1 As label:
                                     Align: =Align.Center
                                     Color: =RGBA(213, 39, 26, 1)
-                                    FontWeight: =FontWeight.Bold
                                     Height: =73
                                     OnSelect: =Select(Parent)
                                     Size: =If(ThisItem.Status="Completed Using Voucher",10,10)
@@ -2351,7 +2349,6 @@
 
                                 Label105_3 As label:
                                     Align: =Align.Center
-                                    FontWeight: =FontWeight.Semibold
                                     OnSelect: =Select(Parent)
                                     Size: =10
                                     Text: =ThisItem.CompletionDate
@@ -2373,7 +2370,6 @@
 
                                 Label105_5 As label:
                                     Align: =Align.Center
-                                    FontWeight: =FontWeight.Semibold
                                     OnSelect: =Select(Parent)
                                     Size: =10
                                     Text: =ThisItem.ProviderName
@@ -2384,7 +2380,6 @@
 
                                 Label105_6 As label:
                                     Align: =Align.Center
-                                    FontWeight: =FontWeight.Semibold
                                     OnSelect: =Select(Parent)
                                     Size: =10
                                     Text: =ThisItem.ExamCode
@@ -2395,7 +2390,6 @@
 
                                 Label105_7 As label:
                                     Align: =Align.Center
-                                    FontWeight: =FontWeight.Semibold
                                     OnSelect: =Select(Parent)
                                     Size: =10
                                     Text: =ThisItem.BU
@@ -2894,7 +2888,7 @@
                             Label115 As label:
                                 Align: =Align.Right
                                 Color: =RGBA(8, 8, 8, 1)
-                                FontWeight: =FontWeight.Bold
+                                FontWeight: =FontWeight.Semibold
                                 Height: =39
                                 Text: ="CALENDAR"
                                 Width: =170
@@ -2919,7 +2913,7 @@
                         Label111 As label:
                             Align: =Align.Center
                             Color: =RGBA(54, 176, 75, 1)
-                            FontWeight: =FontWeight.Bold
+                            FontWeight: =FontWeight.Semibold
                             Size: =10
                             Text: ="No events on this date"
                             Visible: =If(IsEmpty(CalendarEventsGallery1_1.AllItems),true,false)
@@ -2946,7 +2940,7 @@
                             LblDateSelected1_1 As label:
                                 Align: =Align.Center
                                 Color: =RGBA(184, 0, 0, 1)
-                                FontWeight: =FontWeight.Bold
+                                FontWeight: =FontWeight.Semibold
                                 Height: =23
                                 Size: =11
                                 Text: =Text(_dateSelected, DateTimeFormat.LongDate)
@@ -3086,7 +3080,7 @@
 
                             Label116 As label:
                                 Color: =RGBA(8, 8, 8, 1)
-                                FontWeight: =FontWeight.Bold
+                                FontWeight: =FontWeight.Semibold
                                 Height: =38
                                 Text: ="EVENTS"
                                 Width: =200

@@ -3275,8 +3275,8 @@
                                 Icon: =Icon.ChevronRight
                                 OnSelect: |-
                                     =Navigate('Admin BU-Wise-Records',ScreenTransition.Cover,{varData:ThisItem});
-                                    
                                     //ClearCollect(proofsapprovescol,Filter(CertificationOrder,Created>=DatePicker1_AdminDB.SelectedDate,//StatusDropDown.SelectedText.Value="Proofs Approved"))
+                                    ClearCollect(new_col_certorder,Filter(CertificationOrder,'BU: Title'.Value=ThisItem.Code))
                                 PaddingBottom: =10
                                 PaddingLeft: =10
                                 PaddingRight: =10
