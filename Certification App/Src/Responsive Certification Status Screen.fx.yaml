@@ -3002,8 +3002,8 @@
                                 Size: =10
                                 Text: |
                                     =(LookUp(CertificationOrder,ID=varCertificateStatus.ID).Status)
-                                Width: =431
-                                X: =219
+                                Width: =284
+                                X: =144
                                 Y: =45
                                 ZIndex: =2
 
@@ -3014,7 +3014,7 @@
                                 Height: =39
                                 Size: =10
                                 Text: ="Completion Proofs Uploaded"
-                                Width: =856
+                                Width: =564
                                 Wrap: =false
                                 Y: =80
                                 ZIndex: =3
@@ -3046,8 +3046,8 @@
                                         "Completed",
                                         "Pending"
                                     )
-                                Width: =431
-                                X: =219
+                                Width: =284
+                                X: =144
                                 Y: =110
                                 ZIndex: =4
 
@@ -3058,7 +3058,7 @@
                                 Height: =39
                                 Size: =10
                                 Text: ="Reimbursement Status"
-                                Width: =856
+                                Width: =564
                                 Wrap: =false
                                 Y: =135
                                 ZIndex: =5
@@ -3078,35 +3078,35 @@
                                         "Approved",
                                         "Pending"
                                     )
-                                Width: =431
-                                X: =219
+                                Width: =284
+                                X: =144
                                 Y: =165
                                 ZIndex: =6
 
                             Icon12_46 As icon.CheckBadge:
                                 Color: =successColor
                                 FocusedBorderThickness: =0
-                                Height: =20
+                                Height: =18
                                 Icon: =Icon.CheckBadge
                                 Visible: =Switch(varCertificateStatus.Status,"Reimbursed",true)
-                                Width: =55
-                                X: =250
-                                Y: =45
+                                Width: =36
+                                X: =167
+                                Y: =57
                                 ZIndex: =7
 
                             Icon12_47 As icon.CancelBadge:
                                 Color: =pendingColor
                                 Fill: =Color.White
                                 FocusedBorderThickness: =0
-                                Height: =20
+                                Height: =18
                                 Icon: =Icon.CancelBadge
                                 Visible: |-
                                     =If(Label12_29.Text in ["Proofs Approved","Proofs Uploaded","Reimbursed","Processing with finance"],
                                         false,true
                                     )
-                                Width: =55
-                                X: =250
-                                Y: =110
+                                Width: =36
+                                X: =167
+                                Y: =122
                                 ZIndex: =8
 
                             Icon12_48 As icon.CheckBadge:
@@ -3121,7 +3121,7 @@
                                         )
                                     )
                                 FocusedBorderThickness: =0
-                                Height: =20
+                                Height: =18
                                 Icon: =Icon.CheckBadge
                                 Visible: |-
                                     =If(
@@ -3129,32 +3129,32 @@
                                         true,
                                         false
                                     )
-                                Width: =55
-                                X: =250
-                                Y: =110
+                                Width: =36
+                                X: =167
+                                Y: =122
                                 ZIndex: =9
 
                             Icon12_49 As icon.CancelBadge:
                                 Color: =pendingColor
                                 Fill: =Color.White
                                 FocusedBorderThickness: =0
-                                Height: =20
+                                Height: =18
                                 Icon: =Icon.CancelBadge
                                 Visible: =If(varCertificateStatus.Status in ["Reimbursed"],false,true)
-                                Width: =55
-                                X: =250
-                                Y: =165
+                                Width: =36
+                                X: =167
+                                Y: =177
                                 ZIndex: =10
 
                             Icon12_50 As icon.CheckBadge:
                                 Color: =successColor
                                 FocusedBorderThickness: =0
-                                Height: =20
+                                Height: =18
                                 Icon: =Icon.CheckBadge
                                 Visible: =If(varCertificateStatus.Status in ["Reimbursed"],true,false)
-                                Width: =55
-                                X: =250
-                                Y: =165
+                                Width: =36
+                                X: =167
+                                Y: =177
                                 ZIndex: =11
 
                             DataCardKey3_11 As label:
@@ -3165,7 +3165,7 @@
                                 Height: =39
                                 Size: =10
                                 Text: ="Certification Status"
-                                Width: =856
+                                Width: =564
                                 Wrap: =false
                                 Y: =6
                                 ZIndex: =12

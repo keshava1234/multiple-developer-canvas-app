@@ -1703,8 +1703,7 @@
                             BU_drpdwn.SelectedText.Value = "ALL",
                             BU_Cert,
                             Filter(
-                                BU_Cert,
-                                BU_drpdwn.SelectedText.Value in 'BU:Title'.Value
+                                BU_Cert,'BU:Code'.Value=BU_drpdwn.Selected.Code
                             )
                         )
                     LayoutMinHeight: =250
@@ -1859,7 +1858,7 @@
                             X: |-
                                 =//If('Responsive Home Screen'.Size=4,1000,If('Responsive Home Screen'.Size=3,750,If('Responsive Home Screen'.Size=2,400,300)))
                                 900
-                            Y: =5
+                            Y: =4
                             ZIndex: =2
 
                 "AllCertificationsGallery_1 As gallery.'BrowseLayout_Horizontal_TwoTextOneImageVariant_ver4.0'":

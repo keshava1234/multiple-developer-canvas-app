@@ -3340,9 +3340,10 @@
                                 Label61 As label:
                                     Align: =Align.Center
                                     Fill: =RGBA(255, 255, 0, 0.5)
+                                    FontWeight: =FontWeight.Semibold
                                     Height: =50
                                     OnSelect: =Select(Parent)
-                                    Size: =10
+                                    Size: =8
                                     Text: =ThisItem.Title
                                     Width: =153
                                     ZIndex: =6
@@ -3350,9 +3351,10 @@
                                 Label63 As label:
                                     Align: =Align.Center
                                     Fill: =RGBA(204, 208, 225, 1)
+                                    FontWeight: =FontWeight.Semibold
                                     Height: =49
                                     OnSelect: =Select(Parent)
-                                    Size: =10
+                                    Size: =8
                                     Text: =ThisItem.Code
                                     Width: =99
                                     X: =153
@@ -3367,9 +3369,10 @@
                                                 70,
                                                 0.2
                                             )
+                                    FontWeight: =FontWeight.Semibold
                                     Height: =49
                                     OnSelect: =Select(Parent)
-                                    Size: =10
+                                    Size: =8
                                     Text: =CountRows(Filter(col_filtercert2,BU.Id=ThisItem.ID)) 
                                     Width: =99
                                     X: =252
@@ -3378,9 +3381,10 @@
                                 Label65_1 As label:
                                     Align: =Align.Center
                                     Fill: =Color.Pink
+                                    FontWeight: =FontWeight.Semibold
                                     Height: =49
                                     OnSelect: =Select(Parent)
-                                    Size: =10
+                                    Size: =8
                                     Text: |
                                         =CountRows(Filter(col_filtercert2,BU.Id=ThisItem.ID,Status="Enrolled"))
                                     Tooltip: ="Number Of Employees Waiting For Manager Approval"
@@ -3391,9 +3395,10 @@
                                 Label65_2 As label:
                                     Align: =Align.Center
                                     Fill: =Color.LightBlue
+                                    FontWeight: =FontWeight.Semibold
                                     Height: =49
                                     OnSelect: =Select(Parent)
-                                    Size: =10
+                                    Size: =8
                                     Text: |
                                         =CountRows(Filter(col_filtercert2,BU.Id=ThisItem.ID,Status="Manager Approved" || Status="Proofs Uploaded"))
                                     Tooltip: ="Number of Employees Yet to Complete the Certification"
@@ -3404,9 +3409,10 @@
                                 Label65_3 As label:
                                     Align: =Align.Center
                                     Fill: =Color.LemonChiffon
+                                    FontWeight: =FontWeight.Semibold
                                     Height: =49
                                     OnSelect: =Select(Parent)
-                                    Size: =10
+                                    Size: =8
                                     Text: =CountRows(Filter(col_filtercert2,BU.Id=ThisItem.ID,Status="Reimbursed"))
                                     Width: =94
                                     X: =638
@@ -3421,9 +3427,10 @@
                                             216,
                                             1
                                         )
+                                    FontWeight: =FontWeight.Semibold
                                     Height: =49
                                     OnSelect: =Select(Parent)
-                                    Size: =10
+                                    Size: =8
                                     Text: =CountRows(Filter(col_filtercert2,BU.Id=ThisItem.ID,Status="Proofs Approved"))
                                     Width: =99
                                     X: =539

@@ -1910,7 +1910,7 @@ AskQuestion_Admin As screen:
                                 Color: =RGBA(213,39,26,1)
                                 FontWeight: =FontWeight.Semibold
                                 Height: =35
-                                Size: =16
+                                Size: =12
                                 Text: ="Post your Question here"
                                 Width: =610
                                 X: =68
@@ -2040,8 +2040,8 @@ AskQuestion_Admin As screen:
                                 Layout: =Layout.Vertical
                                 TemplatePadding: =0
                                 TemplateSize: =261
-                                Width: =721
-                                X: =35
+                                Width: =694
+                                X: =62
                                 Y: =60
                                 ZIndex: =2
 
@@ -2078,7 +2078,7 @@ AskQuestion_Admin As screen:
                                     ZIndex: =7
 
                                 Label13_10 As label:
-                                    FontWeight: =FontWeight.Bold
+                                    FontWeight: =FontWeight.Semibold
                                     Height: =33
                                     OnSelect: =Select(Parent)
                                     Size: =10
@@ -2089,7 +2089,6 @@ AskQuestion_Admin As screen:
                                     ZIndex: =8
 
                                 Label14_6 As label:
-                                    FontWeight: =FontWeight.Semibold
                                     Height: =22
                                     OnSelect: =Select(Parent)
                                     Size: =10
@@ -2131,9 +2130,10 @@ AskQuestion_Admin As screen:
                                 Fill: =RGBA(255, 255, 255, 1)
                                 FontWeight: =FontWeight.Semibold
                                 Height: =35
+                                Size: =12
                                 Text: ="Top Question and Answers of " & varCertificationName
-                                Width: =716
-                                X: =37
+                                Width: =689
+                                X: =64
                                 Y: =5
                                 ZIndex: =3
 
@@ -2184,7 +2184,6 @@ AskQuestion_Admin As screen:
 
                             Label62_3 As label:
                                 Fill: =    Color.White
-                                FontWeight: =FontWeight.Semibold
                                 Height: =49
                                 HoverColor: |
                                     =Self.Color
@@ -2228,7 +2227,7 @@ AskQuestion_Admin As screen:
                                 ZIndex: =3
 
                             Label66_3 As label:
-                                FontWeight: =FontWeight.Bold
+                                FontWeight: =FontWeight.Semibold
                                 Height: =19
                                 OnSelect: =Select(Parent)
                                 Size: =9
