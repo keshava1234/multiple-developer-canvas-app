@@ -1541,7 +1541,7 @@
                                     =Search(
                                         Sort(
                                             Filter(
-                                                userCertifications,
+                                                FirstN(CertificationOrder,5000),
                                                  Office365Users.ManagerV2(Requestor.Email).displayName=User().FullName  || varUserLevel = "SUPER-ADMIN" || varUserLevel = "ADMIN" 
                                             ),
                                             Created,
