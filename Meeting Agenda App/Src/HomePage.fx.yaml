@@ -86,6 +86,7 @@ HomePage As screen:
                     Not(Id in AllFutureEvents.Id)
                 )
             );
+            
             Set(
                 MyUserProfile,
                 Office365Users.MyProfile().Id
@@ -112,6 +113,54 @@ HomePage As screen:
                 false
             )
         );
+        ClearCollect(
+            MeetingsOnly,
+            Filter(
+                AddColumns(
+                    AllFutureEvents,
+                    "isCurrent",
+                    DateDiff(
+                        Start,
+                        Now(),
+                        TimeUnit.Seconds
+                    ) > 0 && DateDiff(
+                        Now(),
+                        End,
+                        TimeUnit.Seconds
+                    ) > 0
+                ),
+                DateDiff(
+                    Start,
+                    End,
+                    TimeUnit.Hours
+                ) < 6
+            )
+        );
+        Set(
+            NumberOfCurrentMeetings,
+            CountRows(
+                Filter(
+                    MeetingsOnly,
+                    isCurrent
+                )
+            )
+        );
+        /*If a single meeting is happening now, autoselect it*/
+        If(
+            NumberOfCurrentMeetings = 3,
+            Set(
+                AutoSelectMeeting,
+                true
+            );
+            Set(
+                SelectedMeeting,
+                LookUp(
+                    MeetingsOnly,
+                    isCurrent
+                )
+            )
+        )
+        
         //Select(icon_RefreshMeeting);
 
     bg_3 As rectangle:
