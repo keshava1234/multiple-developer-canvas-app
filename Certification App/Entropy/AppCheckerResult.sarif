@@ -95847,6 +95847,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "'Responsive Approval Status Screen'.Icon4_20.OnSelect"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Approval Status Screen'.Icon4_20.OnSelect",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "OnSelect",
+                "module": "Responsive Approval Status Screen",
+                "type": "'Responsive Approval Status Screen'.Icon4_20"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-CollectDelegatableDataSource",
+          "ruleIndex": 5
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "'Responsive Certification Status Screen'.Icon4_3.OnSelect"
                 }
               ],
@@ -95967,6 +95997,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "'Admin BU-Wise-Records'.Container1_17.Container3_13.Container5_16.Container68_2.Container69_1.Icon25.OnSelect"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Admin BU-Wise-Records'.Container1_17.Container3_13.Container5_16.Container68_2.Container69_1.Icon25.OnSelect",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "OnSelect",
+                "module": "Admin BU-Wise-Records",
+                "type": "'Admin BU-Wise-Records'.Container1_17.Container3_13.Container5_16.Container68_2.Container69_1.Icon25"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-CollectDelegatableDataSource",
+          "ruleIndex": 5
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "'Admin dashBoard'.Icon20.OnSelect"
                 }
               ],
@@ -96027,6 +96087,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "Ask_Oues_Ans_Admin.Icon4_14.OnSelect"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Ask_Oues_Ans_Admin.Icon4_14.OnSelect",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "OnSelect",
+                "module": "Ask_Oues_Ans_Admin",
+                "type": "Ask_Oues_Ans_Admin.Icon4_14"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-CollectDelegatableDataSource",
+          "ruleIndex": 5
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "Ask_Questions.Icon4_11.OnSelect"
                 }
               ],
@@ -96040,6 +96130,66 @@
                 "member": "OnSelect",
                 "module": "Ask_Questions",
                 "type": "Ask_Questions.Icon4_11"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-CollectDelegatableDataSource",
+          "ruleIndex": 5
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Ask_Ques_Answers.Icon4_19.OnSelect"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Ask_Ques_Answers.Icon4_19.OnSelect",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "OnSelect",
+                "module": "Ask_Ques_Answers",
+                "type": "Ask_Ques_Answers.Icon4_19"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-CollectDelegatableDataSource",
+          "ruleIndex": 5
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "CertificationRecommendationScreen.Container1_21.Container3_17.Container5_20.Container90_2.Container21_6.Icon4_12.OnSelect"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "CertificationRecommendationScreen.Container1_21.Container3_17.Container5_20.Container90_2.Container21_6.Icon4_12.OnSelect",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "OnSelect",
+                "module": "CertificationRecommendationScreen",
+                "type": "CertificationRecommendationScreen.Container1_21.Container3_17.Container5_20.Container90_2.Container21_6.Icon4_12"
               }
             }
           ],
@@ -96117,6 +96267,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "'Responsive Approval Status Screen'.Icon4_20.OnSelect"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Approval Status Screen'.Icon4_20.OnSelect",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "OnSelect",
+                "module": "Responsive Approval Status Screen",
+                "type": "'Responsive Approval Status Screen'.Icon4_20"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-CollectDelegatableDataSource",
+          "ruleIndex": 5
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "'Responsive Certification Status Screen'.Icon4_3.OnSelect"
                 }
               ],
@@ -96237,6 +96417,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "'Admin BU-Wise-Records'.Container1_17.Container3_13.Container5_16.Container68_2.Container69_1.Icon25.OnSelect"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Admin BU-Wise-Records'.Container1_17.Container3_13.Container5_16.Container68_2.Container69_1.Icon25.OnSelect",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "OnSelect",
+                "module": "Admin BU-Wise-Records",
+                "type": "'Admin BU-Wise-Records'.Container1_17.Container3_13.Container5_16.Container68_2.Container69_1.Icon25"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-CollectDelegatableDataSource",
+          "ruleIndex": 5
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "'Admin dashBoard'.Icon20.OnSelect"
                 }
               ],
@@ -96297,6 +96507,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "Ask_Oues_Ans_Admin.Icon4_14.OnSelect"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Ask_Oues_Ans_Admin.Icon4_14.OnSelect",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "OnSelect",
+                "module": "Ask_Oues_Ans_Admin",
+                "type": "Ask_Oues_Ans_Admin.Icon4_14"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-CollectDelegatableDataSource",
+          "ruleIndex": 5
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "Ask_Questions.Icon4_11.OnSelect"
                 }
               ],
@@ -96310,6 +96550,66 @@
                 "member": "OnSelect",
                 "module": "Ask_Questions",
                 "type": "Ask_Questions.Icon4_11"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-CollectDelegatableDataSource",
+          "ruleIndex": 5
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Ask_Ques_Answers.Icon4_19.OnSelect"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Ask_Ques_Answers.Icon4_19.OnSelect",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "OnSelect",
+                "module": "Ask_Ques_Answers",
+                "type": "Ask_Ques_Answers.Icon4_19"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-CollectDelegatableDataSource",
+          "ruleIndex": 5
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "CertificationRecommendationScreen.Container1_21.Container3_17.Container5_20.Container90_2.Container21_6.Icon4_12.OnSelect"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "CertificationRecommendationScreen.Container1_21.Container3_17.Container5_20.Container90_2.Container21_6.Icon4_12.OnSelect",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "OnSelect",
+                "module": "CertificationRecommendationScreen",
+                "type": "CertificationRecommendationScreen.Container1_21.Container3_17.Container5_20.Container90_2.Container21_6.Icon4_12"
               }
             }
           ],
@@ -96387,6 +96687,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "'Responsive Approval Status Screen'.Icon4_20.OnSelect"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Approval Status Screen'.Icon4_20.OnSelect",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "OnSelect",
+                "module": "Responsive Approval Status Screen",
+                "type": "'Responsive Approval Status Screen'.Icon4_20"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-CollectDelegatableDataSource",
+          "ruleIndex": 5
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "'Responsive Certification Status Screen'.Icon4_3.OnSelect"
                 }
               ],
@@ -96507,6 +96837,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "'Admin BU-Wise-Records'.Container1_17.Container3_13.Container5_16.Container68_2.Container69_1.Icon25.OnSelect"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Admin BU-Wise-Records'.Container1_17.Container3_13.Container5_16.Container68_2.Container69_1.Icon25.OnSelect",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "OnSelect",
+                "module": "Admin BU-Wise-Records",
+                "type": "'Admin BU-Wise-Records'.Container1_17.Container3_13.Container5_16.Container68_2.Container69_1.Icon25"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-CollectDelegatableDataSource",
+          "ruleIndex": 5
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "'Admin dashBoard'.Icon20.OnSelect"
                 }
               ],
@@ -96567,6 +96927,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "Ask_Oues_Ans_Admin.Icon4_14.OnSelect"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Ask_Oues_Ans_Admin.Icon4_14.OnSelect",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "OnSelect",
+                "module": "Ask_Oues_Ans_Admin",
+                "type": "Ask_Oues_Ans_Admin.Icon4_14"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-CollectDelegatableDataSource",
+          "ruleIndex": 5
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "Ask_Questions.Icon4_11.OnSelect"
                 }
               ],
@@ -96580,6 +96970,66 @@
                 "member": "OnSelect",
                 "module": "Ask_Questions",
                 "type": "Ask_Questions.Icon4_11"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-CollectDelegatableDataSource",
+          "ruleIndex": 5
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Ask_Ques_Answers.Icon4_19.OnSelect"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Ask_Ques_Answers.Icon4_19.OnSelect",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "OnSelect",
+                "module": "Ask_Ques_Answers",
+                "type": "Ask_Ques_Answers.Icon4_19"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-CollectDelegatableDataSource",
+          "ruleIndex": 5
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "CertificationRecommendationScreen.Container1_21.Container3_17.Container5_20.Container90_2.Container21_6.Icon4_12.OnSelect"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "CertificationRecommendationScreen.Container1_21.Container3_17.Container5_20.Container90_2.Container21_6.Icon4_12.OnSelect",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "OnSelect",
+                "module": "CertificationRecommendationScreen",
+                "type": "CertificationRecommendationScreen.Container1_21.Container3_17.Container5_20.Container90_2.Container21_6.Icon4_12"
               }
             }
           ],
