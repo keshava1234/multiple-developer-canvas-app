@@ -6241,7 +6241,8 @@
                 PastButton.DisplayMode.Edit;
                 UpdateContext({Start: true})
             TabIndex: =0
-            Visible: =If(IsBlank(SelectedMeeting.SeriesMasterId),false,true)
+            Visible: |
+                =If(IsBlank(SelectedMeeting.SeriesMasterId),false,true)
             Width: =40
             X: =1040
             Y: =83
