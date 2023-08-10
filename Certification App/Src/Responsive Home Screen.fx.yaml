@@ -1465,7 +1465,7 @@
                                     ),
                                     Collect(
                                         BUList,
-                                        'BU-List'
+                                        LastN('BU-List',200)
                                     ),
                                     ClearCollect(
                                         col_Notification,
@@ -1499,11 +1499,11 @@
                                     ),
                                     ClearCollect(
                                         Certification,
-                                        Certifications
+                                        LastN(Certifications,2000)
                                     ),
                                     ClearCollect(
                                         BU_Cert,
-                                        'BU-CertificationList'
+                                        LastN('BU-CertificationList',2000)
                                     )
                                 )
                             Tooltip: ="Refresh"

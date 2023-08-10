@@ -49953,36 +49953,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Responsive Home Screen'.Container1_3.Container3_3.Container5_3.Container17.Container18.Icon4_4.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Responsive Home Screen'.Container1_3.Container3_3.Container5_3.Container17.Container18.Icon4_4.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "Responsive Home Screen",
-                "type": "'Responsive Home Screen'.Container1_3.Container3_3.Container5_3.Container17.Container18.Icon4_4"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 2
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "'Responsive Home Screen'.Container1_3.Container3_3.Container5_3.Container17.Container18.Icon4_4.TabIndex"
                 }
               ],
@@ -50007,6 +49977,36 @@
           },
           "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
           "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Responsive Home Screen'.Container1_3.Container3_3.Container5_3.Container17.Container18.Icon4_4.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Home Screen'.Container1_3.Container3_3.Container5_3.Container17.Container18.Icon4_4.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Responsive Home Screen",
+                "type": "'Responsive Home Screen'.Container1_3.Container3_3.Container5_3.Container17.Container18.Icon4_4"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 2
         },
         {
           "locations": [
@@ -95763,66 +95763,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Responsive Home Screen'.Container1_3.Container3_3.Container5_3.Container17.Container18.Icon4_4.OnSelect"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Responsive Home Screen'.Container1_3.Container3_3.Container5_3.Container17.Container18.Icon4_4.OnSelect",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "OnSelect",
-                "module": "Responsive Home Screen",
-                "type": "'Responsive Home Screen'.Container1_3.Container3_3.Container5_3.Container17.Container18.Icon4_4"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 5
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Responsive Mylearning Screen'.Icon4_2.OnSelect"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Responsive Mylearning Screen'.Icon4_2.OnSelect",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "OnSelect",
-                "module": "Responsive Mylearning Screen",
-                "type": "'Responsive Mylearning Screen'.Icon4_2"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 5
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "'ResponsiveCertificationDetail Screen'.Icon4_10.OnSelect"
                 }
               ],
@@ -96166,36 +96106,6 @@
                 "member": "OnVisible",
                 "module": "Responsive Mylearning Screen",
                 "type": "'Responsive Mylearning Screen'"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 5
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Responsive Home Screen'.Container1_3.Container3_3.Container5_3.Container17.Container18.Icon4_4.OnSelect"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Responsive Home Screen'.Container1_3.Container3_3.Container5_3.Container17.Container18.Icon4_4.OnSelect",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "OnSelect",
-                "module": "Responsive Home Screen",
-                "type": "'Responsive Home Screen'.Container1_3.Container3_3.Container5_3.Container17.Container18.Icon4_4"
               }
             }
           ],
@@ -96586,66 +96496,6 @@
                 "member": "OnVisible",
                 "module": "Admin dashBoard",
                 "type": "'Admin dashBoard'"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 5
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Responsive Home Screen'.Container1_3.Container3_3.Container5_3.Container17.Container18.Icon4_4.OnSelect"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Responsive Home Screen'.Container1_3.Container3_3.Container5_3.Container17.Container18.Icon4_4.OnSelect",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "OnSelect",
-                "module": "Responsive Home Screen",
-                "type": "'Responsive Home Screen'.Container1_3.Container3_3.Container5_3.Container17.Container18.Icon4_4"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 5
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Responsive Mylearning Screen'.Icon4_2.OnSelect"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Responsive Mylearning Screen'.Icon4_2.OnSelect",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "OnSelect",
-                "module": "Responsive Mylearning Screen",
-                "type": "'Responsive Mylearning Screen'.Icon4_2"
               }
             }
           ],
