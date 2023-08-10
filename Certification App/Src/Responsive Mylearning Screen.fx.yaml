@@ -1,6 +1,84 @@
 "'Responsive Mylearning Screen' As screen":
     OnVisible: |
-        =Set(
+        =If(concVar=Boolean(1),Concurrent(
+        ClearCollect(
+            MyReportList,
+            ForAll(
+                Office365Users.DirectReports(MyUserId),
+                {
+                    DisplayName: DisplayName,
+                    City: City,
+                    JobTitle: JobTitle,
+                    UserPrincipalName: UserPrincipalName,
+                    GivenName: GivenName,
+                    Mail: Mail,
+                    Id: Id,
+                    Mobile: mobilePhone,
+                    OfficePhone: TelephoneNumber,
+                    Department: Department,
+                    OfficeLocation: OfficeLocation
+                }
+            )
+        ),
+        ClearCollect(
+            userCertifications,
+            Filter(
+                CertificationOrder,
+                Requestor.Email = User().Email
+            )
+        ),
+        /*ClearCollect(UsercertCount,Filter(
+                CertificationOrder,
+                Requestor.Email = User().Email
+            ));
+            */
+        Collect(
+            BUList,
+            'BU-List'
+        ),
+        ClearCollect(
+            col_Notification,
+            Filter(
+                LastN(
+                    NotificationList_CertificationApp,
+                    5000
+                ),
+                (Title = User().FullName && "been approved by your manager " & varMngrname in Notification) || ("has requested for" in Notification && Manager = User().FullName) || (Title = User().FullName && "been approved by ILD" in Notification) || IsDeleted = false
+            )
+        ),
+        ClearCollect(
+            mngr_notify_Col,
+            Filter(
+                LastN(
+                    NotificationList_CertificationApp,
+                    5000
+                ),
+                Title = User().FullName && ("been approved by your manager " & varMngrname in Notification || "been approved by ILD" in Notification) && IsDeleted = false
+            )
+        ),
+        ClearCollect(
+            Cert_Req,
+            Filter(
+                CertificationRequest,
+                Admin_Approval = false
+            )
+        ),
+        ClearCollect(
+            Certification,
+            LastN(
+                Certifications,
+                2000
+            )
+        ),
+        ClearCollect(
+            BU_Cert,
+            LastN(
+                'BU-CertificationList',
+                2000
+            )
+        )));
+        Set(concVar,Boolean(0));
+        Set(
             varUser,
             false
         );

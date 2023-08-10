@@ -1,15 +1,124 @@
 "'Admin dashBoard' As screen":
-    OnVisible: |-
-        =ClearCollect(chart,ForAll(Distinct(Certifications,'Provider Name'), {Result: ThisRecord.Value}));
-        UpdateContext({varMenuVisible:false});
-        UpdateContext({varreimbursement:false});
-        UpdateContext({varmanagecourse:false});
-        UpdateContext({locShowSpinnercatalog:true});
-        Set(varUser,false);
-        Set(varMngr,false);
-        Set(varAdmin,false);
+    OnVisible: |
+        =If(
+            concVar = Boolean(1),
+            Concurrent(
+                ClearCollect(
+                    MyReportList,
+                    ForAll(
+                        Office365Users.DirectReports(MyUserId),
+                        {
+                            DisplayName: DisplayName,
+                            City: City,
+                            JobTitle: JobTitle,
+                            UserPrincipalName: UserPrincipalName,
+                            GivenName: GivenName,
+                            Mail: Mail,
+                            Id: Id,
+                            Mobile: mobilePhone,
+                            OfficePhone: TelephoneNumber,
+                            Department: Department,
+                            OfficeLocation: OfficeLocation
+                        }
+                    )
+                ),
+                ClearCollect(
+                    userCertifications,
+                    Filter(
+                        CertificationOrder,
+                        Requestor.Email = User().Email
+                    )
+                ),
+        /*ClearCollect(UsercertCount,Filter(
+                CertificationOrder,
+                Requestor.Email = User().Email
+            ));
+            */
+                Collect(
+                    BUList,
+                    'BU-List'
+                ),
+                ClearCollect(
+                    col_Notification,
+                    Filter(
+                        LastN(
+                            NotificationList_CertificationApp,
+                            5000
+                        ),
+                        (Title = User().FullName && "been approved by your manager " & varMngrname in Notification) || ("has requested for" in Notification && Manager = User().FullName) || (Title = User().FullName && "been approved by ILD" in Notification) || IsDeleted = false
+                    )
+                ),
+                ClearCollect(
+                    mngr_notify_Col,
+                    Filter(
+                        LastN(
+                            NotificationList_CertificationApp,
+                            5000
+                        ),
+                        Title = User().FullName && ("been approved by your manager " & varMngrname in Notification || "been approved by ILD" in Notification) && IsDeleted = false
+                    )
+                ),
+                ClearCollect(
+                    Cert_Req,
+                    Filter(
+                        CertificationRequest,
+                        Admin_Approval = false
+                    )
+                ),
+                ClearCollect(
+                    Certification,
+                    LastN(
+                        Certifications,
+                        2000
+                    )
+                ),
+                ClearCollect(
+                    BU_Cert,
+                    LastN(
+                        'BU-CertificationList',
+                        2000
+                    )
+                )
+            )
+        );
+        Set(
+            concVar,
+            Boolean(0)
+        );
+        ClearCollect(
+            chart,
+            ForAll(
+                Distinct(
+                    Certifications,
+                    'Provider Name'
+                ),
+                {Result: ThisRecord.Value}
+            )
+        );
+        UpdateContext({varMenuVisible: false});
+        UpdateContext({varreimbursement: false});
+        UpdateContext({varmanagecourse: false});
+        UpdateContext({locShowSpinnercatalog: true});
+        Set(
+            varUser,
+            false
+        );
+        Set(
+            varMngr,
+            false
+        );
+        Set(
+            varAdmin,
+            false
+        );
         Reset(userdrp_down_9);
-        ClearCollect(col_filtercert2, Filter(CertificationOrder,Location = Dropdown1_1.SelectedText.Value));
+        ClearCollect(
+            col_filtercert2,
+            Filter(
+                CertificationOrder,
+                Location = Dropdown1_1.SelectedText.Value
+            )
+        );
 
     Container1_9 As groupContainer.verticalAutoLayoutContainer:
         Height: =Parent.Height
