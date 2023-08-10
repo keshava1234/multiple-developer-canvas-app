@@ -101,7 +101,7 @@
         Set(varShowCreateTask,false);
         Set(varShowCreateAgenda,false);
         Set(varShowPopUp,false);
-        ClearCollect(ColMeetingAgendaLists,MeetingAgendaLists);
+        //ClearCollect(ColMeetingAgendaLists,MeetingAgendaLists);
         ClearCollect(
             arrResourceList,
             LookUp(
@@ -176,7 +176,7 @@
         Fill: =RGBA(242, 244, 249, 1)
         Height: =718
         Width: =1332
-        X: =32
+        X: =10
         Y: =50
         ZIndex: =1
 
@@ -910,7 +910,7 @@
             Gallery4 As gallery.galleryVertical:
                 AccessibleLabel: ="Gallery4"
                 Height: =50
-                Items: =LookUp(ColMeetingAgendaLists,ID=ThisItem.ID).'{Attachments}'
+                Items: =LookUp(MeetingAgendaLists,ID=ThisItem.ID).'{Attachments}'
                 Layout: =Layout.Vertical
                 ShowScrollbar: =false
                 TabIndex: =0
@@ -5596,11 +5596,14 @@
                     ),
                     false
                 );
-                If(CountRows(ColMeetingList)=0,ClearCollect(ColMeetingList,MeetingList));
+                If(CountRows(ColMeetingList)=0,ClearCollect(ColMeetingList1,Filter(
+                            MeetingList,
+                            MeetingID = variCalUID.icaluid
+                        )));
                 If(
                     CountRows(
                         Filter(
-                            ColMeetingList,
+                            ColMeetingList1,
                             MeetingID = variCalUID.icaluid
                         )
                     ) = 0,
@@ -6238,7 +6241,8 @@
                 PastButton.DisplayMode.Edit;
                 UpdateContext({Start: true})
             TabIndex: =0
-            Visible: =If(IsBlank(SelectedMeeting.SeriesMasterId),false,true)
+            Visible: |
+                =If(IsBlank(SelectedMeeting.SeriesMasterId),false,true)
             Width: =40
             X: =1040
             Y: =83

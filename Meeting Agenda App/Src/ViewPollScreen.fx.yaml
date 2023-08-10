@@ -1,6 +1,6 @@
 ViewPollScreen As screen:
     Fill: =RGBA(241, 244, 249, 1)
-    OnVisible: =ClearCollect(ColQuestionOptions,QuestionOptions)
+    OnVisible: =//ClearCollect(ColQuestionOptions,QuestionOptions)
 
     "'Button_Submit poll' As button":
         Fill: =RGBA(56, 86, 153, 1)
@@ -129,8 +129,8 @@ ViewPollScreen As screen:
             Height: =149
             Items: |-
                 =Filter(
-                    ColQuestionOptions,
-                   Question.Id = ThisItem.ID
+                    QuestionOptions,
+                   Question.Value = Text(ThisItem.ID)
                 )
             Layout: =Layout.Vertical
             TabIndex: =0
