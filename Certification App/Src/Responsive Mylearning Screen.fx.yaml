@@ -1644,7 +1644,7 @@
                                     Height: =49
                                     OnSelect: =Select(Parent)
                                     PaddingTop: =0
-                                    Size: =DescFontSize
+                                    Size: =9
                                     Text: |-
                                         =ThisItem.'Certification:Title'.Value
                                     VerticalAlign: =VerticalAlign.Top
@@ -1893,7 +1893,7 @@
                                 Label28 As label:
                                     Height: =100
                                     OnSelect: =Select(Parent)
-                                    Size: =DescFontSize
+                                    Size: =9
                                     Text: |-
                                         =ThisItem.'Certification:Title'.Value
                                     Width: =233
@@ -3999,7 +3999,7 @@
             Fill: |-
                 =//RGBA(0, 0, 0, 0)
                 Color.White
-            Height: =396
+            Height: =380
             Items: |-
                 =Sort(
                     col_Notification,
@@ -4008,11 +4008,11 @@
                 )
             Layout: =Layout.Vertical
             TemplatePadding: =0
-            TemplateSize: =90
+            TemplateSize: =50
             Visible: =varUser
             Width: =444
             X: =903
-            Y: =92
+            Y: =108
             ZIndex: =16
 
             Subtitle3_15 As label:
@@ -4022,7 +4022,7 @@
                 PaddingLeft: =0
                 PaddingRight: =0
                 PaddingTop: =0
-                Size: =11
+                Size: =8
                 Text: =ThisItem.Notification
                 VerticalAlign: =VerticalAlign.Top
                 Width: =357
@@ -4179,7 +4179,7 @@
             DisabledColor: =RGBA(255, 255, 255, 1)
             DisabledFill: =RGBA(213, 39, 26, 1)
             Fill: =RGBA(213, 39, 26, 1)
-            Height: =28
+            Height: =22
             HoverFill: =RGBA(213, 39, 26, 1)
             OnSelect: |-
                 =If(
@@ -4224,7 +4224,7 @@
                 Clear(col_Notification)
             PressedColor: =RGBA(213, 39, 26, 1)
             PressedFill: =RGBA(213, 39, 26, 1)
-            Size: =11
+            Size: =8
             Text: ="ClearAll"
             Visible: |-
                 =If(
@@ -4251,8 +4251,8 @@
                         )
                     )
                 )
-            Width: =92
-            X: =1219
-            Y: =80
+            Width: =80
+            X: =1172
+            Y: =77
             ZIndex: =23
 

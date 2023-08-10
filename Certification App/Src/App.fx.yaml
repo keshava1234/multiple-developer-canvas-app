@@ -184,6 +184,7 @@ App As appinfo:
             MyUserId,
             MyProfile.Id
         );
+        Concurrent(
         ClearCollect(
             MyReportList,
             ForAll(
@@ -202,14 +203,14 @@ App As appinfo:
                     OfficeLocation: OfficeLocation
                 }
             )
-        );
+        ),
         ClearCollect(
             userCertifications,
             Filter(
                 CertificationOrder,
                 Requestor.Email = User().Email
             )
-        );
+        ),
         /*ClearCollect(UsercertCount,Filter(
                 CertificationOrder,
                 Requestor.Email = User().Email
@@ -218,45 +219,48 @@ App As appinfo:
         Collect(
             BUList,
             'BU-List'
-        );
+        ),
         ClearCollect(
             col_Notification,
             Filter(
-                FirstN(
+                LastN(
                     NotificationList_CertificationApp,
                     5000
                 ),
                 (Title = User().FullName && "been approved by your manager " & varMngrname in Notification) || ("has requested for" in Notification && Manager = User().FullName) || (Title = User().FullName && "been approved by ILD" in Notification) || IsDeleted = false
             )
-        );
+        ),
         ClearCollect(
             mngr_notify_Col,
             Filter(
-                FirstN(
+                LastN(
                     NotificationList_CertificationApp,
                     5000
                 ),
                 Title = User().FullName && ("been approved by your manager " & varMngrname in Notification || "been approved by ILD" in Notification) && IsDeleted = false
             )
-        );
+        ),
         ClearCollect(
             Cert_Req,
             Filter(
-                FirstN(
-                    CertificationRequest,
-                    2000
-                ),
+                CertificationRequest,
                 Admin_Approval = false
             )
-        );
+        ),
         ClearCollect(
             Certification,
-            Certifications
-        );
+            LastN(
+                Certifications,
+                2000
+            )
+        ),
         ClearCollect(
             BU_Cert,
-            'BU-CertificationList'
-        )
+            LastN(
+                'BU-CertificationList',
+                2000
+            )
+        ))
     StartScreen: |-
         =If (
             !IsBlank(Param("View")),

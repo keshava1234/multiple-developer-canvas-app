@@ -2257,7 +2257,7 @@
                                 PaddingRight: =0
                                 PaddingTop: =0
                                 Size: =10
-                                Text: =ThisItem.Title
+                                Text: =ThisItem.ExamCode
                                 VerticalAlign: =VerticalAlign.Top
                                 Width: =Parent.TemplateWidth - 104
                                 X: =16
@@ -2270,7 +2270,7 @@
                                 PaddingBottom: =0
                                 PaddingRight: =0
                                 PaddingTop: =0
-                                Size: =10
+                                Size: =9
                                 Text: =ThisItem.Requestor.DisplayName
                                 VerticalAlign: =VerticalAlign.Top
                                 Width: =Parent.TemplateWidth - 104
@@ -2285,7 +2285,7 @@
                                 PaddingLeft: =0
                                 PaddingRight: =0
                                 PaddingTop: =0
-                                Size: =10
+                                Size: =8
                                 Text: |-
                                     =ThisItem.'BU: Code'.Value
                                 Width: =123
@@ -2314,7 +2314,7 @@
                             Label49_2 As label:
                                 Height: =20
                                 OnSelect: =Select(Parent)
-                                Size: =10
+                                Size: =8
                                 Text: |-
                                     ="BU  :"
                                 Width: =50

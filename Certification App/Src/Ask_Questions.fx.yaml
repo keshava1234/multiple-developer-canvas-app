@@ -1772,7 +1772,7 @@ Ask_Questions As screen:
                                 Color: =RGBA(213,39,26,1)
                                 FontWeight: =FontWeight.Semibold
                                 Height: =35
-                                Size: =16
+                                Size: =12
                                 Text: ="Post your Question here"
                                 Width: =610
                                 X: =68
@@ -1786,7 +1786,7 @@ Ask_Questions As screen:
                                 Default: =""
                                 Fill: =Color.White
                                 Height: =49
-                                HintText: ="Questions"
+                                HintText: ="Ask your Question"
                                 HoverFill: =RGBA(237, 237, 237, 1)
                                 Width: =679
                                 X: =68
@@ -1849,9 +1849,10 @@ Ask_Questions As screen:
                                     Height: =135
                                     OnSelect: =Select(Parent)
                                     Overflow: =Overflow.Scroll
+                                    Size: =10
                                     Text: |-
                                         ="Answer   :  " &ThisItem.Title
-                                    Width: =723
+                                    Width: =690
                                     X: =11
                                     Y: =114
                                     ZIndex: =6
@@ -1866,19 +1867,20 @@ Ask_Questions As screen:
                                     RadiusTopRight: =30
                                     Width: =60
                                     X: =11
+                                    Y: =8
                                     ZIndex: =7
 
                                 Label13_4 As label:
-                                    FontWeight: =FontWeight.Bold
+                                    FontWeight: =FontWeight.Semibold
                                     Height: =33
                                     OnSelect: =Select(Parent)
+                                    Size: =10
                                     Text: =ThisItem.AnswerBy.DisplayName
                                     Width: =355
                                     X: =96
                                     ZIndex: =8
 
                                 Label14_2 As label:
-                                    FontWeight: =FontWeight.Semibold
                                     Height: =22
                                     OnSelect: =Select(Parent)
                                     Size: =10
@@ -1903,9 +1905,9 @@ Ask_Questions As screen:
                                 Label18_2 As label:
                                     BorderColor: =RGBA(179, 179, 179, 1)
                                     Fill: =RGBA(255, 255, 255, 1)
-                                    FontWeight: =FontWeight.Semibold
                                     Height: =39
                                     OnSelect: =Select(Parent)
+                                    Size: =10
                                     Text: |-
                                         ="Question :  " & ThisItem.'Question:QuestionTitle'.Value
                                     Width: =723
@@ -1919,6 +1921,7 @@ Ask_Questions As screen:
                                 Fill: =RGBA(255, 255, 255, 1)
                                 FontWeight: =FontWeight.Semibold
                                 Height: =35
+                                Size: =10
                                 Text: ="Top Question and Answers of " & varCertificationName
                                 Width: =716
                                 X: =61
@@ -1963,7 +1966,6 @@ Ask_Questions As screen:
 
                             Label62_1 As label:
                                 Fill: =    Color.White
-                                FontWeight: =FontWeight.Semibold
                                 Height: =49
                                 HoverColor: |
                                     =Self.Color
@@ -2006,7 +2008,7 @@ Ask_Questions As screen:
                                 ZIndex: =3
 
                             Label66_1 As label:
-                                FontWeight: =FontWeight.Bold
+                                FontWeight: =FontWeight.Semibold
                                 Height: =19
                                 OnSelect: =Select(Parent)
                                 Size: =9
@@ -2061,8 +2063,9 @@ Ask_Questions As screen:
                         Label12_2 As label:
                             Align: =Align.Center
                             Fill: =RGBA(255, 232, 231, 1)
+                            FontWeight: =FontWeight.Semibold
                             Height: =49
-                            Size: =16
+                            Size: =12
                             Text: ="Recent questions"
                             Width: =339
                             Y: =30

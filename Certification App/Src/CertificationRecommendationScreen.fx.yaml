@@ -2132,12 +2132,12 @@ CertificationRecommendationScreen As screen:
                                     ZIndex: =1
 
                                 Image16_6 As image:
-                                    Height: =60
+                                    Height: =40
                                     Image: =LookUp(Certifications,ID=ThisItem.CertificationID.Id).Logo
                                     OnSelect: =Select(Parent)
                                     Width: =75
-                                    X: =15
-                                    Y: =6
+                                    X: =16
+                                    Y: =16
                                     ZIndex: =2
 
                                 Title8_2 As label:

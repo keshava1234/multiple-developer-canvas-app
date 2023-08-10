@@ -2514,7 +2514,7 @@
                             Default: ="DEX"
                             Height: =28
                             Items: =Sort('BU-List',Title,SortOrder.Ascending)
-                            Size: =10
+                            Size: =8
                             Visible: |
                                 =If(Gallery2_4.Selected.Name="Total Certifications Per BU",true,false)
                             Width: =113
@@ -2841,8 +2841,8 @@
 
                             Label118 As label:
                                 Align: =Align.Center
-                                FontWeight: =FontWeight.Bold
-                                Size: =12
+                                FontWeight: =FontWeight.Semibold
+                                Size: =10
                                 Text: ="BU"
                                 Visible: =If(Gallery2_3.Selected.Name="Add No. of Target Certifications",true,false)
                                 X: =18
@@ -2850,8 +2850,8 @@
                                 ZIndex: =5
 
                             Label119 As label:
-                                FontWeight: =FontWeight.Bold
-                                Size: =12
+                                FontWeight: =FontWeight.Semibold
+                                Size: =10
                                 Text: ="Target Certifications"
                                 Visible: =If(Gallery2_3.Selected.Name="Add No. of Target Certifications",true,false)
                                 Width: =200
@@ -2890,10 +2890,11 @@
                                     ZIndex: =14
 
                                     Label61_3 As label:
+                                        Align: =Align.Center
                                         Fill: =RGBA(255, 255, 0, 0.5)
                                         Height: =49
                                         OnSelect: =Select(Parent)
-                                        Size: =12
+                                        Size: =8
                                         Text: =ThisItem.Title
                                         Width: =250
                                         Y: =1
@@ -2904,7 +2905,7 @@
                                         Fill: =RGBA(204, 208, 225, 1)
                                         Height: =49
                                         OnSelect: =Select(Parent)
-                                        Size: =12
+                                        Size: =8
                                         Text: =ThisItem.TargetNumber
                                         Width: =105
                                         X: =250
@@ -2913,7 +2914,7 @@
                             Label69_5 As label:
                                 Align: =Align.Center
                                 Color: =RGBA(0, 32, 80, 1)
-                                FontWeight: =FontWeight.Bold
+                                FontWeight: =FontWeight.Semibold
                                 Height: =39
                                 Size: =12
                                 Text: ="Department"
@@ -2926,12 +2927,12 @@
                             Label69_6 As label:
                                 Align: =Align.Center
                                 Color: =RGBA(0, 32, 80, 1)
-                                FontWeight: =FontWeight.Bold
+                                FontWeight: =FontWeight.Semibold
                                 Height: =39
                                 Size: =12
                                 Text: ="Target"
                                 Visible: =If(Gallery2_3.Selected.Name="Add No. of Target Certifications",true,false)
-                                Width: =116
+                                Width: =91
                                 X: =674
                                 Y: =9
                                 ZIndex: =9
@@ -2969,7 +2970,7 @@
                                     Fill: =RGBA(255, 255, 0, 0.5)
                                     Height: =48
                                     OnSelect: =Select(Parent)
-                                    Size: =12
+                                    Size: =8
                                     Text: =ThisItem.Title
                                     Width: =162
                                     ZIndex: =6
@@ -2979,7 +2980,7 @@
                                     Fill: =RGBA(204, 208, 225, 1)
                                     Height: =50
                                     OnSelect: =Select(Parent)
-                                    Size: =12
+                                    Size: =8
                                     Text: =ThisItem.Code
                                     Width: =141
                                     X: =162
@@ -2990,7 +2991,7 @@
                                     Fill: =Color.LemonChiffon
                                     Height: =50
                                     OnSelect: =Select(Parent)
-                                    Size: =12
+                                    Size: =8
                                     Text: |
                                         =CountRows(Filter(col_filtercert2,BU.Id=ThisItem.ID,Text(Modified,"yyyy")=Text(Today(),"yyyy") ) )
                                     Width: =106
@@ -3002,7 +3003,7 @@
                                     Fill: =Color.Pink
                                     Height: =49
                                     OnSelect: =Select(Parent)
-                                    Size: =12
+                                    Size: =8
                                     Text: |
                                         =CountRows(Filter(col_filtercert2,BU.Id=ThisItem.ID,Status="Reimbursed",Text(Modified,"yyyy")=Text(Today(),"yyyy")))
                                     Tooltip: ="Number Of Employees Waiting For Manager Approval"
@@ -3015,7 +3016,7 @@
                                     Fill: =Color.LightBlue
                                     Height: =50
                                     OnSelect: =Select(Parent)
-                                    Size: =12
+                                    Size: =8
                                     Text: |
                                         =CountRows(Filter(FirstN(CertificationOrder,100000),BU.Id=ThisItem.ID,Status="Enrolled" || Status= "Manager Approved" || Status="Proofs Uploaded" || Status="Proofs Approved" || Status="Processing with Finance" ,Text(Modified,"yyyy")=Text(Today(),"yyyy")  ) )
                                     Tooltip: ="Number of Employees Yet to Complete the Certification"
@@ -3034,7 +3035,7 @@
                                         )
                                     Height: =49
                                     OnSelect: =Select(Parent)
-                                    Size: =12
+                                    Size: =8
                                     Text: |-
                                         =RoundUp(
                                             If(
@@ -3052,7 +3053,7 @@
                                     Align: =Align.Center
                                     Height: =50
                                     OnSelect: =Select(Parent)
-                                    Size: =12
+                                    Size: =8
                                     Text: =LookUp('Target List',Title=ThisItem.Code).TargetNumber
                                     Width: =99
                                     X: =303
@@ -3167,9 +3168,9 @@
                             Label69_3 As label:
                                 Align: =Align.Center
                                 Color: =RGBA(0, 32, 80, 1)
-                                FontWeight: =FontWeight.Bold
+                                FontWeight: =FontWeight.Semibold
                                 Height: =43
-                                Size: =12
+                                Size: =10
                                 Text: ="Department"
                                 Visible: =If(Gallery2_3.Selected.Name="Year Certifications",true,false)
                                 Width: =168
@@ -3179,9 +3180,9 @@
                             Label70_2 As label:
                                 Align: =Align.Center
                                 Color: =RGBA(0, 32, 80, 1)
-                                FontWeight: =FontWeight.Bold
+                                FontWeight: =FontWeight.Semibold
                                 Height: =43
-                                Size: =12
+                                Size: =10
                                 Text: ="Code"
                                 Visible: =If(Gallery2_3.Selected.Name="Year Certifications",true,false)
                                 Width: =142
@@ -3192,9 +3193,9 @@
                             Label71_3 As label:
                                 Align: =Align.Center
                                 Color: =RGBA(0, 32, 80, 1)
-                                FontWeight: =FontWeight.Bold
+                                FontWeight: =FontWeight.Semibold
                                 Height: =39
-                                Size: =12
+                                Size: =10
                                 Text: ="Total"
                                 Visible: =If(Gallery2_3.Selected.Name="Year Certifications",true,false)
                                 Width: =96
@@ -3205,9 +3206,9 @@
                             Label73_5 As label:
                                 Align: =Align.Center
                                 Color: =RGBA(0, 32, 80, 1)
-                                FontWeight: =FontWeight.Bold
+                                FontWeight: =FontWeight.Semibold
                                 Height: =39
-                                Size: =12
+                                Size: =10
                                 Text: ="Completed"
                                 Visible: =If(Gallery2_3.Selected.Name="Year Certifications",true,false)
                                 Width: =97
@@ -3218,9 +3219,9 @@
                             Label113_2 As label:
                                 Align: =Align.Center
                                 Color: =RGBA(0, 32, 80, 1)
-                                FontWeight: =FontWeight.Bold
+                                FontWeight: =FontWeight.Semibold
                                 Height: =39
-                                Size: =12
+                                Size: =10
                                 Text: ="Completion%"
                                 Visible: =If(Gallery2_3.Selected.Name="Year Certifications",true,false)
                                 Width: =117
@@ -3231,9 +3232,9 @@
                             Label73_6 As label:
                                 Align: =Align.Center
                                 Color: =RGBA(0, 32, 80, 1)
-                                FontWeight: =FontWeight.Bold
+                                FontWeight: =FontWeight.Semibold
                                 Height: =39
-                                Size: =12
+                                Size: =10
                                 Text: ="In Progress"
                                 Visible: =If(Gallery2_3.Selected.Name="Year Certifications",true,false)
                                 Width: =97
@@ -3244,9 +3245,9 @@
                             Label113 As label:
                                 Align: =Align.Center
                                 Color: =RGBA(0, 32, 80, 1)
-                                FontWeight: =FontWeight.Bold
+                                FontWeight: =FontWeight.Semibold
                                 Height: =43
-                                Size: =12
+                                Size: =10
                                 Text: ="Target"
                                 Visible: =If(Gallery2_3.Selected.Name="Year Certifications",true,false)
                                 Width: =124
@@ -3724,12 +3725,12 @@
                                 PaddingLeft: =0
                                 PaddingRight: =0
                                 PaddingTop: =0
-                                Size: =13
+                                Size: =10
                                 Text: =ThisItem.Title
                                 VerticalAlign: =VerticalAlign.Top
                                 Width: =Parent.TemplateWidth - 104
-                                X: =12
-                                Y: =2
+                                X: =16
+                                Y: =7
                                 ZIndex: =2
 
                             Subtitle2_4 As label:
@@ -3738,7 +3739,7 @@
                                 PaddingBottom: =0
                                 PaddingRight: =0
                                 PaddingTop: =0
-                                Size: =12
+                                Size: =9
                                 Text: =ThisItem.Requestor.DisplayName
                                 VerticalAlign: =VerticalAlign.Top
                                 Width: =Parent.TemplateWidth - 104
@@ -3753,7 +3754,7 @@
                                 PaddingLeft: =0
                                 PaddingRight: =0
                                 PaddingTop: =0
-                                Size: =10
+                                Size: =9
                                 Text: |-
                                     =ThisItem.'BU: Code'.Value
                                 Width: =123
@@ -3782,7 +3783,7 @@
                             Label49 As label:
                                 Height: =20
                                 OnSelect: =Select(Parent)
-                                Size: =10
+                                Size: =9
                                 Text: |-
                                     ="BU  :"
                                 Width: =50
@@ -3795,7 +3796,7 @@
                                 Height: =80
                                 OnSelect: =Select(Parent)
                                 Text: =
-                                Width: =3
+                                Width: =2
                                 ZIndex: =7
 
                             Label57 As label:
@@ -5164,8 +5165,8 @@
         FalseText: ="Waiting for Approval"
         FontWeight: =FontWeight.Semibold
         Height: =22
-        OnCheck: = ClearCollect(Cert_Req,Filter(FirstN(CertificationRequest,2000),Admin_Approval=true));
-        OnUncheck: =ClearCollect(Cert_Req,Filter(FirstN(CertificationRequest,2000),Admin_Approval=false));
+        OnCheck: = ClearCollect(Cert_Req,Filter(CertificationRequest,Admin_Approval=true));
+        OnUncheck: =ClearCollect(Cert_Req,Filter(CertificationRequest,Admin_Approval=false));
         Size: =10
         TrueText: ="Approved"
         Width: =206

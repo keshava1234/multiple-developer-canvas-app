@@ -3002,9 +3002,9 @@
                                 Size: =10
                                 Text: |
                                     =(LookUp(CertificationOrder,ID=varCertificateStatus.ID).Status)
-                                Width: =284
-                                X: =144
-                                Y: =45
+                                Width: =172
+                                X: =747
+                                Y: =43
                                 ZIndex: =2
 
                             DataCardKey4_11 As label:
@@ -3014,9 +3014,10 @@
                                 Height: =39
                                 Size: =10
                                 Text: ="Completion Proofs Uploaded"
-                                Width: =564
+                                Width: =342
                                 Wrap: =false
-                                Y: =80
+                                X: =660
+                                Y: =78
                                 ZIndex: =3
 
                             Label12_30 As label:
@@ -3046,9 +3047,9 @@
                                         "Completed",
                                         "Pending"
                                     )
-                                Width: =284
-                                X: =144
-                                Y: =110
+                                Width: =172
+                                X: =747
+                                Y: =108
                                 ZIndex: =4
 
                             DataCardKey5_11 As label:
@@ -3058,9 +3059,10 @@
                                 Height: =39
                                 Size: =10
                                 Text: ="Reimbursement Status"
-                                Width: =564
+                                Width: =342
                                 Wrap: =false
-                                Y: =135
+                                X: =660
+                                Y: =133
                                 ZIndex: =5
 
                             Label12_31 As label:
@@ -3078,9 +3080,9 @@
                                         "Approved",
                                         "Pending"
                                     )
-                                Width: =284
-                                X: =144
-                                Y: =165
+                                Width: =172
+                                X: =747
+                                Y: =163
                                 ZIndex: =6
 
                             Icon12_46 As icon.CheckBadge:
@@ -3089,9 +3091,9 @@
                                 Height: =18
                                 Icon: =Icon.CheckBadge
                                 Visible: =Switch(varCertificateStatus.Status,"Reimbursed",true)
-                                Width: =36
-                                X: =167
-                                Y: =57
+                                Width: =22
+                                X: =761
+                                Y: =55
                                 ZIndex: =7
 
                             Icon12_47 As icon.CancelBadge:
@@ -3104,9 +3106,9 @@
                                     =If(Label12_29.Text in ["Proofs Approved","Proofs Uploaded","Reimbursed","Processing with finance"],
                                         false,true
                                     )
-                                Width: =36
-                                X: =167
-                                Y: =122
+                                Width: =22
+                                X: =761
+                                Y: =120
                                 ZIndex: =8
 
                             Icon12_48 As icon.CheckBadge:
@@ -3129,9 +3131,9 @@
                                         true,
                                         false
                                     )
-                                Width: =36
-                                X: =167
-                                Y: =122
+                                Width: =22
+                                X: =761
+                                Y: =120
                                 ZIndex: =9
 
                             Icon12_49 As icon.CancelBadge:
@@ -3141,9 +3143,9 @@
                                 Height: =18
                                 Icon: =Icon.CancelBadge
                                 Visible: =If(varCertificateStatus.Status in ["Reimbursed"],false,true)
-                                Width: =36
-                                X: =167
-                                Y: =177
+                                Width: =22
+                                X: =761
+                                Y: =175
                                 ZIndex: =10
 
                             Icon12_50 As icon.CheckBadge:
@@ -3152,9 +3154,9 @@
                                 Height: =18
                                 Icon: =Icon.CheckBadge
                                 Visible: =If(varCertificateStatus.Status in ["Reimbursed"],true,false)
-                                Width: =36
-                                X: =167
-                                Y: =177
+                                Width: =22
+                                X: =761
+                                Y: =175
                                 ZIndex: =11
 
                             DataCardKey3_11 As label:
@@ -3165,9 +3167,10 @@
                                 Height: =39
                                 Size: =10
                                 Text: ="Certification Status"
-                                Width: =564
+                                Width: =342
                                 Wrap: =false
-                                Y: =6
+                                X: =660
+                                Y: =4
                                 ZIndex: =12
 
                 Container90_1 As groupContainer.horizontalAutoLayoutContainer:
@@ -4725,7 +4728,7 @@
     Container101 As groupContainer.manualLayoutContainer:
         Height: =664
         Visible: =Attachpopup
-        Width: =1082
+        Width: =1277
         X: =24
         Y: =36
         ZIndex: =3
@@ -4740,17 +4743,19 @@
             ZIndex: =1
 
         Rectangle4_3 As rectangle:
-            Fill: =RGBA(186, 202, 226, 0.8)
-            Height: =620
+            Fill: =RGBA(187, 221, 140, 1)
+            Height: =643
             Visible: =Attachpopup
-            Width: =1074
-            Y: =44
+            Width: =1254
+            Y: =20
             ZIndex: =2
 
         Container16_1 As groupContainer.verticalAutoLayoutContainer:
             Height: =623
+            LayoutAlignItems: =LayoutAlignItems.Stretch
             LayoutDirection: =LayoutDirection.Vertical
             LayoutGap: =10
+            LayoutJustifyContent: =LayoutJustifyContent.End
             LayoutMode: =LayoutMode.Auto
             LayoutOverflowX: =LayoutOverflow.Scroll
             LayoutOverflowY: =LayoutOverflow.Scroll
@@ -4760,15 +4765,17 @@
             PaddingTop: =10
             Visible: =Attachpopup
             Width: =1062
-            Y: =41
+            X: =96
+            Y: =30
             ZIndex: =3
 
             Label36_40 As label:
+                Align: =Align.Center
                 BorderColor: =RGBA(0, 0, 0, 1)
                 Color: =RGBA(213,39,26,1)
                 FontWeight: =FontWeight.Semibold
                 Height: =30
-                Size: =12
+                Size: =10
                 Text: ="Supported documents for certifications"
                 Width: =Parent.Width
                 Y: =62
@@ -4983,10 +4990,10 @@
                     BorderColor: =RGBA(0, 0, 0, 1)
                     FontWeight: =FontWeight.Semibold
                     Height: =22
-                    Size: =10
+                    Size: =8
                     Text: |-
                         ="Microsoft account for Association Screenshot :"
-                    Width: =880
+                    Width: =1062
                     ZIndex: =7
 
             Container17_6 As groupContainer.manualLayoutContainer:
@@ -5195,10 +5202,10 @@
                     BorderColor: =RGBA(0, 0, 0, 1)
                     FontWeight: =FontWeight.Semibold
                     Height: =18
-                    Size: =10
+                    Size: =8
                     Text: |-
                         ="Certification Receipt Bill :"
-                    Width: =880
+                    Width: =1047
                     ZIndex: =7
 
             Container17_14 As groupContainer.manualLayoutContainer:
@@ -5407,10 +5414,10 @@
                     BorderColor: =RGBA(0, 0, 0, 1)
                     FontWeight: =FontWeight.Semibold
                     Height: =18
-                    Size: =10
+                    Size: =8
                     Text: |-
                         ="Reimbursement form Filled :"
-                    Width: =880
+                    Width: =1048
                     ZIndex: =7
 
             Container17_15 As groupContainer.manualLayoutContainer:
@@ -5619,10 +5626,10 @@
                     BorderColor: =RGBA(0, 0, 0, 1)
                     FontWeight: =FontWeight.Semibold
                     Height: =18
-                    Size: =10
+                    Size: =8
                     Text: |-
                         ="Copy of Certification :"
-                    Width: =880
+                    Width: =1050
                     ZIndex: =7
 
             Container17_16 As groupContainer.manualLayoutContainer:
@@ -5831,23 +5838,23 @@
                     BorderColor: =RGBA(0, 0, 0, 1)
                     FontWeight: =FontWeight.Semibold
                     Height: =18
-                    Size: =10
+                    Size: =8
                     Text: |-
                         ="Manager Approval Mail :"
-                    Width: =880
+                    Width: =1050
                     ZIndex: =7
 
         Icon31 As icon.CancelBadge:
             AccessibleLabel: ="Icon31"
             BorderColor: =RGBA(0, 0, 0, 1)
             Color: =RGBA(172, 62, 11, 1)
-            Height: =30
+            Height: =25
             Icon: =Icon.CancelBadge
             OnSelect: =Set(Attachpopup,false)
             Visible: =Attachpopup
-            Width: =30
-            X: =1032
-            Y: =54
+            Width: =25
+            X: =1215
+            Y: =30
             ZIndex: =4
 
         Icon33 As icon.Trash:
@@ -5981,8 +5988,8 @@
             Tooltip: ="DELETE ATTACHMENTS"
             Visible: =Attachpopup
             Width: =30
-            X: =939
-            Y: =52
+            X: =1128
+            Y: =30
             ZIndex: =5
 
         Icon34 As icon.Reload:
@@ -6004,8 +6011,8 @@
             Tooltip: ="RELOAD"
             Visible: =Attachpopup
             Width: =30
-            X: =969
-            Y: =57
+            X: =1171
+            Y: =32
             ZIndex: =6
 
     Container13_40 As groupContainer.manualLayoutContainer:
