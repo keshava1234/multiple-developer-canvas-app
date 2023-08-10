@@ -11913,36 +11913,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'MeetingDetails Screen'.OnVisible"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'MeetingDetails Screen'.OnVisible",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "OnVisible",
-                "module": "MeetingDetails Screen",
-                "type": "'MeetingDetails Screen'"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-CollectDelegatableDataSource",
-          "ruleIndex": 2
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "'MeetingDetails Screen'.NextButton.OnSelect"
                 }
               ],
@@ -13120,7 +13090,7 @@
               "properties": {
                 "componentType": "app",
                 "howToFix": [
-                  "Limit the data collected from the data source by updating the formula \"ClearCollect(ColMeetingAgendaLists, MeetingAgendaLists)\" to include a filtering function, such as 'Filter' or 'Search'."
+                  "Limit the data collected from the data source by updating the formula \"ClearCollect(ColMeetingList, MeetingList)\" to include a filtering function, such as 'Filter' or 'Search'."
                 ],
                 "level": "Medium",
                 "primaryCategory": "performance",
