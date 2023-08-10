@@ -31419,14 +31419,7 @@
     "EditIcon_4": {
       "AllowAccessToGlobals": true,
       "ControlPropertyState": [
-        {
-          "AFDDataSourceName": "",
-          "AutoRuleBindingEnabled": false,
-          "AutoRuleBindingString": "Icon.ColorPicker",
-          "InvariantPropertyName": "Icon",
-          "IsLockable": false,
-          "NameMapSourceSchema": "?"
-        },
+        "Icon",
         {
           "AFDDataSourceName": "",
           "AutoRuleBindingEnabled": false,
@@ -39120,7 +39113,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Icon1_12",
-      "ParentIndex": 10,
+      "ParentIndex": 9,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -41657,7 +41650,14 @@
     "Icon19_9": {
       "AllowAccessToGlobals": true,
       "ControlPropertyState": [
-        "Icon",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "",
+          "InvariantPropertyName": "Icon",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         {
           "AFDDataSourceName": "",
           "AutoRuleBindingEnabled": false,
@@ -79941,7 +79941,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Rectangle1_3",
-      "ParentIndex": 9,
+      "ParentIndex": 10,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {

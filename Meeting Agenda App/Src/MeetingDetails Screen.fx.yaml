@@ -1683,7 +1683,7 @@
                         =If(varOrganizerName=VarUserEmail,If( Now()>=DateTimeValue(SelectedMeeting.End),DisplayMode.Disabled,DisplayMode.Edit),DisplayMode.Disabled)
                         //If( Now()>=DateTimeValue(SelectedMeeting.End),Disabled,Edit)
                     Height: =24
-                    Icon: =
+                    Icon: =Icon.Trash
                     OnSelect: |
                         =Remove(TaskList,ThisItem);
                     PaddingBottom: =2
@@ -1704,7 +1704,7 @@
                         //If( Now()>=DateTimeValue(SelectedMeeting.End),Disabled,Edit)
                         DisplayMode.Edit
                     Height: =24
-                    Icon: =
+                    Icon: =Icon.ColorPicker
                     OnSelect: |-
                         =Set(
                             varShowUpdateTask,
@@ -4684,7 +4684,7 @@
             Visible: =varShowUpdateTask
             Width: =600
             X: =766
-            Y: =43
+            Y: =44
             ZIndex: =194
 
         Label22_35 As label:
@@ -4695,7 +4695,7 @@
             Font: =Font.Lato
             Size: =16
             TabIndex: =0
-            Text: =1
+            Text: ="Update Task"
             Visible: =varShowUpdateTask
             Width: =206
             X: =804
