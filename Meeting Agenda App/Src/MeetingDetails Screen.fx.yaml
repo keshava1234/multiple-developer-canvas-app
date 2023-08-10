@@ -5510,9 +5510,13 @@
             OnSelect: |-
                 =/*Set(arrMeetingSeries, Filter(AllFutureEvents,SeriesMasterId=SelectedMeeting.SeriesMasterId));*/
                 
+                 
+                
                 If(!IsBlank(arrMeetingSeries.SeriesMasterId),
                 Set(varFirstNextMeeting, First(Filter(arrMeetingSeries,Start>SelectedMeeting.Start)));
                 Set(SelectedMeeting, varFirstNextMeeting);
+                
+                 
                 
                 ClearCollect(
                     MeetingAttendeeEmails,
@@ -5596,16 +5600,13 @@
                     ),
                     false
                 );
-                If(CountRows(ColMeetingList)=0,ClearCollect(ColMeetingList1,Filter(
+                If(CountRows(ColMeetingList)=0,ClearCollect(ColMeetingList,Filter(
                             MeetingList,
                             MeetingID = variCalUID.icaluid
                         )));
                 If(
                     CountRows(
-                        Filter(
-                            ColMeetingList1,
-                            MeetingID = variCalUID.icaluid
-                        )
+                        ColMeetingList
                     ) = 0,
                     IfError(Patch(
                         MeetingList,
@@ -5644,8 +5645,12 @@
                     )
                 );
                 
+                 
+                
                 );
                 Navigate('MeetingDetails Screen',BorderStyle.None);
+                
+                 
                 
                 Set(IsShow,false);
                 /*Set(
@@ -5657,12 +5662,17 @@
                     SelectedMeeting.Start
                 );
                 
+                 
+                
                 /*To Enable past button*/
                 /*Set(
                     FirstStartDateTime,
                     (First(arrMeetingSeries).Start)
                 );*/
                 
+                 
+                
+                 
                 
                 PastButton.DisplayMode.Edit;
                 UpdateContext({Start:true})
@@ -6167,14 +6177,14 @@
                     );
                     ClearCollect(
                         ColMeetingList,
-                        MeetingList
+                        Filter(
+                                MeetingList,
+                                MeetingID = variCalUID.icaluid
+                            )
                     );
                     If(
                         CountRows(
-                            Filter(
-                                ColMeetingList,
-                                Value(MeetingID) = Value(variCalUID.icaluid)
-                            )
+                            ColMeetingList
                         ) = 0,
                         IfError(
                             Patch(
