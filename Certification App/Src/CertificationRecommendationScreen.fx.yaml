@@ -2043,20 +2043,73 @@ CertificationRecommendationScreen As screen:
                             Color: =RGBA(0, 0, 0, 1)
                             Height: =21
                             Icon: =Icon.Reload
-                            OnSelect: |
-                                =Refresh(Certifications);
-                                Refresh('BU-CertificationList');
-                                Refresh(CertificationRequest);
-                                Refresh('BU-List');
-                                Refresh(CertificationOrder);
-                                Refresh(AnswerList);
-                                Refresh('CertificationApp-Security');
-                                Refresh(NotificationList_CertificationApp);
-                                Refresh(QuestionList_Admin);
-                                Refresh(AnswersList_Admin);
-                                Refresh('Location List_Certification App');
-                                Refresh('Target List');
-                                Refresh(QuestionList);
+                            OnSelect: |-
+                                =Concurrent(
+                                    Refresh(Certifications),
+                                    Refresh('BU-CertificationList'),
+                                    Refresh(CertificationRequest),
+                                    Refresh('BU-List'),
+                                    Refresh(CertificationOrder),
+                                    Refresh(AnswerList),
+                                    Refresh('CertificationApp-Security'),
+                                    Refresh(NotificationList_CertificationApp),
+                                    Refresh(QuestionList_Admin),
+                                    Refresh(AnswersList_Admin);
+                                    Refresh('Location List_Certification App'),
+                                    Refresh('Target List'),
+                                    Refresh(QuestionList)
+                                );
+                                Concurrent(
+                                    ClearCollect(
+                                        userCertifications,
+                                        Filter(
+                                            CertificationOrder,
+                                            Requestor.Email = User().Email
+                                        )
+                                    ),
+                                    Collect(
+                                        BUList,
+                                        'BU-List'
+                                    ),
+                                    ClearCollect(
+                                        col_Notification,
+                                        Filter(
+                                            FirstN(
+                                                NotificationList_CertificationApp,
+                                                5000
+                                            ),
+                                            (Title = User().FullName && "been approved by your manager " & varMngrname in Notification) || ("has requested for" in Notification && Manager = User().FullName) || (Title = User().FullName && "been approved by ILD" in Notification) || IsDeleted = false
+                                        )
+                                    ),
+                                    ClearCollect(
+                                        mngr_notify_Col,
+                                        Filter(
+                                            FirstN(
+                                                NotificationList_CertificationApp,
+                                                5000
+                                            ),
+                                            Title = User().FullName && ("been approved by your manager " & varMngrname in Notification || "been approved by ILD" in Notification) && IsDeleted = false
+                                        )
+                                    ),
+                                    ClearCollect(
+                                        Cert_Req,
+                                        Filter(
+                                            FirstN(
+                                                CertificationRequest,
+                                                2000
+                                            ),
+                                            Admin_Approval = false
+                                        )
+                                    ),
+                                    ClearCollect(
+                                        Certification,
+                                        Certifications
+                                    ),
+                                    ClearCollect(
+                                        BU_Cert,
+                                        'BU-CertificationList'
+                                    )
+                                )
                             Tooltip: ="Refresh"
                             Width: =21
                             X: =803

@@ -1560,7 +1560,7 @@
                                 Layout: =Layout.Vertical
                                 LayoutMinHeight: =220
                                 LayoutMinWidth: =350
-                                OnSelect: |-
+                                OnSelect: |
                                     =Navigate(
                                         'Responsive Approval Status Screen',
                                         ScreenTransition.None,
@@ -1571,43 +1571,49 @@
                                     );
                                     If(
                                         ThisItem.PaymentMode = "Cash",
-                                        Set(
-                                            varPAY1,
-                                            false
-                                        );
-                                        Set(
-                                            varPAY,
-                                            true
-                                        );
-                                        Set(
-                                            varAdvance,
-                                            false
-                                        ),
-                                        If(
-                                            ThisItem.PaymentMode = "Advance Payment",
-                                            Set(
-                                                varAdvance,
-                                                true
-                                            );
+                                        Concurrent(
                                             Set(
                                                 varPAY1,
-                                                false
-                                            );
-                                            Set(
-                                                varPAY,
                                                 false
                                             ),
                                             Set(
-                                                varPAY1,
-                                                true
-                                            );
-                                            Set(
                                                 varPAY,
-                                                false
-                                            );
+                                                true
+                                            ),
                                             Set(
                                                 varAdvance,
                                                 false
+                                            )
+                                        ),
+                                        If(
+                                            ThisItem.PaymentMode = "Advance Payment",
+                                            Concurrent(
+                                                Set(
+                                                    varAdvance,
+                                                    true
+                                                ),
+                                                Set(
+                                                    varPAY1,
+                                                    false
+                                                ),
+                                                Set(
+                                                    varPAY,
+                                                    false
+                                                )
+                                            ),
+                                            Concurrent(
+                                                Set(
+                                                    varPAY1,
+                                                    true
+                                                ),
+                                                Set(
+                                                    varPAY,
+                                                    false
+                                                ),
+                                                Set(
+                                                    varAdvance,
+                                                    false
+                                                )
                                             )
                                         )
                                     );
@@ -2006,12 +2012,12 @@
                                     OnSelect: |
                                         =/*
                                         Set(
-                                            varCertificationStatus,
-                                            ThisItem
+                                            varCertificationStatus,
+                                            ThisItem
                                         );
                                         Set(
-                                            varCID,
-                                            ThisItem.'Certificate ID'
+                                            varCID,
+                                            ThisItem.'Certificate ID'
                                         );
                                         */
                                         UpdateContext({locShowSpinner1: true});
@@ -2025,53 +2031,55 @@
                                         );
                                         If(
                                             ThisItem.'Has attachments',
-                                            Set(
-                                                varattach,
-                                                false
-                                            );
-                                            Set(
-                                                varattach1,
-                                                true
-                                            );
-                                            Set(
-                                                varattach2,
-                                                false
-                                            );
-                                            Set(
-                                                varattach3,
-                                                true
-                                            );
-                                            Set(
-                                                varattach4,
-                                                false
-                                            );
-                                            Set(
-                                                varattach5,
-                                                true
-                                            );
-                                            Set(
-                                                varattach6,
-                                                false
-                                            );
-                                            Set(
-                                                varattach7,
-                                                true
-                                            );
-                                            Set(
-                                                varattach8,
-                                                false
-                                            );
-                                            Set(
-                                                varattach9,
-                                                true
-                                            );
-                                            Set(
-                                                varattach10,
-                                                false
-                                            );
-                                            Set(
-                                                varattach11,
-                                                true
+                                            Concurrent(
+                                                Set(
+                                                    varattach,
+                                                    false
+                                                ),
+                                                Set(
+                                                    varattach1,
+                                                    true
+                                                ),
+                                                Set(
+                                                    varattach2,
+                                                    false
+                                                ),
+                                                Set(
+                                                    varattach3,
+                                                    true
+                                                ),
+                                                Set(
+                                                    varattach4,
+                                                    false
+                                                ),
+                                                Set(
+                                                    varattach5,
+                                                    true
+                                                ),
+                                                Set(
+                                                    varattach6,
+                                                    false
+                                                ),
+                                                Set(
+                                                    varattach7,
+                                                    true
+                                                ),
+                                                Set(
+                                                    varattach8,
+                                                    false
+                                                ),
+                                                Set(
+                                                    varattach9,
+                                                    true
+                                                ),
+                                                Set(
+                                                    varattach10,
+                                                    false
+                                                ),
+                                                Set(
+                                                    varattach11,
+                                                    true
+                                                )
                                             ),
                                             Set(
                                                 varattach,
@@ -2156,43 +2164,49 @@
                                         );
                                         If(
                                             ThisItem.PaymentMode = "Cash",
-                                            Set(
-                                                varPAY1,
-                                                false
-                                            );
-                                            Set(
-                                                varPAY,
-                                                true
-                                            );
-                                            Set(
-                                                varAdvance,
-                                                false
-                                            ),
-                                            If(
-                                                ThisItem.PaymentMode = "Advance Payment",
-                                                Set(
-                                                    varAdvance,
-                                                    true
-                                                );
+                                            Concurrent(
                                                 Set(
                                                     varPAY1,
-                                                    false
-                                                );
-                                                Set(
-                                                    varPAY,
                                                     false
                                                 ),
                                                 Set(
-                                                    varPAY1,
-                                                    true
-                                                );
-                                                Set(
                                                     varPAY,
-                                                    false
-                                                );
+                                                    true
+                                                ),
                                                 Set(
                                                     varAdvance,
                                                     false
+                                                )
+                                            ),
+                                            If(
+                                                ThisItem.PaymentMode = "Advance Payment",
+                                                Concurrent(
+                                                    Set(
+                                                        varAdvance,
+                                                        true
+                                                    ),
+                                                    Set(
+                                                        varPAY1,
+                                                        false
+                                                    ),
+                                                    Set(
+                                                        varPAY,
+                                                        false
+                                                    )
+                                                ),
+                                                Concurrent(
+                                                    Set(
+                                                        varPAY1,
+                                                        true
+                                                    ),
+                                                    Set(
+                                                        varPAY,
+                                                        false
+                                                    ),
+                                                    Set(
+                                                        varAdvance,
+                                                        false
+                                                    )
                                                 )
                                             )
                                         );
@@ -3723,20 +3737,73 @@
         Color: =RGBA(0, 0, 0, 1)
         Height: =18
         Icon: =Icon.Reload
-        OnSelect: |
-            =Refresh(Certifications);
-            Refresh('BU-CertificationList');
-            Refresh(CertificationRequest);
-            Refresh('BU-List');
-            Refresh(CertificationOrder);
-            Refresh(AnswerList);
-            Refresh('CertificationApp-Security');
-            Refresh(NotificationList_CertificationApp);
-            Refresh(QuestionList_Admin);
-            Refresh(AnswersList_Admin);
-            Refresh('Location List_Certification App');
-            Refresh('Target List');
-            Refresh(QuestionList);
+        OnSelect: |-
+            =Concurrent(
+                Refresh(Certifications),
+                Refresh('BU-CertificationList'),
+                Refresh(CertificationRequest),
+                Refresh('BU-List'),
+                Refresh(CertificationOrder),
+                Refresh(AnswerList),
+                Refresh('CertificationApp-Security'),
+                Refresh(NotificationList_CertificationApp),
+                Refresh(QuestionList_Admin),
+                Refresh(AnswersList_Admin);
+                Refresh('Location List_Certification App'),
+                Refresh('Target List'),
+                Refresh(QuestionList)
+            );
+            Concurrent(
+                ClearCollect(
+                    userCertifications,
+                    Filter(
+                        CertificationOrder,
+                        Requestor.Email = User().Email
+                    )
+                ),
+                Collect(
+                    BUList,
+                    'BU-List'
+                ),
+                ClearCollect(
+                    col_Notification,
+                    Filter(
+                        FirstN(
+                            NotificationList_CertificationApp,
+                            5000
+                        ),
+                        (Title = User().FullName && "been approved by your manager " & varMngrname in Notification) || ("has requested for" in Notification && Manager = User().FullName) || (Title = User().FullName && "been approved by ILD" in Notification) || IsDeleted = false
+                    )
+                ),
+                ClearCollect(
+                    mngr_notify_Col,
+                    Filter(
+                        FirstN(
+                            NotificationList_CertificationApp,
+                            5000
+                        ),
+                        Title = User().FullName && ("been approved by your manager " & varMngrname in Notification || "been approved by ILD" in Notification) && IsDeleted = false
+                    )
+                ),
+                ClearCollect(
+                    Cert_Req,
+                    Filter(
+                        FirstN(
+                            CertificationRequest,
+                            2000
+                        ),
+                        Admin_Approval = false
+                    )
+                ),
+                ClearCollect(
+                    Certification,
+                    Certifications
+                ),
+                ClearCollect(
+                    BU_Cert,
+                    'BU-CertificationList'
+                )
+            )
         Tooltip: ="Refresh"
         Width: =18
         X: =769
