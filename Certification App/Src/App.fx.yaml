@@ -1,70 +1,83 @@
 App As appinfo:
     BackEnabled: =false
     OnStart: |-
-        =Set(
-            screenColor,
-            RGBA(
-                215,
-                223,
-                240,
-                0.3
-            )
-        );
-        Set(
-            bkColor,
-            ColorValue("#F9F9F9")
-        );
-        Set(
-            pendingColor,
-            ColorValue("#D5271A")
-        );
-        Set(
-            successColor,
-            ColorValue("#2A9D00")
-        );
-        Set(
-            headingFontSize,
-            Switch(
-                'Responsive Home Screen'.Size,
-                ScreenSize.Small,
-                12,
-                ScreenSize.Medium,
-                15,
-                20
-            )
-        );
-        Set(
-            titleFontSize,
-            Switch(
-                'Responsive Home Screen'.Size,
-                ScreenSize.Small,
-                9,
-                ScreenSize.Medium,
-                10,
-                13
-            )
-        );
-        Set(
-            SubtitleFontSize,
-            Switch(
-                'Responsive Home Screen'.Size,
-                ScreenSize.Small,
-                8,
-                ScreenSize.Medium,
-                9,
-                11
-            )
-        );
-        Set(
-            DescFontSize,
-            Switch(
-                'Responsive Home Screen'.Size,
-                ScreenSize.Small,
-                5,
-                ScreenSize.Medium,
-                7,
-                10
-            )
+        =Concurrent(
+            Set(
+                screenColor,
+                RGBA(
+                    215,
+                    223,
+                    240,
+                    0.3
+                )
+            ),
+            Set(
+                bkColor,
+                ColorValue("#F9F9F9")
+            ),
+            Set(
+                pendingColor,
+                ColorValue("#D5271A")
+            ),
+            Set(
+                successColor,
+                ColorValue("#2A9D00")
+            ),
+            Set(
+                headingFontSize,
+                Switch(
+                    'Responsive Home Screen'.Size,
+                    ScreenSize.Small,
+                    12,
+                    ScreenSize.Medium,
+                    15,
+                    20
+                )
+            ),
+            Set(
+                titleFontSize,
+                Switch(
+                    'Responsive Home Screen'.Size,
+                    ScreenSize.Small,
+                    9,
+                    ScreenSize.Medium,
+                    10,
+                    13
+                )
+            ),
+            Set(
+                SubtitleFontSize,
+                Switch(
+                    'Responsive Home Screen'.Size,
+                    ScreenSize.Small,
+                    8,
+                    ScreenSize.Medium,
+                    9,
+                    11
+                )
+            ),
+            Set(
+                DescFontSize,
+                Switch(
+                    'Responsive Home Screen'.Size,
+                    ScreenSize.Small,
+                    5,
+                    ScreenSize.Medium,
+                    7,
+                    10
+                )
+            ),
+            Set(
+                varMngrname,
+                Office365Users.ManagerV2(Office365Users.MyProfile().Mail).displayName
+            ),
+            Set(
+                MyProfile,
+                Office365Users.MyProfile()
+            ));
+            Set(
+                MyUserId,
+                MyProfile.Id
         );
         Set(
             varUserLevel,
@@ -114,148 +127,138 @@ App As appinfo:
                 varUserLevel
             )
         );
-        ClearCollect(
-            myReports,
-            Office365Users.DirectReports(Office365Users.MyProfile().Id)
-        );
-        Set(
-            varMngrname,
-            Office365Users.ManagerV2(Office365Users.MyProfile().Mail).displayName
-        );
-        Collect(
-            CalendarLocalizedLabel,
-            {Value: "Calendar"},
-            {Value: "Kalender"},
-            {Value: "Təqvim"},
-            {Value: "Kalendar"},
-            {Value: "Calendari"},
-            {Value: "Kalendář"},
-            {Value: "Calendr"},
-            {Value: "Calendario"},
-            {Value: "Egutegia"},
-            {Value: "Kalendaryo"},
-            {Value: "Calendrier"},
-            {Value: "Féilire"},
-            {Value: "Am mìosachan"},
-            {Value: "Kalanda"},
-            {Value: "Dagbók"},
-            {Value: "Kalenda"},
-            {Value: "Kalendārs"},
-            {Value: "Kalenner"},
-            {Value: "Kalendorius"},
-            {Value: "Naptár"},
-            {Value: "Kalendarju"},
-            {Value: "Agenda"},
-            {Value: "Taqvim"},
-            {Value: "Kalendarz"},
-            {Value: "Calendário"},
-            {Value: "Intiwatana"},
-            {Value: "Kalendari"},
-            {Value: "Kalendár"},
-            {Value: "Koledar"},
-            {Value: "Kalenteri"},
-            {Value: "Maramataka"},
-            {Value: "Lịch"},
-            {Value: "Takvim"},
-            {Value: "Senenama"},
-            {Value: "Ημερολόγιο"},
-            {Value: "კალენდარი"},
-            {Value: "לוח שנה"},
-            {Value: "کیلنڈر"},
-            {Value: "التقويم"},
-            {Value: "कैलेंडर"},
-            {Value: "दिनदर्शिका"},
-            {Value: "ক্যালেন্ডার"},
-            {Value: "કૅલેન્ડર"},
-            {Value: "予定表"},
-            {Value: "行事曆"},
-            {Value: "日历"},
-            {Value: "క్యాలెండర్"}
-        );
+        Concurrent(
+            ClearCollect(
+                myReports,
+                Office365Users.DirectReports(Office365Users.MyProfile().Id)
+            ),
+            Collect(
+                CalendarLocalizedLabel,
+                {Value: "Calendar"},
+                {Value: "Kalender"},
+                {Value: "Təqvim"},
+                {Value: "Kalendar"},
+                {Value: "Calendari"},
+                {Value: "Kalendář"},
+                {Value: "Calendr"},
+                {Value: "Calendario"},
+                {Value: "Egutegia"},
+                {Value: "Kalendaryo"},
+                {Value: "Calendrier"},
+                {Value: "Féilire"},
+                {Value: "Am mìosachan"},
+                {Value: "Kalanda"},
+                {Value: "Dagbók"},
+                {Value: "Kalenda"},
+                {Value: "Kalendārs"},
+                {Value: "Kalenner"},
+                {Value: "Kalendorius"},
+                {Value: "Naptár"},
+                {Value: "Kalendarju"},
+                {Value: "Agenda"},
+                {Value: "Taqvim"},
+                {Value: "Kalendarz"},
+                {Value: "Calendário"},
+                {Value: "Intiwatana"},
+                {Value: "Kalendari"},
+                {Value: "Kalendár"},
+                {Value: "Koledar"},
+                {Value: "Kalenteri"},
+                {Value: "Maramataka"},
+                {Value: "Lịch"},
+                {Value: "Takvim"},
+                {Value: "Senenama"},
+                {Value: "Ημερολόγιο"},
+                {Value: "კალენდარი"},
+                {Value: "לוח שנה"},
+                {Value: "کیلنڈر"},
+                {Value: "التقويم"},
+                {Value: "कैलेंडर"},
+                {Value: "दिनदर्शिका"},
+                {Value: "ক্যালেন্ডার"},
+                {Value: "કૅલેન્ડર"},
+                {Value: "予定表"},
+                {Value: "行事曆"},
+                {Value: "日历"},
+                {Value: "క్యాలెండర్"}
+            ),
         /*Set(
             locShowSpinnerstart,
             false
         );*/
-        Set(
-            MyProfile,
-            Office365Users.MyProfile()
-        );
-        Set(
-            MyUserId,
-            MyProfile.Id
-        );
-        ClearCollect(
-            MyReportList,
-            ForAll(
-                Office365Users.DirectReports(MyUserId),
-                {
-                    DisplayName: DisplayName,
-                    City: City,
-                    JobTitle: JobTitle,
-                    UserPrincipalName: UserPrincipalName,
-                    GivenName: GivenName,
-                    Mail: Mail,
-                    Id: Id,
-                    Mobile: mobilePhone,
-                    OfficePhone: TelephoneNumber,
-                    Department: Department,
-                    OfficeLocation: OfficeLocation
-                }
-            )
-        );
-        ClearCollect(
-            userCertifications,
-            Filter(
-                CertificationOrder,
-                Requestor.Email = User().Email
-            )
-        );
+            ClearCollect(
+                MyReportList,
+                ForAll(
+                    Office365Users.DirectReports(MyUserId),
+                    {
+                        DisplayName: DisplayName,
+                        City: City,
+                        JobTitle: JobTitle,
+                        UserPrincipalName: UserPrincipalName,
+                        GivenName: GivenName,
+                        Mail: Mail,
+                        Id: Id,
+                        Mobile: mobilePhone,
+                        OfficePhone: TelephoneNumber,
+                        Department: Department,
+                        OfficeLocation: OfficeLocation
+                    }
+                )
+            ),
+            ClearCollect(
+                userCertifications,
+                Filter(
+                    CertificationOrder,
+                    Requestor.Email = User().Email
+                )
+            ),
         /*ClearCollect(UsercertCount,Filter(
                 CertificationOrder,
                 Requestor.Email = User().Email
             ));
             */
-        Collect(
-            BUList,
-            'BU-List'
-        );
-        ClearCollect(
-            col_Notification,
-            Filter(
-                FirstN(
-                    NotificationList_CertificationApp,
-                    5000
-                ),
-                (Title = User().FullName && "been approved by your manager " & varMngrname in Notification) || ("has requested for" in Notification && Manager = User().FullName) || (Title = User().FullName && "been approved by ILD" in Notification) || IsDeleted = false
+            Collect(
+                BUList,
+                'BU-List'
+            ),
+            ClearCollect(
+                col_Notification,
+                Filter(
+                    FirstN(
+                        NotificationList_CertificationApp,
+                        5000
+                    ),
+                    (Title = User().FullName && "been approved by your manager " & varMngrname in Notification) || ("has requested for" in Notification && Manager = User().FullName) || (Title = User().FullName && "been approved by ILD" in Notification) || IsDeleted = false
+                )
+            ),
+            ClearCollect(
+                mngr_notify_Col,
+                Filter(
+                    FirstN(
+                        NotificationList_CertificationApp,
+                        5000
+                    ),
+                    Title = User().FullName && ("been approved by your manager " & varMngrname in Notification || "been approved by ILD" in Notification) && IsDeleted = false
+                )
+            ),
+            ClearCollect(
+                Cert_Req,
+                Filter(
+                    FirstN(
+                        CertificationRequest,
+                        2000
+                    ),
+                    Admin_Approval = false
+                )
+            ),
+            ClearCollect(
+                Certification,
+                Certifications
+            ),
+            ClearCollect(
+                BU_Cert,
+                'BU-CertificationList'
             )
-        );
-        ClearCollect(
-            mngr_notify_Col,
-            Filter(
-                FirstN(
-                    NotificationList_CertificationApp,
-                    5000
-                ),
-                Title = User().FullName && ("been approved by your manager " & varMngrname in Notification || "been approved by ILD" in Notification) && IsDeleted = false
-            )
-        );
-        ClearCollect(
-            Cert_Req,
-            Filter(
-                FirstN(
-                    CertificationRequest,
-                    2000
-                ),
-                Admin_Approval = false
-            )
-        );
-        ClearCollect(
-            Certification,
-            Certifications
-        );
-        ClearCollect(
-            BU_Cert,
-            'BU-CertificationList'
         )
     StartScreen: |-
         =If (
