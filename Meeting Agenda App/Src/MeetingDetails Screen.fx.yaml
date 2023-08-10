@@ -5596,7 +5596,10 @@
                     ),
                     false
                 );
-                If(CountRows(ColMeetingList)=0,ClearCollect(ColMeetingList,MeetingList));
+                If(CountRows(ColMeetingList)=0,ClearCollect(ColMeetingList,Filter(
+                            MeetingList,
+                            MeetingID = variCalUID.icaluid
+                        )));
                 If(
                     CountRows(
                         Filter(
