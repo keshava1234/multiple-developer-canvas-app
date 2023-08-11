@@ -134,7 +134,7 @@ AddPollScreen As screen:
                 OnChange: |-
                     =Select(Icon4);
                     Select(Icon5);
-                OnSelect: =Select(Parent)
+                OnSelect: =//Select(Parent)
                 PaddingLeft: =5
                 RadiusBottomLeft: =2
                 RadiusBottomRight: =2
@@ -208,10 +208,11 @@ AddPollScreen As screen:
             Fill: =RGBA(56, 86, 153, 1)
             HoverColor: =RGBA(255, 255, 255, 1)
             HoverFill: =ColorFade(RGBA(56, 96, 178, 1), -20%)
-            OnSelect: |
+            OnSelect: |+
                 =//ClearCollect(CountCollection,0);
-                Set(varCurrentQuestionID, ThisItem.ID);
                 Collect(CountCollection,CountRows(CountCollection));
+                Set(varCurrentQuestionID, ThisItem.ID);
+                
             RadiusBottomLeft: =2
             RadiusBottomRight: =2
             RadiusTopLeft: =2
@@ -274,7 +275,7 @@ AddPollScreen As screen:
         HoverColor: =RGBA(255, 255, 255, 1)
         HoverFill: =ColorFade(RGBA(56, 96, 178, 1), -20%)
         OnSelect: |-
-            =If(IsEmpty(arrQuestions) || IsEmpty(arrQuestionOptions),
+            =/*If(IsEmpty(arrQuestions) || IsEmpty(arrQuestionOptions),
             Notify(
                     "Please check you have provided Question and Options",
                     NotificationType.Error,
@@ -344,6 +345,70 @@ AddPollScreen As screen:
                 DisableButton,
                 false
             );
+            );*/
+            If(IsEmpty(arrQuestions) || IsEmpty(arrQuestionOptions),
+            Notify(
+                    "Please check you are provided Question and Options",
+                    NotificationType.Error,
+                    0
+                ),
+            First(
+                Filter(
+                    MeetingList,
+                    MeetingID = variCalUID.icaluid
+                )
+            );
+            ForAll(
+                arrQuestions,
+                Patch(
+                    Questions,
+                    Defaults(Questions),
+                    {
+                        Title: Text,
+                        MeetingID: variCalUID.icaluid
+                    }
+                )
+            );
+            ForAll(
+                arrQuestionOptions,
+                Patch(
+                    QuestionOptions,
+                    Defaults(QuestionOptions),
+                    {
+                        Title: optionValue,
+                        Option: optionID,
+                        Question: {
+                            '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
+                            Id: Value(questionID),
+                            Value: questionID
+                        }
+                    }
+                )
+            );
+            Set(
+                varcreatepoll,
+                true
+            );
+            If(
+                varcreatepoll,
+                Notify(
+                    "Your poll has been created successfully",
+                    NotificationType.Success,
+                    0
+                ),
+                Notify(
+                    "Error While creating Poll",
+                    NotificationType.Error,
+                    0
+                )
+            );
+            Clear(arrQuestions);
+            Clear(arrQuestionOptions);
+            Clear(CountCollection);
+            Set(
+                DisableButton,
+                false
+            );
             );
         RadiusBottomLeft: =3
         RadiusBottomRight: =3
@@ -399,7 +464,7 @@ AddPollScreen As screen:
             Items: |-
                 =Filter(
                     QuestionOptions,
-                    Question.Value = Text(ThisItem.ID)
+                    Question.Id = ThisItem.ID
                 ).Title
             OnSelect: |+
                 =Select(Parent)
@@ -550,8 +615,8 @@ AddPollScreen As screen:
             HoverColor: =RGBA(255, 255, 255, 1)
             HoverFill: =ColorFade(RGBA(56, 96, 178, 1), -20%)
             OnSelect: |-
-                =/*First(Filter/Search or Last(Filter/Search found. Use LookUp instead.
-                
+                =//First(Filter/Search or Last(Filter/Search found. Use LookUp instead.
+                /*
                 Refresh(Questions);
                 Set(QuestionID,  Last(Filter(Questions,Boolean(1))).ID);
                 Collect(
@@ -562,10 +627,22 @@ AddPollScreen As screen:
                     }    
                 );
                 Set(varShowpopup,false);
-                Reset(inputQuestion);*/
-                
+                Reset(inputQuestion);
+                */
+                /*
                 Refresh(Questions);
                 Set(QuestionID,  LookUp(Questions,Boolean(1)).ID);
+                Collect(
+                    arrQuestions,
+                    {
+                        ID: QuestionID+1,
+                        Text: inputQuestion.Text          
+                    }    
+                );
+                Set(varShowpopup,false);
+                Reset(inputQuestion);*/
+                Refresh(Questions);
+                Set(QuestionID,  Last(Filter(Questions,true)).ID);
                 Collect(
                     arrQuestions,
                     {

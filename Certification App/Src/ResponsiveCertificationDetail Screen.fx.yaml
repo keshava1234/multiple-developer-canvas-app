@@ -1,13 +1,34 @@
 "'ResponsiveCertificationDetail Screen' As screen":
-    OnVisible: |
-        =UpdateContext({varMenuVisible:false});
-        UpdateContext({varreimbursement:false});
-        UpdateContext({varmanagecourse:false});
-        UpdateContext({locShowSpinnercatalog:true});
-        Set(varUser,false);
-        Set(varMngr,false);
-        Set(varAdmin,false);
-        ClearCollect(CertDetails,Filter(FirstN(CertificationOrder,100000),CertificationID.Id= varCertificationData.ID,Status="Reimbursed"))
+    OnVisible: |-
+        =Concurrent(
+            UpdateContext({varMenuVisible: false}),
+            UpdateContext({varreimbursement: false}),
+            UpdateContext({varmanagecourse: false}),
+            UpdateContext({locShowSpinnercatalog: true}),
+            Set(
+                varUser,
+                false
+            ),
+            Set(
+                varMngr,
+                false
+            ),
+            Set(
+                varAdmin,
+                false
+            ),
+            ClearCollect(
+                CertDetails,
+                Filter(
+                    FirstN(
+                        CertificationOrder,
+                        100000
+                    ),
+                    CertificationID.Id = varCertificationData.ID,
+                    Status = "Reimbursed"
+                )
+            )
+        )
 
     Container1_5 As groupContainer.verticalAutoLayoutContainer:
         Height: =Parent.Height
