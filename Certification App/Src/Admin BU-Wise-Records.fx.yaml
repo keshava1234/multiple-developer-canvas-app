@@ -3358,13 +3358,13 @@
                 ZIndex: =17
 
             HtmlText3_2 As htmlViewer:
-                Height: =29
+                Height: =45
                 HtmlText: ="<b><font color=blue><U>Click here to View</U></font></b>"
                 OnSelect: =Launch(varDetailsAdminPg.Documents_Link)
                 Visible: =varDetailsPopUp And !IsBlank(varDetailsAdminPg.Documents_Link)
                 Width: =302
-                X: =339
-                Y: =390
+                X: =253
+                Y: =336
                 ZIndex: =18
 
     Container85_1 As groupContainer.manualLayoutContainer:
