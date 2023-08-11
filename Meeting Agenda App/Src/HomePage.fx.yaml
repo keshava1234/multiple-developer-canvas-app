@@ -1,165 +1,26 @@
 HomePage As screen:
     OnVisible: |-
-        =Concurrent(
-            Set(
-                MyCalendarID,
-                LookUp(
-                    Office365Outlook.CalendarGetTables().value,
-                    DisplayName = LookUp(
-                        CalendarLocalizedLabel,
-                        Value = DisplayName
-                    ).Value
-                ).Name
-            );
-            ClearCollect(
-                AllFutureEvents,
-                Office365Outlook.GetEventsCalendarView(
-                    MyCalendarID,
-                    Text(
-                        Now(),
-                        DateTimeFormat.UTC
-                    ),
-                    //Text(
-        //    DateAdd(
-        //       Today(),
-        //        -10,
-        //       Days
-        //   ),
-        //   UTC
-        //),
-                    Text(
-                        DateAdd(
-                            Today(),
-                            5,
-                            TimeUnit.Days
-                        ),
-                        DateTimeFormat.UTC
-                    )
-                ).Values
-            );
-            Remove(
-                AllFutureEvents,
-                Filter(
-                    AllFutureEvents,
-                    StartsWith(
-                        Subject,
-                        "Canceled:"
-                    )
-                )
-            );
-            ClearCollect(
-                AllPastEvents,
-                Office365Outlook.GetEventsCalendarView(
-                    MyCalendarID,
-                    Text(
-                        DateAdd(
-                            Today(),
-                            -5,
-                            TimeUnit.Days
-                        ),
-                        DateTimeFormat.UTC
-                    ),
-                    Text(
-                        DateAdd(
-                            Now(),
-                            0,
-                            TimeUnit.Days
-                        ),
-                        DateTimeFormat.UTC
-                    )
-                ). Values
-            );
-            Remove(
-                AllPastEvents,
-                Filter(
-                    AllPastEvents,
-                    StartsWith(
-                        Subject,
-                        "Canceled:"
-                    )
-                )
-            );
-            ClearCollect(
-                AllPastEvents,
-                Filter(
-                    AllPastEvents,
-                    Not(Id in AllFutureEvents.Id)
-                )
-            );
-            
-            Set(
-                MyUserProfile,
-                Office365Users.MyProfile().Id
-            ),
-            Clear(MeetingAttendees),
-            Clear(MeetingTimes),
-            Clear(EmailRecipients),
-            Clear(FollowUpMeetingAttendees),
-            Reset('MeetingDetails notes'),
-            Reset(txtSearchUser),
-            Reset(chkCheckPlanner_1),
-            Reset(chkCheckPlanner_2),
-            Reset(OneNotecheck),
-            Set(
-                FollowUpConfirmed,
-                false
-            ),
-            Set(
-                EmailConfirmed,
-                false
-            ),
-            Set(
-                ExportConfirmed,
-                false
-            )
-        );
-        ClearCollect(
-            MeetingsOnly,
-            Filter(
-                AddColumns(
-                    AllFutureEvents,
-                    "isCurrent",
-                    DateDiff(
-                        Start,
-                        Now(),
-                        TimeUnit.Seconds
-                    ) > 0 && DateDiff(
-                        Now(),
-                        End,
-                        TimeUnit.Seconds
-                    ) > 0
-                ),
-                DateDiff(
-                    Start,
-                    End,
-                    TimeUnit.Hours
-                ) < 6
-            )
+        =Clear(MeetingAttendees);
+        Clear(MeetingTimes);
+        Clear(EmailRecipients);
+        Clear(FollowUpMeetingAttendees);
+        Reset('MeetingDetails notes');
+        Reset(txtSearchUser);
+        Reset(chkCheckPlanner_1);
+        Reset(chkCheckPlanner_2);
+        Reset(OneNotecheck);
+        Set(
+            FollowUpConfirmed,
+            false
         );
         Set(
-            NumberOfCurrentMeetings,
-            CountRows(
-                Filter(
-                    MeetingsOnly,
-                    isCurrent
-                )
-            )
+            EmailConfirmed,
+            false
         );
-        /*If a single meeting is happening now, autoselect it*/
-        If(
-            NumberOfCurrentMeetings = 3,
-            Set(
-                AutoSelectMeeting,
-                true
-            );
-            Set(
-                SelectedMeeting,
-                LookUp(
-                    MeetingsOnly,
-                    isCurrent
-                )
-            )
-        )
+        Set(
+            ExportConfirmed,
+            false
+        );
         
         //Select(icon_RefreshMeeting);
 
@@ -2673,10 +2534,10 @@ HomePage As screen:
                 OnSelect: =Select(Parent)
                 PaddingLeft: =0
                 Size: =10
-                Text: |-
+                Text: |
                     =//Office365Users.UserProfile(ThisItem.Organizer).DisplayName
                     //If(!IsBlank(ThisItem.Organizer), Office365Users.UserProfile(ThisItem.Organizer).DisplayName,false)
-                    /*If(
+                    If(
                         !IsBlank(ThisItem.Organizer) && "@ilink-systems.com" in ThisItem.Organizer,
                         If(!IsEmpty(
                             Office365Users.SearchUser(
@@ -2689,9 +2550,7 @@ HomePage As screen:
                         Office365Users.UserProfile(ThisItem.Organizer).DisplayName,
                     ThisItem.Organizer),
                         ThisItem.Organizer
-                    )*/
-                    
-                    ThisItem.Organizer
+                    )
                 Width: =300
                 X: =168
                 Y: =60

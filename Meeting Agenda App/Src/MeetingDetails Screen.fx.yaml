@@ -6,106 +6,16 @@
             Loading,
             false
         );*/
-        Set(
-                MyCalendarID,
-                LookUp(
-                    Office365Outlook.CalendarGetTables().value,
-                    DisplayName = LookUp(
-                        CalendarLocalizedLabel,
-                        Value = DisplayName
-                    ).Value
-                ).Name
-            );
-            ClearCollect(
-                AllFutureEvents,
-                Office365Outlook.GetEventsCalendarView(
-                    MyCalendarID,
-                    Text(
-                        Now(),
-                        DateTimeFormat.UTC
-                    ),
-                    //Text(
-        //    DateAdd(
-        //       Today(),
-        //        -10,
-        //       Days
-        //   ),
-        //   UTC
-        //),
-                    Text(
-                        DateAdd(
-                            Today(),
-                            5,
-                            TimeUnit.Days
-                        ),
-                        DateTimeFormat.UTC
-                    )
-                ).Values
-            );
-            Remove(
-                AllFutureEvents,
-                Filter(
-                    AllFutureEvents,
-                    StartsWith(
-                        Subject,
-                        "Canceled:"
-                    )
-                )
-            );
-            ClearCollect(
-                AllPastEvents,
-                Office365Outlook.GetEventsCalendarView(
-                    MyCalendarID,
-                    Text(
-                        DateAdd(
-                            Today(),
-                            -5,
-                            TimeUnit.Days
-                        ),
-                        DateTimeFormat.UTC
-                    ),
-                    Text(
-                        DateAdd(
-                            Now(),
-                            0,
-                            TimeUnit.Days
-                        ),
-                        DateTimeFormat.UTC
-                    )
-                ). Values
-            );
-            Remove(
-                AllPastEvents,
-                Filter(
-                    AllPastEvents,
-                    StartsWith(
-                        Subject,
-                        "Canceled:"
-                    )
-                )
-            );
-            ClearCollect(
-                AllPastEvents,
-                Filter(
-                    AllPastEvents,
-                    Not(Id in AllFutureEvents.Id)
-                )
-            );
-            Set(
-                MyUserProfile,
-                Office365Users.MyProfile().Id
-            );
         Set(varShowUpdateMeeting,false);
         Set(varShowUpdateAgenda, false);
         Set(varShowUpdateTask,false);
         Set(varShowCreateTask,false);
         Set(varShowCreateAgenda,false);
         Set(varShowPopUp,false);
-        //ClearCollect(ColMeetingAgendaLists,MeetingAgendaLists);
         ClearCollect(
             arrResourceList,
             LookUp(
-                ColMeetingList,
+                MeetingList,
                  MeetingID = variCalUID.icaluid
             ).'{Attachments}'
         );
@@ -119,54 +29,7 @@
         );
         
         ClearCollect(comboboxAddAgenda,AAAttendees.SelectedItems);
-        Set(IsShow, false);
-        ClearCollect(
-            MeetingsOnly,
-            Filter(
-                AddColumns(
-                    AllFutureEvents,
-                    "isCurrent",
-                    DateDiff(
-                        Start,
-                        Now(),
-                        TimeUnit.Seconds
-                    ) > 0 && DateDiff(
-                        Now(),
-                        End,
-                        TimeUnit.Seconds
-                    ) > 0
-                ),
-                DateDiff(
-                    Start,
-                    End,
-                    TimeUnit.Hours
-                ) < 6
-            )
-        );
-        Set(
-            NumberOfCurrentMeetings,
-            CountRows(
-                Filter(
-                    MeetingsOnly,
-                    isCurrent
-                )
-            )
-        );
-        /*If a single meeting is happening now, autoselect it*/
-        If(
-            NumberOfCurrentMeetings = 3,
-            Set(
-                AutoSelectMeeting,
-                true
-            );
-            Set(
-                SelectedMeeting,
-                LookUp(
-                    MeetingsOnly,
-                    isCurrent
-                )
-            )
-        );
+        Set(IsShow, false)
     Orientation: =If('MeetingDetails Screen'.Width < 'MeetingDetails Screen'.Height, Layout.Vertical, Layout.Horizontal)
     Size: =1 + CountRows(App.SizeBreakpoints) - CountIf(App.SizeBreakpoints, Value >= 'MeetingDetails Screen'.Width)
     Width: =Max(App.Width, App.DesignWidth)

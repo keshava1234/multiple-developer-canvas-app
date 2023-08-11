@@ -97,7 +97,17 @@ App As appinfo:
             {Value: "క్యాలెండర్"}
         );
         Concurrent(
-            /*ClearCollect(
+            Set(
+                MyCalendarID,
+                LookUp(
+                    Office365Outlook.CalendarGetTables().value,
+                    DisplayName = LookUp(
+                        CalendarLocalizedLabel,
+                        Value = DisplayName
+                    ).Value
+                ).Name
+            );
+            ClearCollect(
                 AllFutureEvents,
                 Office365Outlook.GetEventsCalendarView(
                     MyCalendarID,
@@ -132,8 +142,8 @@ App As appinfo:
                         "Canceled:"
                     )
                 )
-            );*/
-            /*ClearCollect(
+            );
+            ClearCollect(
                 AllPastEvents,
                 Office365Outlook.GetEventsCalendarView(
                     MyCalendarID,
@@ -171,16 +181,16 @@ App As appinfo:
                     AllPastEvents,
                     Not(Id in AllFutureEvents.Id)
                 )
-            );*/
+            );
             Set(
                 varShowUpcomingMeeting,
                 true
             );
             ,
-            /*Set(
+            Set(
                 MyUserProfile,
                 Office365Users.MyProfile().Id
-            ),*/
+            ),
             /*used to determine if meeting attendees are in app user's org*/
             Set(
                 MyDomain,
