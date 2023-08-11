@@ -4327,23 +4327,10 @@
             Height: =22
             HoverFill: =RGBA(213, 39, 26, 1)
             OnSelect: |-
-                =If(
-                    varUser = true,
-                    ForAll(
-                        UserGallery_5.AllItems As MyPatch,
-                        Patch(
-                            NotificationList_CertificationApp,
-                            {ID: MyPatch.ID},
-                            {
-                                Title: MyPatch.Title,
-                                IsDeleted: true
-                            }
-                        )
-                    ),
-                    If(
-                        varMngr = true,
+                =    If(
+                        varUser = true,
                         ForAll(
-                            ManagerGallery_3.AllItems As MyPatch,
+                            UserGallery_5.AllItems As MyPatch,
                             Patch(
                                 NotificationList_CertificationApp,
                                 {ID: MyPatch.ID},
@@ -4353,18 +4340,31 @@
                                 }
                             )
                         ),
-                        ForAll(
-                            ILDGAllery_3.AllItems As MyPatch,
-                            Patch(
-                                NotificationList_CertificationApp,
-                                {ID: MyPatch.ID},
-                                {
-                                    Title: MyPatch.Title,
-                                    IsDeleted: true
-                                }
+                        If(
+                            varMngr = true,
+                            ForAll(
+                                ManagerGallery_3.AllItems As MyPatch,
+                                Patch(
+                                    NotificationList_CertificationApp,
+                                    {ID: MyPatch.ID},
+                                    {
+                                        Title: MyPatch.Title,
+                                        IsDeleted: true
+                                    }
+                                )
+                            ),
+                            ForAll(
+                                ILDGAllery_3.AllItems As MyPatch,
+                                Patch(
+                                    NotificationList_CertificationApp,
+                                    {ID: MyPatch.ID},
+                                    {
+                                        Title: MyPatch.Title,
+                                        IsDeleted: true
+                                    }
+                                )
                             )
                         )
-                    )
                 );
                 Clear(col_Notification)
             PressedColor: =RGBA(213, 39, 26, 1)
