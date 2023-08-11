@@ -4105,12 +4105,9 @@
                 OnSelect: |-
                     =If(
                         !vardetails.Admin_Approval,
-                        Patch(
+                        UpdateIf(
                             CertificationRequest,
-                            LookUp(
-                                CertificationRequest,
-                                ID = vardetails.ID
-                            ),
+                            ID = vardetails.ID,
                             {Admin_Approval: true}
                         );
                         Notify(
@@ -5077,12 +5074,9 @@
                 OnSelect: |-
                     =If(
                         !vardetails.Admin_Approval,
-                        Patch(
+                        UpdateIf(
                             CertificationRequest,
-                            LookUp(
-                                CertificationRequest,
-                                ID = vardetails.ID
-                            ),
+                            ID = vardetails.ID,
                             {Admin_Approval: true}
                         );
                         Notify(
