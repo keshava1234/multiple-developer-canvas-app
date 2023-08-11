@@ -1,12 +1,23 @@
 "'Responsive Home Screen' As screen":
     OnVisible: |-
-        =UpdateContext({varMenuVisible:false});
-        UpdateContext({varreimbursement:false});
-        UpdateContext({varmanagecourse:false});
-        UpdateContext({locShowSpinnercatalog:true});
-        Set(varUser,false);
-        Set(varMngr,false);
-        Set(varAdmin,false)
+        =Concurrent(
+            UpdateContext({varMenuVisible: false}),
+            UpdateContext({varreimbursement: false}),
+            UpdateContext({varmanagecourse: false}),
+            UpdateContext({locShowSpinnercatalog: true}),
+            Set(
+                varUser,
+                false
+            ),
+            Set(
+                varMngr,
+                false
+            ),
+            Set(
+                varAdmin,
+                false
+            )
+        )
 
     Container1_3 As groupContainer.verticalAutoLayoutContainer:
         Height: =Parent.Height

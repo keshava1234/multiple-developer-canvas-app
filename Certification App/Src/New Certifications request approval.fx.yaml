@@ -1,27 +1,38 @@
 "'New Certifications request approval' As screen":
-    OnVisible: |
-        =UpdateContext({locShowSpinner5:true});
-        UpdateContext(
-            {
-                CurrentUser: {
-                    '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
-                    DisplayName: User().FullName,
-                    Claims: "i:0#.f|membership|" & Lower(User().Email),
-                    Department: "",
-                    Email: User().Email,
-                    JobTitle: "",
-                    Picture: ""
+    OnVisible: |-
+        =Concurrent(
+            UpdateContext({locShowSpinner5: true}),
+            UpdateContext(
+                {
+                    CurrentUser: {
+                        '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
+                        DisplayName: User().FullName,
+                        Claims: "i:0#.f|membership|" & Lower(User().Email),
+                        Department: "",
+                        Email: User().Email,
+                        JobTitle: "",
+                        Picture: ""
+                    }
                 }
-            }
-        );
-        UpdateContext({varMenuVisible:false});
-        UpdateContext({varreimbursement:false});
-        UpdateContext({varmanagecourse:false});
-        UpdateContext({locShowSpinnercatalog:true});
-        Set(varUser,false);
-        Set(varMngr,false);
-        Set(varAdmin,false);
-        Reset(userdrp_down_22);
+            );
+            UpdateContext({varMenuVisible: false}),
+            UpdateContext({varreimbursement: false}),
+            UpdateContext({varmanagecourse: false}),
+            UpdateContext({locShowSpinnercatalog: true}),
+            Set(
+                varUser,
+                false
+            ),
+            Set(
+                varMngr,
+                false
+            ),
+            Set(
+                varAdmin,
+                false
+            ),
+            Reset(userdrp_down_22)
+        )
 
     Container1_15 As groupContainer.verticalAutoLayoutContainer:
         Height: =Parent.Height
