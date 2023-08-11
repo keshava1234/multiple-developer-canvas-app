@@ -3187,12 +3187,10 @@
             OnSelect: |-
                 =If(
                     !vardetails.Admin_Approval,
-                    Patch(
+                    UpdateIf(
                         CertificationRequest,
-                        LookUp(
-                            CertificationRequest,
                             ID = vardetails.ID
-                        ),
+                        ,
                         {Admin_Approval: true}
                     );
                     Notify(
