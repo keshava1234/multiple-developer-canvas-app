@@ -1516,11 +1516,11 @@
                                                     BU: {
                                                         '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
                                                         Id: LookUp(
-                                                            'BU-List',
+                                                            BUList,
                                                             Code = Office365Users.MyProfile().Department
                                                         ).ID,
                                                         Value: LookUp(
-                                                            'BU-List',
+                                                            BUList,
                                                             Code = Office365Users.MyProfile().Department
                                                         ).Code
                                                     }
@@ -1922,11 +1922,11 @@
                                                         BU: {
                                                             '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
                                                             Id: LookUp(
-                                                                'BU-List',
+                                                                BUList,
                                                                 Code = Office365Users.MyProfile().Department
                                                             ).ID,
                                                             Value: LookUp(
-                                                                'BU-List',
+                                                                BUList,
                                                                 Code = Office365Users.MyProfile().Department
                                                             ).Code
                                                         }

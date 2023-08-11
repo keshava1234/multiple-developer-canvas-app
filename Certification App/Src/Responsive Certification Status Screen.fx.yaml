@@ -1,12 +1,23 @@
 "'Responsive Certification Status Screen' As screen":
     OnVisible: |-
-        =UpdateContext({varMenuVisible:false});
-        UpdateContext({varreimbursement:false});
-        UpdateContext({varmanagecourse:false});
+        =Concurrent(
+            UpdateContext({varMenuVisible: false}),
+            UpdateContext({varreimbursement: false}),
+            UpdateContext({varmanagecourse: false}),
         //UpdateContext({locShowSpinnercatalog:true});
-        Set(varUser,false);
-        Set(varMngr,false);
-        Set(varAdmin,false)
+            Set(
+                varUser,
+                false
+            ),
+            Set(
+                varMngr,
+                false
+            ),
+            Set(
+                varAdmin,
+                false
+            )
+        )
 
     Container1_12 As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(255, 255, 255, 1)
@@ -4709,12 +4720,9 @@
                 Height: =28
                 Icon: =Icon.Reload
                 OnSelect: |-
-                    =Patch(
+                    =UpdateIf(
                         CertificationOrder,
-                        LookUp(
-                            CertificationOrder,
-                            ID = varCertificateStatus.ID
-                        ),
+                            ID = varCertificateStatus.ID,
                         {Status: "Manager Approved"}
                     );
                     Notify("Reload Successfully", NotificationType.Success,1700);
@@ -5998,16 +6006,17 @@
             Color: =RGBA(128, 128, 128, 1)
             Height: =25
             Icon: =Icon.Reload
-            OnSelect: |-
-                =Patch(
+            OnSelect: |
+                =UpdateIf(
                     CertificationOrder,
-                    LookUp(
-                        CertificationOrder,
-                        ID = varCertificateStatus.ID
-                    ),
+                    ID = varCertificateStatus.ID,
                     {Status: "Manager Approved"}
                 );
-                Notify("Reload Successfully", NotificationType.Success,1700);
+                Notify(
+                    "Reload Successfully",
+                    NotificationType.Success,
+                    1700
+                );
             Tooltip: ="RELOAD"
             Visible: =Attachpopup
             Width: =30
