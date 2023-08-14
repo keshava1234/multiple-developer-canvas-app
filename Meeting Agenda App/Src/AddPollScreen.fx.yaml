@@ -405,6 +405,7 @@ AddPollScreen As screen:
             Clear(arrQuestions);
             Clear(arrQuestionOptions);
             Clear(CountCollection);
+            Clear(DisaButton);
             Set(
                 DisableButton,
                 false
