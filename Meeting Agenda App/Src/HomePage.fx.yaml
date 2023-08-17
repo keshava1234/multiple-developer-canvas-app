@@ -1569,7 +1569,7 @@ HomePage As screen:
                 Height: =14
                 OnSelect: =Select(Parent)
                 Size: =12
-                Text: |-
+                Text: |+
                     =/*CountRows(
                         Filter(
                             MeetingAgendaLists,
@@ -1598,6 +1598,8 @@ HomePage As screen:
                             Id = ThisItem.Id
                         ).OptionalAttendees
                     )*/
+                    
+                    
                 Width: =90
                 X: =200
                 Y: =117
