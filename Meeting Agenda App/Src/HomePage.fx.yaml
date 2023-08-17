@@ -988,7 +988,19 @@ HomePage As screen:
                 )
             Font: =Font.Lato
             Height: =132
-            OnSelect: =Select(Parent)
+            OnSelect: |-
+                =Select(Parent)
+                /*Set(
+                    SelectedMeeting,
+                    ThisItem
+                );
+                Set(
+                    variCalUID,
+                    GetCalenderIDForMeeting.Run(
+                        MyCalendarID,
+                        SelectedMeeting.Id
+                    )
+                );*/
             Text: =""
             Width: =530
             X: =3
