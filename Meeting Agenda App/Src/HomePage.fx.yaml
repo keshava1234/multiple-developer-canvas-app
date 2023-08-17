@@ -1610,11 +1610,11 @@ HomePage As screen:
                         ).OptionalAttendees
                     )*/
                     CountRows(
-                        First(
-                            Filter(
+                        
+                            First(Filter(
                                 MeetingList,
                             //MeetingID = variCalUID.icaluid && ThisItem.IsSelected
-                            Title = ThisItem.Subject
+                         Title=ThisItem.Subject
                             )
                         ).'{Attachments}'
                     )
@@ -2491,7 +2491,16 @@ HomePage As screen:
                             MeetingID = ThisItem.id
                         )).'{Attachments}'
                     )*/
-                    "0"
+                    //"0"
+                    CountRows(
+                        
+                            First(Filter(
+                                MeetingList,
+                            //MeetingID = variCalUID.icaluid && ThisItem.IsSelected
+                         Title=ThisItem.Subject
+                            )
+                        ).'{Attachments}'
+                    )
                     
                 Width: =90
                 X: =200
