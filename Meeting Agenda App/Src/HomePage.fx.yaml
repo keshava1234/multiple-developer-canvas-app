@@ -1569,7 +1569,7 @@ HomePage As screen:
                 Height: =14
                 OnSelect: =Select(Parent)
                 Size: =12
-                Text: |
+                Text: |-
                     =/*CountRows(
                         Filter(
                             MeetingAgendaLists,
@@ -1583,7 +1583,7 @@ HomePage As screen:
                             MeetingID = variCalUID.icaluid
                         )).'{Attachments}'
                     )*/
-                    "0"
+                    //"0"
                     /*CountRows(
                         Filter(
                             AllFutureEvents,
@@ -2669,6 +2669,7 @@ HomePage As screen:
         ZIndex: =52
 
     lbl_UpcomingMessage As label:
+        Font: =Font.Lato
         Height: =55
         Text: ="There is no view based agenda Meetings"
         Visible: |-
