@@ -117,8 +117,8 @@ EmailScreen As screen:
                     Reset(EmailSubject);
                     Reset(EmailMessage);
                     Reset(AAAttachmentcontrol_2)
-                )
-                //Navigate(ConfirmScreen, None)
+                );
+                Navigate('MeetingDetails Screen',ScreenTransition.None)
             PressedBorderColor: =SendEmail.Fill
             PressedColor: =SendEmail.Fill
             PressedFill: =SendEmail.Color
