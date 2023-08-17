@@ -1602,7 +1602,6 @@ HomePage As screen:
                             Id = ThisItem.Id
                         ).RequiredAttendees
                     ) 
-                    
                     + 
                     CountRows(
                         Filter(
@@ -1610,11 +1609,14 @@ HomePage As screen:
                             Id = ThisItem.Id
                         ).OptionalAttendees
                     )*/
-                    CountRows(First(Filter(
-                            MeetingList,
+                    CountRows(
+                        First(
+                            Filter(
+                                MeetingList,
                             //MeetingID = variCalUID.icaluid && ThisItem.IsSelected
-                            Title=ThisItem.Subject
-                        )).'{Attachments}'
+                            Title = ThisItem.Subject
+                            )
+                        ).'{Attachments}'
                     )
                 Width: =90
                 X: =200
