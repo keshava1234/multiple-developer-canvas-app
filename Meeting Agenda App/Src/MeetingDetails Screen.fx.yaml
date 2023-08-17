@@ -149,7 +149,27 @@
             HoverColor: =ColorFade(MailAllIcon_2.Color, 20%)
             HoverFill: =MailAllIcon_2.Fill
             Icon: =Icon.Add
-            OnSelect: =Set(varShowPopUp,true)
+            OnSelect: |
+                =/*Set(varShowPopUp,true)*/
+                Set(
+                    varShowUpdateMeeting,
+                    true
+                );
+                //Set(vardropdown,LookUp(MeetingList,MeetingID=SelectedMeeting.Id).AllowAttendeesToCreateAgenda);
+                Set(
+                    varradio1,
+                    LookUp(
+                        MeetingList,
+                        MeetingID = variCalUID.icaluid
+                    ).AllowAttendeesToCreateAgenda
+                );
+                Set(
+                    vartoggle,
+                    LookUp(
+                        MeetingList,
+                        MeetingID = variCalUID.icaluid
+                    ).RequiredAgendaApproval
+                );
             PaddingBottom: =4
             PaddingLeft: =4
             PaddingRight: =4
@@ -159,6 +179,8 @@
             PressedFill: =MailAllIcon_2.Fill
             TabIndex: =0
             Tooltip: ="Add Attendees"
+            Visible: |
+                =If(VarUserEmail=varOrganizerName,true,false)
             Width: =26
             X: =389
             Y: =125
