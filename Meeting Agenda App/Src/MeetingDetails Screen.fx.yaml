@@ -6311,7 +6311,7 @@
                         Question_x003a__x0020_MeetingID.Value = variCalUID.icaluid
                     )
                 );
-                If(
+                /*If(
                     IsBlank('Gallery_ for question'),
                     Set(
                         varNoPollscreated,
@@ -6321,7 +6321,7 @@
                         varNoPollscreated,
                         false
                     )
-                );
+                );*/
                 
                 If(User().FullName in varmeetingattendee.Title,Notify("You have already submitted Poll",NotificationType.Error, 0),Navigate(ViewPollScreen))
             TabIndex: =0
