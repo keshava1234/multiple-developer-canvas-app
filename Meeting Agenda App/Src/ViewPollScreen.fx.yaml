@@ -1,6 +1,18 @@
 ViewPollScreen As screen:
     Fill: =RGBA(241, 244, 249, 1)
-    OnVisible: =//ClearCollect(ColQuestionOptions,QuestionOptions)
+    OnVisible: |-
+        =//ClearCollect(ColQuestionOptions,QuestionOptions)
+        If(
+            'Gallery_ for question'.AllItemsCount=0,
+            Set(
+                varNoPollscreated,
+                true
+            ),
+            Set(
+                varNoPollscreated,
+                false
+            )
+        )
 
     "'Button_Submit poll' As button":
         Fill: =RGBA(56, 86, 153, 1)
@@ -247,7 +259,8 @@ ViewPollScreen As screen:
         FontWeight: =FontWeight.Semibold
         Height: =67
         Text: ="No Polls created yet"
-        Visible: =varNoPollscreated
+        Visible: |
+            =varNoPollscreated
         Width: =372
         X: =211
         Y: =336
