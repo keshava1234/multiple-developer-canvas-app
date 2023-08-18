@@ -1382,7 +1382,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "DiscardConfirm2",
-      "ParentIndex": 3,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -2644,7 +2644,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "SaveConfirm2",
-      "ParentIndex": 4,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
