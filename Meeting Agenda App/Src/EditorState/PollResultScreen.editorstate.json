@@ -3207,7 +3207,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Question_Column1",
-      "ParentIndex": 1,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -3419,7 +3419,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Title_Column3",
-      "ParentIndex": 0,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
