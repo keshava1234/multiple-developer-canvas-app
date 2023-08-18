@@ -1383,7 +1383,7 @@
             Size: =12
             TabIndex: =0
             Text: ="Planner Tasks"
-            Width: =140
+            Width: =120
             X: =529
             Y: =124
             ZIndex: =31
@@ -1396,7 +1396,7 @@
             OnSelect: =true
             Text: =""
             Width: =120
-            X: =532
+            X: =529
             Y: =152
             ZIndex: =33
 
@@ -4458,7 +4458,7 @@
             Text: =""
             Visible: =varMeetingDetails
             Width: =150
-            X: =446
+            X: =443
             Y: =487
             ZIndex: =8
 
@@ -4485,7 +4485,7 @@
             Text: =""
             Visible: =!varMeetingDetails
             Width: =80
-            X: =601
+            X: =598
             Y: =485
             ZIndex: =10
 
@@ -6322,6 +6322,7 @@
                         false
                     )
                 );
+                
                 If(User().FullName in varmeetingattendee.Title,Notify("You have already submitted Poll",NotificationType.Error, 0),Navigate(ViewPollScreen))
             TabIndex: =0
             Visible: =If(!(varOrganizerName=VarUserEmail),true,false)
