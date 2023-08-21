@@ -10,7 +10,6 @@ App As appinfo:
                 255
             )
         );*/
-        Set(TimerValue, Timer4.Value + 1);
         Set(
             varAgendaTab,
             true

@@ -12066,36 +12066,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "App.TimerValue"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.TimerValue",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TimerValue",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedVariables",
-          "ruleIndex": 4
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "'MeetingDetails Screen'"
                 }
               ],
