@@ -22,10 +22,10 @@
     Timer4 As timer:
         AutoPause: =false
         AutoStart: =true
-        Duration: =5000
+        Duration: =10000
         OnTimerEnd: |-
             =If(
-                Timer4.Value = 5000,
+                Timer4.Value = 10000,
                 Navigate(HomePage),
                 Reset(Timer4)
             )
