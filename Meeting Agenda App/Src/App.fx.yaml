@@ -10,6 +10,7 @@ App As appinfo:
                 255
             )
         );*/
+        Set(TimerValue, Timer4.Value + 1);
         Set(
             varAgendaTab,
             true
@@ -523,7 +524,7 @@ App As appinfo:
                 SubTitleFontSize: arrUiparamList.SubtitleFontSize
             }
         );*/
-    StartScreen: =HomePage
+    StartScreen: ='Splash Screen'
     Theme: =PowerAppsTheme
 
     Host As hostControl.DefaultHostControlVariant:

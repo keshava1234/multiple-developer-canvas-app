@@ -1,0 +1,39 @@
+"'Splash Screen' As screen":
+    BackgroundImage: ='Splash Screen – Without Button_Meeting Agenda App'
+    OnVisible: |-
+        =Set(
+            TimerValue,
+            0
+        )
+
+    "'Start Button' As button":
+        BorderThickness: =0
+        Color: =RGBA(9, 33, 98, 1)
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =37
+        OnSelect: =Navigate(HomePage)
+        PressedFill: =Self.Fill
+        Text: ="Start"
+        Width: =124
+        X: =81
+        Y: =483
+        ZIndex: =1
+
+    Timer4 As timer:
+        AutoPause: =false
+        AutoStart: =true
+        Duration: =5000
+        OnTimerEnd: |-
+            =If(
+                Timer4.Value = 5000,
+                Navigate(HomePage),
+                Reset(Timer4)
+            )
+        Repeat: =true
+        Reset: =true
+        Start: =true
+        Visible: =false
+        X: =534
+        Y: =48
+        ZIndex: =2
+
