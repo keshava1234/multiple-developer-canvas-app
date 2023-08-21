@@ -44702,7 +44702,7 @@
                 },
                 "region": {
                   "charLength": 1,
-                  "charOffset": 654,
+                  "charOffset": 620,
                   "snippet": {
                     "text": "="
                   }
@@ -50523,216 +50523,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container4_8.Container13_15.Image12_15.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container4_8.Container13_15.Image12_15.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "Responsive Certification Status Screen",
-                "type": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container4_8.Container13_15.Image12_15"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 1
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container4_8.Container13_15.Icon32_15.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container4_8.Container13_15.Icon32_15.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "Responsive Certification Status Screen",
-                "type": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container4_8.Container13_15.Icon32_15"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 1
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container4_8.Container13_15.NewCertificationRequest_79.FocusedBorderThickness"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container4_8.Container13_15.NewCertificationRequest_79.FocusedBorderThickness",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "FocusedBorderThickness",
-                "module": "Responsive Certification Status Screen",
-                "type": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container4_8.Container13_15.NewCertificationRequest_79"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-FocusBorderShouldBeVisible",
-          "ruleIndex": 2
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container4_8.Container13_15.NewCertificationRequest_81.FocusedBorderThickness"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container4_8.Container13_15.NewCertificationRequest_81.FocusedBorderThickness",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "FocusedBorderThickness",
-                "module": "Responsive Certification Status Screen",
-                "type": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container4_8.Container13_15.NewCertificationRequest_81"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-FocusBorderShouldBeVisible",
-          "ruleIndex": 2
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container4_8.Container13_15.NewCertificationRequest_82.FocusedBorderThickness"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container4_8.Container13_15.NewCertificationRequest_82.FocusedBorderThickness",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "FocusedBorderThickness",
-                "module": "Responsive Certification Status Screen",
-                "type": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container4_8.Container13_15.NewCertificationRequest_82"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-FocusBorderShouldBeVisible",
-          "ruleIndex": 2
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container4_8.Container13_15.AdminDashboard_21.FocusedBorderThickness"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container4_8.Container13_15.AdminDashboard_21.FocusedBorderThickness",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "FocusedBorderThickness",
-                "module": "Responsive Certification Status Screen",
-                "type": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container4_8.Container13_15.AdminDashboard_21"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-FocusBorderShouldBeVisible",
-          "ruleIndex": 2
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container4_8.Container13_15.NewCertificationRequest_80.FocusedBorderThickness"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container4_8.Container13_15.NewCertificationRequest_80.FocusedBorderThickness",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "FocusedBorderThickness",
-                "module": "Responsive Certification Status Screen",
-                "type": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container4_8.Container13_15.NewCertificationRequest_80"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-FocusBorderShouldBeVisible",
-          "ruleIndex": 2
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container4_8.Container13_15.AdminDashboard_71.FocusedBorderThickness"
                 }
               ],
@@ -50943,6 +50733,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container4_8.Container13_15.AdminDashboard_21.FocusedBorderThickness"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container4_8.Container13_15.AdminDashboard_21.FocusedBorderThickness",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "FocusedBorderThickness",
+                "module": "Responsive Certification Status Screen",
+                "type": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container4_8.Container13_15.AdminDashboard_21"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container4_8.Container13_15.Icon22_15.TabIndex"
                 }
               ],
@@ -50997,6 +50817,66 @@
           },
           "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
           "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container4_8.Container13_15.Icon32_15.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container4_8.Container13_15.Icon32_15.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "Responsive Certification Status Screen",
+                "type": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container4_8.Container13_15.Icon32_15"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container4_8.Container13_15.NewCertificationRequest_79.FocusedBorderThickness"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container4_8.Container13_15.NewCertificationRequest_79.FocusedBorderThickness",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "FocusedBorderThickness",
+                "module": "Responsive Certification Status Screen",
+                "type": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container4_8.Container13_15.NewCertificationRequest_79"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 2
         },
         {
           "locations": [
@@ -51123,6 +51003,96 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container4_8.Container13_15.NewCertificationRequest_80.FocusedBorderThickness"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container4_8.Container13_15.NewCertificationRequest_80.FocusedBorderThickness",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "FocusedBorderThickness",
+                "module": "Responsive Certification Status Screen",
+                "type": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container4_8.Container13_15.NewCertificationRequest_80"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container4_8.Container13_15.Image12_15.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container4_8.Container13_15.Image12_15.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "Responsive Certification Status Screen",
+                "type": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container4_8.Container13_15.Image12_15"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container4_8.Container13_15.NewCertificationRequest_81.FocusedBorderThickness"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container4_8.Container13_15.NewCertificationRequest_81.FocusedBorderThickness",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "FocusedBorderThickness",
+                "module": "Responsive Certification Status Screen",
+                "type": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container4_8.Container13_15.NewCertificationRequest_81"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container4_8.Container13_15.DownloadForm_50.FocusedBorderThickness"
                 }
               ],
@@ -51136,6 +51106,36 @@
                 "member": "FocusedBorderThickness",
                 "module": "Responsive Certification Status Screen",
                 "type": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container4_8.Container13_15.DownloadForm_50"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container4_8.Container13_15.NewCertificationRequest_82.FocusedBorderThickness"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container4_8.Container13_15.NewCertificationRequest_82.FocusedBorderThickness",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "FocusedBorderThickness",
+                "module": "Responsive Certification Status Screen",
+                "type": "'Responsive Certification Status Screen'.Container1_12.Container3_8.Container4_8.Container13_15.NewCertificationRequest_82"
               }
             }
           ],
@@ -51903,66 +51903,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container13_40.Image12_41.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container13_40.Image12_41.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "Responsive Certification Status Screen",
-                "type": "'Responsive Certification Status Screen'.Container13_40.Image12_41"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 1
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container13_40.Icon32_39.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container13_40.Icon32_39.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "Responsive Certification Status Screen",
-                "type": "'Responsive Certification Status Screen'.Container13_40.Icon32_39"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 1
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "'Responsive Certification Status Screen'.Container13_40.Icon11_39.TabIndex"
                 }
               ],
@@ -52113,6 +52053,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container13_40.Icon32_39.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container13_40.Icon32_39.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "Responsive Certification Status Screen",
+                "type": "'Responsive Certification Status Screen'.Container13_40.Icon32_39"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "'Responsive Certification Status Screen'.Container13_40.Icon23_39.TabIndex"
                 }
               ],
@@ -52126,6 +52096,36 @@
                 "member": "TabIndex",
                 "module": "Responsive Certification Status Screen",
                 "type": "'Responsive Certification Status Screen'.Container13_40.Icon23_39"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container13_40.Image12_41.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Certification Status Screen'.Container13_40.Image12_41.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "Responsive Certification Status Screen",
+                "type": "'Responsive Certification Status Screen'.Container13_40.Image12_41"
               }
             }
           ],
@@ -61203,126 +61203,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Responsive Mylearning Screen'.Container1.Container3.Container5.Container9.Container12.Container14_1.Gallery4.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Responsive Mylearning Screen'.Container1.Container3.Container5.Container9.Container12.Container14_1.Gallery4.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "Responsive Mylearning Screen",
-                "type": "'Responsive Mylearning Screen'.Container1.Container3.Container5.Container9.Container12.Container14_1.Gallery4"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 3
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Responsive Mylearning Screen'.Container1.Container3.Container5.Container9.Container12.Container14_1.Gallery4.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Responsive Mylearning Screen'.Container1.Container3.Container5.Container9.Container12.Container14_1.Gallery4.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "Responsive Mylearning Screen",
-                "type": "'Responsive Mylearning Screen'.Container1.Container3.Container5.Container9.Container12.Container14_1.Gallery4"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 1
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Responsive Mylearning Screen'.Container1.Container3.Container5.Container9.Container12.Container14_1.Gallery4.Icon37.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Responsive Mylearning Screen'.Container1.Container3.Container5.Container9.Container12.Container14_1.Gallery4.Icon37.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "Responsive Mylearning Screen",
-                "type": "'Responsive Mylearning Screen'.Container1.Container3.Container5.Container9.Container12.Container14_1.Gallery4.Icon37"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 3
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Responsive Mylearning Screen'.Container1.Container3.Container5.Container9.Container12.Container14_1.Gallery4.Icon37.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Responsive Mylearning Screen'.Container1.Container3.Container5.Container9.Container12.Container14_1.Gallery4.Icon37.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "Responsive Mylearning Screen",
-                "type": "'Responsive Mylearning Screen'.Container1.Container3.Container5.Container9.Container12.Container14_1.Gallery4.Icon37"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 1
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "'Responsive Mylearning Screen'.Container1.Container3.Container5.Container9.Container12.Container14_1.galMyCertifications.AccessibleLabel"
                 }
               ],
@@ -61486,6 +61366,126 @@
                 "member": "TabIndex",
                 "module": "Responsive Mylearning Screen",
                 "type": "'Responsive Mylearning Screen'.Container1.Container3.Container5.Container9.Container12.Container14_1.galMyCertifications.Icon15_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Responsive Mylearning Screen'.Container1.Container3.Container5.Container9.Container12.Container14_1.Gallery4.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Mylearning Screen'.Container1.Container3.Container5.Container9.Container12.Container14_1.Gallery4.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Responsive Mylearning Screen",
+                "type": "'Responsive Mylearning Screen'.Container1.Container3.Container5.Container9.Container12.Container14_1.Gallery4"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Responsive Mylearning Screen'.Container1.Container3.Container5.Container9.Container12.Container14_1.Gallery4.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Mylearning Screen'.Container1.Container3.Container5.Container9.Container12.Container14_1.Gallery4.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "Responsive Mylearning Screen",
+                "type": "'Responsive Mylearning Screen'.Container1.Container3.Container5.Container9.Container12.Container14_1.Gallery4"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Responsive Mylearning Screen'.Container1.Container3.Container5.Container9.Container12.Container14_1.Gallery4.Icon37.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Mylearning Screen'.Container1.Container3.Container5.Container9.Container12.Container14_1.Gallery4.Icon37.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Responsive Mylearning Screen",
+                "type": "'Responsive Mylearning Screen'.Container1.Container3.Container5.Container9.Container12.Container14_1.Gallery4.Icon37"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Responsive Mylearning Screen'.Container1.Container3.Container5.Container9.Container12.Container14_1.Gallery4.Icon37.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Responsive Mylearning Screen'.Container1.Container3.Container5.Container9.Container12.Container14_1.Gallery4.Icon37.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "Responsive Mylearning Screen",
+                "type": "'Responsive Mylearning Screen'.Container1.Container3.Container5.Container9.Container12.Container14_1.Gallery4.Icon37"
               }
             }
           ],
@@ -71973,276 +71973,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Admin BU-Wise-Records'.Container1_17.Container3_13.Container4_13.Container13_25.Image12_25.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Admin BU-Wise-Records'.Container1_17.Container3_13.Container4_13.Container13_25.Image12_25.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "Admin BU-Wise-Records",
-                "type": "'Admin BU-Wise-Records'.Container1_17.Container3_13.Container4_13.Container13_25.Image12_25"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 3
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Admin BU-Wise-Records'.Container1_17.Container3_13.Container4_13.Container13_25.Image12_25.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Admin BU-Wise-Records'.Container1_17.Container3_13.Container4_13.Container13_25.Image12_25.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "Admin BU-Wise-Records",
-                "type": "'Admin BU-Wise-Records'.Container1_17.Container3_13.Container4_13.Container13_25.Image12_25"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 1
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Admin BU-Wise-Records'.Container1_17.Container3_13.Container4_13.Container13_25.Icon32_25.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Admin BU-Wise-Records'.Container1_17.Container3_13.Container4_13.Container13_25.Icon32_25.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "Admin BU-Wise-Records",
-                "type": "'Admin BU-Wise-Records'.Container1_17.Container3_13.Container4_13.Container13_25.Icon32_25"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 3
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Admin BU-Wise-Records'.Container1_17.Container3_13.Container4_13.Container13_25.Icon32_25.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Admin BU-Wise-Records'.Container1_17.Container3_13.Container4_13.Container13_25.Icon32_25.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "Admin BU-Wise-Records",
-                "type": "'Admin BU-Wise-Records'.Container1_17.Container3_13.Container4_13.Container13_25.Icon32_25"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 1
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Admin BU-Wise-Records'.Container1_17.Container3_13.Container4_13.Container13_25.NewCertificationRequest_129.FocusedBorderThickness"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Admin BU-Wise-Records'.Container1_17.Container3_13.Container4_13.Container13_25.NewCertificationRequest_129.FocusedBorderThickness",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "FocusedBorderThickness",
-                "module": "Admin BU-Wise-Records",
-                "type": "'Admin BU-Wise-Records'.Container1_17.Container3_13.Container4_13.Container13_25.NewCertificationRequest_129"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-FocusBorderShouldBeVisible",
-          "ruleIndex": 2
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Admin BU-Wise-Records'.Container1_17.Container3_13.Container4_13.Container13_25.NewCertificationRequest_131.FocusedBorderThickness"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Admin BU-Wise-Records'.Container1_17.Container3_13.Container4_13.Container13_25.NewCertificationRequest_131.FocusedBorderThickness",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "FocusedBorderThickness",
-                "module": "Admin BU-Wise-Records",
-                "type": "'Admin BU-Wise-Records'.Container1_17.Container3_13.Container4_13.Container13_25.NewCertificationRequest_131"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-FocusBorderShouldBeVisible",
-          "ruleIndex": 2
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Admin BU-Wise-Records'.Container1_17.Container3_13.Container4_13.Container13_25.NewCertificationRequest_132.FocusedBorderThickness"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Admin BU-Wise-Records'.Container1_17.Container3_13.Container4_13.Container13_25.NewCertificationRequest_132.FocusedBorderThickness",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "FocusedBorderThickness",
-                "module": "Admin BU-Wise-Records",
-                "type": "'Admin BU-Wise-Records'.Container1_17.Container3_13.Container4_13.Container13_25.NewCertificationRequest_132"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-FocusBorderShouldBeVisible",
-          "ruleIndex": 2
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Admin BU-Wise-Records'.Container1_17.Container3_13.Container4_13.Container13_25.AdminDashboard_108.FocusedBorderThickness"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Admin BU-Wise-Records'.Container1_17.Container3_13.Container4_13.Container13_25.AdminDashboard_108.FocusedBorderThickness",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "FocusedBorderThickness",
-                "module": "Admin BU-Wise-Records",
-                "type": "'Admin BU-Wise-Records'.Container1_17.Container3_13.Container4_13.Container13_25.AdminDashboard_108"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-FocusBorderShouldBeVisible",
-          "ruleIndex": 2
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Admin BU-Wise-Records'.Container1_17.Container3_13.Container4_13.Container13_25.NewCertificationRequest_130.FocusedBorderThickness"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Admin BU-Wise-Records'.Container1_17.Container3_13.Container4_13.Container13_25.NewCertificationRequest_130.FocusedBorderThickness",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "FocusedBorderThickness",
-                "module": "Admin BU-Wise-Records",
-                "type": "'Admin BU-Wise-Records'.Container1_17.Container3_13.Container4_13.Container13_25.NewCertificationRequest_130"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-FocusBorderShouldBeVisible",
-          "ruleIndex": 2
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "'Admin BU-Wise-Records'.Container1_17.Container3_13.Container4_13.Container13_25.AdminDashboard_106.FocusedBorderThickness"
                 }
               ],
@@ -72543,6 +72273,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "'Admin BU-Wise-Records'.Container1_17.Container3_13.Container4_13.Container13_25.AdminDashboard_108.FocusedBorderThickness"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Admin BU-Wise-Records'.Container1_17.Container3_13.Container4_13.Container13_25.AdminDashboard_108.FocusedBorderThickness",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "FocusedBorderThickness",
+                "module": "Admin BU-Wise-Records",
+                "type": "'Admin BU-Wise-Records'.Container1_17.Container3_13.Container4_13.Container13_25.AdminDashboard_108"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "'Admin BU-Wise-Records'.Container1_17.Container3_13.Container4_13.Container13_25.Icon22_25.AccessibleLabel"
                 }
               ],
@@ -72657,6 +72417,96 @@
           },
           "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
           "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Admin BU-Wise-Records'.Container1_17.Container3_13.Container4_13.Container13_25.Icon32_25.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Admin BU-Wise-Records'.Container1_17.Container3_13.Container4_13.Container13_25.Icon32_25.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Admin BU-Wise-Records",
+                "type": "'Admin BU-Wise-Records'.Container1_17.Container3_13.Container4_13.Container13_25.Icon32_25"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Admin BU-Wise-Records'.Container1_17.Container3_13.Container4_13.Container13_25.Icon32_25.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Admin BU-Wise-Records'.Container1_17.Container3_13.Container4_13.Container13_25.Icon32_25.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "Admin BU-Wise-Records",
+                "type": "'Admin BU-Wise-Records'.Container1_17.Container3_13.Container4_13.Container13_25.Icon32_25"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Admin BU-Wise-Records'.Container1_17.Container3_13.Container4_13.Container13_25.NewCertificationRequest_129.FocusedBorderThickness"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Admin BU-Wise-Records'.Container1_17.Container3_13.Container4_13.Container13_25.NewCertificationRequest_129.FocusedBorderThickness",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "FocusedBorderThickness",
+                "module": "Admin BU-Wise-Records",
+                "type": "'Admin BU-Wise-Records'.Container1_17.Container3_13.Container4_13.Container13_25.NewCertificationRequest_129"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 2
         },
         {
           "locations": [
@@ -72813,6 +72663,126 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "'Admin BU-Wise-Records'.Container1_17.Container3_13.Container4_13.Container13_25.NewCertificationRequest_130.FocusedBorderThickness"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Admin BU-Wise-Records'.Container1_17.Container3_13.Container4_13.Container13_25.NewCertificationRequest_130.FocusedBorderThickness",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "FocusedBorderThickness",
+                "module": "Admin BU-Wise-Records",
+                "type": "'Admin BU-Wise-Records'.Container1_17.Container3_13.Container4_13.Container13_25.NewCertificationRequest_130"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Admin BU-Wise-Records'.Container1_17.Container3_13.Container4_13.Container13_25.Image12_25.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Admin BU-Wise-Records'.Container1_17.Container3_13.Container4_13.Container13_25.Image12_25.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Admin BU-Wise-Records",
+                "type": "'Admin BU-Wise-Records'.Container1_17.Container3_13.Container4_13.Container13_25.Image12_25"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Admin BU-Wise-Records'.Container1_17.Container3_13.Container4_13.Container13_25.Image12_25.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Admin BU-Wise-Records'.Container1_17.Container3_13.Container4_13.Container13_25.Image12_25.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "Admin BU-Wise-Records",
+                "type": "'Admin BU-Wise-Records'.Container1_17.Container3_13.Container4_13.Container13_25.Image12_25"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Admin BU-Wise-Records'.Container1_17.Container3_13.Container4_13.Container13_25.NewCertificationRequest_131.FocusedBorderThickness"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Admin BU-Wise-Records'.Container1_17.Container3_13.Container4_13.Container13_25.NewCertificationRequest_131.FocusedBorderThickness",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "FocusedBorderThickness",
+                "module": "Admin BU-Wise-Records",
+                "type": "'Admin BU-Wise-Records'.Container1_17.Container3_13.Container4_13.Container13_25.NewCertificationRequest_131"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "'Admin BU-Wise-Records'.Container1_17.Container3_13.Container4_13.Container13_25.DownloadForm_80.FocusedBorderThickness"
                 }
               ],
@@ -72826,6 +72796,36 @@
                 "member": "FocusedBorderThickness",
                 "module": "Admin BU-Wise-Records",
                 "type": "'Admin BU-Wise-Records'.Container1_17.Container3_13.Container4_13.Container13_25.DownloadForm_80"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Admin BU-Wise-Records'.Container1_17.Container3_13.Container4_13.Container13_25.NewCertificationRequest_132.FocusedBorderThickness"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Admin BU-Wise-Records'.Container1_17.Container3_13.Container4_13.Container13_25.NewCertificationRequest_132.FocusedBorderThickness",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "FocusedBorderThickness",
+                "module": "Admin BU-Wise-Records",
+                "type": "'Admin BU-Wise-Records'.Container1_17.Container3_13.Container4_13.Container13_25.NewCertificationRequest_132"
               }
             }
           ],
@@ -74193,126 +74193,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Admin BU-Wise-Records'.Container13_37.Image12_38.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Admin BU-Wise-Records'.Container13_37.Image12_38.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "Admin BU-Wise-Records",
-                "type": "'Admin BU-Wise-Records'.Container13_37.Image12_38"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 3
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Admin BU-Wise-Records'.Container13_37.Image12_38.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Admin BU-Wise-Records'.Container13_37.Image12_38.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "Admin BU-Wise-Records",
-                "type": "'Admin BU-Wise-Records'.Container13_37.Image12_38"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 1
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Admin BU-Wise-Records'.Container13_37.Icon32_36.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Admin BU-Wise-Records'.Container13_37.Icon32_36.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "Admin BU-Wise-Records",
-                "type": "'Admin BU-Wise-Records'.Container13_37.Icon32_36"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 3
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Admin BU-Wise-Records'.Container13_37.Icon32_36.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Admin BU-Wise-Records'.Container13_37.Icon32_36.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "Admin BU-Wise-Records",
-                "type": "'Admin BU-Wise-Records'.Container13_37.Icon32_36"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 1
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "'Admin BU-Wise-Records'.Container13_37.Icon11_36.AccessibleLabel"
                 }
               ],
@@ -74613,6 +74493,66 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "'Admin BU-Wise-Records'.Container13_37.Icon32_36.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Admin BU-Wise-Records'.Container13_37.Icon32_36.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Admin BU-Wise-Records",
+                "type": "'Admin BU-Wise-Records'.Container13_37.Icon32_36"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Admin BU-Wise-Records'.Container13_37.Icon32_36.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Admin BU-Wise-Records'.Container13_37.Icon32_36.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "Admin BU-Wise-Records",
+                "type": "'Admin BU-Wise-Records'.Container13_37.Icon32_36"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "'Admin BU-Wise-Records'.Container13_37.Icon23_36.AccessibleLabel"
                 }
               ],
@@ -74656,6 +74596,66 @@
                 "member": "TabIndex",
                 "module": "Admin BU-Wise-Records",
                 "type": "'Admin BU-Wise-Records'.Container13_37.Icon23_36"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Admin BU-Wise-Records'.Container13_37.Image12_38.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Admin BU-Wise-Records'.Container13_37.Image12_38.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Admin BU-Wise-Records",
+                "type": "'Admin BU-Wise-Records'.Container13_37.Image12_38"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Admin BU-Wise-Records'.Container13_37.Image12_38.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Admin BU-Wise-Records'.Container13_37.Image12_38.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "Admin BU-Wise-Records",
+                "type": "'Admin BU-Wise-Records'.Container13_37.Image12_38"
               }
             }
           ],
@@ -80343,336 +80343,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "AskQuestion_Admin.Container1_10.Container3_7.Container4_6.Container13_11.Image12_10.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "AskQuestion_Admin.Container1_10.Container3_7.Container4_6.Container13_11.Image12_10.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "AskQuestion_Admin",
-                "type": "AskQuestion_Admin.Container1_10.Container3_7.Container4_6.Container13_11.Image12_10"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 3
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "AskQuestion_Admin.Container1_10.Container3_7.Container4_6.Container13_11.Image12_10.FocusedBorderThickness"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "AskQuestion_Admin.Container1_10.Container3_7.Container4_6.Container13_11.Image12_10.FocusedBorderThickness",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "FocusedBorderThickness",
-                "module": "AskQuestion_Admin",
-                "type": "AskQuestion_Admin.Container1_10.Container3_7.Container4_6.Container13_11.Image12_10"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-FocusBorderShouldBeVisible",
-          "ruleIndex": 2
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "AskQuestion_Admin.Container1_10.Container3_7.Container4_6.Container13_11.Image12_10.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "AskQuestion_Admin.Container1_10.Container3_7.Container4_6.Container13_11.Image12_10.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "AskQuestion_Admin",
-                "type": "AskQuestion_Admin.Container1_10.Container3_7.Container4_6.Container13_11.Image12_10"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 1
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "AskQuestion_Admin.Container1_10.Container3_7.Container4_6.Container13_11.Icon32_11.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "AskQuestion_Admin.Container1_10.Container3_7.Container4_6.Container13_11.Icon32_11.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "AskQuestion_Admin",
-                "type": "AskQuestion_Admin.Container1_10.Container3_7.Container4_6.Container13_11.Icon32_11"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 3
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "AskQuestion_Admin.Container1_10.Container3_7.Container4_6.Container13_11.Icon32_11.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "AskQuestion_Admin.Container1_10.Container3_7.Container4_6.Container13_11.Icon32_11.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "AskQuestion_Admin",
-                "type": "AskQuestion_Admin.Container1_10.Container3_7.Container4_6.Container13_11.Icon32_11"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 1
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "AskQuestion_Admin.Container1_10.Container3_7.Container4_6.Container13_11.Icon32_11.FocusedBorderThickness"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "AskQuestion_Admin.Container1_10.Container3_7.Container4_6.Container13_11.Icon32_11.FocusedBorderThickness",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "FocusedBorderThickness",
-                "module": "AskQuestion_Admin",
-                "type": "AskQuestion_Admin.Container1_10.Container3_7.Container4_6.Container13_11.Icon32_11"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-FocusBorderShouldBeVisible",
-          "ruleIndex": 2
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "AskQuestion_Admin.Container1_10.Container3_7.Container4_6.Container13_11.NewCertificationRequest_59.FocusedBorderThickness"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "AskQuestion_Admin.Container1_10.Container3_7.Container4_6.Container13_11.NewCertificationRequest_59.FocusedBorderThickness",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "FocusedBorderThickness",
-                "module": "AskQuestion_Admin",
-                "type": "AskQuestion_Admin.Container1_10.Container3_7.Container4_6.Container13_11.NewCertificationRequest_59"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-FocusBorderShouldBeVisible",
-          "ruleIndex": 2
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "AskQuestion_Admin.Container1_10.Container3_7.Container4_6.Container13_11.NewCertificationRequest_61.FocusedBorderThickness"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "AskQuestion_Admin.Container1_10.Container3_7.Container4_6.Container13_11.NewCertificationRequest_61.FocusedBorderThickness",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "FocusedBorderThickness",
-                "module": "AskQuestion_Admin",
-                "type": "AskQuestion_Admin.Container1_10.Container3_7.Container4_6.Container13_11.NewCertificationRequest_61"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-FocusBorderShouldBeVisible",
-          "ruleIndex": 2
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "AskQuestion_Admin.Container1_10.Container3_7.Container4_6.Container13_11.NewCertificationRequest_62.FocusedBorderThickness"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "AskQuestion_Admin.Container1_10.Container3_7.Container4_6.Container13_11.NewCertificationRequest_62.FocusedBorderThickness",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "FocusedBorderThickness",
-                "module": "AskQuestion_Admin",
-                "type": "AskQuestion_Admin.Container1_10.Container3_7.Container4_6.Container13_11.NewCertificationRequest_62"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-FocusBorderShouldBeVisible",
-          "ruleIndex": 2
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "AskQuestion_Admin.Container1_10.Container3_7.Container4_6.Container13_11.AdminDashboard_17.FocusedBorderThickness"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "AskQuestion_Admin.Container1_10.Container3_7.Container4_6.Container13_11.AdminDashboard_17.FocusedBorderThickness",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "FocusedBorderThickness",
-                "module": "AskQuestion_Admin",
-                "type": "AskQuestion_Admin.Container1_10.Container3_7.Container4_6.Container13_11.AdminDashboard_17"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-FocusBorderShouldBeVisible",
-          "ruleIndex": 2
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "AskQuestion_Admin.Container1_10.Container3_7.Container4_6.Container13_11.NewCertificationRequest_60.FocusedBorderThickness"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "AskQuestion_Admin.Container1_10.Container3_7.Container4_6.Container13_11.NewCertificationRequest_60.FocusedBorderThickness",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "FocusedBorderThickness",
-                "module": "AskQuestion_Admin",
-                "type": "AskQuestion_Admin.Container1_10.Container3_7.Container4_6.Container13_11.NewCertificationRequest_60"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-FocusBorderShouldBeVisible",
-          "ruleIndex": 2
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "AskQuestion_Admin.Container1_10.Container3_7.Container4_6.Container13_11.AdminDashboard_60.FocusedBorderThickness"
                 }
               ],
@@ -81003,6 +80673,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "AskQuestion_Admin.Container1_10.Container3_7.Container4_6.Container13_11.AdminDashboard_17.FocusedBorderThickness"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "AskQuestion_Admin.Container1_10.Container3_7.Container4_6.Container13_11.AdminDashboard_17.FocusedBorderThickness",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "FocusedBorderThickness",
+                "module": "AskQuestion_Admin",
+                "type": "AskQuestion_Admin.Container1_10.Container3_7.Container4_6.Container13_11.AdminDashboard_17"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "AskQuestion_Admin.Container1_10.Container3_7.Container4_6.Container13_11.Icon22_11.AccessibleLabel"
                 }
               ],
@@ -81117,6 +80817,126 @@
           },
           "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
           "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "AskQuestion_Admin.Container1_10.Container3_7.Container4_6.Container13_11.Icon32_11.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "AskQuestion_Admin.Container1_10.Container3_7.Container4_6.Container13_11.Icon32_11.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "AskQuestion_Admin",
+                "type": "AskQuestion_Admin.Container1_10.Container3_7.Container4_6.Container13_11.Icon32_11"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "AskQuestion_Admin.Container1_10.Container3_7.Container4_6.Container13_11.Icon32_11.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "AskQuestion_Admin.Container1_10.Container3_7.Container4_6.Container13_11.Icon32_11.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "AskQuestion_Admin",
+                "type": "AskQuestion_Admin.Container1_10.Container3_7.Container4_6.Container13_11.Icon32_11"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "AskQuestion_Admin.Container1_10.Container3_7.Container4_6.Container13_11.Icon32_11.FocusedBorderThickness"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "AskQuestion_Admin.Container1_10.Container3_7.Container4_6.Container13_11.Icon32_11.FocusedBorderThickness",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "FocusedBorderThickness",
+                "module": "AskQuestion_Admin",
+                "type": "AskQuestion_Admin.Container1_10.Container3_7.Container4_6.Container13_11.Icon32_11"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "AskQuestion_Admin.Container1_10.Container3_7.Container4_6.Container13_11.NewCertificationRequest_59.FocusedBorderThickness"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "AskQuestion_Admin.Container1_10.Container3_7.Container4_6.Container13_11.NewCertificationRequest_59.FocusedBorderThickness",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "FocusedBorderThickness",
+                "module": "AskQuestion_Admin",
+                "type": "AskQuestion_Admin.Container1_10.Container3_7.Container4_6.Container13_11.NewCertificationRequest_59"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 2
         },
         {
           "locations": [
@@ -81273,6 +81093,156 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "AskQuestion_Admin.Container1_10.Container3_7.Container4_6.Container13_11.NewCertificationRequest_60.FocusedBorderThickness"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "AskQuestion_Admin.Container1_10.Container3_7.Container4_6.Container13_11.NewCertificationRequest_60.FocusedBorderThickness",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "FocusedBorderThickness",
+                "module": "AskQuestion_Admin",
+                "type": "AskQuestion_Admin.Container1_10.Container3_7.Container4_6.Container13_11.NewCertificationRequest_60"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "AskQuestion_Admin.Container1_10.Container3_7.Container4_6.Container13_11.Image12_10.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "AskQuestion_Admin.Container1_10.Container3_7.Container4_6.Container13_11.Image12_10.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "AskQuestion_Admin",
+                "type": "AskQuestion_Admin.Container1_10.Container3_7.Container4_6.Container13_11.Image12_10"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "AskQuestion_Admin.Container1_10.Container3_7.Container4_6.Container13_11.Image12_10.FocusedBorderThickness"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "AskQuestion_Admin.Container1_10.Container3_7.Container4_6.Container13_11.Image12_10.FocusedBorderThickness",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "FocusedBorderThickness",
+                "module": "AskQuestion_Admin",
+                "type": "AskQuestion_Admin.Container1_10.Container3_7.Container4_6.Container13_11.Image12_10"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "AskQuestion_Admin.Container1_10.Container3_7.Container4_6.Container13_11.Image12_10.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "AskQuestion_Admin.Container1_10.Container3_7.Container4_6.Container13_11.Image12_10.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "AskQuestion_Admin",
+                "type": "AskQuestion_Admin.Container1_10.Container3_7.Container4_6.Container13_11.Image12_10"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "AskQuestion_Admin.Container1_10.Container3_7.Container4_6.Container13_11.NewCertificationRequest_61.FocusedBorderThickness"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "AskQuestion_Admin.Container1_10.Container3_7.Container4_6.Container13_11.NewCertificationRequest_61.FocusedBorderThickness",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "FocusedBorderThickness",
+                "module": "AskQuestion_Admin",
+                "type": "AskQuestion_Admin.Container1_10.Container3_7.Container4_6.Container13_11.NewCertificationRequest_61"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "AskQuestion_Admin.Container1_10.Container3_7.Container4_6.Container13_11.DownloadForm_38.FocusedBorderThickness"
                 }
               ],
@@ -81286,6 +81256,36 @@
                 "member": "FocusedBorderThickness",
                 "module": "AskQuestion_Admin",
                 "type": "AskQuestion_Admin.Container1_10.Container3_7.Container4_6.Container13_11.DownloadForm_38"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "AskQuestion_Admin.Container1_10.Container3_7.Container4_6.Container13_11.NewCertificationRequest_62.FocusedBorderThickness"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "AskQuestion_Admin.Container1_10.Container3_7.Container4_6.Container13_11.NewCertificationRequest_62.FocusedBorderThickness",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "FocusedBorderThickness",
+                "module": "AskQuestion_Admin",
+                "type": "AskQuestion_Admin.Container1_10.Container3_7.Container4_6.Container13_11.NewCertificationRequest_62"
               }
             }
           ],
@@ -82263,126 +82263,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "AskQuestion_Admin.Container13_41.Image12_42.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "AskQuestion_Admin.Container13_41.Image12_42.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "AskQuestion_Admin",
-                "type": "AskQuestion_Admin.Container13_41.Image12_42"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 3
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "AskQuestion_Admin.Container13_41.Image12_42.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "AskQuestion_Admin.Container13_41.Image12_42.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "AskQuestion_Admin",
-                "type": "AskQuestion_Admin.Container13_41.Image12_42"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 1
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "AskQuestion_Admin.Container13_41.Icon32_40.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "AskQuestion_Admin.Container13_41.Icon32_40.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "AskQuestion_Admin",
-                "type": "AskQuestion_Admin.Container13_41.Icon32_40"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 3
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "AskQuestion_Admin.Container13_41.Icon32_40.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "AskQuestion_Admin.Container13_41.Icon32_40.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "AskQuestion_Admin",
-                "type": "AskQuestion_Admin.Container13_41.Icon32_40"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 1
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "AskQuestion_Admin.Container13_41.Icon11_40.AccessibleLabel"
                 }
               ],
@@ -82683,6 +82563,66 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "AskQuestion_Admin.Container13_41.Icon32_40.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "AskQuestion_Admin.Container13_41.Icon32_40.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "AskQuestion_Admin",
+                "type": "AskQuestion_Admin.Container13_41.Icon32_40"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "AskQuestion_Admin.Container13_41.Icon32_40.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "AskQuestion_Admin.Container13_41.Icon32_40.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "AskQuestion_Admin",
+                "type": "AskQuestion_Admin.Container13_41.Icon32_40"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "AskQuestion_Admin.Container13_41.Icon23_40.AccessibleLabel"
                 }
               ],
@@ -82726,6 +82666,66 @@
                 "member": "TabIndex",
                 "module": "AskQuestion_Admin",
                 "type": "AskQuestion_Admin.Container13_41.Icon23_40"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "AskQuestion_Admin.Container13_41.Image12_42.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "AskQuestion_Admin.Container13_41.Image12_42.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "AskQuestion_Admin",
+                "type": "AskQuestion_Admin.Container13_41.Image12_42"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "AskQuestion_Admin.Container13_41.Image12_42.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "AskQuestion_Admin.Container13_41.Image12_42.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "AskQuestion_Admin",
+                "type": "AskQuestion_Admin.Container13_41.Image12_42"
               }
             }
           ],
