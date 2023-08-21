@@ -11676,77 +11676,17 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "App.varbuttonPopup"
+                  "fullyQualifiedName": "App.varItem"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "App.varbuttonPopup",
+                  "fullyQualifiedName": "App.varItem",
                   "relativeAddress": 0
                 }
               },
               "properties": {
-                "member": "varbuttonPopup",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedVariables",
-          "ruleIndex": 4
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.varCurrentUpdateTaskID"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.varCurrentUpdateTaskID",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "varCurrentUpdateTaskID",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedVariables",
-          "ruleIndex": 4
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.varMeetingNotes"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.varMeetingNotes",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "varMeetingNotes",
+                "member": "varItem",
                 "module": "App",
                 "type": "App"
               }
@@ -11777,36 +11717,6 @@
               },
               "properties": {
                 "member": "varDeleteflow",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedVariables",
-          "ruleIndex": 4
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.varItem"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.varItem",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "varItem",
                 "module": "App",
                 "type": "App"
               }
@@ -12036,6 +11946,96 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "App.varbuttonPopup"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.varbuttonPopup",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "varbuttonPopup",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedVariables",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.varCurrentUpdateTaskID"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.varCurrentUpdateTaskID",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "varCurrentUpdateTaskID",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedVariables",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.varMeetingNotes"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.varMeetingNotes",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "varMeetingNotes",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedVariables",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "App.ExportEstimation"
                 }
               ],
@@ -12060,152 +12060,6 @@
           },
           "ruleId": "app-UnusedVariables",
           "ruleIndex": 4
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'MeetingDetails Screen'"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'MeetingDetails Screen'",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "module": "MeetingDetails Screen",
-                "type": "'MeetingDetails Screen'"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-ScreenHasManyControls",
-          "ruleIndex": 5
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'MeetingDetails Screen'.Start"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'MeetingDetails Screen'.Start",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "Start",
-                "module": "MeetingDetails Screen",
-                "type": "'MeetingDetails Screen'"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedVariables",
-          "ruleIndex": 4
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'MeetingDetails Screen'.UAAttachmentcontrol"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'MeetingDetails Screen'.UAAttachmentcontrol",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "module": "MeetingDetails Screen",
-                "type": "'MeetingDetails Screen'.UAAttachmentcontrol"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Low"
-          },
-          "ruleId": "app-NumericPropertySizeWarning",
-          "ruleIndex": 6
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'MeetingDetails Screen'.AAAttachmentcontrol"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'MeetingDetails Screen'.AAAttachmentcontrol",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "module": "MeetingDetails Screen",
-                "type": "'MeetingDetails Screen'.AAAttachmentcontrol"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Low"
-          },
-          "ruleId": "app-NumericPropertySizeWarning",
-          "ruleIndex": 6
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'MeetingDetails Screen'.AAAttachmentcontrol_1"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'MeetingDetails Screen'.AAAttachmentcontrol_1",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "module": "MeetingDetails Screen",
-                "type": "'MeetingDetails Screen'.AAAttachmentcontrol_1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Low"
-          },
-          "ruleId": "app-NumericPropertySizeWarning",
-          "ruleIndex": 6
         },
         {
           "locations": [
@@ -12264,7 +12118,7 @@
             "level": "Low"
           },
           "ruleId": "app-NumericPropertySizeWarning",
-          "ruleIndex": 6
+          "ruleIndex": 5
         },
         {
           "locations": [
@@ -12293,7 +12147,7 @@
             "level": "Low"
           },
           "ruleId": "app-NumericPropertySizeWarning",
-          "ruleIndex": 6
+          "ruleIndex": 5
         },
         {
           "locations": [
@@ -12322,6 +12176,152 @@
             "level": "Medium"
           },
           "ruleId": "app-ScreenHasManyControls",
+          "ruleIndex": 6
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'MeetingDetails Screen'"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'MeetingDetails Screen'",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "module": "MeetingDetails Screen",
+                "type": "'MeetingDetails Screen'"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-ScreenHasManyControls",
+          "ruleIndex": 6
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'MeetingDetails Screen'.Start"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'MeetingDetails Screen'.Start",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "Start",
+                "module": "MeetingDetails Screen",
+                "type": "'MeetingDetails Screen'"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedVariables",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'MeetingDetails Screen'.UAAttachmentcontrol"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'MeetingDetails Screen'.UAAttachmentcontrol",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "module": "MeetingDetails Screen",
+                "type": "'MeetingDetails Screen'.UAAttachmentcontrol"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Low"
+          },
+          "ruleId": "app-NumericPropertySizeWarning",
+          "ruleIndex": 5
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'MeetingDetails Screen'.AAAttachmentcontrol"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'MeetingDetails Screen'.AAAttachmentcontrol",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "module": "MeetingDetails Screen",
+                "type": "'MeetingDetails Screen'.AAAttachmentcontrol"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Low"
+          },
+          "ruleId": "app-NumericPropertySizeWarning",
+          "ruleIndex": 5
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'MeetingDetails Screen'.AAAttachmentcontrol_1"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'MeetingDetails Screen'.AAAttachmentcontrol_1",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "module": "MeetingDetails Screen",
+                "type": "'MeetingDetails Screen'.AAAttachmentcontrol_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Low"
+          },
+          "ruleId": "app-NumericPropertySizeWarning",
           "ruleIndex": 5
         },
         {
@@ -13167,6 +13167,23 @@
               }
             },
             {
+              "id": "app-NumericPropertySizeWarning",
+              "messageStrings": {
+                "issue": {
+                  "text": "Allowing upload of large files up to 10 MB"
+                }
+              },
+              "properties": {
+                "componentType": "app",
+                "howToFix": [
+                  "Consider whether you need attachments of this size."
+                ],
+                "level": "Low",
+                "primaryCategory": "performance",
+                "whyFix": "We recommend testing on all supported platforms to ensure that attachments of this size can be uploaded successfully."
+              }
+            },
+            {
               "id": "app-ScreenHasManyControls",
               "messageStrings": {
                 "issue": {
@@ -13184,24 +13201,7 @@
                 ],
                 "level": "Medium",
                 "primaryCategory": "performance",
-                "whyFix": "Each control consumes resources, and an app may become slow or unresponsive if a screen has too many controls. The estimated complexity of \"MeetingDetails Screen\" is 870, which exceeds the maximum threshold recommended (300)."
-              }
-            },
-            {
-              "id": "app-NumericPropertySizeWarning",
-              "messageStrings": {
-                "issue": {
-                  "text": "Allowing upload of large files up to 10 MB"
-                }
-              },
-              "properties": {
-                "componentType": "app",
-                "howToFix": [
-                  "Consider whether you need attachments of this size."
-                ],
-                "level": "Low",
-                "primaryCategory": "performance",
-                "whyFix": "We recommend testing on all supported platforms to ensure that attachments of this size can be uploaded successfully."
+                "whyFix": "Each control consumes resources, and an app may become slow or unresponsive if a screen has too many controls. The estimated complexity of \"HomePage\" is 315, which exceeds the maximum threshold recommended (300)."
               }
             },
             {
