@@ -1,24 +1,6 @@
 "'Splash Screen' As screen":
-    BackgroundImage: ='Splash Screen – Without Button_Meeting Agenda App'
-    OnVisible: |-
-        =/*Set(
-            TimerValue,
-            0
-        )*/
-
-    "'Start Button' As button":
-        BorderThickness: =0
-        Color: =RGBA(9, 33, 98, 1)
-        Fill: =RGBA(255, 255, 255, 1)
-        Height: =49
-        OnSelect: =Navigate(HomePage)
-        PressedFill: =Self.Fill
-        Size: =20
-        Text: ="Start"
-        Width: =130
-        X: =81
-        Y: =483
-        ZIndex: =1
+    BackgroundImage: =
+    OnVisible: =
 
     Timer As timer:
         AutoPause: =false
@@ -30,5 +12,31 @@
         Visible: =false
         X: =534
         Y: =48
+        ZIndex: =1
+
+    Container1 As groupContainer.manualLayoutContainer:
+        Height: =Parent.Height
+        Width: =Parent.Width
         ZIndex: =2
+
+        Image4 As image:
+            Height: =Parent.Height
+            Image: ='Splash Screen – Without Button_Meeting Agenda App'
+            OnSelect: =
+            Width: =Parent.Width
+            ZIndex: =1
+
+        Button1 As button:
+            BorderThickness: =0
+            Color: =RGBA(9, 33, 98, 1)
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =39
+            OnSelect: =Navigate(HomePage)
+            PressedFill: =Self.Fill
+            Size: =16
+            Text: ="Start"
+            Width: =122
+            X: =80
+            Y: =482
+            ZIndex: =2
 
