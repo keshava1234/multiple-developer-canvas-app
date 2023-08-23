@@ -5925,7 +5925,7 @@
         "NameMapSourceSchema": "?"
       }
     ],
-    "LastModifiedTimestamp": "638283761165279080",
+    "LastModifiedTimestamp": "638283761647665162",
     "Name": "C_leftPanel",
     "Rules": [
       {
@@ -5990,7 +5990,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638283761165279080",
+  "LastModifiedTimestamp": "638283761647665162",
   "Name": "155999a881d14385849d3cf99c7201b8",
   "OverridableProperties": {},
   "TemplateOriginalName": "470e83d2489f46a58e9ba807156b5c3a",
