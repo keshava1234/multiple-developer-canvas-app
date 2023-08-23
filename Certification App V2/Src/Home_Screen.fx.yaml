@@ -83,12 +83,15 @@ Home_Screen As screen:
         ZIndex: =4
 
     Cntr_Certificate As groupContainer.manualLayoutContainer:
+        DropShadow: =DropShadow.None
         Fill: =RGBA(185, 29, 11, 1)
         Height: =88
-        RadiusBottomLeft: =10
-        RadiusBottomRight: =10
-        RadiusTopLeft: =10
-        RadiusTopRight: =10
+        LayoutDirection: =LayoutDirection.Manual
+        LayoutMode: =LayoutMode.Auto
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
         Width: =195
         X: =97
         Y: =180
@@ -149,12 +152,15 @@ Home_Screen As screen:
             ZIndex: =3
 
     Cntr_Certificate_1 As groupContainer.manualLayoutContainer:
+        DropShadow: =DropShadow.None
         Fill: =RGBA(89, 189, 242, 1)
         Height: =88
-        RadiusBottomLeft: =10
-        RadiusBottomRight: =10
-        RadiusTopLeft: =10
-        RadiusTopRight: =10
+        LayoutDirection: =LayoutDirection.Manual
+        LayoutMode: =LayoutMode.Auto
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
         Width: =195
         X: =312
         Y: =180
@@ -215,12 +221,15 @@ Home_Screen As screen:
             ZIndex: =3
 
     Cntr_Certificate_2 As groupContainer.manualLayoutContainer:
+        DropShadow: =DropShadow.None
         Fill: =RGBA(216, 106, 52, 1)
         Height: =88
-        RadiusBottomLeft: =10
-        RadiusBottomRight: =10
-        RadiusTopLeft: =10
-        RadiusTopRight: =10
+        LayoutDirection: =LayoutDirection.Manual
+        LayoutMode: =LayoutMode.Auto
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
         Width: =195
         X: =527
         Y: =180
@@ -281,12 +290,15 @@ Home_Screen As screen:
             ZIndex: =3
 
     Cntr_Details As groupContainer.manualLayoutContainer:
+        DropShadow: =DropShadow.None
         Fill: =RGBA(255, 255, 255, 1)
         Height: =411
-        RadiusBottomLeft: =8
-        RadiusBottomRight: =8
-        RadiusTopLeft: =8
-        RadiusTopRight: =8
+        LayoutDirection: =LayoutDirection.Manual
+        LayoutMode: =LayoutMode.Auto
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
         Width: =867
         X: =97
         Y: =346
@@ -429,7 +441,14 @@ Home_Screen As screen:
             ZIndex: =5
 
         Container15 As groupContainer.manualLayoutContainer:
+            DropShadow: =DropShadow.None
             Height: =271
+            LayoutDirection: =LayoutDirection.Manual
+            LayoutMode: =LayoutMode.Auto
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
             Width: =836
             X: =12
             Y: =137
@@ -915,12 +934,15 @@ Home_Screen As screen:
             ZIndex: =17
 
     Container2 As groupContainer.manualLayoutContainer:
+        DropShadow: =DropShadow.None
         Fill: =RGBA(255, 255, 255, 1)
         Height: =649
-        RadiusBottomLeft: =8
-        RadiusBottomRight: =8
-        RadiusTopLeft: =8
-        RadiusTopRight: =8
+        LayoutDirection: =LayoutDirection.Manual
+        LayoutMode: =LayoutMode.Auto
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
         Width: =361
         X: =985
         Y: =108

@@ -8,8 +8,9 @@ c_Header As CanvasComponent:
     ZIndex: =1
 
     Header_2 As groupContainer.manualLayoutContainer:
-        DropShadow: =DropShadow.Semibold
+        DropShadow: =DropShadow.None
         Height: =80
+        LayoutDirection: =LayoutDirection.Manual
         LayoutMode: ="manual"
         RadiusBottomLeft: =0
         RadiusBottomRight: =0
@@ -21,6 +22,7 @@ c_Header As CanvasComponent:
         Group_4 As groupContainer.manualLayoutContainer:
             DropShadow: =DropShadow.None
             Height: =80
+            LayoutDirection: =LayoutDirection.Manual
             LayoutMode: ="manual"
             RadiusBottomLeft: =0
             RadiusBottomRight: =0
@@ -32,6 +34,7 @@ c_Header As CanvasComponent:
             "'Rectangle 716_2' As groupContainer.manualLayoutContainer":
                 DropShadow: =DropShadow.None
                 Height: =80
+                LayoutDirection: =LayoutDirection.Manual
                 LayoutMode: ="manual"
                 RadiusBottomLeft: =0
                 RadiusBottomRight: =0
@@ -77,6 +80,7 @@ c_Header As CanvasComponent:
         Search_2 As groupContainer.manualLayoutContainer:
             DropShadow: =DropShadow.None
             Height: =32
+            LayoutDirection: =LayoutDirection.Manual
             LayoutMode: ="manual"
             RadiusBottomLeft: =0
             RadiusBottomRight: =0
@@ -90,6 +94,7 @@ c_Header As CanvasComponent:
             "'Rectangle 1129_2' As groupContainer.manualLayoutContainer":
                 DropShadow: =DropShadow.None
                 Height: =32
+                LayoutDirection: =LayoutDirection.Manual
                 LayoutMode: ="manual"
                 RadiusBottomLeft: =0
                 RadiusBottomRight: =0
@@ -137,6 +142,7 @@ c_Header As CanvasComponent:
             "'Group 5500_2' As groupContainer.manualLayoutContainer":
                 DropShadow: =DropShadow.None
                 Height: =28
+                LayoutDirection: =LayoutDirection.Manual
                 LayoutMode: ="manual"
                 RadiusBottomLeft: =0
                 RadiusBottomRight: =0

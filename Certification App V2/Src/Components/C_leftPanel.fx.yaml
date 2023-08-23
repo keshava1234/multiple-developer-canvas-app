@@ -18,6 +18,7 @@ C_leftPanel As CanvasComponent:
             DropShadow: =DropShadow.None
             Fill: =RGBA(255, 255, 255, 1)
             Height: =683
+            LayoutDirection: =LayoutDirection.Manual
             LayoutMode: ="manual"
             RadiusBottomLeft: =0
             RadiusBottomRight: =0
@@ -32,6 +33,7 @@ C_leftPanel As CanvasComponent:
                 =//If(Not(SideLabelvar=1),RGBA(0, 0, 0, 0),RGBA(201,47,29,1))
                 If(!IsBlank(SideLabelvar),If(SideLabelvar=1,RGBA(201,47,29,1),RGBA(0, 0, 0, 0)),RGBA(201,47,29,1))
             Height: =63
+            LayoutDirection: =LayoutDirection.Manual
             LayoutMode: ="manual"
             RadiusBottomLeft: =0
             RadiusBottomRight: =0
@@ -44,6 +46,7 @@ C_leftPanel As CanvasComponent:
             "'Group 5771_8' As groupContainer.manualLayoutContainer":
                 DropShadow: =DropShadow.None
                 Height: =45
+                LayoutDirection: =LayoutDirection.Manual
                 LayoutMode: ="manual"
                 RadiusBottomLeft: =0
                 RadiusBottomRight: =0
@@ -141,6 +144,7 @@ C_leftPanel As CanvasComponent:
             DropShadow: =DropShadow.None
             Fill: =If(SideLabelvar=3,RGBA(201,47,29,1),RGBA(0, 0, 0, 0))
             Height: =63
+            LayoutDirection: =LayoutDirection.Manual
             LayoutMode: ="manual"
             RadiusBottomLeft: =0
             RadiusBottomRight: =0
@@ -154,6 +158,7 @@ C_leftPanel As CanvasComponent:
             "'Group 5771_10' As groupContainer.manualLayoutContainer":
                 DropShadow: =DropShadow.None
                 Height: =43.1416015625
+                LayoutDirection: =LayoutDirection.Manual
                 LayoutMode: ="manual"
                 RadiusBottomLeft: =0
                 RadiusBottomRight: =0
@@ -189,11 +194,12 @@ C_leftPanel As CanvasComponent:
                     BorderThickness: =1
                     DropShadow: =DropShadow.None
                     Height: =18.7421875
+                    LayoutDirection: =LayoutDirection.Manual
                     LayoutMode: ="manual"
-                    RadiusBottomLeft: =5
-                    RadiusBottomRight: =5
-                    RadiusTopLeft: =5
-                    RadiusTopRight: =5
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
                     Width: =18.739990234375
                     X: =17.1300048828125
                     Y: =1
@@ -237,6 +243,7 @@ C_leftPanel As CanvasComponent:
             DropShadow: =DropShadow.None
             Fill: =If(SideLabelvar=4,RGBA(201,47,29,1),RGBA(0, 0, 0, 0))
             Height: =63
+            LayoutDirection: =LayoutDirection.Manual
             LayoutMode: ="manual"
             RadiusBottomLeft: =0
             RadiusBottomRight: =0
@@ -250,6 +257,7 @@ C_leftPanel As CanvasComponent:
             "'Group 5771_11' As groupContainer.manualLayoutContainer":
                 DropShadow: =DropShadow.None
                 Height: =42.0693359375
+                LayoutDirection: =LayoutDirection.Manual
                 LayoutMode: ="manual"
                 RadiusBottomLeft: =0
                 RadiusBottomRight: =0
@@ -318,6 +326,7 @@ C_leftPanel As CanvasComponent:
             DropShadow: =DropShadow.None
             Fill: =If(SideLabelvar=2,RGBA(201,47,29,1),RGBA(0, 0, 0, 0))
             Height: =63
+            LayoutDirection: =LayoutDirection.Manual
             LayoutMode: ="manual"
             RadiusBottomLeft: =0
             RadiusBottomRight: =0
@@ -331,6 +340,7 @@ C_leftPanel As CanvasComponent:
             "'Group 5771_9' As groupContainer.manualLayoutContainer":
                 DropShadow: =DropShadow.None
                 Height: =43.1865234375
+                LayoutDirection: =LayoutDirection.Manual
                 LayoutMode: ="manual"
                 RadiusBottomLeft: =0
                 RadiusBottomRight: =0
