@@ -1,1 +1,54 @@
-{}
+{
+  "9bf7ffe8-e250-46cc-b656-12e784ab9640": {
+    "connectionRef": {
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/u/shgogna/globalperconnector-train1/1.0.1639.3312/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline"
+    },
+    "datasets": {
+      "https://ilinksystemsinc449.sharepoint.com/sites/CertificationApp": {
+        "dataSources": {
+          "BU-List": {
+            "tableName": "eb8cd8fd-def7-45b7-987a-0a82bc95d031"
+          },
+          "CertificationApp-Security": {
+            "tableName": "90d46ce2-33b9-406a-b527-52d7c4a982a4"
+          },
+          "CertificationOrder": {
+            "tableName": "11e037ff-5836-44d0-a4f3-c06141179344"
+          },
+          "CertificationRequest": {
+            "tableName": "a74c135b-d24b-4443-8d09-3d4815ad073e"
+          },
+          "Certifications": {
+            "tableName": "dd3db63c-8d39-4fee-ad20-a1d69b8a51a8"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "BU-List",
+      "CertificationOrder",
+      "Certifications",
+      "CertificationRequest",
+      "CertificationApp-Security"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "9bf7ffe8-e250-46cc-b656-12e784ab9640"
+  },
+  "cabe7177-762e-4e71-8a44-1a25223cfa14": {
+    "connectionRef": {
+      "displayName": "Office 365 Users",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1649/1.0.1649.3368/office365users/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_office365users"
+    },
+    "datasets": {},
+    "dataSources": [
+      "Office365Users"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "cabe7177-762e-4e71-8a44-1a25223cfa14"
+  }
+}

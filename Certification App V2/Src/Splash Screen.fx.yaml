@@ -1,0 +1,80 @@
+"'Splash Screen' As screen":
+    BackgroundImage: ='Splash Screen_Certification App'
+
+    Btn_ChkPolicy As button:
+        BorderColor: =RGBA(201,47,29,1)
+        Color: =RGBA(201,47,29,1)
+        DisabledBorderColor: =Self.BorderColor
+        Fill: =RGBA(0,0,0,0)
+        FocusedBorderThickness: =1
+        Font: =Font.'Segoe UI'
+        HoverBorderColor: =Self.BorderColor
+        HoverColor: =Self.Color
+        HoverFill: =Self.Fill
+        OnSelect: |-
+            =Launch("https://ilinksystemsinc449-my.sharepoint.com/personal/shakeel_ahmed_ilink-systems_com/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fshakeel%5Fahmed%5Filink%2Dsystems%5Fcom%2FDocuments%2FCertification%20Reimbursement%20documents%2FCertification%20Policy%2FLatest%20Certification%20reimbursement%20Policy%20%2D%20Aug%20%2D4%2FiLink%5FCertification%20Reimbursement%20Policy%5FVer%201%2Epdf&parent=%2Fpersonal%2Fshakeel%5Fahmed%5Filink%2Dsystems%5Fcom%2FDocuments%2FCertification%20Reimbursement%20documents%2FCertification%20Policy%2FLatest%20Certification%20reimbursement%20Policy%20%2D%20Aug%20%2D4&ct=1692706761598&or=Outlook%2DBody&cid=A1FC8818%2DD34C%2D4EA2%2D9093%2D0490B06479C8&ga=1&WSL=1")
+        PressedBorderColor: =Self.BorderColor
+        PressedColor: =RGBA(255, 255, 255, 1)
+        RadiusBottomLeft: =8
+        RadiusBottomRight: =8
+        RadiusTopLeft: =8
+        RadiusTopRight: =8
+        Size: =10
+        Text: ="Check Policy"
+        Width: =111
+        X: =258
+        Y: =520
+        ZIndex: =1
+
+    Btn_Home As button:
+        BorderColor: =RGBA(201,47,29,1)
+        Color: =Color.White
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        Fill: =RGBA(201,47,29,1)
+        FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+        FocusedBorderThickness: =1
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Normal
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverColor: =Self.Color
+        HoverFill: =Self.Fill
+        OnSelect: |
+            =Navigate(Home_Screen,ScreenTransition.Fade);
+        PressedBorderColor: =Self.BorderColor
+        PressedFill: =Color.White
+        RadiusBottomLeft: =8
+        RadiusBottomRight: =8
+        RadiusTopLeft: =8
+        RadiusTopRight: =8
+        Size: =10
+        Text: ="Go to Home"
+        Width: =119
+        X: =384
+        Y: =520
+        ZIndex: =2
+
+    Btn_DwnForm As button:
+        BorderColor: =RGBA(201,47,29,1)
+        Color: =RGBA(201,47,29,1)
+        DisabledBorderColor: =Self.BorderColor
+        Fill: =RGBA(0,0,0,0)
+        FocusedBorderThickness: =1
+        Font: =Font.'Segoe UI'
+        HoverBorderColor: =Self.BorderColor
+        HoverColor: =Self.Color
+        HoverFill: =Self.Fill
+        OnSelect: |-
+            =Download("https://ilinksystemsinc449.sharepoint.com/:w:/r/sites/LDForum/_layouts/15/Doc.aspx?sourcedoc=%7BCE1DB890-5609-41DE-8A99-FF188355049F%7D&file=Certification%20Reimbursement%20Application%20Form_Ver%201.docx&action=default&mobileredirect=true"&"download.aspx")
+        PressedBorderColor: =Self.BorderColor
+        PressedColor: =RGBA(255, 255, 255, 1)
+        RadiusBottomLeft: =8
+        RadiusBottomRight: =8
+        RadiusTopLeft: =8
+        RadiusTopRight: =8
+        Size: =10
+        Text: ="Download Form"
+        Width: =163
+        X: =80
+        Y: =520
+        ZIndex: =3
+
