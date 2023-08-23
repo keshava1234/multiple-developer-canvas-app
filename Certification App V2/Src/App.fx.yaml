@@ -1,5 +1,66 @@
 App As appinfo:
     BackEnabled: =false
+    OnStart: |-
+        =Set(
+            varUserLevel,
+            If(
+                CountRows(
+                    FirstN(
+                        Filter(
+                            'CertificationApp-Security',
+                            Title = "Certification-User"
+                        ),
+                        50
+                    )
+                ) = 1,
+                "USER",
+                varUserLevel
+            )
+        );
+        Set(
+            varUserLevel,
+            If(
+                CountRows(
+                    FirstN(
+                        Filter(
+                            'CertificationApp-Security',
+                            Title = "Certification-Admin"
+                        ),
+                        50
+                    )
+                ) = 1,
+                "ADMIN",
+                varUserLevel
+            )
+        );
+        Set(
+            varUserLevel,
+            If(
+                CountRows(
+                    FirstN(
+                        Filter(
+                            'CertificationApp-Security',
+                            Title = "Certification-SuperAdmin"
+                        ),
+                        50
+                    )
+                ) = 1,
+                "SUPER-ADMIN",
+                varUserLevel
+            )
+        );
+        ClearCollect(
+            myReports,
+            Office365Users.DirectReports(Office365Users.MyProfile().Id)
+        );
+        Set(
+            MyProfile,
+            Office365Users.MyProfile()
+        );
+        Set(
+            MyUserId,
+            MyProfile.Id
+        );
     Theme: =PowerAppsTheme
 
     Host As hostControl.DefaultHostControlVariant:

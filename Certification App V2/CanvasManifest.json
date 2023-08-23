@@ -92,7 +92,7 @@
       "useguiddatatypes": true,
       "usenonblockingonstartrule": true,
       "webbarcodescanner": false,
-      "zeroalltabindexes": true
+      "zeroalltabindexes": false
     },
     "Author": "",
     "BindingErrorCount": 0,
@@ -111,7 +111,7 @@
     "Id": "799ee963-3bdf-4b7b-b3c5-968661ceb0a5",
     "InstrumentationKey": "",
     "LocalDatabaseReferences": "{}",
-    "ManualOfflineProfileId": null,
+    "ManualOfflineProfileId": "",
     "Name": "Certification Management App-V2",
     "OriginatingVersion": "1.334",
     "ParserErrorCount": 0,
@@ -129,6 +129,7 @@
     "UserLocale": "en-US"
   },
   "ScreenOrder": [
-    "Screen1"
+    "Splash Screen",
+    "Home_Screen"
   ]
 }
