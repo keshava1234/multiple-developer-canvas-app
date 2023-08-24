@@ -4053,7 +4053,7 @@
 
             HtmlText2_8 As htmlViewer:
                 Height: =37
-                HtmlText: ="<b><font color=RGBA(0,32,80,1)><U>Visit This Certification Page</U></font></b>"
+                HtmlText: ="<b><font color=RGBA(72, 164, 226, 1)><U>Visit This Certification Page</U></font></b>"
                 OnSelect: =Launch(vardetails.URL)
                 Size: =13
                 Width: =275
