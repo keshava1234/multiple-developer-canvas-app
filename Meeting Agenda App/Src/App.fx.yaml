@@ -169,7 +169,6 @@ App As appinfo:
                 MyUserProfile,
                 Office365Users.MyProfile().Id
             ),
-           
             Set(
                 MyDomain,
                 Last(
@@ -182,7 +181,6 @@ App As appinfo:
                     )
                 ).Result
             ),
-           
             Set(
                 HomeTimerStart,
                 Now()
@@ -236,7 +234,6 @@ App As appinfo:
                 )
             )
         );
-        
         ClearCollect(
             HoursList,
             {
