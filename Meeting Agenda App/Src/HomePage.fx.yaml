@@ -2677,6 +2677,7 @@ HomePage As screen:
         Text: ="There is no view based agenda Meetings"
         Visible: |-
             =//varNoAgendaMeeting And If(CountRows(PastGallery.AllItems) > 0, false, true)
+            //!varShowUpcomingMeeting And If(CountRows(PastGallery.AllItems) > 0, false, true)
             false
         Width: =370
         X: =100
