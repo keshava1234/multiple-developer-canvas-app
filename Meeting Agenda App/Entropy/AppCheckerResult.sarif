@@ -11700,36 +11700,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "App.varBase64Only2"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.varBase64Only2",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "varBase64Only2",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedVariables",
-          "ruleIndex": 4
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "App.varNoAgendaMeeting"
                 }
               ],
@@ -12090,18 +12060,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "EmailScreen.AAAttachmentcontrol_2"
+                  "fullyQualifiedName": "App.varBase64Only2"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "EmailScreen.AAAttachmentcontrol_2",
+                  "fullyQualifiedName": "App.varBase64Only2",
                   "relativeAddress": 0
                 }
               },
               "properties": {
-                "module": "EmailScreen",
-                "type": "EmailScreen.AAAttachmentcontrol_2"
+                "member": "varBase64Only2",
+                "module": "App",
+                "type": "App"
               }
             }
           ],
@@ -12109,10 +12080,10 @@
             "id": "issue"
           },
           "properties": {
-            "level": "Low"
+            "level": "Medium"
           },
-          "ruleId": "app-NumericPropertySizeWarning",
-          "ruleIndex": 5
+          "ruleId": "app-UnusedVariables",
+          "ruleIndex": 4
         },
         {
           "locations": [
@@ -12141,7 +12112,7 @@
             "level": "Medium"
           },
           "ruleId": "app-ScreenHasManyControls",
-          "ruleIndex": 6
+          "ruleIndex": 5
         },
         {
           "locations": [
@@ -12200,7 +12171,7 @@
             "level": "Low"
           },
           "ruleId": "app-NumericPropertySizeWarning",
-          "ruleIndex": 5
+          "ruleIndex": 6
         },
         {
           "locations": [
@@ -12229,7 +12200,7 @@
             "level": "Medium"
           },
           "ruleId": "app-ScreenHasManyControls",
-          "ruleIndex": 6
+          "ruleIndex": 5
         },
         {
           "locations": [
@@ -12288,7 +12259,7 @@
             "level": "Low"
           },
           "ruleId": "app-NumericPropertySizeWarning",
-          "ruleIndex": 5
+          "ruleIndex": 6
         },
         {
           "locations": [
@@ -12317,7 +12288,7 @@
             "level": "Low"
           },
           "ruleId": "app-NumericPropertySizeWarning",
-          "ruleIndex": 5
+          "ruleIndex": 6
         },
         {
           "locations": [
@@ -12346,7 +12317,7 @@
             "level": "Low"
           },
           "ruleId": "app-NumericPropertySizeWarning",
-          "ruleIndex": 5
+          "ruleIndex": 6
         },
         {
           "locations": [
@@ -12377,6 +12348,35 @@
           },
           "ruleId": "app-UnusedVariables",
           "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "EmailScreen.AAAttachmentcontrol_2"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "EmailScreen.AAAttachmentcontrol_2",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "module": "EmailScreen",
+                "type": "EmailScreen.AAAttachmentcontrol_2"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Low"
+          },
+          "ruleId": "app-NumericPropertySizeWarning",
+          "ruleIndex": 6
         },
         {
           "locations": [
@@ -13191,23 +13191,6 @@
               }
             },
             {
-              "id": "app-NumericPropertySizeWarning",
-              "messageStrings": {
-                "issue": {
-                  "text": "Allowing upload of large files up to 10 MB"
-                }
-              },
-              "properties": {
-                "componentType": "app",
-                "howToFix": [
-                  "Consider whether you need attachments of this size."
-                ],
-                "level": "Low",
-                "primaryCategory": "performance",
-                "whyFix": "We recommend testing on all supported platforms to ensure that attachments of this size can be uploaded successfully."
-              }
-            },
-            {
               "id": "app-ScreenHasManyControls",
               "messageStrings": {
                 "issue": {
@@ -13226,6 +13209,23 @@
                 "level": "Medium",
                 "primaryCategory": "performance",
                 "whyFix": "Each control consumes resources, and an app may become slow or unresponsive if a screen has too many controls. The estimated complexity of \"HomePage\" is 315, which exceeds the maximum threshold recommended (300)."
+              }
+            },
+            {
+              "id": "app-NumericPropertySizeWarning",
+              "messageStrings": {
+                "issue": {
+                  "text": "Allowing upload of large files up to 10 MB"
+                }
+              },
+              "properties": {
+                "componentType": "app",
+                "howToFix": [
+                  "Consider whether you need attachments of this size."
+                ],
+                "level": "Low",
+                "primaryCategory": "performance",
+                "whyFix": "We recommend testing on all supported platforms to ensure that attachments of this size can be uploaded successfully."
               }
             },
             {
