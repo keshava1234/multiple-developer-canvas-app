@@ -27,7 +27,7 @@
       "delayloadscreens": true,
       "disablecdsfileandlargeimage": false,
       "dynamicschema": false,
-      "enableappembeddingux": true,
+      "enableappembeddingux": false,
       "enablechatbotfeature": true,
       "enablecomponentnamemaps": true,
       "enablecomponentscopeoldbehavior": true,

@@ -11700,66 +11700,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "App.varItem"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.varItem",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "varItem",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedVariables",
-          "ruleIndex": 4
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.varDeleteflow"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.varDeleteflow",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "varDeleteflow",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedVariables",
-          "ruleIndex": 4
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "App.varbuttonPopup"
                 }
               ],
@@ -11831,6 +11771,36 @@
               },
               "properties": {
                 "member": "varMeetingNotes",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedVariables",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.varDeleteflow"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.varDeleteflow",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "varDeleteflow",
                 "module": "App",
                 "type": "App"
               }
@@ -12000,6 +11970,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "App.varItem"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.varItem",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "varItem",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedVariables",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "App.Disable1"
                 }
               ],
@@ -12090,65 +12090,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "ResourceScreen.id"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "ResourceScreen.id",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "id",
-                "module": "ResourceScreen",
-                "type": "ResourceScreen"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedVariables",
-          "ruleIndex": 4
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "ResourceScreen.Attachmentcontrol"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "ResourceScreen.Attachmentcontrol",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "module": "ResourceScreen",
-                "type": "ResourceScreen.Attachmentcontrol"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Low"
-          },
-          "ruleId": "app-NumericPropertySizeWarning",
-          "ruleIndex": 5
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "'MeetingDetails Screen'"
                 }
               ],
@@ -12171,7 +12112,7 @@
             "level": "Medium"
           },
           "ruleId": "app-ScreenHasManyControls",
-          "ruleIndex": 6
+          "ruleIndex": 5
         },
         {
           "locations": [
@@ -12230,7 +12171,7 @@
             "level": "Low"
           },
           "ruleId": "app-NumericPropertySizeWarning",
-          "ruleIndex": 5
+          "ruleIndex": 6
         },
         {
           "locations": [
@@ -12259,7 +12200,7 @@
             "level": "Low"
           },
           "ruleId": "app-NumericPropertySizeWarning",
-          "ruleIndex": 5
+          "ruleIndex": 6
         },
         {
           "locations": [
@@ -12288,7 +12229,7 @@
             "level": "Low"
           },
           "ruleId": "app-NumericPropertySizeWarning",
-          "ruleIndex": 5
+          "ruleIndex": 6
         },
         {
           "locations": [
@@ -12317,6 +12258,65 @@
             "level": "Medium"
           },
           "ruleId": "app-ScreenHasManyControls",
+          "ruleIndex": 5
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ResourceScreen.id"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ResourceScreen.id",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "id",
+                "module": "ResourceScreen",
+                "type": "ResourceScreen"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedVariables",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ResourceScreen.Attachmentcontrol"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ResourceScreen.Attachmentcontrol",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "module": "ResourceScreen",
+                "type": "ResourceScreen.Attachmentcontrol"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Low"
+          },
+          "ruleId": "app-NumericPropertySizeWarning",
           "ruleIndex": 6
         },
         {
@@ -12376,7 +12376,7 @@
             "level": "Low"
           },
           "ruleId": "app-NumericPropertySizeWarning",
-          "ruleIndex": 5
+          "ruleIndex": 6
         },
         {
           "locations": [
@@ -13191,23 +13191,6 @@
               }
             },
             {
-              "id": "app-NumericPropertySizeWarning",
-              "messageStrings": {
-                "issue": {
-                  "text": "Allowing upload of large files up to 10 MB"
-                }
-              },
-              "properties": {
-                "componentType": "app",
-                "howToFix": [
-                  "Consider whether you need attachments of this size."
-                ],
-                "level": "Low",
-                "primaryCategory": "performance",
-                "whyFix": "We recommend testing on all supported platforms to ensure that attachments of this size can be uploaded successfully."
-              }
-            },
-            {
               "id": "app-ScreenHasManyControls",
               "messageStrings": {
                 "issue": {
@@ -13226,6 +13209,23 @@
                 "level": "Medium",
                 "primaryCategory": "performance",
                 "whyFix": "Each control consumes resources, and an app may become slow or unresponsive if a screen has too many controls. The estimated complexity of \"MeetingDetails Screen\" is 870, which exceeds the maximum threshold recommended (300)."
+              }
+            },
+            {
+              "id": "app-NumericPropertySizeWarning",
+              "messageStrings": {
+                "issue": {
+                  "text": "Allowing upload of large files up to 10 MB"
+                }
+              },
+              "properties": {
+                "componentType": "app",
+                "howToFix": [
+                  "Consider whether you need attachments of this size."
+                ],
+                "level": "Low",
+                "primaryCategory": "performance",
+                "whyFix": "We recommend testing on all supported platforms to ensure that attachments of this size can be uploaded successfully."
               }
             },
             {

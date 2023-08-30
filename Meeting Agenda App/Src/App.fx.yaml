@@ -1,16 +1,7 @@
 App As appinfo:
     BackEnabled: =false
     OnStart: |
-        =/*Set(
-            varPrimaryColor,
-            RGBA(
-                255,
-                255,
-                255,
-                255
-            )
-        );*/
-        Set(
+        =Set(
             varAgendaTab,
             true
         );
@@ -30,11 +21,7 @@ App As appinfo:
             varResources,
             true
         );
-        /*
-        Set(
-            varPollPopup,
-            false
-        );*/
+        
         If(
             IsBlank(Gallery8_1),
             Set(
