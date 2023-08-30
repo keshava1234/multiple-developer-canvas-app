@@ -11760,17 +11760,17 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "App.Disable1"
+                  "fullyQualifiedName": "App.varbuttonPopup"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "App.Disable1",
+                  "fullyQualifiedName": "App.varbuttonPopup",
                   "relativeAddress": 0
                 }
               },
               "properties": {
-                "member": "Disable1",
+                "member": "varbuttonPopup",
                 "module": "App",
                 "type": "App"
               }
@@ -11790,17 +11790,47 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "App.varBase64Only2"
+                  "fullyQualifiedName": "App.varCurrentUpdateTaskID"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "App.varBase64Only2",
+                  "fullyQualifiedName": "App.varCurrentUpdateTaskID",
                   "relativeAddress": 0
                 }
               },
               "properties": {
-                "member": "varBase64Only2",
+                "member": "varCurrentUpdateTaskID",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedVariables",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.varMeetingNotes"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.varMeetingNotes",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "varMeetingNotes",
                 "module": "App",
                 "type": "App"
               }
@@ -11970,77 +12000,17 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "App.varbuttonPopup"
+                  "fullyQualifiedName": "App.Disable1"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "App.varbuttonPopup",
+                  "fullyQualifiedName": "App.Disable1",
                   "relativeAddress": 0
                 }
               },
               "properties": {
-                "member": "varbuttonPopup",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedVariables",
-          "ruleIndex": 4
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.varCurrentUpdateTaskID"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.varCurrentUpdateTaskID",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "varCurrentUpdateTaskID",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedVariables",
-          "ruleIndex": 4
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.varMeetingNotes"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.varMeetingNotes",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "varMeetingNotes",
+                "member": "Disable1",
                 "module": "App",
                 "type": "App"
               }
@@ -12071,6 +12041,36 @@
               },
               "properties": {
                 "member": "ExportEstimation",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedVariables",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.varBase64Only2"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.varBase64Only2",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "varBase64Only2",
                 "module": "App",
                 "type": "App"
               }
@@ -12143,64 +12143,6 @@
           },
           "ruleId": "app-NumericPropertySizeWarning",
           "ruleIndex": 5
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "EmailScreen.AAAttachmentcontrol_2"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "EmailScreen.AAAttachmentcontrol_2",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "module": "EmailScreen",
-                "type": "EmailScreen.AAAttachmentcontrol_2"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Low"
-          },
-          "ruleId": "app-NumericPropertySizeWarning",
-          "ruleIndex": 5
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "HomePage"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "HomePage",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "module": "HomePage",
-                "type": "HomePage"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-ScreenHasManyControls",
-          "ruleIndex": 6
         },
         {
           "locations": [
@@ -12353,6 +12295,35 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "HomePage"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "HomePage",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "module": "HomePage",
+                "type": "HomePage"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-ScreenHasManyControls",
+          "ruleIndex": 6
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "ExportScreen.emailType"
                 }
               ],
@@ -12377,6 +12348,35 @@
           },
           "ruleId": "app-UnusedVariables",
           "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "EmailScreen.AAAttachmentcontrol_2"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "EmailScreen.AAAttachmentcontrol_2",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "module": "EmailScreen",
+                "type": "EmailScreen.AAAttachmentcontrol_2"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Low"
+          },
+          "ruleId": "app-NumericPropertySizeWarning",
+          "ruleIndex": 5
         },
         {
           "locations": [
@@ -13225,7 +13225,7 @@
                 ],
                 "level": "Medium",
                 "primaryCategory": "performance",
-                "whyFix": "Each control consumes resources, and an app may become slow or unresponsive if a screen has too many controls. The estimated complexity of \"HomePage\" is 315, which exceeds the maximum threshold recommended (300)."
+                "whyFix": "Each control consumes resources, and an app may become slow or unresponsive if a screen has too many controls. The estimated complexity of \"MeetingDetails Screen\" is 870, which exceeds the maximum threshold recommended (300)."
               }
             },
             {

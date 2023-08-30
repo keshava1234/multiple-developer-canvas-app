@@ -4492,7 +4492,7 @@
         btn_varsavenotes As button:
             Font: =Font.Lato
             Height: =27
-            OnSelect: |
+            OnSelect: |-
                 =If(
                     IsBlank('MeetingDetails notes'.HtmlText),
                     Notify(
@@ -4500,45 +4500,54 @@
                         NotificationType.Error
                     ),
                     If(
-                    !IsBlank(
-                        LookUp(
-                            'Notes-MeetingList',
-                            MeetingID = variCalUID.icaluid && Displayname = User().FullName
-                        )
-                    ),
-                    IfError(Patch(
-                        'Notes-MeetingList',
-                        LookUp(
-                            'Notes-MeetingList',
-                            MeetingID = variCalUID.icaluid
+                        !IsBlank(
+                            LookUp(
+                                'Notes-MeetingList',
+                                MeetingID = variCalUID.icaluid && Displayname = User().FullName
+                            )
                         ),
-                        {
-                            Notes: 'MeetingDetails notes'.HtmlText,
-                            Title: SelectedMeeting.Subject,
-                            Displayname: User().FullName
-                        }
-                    ),Notify(
-                            "Error while Saving Notes",
-                            NotificationType.Error
-                        ),false),
-                    IfError(Patch(
-                        'Notes-MeetingList',
-                        Defaults('Notes-MeetingList'),
-                        {
-                            Title: SelectedMeeting.Subject,
-                            MeetingID: variCalUID.icaluid,
-                            Notes: 'MeetingDetails notes'.HtmlText,
-                            Displayname: User().FullName
-                        }
-                    ),
-                Notify(
-                            "Error while Saving Notes",
-                            NotificationType.Error
-                        ),false
-                )); Notify(
+                        IfError(
+                            Patch(
+                                'Notes-MeetingList',
+                                LookUp(
+                                    'Notes-MeetingList',
+                                    MeetingID = variCalUID.icaluid
+                                ),
+                                {
+                                    Notes: 'MeetingDetails notes'.HtmlText,
+                                    Title: SelectedMeeting.Subject,
+                                    Displayname: User().FullName
+                                }
+                            ),
+                            Notify(
+                                "Error while Saving Notes",
+                                NotificationType.Error
+                            ),
+                            false
+                        ),
+                        IfError(
+                            Patch(
+                                'Notes-MeetingList',
+                                Defaults('Notes-MeetingList'),
+                                {
+                                    Title: SelectedMeeting.Subject,
+                                    MeetingID: variCalUID.icaluid,
+                                    Notes: 'MeetingDetails notes'.HtmlText,
+                                    Displayname: User().FullName
+                                }
+                            ),
+                            Notify(
+                                "Error while Saving Notes",
+                                NotificationType.Error
+                            ),
+                            false
+                        )
+                    );
+                    Notify(
                         "You notes has been saved",
                         NotificationType.Success
-                    ))
+                    )
+                )
             RadiusBottomLeft: =3
             RadiusBottomRight: =3
             RadiusTopLeft: =3
