@@ -1,6 +1,7 @@
 HomePage As screen:
     OnVisible: |-
-        =Clear(MeetingAttendees);
+        =Set(apploading,true);
+        Clear(MeetingAttendees);
         Clear(MeetingTimes);
         Clear(EmailRecipients);
         Clear(FollowUpMeetingAttendees);
@@ -21,7 +22,7 @@ HomePage As screen:
             ExportConfirmed,
             false
         );
-        
+        Set(apploading,false);
         //Select(icon_RefreshMeeting);
 
     bg_3 As rectangle:
@@ -2770,6 +2771,20 @@ HomePage As screen:
         X: =669
         Y: =172
         ZIndex: =60
+
+    Container2 As groupContainer.manualLayoutContainer:
+        Height: =768
+        Visible: =apploading
+        Width: =1366
+        ZIndex: =61
+
+        Image5 As image:
+            Height: =237
+            Image: ='loading waiting'
+            Width: =390
+            X: =458
+            Y: =246
+            ZIndex: =1
 
     "'Group top menu' As group":
         Height: =5
