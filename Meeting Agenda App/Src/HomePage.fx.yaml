@@ -380,7 +380,7 @@ HomePage As screen:
         Height: =24
         Icon: =Icon.Reload
         OnSelect: |
-            =
+            =Set(DaysCount,LookUp('Config List',Key="Days Count").'No. of days');
             Set(
                 varAgendaTab,
                 true
@@ -486,7 +486,7 @@ HomePage As screen:
                         Text(
                             DateAdd(
                                 Today(),
-                                5,
+                                DaysCount,
                                 TimeUnit.Days
                             ),
                             DateTimeFormat.UTC
@@ -510,7 +510,7 @@ HomePage As screen:
                         Text(
                             DateAdd(
                                 Today(),
-                                -5,
+                                -DaysCount,
                                 TimeUnit.Days
                             ),
                             DateTimeFormat.UTC

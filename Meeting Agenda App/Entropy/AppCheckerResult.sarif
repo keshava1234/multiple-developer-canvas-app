@@ -12593,6 +12593,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "App.Config List"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.Config List",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "Config List",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-NotOfflineConnectors",
+          "ruleIndex": 7
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "App.AddAgendaFlow-MeetingAgendaApp"
                 }
               ],

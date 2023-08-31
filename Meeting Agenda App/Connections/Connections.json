@@ -181,6 +181,19 @@
           }
         }
       },
+      "https://ilinksystemsinc449.sharepoint.com/sites/CertificationApp_cr8b3_SharepointSite": {
+        "datasetOverride": {
+          "environmentVariableName": "cr8b3_SharepointSite"
+        },
+        "dataSources": {
+          "Config List": {
+            "tableName": "ada39be3-b820-45d1-99c1-ece098f17c46",
+            "tableNameOverride": {
+              "environmentVariableName": "cr8b3_shared_sharepointonline_0f28110898a2492491667a5b92a56994"
+            }
+          }
+        }
+      },
       "https://ilinksystemsinc449.sharepoint.com/sites/PowerAutomateTest": {
         "dataSources": {
           "Documents": {
@@ -205,7 +218,8 @@
       "MeetingList_2",
       "MeetingList_3",
       "TaskList",
-      "Notes-MeetingList"
+      "Notes-MeetingList",
+      "Config List"
     ],
     "dependencies": {},
     "dependents": [

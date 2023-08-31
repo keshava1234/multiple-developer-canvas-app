@@ -1,7 +1,9 @@
 App As appinfo:
     BackEnabled: =false
     OnStart: |
-        =Set(
+        =Set(DaysCount,LookUp('Config List',Key="Days Count").'No. of days');
+        
+        Set(
             varAgendaTab,
             true
         );
@@ -104,7 +106,7 @@ App As appinfo:
                     Text(
                         DateAdd(
                             Today(),
-                            5,
+                            DaysCount,
                             TimeUnit.Days
                         ),
                         DateTimeFormat.UTC
@@ -128,7 +130,7 @@ App As appinfo:
                     Text(
                         DateAdd(
                             Today(),
-                            -5,
+                            -DaysCount,
                             TimeUnit.Days
                         ),
                         DateTimeFormat.UTC

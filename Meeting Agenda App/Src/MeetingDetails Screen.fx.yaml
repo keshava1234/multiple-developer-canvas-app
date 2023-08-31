@@ -6465,6 +6465,7 @@
                         255
                     )
                 );*/
+                Set(DaysCount,LookUp('Config List',Key="Days Count").'No. of days');
                 Set(
                     varAgendaTab,
                     true
@@ -6580,7 +6581,7 @@
                             Text(
                                 DateAdd(
                                     Today(),
-                                    5,
+                                    DaysCount,
                                     TimeUnit.Days
                                 ),
                                 DateTimeFormat.UTC
@@ -6604,7 +6605,7 @@
                             Text(
                                 DateAdd(
                                     Today(),
-                                    -5,
+                                    -DaysCount,
                                     TimeUnit.Days
                                 ),
                                 DateTimeFormat.UTC
