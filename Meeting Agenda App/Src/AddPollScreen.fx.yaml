@@ -275,7 +275,7 @@ AddPollScreen As screen:
         HoverColor: =RGBA(255, 255, 255, 1)
         HoverFill: =ColorFade(RGBA(56, 96, 178, 1), -20%)
         OnSelect: |-
-            =/*If(IsEmpty(arrQuestions) || IsEmpty(arrQuestionOptions),
+            =Set(varLoadingSpinner,true);/*If(IsEmpty(arrQuestions) || IsEmpty(arrQuestionOptions),
             Notify(
                     "Please check you have provided Question and Options",
                     NotificationType.Error,
@@ -411,6 +411,7 @@ AddPollScreen As screen:
                 false
             );
             );
+            Set(varLoadingSpinner,false);
         RadiusBottomLeft: =3
         RadiusBottomRight: =3
         RadiusTopLeft: =3

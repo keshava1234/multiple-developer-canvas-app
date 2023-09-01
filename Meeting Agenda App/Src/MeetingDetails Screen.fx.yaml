@@ -2275,7 +2275,7 @@
             FocusedBorderThickness: =1
             Height: =721
             TabIndex: =0
-            Visible: =varShowUpdateAgenda
+            Visible: =
             Width: =600
             X: =766
             Y: =43
@@ -2292,7 +2292,7 @@
             Size: =16
             TabIndex: =0
             Text: ="Update Agenda"
-            Visible: =varShowUpdateAgenda
+            Visible: =
             Width: =215
             X: =785
             Y: =81
@@ -2309,7 +2309,7 @@
             Size: =12
             TabIndex: =0
             Text: ="Lets update a  Agenda Item"
-            Visible: =varShowUpdateAgenda
+            Visible: =
             Width: =284
             X: =785
             Y: =130
@@ -2327,7 +2327,7 @@
             Size: =12
             TabIndex: =0
             Text: ="Title"
-            Visible: =varShowUpdateAgenda
+            Visible: =
             Width: =85
             X: =785
             Y: =170
@@ -2345,7 +2345,7 @@
             TabIndex: =0
             Text: ="Meeting Date"
             Tooltip: ="Meeting Date"
-            Visible: =varShowUpdateAgenda
+            Visible: =
             Width: =153
             X: =785
             Y: =213
@@ -2363,7 +2363,7 @@
             Size: =12
             TabIndex: =0
             Text: ="StartTime"
-            Visible: =varShowUpdateAgenda
+            Visible: =
             Width: =153
             X: =785
             Y: =262
@@ -2380,7 +2380,7 @@
             Size: =12
             TabIndex: =0
             Text: ="EndTime"
-            Visible: =varShowUpdateAgenda
+            Visible: =
             Width: =153
             X: =785
             Y: =302
@@ -2397,7 +2397,7 @@
             Size: =12
             TabIndex: =0
             Text: ="Actor"
-            Visible: =varShowUpdateAgenda
+            Visible: =
             Width: =62
             X: =785
             Y: =345
@@ -2414,7 +2414,7 @@
             Size: =12
             TabIndex: =0
             Text: ="Description"
-            Visible: =varShowUpdateAgenda
+            Visible: =
             Width: =153
             X: =785
             Y: =480
@@ -2443,7 +2443,7 @@
             PressedFill: =RGBA(227, 234, 243, 1)
             Size: =10
             Tooltip: ="Description"
-            Visible: =varShowUpdateAgenda
+            Visible: =
             Width: =358
             X: =976
             Y: =473
@@ -2460,7 +2460,7 @@
             Size: =12
             TabIndex: =0
             Text: ="Add Attachments"
-            Visible: =varShowUpdateAgenda
+            Visible: =
             Width: =153
             X: =785
             Y: =571
@@ -2488,7 +2488,7 @@
             PaddingTop: =5
             SelectedDateFill: =RGBA(56, 96, 178, 1)
             Size: =10
-            Visible: =varShowUpdateAgenda
+            Visible: =
             Width: =358
             X: =976
             Y: =217
@@ -2517,7 +2517,7 @@
             RadiusTopRight: =3
             Size: =10
             Tooltip: ="Update Agenda Title"
-            Visible: =varShowUpdateAgenda
+            Visible: =
             Width: =358
             X: =976
             Y: =172
@@ -2537,7 +2537,7 @@
             PaddingRight: =2
             PaddingTop: =2
             TabIndex: =0
-            Visible: =varShowUpdateAgenda
+            Visible: =
             Width: =25
             X: =1295
             Y: =175
@@ -2554,7 +2554,7 @@
             Icon: =Icon.CancelBadge
             OnSelect: =Set(varShowUpdateAgenda, false)
             TabIndex: =0
-            Visible: =varShowUpdateAgenda
+            Visible: =
             Width: =36
             X: =1320
             Y: =65
@@ -2595,7 +2595,7 @@
             SelectionFill: =RGBA(56, 96, 178, 1)
             SelectMultiple: =false
             Size: =10
-            Visible: =varShowUpdateAgenda
+            Visible: =
             Width: =358
             X: =976
             Y: =352
@@ -2683,7 +2683,7 @@
             HoverColor: =RGBA(255, 255, 255, 1)
             HoverFill: =ColorFade(RGBA(56, 96, 178, 1), -20%)
             OnSelect: |-
-                =If(
+                =Set(varLoadingSpinner,true);If(
                    (CountRows(UAAttendees.SelectedItems) > 1) ,
                     Notify(
                         " Give only 1 Actor ",
@@ -2754,14 +2754,15 @@
                         NotificationType.Error
                     )
                 );
-                )
+                );
+                Set(varLoadingSpinner,false);
             RadiusBottomLeft: =2
             RadiusBottomRight: =2
             RadiusTopLeft: =2
             RadiusTopRight: =2
             Size: =9
             Text: ="Update Agenda"
-            Visible: =varShowUpdateAgenda
+            Visible: =
             Width: =110
             X: =1011
             Y: =655
@@ -2798,7 +2799,7 @@
             RadiusTopRight: =2
             Size: =9
             Text: ="Cancel"
-            Visible: =varShowUpdateAgenda
+            Visible: =
             Width: =110
             X: =1154
             Y: =655
@@ -2815,7 +2816,7 @@
             TabIndex: =0
             TemplatePadding: =0
             TemplateSize: =149
-            Visible: =varShowUpdateAgenda
+            Visible: =
             Width: =358
             X: =976
             Y: =397
@@ -3065,7 +3066,7 @@
             PressedFill: =RGBA(0, 18, 107, 1)
             Size: =9
             Tooltip: =
-            Visible: =varShowUpdateAgenda And If(IsBlank(Gallery8_2),true,false)
+            Visible: =
             Width: =358
             X: =976
             Y: =559
@@ -3080,7 +3081,7 @@
             Height: =36
             Image: =Last(UAAttachmentcontrol.Attachments).Value
             TabIndex: =0
-            Visible: =false
+            Visible: =
             Width: =11
             X: =1125
             Y: =100
@@ -3131,7 +3132,7 @@
             SelectionColor: =RGBA(175, 191, 224, 1)
             SelectionFill: =RGBA(56, 96, 178, 1)
             Size: =10
-            Visible: =varShowUpdateAgenda
+            Visible: =
             Width: =153
             X: =976
             Y: =307
@@ -3175,7 +3176,7 @@
             SelectionColor: =RGBA(175, 191, 224, 1)
             SelectionFill: =RGBA(56, 96, 178, 1)
             Size: =10
-            Visible: =varShowUpdateAgenda
+            Visible: =
             Width: =153
             X: =976
             Y: =262
@@ -3192,7 +3193,7 @@
             TabIndex: =0
             Text: ="*"
             VerticalAlign: =VerticalAlign.Top
-            Visible: =varShowUpdateAgenda
+            Visible: =
             Width: =15
             X: =832
             Y: =347
@@ -3209,7 +3210,7 @@
             TabIndex: =0
             Text: ="*"
             VerticalAlign: =VerticalAlign.Top
-            Visible: =varShowUpdateAgenda
+            Visible: =
             Width: =15
             X: =824
             Y: =170
@@ -3225,7 +3226,7 @@
             ShowScrollbar: =false
             TabIndex: =0
             TemplateSize: =47
-            Visible: =varShowUpdateAgenda And If(IsBlank(Gallery8_2),false,true)
+            Visible: =
             Width: =358
             X: =976
             Y: =559
@@ -3320,7 +3321,7 @@
             FocusedBorderThickness: =1
             Height: =722
             TabIndex: =0
-            Visible: =varShowCreateTask
+            Visible: =
             Width: =600
             X: =762
             Y: =43
@@ -3337,7 +3338,7 @@
             Size: =12
             TabIndex: =0
             Text: ="Due Date"
-            Visible: =varShowCreateTask
+            Visible: =
             X: =824
             Y: =325
             ZIndex: =162
@@ -3362,7 +3363,7 @@
             PaddingLeft: =5
             SelectedDateFill: =RGBA(56, 96, 178, 1)
             Size: =10
-            Visible: =varShowCreateTask
+            Visible: =
             Width: =160
             X: =995
             Y: =325
@@ -3379,7 +3380,7 @@
             Size: =12
             TabIndex: =0
             Text: ="Priority"
-            Visible: =varShowCreateTask
+            Visible: =
             X: =824
             Y: =522
             ZIndex: =164
@@ -3429,7 +3430,7 @@
             SelectionColor: =RGBA(255, 255, 255, 1)
             SelectionFill: =RGBA(56, 96, 178, 1)
             Size: =10
-            Visible: =varShowCreateTask
+            Visible: =
             Width: =150
             X: =995
             Y: =522
@@ -3465,7 +3466,7 @@
             RadiusTopRight: =2
             Size: =9
             Text: ="Cancel"
-            Visible: =varShowCreateTask
+            Visible: =
             Width: =110
             X: =1171
             Y: =721
@@ -3505,7 +3506,7 @@
             SelectionFill: =RGBA(255, 255, 255, 1)
             SelectMultiple: =false
             Size: =10
-            Visible: =varShowCreateTask
+            Visible: =
             Width: =350
             X: =995
             Y: =372
@@ -3523,7 +3524,7 @@
             TabIndex: =0
             TemplatePadding: =0
             TemplateSize: =202
-            Visible: =varShowCreateTask
+            Visible: =
             Width: =351
             X: =995
             Y: =412
@@ -3643,9 +3644,7 @@
             SelectionColor: =RGBA(255, 255, 255, 1)
             SelectionFill: =RGBA(56, 96, 178, 1)
             Size: =10
-            Visible: |-
-                =//varShowCreateTask
-                false
+            Visible: =
             Width: =178
             X: =1166
             Y: =325
@@ -3679,9 +3678,7 @@
             SelectionColor: =RGBA(255, 255, 255, 1)
             SelectionFill: =RGBA(56, 96, 178, 1)
             Size: =10
-            Visible: |-
-                =//varShowCreateTask
-                false
+            Visible: =
             Width: =178
             X: =1166
             Y: =282
@@ -3699,8 +3696,9 @@
             Height: =32
             HoverColor: =RGBA(255, 255, 255, 1)
             HoverFill: =ColorFade(RGBA(56, 96, 178, 1), -20%)
-            OnSelect: |-
-                =If(
+            OnSelect: |
+                =Set(varLoadingSpinner,true);
+                If(
                     IsBlank(AddTaskAssignTo.SelectedItems) || IsBlank(AddTaskTitle.Text) || (CountRows(AddTaskAssignTo.SelectedItems) > 1),
                     Notify(
                         "Please check you are provided Task Title and Assigner",
@@ -3808,14 +3806,15 @@
                         )
                     );
                     
-                )
+                );
+                Set(varLoadingSpinner,false);
             RadiusBottomLeft: =2
             RadiusBottomRight: =2
             RadiusTopLeft: =2
             RadiusTopRight: =2
             Size: =9
             Text: ="Create Task"
-            Visible: =varShowCreateTask
+            Visible: =
             Width: =110
             X: =1046
             Y: =721
@@ -3841,7 +3840,7 @@
             PaddingLeft: =5
             SelectedDateFill: =RGBA(56, 96, 178, 1)
             Size: =10
-            Visible: =varShowCreateTask
+            Visible: =
             Width: =160
             X: =995
             Y: =282
@@ -3858,7 +3857,7 @@
             Size: =12
             TabIndex: =0
             Text: ="AssignTo"
-            Visible: =varShowCreateTask
+            Visible: =
             X: =824
             Y: =372
             ZIndex: =173
@@ -3877,7 +3876,7 @@
             HoverColor: =RGBA(0, 18, 107, 1)
             Size: =10
             Text: ="Send them email with notification"
-            Visible: =varShowCreateTask
+            Visible: =
             Width: =351
             X: =995
             Y: =475
@@ -3894,7 +3893,7 @@
             Size: =12
             TabIndex: =0
             Text: ="Note"
-            Visible: =varShowCreateTask
+            Visible: =
             X: =824
             Y: =569
             ZIndex: =175
@@ -3917,7 +3916,7 @@
             HoverFill: =RGBA(255, 255, 255, 1)
             Mode: =TextMode.MultiLine
             Size: =10
-            Visible: =varShowCreateTask
+            Visible: =
             Width: =350
             X: =995
             Y: =569
@@ -4019,7 +4018,7 @@
             RadiusTopRight: =
             Size: =12
             Text: ="Availability"
-            Visible: =false
+            Visible: =
             Width: =110
             X: =907
             Y: =677
@@ -4034,7 +4033,7 @@
             Size: =16
             TabIndex: =0
             Text: ="Create a New Task"
-            Visible: =varShowCreateTask
+            Visible: =
             Width: =206
             X: =824
             Y: =52
@@ -4050,9 +4049,7 @@
             Size: =12
             TabIndex: =0
             Text: ="Let's create a new Task"
-            Visible: |-
-                =//varShowCreateTask
-                false
+            Visible: =
             Width: =237
             X: =824
             Y: =65
@@ -4069,7 +4066,7 @@
             Size: =12
             TabIndex: =0
             Text: ="Task"
-            Visible: =varShowCreateTask
+            Visible: =
             X: =824
             Y: =238
             ZIndex: =180
@@ -4096,7 +4093,7 @@
             RadiusTopLeft: =2
             RadiusTopRight: =2
             Size: =10
-            Visible: =varShowCreateTask
+            Visible: =
             Width: =350
             X: =995
             Y: =238
@@ -4113,7 +4110,7 @@
             Size: =12
             TabIndex: =0
             Text: ="Start Date"
-            Visible: =varShowCreateTask
+            Visible: =
             X: =824
             Y: =282
             ZIndex: =182
@@ -4145,7 +4142,7 @@
             SelectionColor: =RGBA(255, 255, 255, 1)
             SelectionFill: =RGBA(56, 96, 178, 1)
             Size: =10
-            Visible: =varShowCreateTask And !varPlannerlabel
+            Visible: =
             Width: =150
             X: =995
             Y: =152
@@ -4178,7 +4175,7 @@
             SelectionColor: =RGBA(255, 255, 255, 1)
             SelectionFill: =RGBA(56, 96, 178, 1)
             Size: =10
-            Visible: =varShowCreateTask And !varBucketlabel
+            Visible: =
             Width: =150
             X: =995
             Y: =197
@@ -4195,7 +4192,7 @@
             Icon: =Icon.CancelBadge
             OnSelect: =Set(varShowCreateTask,false)
             TabIndex: =0
-            Visible: =varShowCreateTask
+            Visible: =
             Width: =30
             X: =1318
             Y: =43
@@ -4209,7 +4206,7 @@
             Size: =12
             TabIndex: =0
             Text: ="Plan"
-            Visible: =varShowCreateTask
+            Visible: =
             X: =824
             Y: =152
             ZIndex: =186
@@ -4222,7 +4219,7 @@
             Size: =12
             TabIndex: =0
             Text: ="Buckets"
-            Visible: =varShowCreateTask
+            Visible: =
             X: =824
             Y: =197
             ZIndex: =187
@@ -4264,7 +4261,7 @@
             SelectionColor: =RGBA(255, 255, 255, 1)
             SelectionFill: =RGBA(56, 96, 178, 1)
             Size: =10
-            Visible: =varShowCreateTask
+            Visible: =
             Width: =150
             X: =995
             Y: =109
@@ -4278,7 +4275,7 @@
             Size: =12
             TabIndex: =0
             Text: ="Group"
-            Visible: =varShowCreateTask
+            Visible: =
             X: =824
             Y: =109
             ZIndex: =189
@@ -4292,7 +4289,7 @@
             Size: =10
             TabIndex: =0
             Text: ="No Plans"
-            Visible: =varPlannerlabel And varShowCreateTask
+            Visible: =
             X: =995
             Y: =152
             ZIndex: =190
@@ -4306,7 +4303,7 @@
             Size: =10
             TabIndex: =0
             Text: ="No Buckets"
-            Visible: =varBucketlabel And varShowCreateTask
+            Visible: =
             X: =995
             Y: =197
             ZIndex: =191
@@ -4322,7 +4319,7 @@
             TabIndex: =0
             Text: ="*"
             VerticalAlign: =VerticalAlign.Top
-            Visible: =varShowCreateTask
+            Visible: =
             Width: =15
             X: =865
             Y: =237
@@ -4339,7 +4336,7 @@
             TabIndex: =0
             Text: ="*"
             VerticalAlign: =VerticalAlign.Top
-            Visible: =varShowCreateTask
+            Visible: =
             Width: =28
             X: =895
             Y: =368
@@ -4493,7 +4490,7 @@
             Font: =Font.Lato
             Height: =27
             OnSelect: |-
-                =If(
+                =Set(varLoadingSpinner,true);If(
                     IsBlank('MeetingDetails notes'.HtmlText),
                     Notify(
                         "Please check you are taken notes",
@@ -4547,7 +4544,8 @@
                         "You notes has been saved",
                         NotificationType.Success
                     )
-                )
+                );
+                Set(varLoadingSpinner,false);
             RadiusBottomLeft: =3
             RadiusBottomRight: =3
             RadiusTopLeft: =3
@@ -4575,7 +4573,7 @@
             FocusedBorderThickness: =1
             Height: =722
             TabIndex: =0
-            Visible: =varShowUpdateTask
+            Visible: =
             Width: =600
             X: =766
             Y: =44
@@ -4590,7 +4588,7 @@
             Size: =16
             TabIndex: =0
             Text: ="Update Task"
-            Visible: =varShowUpdateTask
+            Visible: =
             Width: =206
             X: =804
             Y: =61
@@ -4606,7 +4604,7 @@
             Size: =12
             TabIndex: =0
             Text: ="Let's update a task"
-            Visible: =varShowUpdateTask
+            Visible: =
             Width: =237
             X: =804
             Y: =101
@@ -4623,7 +4621,7 @@
             Size: =12
             TabIndex: =0
             Text: ="Title"
-            Visible: =varShowUpdateTask
+            Visible: =
             X: =807
             Y: =270
             ZIndex: =197
@@ -4646,7 +4644,7 @@
             HoverFill: =RGBA(255, 255, 255, 1)
             PaddingLeft: =5
             Size: =10
-            Visible: =varShowUpdateTask
+            Visible: =
             Width: =355
             X: =965
             Y: =270
@@ -4663,7 +4661,7 @@
             Size: =12
             TabIndex: =0
             Text: ="Start Date"
-            Visible: =varShowUpdateTask
+            Visible: =
             X: =807
             Y: =320
             ZIndex: =199
@@ -4689,7 +4687,7 @@
             PaddingTop: =5
             SelectedDateFill: =RGBA(56, 96, 178, 1)
             Size: =10
-            Visible: =varShowUpdateTask
+            Visible: =
             Width: =165
             X: =965
             Y: =320
@@ -4726,9 +4724,7 @@
             SelectionColor: =RGBA(255, 255, 255, 1)
             SelectionFill: =RGBA(56, 96, 178, 1)
             Size: =10
-            Visible: |-
-                =//varShowUpdateTask
-                false
+            Visible: =
             Width: =168
             X: =1152
             Y: =296
@@ -4745,7 +4741,7 @@
             Size: =12
             TabIndex: =0
             Text: ="Assign Users"
-            Visible: =varShowUpdateTask
+            Visible: =
             X: =807
             Y: =526
             ZIndex: =202
@@ -4763,7 +4759,8 @@
             HoverColor: =RGBA(255, 255, 255, 1)
             HoverFill: =ColorFade(RGBA(56, 96, 178, 1), -20%)
             OnSelect: |-
-                =If(
+                =Set(varLoadingSpinner,true);
+                If(
                     (CountRows(UpdateTaskAssignUser.SelectedItems) > 1),
                     Notify(
                         "Give only 1 Assigner ",
@@ -4825,14 +4822,15 @@
                         )
                     );
                     
-                )
+                );
+                Set(varLoadingSpinner,false);
             RadiusBottomLeft: =2
             RadiusBottomRight: =2
             RadiusTopLeft: =2
             RadiusTopRight: =2
             Size: =9
             Text: ="Update Task"
-            Visible: =varShowUpdateTask
+            Visible: =
             Width: =110
             X: =1015
             Y: =696
@@ -4866,7 +4864,7 @@
             RadiusTopRight: =2
             Size: =9
             Text: ="Cancel"
-            Visible: =varShowUpdateTask
+            Visible: =
             Width: =110
             X: =1167
             Y: =696
@@ -4883,7 +4881,7 @@
             Size: =12
             TabIndex: =0
             Text: ="Due Date"
-            Visible: =varShowUpdateTask
+            Visible: =
             X: =807
             Y: =368
             ZIndex: =205
@@ -4909,7 +4907,7 @@
             PaddingTop: =5
             SelectedDateFill: =RGBA(56, 96, 178, 1)
             Size: =10
-            Visible: =varShowUpdateTask
+            Visible: =
             Width: =165
             X: =965
             Y: =368
@@ -4964,9 +4962,7 @@
             SelectionColor: =RGBA(255, 255, 255, 1)
             SelectionFill: =RGBA(56, 96, 178, 1)
             Size: =10
-            Visible: |-
-                =//varShowUpdateTask
-                false
+            Visible: =
             Width: =168
             X: =1152
             Y: =351
@@ -4983,7 +4979,7 @@
             Size: =12
             TabIndex: =0
             Text: ="Progress"
-            Visible: =varShowUpdateTask
+            Visible: =
             X: =807
             Y: =420
             ZIndex: =208
@@ -5020,7 +5016,7 @@
             SelectionColor: =RGBA(255, 255, 255, 1)
             SelectionFill: =RGBA(56, 96, 178, 1)
             Size: =10
-            Visible: =varShowUpdateTask
+            Visible: =
             Width: =165
             X: =965
             Y: =420
@@ -5036,7 +5032,7 @@
             Height: =24
             Icon: =Icon.Edit
             TabIndex: =0
-            Visible: =varShowUpdateTask
+            Visible: =
             Width: =24
             X: =1288
             Y: =246
@@ -5053,7 +5049,7 @@
             TabIndex: =0
             TemplatePadding: =0
             TemplateSize: =194
-            Visible: =varShowUpdateTask
+            Visible: =
             Width: =355
             X: =965
             Y: =571
@@ -5248,7 +5244,7 @@
             RadiusTopRight: =
             Size: =12
             Text: ="Availability"
-            Visible: =false
+            Visible: =
             Width: =110
             X: =1169
             Y: =657
@@ -5290,7 +5286,7 @@
             SelectionFill: =RGBA(56, 96, 178, 1)
             SelectMultiple: =false
             Size: =10
-            Visible: =varShowUpdateTask
+            Visible: =
             Width: =355
             X: =965
             Y: =526
@@ -5307,7 +5303,7 @@
             Icon: =Icon.CancelBadge
             OnSelect: =Set(varShowUpdateTask,false)
             TabIndex: =0
-            Visible: =varShowUpdateTask
+            Visible: =
             Width: =35
             X: =1311
             Y: =64
@@ -5324,7 +5320,7 @@
             TabIndex: =0
             Text: ="*"
             VerticalAlign: =VerticalAlign.Top
-            Visible: =varShowUpdateTask
+            Visible: =
             Width: =15
             X: =903
             Y: =520
@@ -5341,7 +5337,7 @@
             TabIndex: =0
             Text: ="*"
             VerticalAlign: =VerticalAlign.Top
-            Visible: =varShowUpdateTask
+            Visible: =
             Width: =15
             X: =853
             Y: =264
@@ -5405,7 +5401,7 @@
                 =/*Set(arrMeetingSeries, Filter(AllFutureEvents,SeriesMasterId=SelectedMeeting.SeriesMasterId));*/
                 
                  
-                
+                Set(varLoadingSpinner,true);
                 If(!IsBlank(arrMeetingSeries.SeriesMasterId),
                 Set(varFirstNextMeeting, First(Filter(arrMeetingSeries,Start>SelectedMeeting.Start)));
                 Set(SelectedMeeting, varFirstNextMeeting);
@@ -5569,7 +5565,8 @@
                  
                 
                 PastButton.DisplayMode.Edit;
-                UpdateContext({Start:true})
+                UpdateContext({Start:true});
+                Set(varLoadingSpinner,false);
             RadiusBottomLeft: =3
             RadiusBottomRight: =3
             RadiusTopLeft: =3
@@ -5595,7 +5592,7 @@
             Height: =30
             OnSelect: |
                 =/*Set(arrMeetingSeries, Filter(AllFutureEvents,SeriesMasterId=SelectedMeeting.SeriesMasterId));*/
-                
+                Set(varLoadingSpinner,true);
                 If(!IsBlank(arrMeetingSeries.SeriesMasterId),
                 Set(varFirstPastMeeting, Last(Filter(arrMeetingSeries,Start<SelectedMeeting.Start)));
                 Set(SelectedMeeting, varFirstPastMeeting);
@@ -5741,6 +5738,7 @@
                     SelectedMeeting.Start
                 );
                 NextButton.DisplayMode.Edit;
+                Set(varLoadingSpinner,false);
                 
                 
                 /*Set(
@@ -7261,7 +7259,8 @@
             HoverColor: =RGBA(255, 255, 255, 1)
             HoverFill: =ColorFade(RGBA(56, 96, 178, 1), -20%)
             OnSelect: |
-                =Set(
+                =Set(varLoadingSpinner,true);
+                Set(
                     varRCUpdateMeeting,
                     'UpdateMeetingFlow-MeetingAgendaApp'.Run(
                             //UpcomingGallery.Selected.Id,
@@ -7333,6 +7332,7 @@
                         NotificationType.Error
                     )
                 );
+                Set(varLoadingSpinner,false);
             RadiusBottomLeft: =5
             RadiusBottomRight: =5
             RadiusTopLeft: =5
@@ -8438,7 +8438,7 @@
             HoverColor: =RGBA(255, 255, 255, 1)
             HoverFill: =ColorFade(RGBA(56, 96, 178, 1), -20%)
             OnSelect: |
-                =If(
+                =Set(varLoadingSpinner,true);If(
                     IsBlank(AAAttendees.SelectedItems) || IsBlank(AAMeetingTitle.Text) || (CountRows(AAAttendees.SelectedItems) > 1),
                     Notify(
                         "Please check you are provided Agenda Title and Actor",
@@ -8548,15 +8548,14 @@
                         )
                     )
                 );
+                Set(varLoadingSpinner,false);
             RadiusBottomLeft: =2
             RadiusBottomRight: =2
             RadiusTopLeft: =2
             RadiusTopRight: =2
             Size: =9
             Text: ="Create Agenda"
-            Visible: |-
-                =//varShowCreateAgenda
-                false
+            Visible: =false
             Width: =110
             X: =1003
             Y: =672
@@ -9799,4 +9798,8 @@
         X: =807
         Y: =180
         ZIndex: =258
+
+    c_Spinner_2 As c_Spinner:
+        Visible: =varLoadingSpinner
+        ZIndex: =259
 

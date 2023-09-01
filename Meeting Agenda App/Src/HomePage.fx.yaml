@@ -381,7 +381,7 @@ HomePage As screen:
         Height: =24
         Icon: =Icon.Reload
         OnSelect: |
-            =Set(DaysCount,LookUp('Config List',Key="Days Count").'No. of days');
+            =Set(varLoadingSpinner,true);Set(DaysCount,LookUp('Config List',Key="Days Count").'No. of days');
             Set(
                 varAgendaTab,
                 true
@@ -861,6 +861,7 @@ HomePage As screen:
                     }
                 )
             );
+            Set(varLoadingSpinner,false);
             /*Set(arrUiparamList, First(Filter(MeetingAgendaSettingList, true)));
             Set(
                 arrUIParameters,
@@ -1045,6 +1046,7 @@ HomePage As screen:
             Height: =30
             OnSelect: |
                 =/*Set(varMeetingID, ThisItem.Id);*/
+                Set(varLoadingSpinner,true);
                 Set(
                     SelectedMeeting,
                     ThisItem
@@ -1372,6 +1374,7 @@ HomePage As screen:
                     'MeetingDetails Screen',
                     BorderStyle.None
                 );
+                Set(varLoadingSpinner,false);
             RadiusBottomLeft: =0
             RadiusBottomRight: =0
             RadiusTopLeft: =0
@@ -1977,6 +1980,7 @@ HomePage As screen:
             Height: =30
             OnSelect: |
                 =/*Set(varMeetingID, ThisItem.Id);*/
+                Set(varLoadingSpinner,true);
                 Set(
                     SelectedMeeting,
                     ThisItem
@@ -2307,6 +2311,7 @@ HomePage As screen:
                     'MeetingDetails Screen',
                     BorderStyle.None
                 );
+                Set(varLoadingSpinner,false);
             RadiusBottomLeft: =0
             RadiusBottomRight: =0
             RadiusTopLeft: =0
@@ -2786,6 +2791,10 @@ HomePage As screen:
             Y: =246
             ZIndex: =1
 
+    c_Spinner_1 As c_Spinner:
+        Visible: =varLoadingSpinner
+        ZIndex: =62
+
     "'Group top menu' As group":
         Height: =5
         Width: =5
@@ -3258,7 +3267,7 @@ HomePage As screen:
                     Notify(
                         "Please enter value for Meeting Title and Attendees Name",
                         NotificationType.Error
-                    ),
+                    ),Set(varLoadingSpinner,true);
                     Set(
                         varAddMeeting,
                         'AddMeetingFlow-MeetingAgendaApp'.Run(
@@ -3348,6 +3357,7 @@ HomePage As screen:
                 );
                 Refresh(MeetingList);
                 Select(icon_RefreshMeeting);
+                Set(varLoadingSpinner,false);
                 /*Set(
                     varAddMeeting,
                     UpdateContext(

@@ -18,7 +18,7 @@ ViewPollScreen As screen:
         Fill: =RGBA(56, 86, 153, 1)
         Font: =Font.Lato
         OnSelect: |-
-            =If(
+            =Set(varLoadingSpinner,true);If(
                 IsEmpty(colselectedoptions),
                 Notify(
                     "Please check you are selected options for Questions",
@@ -52,7 +52,8 @@ ViewPollScreen As screen:
                 Navigate('MeetingDetails Screen');
                 Clear(colselectedoptions);
                 UpdateContext({resetCheckbox:true});
-            )
+            );
+            Set(varLoadingSpinner,false);
             /*If(
                 CountRows(Filter('Gallery_ for question'.AllItems,IsBlank('Radio_ for opts'.Selected.Title))),
                 Notify(

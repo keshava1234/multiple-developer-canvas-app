@@ -71,7 +71,7 @@ EmailScreen As screen:
             HoverColor: =SendEmail.Color
             HoverFill: =ColorFade(SendEmail.Fill, 20%)
             OnSelect: |
-                =If(
+                =Set(varLoadingSpinner,true);If(
                     IsBlank(EmailSubject.Text) || IsBlank(EmailMessage.Text),
                     Notify(
                         "Please check you are provided Email Subject and Message",
@@ -118,7 +118,8 @@ EmailScreen As screen:
                     Reset(EmailMessage);
                     Reset(AAAttachmentcontrol_2)
                 );
-                Navigate('MeetingDetails Screen',ScreenTransition.None)
+                Navigate('MeetingDetails Screen',ScreenTransition.None);
+                Set(varLoadingSpinner,false);
             PressedBorderColor: =SendEmail.Fill
             PressedColor: =SendEmail.Fill
             PressedFill: =SendEmail.Color
