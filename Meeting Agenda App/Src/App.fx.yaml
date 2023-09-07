@@ -11,7 +11,7 @@ App As appinfo:
             ).'No. of days'
         );
         Set(VarPastDaysCount,LookUp('Config List',Key="Past Days Count").'No. of days');
-        
+        ClearCollect(ColMeetingList,LastN(ShowColumns(MeetingList,"MeetingID"),2000));
         Set(
             varAgendaTab,
             true
