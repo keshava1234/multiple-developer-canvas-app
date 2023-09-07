@@ -6,6 +6,64 @@
             Loading,
             false
         );*/
+        Set(
+            varAgendaTab,
+            false
+        );
+        Set(
+            varNoAgenda,
+            false
+        );
+        
+        If(
+            IsBlank(PlannerGallery_1),
+            Set(
+                varNoPlanner,
+                true
+            ),
+            Set(
+                varNoPlanner,
+                false
+            )
+        );
+        Set(
+            varAgendaTab,
+            true
+        );
+        Set(
+            varNoPlanner,
+            false
+        );
+        If(
+            IsBlank(AgendaGallery_2),
+            Set(
+                varNoAgenda,
+                true
+            ),
+            Set(
+                varNoAgenda,
+                false
+            )
+        );
+        Set(
+            varResources,
+            true
+        );
+        Set(
+            varPollPopup,
+            false
+        );
+        If(
+            IsBlank(Gallery8_1),
+            Set(
+                varNoResources,
+                true
+            ),
+            Set(
+                varNoResources,
+                false
+            )
+        );
         Set(varShowUpdateMeeting,false);
         Set(varShowUpdateAgenda, false);
         Set(varShowUpdateTask,false);

@@ -1054,16 +1054,33 @@ HomePage As screen:
             Height: =30
             OnSelect: |
                 =/*Set(varMeetingID, ThisItem.Id);*/
-                Set(varLoadingSpinner,true);
+                Concurrent(Set(varLoadingSpinner,true),Set(
+                    Loading,
+                    true
+                ),
                 Set(
                     SelectedMeeting,
                     ThisItem
-                );
+                ),
+                ClearCollect(
+                    CombinedEvents,
+                    AllPastEvents,
+                    AllFutureEvents
+                ));
+                Concurrent(
+                Set(
+                    varOrganizerName,
+                    SelectedMeeting.Organizer
+                ),
+                Set(
+                    VarUserEmail,
+                    User().Email
+                ),
                 If(
                     CountRows(
                         Filter(
                             ColMeetingList,
-                            MeetingID = SelectedMeeting.Id
+                            SelectedMeeting.Id in  MeetingID 
                         )
                     ) = 0,
                     IfError(
@@ -1082,18 +1099,7 @@ HomePage As screen:
                         ),
                         false
                     )
-                );
-                Set(
-                    varSelectedMeetingSpItem,
-                    Filter(
-                        MeetingList,
-                        MeetingID = SelectedMeeting.Id
-                    )
-                );
-                Set(
-                    Loading,
-                    true
-                );
+                ),
                 ClearCollect(
                     MeetingAttendeeEmails,
                     Filter(
@@ -1109,7 +1115,14 @@ HomePage As screen:
                         ),
                         Result <> ""
                     )
-                );
+                ));
+                /*Set(
+                    varSelectedMeetingSpItem,
+                    Filter(
+                        MeetingList,
+                        MeetingID = SelectedMeeting.Id
+                    )
+                );*/
                 /*ClearCollect(
                     MeetingAttendeesTemp,
                     ForAll(
@@ -1145,7 +1158,7 @@ HomePage As screen:
                     ForAll(
                         MeetingAttendeeEmails,
                         If(
-                            Not(IsBlank(Result)) && "@ilink-systems.com" in Result,
+                            Not(IsBlank(Result)) && MyDomain in Result,
                             //Office365Users.UserProfileV2(Result),
                             If(
                                 !IsEmpty(
@@ -1191,6 +1204,7 @@ HomePage As screen:
                         "Mail"
                     )
                 );
+                /*
                 Set(
                     arrMeetingSeries,
                     Filter(
@@ -1198,10 +1212,6 @@ HomePage As screen:
                         SeriesMasterId = SelectedMeeting.SeriesMasterId
                     )
                 );
-                /*Set(varFirstNextMeeting, First(Filter(arrMeetingSeries,Start>SelectedMeeting.Start)));
-                Set(SelectedMeeting, varFirstNextMeeting);
-                Set(varFirstPastMeeting, Last(Filter(arrMeetingSeries,Start<SelectedMeeting.Start)));
-                Set(SelectedMeeting, varFirstPastMeeting);*/
                 Set(
                     LastStartDateTime,
                     (Last(arrMeetingSeries).Start)
@@ -1214,26 +1224,15 @@ HomePage As screen:
                     SelectedStartDatetime,
                     SelectedMeeting.Start
                 );
-                Set(
-                    varOrganizerName,
-                    SelectedMeeting.Organizer
-                );
-                Set(
-                    VarUserEmail,
-                    User().Email
-                );
+                */
+                /*
                 Set(
                     varG_SelectedMeetingSPData,
                     LookUp(
                         MeetingList,
                         MeetingID = SelectedMeeting.Id
                     )
-                );
-                ClearCollect(
-                    CombinedEvents,
-                    AllPastEvents,
-                    AllFutureEvents
-                );
+                );*/
                 Set(
                     arrMeetingSeries,
                     Filter(
@@ -1241,18 +1240,20 @@ HomePage As screen:
                         SeriesMasterId = SelectedMeeting.SeriesMasterId
                     )
                 );
+                Concurrent(
                 Set(
                     LastStartDateTime,
                     (Last(arrMeetingSeries).Start)
-                );
+                ),
                 Set(
                     FirstStartDateTime,
                     (First(arrMeetingSeries).Start)
-                );
+                ),
                 Set(
                     SelectedStartDatetime,
                     SelectedMeeting.Start
-                );
+                ));
+                /*
                 Set(
                     varAgendaTab,
                     false
@@ -1261,6 +1262,7 @@ HomePage As screen:
                     varNoAgenda,
                     false
                 );
+                
                 If(
                     IsBlank(PlannerGallery_1),
                     Set(
@@ -1310,13 +1312,15 @@ HomePage As screen:
                         false
                     )
                 );
+                */
+                Concurrent(
                 Set(
                     variCalUID,
                     GetCalenderIDForMeeting.Run(
                         MyCalendarID,
                         SelectedMeeting.Id
                     )
-                );
+                ),
                 If(
                     !IsBlank(SelectedMeeting.SeriesMasterId),
                     Set(
@@ -1327,12 +1331,13 @@ HomePage As screen:
                         )
                     ),
                     false
-                );
+                ));
+                Concurrent(
                 If(
                     CountRows(
                         Filter(
                             ColMeetingList,
-                            MeetingID = variCalUID.icaluid
+                             variCalUID.icaluid in MeetingID 
                         )
                     ) = 0,
                     IfError(
@@ -1352,32 +1357,33 @@ HomePage As screen:
                         ),
                         false
                     )
-                );
+                ),
                 Set(
                     varradio1,
                     LookUp(
                         MeetingList,
                         MeetingID = variCalUID.icaluid
                     ).AllowAttendeesToCreateAgenda
-                );
+                ),
                 Set(
                     vartoggle,
                     LookUp(
                         MeetingList,
                         MeetingID = variCalUID.icaluid
                     ).RequiredAgendaApproval
-                );
+                ),
                 Set(
                     varmeetingattendee,
                     Filter(
                         PollResult,
                         Question_x003a__x0020_MeetingID.Value = variCalUID.icaluid
                     )
-                );
+                ),
                 Set(
                     IsShow,
                     false
-                );
+                ));
+                ClearCollect(ColMeetingList,LastN(ShowColumns(MeetingList,"MeetingID"),2000));
                 Navigate(
                     'MeetingDetails Screen',
                     BorderStyle.None
@@ -3158,6 +3164,7 @@ HomePage As screen:
                 
             FalseText: =true
             Height: =20
+            ShowLabel: =false
             TrueFill: =RGBA(56, 96, 178, 1)
             TrueText: =true
             Visible: =varShowCreateMeeting
