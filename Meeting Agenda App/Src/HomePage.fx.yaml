@@ -381,7 +381,15 @@ HomePage As screen:
         Height: =24
         Icon: =Icon.Reload
         OnSelect: |
-            =Set(varLoadingSpinner,true);Set(DaysCount,LookUp('Config List',Key="Days Count").'No. of days');
+            =//Set(varLoadingSpinner,true);Set(DaysCount,LookUp('Config List',Key="Days Count").'No. of days');
+            Set(
+                varUpcomingDaysCount,
+                LookUp(
+                    'Config List',
+                    Key = "Upcoming Days Count"
+                ).'No. of days'
+            );
+            Set(VarPastDaysCount,LookUp('Config List',Key="Past Days Count").'No. of days');
             Set(
                 varAgendaTab,
                 true
@@ -487,7 +495,7 @@ HomePage As screen:
                         Text(
                             DateAdd(
                                 Today(),
-                                DaysCount,
+                               varUpcomingDaysCount,
                                 TimeUnit.Days
                             ),
                             DateTimeFormat.UTC
@@ -511,7 +519,7 @@ HomePage As screen:
                         Text(
                             DateAdd(
                                 Today(),
-                                -DaysCount,
+                                -VarPastDaysCount,
                                 TimeUnit.Days
                             ),
                             DateTimeFormat.UTC

@@ -2,7 +2,15 @@ App As appinfo:
     BackEnabled: =false
     OnStart: |
         =Set(varLoadingSpinner,false);
-        Set(DaysCount,LookUp('Config List',Key="Days Count").'No. of days');
+        //Set(DaysCount,LookUp('Config List',Key="Days Count").'No. of days');
+        Set(
+            varUpcomingDaysCount,
+            LookUp(
+                'Config List',
+                Key = "Upcoming Days Count"
+            ).'No. of days'
+        );
+        Set(VarPastDaysCount,LookUp('Config List',Key="Past Days Count").'No. of days');
         
         Set(
             varAgendaTab,
@@ -107,7 +115,7 @@ App As appinfo:
                     Text(
                         DateAdd(
                             Today(),
-                            DaysCount,
+                            varUpcomingDaysCount,
                             TimeUnit.Days
                         ),
                         DateTimeFormat.UTC
@@ -131,7 +139,7 @@ App As appinfo:
                     Text(
                         DateAdd(
                             Today(),
-                            -DaysCount,
+                            -VarPastDaysCount,
                             TimeUnit.Days
                         ),
                         DateTimeFormat.UTC
