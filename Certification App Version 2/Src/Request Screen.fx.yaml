@@ -1,0 +1,2409 @@
+"'Request Screen' As screen":
+    Fill: =RGBA(241, 246, 246, 1)
+    LoadingSpinnerColor: =RGBA(0, 120, 212, 1)
+    OnVisible: |-
+        =UpdateContext({varNewCert: false});
+        
+        ClearCollect(
+            Cert_Req,
+            CertificationRequest
+        );
+        Set(varProfileView,false)
+
+    cont_RS_header As groupContainer.manualLayoutContainer:
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =51
+        RadiusBottomLeft: =8
+        RadiusBottomRight: =8
+        RadiusTopLeft: =8
+        RadiusTopRight: =8
+        Width: =1256
+        X: =93
+        Y: =101
+        ZIndex: =1
+
+        glry_RS_header As gallery.galleryHorizontal:
+            AccessibleLabel: ="glry_RS_header"
+            BorderColor: =RGBA(166, 166, 166, 1)
+            DelayItemLoading: =true
+            Height: =51
+            Items: |-
+                =[{header:"New Certification Request",ID:1},{header:"External Certification Request",ID:2}]
+            LoadingSpinner: =LoadingSpinner.Data
+            TabIndex: =0
+            TemplateSize: =347
+            Width: =747
+            ZIndex: =1
+
+            radio_RS_header As radio:
+                AccessibleLabel: ="radio_RS_header"
+                BorderColor: =RGBA(51, 51, 51, 1)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =If(ThisItem.IsSelected,RGBA(70,70,70,1),RGBA(136,147,176,1))
+                Default: |-
+                    =//"New Certification Request"
+                    ThisItem.header
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: |-
+                    =//Font.'Segoe UI'
+                    "Poppins"
+                Height: =41
+                HoverFill: =RGBA(0, 0, 0, 0)
+                Items: =ThisItem
+                LineHeight: =1.8
+                OnSelect: =Select(Parent)
+                PaddingBottom: =5
+                PaddingTop: =5
+                PressedFill: =RGBA(0, 0, 0, 0)
+                RadioBorderColor: =If(ThisItem.IsSelected,RGBA(185,29,11,1),RGBA(136,147,176,1))
+                RadioSelectionFill: |-
+                    =If(
+                        ThisItem.IsSelected,
+                        RGBA(
+                            185,
+                            29,
+                            11,
+                            1
+                        ),
+                        RGBA(
+                            136,
+                            147,
+                            176,
+                            1
+                        )
+                    )
+                RadioSize: =16.66
+                Size: =11
+                Width: =325
+                X: =22
+                ZIndex: =1
+
+        btn_RS_recentrequest As button:
+            BorderColor: =RGBA(185, 29, 11, 1)
+            Color: =RGBA(185, 29, 11, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: =RGBA(255, 255, 255, 1)
+            FocusedBorderColor: =RGBA(185, 29, 11, 1)
+            FocusedBorderThickness: =2
+            Font: ="Poppins"
+            FontWeight: =FontWeight.Semibold
+            Height: =26
+            HoverBorderColor: =RGBA(185, 29, 11, 1)
+            HoverColor: =RGBA(185, 29, 11, 1)
+            HoverFill: =RGBA(255, 255, 255, 1)
+            OnSelect: |-
+                =UpdateContext({varNewCert:true})
+            PressedBorderColor: =RGBA(185, 29, 11, 1)
+            PressedColor: =RGBA(185, 29, 11, 1)
+            PressedFill: =RGBA(255, 255, 255, 1)
+            RadiusBottomLeft: =5
+            RadiusBottomRight: =5
+            RadiusTopLeft: =5
+            RadiusTopRight: =5
+            Size: =11
+            Text: ="VIEW RECENT REQUESTS"
+            Visible: =If(glry_RS_header.Selected.ID=1,true,false)
+            Width: =187
+            X: =1055
+            Y: =12
+            ZIndex: =2
+
+    cont_RS_Main As groupContainer.verticalAutoLayoutContainer:
+        BorderStyle: =BorderStyle.None
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =584
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        RadiusBottomLeft: =11
+        RadiusBottomRight: =11
+        RadiusTopLeft: =11
+        RadiusTopRight: =11
+        Width: =1256
+        X: =93
+        Y: =162
+        ZIndex: =2
+
+        cont_RS_newcertrequest As groupContainer.manualLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            DropShadow: =DropShadow.Light
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            Visible: =If(glry_RS_header.Selected.ID=1,true,false)
+            Width: =Parent.Width
+            ZIndex: =1
+
+            HT_RS_NCRFYD As label:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: ="Poppins"
+                FontWeight: =FontWeight.Bold
+                Text: ="Fill your Details"
+                Width: =170
+                X: =24
+                Y: =22.36
+                ZIndex: =1
+
+            HT_RS_NCRtitleheader As htmlViewer:
+                Color: =RGBA(38, 38, 38, 1)
+                Font: ="Poppins"
+                HtmlText: ="Title<font color=red>*</font>"
+                Width: =180
+                X: =24
+                Y: =68
+                ZIndex: =2
+
+            HT_RS_NCRindicates As htmlViewer:
+                Color: =RGBA(38, 38, 38, 1)
+                Font: ="Poppins"
+                HtmlText: ="<font color=red>*</font>Indicates required field"
+                Width: =180
+                X: =Parent.Width-24-Self.Width
+                Y: =22.36
+                ZIndex: =3
+
+            HT_RS_NCRrequestorheader As htmlViewer:
+                Color: =RGBA(38, 38, 38, 1)
+                Font: ="Poppins"
+                HtmlText: ="Requestor<font color=red>*</font>"
+                Width: =180
+                X: =txtinp_RS_NCRdesc.X+txtinp_RS_NCRdesc.Width+50
+                Y: =68
+                ZIndex: =4
+
+            HT_RS_NCRdescheader As htmlViewer:
+                Color: =RGBA(38, 38, 38, 1)
+                Font: ="Poppins"
+                HtmlText: ="Description<font color=red>*</font>"
+                Width: =180
+                X: =txtinp_RS_NCRtitle.X+txtinp_RS_NCRtitle.Width+50
+                Y: =68
+                ZIndex: =5
+
+            txtinp_RS_NCRtitle As text:
+                AccessibleLabel: ="txtinp_RS_NCRtitle"
+                BorderColor: =RGBA(154, 154, 154, 1)
+                BorderThickness: =2
+                Color: =RGBA(154, 154, 154, 1)
+                Default: =""
+                DisabledBorderColor: =RGBA(154, 154, 154, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                FocusedBorderColor: =RGBA(154, 154, 154, 1)
+                FocusedBorderThickness: =1
+                Font: ="Poppins"
+                Height: =46
+                HintText: ="Enter Cetrificate Name"
+                HoverBorderColor: =RGBA(154, 154, 154, 1)
+                HoverColor: =RGBA(154, 154, 154, 1)
+                HoverFill: =RGBA(255, 255, 255, 1)
+                PressedBorderColor: =RGBA(154, 154, 154, 1)
+                PressedColor: =RGBA(154, 154, 154, 1)
+                PressedFill: =RGBA(255, 255, 255, 1)
+                Size: =10
+                Width: =360
+                X: =24
+                Y: =HT_RS_NCRtitleheader.Y+45
+                ZIndex: =6
+
+            txtinp_RS_NCRdesc As text:
+                AccessibleLabel: ="txtinp_RS_NCRdesc"
+                BorderColor: =RGBA(154, 154, 154, 1)
+                BorderThickness: =2
+                Color: =RGBA(154, 154, 154, 1)
+                Default: =""
+                DisabledBorderColor: =RGBA(154, 154, 154, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                FocusedBorderColor: =RGBA(154, 154, 154, 1)
+                FocusedBorderThickness: =1
+                Font: ="Poppins"
+                Height: =152
+                HintText: ="Enter"
+                HoverBorderColor: =RGBA(154, 154, 154, 1)
+                HoverColor: =RGBA(154, 154, 154, 1)
+                HoverFill: =RGBA(255, 255, 255, 1)
+                Mode: =TextMode.MultiLine
+                PaddingTop: =12
+                PressedBorderColor: =RGBA(154, 154, 154, 1)
+                PressedColor: =RGBA(154, 154, 154, 1)
+                PressedFill: =RGBA(255, 255, 255, 1)
+                Size: =13
+                Width: =360
+                X: =txtinp_RS_NCRtitle.X+txtinp_RS_NCRtitle.Width+50
+                Y: =HT_RS_NCRtitleheader.Y+45
+                ZIndex: =7
+
+            txtinp_RS_NCRcost As text:
+                AccessibleLabel: ="txtinp_RS_NCRcost"
+                BorderColor: =RGBA(154, 154, 154, 1)
+                BorderThickness: =2
+                Color: =RGBA(154, 154, 154, 1)
+                Default: =""
+                DisabledBorderColor: =RGBA(154, 154, 154, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                FocusedBorderColor: =RGBA(154, 154, 154, 1)
+                FocusedBorderThickness: =1
+                Font: ="Poppins"
+                Height: =46
+                HintText: ="Enter"
+                HoverBorderColor: =RGBA(154, 154, 154, 1)
+                HoverColor: =RGBA(154, 154, 154, 1)
+                HoverFill: =RGBA(255, 255, 255, 1)
+                PressedBorderColor: =RGBA(154, 154, 154, 1)
+                PressedColor: =RGBA(154, 154, 154, 1)
+                PressedFill: =RGBA(255, 255, 255, 1)
+                Size: =13
+                Width: =360
+                X: =txtinp_RS_NCRtitle.X+txtinp_RS_NCRtitle.Width+50
+                Y: =HT_RS_NCRcostheader.Y+HT_RS_NCRcostheader.Height
+                ZIndex: =8
+
+            HT_RS_NCRBUheader As htmlViewer:
+                Color: =RGBA(38, 38, 38, 1)
+                Font: ="Poppins"
+                HtmlText: ="BU<font color=red>*</font>"
+                Width: =180
+                X: =24
+                Y: =txtinp_RS_NCRtitle.Y+txtinp_RS_NCRtitle.Height+17
+                ZIndex: =9
+
+            HT_RS_NCRcostheader As htmlViewer:
+                Color: =RGBA(38, 38, 38, 1)
+                Font: ="Poppins"
+                HtmlText: ="Cost<font color=red>*</font>"
+                Width: =180
+                X: =txtinp_RS_NCRtitle.X+txtinp_RS_NCRtitle.Width+50
+                Y: =txtinp_RS_NCRdesc.Y+txtinp_RS_NCRdesc.Height+17
+                ZIndex: =10
+
+            drpdwn_RS_NCRBU As dropdown:
+                AccessibleLabel: ="drpdwn_RS_NCRBU"
+                BorderColor: =RGBA(154, 154, 154, 1)
+                ChevronBackground: =RGBA(255, 255, 255, 1)
+                ChevronDisabledBackground: =RGBA(244, 244, 244, 1)
+                ChevronDisabledFill: =RGBA(166, 166, 166, 1)
+                ChevronFill: =RGBA(154, 154, 154, 1)
+                ChevronHoverBackground: =RGBA(212, 212, 212, 1)
+                ChevronHoverFill: =RGBA(33, 33, 33, 1)
+                Color: =RGBA(154, 154, 154, 1)
+                Default: =""
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                FocusedBorderColor: =RGBA(154, 154, 154, 1)
+                FocusedBorderThickness: =2
+                Font: ="Poppins"
+                Height: =46
+                HoverBorderColor: =RGBA(154, 154, 154, 1)
+                HoverColor: =RGBA(51, 51, 51, 1)
+                HoverFill: =RGBA(154, 154, 154, 0.5)
+                Items: =Choices([@CertificationRequest].BU)
+                PaddingBottom: =5
+                PaddingLeft: =12
+                PaddingRight: =5
+                PaddingTop: =5
+                PressedBorderColor: =RGBA(154, 154, 154, 1)
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =RGBA(154, 154, 154, 0.5)
+                SelectionFill: =RGBA(154, 154, 154, 1)
+                Size: =10
+                Width: =360
+                X: =24
+                Y: =HT_RS_NCRBUheader.Y+HT_RS_NCRBUheader.Height
+                ZIndex: =11
+
+            txtinp_RS_NCRexamcode As text:
+                AccessibleLabel: ="txtinp_RS_NCRexamcode"
+                BorderColor: =RGBA(154, 154, 154, 1)
+                BorderThickness: =2
+                Color: =RGBA(154, 154, 154, 1)
+                Default: =""
+                DisabledBorderColor: =RGBA(154, 154, 154, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                FocusedBorderColor: =RGBA(154, 154, 154, 1)
+                FocusedBorderThickness: =1
+                Font: ="Poppins"
+                Height: =46
+                HintText: ="Enter"
+                HoverBorderColor: =RGBA(154, 154, 154, 1)
+                HoverColor: =RGBA(154, 154, 154, 1)
+                HoverFill: =RGBA(255, 255, 255, 1)
+                PressedBorderColor: =RGBA(154, 154, 154, 1)
+                PressedColor: =RGBA(154, 154, 154, 1)
+                PressedFill: =RGBA(255, 255, 255, 1)
+                Size: =10
+                Width: =360
+                X: =24
+                Y: =HT_RS_NCRexamcodeheader.Y+HT_RS_NCRexamcodeheader.Height
+                ZIndex: =12
+
+            HT_RS_NCRexamcodeheader As htmlViewer:
+                Color: =RGBA(38, 38, 38, 1)
+                Font: ="Poppins"
+                HtmlText: ="Exam Code<font color=red>*</font>"
+                Width: =180
+                X: =24
+                Y: =drpdwn_RS_NCRBU.Y+drpdwn_RS_NCRBU.Height+17
+                ZIndex: =13
+
+            txtinp_RS_NCRURL As text:
+                AccessibleLabel: ="txtinp_RS_NCRURL"
+                BorderColor: =RGBA(154, 154, 154, 1)
+                BorderThickness: =2
+                Color: =RGBA(154, 154, 154, 1)
+                Default: =""
+                DisabledBorderColor: =RGBA(154, 154, 154, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                FocusedBorderColor: =RGBA(154, 154, 154, 1)
+                FocusedBorderThickness: =1
+                Font: ="Poppins"
+                Height: =46
+                HintText: ="Enter"
+                HoverBorderColor: =RGBA(154, 154, 154, 1)
+                HoverColor: =RGBA(154, 154, 154, 1)
+                HoverFill: =RGBA(255, 255, 255, 1)
+                PressedBorderColor: =RGBA(154, 154, 154, 1)
+                PressedColor: =RGBA(154, 154, 154, 1)
+                PressedFill: =RGBA(255, 255, 255, 1)
+                Size: =13
+                Width: =360
+                X: =txtinp_RS_NCRdesc.X+txtinp_RS_NCRdesc.Width+50
+                Y: =209
+                ZIndex: =14
+
+            HT_RS_NCRURLheader As htmlViewer:
+                Color: =RGBA(38, 38, 38, 1)
+                Font: ="Poppins"
+                HtmlText: ="URL<font color=red>*</font>"
+                Width: =180
+                X: =txtinp_RS_NCRdesc.X+txtinp_RS_NCRdesc.Width+50
+                Y: =169
+                ZIndex: =15
+
+            txtinp_RS_NCRprovider As text:
+                AccessibleLabel: ="txtinp_RS_NCRprovider"
+                BorderColor: =RGBA(154, 154, 154, 1)
+                BorderThickness: =2
+                Color: =RGBA(154, 154, 154, 1)
+                Default: =""
+                DisabledBorderColor: =RGBA(154, 154, 154, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                FocusedBorderColor: =RGBA(154, 154, 154, 1)
+                FocusedBorderThickness: =1
+                Font: ="Poppins"
+                Height: =46
+                HintText: ="Enter"
+                HoverBorderColor: =RGBA(154, 154, 154, 1)
+                HoverColor: =RGBA(154, 154, 154, 1)
+                HoverFill: =RGBA(255, 255, 255, 1)
+                PressedBorderColor: =RGBA(154, 154, 154, 1)
+                PressedColor: =RGBA(154, 154, 154, 1)
+                PressedFill: =RGBA(255, 255, 255, 1)
+                Size: =13
+                Width: =360
+                X: =txtinp_RS_NCRdesc.X+txtinp_RS_NCRdesc.Width+50
+                Y: =HT_RS_NCRproviderheader.Y+HT_RS_NCRproviderheader.Height
+                ZIndex: =16
+
+            HT_RS_NCRproviderheader As htmlViewer:
+                Color: =RGBA(38, 38, 38, 1)
+                Font: ="Poppins"
+                HtmlText: ="Provider<font color=red>*</font>"
+                Width: =180
+                X: =txtinp_RS_NCRdesc.X+txtinp_RS_NCRdesc.Width+50
+                Y: =HT_RS_NCRexamcodeheader.Y
+                ZIndex: =17
+
+            Cmb_RS_NCRrequestor As combobox:
+                AccessibleLabel: ="Cmb_RS_NCRrequestor"
+                BorderColor: =RGBA(166, 166, 166, 1)
+                ChevronBackground: =RGBA(255, 255, 255, 1)
+                ChevronDisabledBackground: =RGBA(244, 244, 244, 1)
+                ChevronDisabledFill: =RGBA(166, 166, 166, 1)
+                ChevronFill: =RGBA(33, 33, 33, 1)
+                ChevronHoverBackground: =RGBA(212, 212, 212, 1)
+                ChevronHoverFill: =RGBA(33, 33, 33, 1)
+                Color: =RGBA(51, 51, 51, 1)
+                DefaultSelectedItems: |-
+                    =Office365Users.SearchUser({searchTerm:Office365Users.MyProfile().Mail})
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayFields: =["DisplayName"]
+                DisplayMode: =DisplayMode.Disabled
+                Font: ="Poppins"
+                HoverBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+                HoverColor: =RGBA(51, 51, 51, 1)
+                HoverFill: =RGBA(212, 212, 212, 1)
+                Items: |-
+                    =Office365Users.SearchUser({searchTerm:Self.SearchText,top:999})
+                PressedBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =RGBA(0, 120, 212, 1)
+                SearchFields: =["DisplayName"]
+                SearchItems: |-
+                    =Search(Office365Users.SearchUser({searchTerm:Self.SearchText,top:999}),Cmb_RS_NCRrequestor.SearchText,"DisplayName")
+                SelectionFill: =RGBA(245, 223, 220, 1)
+                SelectionTagFill: =RGBA(245, 223, 220, 1)
+                SelectMultiple: =false
+                Size: =10
+                Width: =360
+                X: =844
+                Y: =116
+                ZIndex: =18
+
+            btn_RS_NCRSubmit As button:
+                BorderColor: =RGBA(185, 29, 11, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Fill: =RGBA(185, 29, 11, 1)
+                FocusedBorderColor: =RGBA(185, 29, 11, 1)
+                FocusedBorderThickness: =2
+                Font: ="Poppins"
+                FontWeight: =FontWeight.Semibold
+                Height: =25
+                HoverBorderColor: =RGBA(185, 29, 11, 1)
+                HoverColor: =RGBA(255, 255, 255, 1)
+                HoverFill: =RGBA(185, 29, 11, 1)
+                OnSelect: |-
+                    =/*
+                    Patch(CertificationRequest,Defaults(CertificationRequest),{
+                        Description: txtinp_RS_NCRdesc.Text,
+                        Title:txtinp_RS_NCRtitle.Text,
+                        URL:txtinp_RS_NCRURL.Text,
+                        Cost:txtinp_RS_NCRcost.Text,
+                        Provider:txtinp_RS_NCRprovider.Text
+                    })
+                    */
+                    If(
+                        IsBlank(txtinp_RS_NCRdesc.Text) || IsBlank(txtinp_RS_NCRtitle.Text) || IsBlank(txtinp_RS_NCRURL.Text) || IsBlank(txtinp_RS_NCRcost.Text) || IsBlank(txtinp_RS_NCRprovider.Text) || IsBlank(drpdwn_RS_NCRBU.SelectedText) || IsBlank(txtinp_RS_NCRexamcode.Text),
+                        Notify(
+                            "Please Fill the Required Fields",
+                            NotificationType.Error
+                        ),
+                        IfError(
+                            SubmitForm(Form2),
+                            Notify("error")
+                        )
+                    );
+                    ResetForm(Form2);
+                    Concurrent(
+                        Reset(txtinp_RS_NCRdesc),
+                        Reset(txtinp_RS_NCRtitle),
+                        Reset(txtinp_RS_NCRURL),
+                        Reset(txtinp_RS_NCRcost),
+                        Reset(txtinp_RS_NCRprovider),
+                        Reset(drpdwn_RS_NCRBU),
+                        Reset(txtinp_RS_NCRexamcode)
+                    )
+                PressedBorderColor: =RGBA(185, 29, 11, 1)
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =RGBA(185, 29, 11, 1)
+                RadiusBottomLeft: =3
+                RadiusBottomRight: =3
+                RadiusTopLeft: =3
+                RadiusTopRight: =3
+                Size: =10
+                Text: ="Submit"
+                Width: =120
+                X: =1052
+                Y: =515
+                ZIndex: =19
+
+            btn_RS_NCRclear As button:
+                BorderColor: =RGBA(185, 29, 11, 1)
+                Color: =RGBA(185, 29, 11, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Fill: =RGBA(255, 255, 255, 1)
+                FocusedBorderColor: =RGBA(185, 29, 11, 1)
+                FocusedBorderThickness: =2
+                Font: ="Poppins"
+                FontWeight: =FontWeight.Semibold
+                Height: =25
+                HoverBorderColor: =RGBA(185, 29, 11, 1)
+                HoverColor: =RGBA(185, 29, 11, 1)
+                HoverFill: =RGBA(255, 255, 255, 1)
+                PressedBorderColor: =RGBA(185, 29, 11, 1)
+                PressedColor: =RGBA(185, 29, 11, 1)
+                PressedFill: =RGBA(255, 255, 255, 1)
+                RadiusBottomLeft: =3
+                RadiusBottomRight: =3
+                RadiusTopLeft: =3
+                RadiusTopRight: =3
+                Size: =10
+                Text: ="Clear"
+                Width: =120
+                X: =904
+                Y: =515
+                ZIndex: =20
+
+            HT_RS_attachheader As htmlViewer:
+                Color: =RGBA(38, 38, 38, 1)
+                Font: ="Poppins"
+                HtmlText: ="Attachment"
+                Width: =180
+                X: =24
+                Y: =txtinp_RS_NCRexamcode.Y+txtinp_RS_NCRexamcode.Height+17
+                ZIndex: =22
+
+            Label17 As label:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(221, 79, 14, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                Height: =14
+                Size: =10
+                Text: ="Invalid URL"
+                Visible: |-
+                    =If(IsBlank(txtinp_RS_NCRURL.Text )||
+                        IsMatch(
+                            txtinp_RS_NCRURL.Text,
+                            "(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]%@!\$&’\(\)\*\+,;=.]+$"
+                        ),
+                        false,
+                        true
+                    )
+                Width: =299
+                X: =844
+                Y: =258
+                ZIndex: =23
+
+        Cont_RS_extcertrequest As groupContainer.manualLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            ContentLanguage: =Parent.Width
+            DropShadow: =DropShadow.Light
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            Visible: =If(glry_RS_header.Selected.ID=2,true,false)
+            Width: =Parent.Width
+            X: =40
+            Y: =40
+            ZIndex: =2
+
+            lbl_RS_ECRFYD As label:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: ="Poppins"
+                FontWeight: =FontWeight.Bold
+                Text: ="Fill your Details"
+                Width: =170
+                X: =24
+                Y: =22.36
+                ZIndex: =1
+
+            HT_RS_ECRnameheader As htmlViewer:
+                Color: =RGBA(38, 38, 38, 1)
+                Font: ="Poppins"
+                Height: =35
+                HtmlText: ="Name<font color=red>*</font>"
+                Width: =180
+                X: =32
+                Y: =71
+                ZIndex: =2
+
+            HT_RS_ECRindicates As htmlViewer:
+                Color: =RGBA(38, 38, 38, 1)
+                Font: ="Poppins"
+                HtmlText: ="<font color=red>*</font>Indicates required field"
+                Width: =180
+                X: =1044
+                Y: =22.36
+                ZIndex: =3
+
+            HT_RS_ECRexamlevelheader As htmlViewer:
+                Color: =RGBA(38, 38, 38, 1)
+                Font: ="Poppins"
+                Height: =35
+                HtmlText: ="Exam Level<font color=red>*</font>"
+                Width: =180
+                X: =852
+                Y: =71
+                ZIndex: =4
+
+            HT_RS_ECRexamcodeheader As htmlViewer:
+                Color: =RGBA(38, 38, 38, 1)
+                Font: ="Poppins"
+                Height: =35
+                HtmlText: ="Exam Code<font color=red>*</font>"
+                Width: =180
+                X: =442
+                Y: =71
+                ZIndex: =5
+
+            txtinp_RS_ECRname As text:
+                AccessibleLabel: ="txtinp_RS_ECRname"
+                BorderColor: =RGBA(154, 154, 154, 1)
+                BorderThickness: =2
+                Color: =RGBA(154, 154, 154, 1)
+                Default: =""
+                DisabledBorderColor: =RGBA(154, 154, 154, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                FocusedBorderColor: =RGBA(154, 154, 154, 1)
+                FocusedBorderThickness: =1
+                Font: ="Poppins"
+                Height: =46
+                HintText: ="Enter"
+                HoverBorderColor: =RGBA(154, 154, 154, 1)
+                HoverColor: =RGBA(154, 154, 154, 1)
+                HoverFill: =RGBA(255, 255, 255, 1)
+                PressedBorderColor: =RGBA(154, 154, 154, 1)
+                PressedColor: =RGBA(154, 154, 154, 1)
+                PressedFill: =RGBA(255, 255, 255, 1)
+                Size: =13
+                Width: =360
+                X: =32
+                Y: =HT_RS_ECRnameheader.Y+HT_RS_ECRnameheader.Height+5
+                ZIndex: =6
+
+            txtinp_RS_ECRExamcode As text:
+                AccessibleLabel: ="txtinp_RS_ECRExamcode"
+                BorderColor: =RGBA(154, 154, 154, 1)
+                BorderThickness: =2
+                Color: =RGBA(154, 154, 154, 1)
+                Default: =""
+                DisabledBorderColor: =RGBA(154, 154, 154, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                FocusedBorderColor: =RGBA(154, 154, 154, 1)
+                FocusedBorderThickness: =1
+                Font: ="Poppins"
+                Height: =46
+                HintText: ="Enter"
+                HoverBorderColor: =RGBA(154, 154, 154, 1)
+                HoverColor: =RGBA(154, 154, 154, 1)
+                HoverFill: =RGBA(255, 255, 255, 1)
+                Mode: =TextMode.MultiLine
+                PaddingTop: =12
+                PressedBorderColor: =RGBA(154, 154, 154, 1)
+                PressedColor: =RGBA(154, 154, 154, 1)
+                PressedFill: =RGBA(255, 255, 255, 1)
+                Size: =13
+                Width: =360
+                X: =442
+                Y: =HT_RS_ECRexamcodeheader.Y+HT_RS_ECRexamcodeheader.Height+5
+                ZIndex: =7
+
+            HT_RS_ECRBUheader As htmlViewer:
+                Color: =RGBA(38, 38, 38, 1)
+                Font: ="Poppins"
+                Height: =35
+                HtmlText: ="BU<font color=red>*</font>"
+                Width: =180
+                X: =32
+                Y: =txtinp_RS_ECRPname.Y+txtinp_RS_ECRPname.Height+10
+                ZIndex: =9
+
+            HT_RS_ECRCDateheader As htmlViewer:
+                Color: =RGBA(38, 38, 38, 1)
+                Font: ="Poppins"
+                Height: =35
+                HtmlText: ="Completion Date<font color=red>*</font>"
+                Width: =180
+                X: =442
+                Y: =txtinp_RS_ECRExamcode.Y+txtinp_RS_ECRExamcode.Height+10
+                ZIndex: =10
+
+            drpdwn_RS_ECRBU As dropdown:
+                AccessibleLabel: ="drpdwn_RS_ECRBU"
+                BorderColor: =RGBA(154, 154, 154, 1)
+                ChevronBackground: =RGBA(255, 255, 255, 1)
+                ChevronDisabledBackground: =RGBA(244, 244, 244, 1)
+                ChevronDisabledFill: =RGBA(166, 166, 166, 1)
+                ChevronFill: =RGBA(154, 154, 154, 1)
+                ChevronHoverBackground: =RGBA(212, 212, 212, 1)
+                ChevronHoverFill: =RGBA(33, 33, 33, 1)
+                Color: =RGBA(154, 154, 154, 1)
+                Default: =""
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                FocusedBorderColor: =RGBA(154, 154, 154, 1)
+                FocusedBorderThickness: =2
+                Font: ="Poppins"
+                Height: =46
+                HoverBorderColor: =RGBA(154, 154, 154, 1)
+                HoverColor: =RGBA(51, 51, 51, 1)
+                HoverFill: =RGBA(154, 154, 154, 0.5)
+                Items: =["Dex"]
+                PaddingBottom: =5
+                PaddingLeft: =12
+                PaddingRight: =5
+                PaddingTop: =5
+                PressedBorderColor: =RGBA(154, 154, 154, 1)
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =RGBA(154, 154, 154, 0.5)
+                SelectionFill: =RGBA(154, 154, 154, 1)
+                Size: =13
+                Width: =360
+                X: =32
+                Y: =HT_RS_ECRBUheader.Y+HT_RS_ECRBUheader.Height
+                ZIndex: =11
+
+            txtinp_RS_ECRPname As text:
+                AccessibleLabel: ="txtinp_RS_ECRPname"
+                BorderColor: =RGBA(154, 154, 154, 1)
+                BorderThickness: =2
+                Color: =RGBA(154, 154, 154, 1)
+                Default: =""
+                DisabledBorderColor: =RGBA(154, 154, 154, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                FocusedBorderColor: =RGBA(154, 154, 154, 1)
+                FocusedBorderThickness: =1
+                Font: ="Poppins"
+                Height: =46
+                HintText: ="Enter"
+                HoverBorderColor: =RGBA(154, 154, 154, 1)
+                HoverColor: =RGBA(154, 154, 154, 1)
+                HoverFill: =RGBA(255, 255, 255, 1)
+                PressedBorderColor: =RGBA(154, 154, 154, 1)
+                PressedColor: =RGBA(154, 154, 154, 1)
+                PressedFill: =RGBA(255, 255, 255, 1)
+                Size: =13
+                Width: =360
+                X: =32
+                Y: =HT_RS_ECRPNheader.Y+HT_RS_ECRPNheader.Height
+                ZIndex: =12
+
+            HT_RS_ECRPNheader As htmlViewer:
+                Color: =RGBA(38, 38, 38, 1)
+                Font: ="Poppins"
+                Height: =35
+                HtmlText: ="Provider Name<font color=red>*</font>"
+                Width: =180
+                X: =32
+                Y: =txtinp_RS_ECRCname.Y+txtinp_RS_ECRCname.Height+10
+                ZIndex: =13
+
+            txtinp_RS_ECRprice As text:
+                BorderColor: =RGBA(154, 154, 154, 1)
+                BorderThickness: =2
+                Color: =RGBA(154, 154, 154, 1)
+                Default: =""
+                DisabledBorderColor: =RGBA(154, 154, 154, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                FocusedBorderColor: =RGBA(154, 154, 154, 1)
+                FocusedBorderThickness: =1
+                Font: ="Poppins"
+                Height: =46
+                HintText: ="Enter"
+                HoverBorderColor: =RGBA(154, 154, 154, 1)
+                HoverColor: =RGBA(154, 154, 154, 1)
+                HoverFill: =RGBA(255, 255, 255, 1)
+                PressedBorderColor: =RGBA(154, 154, 154, 1)
+                PressedColor: =RGBA(154, 154, 154, 1)
+                PressedFill: =RGBA(255, 255, 255, 1)
+                Size: =13
+                Width: =257
+                X: =955
+                Y: =txtinp_RS_ECRCname.Y
+                ZIndex: =14
+
+            HT_RS_ECRpriceheader As htmlViewer:
+                Color: =RGBA(38, 38, 38, 1)
+                Font: ="Poppins"
+                Height: =35
+                HtmlText: ="Price of Certification<font color=red>*</font>"
+                Width: =180
+                X: =852
+                Y: =HT_RS_ECRCDateheader.Y
+                ZIndex: =15
+
+            txtinp_RS_ECRrole As text:
+                AccessibleLabel: ="txtinp_RS_ECRrole"
+                BorderColor: =RGBA(154, 154, 154, 1)
+                BorderThickness: =2
+                Color: =RGBA(154, 154, 154, 1)
+                Default: =""
+                DisabledBorderColor: =RGBA(154, 154, 154, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                FocusedBorderColor: =RGBA(154, 154, 154, 1)
+                FocusedBorderThickness: =1
+                Font: ="Poppins"
+                Height: =46
+                HintText: ="Enter"
+                HoverBorderColor: =RGBA(154, 154, 154, 1)
+                HoverColor: =RGBA(154, 154, 154, 1)
+                HoverFill: =RGBA(255, 255, 255, 1)
+                PressedBorderColor: =RGBA(154, 154, 154, 1)
+                PressedColor: =RGBA(154, 154, 154, 1)
+                PressedFill: =RGBA(255, 255, 255, 1)
+                Size: =13
+                Width: =360
+                X: =852
+                Y: =HT_RS_ECRroleheader.Y+HT_RS_ECRroleheader.Height
+                ZIndex: =16
+
+            HT_RS_ECRroleheader As htmlViewer:
+                Color: =RGBA(38, 38, 38, 1)
+                Font: ="Poppins"
+                Height: =35
+                HtmlText: ="Role<font color=red>*</font>"
+                Width: =180
+                X: =852
+                Y: =HT_RS_ECRPNheader.Y
+                ZIndex: =17
+
+            btn_RS_ECRsubmit As button:
+                BorderColor: =RGBA(185, 29, 11, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Fill: =RGBA(185, 29, 11, 1)
+                FocusedBorderColor: =RGBA(185, 29, 11, 1)
+                FocusedBorderThickness: =2
+                Font: ="Poppins"
+                FontWeight: =FontWeight.Semibold
+                HoverBorderColor: =RGBA(185, 29, 11, 1)
+                HoverColor: =RGBA(255, 255, 255, 1)
+                HoverFill: =RGBA(185, 29, 11, 1)
+                PressedBorderColor: =RGBA(185, 29, 11, 1)
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =RGBA(185, 29, 11, 1)
+                RadiusBottomLeft: =3
+                RadiusBottomRight: =3
+                RadiusTopLeft: =3
+                RadiusTopRight: =3
+                Size: =15
+                Text: ="Submit"
+                X: =1052
+                Y: =515
+                ZIndex: =19
+
+            btn_RS_ECRclear As button:
+                BorderColor: =RGBA(185, 29, 11, 1)
+                Color: =RGBA(185, 29, 11, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Fill: =RGBA(255, 255, 255, 1)
+                FocusedBorderColor: =RGBA(185, 29, 11, 1)
+                FocusedBorderThickness: =2
+                Font: ="Poppins"
+                FontWeight: =FontWeight.Semibold
+                HoverBorderColor: =RGBA(185, 29, 11, 1)
+                HoverColor: =RGBA(185, 29, 11, 1)
+                HoverFill: =RGBA(255, 255, 255, 1)
+                PressedBorderColor: =RGBA(185, 29, 11, 1)
+                PressedColor: =RGBA(185, 29, 11, 1)
+                PressedFill: =RGBA(255, 255, 255, 1)
+                RadiusBottomLeft: =3
+                RadiusBottomRight: =3
+                RadiusTopLeft: =3
+                RadiusTopRight: =3
+                Size: =15
+                Text: ="Clear"
+                X: =852
+                Y: =515
+                ZIndex: =20
+
+            txtinp_RS_ECRCname As text:
+                AccessibleLabel: ="txtinp_RS_ECRCname"
+                BorderColor: =RGBA(154, 154, 154, 1)
+                BorderThickness: =2
+                Color: =RGBA(154, 154, 154, 1)
+                Default: =""
+                DisabledBorderColor: =RGBA(154, 154, 154, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                FocusedBorderColor: =RGBA(154, 154, 154, 1)
+                FocusedBorderThickness: =1
+                Font: ="Poppins"
+                Height: =46
+                HintText: ="Enter"
+                HoverBorderColor: =RGBA(154, 154, 154, 1)
+                HoverColor: =RGBA(154, 154, 154, 1)
+                HoverFill: =RGBA(255, 255, 255, 1)
+                PressedBorderColor: =RGBA(154, 154, 154, 1)
+                PressedColor: =RGBA(154, 154, 154, 1)
+                PressedFill: =RGBA(255, 255, 255, 1)
+                Size: =13
+                Width: =360
+                X: =32
+                Y: =HT_RS_ECRCertname.Y+HT_RS_ECRCertname.Height
+                ZIndex: =21
+
+            HT_RS_ECRCertname As htmlViewer:
+                Color: =RGBA(38, 38, 38, 1)
+                Font: ="Poppins"
+                Height: =35
+                HtmlText: ="Certification Name<font color=red>*</font>"
+                Width: =180
+                X: =32
+                Y: =txtinp_RS_ECRname.Y+txtinp_RS_ECRname.Height+10
+                ZIndex: =22
+
+            drpdwn_RS_ECRexamlevel As dropdown:
+                AccessibleLabel: ="drpdwn_RS_ECRexamlevel"
+                BorderColor: =RGBA(154, 154, 154, 1)
+                ChevronBackground: =RGBA(255, 255, 255, 1)
+                ChevronDisabledBackground: =RGBA(244, 244, 244, 1)
+                ChevronDisabledFill: =RGBA(166, 166, 166, 1)
+                ChevronFill: =RGBA(154, 154, 154, 1)
+                ChevronHoverBackground: =RGBA(212, 212, 212, 1)
+                ChevronHoverFill: =RGBA(33, 33, 33, 1)
+                Color: =RGBA(154, 154, 154, 1)
+                Default: =""
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                FocusedBorderColor: =RGBA(154, 154, 154, 1)
+                FocusedBorderThickness: =2
+                Font: ="Poppins"
+                Height: =46
+                HoverBorderColor: =RGBA(154, 154, 154, 1)
+                HoverColor: =RGBA(51, 51, 51, 1)
+                HoverFill: =RGBA(154, 154, 154, 0.5)
+                Items: =["Beginner","Intermediate","Advanced"]
+                PaddingBottom: =5
+                PaddingLeft: =12
+                PaddingRight: =5
+                PaddingTop: =5
+                PressedBorderColor: =RGBA(154, 154, 154, 1)
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =RGBA(154, 154, 154, 0.5)
+                SelectionFill: =RGBA(154, 154, 154, 1)
+                Size: =13
+                Width: =360
+                X: =852
+                Y: =txtinp_RS_ECRExamcode.Y
+                ZIndex: =23
+
+            drpdwn_RS_ECRrs As dropdown:
+                AccessibleLabel: ="drpdwn_RS_ECRrs"
+                BorderColor: =RGBA(154, 154, 154, 1)
+                ChevronBackground: =RGBA(255, 255, 255, 1)
+                ChevronDisabledBackground: =RGBA(244, 244, 244, 1)
+                ChevronDisabledFill: =RGBA(166, 166, 166, 1)
+                ChevronFill: =RGBA(154, 154, 154, 1)
+                ChevronHoverBackground: =RGBA(212, 212, 212, 1)
+                ChevronHoverFill: =RGBA(33, 33, 33, 1)
+                Color: =RGBA(154, 154, 154, 1)
+                Default: =""
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                FocusedBorderColor: =RGBA(154, 154, 154, 1)
+                FocusedBorderThickness: =2
+                Font: ="Poppins"
+                Height: =46
+                HoverBorderColor: =RGBA(154, 154, 154, 1)
+                HoverColor: =RGBA(51, 51, 51, 1)
+                HoverFill: =RGBA(154, 154, 154, 0.5)
+                Items: =["Rs"]
+                PaddingBottom: =5
+                PaddingLeft: =12
+                PaddingRight: =5
+                PaddingTop: =5
+                PressedBorderColor: =RGBA(154, 154, 154, 1)
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =RGBA(154, 154, 154, 0.5)
+                SelectionFill: =RGBA(154, 154, 154, 1)
+                Size: =13
+                Width: =93
+                X: =852
+                Y: =txtinp_RS_ECRCname.Y
+                ZIndex: =24
+
+            txtinp_RS_ECRCV As text:
+                AccessibleLabel: ="txtinp_RS_ECRCV"
+                BorderColor: =RGBA(154, 154, 154, 1)
+                BorderThickness: =2
+                Color: =RGBA(154, 154, 154, 1)
+                Default: =""
+                DisabledBorderColor: =RGBA(154, 154, 154, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                FocusedBorderColor: =RGBA(154, 154, 154, 1)
+                FocusedBorderThickness: =1
+                Font: ="Poppins"
+                Height: =46
+                HintText: ="Enter"
+                HoverBorderColor: =RGBA(154, 154, 154, 1)
+                HoverColor: =RGBA(154, 154, 154, 1)
+                HoverFill: =RGBA(255, 255, 255, 1)
+                PressedBorderColor: =RGBA(154, 154, 154, 1)
+                PressedColor: =RGBA(154, 154, 154, 1)
+                PressedFill: =RGBA(255, 255, 255, 1)
+                Size: =13
+                Width: =360
+                X: =852
+                Y: =HT_RS_ECRCV.Y+HT_RS_ECRCV.Height
+                ZIndex: =25
+
+            HT_RS_ECRCV As htmlViewer:
+                Color: =RGBA(38, 38, 38, 1)
+                Font: ="Poppins"
+                Height: =35
+                HtmlText: ="Certification Validity<font color=red>*</font>"
+                Width: =180
+                X: =852
+                Y: =HT_RS_ECRBUheader.Y
+                ZIndex: =26
+
+            txtinp_RS_ECRtech As text:
+                AccessibleLabel: ="txtinp_RS_ECRtech"
+                BorderColor: =RGBA(154, 154, 154, 1)
+                BorderThickness: =2
+                Color: =RGBA(154, 154, 154, 1)
+                Default: =""
+                DisabledBorderColor: =RGBA(154, 154, 154, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                FocusedBorderColor: =RGBA(154, 154, 154, 1)
+                FocusedBorderThickness: =1
+                Font: ="Poppins"
+                Height: =46
+                HintText: ="Enter"
+                HoverBorderColor: =RGBA(154, 154, 154, 1)
+                HoverColor: =RGBA(154, 154, 154, 1)
+                HoverFill: =RGBA(255, 255, 255, 1)
+                PressedBorderColor: =RGBA(154, 154, 154, 1)
+                PressedColor: =RGBA(154, 154, 154, 1)
+                PressedFill: =RGBA(255, 255, 255, 1)
+                Size: =13
+                Width: =360
+                X: =442
+                Y: =HT_RS_ECRtechheader.Y+HT_RS_ECRtechheader.Height
+                ZIndex: =27
+
+            HT_RS_ECRtechheader As htmlViewer:
+                Color: =RGBA(38, 38, 38, 1)
+                Font: ="Poppins"
+                Height: =35
+                HtmlText: ="Technology<font color=red>*</font>"
+                Width: =180
+                X: =442
+                Y: =HT_RS_ECRPNheader.Y
+                ZIndex: =28
+
+            HT_RS_ECRCcopyheader As htmlViewer:
+                Color: =RGBA(38, 38, 38, 1)
+                Font: ="Poppins"
+                Height: =35
+                HtmlText: ="Certification Copy<font color=red>*</font>"
+                Width: =180
+                X: =442
+                Y: =txtinp_RS_ECRPname.Y+txtinp_RS_ECRPname.Height+10
+                ZIndex: =29
+
+            HT_RS_ECRproviderheader As htmlViewer:
+                Color: =RGBA(38, 38, 38, 1)
+                Font: ="Poppins"
+                Height: =35
+                HtmlText: ="Microsoft Provider<font color=red>*</font>"
+                Width: =180
+                X: =32
+                Y: =drpdwn_RS_ECRBU.Y+drpdwn_RS_ECRBU.Height+10
+                ZIndex: =30
+
+            DatePicker_RS_ECRcmpdate As datepicker:
+                AccessibleLabel: ="DatePicker_RS_ECRcmpdate"
+                BorderColor: =RGBA(154, 154, 154, 1)
+                CalendarHeaderFill: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+                Color: =RGBA(154, 154, 154, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                FocusedBorderColor: =RGBA(154, 154, 154, 1)
+                FocusedBorderThickness: =2
+                Font: ="Poppins"
+                HoverDateFill: =RGBA(200, 200, 200, 1)
+                IconBackground: =RGBA(0, 0, 0, 0)
+                IconFill: =RGBA(154, 154, 154, 1)
+                PaddingTop: =5
+                SelectedDateFill: =RGBA(0, 120, 212, 1)
+                Size: =13
+                Width: =360
+                X: =442
+                Y: =HT_RS_ECRCDateheader.Y+HT_RS_ECRCDateheader.Height
+                ZIndex: =31
+
+            radio_RS_ECRprovider As radio:
+                AccessibleLabel: ="radio_RS_ECRprovider"
+                BorderColor: =RGBA(51, 51, 51, 1)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                Default: ="Yes"
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: ="Poppins"
+                Height: =55
+                HoverColor: =RGBA(51, 51, 51, 1)
+                HoverFill: =RGBA(0, 0, 0, 0)
+                Items: =["Yes","No"]
+                Layout: =Layout.Horizontal
+                PaddingBottom: =5
+                PaddingTop: =5
+                PressedColor: =RGBA(51, 51, 51, 1)
+                PressedFill: =RGBA(0, 0, 0, 0)
+                RadioBorderColor: =RGBA(51, 51, 51, 1)
+                RadioSelectionFill: =If(radio_RS_ECRprovider.SelectedText.Value="Yes",RGBA(185, 29, 11, 1),RGBA(136,147,176,1))
+                RadioSize: =30
+                Size: =13
+                Width: =360
+                X: =29
+                Y: =475
+                ZIndex: =32
+
+            attach_RS_ECR As attachments:
+                AccessibleLabel: ="attach_RS_ECR"
+                BorderColor: =RGBA(154, 154, 154, 1)
+                BorderStyle: =BorderStyle.Dashed
+                BorderThickness: =2
+                Color: =RGBA(154, 154, 154, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayMode: =Parent.DisplayMode
+                FocusedBorderThickness: =4
+                Font: ="Poppins"
+                Height: =111
+                HoverColor: =RGBA(51, 51, 51, 1)
+                HoverFill: =RGBA(212, 212, 212, 1)
+                IsInDataCard: =true
+                ItemColor: =RGBA(0, 0, 0, 1)
+                ItemFill: =RGBA(0, 120, 212, 1)
+                ItemHoverColor: =RGBA(51, 51, 51, 1)
+                ItemHoverFill: =RGBA(212, 212, 212, 1)
+                Items: =
+                ItemSpacing: =12
+                NoAttachmentsColor: =RGBA(166, 166, 166, 1)
+                PaddingBottom: =5
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                PaddingRight: =5
+                PaddingTop: =5
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =RGBA(0, 120, 212, 1)
+                Tooltip: =
+                Width: =360
+                X: =442
+                Y: =drpdwn_RS_ECRBU.Y
+                ZIndex: =33
+
+    Cont_NCR_popup As groupContainer.manualLayoutContainer:
+        DropShadow: =DropShadow.Light
+        Fill: =RGBA(208, 208, 208, 0.7)
+        Height: =Parent.Height
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Visible: =VarviewselectedCert
+        Width: =Parent.Width
+        ZIndex: =3
+
+        cont_NCR_mainpopup As groupContainer.manualLayoutContainer:
+            DropShadow: =DropShadow.Light
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =441
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            Width: =877
+            X: =218
+            Y: =150
+            ZIndex: =1
+
+            rect_NCR_certdetails As rectangle:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                DisabledFill: =RGBA(154, 154, 154, 1)
+                Fill: =RGBA(154, 154, 154, 0.5)
+                FocusedBorderThickness: =4
+                Height: =1
+                HoverFill: =RGBA(154, 154, 154, 1)
+                PressedFill: =RGBA(154, 154, 154, 1)
+                Width: =Lbl_RecentCertReq.X+Lbl_RecentCertReq.Width
+                X: =21
+                Y: =71
+                ZIndex: =1
+
+            Lbl_RecentCertReq As label:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(57, 57, 57, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: ="Poppins"
+                FontWeight: =FontWeight.Bold
+                Size: =12
+                Text: ="New Certification Request Details"
+                Width: =800
+                X: =21
+                Y: =28
+                ZIndex: =2
+
+            Icon_Cancel_RecentCertReq As icon.Cancel:
+                AccessibleLabel: ="Icon_Cancel_RecentCertReq"
+                BorderColor: =RGBA(166, 166, 166, 1)
+                BorderStyle: =BorderStyle.None
+                Color: =RGBA(70, 70, 70, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(220, 220, 220, 1)
+                DisabledFill: =RGBA(0, 0, 0, 0)
+                FocusedBorderThickness: =4
+                Height: =21.87
+                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                HoverColor: =RGBA(70, 70, 70, 1)
+                HoverFill: =RGBA(0, 0, 0, 0)
+                Icon: =Icon.Cancel
+                OnSelect: |-
+                    =UpdateContext({VarviewselectedCert:false})
+                PressedBorderColor: =RGBA(0, 0, 0, 0)
+                PressedColor: =RGBA(70, 70, 70, 1)
+                PressedFill: =RGBA(0, 0, 0, 0)
+                Width: =21.87
+                X: =800
+                Y: =33
+                ZIndex: =3
+
+            Lbl_URL As label:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                Height: =30
+                Size: =10
+                Text: |-
+                    ="URL                                                          :"
+                Width: =250
+                X: =20
+                Y: =86
+                ZIndex: =4
+
+            Lbl_ViewCertification As label:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(72, 164, 226, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                Height: =30
+                OnSelect: =Launch(VarviewselectedCertdata.URL)
+                Size: =10
+                Text: ="Visit This Certification Page"
+                Underline: =true
+                Width: =500
+                X: |
+                    =Lbl_URL.X+Lbl_URL.Width
+                Y: =Lbl_URL.Y
+                ZIndex: =5
+
+            Lbl_RequestorName As label:
+                BorderColor: =RGBA(0, 18, 107, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Height: =30
+                Size: =10
+                Text: |-
+                    ="REQUESTER                                               :    "& VarviewselectedCertdata.Requestor.DisplayName
+                Width: =606
+                X: =20
+                Y: =116
+                ZIndex: =6
+
+            Lbl_CertificationName As label:
+                BorderColor: =RGBA(0, 18, 107, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Height: =30
+                Size: =10
+                Text: |-
+                    ="CERTIFICATION NAME                             :    "& VarviewselectedCertdata.Title
+                Width: =845
+                X: =20
+                Y: =146
+                ZIndex: =7
+
+            Lbl_BU As label:
+                BorderColor: =RGBA(0, 18, 107, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Height: =30
+                Size: =10
+                Text: |-
+                    ="BU                                                               :    "& VarviewselectedCertdata.BU.Value
+                Width: =606
+                X: =20
+                Y: =176
+                ZIndex: =8
+
+            Lbl_EXAMCODE As label:
+                BorderColor: =RGBA(0, 18, 107, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Height: =30
+                Size: =10
+                Text: |-
+                    ="EXAM CODE                                               :    "& VarviewselectedCertdata.ExamCode
+                Width: =606
+                X: =20
+                Y: =206
+                ZIndex: =9
+
+            Lbl_COST As label:
+                BorderColor: =RGBA(0, 18, 107, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Height: =30
+                Size: =10
+                Text: |-
+                    ="COST                                                           :   "& VarviewselectedCertdata.Cost
+                Width: =606
+                X: =20
+                Y: =236
+                ZIndex: =10
+
+            Lbl_PROVIDER As label:
+                BorderColor: =RGBA(0, 18, 107, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Height: =30
+                Size: =10
+                Text: |-
+                    ="PROVIDER                                                  :   "& VarviewselectedCertdata.Provider
+                Width: =606
+                X: =20
+                Y: =266
+                ZIndex: =11
+
+            Lbl_Description As label:
+                BorderColor: =RGBA(0, 18, 107, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Height: =30
+                Overflow: =Overflow.Scroll
+                Size: =10
+                Text: |-
+                    ="DECRITPION                                              :   "& VarviewselectedCertdata.Description
+                Width: =845
+                X: =20
+                Y: =296
+                ZIndex: =12
+
+            rect_NCR_certdetails2 As rectangle:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                DisabledFill: =RGBA(154, 154, 154, 1)
+                Fill: =RGBA(154, 154, 154, 0.5)
+                FocusedBorderThickness: =4
+                Height: =1
+                HoverFill: =RGBA(154, 154, 154, 1)
+                PressedFill: =RGBA(154, 154, 154, 1)
+                Width: =Lbl_RecentCertReq.X+Lbl_RecentCertReq.Width
+                X: =20
+                Y: =328
+                ZIndex: =13
+
+            "'Lbl_StatusInf.' As label":
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(57, 57, 57, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: ="Poppins"
+                FontWeight: =FontWeight.Bold
+                Height: =30
+                Size: =12
+                Text: ="Status Information"
+                Width: =800
+                X: =20
+                Y: =332
+                ZIndex: =14
+
+            Lbl_RequestStatus As label:
+                BorderColor: =RGBA(0, 18, 107, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Height: =30
+                Size: =10
+                Text: |-
+                    ="Request Status                                       :" 
+                Width: =250
+                X: =20
+                Y: =362
+                ZIndex: =15
+
+            "'Lbl_Pending/Approved' As label":
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =If(VarviewselectedCertdata.Admin_Approval=true,RGBA(23,151,49,1),RGBA(216,106,52,1))
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                Height: =30
+                OnSelect: =Launch(VarviewselectedCertdata.URL)
+                Size: =10
+                Text: =If(VarviewselectedCertdata.Admin_Approval=true,"Approved","Pending")
+                Width: =200
+                X: |
+                    =Lbl_URL.X+Lbl_URL.Width
+                Y: |
+                    =362
+                ZIndex: =16
+
+            Btn_Revise As button:
+                BorderColor: =RGBA(185, 29, 11, 1)
+                Color: =RGBA(185, 29, 11, 1)
+                DisabledBorderColor: =RGBA(185, 29, 11, 1)
+                DisabledColor: =RGBA(185, 29, 11, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayMode: =If(varUserLevel in["ADMIN","SUPER-ADMIN"],If(VarviewselectedCertdata.Admin_Approval=false,DisplayMode.Edit,DisplayMode.View),DisplayMode.View)
+                Fill: =RGBA(255, 255, 255, 1)
+                FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+                FocusedBorderThickness: =2
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Semibold
+                Height: =30
+                HoverBorderColor: =RGBA(185, 29, 11, 1)
+                HoverColor: =RGBA(185, 29, 11, 1)
+                HoverFill: =
+                PressedBorderColor: =RGBA(185, 29, 11, 1)
+                PressedColor: =RGBA(185, 29, 11, 1)
+                PressedFill: =
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =12
+                Text: ="Revise"
+                Width: =102
+                X: =470
+                Y: =380
+                ZIndex: =17
+
+            Btn_Approve As button:
+                BorderColor: =RGBA(23, 151, 49, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayMode: =If(varUserLevel in["ADMIN","SUPER-ADMIN"],DisplayMode.Edit,DisplayMode.View)
+                Fill: =RGBA(23, 151, 49, 1)
+                FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+                FocusedBorderThickness: =2
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Semibold
+                Height: =30
+                HoverBorderColor: =RGBA(23, 151, 49, 1)
+                HoverColor: =RGBA(255, 255, 255, 1)
+                HoverFill: =
+                OnSelect: |-
+                    =If(
+                        !VarviewselectedCertdata.Admin_Approval,
+                        UpdateIf(
+                            CertificationRequest,
+                            ID = VarviewselectedCertdata.ID,
+                            {Admin_Approval: true}
+                        );
+                        Notify(
+                            "Approved Successfully",
+                            NotificationType.Success,
+                            1700
+                        );
+                        Set(
+                            varNewCertVisible,
+                            false
+                        );
+                        ,
+                        Notify(
+                            "You have already approved",
+                            NotificationType.Error,
+                            1700
+                        );
+                        
+                    )
+                PressedBorderColor: =RGBA(23, 151, 49, 1)
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =12
+                Text: =If(VarviewselectedCertdata.Admin_Approval=false,"Approve","Approved")
+                Width: =102
+                X: |
+                    =Btn_Revise.X+Btn_Revise.Width+ 40
+                Y: =Btn_Revise.Y
+                ZIndex: =18
+
+    c_Header_6 As c_Header:
+        CartOnselect: ='EnrollCertificate Screen'
+        FAQOnselect: ='FAQ Screen'
+        Height: =101
+        ZIndex: =4
+
+    C_leftPanel_7 As C_leftPanel:
+        NavigateTo: =Switch(SideLabelvar,1,Home_Screen,2,Register_Screen,3,'Request Screen',4,'Admin dashBoard')
+        Width: =93
+        Y: =85
+        ZIndex: =5
+
+    C_AlertPanel_5 As C_AlertPanel:
+        Visible: =varAlert
+        X: =976
+        ZIndex: =6
+
+    C_Profile_5 As C_Profile:
+        NavigateTo: ='Settings Screen'
+        Visible: =varProfileView
+        X: =976
+        ZIndex: =7
+
+    Cont_RS_NCR As groupContainer.manualLayoutContainer:
+        BorderColor: =RGBA(154, 154, 154, 1)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =1
+        DropShadow: =DropShadow.ExtraBold
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =768
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Visible: =varNewCert
+        Width: =400
+        X: =Parent.Width-Self.Width
+        ZIndex: =8
+
+        lbl_NCR_recentheader As label:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(57, 57, 57, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: ="Poppins"
+            FontWeight: =FontWeight.Bold
+            Size: =13
+            Text: ="Recent Certification Requests"
+            Width: =324
+            X: =23.28
+            Y: =20.29
+            ZIndex: =1
+
+        icon_NCR_cancelrcert As icon.Cancel:
+            AccessibleLabel: ="icon_NCR_cancelrcert"
+            BorderColor: =RGBA(166, 166, 166, 1)
+            BorderStyle: =BorderStyle.None
+            Color: =RGBA(70, 70, 70, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(220, 220, 220, 1)
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            FocusedBorderThickness: =4
+            Height: =21.87
+            HoverBorderColor: =RGBA(0, 0, 0, 0)
+            HoverColor: =RGBA(70, 70, 70, 1)
+            HoverFill: =RGBA(0, 0, 0, 0)
+            Icon: =Icon.Cancel
+            OnSelect: |-
+                =UpdateContext({varNewCert:false})
+            PressedBorderColor: =RGBA(0, 0, 0, 0)
+            PressedColor: =RGBA(70, 70, 70, 1)
+            PressedFill: =RGBA(0, 0, 0, 0)
+            TabIndex: =
+            Width: =21.87
+            X: =lbl_NCR_recentheader.X+lbl_NCR_recentheader.Width
+            Y: =27
+            ZIndex: =2
+
+        cont_Search_recentcR As groupContainer.manualLayoutContainer:
+            BorderColor: =RGBA(154, 154, 154, 1)
+            BorderThickness: =1
+            Height: =32
+            LayoutMode: ="manual"
+            RadiusBottomLeft: =5
+            RadiusBottomRight: =5
+            RadiusTopLeft: =5
+            RadiusTopRight: =5
+            Width: =rect_NCR_certrequests.Width
+            X: =23
+            Y: =86
+            ZIndex: =3
+
+            cont_NCR_txtbox As groupContainer.manualLayoutContainer:
+                BorderStyle: =BorderStyle.None
+                Height: =32
+                LayoutMode: ="manual"
+                Width: =Parent.Width
+                ZIndex: =15
+
+                img_NCR_search As image:
+                    AccessibleLabel: ="img_NCR_search"
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledFill: =RGBA(0, 0, 0, 0)
+                    FocusedBorderThickness: =4
+                    Height: =32
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    HoverFill: =RGBA(0, 0, 0, 0)
+                    Image: =image89183
+                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                    PressedFill: =RGBA(0, 0, 0, 0)
+                    TabIndex: =0
+                    Width: =Parent.Width
+                    ZIndex: =16
+
+                txtinp_NCR_search As text:
+                    AccessibleLabel: ="txtinp_NCR_search"
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =0
+                    Color: =RGBA(154, 154, 154, 1)
+                    Default: =
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(154, 154, 154, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    FocusedBorderThickness: =1
+                    Font: ="Poppins"
+                    Height: =32
+                    HintText: ="Search anything"
+                    HoverBorderColor: =
+                    HoverColor: =RGBA(154, 154, 154, 1)
+                    HoverFill: =RGBA(0, 0, 0, 0)
+                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                    PressedColor: =RGBA(154, 154, 154, 1)
+                    PressedFill: =RGBA(0, 0, 0, 0)
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Size: =12
+                    Width: =Parent.Width
+                    ZIndex: =17
+
+            cont_NCRsearch As groupContainer.manualLayoutContainer:
+                BorderStyle: =BorderStyle.None
+                Height: =28
+                LayoutMode: ="manual"
+                Width: =28
+                X: =Parent.Width-Self.Width
+                Y: =2
+                ZIndex: =18
+
+                rect_NCRsearch As image:
+                    AccessibleLabel: ="rect_NCRsearch"
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledFill: =RGBA(0, 0, 0, 0)
+                    FocusedBorderThickness: =4
+                    Height: =28
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    HoverFill: =RGBA(0, 0, 0, 0)
+                    Image: =image89186
+                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                    PressedFill: =RGBA(0, 0, 0, 0)
+                    TabIndex: =0
+                    Width: =28
+                    ZIndex: =19
+
+                Icon_NCsearch As icon.Search:
+                    BorderColor: =RGBA(166, 166, 166, 1)
+                    Color: =RGBA(255, 255, 255, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(220, 220, 220, 1)
+                    DisabledFill: =RGBA(0, 0, 0, 0)
+                    FocusedBorderThickness: =4
+                    Height: =16
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    HoverColor: =Self.Color
+                    HoverFill: =RGBA(0, 0, 0, 0)
+                    Icon: =Icon.Search
+                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                    PressedColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+                    PressedFill: =RGBA(0, 0, 0, 0)
+                    Width: =16
+                    X: =6
+                    Y: =7
+                    ZIndex: =21
+
+        rect_NCR_certrequests As rectangle:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            DisabledFill: =RGBA(154, 154, 154, 1)
+            Fill: =RGBA(154, 154, 154, 0.5)
+            FocusedBorderThickness: =4
+            Height: =1
+            HoverFill: =RGBA(154, 154, 154, 1)
+            PressedFill: =RGBA(154, 154, 154, 1)
+            Width: =lbl_NCR_recentheader.X+lbl_NCR_recentheader.Width
+            X: =24
+            Y: =65
+            ZIndex: =4
+
+        glry_RS_NCRRCR As gallery.galleryVertical:
+            AccessibleLabel: ="glry_RS_NCRRCR"
+            BorderColor: =RGBA(166, 166, 166, 1)
+            BorderStyle: =BorderStyle.None
+            DelayItemLoading: =true
+            Height: =610
+            Items: |-
+                =Search(
+                    Sort(
+                        Cert_Req,
+                        Created,
+                        SortOrder.Descending
+                    ),
+                    txtinp_NCR_search.Text,
+                    "Title"
+                )
+            Layout: =Layout.Vertical
+            LoadingSpinner: =LoadingSpinner.Data
+            TabIndex: =0
+            TemplateSize: =112
+            Width: =rect_NCR_certrequests.Width
+            X: =23
+            Y: =135
+            ZIndex: =5
+
+            lbl_NCR_certname As label:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(185, 29, 11, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: ="Poppins"
+                FontWeight: =FontWeight.Semibold
+                Height: =30
+                OnSelect: =Select(Parent)
+                Size: =12
+                Text: =ThisItem.Title
+                Width: =274
+                X: =8
+                Y: =6
+                ZIndex: =1
+
+            lbl_NCR_requestor As label:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: ="Poppins"
+                Height: =30
+                OnSelect: =Select(Parent)
+                Size: =12
+                Text: =ThisItem.Requestor.DisplayName
+                Width: =200
+                X: =8
+                Y: =lbl_NCR_certname.Y+lbl_NCR_certname.Height
+                ZIndex: =2
+
+            lbl_NCR_depart As label:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: ="Poppins"
+                Height: =20
+                OnSelect: =Select(Parent)
+                Size: =12
+                Text: |-
+                    = "BU: " & ThisItem.BU.Value
+                X: =8
+                Y: =lbl_NCR_requestor.Y+lbl_NCR_requestor.Height+4
+                ZIndex: =3
+
+            rect_NCR_status As rectangle:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                DisabledFill: =If(ThisItem.Admin_Approval=true,RGBA(92,255,9,1),RGBA(216,106,52,1))
+                DisplayMode: =DisplayMode.View
+                Fill: =If(ThisItem.Admin_Approval=true,RGBA(23,151,49,1),RGBA(216,106,52,1))
+                FocusedBorderThickness: =4
+                Height: =90
+                HoverFill: =If(ThisItem.Admin_Approval=true,RGBA(92,255,9,1),RGBA(255,191,0,0.5))
+                OnSelect: =Select(Parent)
+                PressedFill: =If(ThisItem.Admin_Approval=true,RGBA(92,255,9,1),RGBA(255,191,0,0.5))
+                Width: =1
+                ZIndex: =4
+
+            icon_NCR_certview As icon.View:
+                AccessibleLabel: ="icon_NCR_certview"
+                BorderColor: =RGBA(166, 166, 166, 1)
+                BorderStyle: =BorderStyle.None
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(220, 220, 220, 1)
+                DisabledFill: =RGBA(0, 0, 0, 0)
+                FocusedBorderThickness: =
+                Height: =24
+                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                HoverColor: =Color.Black
+                HoverFill: =RGBA(0, 0, 0, 0)
+                Icon: =Icon.View
+                OnSelect: |-
+                    =UpdateContext({VarviewselectedCert:true});
+                    UpdateContext({VarviewselectedCertdata:ThisItem});
+                PressedBorderColor: =RGBA(0, 0, 0, 0)
+                PressedColor: =Color.Black
+                PressedFill: =RGBA(0, 0, 0, 0)
+                TabIndex: =0
+                Width: =24
+                X: =190
+                Y: =lbl_NCR_certname.Y+lbl_NCR_certname.Height
+                ZIndex: =5
+
+            btn_NCR_status As button:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                Color: =If(ThisItem.Admin_Approval=true,RGBA(23,151,49,1),RGBA(216,106,52,1))
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =If(ThisItem.Admin_Approval=true,RGBA(23,151,49,0.18),RGBA(216,106,52,0.18))
+                DisplayMode: =DisplayMode.View
+                Fill: =If(ThisItem.Admin_Approval=true,RGBA(23,151,49,0.18),RGBA(216,106,52,0.18))
+                FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+                Font: ="Poppins"
+                FontWeight: =FontWeight.Semibold
+                Height: =30
+                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                HoverColor: =RGBA(255, 255, 255, 1)
+                HoverFill: =ColorFade(RGBA(0, 120, 212, 1), -10%)
+                OnSelect: =Select(Parent)
+                PressedBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -50%)
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+                RadiusBottomLeft: =4
+                RadiusBottomRight: =4
+                RadiusTopLeft: =4
+                RadiusTopRight: =4
+                Size: =12
+                Text: =If(ThisItem.Admin_Approval=true,"Approved","Pending")
+                Width: =85
+                X: =237
+                Y: =lbl_NCR_certname.Y+lbl_NCR_certname.Height
+                ZIndex: =6
+
+    Form2 As form:
+        BorderColor: =RGBA(166, 166, 166, 1)
+        BorderStyle: =BorderStyle.Dashed
+        DataSource: =CertificationRequest
+        DefaultMode: =FormMode.New
+        Height: =154
+        Visible: =If(glry_RS_header.Selected.ID=1,true,false)
+        Width: =360
+        X: =116
+        Y: =592
+        ZIndex: =9
+
+        Title_DataCard3 As typedDataCard.textualEditCard:
+            BorderColor: =RGBA(166, 166, 166, 1)
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Title"
+            Default: =ThisItem.Title
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@CertificationRequest],DataSourceInfo.DisplayName,"Title")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            MaxLength: =DataSourceInfo([@CertificationRequest], DataSourceInfo.MaxLength, "Title")
+            Required: =true
+            Update: =DataCardValue25.Text
+            Visible: =false
+            Width: =120
+            X: =0
+            Y: =1
+            ZIndex: =1
+
+            DataCardValue25 As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                Default: =txtinp_RS_NCRtitle.Text
+                DelayOutput: =true
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayMode: =Parent.DisplayMode
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                HoverBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+                HoverColor: =RGBA(51, 51, 51, 1)
+                HoverFill: =RGBA(255, 255, 255, 1)
+                MaxLength: =Parent.MaxLength
+                PaddingLeft: =5
+                PressedBorderColor: =RGBA(0, 120, 212, 1)
+                PressedColor: =RGBA(51, 51, 51, 1)
+                PressedFill: =RGBA(255, 255, 255, 1)
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =13
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                ZIndex: =2
+
+        Requestor_DataCard3 As typedDataCard.comboBoxEditCard:
+            BorderColor: =RGBA(166, 166, 166, 1)
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Requestor"
+            Default: =ThisItem.Requestor
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@CertificationRequest],DataSourceInfo.DisplayName,"Requestor")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =true
+            Update: =DataCardValue26.Selected
+            Visible: =false
+            Width: =120
+            X: =1
+            Y: =1
+            ZIndex: =1
+
+            DataCardValue26 As combobox:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                ChevronBackground: =RGBA(255, 255, 255, 1)
+                ChevronDisabledBackground: =RGBA(244, 244, 244, 1)
+                ChevronDisabledFill: =RGBA(166, 166, 166, 1)
+                ChevronFill: =RGBA(33, 33, 33, 1)
+                ChevronHoverBackground: =RGBA(212, 212, 212, 1)
+                ChevronHoverFill: =RGBA(33, 33, 33, 1)
+                Color: =RGBA(51, 51, 51, 1)
+                DefaultSelectedItems: =//Filter(Choices([@CertificationRequest].Requestor),Email=User().Email)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayFields: =["DisplayName","Email","Picture"]
+                DisplayMode: =Parent.DisplayMode
+                Font: =Font.'Segoe UI'
+                HoverBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+                HoverColor: =RGBA(51, 51, 51, 1)
+                HoverFill: =RGBA(212, 212, 212, 1)
+                Items: |-
+                    =Office365Users.SearchUser({searchTerm:Self.SearchText,top:999})
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                PressedBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =RGBA(0, 120, 212, 1)
+                SearchFields: =["DisplayName"]
+                SearchItems: |-
+                    =Search(Office365Users.SearchUser({searchTerm:Self.SearchText,top:999}),DataCardValue26.SearchText,"DisplayName")
+                SelectionFill: =RGBA(0, 120, 212, 1)
+                SelectMultiple: =false
+                Size: =13
+                Template: =ListItemTemplate.Person
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                ZIndex: =2
+
+        Description_DataCard3 As typedDataCard.textualEditCard:
+            BorderColor: =RGBA(166, 166, 166, 1)
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Description"
+            Default: =ThisItem.Description
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@CertificationRequest],DataSourceInfo.DisplayName,"Description")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            MaxLength: =DataSourceInfo([@CertificationRequest], DataSourceInfo.MaxLength, "Description")
+            Required: =true
+            Update: =DataCardValue27.Text
+            Visible: =false
+            Width: =120
+            X: =2
+            Y: =1
+            ZIndex: =1
+
+            DataCardValue27 As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                Default: =txtinp_RS_NCRdesc.Text
+                DelayOutput: =true
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayMode: =Parent.DisplayMode
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                HoverBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+                HoverColor: =RGBA(51, 51, 51, 1)
+                HoverFill: =RGBA(255, 255, 255, 1)
+                MaxLength: =Parent.MaxLength
+                PaddingLeft: =5
+                PressedBorderColor: =RGBA(0, 120, 212, 1)
+                PressedColor: =RGBA(51, 51, 51, 1)
+                PressedFill: =RGBA(255, 255, 255, 1)
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =13
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                ZIndex: =2
+
+        BU_DataCard3 As typedDataCard.comboBoxEditCard:
+            BorderColor: =RGBA(166, 166, 166, 1)
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="BU"
+            Default: =ThisItem.BU
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@CertificationRequest],DataSourceInfo.DisplayName,"BU")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =false
+            Update: =DataCardValue28.Selected
+            Visible: =false
+            Width: =120
+            X: =0
+            Y: =2
+            ZIndex: =1
+
+            DataCardValue28 As combobox:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                ChevronBackground: =RGBA(255, 255, 255, 1)
+                ChevronDisabledBackground: =RGBA(244, 244, 244, 1)
+                ChevronDisabledFill: =RGBA(166, 166, 166, 1)
+                ChevronFill: =RGBA(33, 33, 33, 1)
+                ChevronHoverBackground: =RGBA(212, 212, 212, 1)
+                ChevronHoverFill: =RGBA(33, 33, 33, 1)
+                Color: =RGBA(51, 51, 51, 1)
+                DefaultSelectedItems: =drpdwn_RS_NCRBU.Selected
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayFields: =["Value"]
+                DisplayMode: =Parent.DisplayMode
+                Font: =Font.'Segoe UI'
+                HoverBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+                HoverColor: =RGBA(51, 51, 51, 1)
+                HoverFill: =RGBA(212, 212, 212, 1)
+                Items: =Choices([@CertificationRequest].BU)
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                PressedBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =RGBA(0, 120, 212, 1)
+                SearchFields: =["Value"]
+                SearchItems: =Choices(CertificationRequest.BU,DataCardValue28.SearchText)
+                SelectionFill: =RGBA(0, 120, 212, 1)
+                SelectMultiple: =false
+                Size: =13
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                ZIndex: =2
+
+        Cost_DataCard3 As typedDataCard.textualEditCard:
+            BorderColor: =RGBA(166, 166, 166, 1)
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Cost"
+            Default: =ThisItem.Cost
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@CertificationRequest],DataSourceInfo.DisplayName,"Cost")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            MaxLength: =DataSourceInfo([@CertificationRequest], DataSourceInfo.MaxLength, "Cost")
+            Required: =true
+            Update: =DataCardValue29.Text
+            Visible: =false
+            Width: =120
+            X: =1
+            Y: =2
+            ZIndex: =1
+
+            DataCardValue29 As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                Default: =txtinp_RS_NCRcost.Text
+                DelayOutput: =true
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayMode: =Parent.DisplayMode
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                HoverBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+                HoverColor: =RGBA(51, 51, 51, 1)
+                HoverFill: =RGBA(255, 255, 255, 1)
+                MaxLength: =Parent.MaxLength
+                PaddingLeft: =5
+                PressedBorderColor: =RGBA(0, 120, 212, 1)
+                PressedColor: =RGBA(51, 51, 51, 1)
+                PressedFill: =RGBA(255, 255, 255, 1)
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =13
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                ZIndex: =2
+
+        Provider_DataCard3 As typedDataCard.textualEditCard:
+            BorderColor: =RGBA(166, 166, 166, 1)
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Provider"
+            Default: =ThisItem.Provider
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@CertificationRequest],DataSourceInfo.DisplayName,"Provider")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            MaxLength: =DataSourceInfo([@CertificationRequest], DataSourceInfo.MaxLength, "Provider")
+            Required: =true
+            Update: =DataCardValue30.Text
+            Visible: =false
+            Width: =120
+            X: =2
+            Y: =2
+            ZIndex: =1
+
+            DataCardValue30 As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                Default: =txtinp_RS_NCRprovider.Text
+                DelayOutput: =true
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayMode: =Parent.DisplayMode
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                HoverBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+                HoverColor: =RGBA(51, 51, 51, 1)
+                HoverFill: =RGBA(255, 255, 255, 1)
+                MaxLength: =Parent.MaxLength
+                PaddingLeft: =5
+                PressedBorderColor: =RGBA(0, 120, 212, 1)
+                PressedColor: =RGBA(51, 51, 51, 1)
+                PressedFill: =RGBA(255, 255, 255, 1)
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =13
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                ZIndex: =2
+
+        URL_DataCard3 As typedDataCard.urlEditCard:
+            BorderColor: =RGBA(166, 166, 166, 1)
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="URL"
+            Default: =ThisItem.URL
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@CertificationRequest],DataSourceInfo.DisplayName,"URL")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =true
+            Update: =DataCardValue31.Text
+            Visible: =false
+            Width: =120
+            X: =0
+            Y: =3
+            ZIndex: =1
+
+            DataCardValue31 As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                Default: =txtinp_RS_NCRURL.Text
+                DelayOutput: =true
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayMode: =Parent.DisplayMode
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                HoverBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+                HoverColor: =RGBA(51, 51, 51, 1)
+                HoverFill: =RGBA(255, 255, 255, 1)
+                PaddingLeft: =5
+                PressedBorderColor: =RGBA(0, 120, 212, 1)
+                PressedColor: =RGBA(51, 51, 51, 1)
+                PressedFill: =RGBA(255, 255, 255, 1)
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =13
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                ZIndex: =2
+
+        Attachments_DataCard2 As typedDataCard.attachmentsEditCard:
+            BorderColor: =RGBA(166, 166, 166, 1)
+            BorderStyle: =BorderStyle.Dashed
+            BorderThickness: =2
+            DataField: ="{Attachments}"
+            Default: =ThisItem.Attachments
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@CertificationRequest],DataSourceInfo.DisplayName,"{Attachments}")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =131
+            Required: =false
+            Update: =DataCardValue24.Attachments
+            Width: =357
+            X: =0
+            Y: =0
+            ZIndex: =10
+
+            DataCardKey24 As label:
+                AutoHeight: =true
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Semibold
+                Height: =34
+                PaddingLeft: =0
+                Size: =13
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue24 As attachments:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayMode: =Parent.DisplayMode
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                Height: =132
+                HoverColor: =RGBA(51, 51, 51, 1)
+                HoverFill: =RGBA(212, 212, 212, 1)
+                IsInDataCard: =true
+                ItemColor: =RGBA(0, 0, 0, 1)
+                ItemFill: =RGBA(0, 120, 212, 1)
+                ItemHoverColor: =RGBA(51, 51, 51, 1)
+                ItemHoverFill: =RGBA(212, 212, 212, 1)
+                Items: =Parent.Default
+                ItemSpacing: =12
+                NoAttachmentsColor: =RGBA(166, 166, 166, 1)
+                PaddingBottom: =5
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                PaddingRight: =5
+                PaddingTop: =5
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =RGBA(0, 120, 212, 1)
+                Tooltip: =Parent.DisplayName
+                Width: =236
+                ZIndex: =2
+
+            ErrorMessage24 As label:
+                AutoHeight: =true
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(168, 0, 0, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(168, 0, 0, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Semibold
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =13
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue24.Y + DataCardValue24.Height
+                ZIndex: =3
+
+            StarVisible24 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Semibold
+                Height: =DataCardKey24.Height
+                PaddingLeft: =0
+                Size: =13
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey24.Y
+                ZIndex: =4
+

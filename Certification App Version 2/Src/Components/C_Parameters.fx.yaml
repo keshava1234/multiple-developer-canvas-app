@@ -1,0 +1,183 @@
+C_Parameters As CanvasComponent:
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =128
+    Width: =160
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    Label21_5 As label:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Color: =RGBA(57, 57, 57, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FocusedBorderThickness: =4
+        Font: ="Poppins"
+        FontWeight: =FontWeight.Semibold
+        Height: =20
+        Size: =10
+        Text: ="Provider"
+        X: =1
+        Y: =2
+        ZIndex: =1
+
+    Label21_6 As label:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Color: =RGBA(57, 57, 57, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FocusedBorderThickness: =4
+        Font: ="Poppins"
+        FontWeight: =FontWeight.Semibold
+        Height: =20
+        Size: =10
+        Text: ="Technology"
+        X: =1
+        Y: =30
+        ZIndex: =2
+
+    Label21_7 As label:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Color: =RGBA(57, 57, 57, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FocusedBorderThickness: =4
+        Font: ="Poppins"
+        FontWeight: =FontWeight.Semibold
+        Height: =20
+        Size: =10
+        Text: ="Exam Code"
+        X: =1
+        Y: =57
+        ZIndex: =3
+
+    Label21_8 As label:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Color: =RGBA(57, 57, 57, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FocusedBorderThickness: =4
+        Font: ="Poppins"
+        FontWeight: =FontWeight.Semibold
+        Height: =20
+        Size: =10
+        Text: ="Level"
+        X: =1
+        Y: =86
+        ZIndex: =4
+
+    Label21_9 As label:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Color: =RGBA(57, 57, 57, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FocusedBorderThickness: =4
+        Font: ="Poppins"
+        FontWeight: =FontWeight.Semibold
+        Height: =20
+        Size: =10
+        Text: ="Role"
+        X: =1
+        Y: =111
+        ZIndex: =5
+
+    Label22_5 As label:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Color: =RGBA(51, 51, 51, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FocusedBorderThickness: =4
+        Font: =Font.'Segoe UI'
+        Height: =17
+        Size: =13
+        Text: |-
+            =":"
+        Width: =10
+        X: =150
+        Y: =2
+        ZIndex: =6
+
+    Label22_6 As label:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Color: =RGBA(51, 51, 51, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FocusedBorderThickness: =4
+        Font: =Font.'Segoe UI'
+        Height: =17
+        Size: =13
+        Text: |-
+            =":"
+        Width: =10
+        X: =150
+        Y: =30
+        ZIndex: =7
+
+    Label22_7 As label:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Color: =RGBA(51, 51, 51, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FocusedBorderThickness: =4
+        Font: =Font.'Segoe UI'
+        Height: =17
+        Size: =13
+        Text: |-
+            =":"
+        Width: =10
+        X: =150
+        Y: =56
+        ZIndex: =8
+
+    Label22_8 As label:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Color: =RGBA(51, 51, 51, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FocusedBorderThickness: =4
+        Font: =Font.'Segoe UI'
+        Height: =17
+        Size: =13
+        Text: |-
+            =":"
+        Width: =10
+        X: =150
+        Y: =84
+        ZIndex: =9
+
+    Label22_9 As label:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Color: =RGBA(51, 51, 51, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FocusedBorderThickness: =4
+        Font: =Font.'Segoe UI'
+        Height: =17
+        Size: =13
+        Text: |-
+            =":"
+        Width: =10
+        X: =150
+        Y: =111
+        ZIndex: =10
+

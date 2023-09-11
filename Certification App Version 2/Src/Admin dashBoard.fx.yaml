@@ -1,0 +1,2804 @@
+"'Admin dashBoard' As screen":
+    Fill: =RGBA(241, 246, 246, 1)
+    LoadingSpinnerColor: =RGBA(0, 120, 212, 1)
+
+    "'Cntr_Certifications per Provider/BU' As groupContainer.verticalAutoLayoutContainer":
+        DropShadow: =DropShadow.Light
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =258
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Width: =1256
+        X: =93
+        Y: =162
+        ZIndex: =10
+
+        "'PieChart_TotalCertifications per BU' As pieChart":
+            AlignInContainer: =AlignInContainer.Center
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            FillPortions: =1
+            Font: =Font.'Segoe UI'
+            HoverBorderColor: =RGBA(0, 0, 0, 0)
+            ItemColorSet: =[RGBA(63,217,28,1),Color.Orange,Color.Yellow,Color.LightPink,RGBA(96,197,234,1),RGBA(205,247,77,100),Color.Maroon]
+            Items: |-
+                =Table(
+                    {
+                        Status: "Enrolled",
+                        Count: CountRows(
+                            Filter(
+                                FirstN(CertificationOrder,100000),(DateValue(Created)>=Date_FromDate.SelectedDate && DateValue(Created)<=Date_ToDate.SelectedDate) &&               BU.Value = Drp_BUList.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BCode',
+                                Status = "Enrolled"
+                            )
+                        )
+                    },
+                    {
+                        Status: "Manager Approved",
+                        Count: CountRows(
+                            Filter(
+                                FirstN(CertificationOrder,100000),(DateValue(Created)>=Date_FromDate.SelectedDate && DateValue(Created)<=Date_ToDate.SelectedDate) &&
+                                BU.Value = Drp_BUList.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BCode',
+                                Status = "Manager Approved"
+                            )
+                        )
+                    },
+                    {
+                        Status: "Proofs Uploaded",
+                        Count: CountRows(
+                            Filter(
+                                FirstN(CertificationOrder,100000),(DateValue(Created)>=Date_FromDate.SelectedDate && DateValue(Created)<=Date_ToDate.SelectedDate) &&
+                                BU.Value = Drp_BUList.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BCode',
+                                Status = "Proofs Uploaded"
+                            )
+                        )
+                    },
+                    {
+                        Status: "Proofs Approved",
+                        Count: CountRows(
+                            Filter(
+                                FirstN(CertificationOrder,100000),(DateValue(Created)>=Date_FromDate.SelectedDate && DateValue(Created)<=Date_ToDate.SelectedDate) &&
+                                BU.Value = Drp_BUList.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BCode',
+                                Status = "Proofs Approved"
+                            )
+                        )
+                    },
+                    {
+                        Status: "Reimbursed",
+                        Count: CountRows(
+                            Filter(
+                                FirstN(CertificationOrder,100000),(DateValue(Created)>=Date_FromDate.SelectedDate && DateValue(Created)<=Date_ToDate.SelectedDate) &&
+                                BU.Value = Drp_BUList.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BCode',
+                                Status = "Reimbursed"
+                            )
+                        )
+                    },
+                    {
+                        Status: "Voucher Based",
+                        Count: CountRows(
+                            Filter(
+                               FirstN(CertificationOrder,100000),(DateValue(Created)>=Date_FromDate.SelectedDate && DateValue(Created)<=Date_ToDate.SelectedDate) &&
+                                BU.Value = Drp_BUList.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BCode',
+                                Status = "Completed Using Voucher"
+                            )
+                        )
+                    },
+                    {
+                        Status: "With finance Team",
+                        Count: CountRows(
+                            Filter(
+                                FirstN(CertificationOrder,100000),(DateValue(Created)>=Date_FromDate.SelectedDate && DateValue(Created)<=Date_ToDate.SelectedDate) &&
+                                BU.Value = Drp_BUList.SelectedText.'data-ADB4D7A662F548B49FAC2B986E348A1BCode',
+                                Status = "Processing with Finance"
+                            )
+                        )
+                    }
+                )
+                
+                
+                
+                
+                //CountRows(Filter(CertificationOrder,BU.Id=ThisItem.ID,Status="Proofs Approved"))
+            LayoutMinHeight: =250
+            PressedBorderColor: =RGBA(0, 0, 0, 0)
+            Visible: =If('Glry_Total Cert per BU/Provider'.Selected.Name="Total Certifications Per BU",true,false)
+            Width: =600
+            X: =40
+            Y: =70
+            ZIndex: =1
+
+        "'ColumnChart_TotalCertification per Provider' As barChart":
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            Font: =Font.'Segoe UI'
+            GridStyle: =GridStyle.All
+            Height: =250
+            HoverBorderColor: =RGBA(0, 0, 0, 0)
+            ItemColorSet: =[RGBA(49, 130, 93, 1),RGBA(96,197,234,1),Color.Red,Color.Orange, RGBA(247,199,114,1), RGBA(247,180,91,1), RGBA(246,143,100,1), RGBA(212,96,104,1), RGBA(148, 110, 176, 1), RGBA(118, 154, 204, 1), RGBA(96, 197, 234, 1)]
+            Items: |-
+                =Table(
+                    {
+                        Provider: "Amazon",
+                        Count: CountRows(
+                            Filter(
+                                FirstN(Certifications,100000),(DateValue(Created)>=Date_FromDate.SelectedDate && DateValue(Created)<=Date_ToDate.SelectedDate) && 
+                                'Provider Name' = "Amazon"
+                            )
+                        )
+                    },
+                    {
+                        Provider: "Microsoft",
+                        Count: CountRows(
+                            Filter(
+                                FirstN(Certifications,100000),(DateValue(Created)>=Date_FromDate.SelectedDate && DateValue(Created)<=Date_ToDate.SelectedDate) &&
+                                'Provider Name' = "Microsoft"
+                            )
+                        )
+                    },
+                    {
+                        Provider: "Google",
+                        Count: CountRows(
+                            Filter(
+                                FirstN(Certifications,100000),(DateValue(Created)>=Date_FromDate.SelectedDate && DateValue(Created)<=Date_ToDate.SelectedDate) &&
+                                'Provider Name' = "Google"
+                            )
+                        )
+                    },
+                    {
+                        Provider: "Other",
+                        Count: (CountRows(FirstN(Certifications,100000)) - CountRows(
+                            Filter(
+                                FirstN(Certifications,100000),(DateValue(Created)>=Date_FromDate.SelectedDate && DateValue(Created)<=Date_ToDate.SelectedDate) &&
+                                'Provider Name' in [
+                                    "Amazon",
+                                    "Microsoft",
+                                    "Gooogle"
+                                ]
+                            )
+                        ))
+                    }
+                )
+            PressedBorderColor: =RGBA(0, 0, 0, 0)
+            Width: =1256
+            X: =40
+            XLabelAngle: =0
+            Y: =70
+            ZIndex: =2
+
+    Grp_Filter_Analysis As group:
+        Height: =5
+        Width: =5
+        X: =-53
+        Y: =40
+        ZIndex: =11
+
+        Rect_Filter_1 As rectangle:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            DisabledFill: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(255,255,255, 1)
+            FocusedBorderThickness: =4
+            Height: =51
+            HoverFill: =RGBA(255, 255, 255, 1)
+            OnSelect: =
+            PressedFill: =RGBA(255, 255, 255, 1)
+            Width: =1256
+            X: =93
+            Y: =97
+            ZIndex: =1
+
+        Filter_Lbl As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(148, 148, 148, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(241, 246, 246, 1)
+            FocusedBorderThickness: =4
+            Font: =Font.'Segoe UI'
+            Height: =26
+            OnSelect: =
+            PaddingBottom: =2
+            PaddingLeft: =2
+            PaddingRight: =2
+            PaddingTop: =2
+            Size: =10
+            Text: ="Filter"
+            Width: =69
+            X: =108
+            Y: =111
+            ZIndex: =2
+
+        "'Glry_Total Cert per BU/Provider' As gallery.galleryHorizontal":
+            BorderColor: =RGBA(166, 166, 166, 1)
+            DelayItemLoading: =true
+            Height: =51
+            Items: |-
+                =//Table({Name:"My Certifications"},{Name:"Assigned to"})
+                Table({Name:"Total Certifications Per Provider"},{Name:"Total Certifications Per BU"})
+            LoadingSpinner: =LoadingSpinner.Data
+            OnSelect: =
+            ShowScrollbar: =false
+            TemplatePadding: =10
+            TemplateSize: =242
+            Width: =486
+            X: =175
+            Y: =98
+            ZIndex: =3
+
+            "'Radio_Total Cert per BU/Provider' As radio":
+                BorderColor: =RGBA(51, 51, 51, 1)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =If(ThisItem.IsSelected=true,RGBA(51,51,51, 1),RGBA(136, 147, 176, 1))
+                Default: ="Total Certifications Per Provider"
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Fill: =RGBA(241,246,246, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                Height: =31
+                HoverColor: =If(ThisItem.IsSelected=true,RGBA(185, 29, 11, 1),RGBA(136, 147, 176, 1))
+                HoverFill: =RGBA(0, 0, 0, 0)
+                Items: =ThisItem
+                OnChange: =ThisItem.IsSelected
+                OnSelect: =ThisItem.IsSelected
+                PaddingBottom: =5
+                PaddingTop: =8
+                PressedColor: =RGBA(51, 51, 51, 1)
+                PressedFill: =RGBA(0, 0, 0, 0)
+                RadioBorderColor: =RGBA(51, 51, 51, 1)
+                RadioSelectionFill: =If(ThisItem.IsSelected=true,RGBA(185, 29, 11, 1),RGBA(136, 147, 176, 1))
+                RadioSize: =20
+                Size: =8
+                Width: =242
+                ZIndex: =1
+
+        Date_FromDate As datepicker:
+            BorderColor: =RGBA(166, 166, 166, 1)
+            BorderThickness: =0
+            CalendarHeaderFill: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+            Color: =RGBA(51, 51, 51, 1)
+            DefaultDate: =Today()-90
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: =RGBA(241,246,246, 1)
+            FocusedBorderThickness: =0
+            Font: =Font.'Segoe UI'
+            Format: ="dd/mm/yyyy"
+            Height: =27
+            HoverDateFill: =RGBA(200, 200, 200, 1)
+            IconBackground: =RGBA(241,246,246, 1)
+            IconFill: =RGBA(153, 153, 153, 1)
+            OnSelect: =
+            PaddingLeft: =5
+            PaddingTop: =5
+            SelectedDateFill: =RGBA(0, 120, 212, 1)
+            Size: =10
+            Width: =113
+            X: =670
+            Y: =110
+            ZIndex: =4
+
+        Date_ToDate As datepicker:
+            BorderColor: =RGBA(166, 166, 166, 1)
+            BorderThickness: =0
+            CalendarHeaderFill: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: =RGBA(241,246,246, 1)
+            FocusedBorderThickness: =0
+            Font: =Font.'Segoe UI'
+            Format: ="dd/mm/yyyy"
+            Height: =27
+            HoverDateFill: =RGBA(200, 200, 200, 1)
+            IconBackground: =RGBA(241,246,246, 1)
+            IconFill: =RGBA(153, 153, 153, 1)
+            OnSelect: =
+            PaddingLeft: =5
+            PaddingTop: =5
+            SelectedDateFill: =RGBA(0, 120, 212, 1)
+            Size: =10
+            Width: =113
+            X: =790
+            Y: =110
+            ZIndex: =5
+
+        Drp_BUList As dropdown:
+            BorderColor: =RGBA(166, 166, 166, 1)
+            BorderThickness: =0
+            ChevronBackground: =RGBA(241,246,246, 1)
+            ChevronDisabledBackground: =RGBA(244, 244, 244, 1)
+            ChevronDisabledFill: =RGBA(166, 166, 166, 1)
+            ChevronFill: =RGBA(153, 153, 153, 1)
+            ChevronHoverBackground: =RGBA(241,246,246, 1)
+            ChevronHoverFill: =RGBA(33, 33, 33, 1)
+            Color: =RGBA(51, 51, 51, 1)
+            Default: =Office365Users.MyProfile().Department
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: =RGBA(241,246,246, 1)
+            FocusedBorderThickness: =0
+            Font: =Font.'Segoe UI'
+            Height: =27
+            HoverBorderColor: =RGBA(241,246,246, 1)
+            HoverColor: =RGBA(51, 51, 51, 1)
+            HoverFill: =RGBA(241,246,246, 1)
+            Items: =Sort('BU-List',Title,SortOrder.Ascending)
+            OnSelect: =
+            PaddingBottom: =5
+            PaddingLeft: =12
+            PaddingRight: =5
+            PaddingTop: =5
+            PressedBorderColor: =RGBA(241,246,246, 1)
+            PressedFill: =RGBA(241,246,246, 1)
+            SelectionFill: =RGBA(153, 177, 195, 1)
+            Size: =10
+            Width: =91
+            X: =922
+            Y: =110
+            ZIndex: =6
+
+        Lbl_Refresh As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(185, 29, 11, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =20
+            OnSelect: =
+            Size: =10
+            Text: ="Refresh"
+            Width: =77
+            X: =1086
+            Y: =114
+            ZIndex: =7
+
+        Icon_Refresh As icon.Reload:
+            BorderColor: =RGBA(166, 166, 166, 1)
+            Color: =RGBA(185, 29, 11, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(220, 220, 220, 1)
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            FocusedBorderThickness: =4
+            Height: =15
+            HoverBorderColor: =RGBA(0, 0, 0, 0)
+            HoverColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+            HoverFill: =RGBA(0, 0, 0, 0)
+            Icon: =Icon.Reload
+            OnSelect: =
+            PressedBorderColor: =RGBA(0, 0, 0, 0)
+            PressedColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+            PressedFill: =RGBA(0, 0, 0, 0)
+            Width: =15
+            X: =1078
+            Y: =116
+            ZIndex: =8
+
+        "'Btn_View Request' As button":
+            BorderColor: =RGBA(185, 29, 11, 1)
+            Color: =RGBA(185, 29, 11, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: =RGBA(255, 255, 255, 1)
+            FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+            FocusedBorderThickness: |
+                =0
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =26
+            HoverBorderColor: =RGBA(185, 29, 11, 1)
+            HoverColor: =RGBA(185, 29, 11, 1)
+            HoverFill: =
+            OnSelect: |+
+                =UpdateContext({varNewCert:true})
+                
+            PressedBorderColor: =RGBA(185, 29, 11, 1)
+            PressedColor: =RGBA(185, 29, 11, 1)
+            PressedFill: =
+            RadiusBottomLeft: =5
+            RadiusBottomRight: =5
+            RadiusTopLeft: =5
+            RadiusTopRight: =5
+            Size: =10
+            Text: ="VIEW RECENT REQUEST"
+            X: =1174
+            Y: =111
+            ZIndex: =9
+
+    "'Cntr_Total/Year Certifications' As groupContainer.manualLayoutContainer":
+        DropShadow: =DropShadow.Light
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =268
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Width: =1256
+        X: =93
+        Y: =500
+        ZIndex: =16
+
+        Cntr_TotalCertifications As groupContainer.manualLayoutContainer:
+            DropShadow: =DropShadow.Light
+            Height: =218
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            Width: ='Cntr_Total/Year Certifications'.Width
+            Y: =45
+            ZIndex: =10
+
+            Glry_TotalCertifications As gallery.galleryVertical:
+                BorderColor: =RGBA(166, 166, 166, 1)
+                DelayItemLoading: =true
+                Height: =158
+                Items: |-
+                    =With(
+                        {records: Sort('BU-List',Title,SortOrder.Ascending)},
+                        ForAll(
+                            Sequence(CountRows(records)),Patch(
+                            Last(
+                                FirstN(
+                                    records,
+                                    Value
+                                )
+                            ),{rowNumber:Value})
+                        )
+                    )
+                Layout: =Layout.Vertical
+                LoadingSpinner: =LoadingSpinner.Data
+                TemplateSize: =50
+                Visible: =If('Glry_Total Cert/Year Cert'.Selected.Name="Total Certifications",true,false)
+                Width: =1256
+                ZIndex: =1
+
+                Glry_Container As groupContainer.manualLayoutContainer:
+                    DropShadow: =DropShadow.Light
+                    Fill: =If(!Mod(ThisItem.rowNumber,2),RGBA(0, 0, 0, 0),RGBA(245,245,245,1))
+                    Height: =45
+                    RadiusBottomLeft: =10
+                    RadiusBottomRight: =10
+                    RadiusTopLeft: =10
+                    RadiusTopRight: =10
+                    Width: ='Cntr_Total/Year Certifications'.Width-100
+                    X: =16
+                    ZIndex: =1
+
+                Glry_Lbl_Dept As label:
+                    Align: =Align.Center
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Semibold
+                    OnSelect: =Select(Parent)
+                    Size: =10
+                    Text: =ThisItem.Title
+                    Width: =120
+                    X: =5
+                    Y: =5
+                    ZIndex: =2
+
+                Glry_Lbl_Code As label:
+                    Align: =Align.Center
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Semibold
+                    OnSelect: =Select(Parent)
+                    Size: =10
+                    Text: =ThisItem.Code
+                    Width: =120
+                    X: =Glry_Lbl_Dept.X+Glry_Lbl_Dept.Width+20
+                    Y: =Glry_Lbl_Dept.Y
+                    ZIndex: =3
+
+                Glry_Lbl_Total As label:
+                    Align: =Align.Center
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    OnSelect: =Select(Parent)
+                    Size: =10
+                    Text: =CountRows(Filter(col_filtercert2,BU.Id=ThisItem.ID,Location='Drp_Location List'.SelectedText.Name)) 
+                    Width: =Glry_Lbl_Dept.Width
+                    X: =Glry_Lbl_Code.X+Glry_Lbl_Code.Width+20
+                    Y: =Glry_Lbl_Dept.Y
+                    ZIndex: =4
+
+                Glry_Lbl_Enrolled As label:
+                    Align: =Align.Center
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    OnSelect: =Select(Parent)
+                    Size: =10
+                    Text: |+
+                        =CountRows(Filter(col_filtercert2,BU.Id=ThisItem.ID,Status="Enrolled",Location='Drp_Location List'.SelectedText.Name))
+                        
+                    Width: =Glry_Lbl_Dept.Width
+                    X: =Glry_Lbl_Total.X+Glry_Lbl_Total.Width+20
+                    Y: =Glry_Lbl_Dept.Y
+                    ZIndex: =5
+
+                Glry_Lbl_Inprogress As label:
+                    Align: =Align.Center
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    OnSelect: =Select(Parent)
+                    Size: =10
+                    Text: |
+                        =CountRows(Filter(col_filtercert2,BU.Id=ThisItem.ID,Status="Manager Approved" || Status="Proofs Uploaded",Location='Drp_Location List'.SelectedText.Name))
+                    Width: =Glry_Lbl_Dept.Width
+                    X: =Glry_Lbl_Enrolled.X+Glry_Lbl_Enrolled.Width+20
+                    Y: =Glry_Lbl_Dept.Y
+                    ZIndex: =6
+
+                Glry_Lbl_ProofsApproved As label:
+                    Align: =Align.Center
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    OnSelect: =Select(Parent)
+                    Size: =10
+                    Text: =CountRows(Filter(col_filtercert2,BU.Id=ThisItem.ID,Status="Proofs Approved",Location='Drp_Location List'.SelectedText.Name))
+                    Width: =Glry_Lbl_Dept.Width
+                    X: =Glry_Lbl_Inprogress.X+Glry_Lbl_Inprogress.Width+20
+                    Y: =Glry_Lbl_Dept.Y
+                    ZIndex: =7
+
+                Glry_Lbl_Reimbursed As label:
+                    Align: =Align.Center
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    OnSelect: =Select(Parent)
+                    Size: =10
+                    Text: =CountRows(Filter(col_filtercert2,BU.Id=ThisItem.ID,Status="Reimbursed",Location='Drp_Location List'.SelectedText.Name))
+                    Width: =Glry_Lbl_Dept.Width
+                    X: =Glry_Lbl_ProofsApproved.X+Glry_Lbl_ProofsApproved.Width+20
+                    Y: =Glry_Lbl_Dept.Y
+                    ZIndex: =8
+
+                Icon_View As icon.View:
+                    BorderColor: =RGBA(166, 166, 166, 1)
+                    Color: =RGBA(138, 138, 138, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(220, 220, 220, 1)
+                    DisabledFill: =RGBA(0, 0, 0, 0)
+                    FocusedBorderThickness: =4
+                    Height: =15
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    HoverColor: =RGBA(138, 138, 138, 1)
+                    HoverFill: =RGBA(0, 0, 0, 0)
+                    Icon: =Icon.View
+                    OnSelect: |-
+                        =Navigate('Admin BU-Wise-Records',ScreenTransition.Cover,{varData:ThisItem});
+                        //ClearCollect(proofsapprovescol,Filter(CertificationOrder,Created>=DatePicker1_AdminDB.SelectedDate,//StatusDropDown.SelectedText.Value="Proofs Approved"))
+                        ClearCollect(new_col_certorder,Filter(CertificationOrder,'BU: Title'.Value=ThisItem.Code))
+                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                    PressedColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+                    PressedFill: =RGBA(0, 0, 0, 0)
+                    Width: =15
+                    X: =1016
+                    Y: =17
+                    ZIndex: =9
+
+                Icon_Dwnlod As icon.Download:
+                    BorderColor: =RGBA(166, 166, 166, 1)
+                    Color: =RGBA(138, 138, 138, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(220, 220, 220, 1)
+                    DisabledFill: =RGBA(0, 0, 0, 0)
+                    FocusedBorderThickness: =4
+                    Height: =15
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    HoverColor: =RGBA(138, 138, 138, 1)
+                    HoverFill: =RGBA(0, 0, 0, 0)
+                    Icon: =Icon.Download
+                    OnSelect: |-
+                        =Clear(col_certorder);
+                        Filter(col_filtercert2,BU.Value = ThisItem.Code);
+                        ForAll(
+                            col_filtercert2,
+                            Collect(
+                                col_certorder,
+                                {
+                                   Requestor: ThisRecord.Title,
+                                    BU: (ThisRecord.BU).Value,
+                                    Status: ThisRecord.Status,
+                                    'Certification:Title': (ThisRecord.'Certification:Title').Value,
+                                    Documents_Link:ThisRecord.Documents_Link,
+                                    PaymentMode:ThisRecord.PaymentMode,
+                                    'Examination Date':ThisRecord.'Examination Date',
+                                    'Proofs Uploaded on':ThisRecord.'Proofs Uploaded on',
+                                    Location:ThisRecord.Location,
+                                    Email: ThisRecord.Email,
+                                    'Provider Type':ThisRecord.'Provider Type'
+                                         }
+                            )
+                        );
+                        
+                        //Launch(TotalCertification_flow_excel.Run(JSON(col_certorder,JSONFormat.IncludeBinaryData)).filelink);
+                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                    PressedColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+                    PressedFill: =RGBA(0, 0, 0, 0)
+                    Width: =15
+                    X: =1047
+                    Y: =17
+                    ZIndex: =10
+
+            Glry_YearCertifications As gallery.galleryVertical:
+                BorderColor: =RGBA(166, 166, 166, 1)
+                DelayItemLoading: =true
+                Height: =158
+                Items: |-
+                    =With(
+                        {records: Sort('BU-List',Title,SortOrder.Ascending)},
+                        ForAll(
+                            Sequence(CountRows(records)),Patch(
+                            Last(
+                                FirstN(
+                                    records,
+                                    Value
+                                )
+                            ),{rowNumber:Value})
+                        )
+                    )
+                Layout: =Layout.Vertical
+                LoadingSpinner: =LoadingSpinner.Data
+                TemplateSize: =50
+                Visible: =If('Glry_Total Cert/Year Cert'.Selected.Name="Year Certifications",true,false)
+                Width: =1256
+                ZIndex: =2
+
+                Glry_Container_1 As groupContainer.manualLayoutContainer:
+                    DropShadow: =DropShadow.Light
+                    Fill: =If(Mod(ThisItem.rowNumber,2),RGBA(0, 0, 0, 0),RGBA(245,245,245,1))
+                    Height: =45
+                    RadiusBottomLeft: =10
+                    RadiusBottomRight: =10
+                    RadiusTopLeft: =10
+                    RadiusTopRight: =10
+                    Width: ='Cntr_Total/Year Certifications'.Width-100
+                    X: =16
+                    ZIndex: =1
+
+                Glry_Lbl_Dept_1 As label:
+                    Align: =Align.Center
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Semibold
+                    OnSelect: =Select(Parent)
+                    Size: =10
+                    Text: =ThisItem.Title
+                    X: =11
+                    Y: =5
+                    ZIndex: =2
+
+                Glry_Lbl_Code_1 As label:
+                    Align: =Align.Center
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Semibold
+                    OnSelect: =Select(Parent)
+                    Size: =10
+                    Text: =ThisItem.Code
+                    X: =Glry_Lbl_Dept_1.X+Glry_Lbl_Dept_1.Width+20
+                    Y: =Glry_Lbl_Dept_1.Y
+                    ZIndex: =3
+
+                Glry_Lbl_Target_Year As label:
+                    Align: =Align.Center
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    OnSelect: =Select(Parent)
+                    Size: =10
+                    Text: =LookUp('Target List',Title=ThisItem.Code).TargetNumber
+                    Width: =Glry_Lbl_Dept_1.Width
+                    X: =Glry_Lbl_Code_1.X+Glry_Lbl_Code_1.Width+20
+                    Y: =Glry_Lbl_Dept_1.Y
+                    ZIndex: =4
+
+                Glry_Lbl_Total_Year As label:
+                    Align: =Align.Center
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    OnSelect: =Select(Parent)
+                    Size: =10
+                    Text: |
+                        =CountRows(Filter(col_filtercert2,BU.Id=ThisItem.ID,Text(Modified,"yyyy")=Text(Today(),"yyyy") ) )
+                    Width: =Glry_Lbl_Dept_1.Width
+                    X: =Glry_Lbl_Target_Year.X+Glry_Lbl_Target_Year.Width+20
+                    Y: =Glry_Lbl_Dept_1.Y
+                    ZIndex: =5
+
+                Glry_Lbl_Completion As label:
+                    Align: =Align.Center
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    OnSelect: =Select(Parent)
+                    Size: =10
+                    Text: |
+                        =CountRows(Filter(col_filtercert2,BU.Id=ThisItem.ID,Status="Reimbursed",Text(Modified,"yyyy")=Text(Today(),"yyyy")))
+                    Width: =Glry_Lbl_Dept_1.Width
+                    X: =Glry_Lbl_Total_Year.X+Glry_Lbl_Total_Year.Width+20
+                    Y: =Glry_Lbl_Dept_1.Y
+                    ZIndex: =6
+
+                Glry_Lbl_InProgress_Year As label:
+                    Align: =Align.Center
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    OnSelect: =Select(Parent)
+                    Size: =10
+                    Text: |-
+                        =RoundUp(
+                            If(
+                                Glry_Lbl_Total_Year.Text = "0" || Glry_Lbl_Completion.Text = "0",
+                                0,
+                                IfError(((Glry_Lbl_Completion.Text) * 100) / (Glry_Lbl_Total_Year.Text),0,((Glry_Lbl_Completion.Text) * 100) / (Glry_Lbl_Total_Year.Text))
+                            ),
+                            0
+                        )
+                    Width: =Glry_Lbl_Dept_1.Width
+                    X: =Glry_Lbl_Completion.X+Glry_Lbl_Completion.Width+20
+                    Y: =Glry_Lbl_Dept_1.Y
+                    ZIndex: =7
+
+                "'Glry_Lbl_Completion%' As label":
+                    Align: =Align.Center
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    OnSelect: =Select(Parent)
+                    Size: =10
+                    Text: |-
+                        =CountRows(
+                            Filter(
+                                FirstN(
+                                    CertificationOrder,
+                                    100000
+                                ),
+                                BU.Id = ThisItem.ID,
+                                Status = "Enrolled" || Status = "Manager Approved" || Status = "Proofs Uploaded" || Status = "Proofs Approved" || Status = "Processing with Finance",
+                                Text(
+                                    Modified,
+                                    "yyyy"
+                                ) = Text(
+                                    Today(),
+                                    "yyyy"
+                                )
+                            )
+                        )
+                    Width: =Glry_Lbl_Dept_1.Width
+                    X: =Glry_Lbl_InProgress_Year.X+Glry_Lbl_InProgress_Year.Width+20
+                    Y: =Glry_Lbl_Dept_1.Y
+                    ZIndex: =8
+
+        Cntr_Total As groupContainer.manualLayoutContainer:
+            DropShadow: =DropShadow.Light
+            Fill: =RGBA(245, 223, 220, 1)
+            Height: =35
+            RadiusBottomLeft: =10
+            RadiusBottomRight: =10
+            RadiusTopLeft: =10
+            RadiusTopRight: =10
+            Visible: =If('Glry_Total Cert/Year Cert'.Selected.Name="Total Certifications",true,false)
+            Width: ='Cntr_Total/Year Certifications'.Width-100
+            X: =20
+            Y: =220
+            ZIndex: =20
+
+            Grp_TotalCertification_Total As group:
+                Height: =5
+                Width: =5
+                X: =40
+                Y: =40
+                ZIndex: =8
+
+                Glry_Lbl_TotalCertifications As label:
+                    Align: =Align.Center
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Semibold
+                    Height: =35
+                    Size: =10
+                    Text: ="Total"
+                    Width: =120
+                    X: =5
+                    ZIndex: =2
+
+                Glry_Lbl_TotalCertifications_1 As label:
+                    Align: =Align.Center
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Semibold
+                    Height: =35
+                    Size: =10
+                    Text: =Sum(Glry_TotalCertifications.AllItems,Glry_Lbl_Total)
+                    Width: =120
+                    X: |
+                        =Glry_Lbl_TotalCertifications.X+Glry_Lbl_TotalCertifications.Width+148
+                    ZIndex: =3
+
+                Glry_Lbl_TotalEnroll As label:
+                    Align: =Align.Center
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Semibold
+                    Height: =35
+                    Size: =10
+                    Text: =Sum(Glry_TotalCertifications.AllItems,Glry_Lbl_Enrolled)
+                    Width: =120
+                    X: =Glry_Lbl_TotalCertifications_1.X+Glry_Lbl_TotalCertifications_1.Width+20
+                    ZIndex: =4
+
+                Glry_Lbl_TotalInprogress As label:
+                    Align: =Align.Center
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Semibold
+                    Height: =35
+                    Size: =10
+                    Text: =Sum(Glry_TotalCertifications.AllItems,Glry_Lbl_Inprogress)
+                    Width: =120
+                    X: =Glry_Lbl_TotalEnroll.X+Glry_Lbl_TotalEnroll.Width+20
+                    ZIndex: =5
+
+                Glry_Lbl_TotalProofsApproved As label:
+                    Align: =Align.Center
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Semibold
+                    Height: =35
+                    Size: =10
+                    Text: =Sum(Glry_TotalCertifications.AllItems,Glry_Lbl_ProofsApproved)
+                    Width: =120
+                    X: =Glry_Lbl_TotalInprogress.X+Glry_Lbl_TotalInprogress.Width+20
+                    ZIndex: =6
+
+                Glry_Lbl_TotalReimbursed As label:
+                    Align: =Align.Center
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Semibold
+                    Height: =35
+                    Size: =10
+                    Text: =Sum(Glry_TotalCertifications.AllItems,Glry_Lbl_Reimbursed)
+                    Width: =120
+                    X: =Glry_Lbl_TotalProofsApproved.X+Glry_Lbl_TotalProofsApproved.Width+20
+                    ZIndex: =7
+
+        Grp_Headers As group:
+            Height: =5
+            Width: =5
+            X: =1
+            Y: =34
+            ZIndex: =20
+
+            Rectangle5_4 As rectangle:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                DisabledFill: =RGBA(166, 166, 166, 1)
+                Fill: =RGBA(255, 255, 255, 1)
+                FocusedBorderThickness: =4
+                Height: =35
+                HoverFill: =RGBA(255, 255, 255, 1)
+                PressedFill: =RGBA(255, 255, 255, 1)
+                Visible: =If('Glry_Total Cert/Year Cert'.Selected.Name="Total Certifications",true,false)
+                Width: =1250
+                Y: =5
+                ZIndex: =11
+
+            Lbl_Dept As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(112, 112, 112, 0.31)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Fill: =RGBA(255, 255, 255, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =34
+                Size: =10
+                Text: ="Department"
+                Visible: =If('Glry_Total Cert/Year Cert'.Selected.Name="Total Certifications",true,false)
+                Width: =120
+                X: =5
+                Y: =5
+                ZIndex: =12
+
+            Lbl_code As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(112, 112, 112, 0.31)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Fill: =RGBA(255, 255, 255, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =34
+                Size: =10
+                Text: ="Code"
+                Visible: =If('Glry_Total Cert/Year Cert'.Selected.Name="Total Certifications",true,false)
+                Width: =120
+                X: =140
+                Y: =5
+                ZIndex: =13
+
+            Lbl_total As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(112, 112, 112, 0.31)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Fill: =RGBA(255, 255, 255, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =34
+                Size: =10
+                Text: ="Total"
+                Visible: =If('Glry_Total Cert/Year Cert'.Selected.Name="Total Certifications",true,false)
+                Width: =120
+                X: =280
+                Y: =5
+                ZIndex: =14
+
+            Lbl_Enrolled As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(112, 112, 112, 0.31)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Fill: =RGBA(255, 255, 255, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =34
+                Size: =10
+                Text: ="Enrolled"
+                Visible: =If('Glry_Total Cert/Year Cert'.Selected.Name="Total Certifications",true,false)
+                Width: =120
+                X: =420
+                Y: =5
+                ZIndex: =15
+
+            Lbl_InProgress As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(112, 112, 112, 0.31)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Fill: =RGBA(255, 255, 255, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =34
+                Size: =10
+                Text: =" InProgress"
+                Visible: =If('Glry_Total Cert/Year Cert'.Selected.Name="Total Certifications",true,false)
+                Width: =120
+                X: =560
+                Y: =5
+                ZIndex: =16
+
+            Lbl_Reimbursed As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(112, 112, 112, 0.31)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Fill: =RGBA(255, 255, 255, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =34
+                Size: =10
+                Text: ="Reimbursed"
+                Visible: =If('Glry_Total Cert/Year Cert'.Selected.Name="Total Certifications",true,false)
+                Width: =120
+                X: =840
+                Y: =5
+                ZIndex: =17
+
+            Lbl_ProofsApproved As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(112, 112, 112, 0.31)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Fill: =RGBA(255, 255, 255, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =34
+                Size: =10
+                Text: ="Proofs Approved"
+                Visible: =If('Glry_Total Cert/Year Cert'.Selected.Name="Total Certifications",true,false)
+                Width: =120
+                X: =700
+                Y: =5
+                ZIndex: =18
+
+            Lbl_Action As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Fill: =RGBA(255, 255, 255, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Semibold
+                Height: =30
+                Size: =10
+                Text: ="Action"
+                Visible: =If('Glry_Total Cert/Year Cert'.Selected.Name="Total Certifications",true,false)
+                Width: =120
+                X: =980
+                Y: =7
+                ZIndex: =19
+
+        Cntr_Total_1 As groupContainer.manualLayoutContainer:
+            DropShadow: =DropShadow.Light
+            Fill: =RGBA(245, 223, 220, 1)
+            Height: =35
+            RadiusBottomLeft: =10
+            RadiusBottomRight: =10
+            RadiusTopLeft: =10
+            RadiusTopRight: =10
+            Visible: =If('Glry_Total Cert/Year Cert'.Selected.Name="Year Certifications",true,false)
+            Width: ='Cntr_Total/Year Certifications'.Width-100
+            X: =20
+            Y: =220
+            ZIndex: =29
+
+            Grp_TotalCertification_Total_1 As group:
+                Height: =5
+                Width: =5
+                X: =40
+                Y: =40
+                ZIndex: =8
+
+                Glry_Lbl_TotalCertifications_2 As label:
+                    Align: =Align.Center
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Semibold
+                    Height: =35
+                    Size: =10
+                    Text: ="Total"
+                    Width: =120
+                    X: =5
+                    ZIndex: =2
+
+                Glry_Lbl_YearCertTargetTotal As label:
+                    Align: =Align.Center
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Semibold
+                    Height: =35
+                    Size: =10
+                    Text: =Sum(Glry_YearCertifications.AllItems,Glry_Lbl_Target_Year)
+                    X: |+
+                        =Glry_Lbl_TotalCertifications_2.X+Glry_Lbl_TotalCertifications_2.Width+210
+                        
+                        
+                        
+                        
+                        
+                    ZIndex: =3
+
+                Glry_Lbl_TotalCertTotal As label:
+                    Align: =Align.Center
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Semibold
+                    Height: =35
+                    Size: =10
+                    Text: =Sum(Glry_YearCertifications.AllItems,Glry_Lbl_Total_Year)
+                    X: =Glry_Lbl_YearCertTargetTotal.X+Glry_Lbl_YearCertTargetTotal.Width+20
+                    ZIndex: =4
+
+                Glry_Lbl_TotalCompletion As label:
+                    Align: =Align.Center
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Semibold
+                    Height: =35
+                    Size: =10
+                    Text: =Sum(Glry_YearCertifications.AllItems,Glry_Lbl_Completion)
+                    X: =Glry_Lbl_TotalCertTotal.X+Glry_Lbl_TotalCertTotal.Width+20
+                    ZIndex: =5
+
+                Glry_Lbl_TotalInProgress_Year As label:
+                    Align: =Align.Center
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Semibold
+                    Height: =35
+                    Size: =10
+                    Text: =Sum(Glry_YearCertifications.AllItems,Glry_Lbl_InProgress_Year)
+                    X: =Glry_Lbl_TotalCompletion.X+Glry_Lbl_TotalCompletion.Width+20
+                    ZIndex: =6
+
+                "'Glry_Lbl_TotalCompletion%' As label":
+                    Align: =Align.Center
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Semibold
+                    Height: =35
+                    Size: =10
+                    Text: =Sum(Glry_YearCertifications.AllItems,'Glry_Lbl_Completion%')
+                    Width: =138
+                    X: =Glry_Lbl_TotalInProgress_Year.X+Glry_Lbl_TotalInProgress_Year.Width+20
+                    ZIndex: =7
+
+        Grp_Headers_1 As group:
+            Height: =5
+            Width: =5
+            X: =6
+            Y: =35
+            ZIndex: =30
+
+            Rectangle5_5 As rectangle:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                DisabledFill: =RGBA(166, 166, 166, 1)
+                Fill: =RGBA(255, 255, 255, 1)
+                FocusedBorderThickness: =4
+                Height: =35
+                HoverFill: =RGBA(255, 255, 255, 1)
+                PressedFill: =RGBA(255, 255, 255, 1)
+                Visible: =If('Glry_Total Cert/Year Cert'.Selected.Name="Year Certifications",true,false)
+                Width: =1250
+                X: =6
+                Y: =5
+                ZIndex: =21
+
+            Lbl_Dept_1 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(112, 112, 112, 0.31)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Fill: =RGBA(255, 255, 255, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =34
+                Size: =10
+                Text: ="Department"
+                Visible: =If('Glry_Total Cert/Year Cert'.Selected.Name="Year Certifications",true,false)
+                X: =11
+                Y: =5
+                ZIndex: =22
+
+            Lbl_code_1 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(112, 112, 112, 0.31)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Fill: =RGBA(255, 255, 255, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =34
+                Size: =10
+                Text: ="Code"
+                Visible: =If('Glry_Total Cert/Year Cert'.Selected.Name="Year Certifications",true,false)
+                X: |
+                    =Lbl_Dept_1.X+Lbl_Dept_1.Width+20
+                Y: =5
+                ZIndex: =23
+
+            Lbl_Target_Year As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(112, 112, 112, 0.31)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Fill: =RGBA(255, 255, 255, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =34
+                Size: =10
+                Text: ="Target"
+                Visible: =If('Glry_Total Cert/Year Cert'.Selected.Name="Year Certifications",true,false)
+                X: |
+                    =Lbl_code_1.X+Lbl_code_1.Width+20
+                Y: =5
+                ZIndex: =24
+
+            Lbl_Total_Year As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(112, 112, 112, 0.31)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Fill: =RGBA(255, 255, 255, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =34
+                Size: =10
+                Text: ="Total"
+                Visible: =If('Glry_Total Cert/Year Cert'.Selected.Name="Year Certifications",true,false)
+                X: =Lbl_Target_Year.X+Lbl_Target_Year.Width+20
+                Y: =5
+                ZIndex: =25
+
+            Lbl_Completed As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(112, 112, 112, 0.31)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Fill: =RGBA(255, 255, 255, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =34
+                Size: =10
+                Text: =" Completed"
+                Visible: =If('Glry_Total Cert/Year Cert'.Selected.Name="Year Certifications",true,false)
+                X: |
+                    =Lbl_Total_Year.X+Lbl_Total_Year.Width+20
+                Y: =5
+                ZIndex: =26
+
+            "'Lbl_Completion%' As label":
+                Align: =Align.Center
+                BorderColor: =RGBA(112, 112, 112, 0.31)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Fill: =RGBA(255, 255, 255, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =34
+                Size: =10
+                Text: ="Completion%"
+                Visible: =If('Glry_Total Cert/Year Cert'.Selected.Name="Year Certifications",true,false)
+                X: |
+                    =Lbl_InProgress_YearCert.X+Lbl_InProgress_YearCert.Width+20
+                Y: =5
+                ZIndex: =27
+
+            Lbl_InProgress_YearCert As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(112, 112, 112, 0.31)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Fill: =RGBA(255, 255, 255, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =34
+                Size: =10
+                Text: ="In Progress"
+                Visible: =If('Glry_Total Cert/Year Cert'.Selected.Name="Year Certifications",true,false)
+                X: |
+                    =Lbl_Completed.X+Lbl_Completed.Width+20
+                Y: =5
+                ZIndex: =28
+
+    Grp_Filter_Analysis_1 As group:
+        Height: =5
+        Width: =5
+        X: =-53
+        Y: =40
+        ZIndex: =18
+
+        Rect_Filter_2 As rectangle:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            DisabledFill: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(255,255,255, 1)
+            FocusedBorderThickness: =4
+            Height: =51
+            HoverFill: =RGBA(255, 255, 255, 1)
+            PressedFill: =RGBA(255, 255, 255, 1)
+            Width: =1256
+            X: =93
+            Y: =432
+            ZIndex: =11
+
+        Filter_Lbl_1 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(148, 148, 148, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(241, 246, 246, 1)
+            FocusedBorderThickness: =4
+            Font: =Font.'Segoe UI'
+            Height: =26
+            PaddingBottom: =2
+            PaddingLeft: =2
+            PaddingRight: =2
+            PaddingTop: =2
+            Size: =10
+            Text: ="Filter"
+            Width: =69
+            X: =108
+            Y: =448
+            ZIndex: =12
+
+        "'Glry_Total Cert/Year Cert' As gallery.galleryHorizontal":
+            BorderColor: =RGBA(166, 166, 166, 1)
+            DelayItemLoading: =true
+            Height: =55
+            Items: |-
+                =Table({Name:"Total Certifications"},{Name:"Year Certifications"})
+            LoadingSpinner: =LoadingSpinner.Data
+            ShowScrollbar: =false
+            TemplatePadding: =10
+            TemplateSize: =264
+            Width: =486
+            X: =175
+            Y: =433
+            ZIndex: =13
+
+            "'Radio_Total Cert /Year Cert' As radio":
+                BorderColor: =RGBA(51, 51, 51, 1)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =If(ThisItem.IsSelected=true,RGBA(51,51,51, 1),RGBA(136, 147, 176, 1))
+                Default: ="Total Certifications"
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Fill: =RGBA(241,246,246, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                Height: =34
+                HoverColor: =If(ThisItem.IsSelected=true,RGBA(185, 29, 11, 1),RGBA(136, 147, 176, 1))
+                HoverFill: =RGBA(0, 0, 0, 0)
+                Items: =ThisItem
+                OnChange: =ThisItem.IsSelected
+                OnSelect: =ThisItem.IsSelected
+                PaddingBottom: =5
+                PaddingTop: =8
+                PressedColor: =RGBA(51, 51, 51, 1)
+                PressedFill: =RGBA(0, 0, 0, 0)
+                RadioBorderColor: =RGBA(51, 51, 51, 1)
+                RadioSelectionFill: =If(ThisItem.IsSelected=true,RGBA(185, 29, 11, 1),RGBA(136, 147, 176, 1))
+                RadioSize: =20
+                Size: =10
+                Width: =262
+                ZIndex: =1
+
+        "'Drp_Location List' As dropdown":
+            BorderColor: =RGBA(166, 166, 166, 1)
+            BorderThickness: =0
+            ChevronBackground: =RGBA(241,246,246, 1)
+            ChevronDisabledBackground: =RGBA(244, 244, 244, 1)
+            ChevronDisabledFill: =RGBA(166, 166, 166, 1)
+            ChevronFill: =RGBA(153, 153, 153, 1)
+            ChevronHoverBackground: =RGBA(241,246,246, 1)
+            ChevronHoverFill: =RGBA(33, 33, 33, 1)
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: =RGBA(241,246,246, 1)
+            FocusedBorderThickness: =0
+            Font: =Font.'Segoe UI'
+            Height: =27
+            HoverBorderColor: =RGBA(241,246,246, 1)
+            HoverColor: =RGBA(51, 51, 51, 1)
+            HoverFill: =RGBA(241,246,246, 1)
+            Items: =Sort('Location List_Certification App',Title,SortOrder.Ascending)
+            PaddingBottom: =5
+            PaddingLeft: =12
+            PaddingRight: =5
+            PaddingTop: =5
+            PressedBorderColor: =RGBA(241,246,246, 1)
+            PressedFill: =RGBA(241,246,246, 1)
+            SelectionFill: =RGBA(153, 177, 195, 1)
+            Size: =10
+            Visible: =If('Glry_Total Cert/Year Cert'.Selected.Name="Total Certifications",true,false)
+            Width: =91
+            X: =760
+            Y: =447
+            ZIndex: =14
+
+        Lbl_Location As label:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(241, 246, 246, 1)
+            FocusedBorderThickness: =4
+            Font: =Font.'Segoe UI'
+            Height: =26
+            Size: =10
+            Text: ="Location"
+            Visible: =If('Glry_Total Cert/Year Cert'.Selected.Name="Total Certifications",true,false)
+            Width: =80
+            X: =670
+            Y: =448
+            ZIndex: =15
+
+    "'Cntr_NewReq.Cert' As groupContainer.manualLayoutContainer":
+        DropShadow: =DropShadow.Semibold
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =441
+        RadiusBottomLeft: =8
+        RadiusBottomRight: =8
+        RadiusTopLeft: =8
+        RadiusTopRight: =8
+        Visible: =varNewCertVisible
+        Width: =877
+        X: =192
+        Y: =180
+        ZIndex: =21
+
+        Rectangle5_10 As rectangle:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            DisabledFill: =RGBA(154, 154, 154, 1)
+            Fill: =RGBA(154, 154, 154, 0.5)
+            FocusedBorderThickness: =4
+            Height: =1
+            HoverFill: =RGBA(154, 154, 154, 1)
+            PressedFill: =RGBA(154, 154, 154, 1)
+            Width: =Lbl_RecentCertReq_2.X+Lbl_RecentCertReq_2.Width
+            X: =21
+            Y: =71
+            ZIndex: =1
+
+        Lbl_RecentCertReq_2 As label:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(57, 57, 57, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: ="Poppins"
+            FontWeight: =FontWeight.Bold
+            Size: =12
+            Text: ="New Certification Request Details"
+            Width: =800
+            X: =21
+            Y: =28
+            ZIndex: =2
+
+        Icon_Cancel_RecentCertReq_2 As icon.Cancel:
+            BorderColor: =RGBA(166, 166, 166, 1)
+            BorderStyle: =BorderStyle.None
+            Color: =RGBA(70, 70, 70, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(220, 220, 220, 1)
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            FocusedBorderThickness: =4
+            Height: =21.87
+            HoverBorderColor: =RGBA(0, 0, 0, 0)
+            HoverColor: =RGBA(70, 70, 70, 1)
+            HoverFill: =RGBA(0, 0, 0, 0)
+            Icon: =Icon.Cancel
+            OnSelect: |-
+                =UpdateContext({varNewCertVisible:false})
+            PressedBorderColor: =RGBA(0, 0, 0, 0)
+            PressedColor: =RGBA(70, 70, 70, 1)
+            PressedFill: =RGBA(0, 0, 0, 0)
+            Width: =21.87
+            X: =800
+            Y: =33
+            ZIndex: =3
+
+        Lbl_URL_1 As label:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: =Font.'Segoe UI'
+            Height: =30
+            Size: =10
+            Text: |-
+                ="URL                                                          :"
+            Width: =250
+            X: =20
+            Y: =86
+            ZIndex: =4
+
+        Lbl_ViewCertification_1 As label:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(72, 164, 226, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: =Font.'Segoe UI'
+            Height: =30
+            OnSelect: =Launch(vardetails.URL)
+            Size: =10
+            Text: ="Visit This Certification Page"
+            Underline: =true
+            Width: =500
+            X: |
+                =Lbl_URL_1.X+Lbl_URL_1.Width
+            Y: =Lbl_URL_1.Y
+            ZIndex: =5
+
+        Lbl_RequestorName_1 As label:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Height: =30
+            Size: =10
+            Text: |-
+                ="REQUESTER                                               :    "& vardetails.Requestor.DisplayName
+            Width: =606
+            X: =20
+            Y: =116
+            ZIndex: =6
+
+        Lbl_CertificationName_1 As label:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Height: =30
+            Size: =10
+            Text: |-
+                ="CERTIFICATION NAME                             :    "& vardetails.Title
+            Width: =606
+            X: =20
+            Y: =146
+            ZIndex: =7
+
+        Lbl_BU_1 As label:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Height: =30
+            Size: =10
+            Text: |-
+                ="BU                                                               :    "& vardetails.BU.Value
+            Width: =606
+            X: =20
+            Y: =176
+            ZIndex: =8
+
+        Lbl_EXAMCODE_1 As label:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Height: =30
+            Size: =10
+            Text: |-
+                ="EXAM CODE                                               :    "& vardetails.ExamCode
+            Width: =606
+            X: =20
+            Y: =206
+            ZIndex: =9
+
+        Lbl_COST_1 As label:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Height: =30
+            Size: =10
+            Text: |-
+                ="COST                                                           :   "& vardetails.Cost
+            Width: =606
+            X: =20
+            Y: =236
+            ZIndex: =10
+
+        Lbl_PROVIDER_1 As label:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Height: =30
+            Size: =10
+            Text: |-
+                ="PROVIDER                                                  :   "& vardetails.Provider
+            Width: =606
+            X: =20
+            Y: =266
+            ZIndex: =11
+
+        Lbl_Description_1 As label:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Height: =30
+            Overflow: =Overflow.Scroll
+            Size: =10
+            Text: |-
+                ="DECRITPION                                              :   "& vardetails.Description
+            Width: =606
+            X: =20
+            Y: =296
+            ZIndex: =12
+
+        Rectangle5_11 As rectangle:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            DisabledFill: =RGBA(154, 154, 154, 1)
+            Fill: =RGBA(154, 154, 154, 0.5)
+            FocusedBorderThickness: =4
+            Height: =1
+            HoverFill: =RGBA(154, 154, 154, 1)
+            PressedFill: =RGBA(154, 154, 154, 1)
+            Width: =Lbl_RecentCertReq_2.X+Lbl_RecentCertReq_2.Width
+            X: =20
+            Y: =328
+            ZIndex: =13
+
+        "'Lbl_StatusInf._1' As label":
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(57, 57, 57, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: ="Poppins"
+            FontWeight: =FontWeight.Bold
+            Height: =30
+            Size: =12
+            Text: ="Status Information"
+            Width: =800
+            X: =20
+            Y: =332
+            ZIndex: =14
+
+        Lbl_RequestStatus_1 As label:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Height: =30
+            Size: =10
+            Text: |-
+                ="Request Status                                       :" 
+            Width: =250
+            X: =20
+            Y: =362
+            ZIndex: =15
+
+        "'Lbl_Pending/Approved_1' As label":
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =If(vardetails.Admin_Approval=true,RGBA(23,151,49,1),RGBA(216,106,52,1))
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: =Font.'Segoe UI'
+            Height: =30
+            OnSelect: =Launch(vardetails.URL)
+            Size: =10
+            Text: =If(vardetails.Admin_Approval=true,"Approved","Pending")
+            Width: =200
+            X: |
+                =Lbl_URL_1.X+Lbl_URL_1.Width
+            Y: |
+                =362
+            ZIndex: =16
+
+        Btn_Revise_1 As button:
+            BorderColor: =RGBA(185, 29, 11, 1)
+            Color: =RGBA(185, 29, 11, 1)
+            DisabledBorderColor: =RGBA(185, 29, 11, 1)
+            DisabledColor: =RGBA(185, 29, 11, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            DisplayMode: =If(varUserLevel in["ADMIN","SUPER-ADMIN"],If(vardetails.Admin_Approval=false,DisplayMode.Edit,DisplayMode.View),DisplayMode.View)
+            Fill: =RGBA(255, 255, 255, 1)
+            FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+            FocusedBorderThickness: =0
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =30
+            HoverBorderColor: =RGBA(185, 29, 11, 1)
+            HoverColor: =RGBA(185, 29, 11, 1)
+            HoverFill: =
+            PressedBorderColor: =RGBA(185, 29, 11, 1)
+            PressedColor: =RGBA(185, 29, 11, 1)
+            PressedFill: =
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =12
+            Text: ="Revise"
+            Width: =102
+            X: =470
+            Y: =380
+            ZIndex: =17
+
+        Btn_Approve_1 As button:
+            BorderColor: =RGBA(23, 151, 49, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            DisplayMode: =If(varUserLevel in["ADMIN","SUPER-ADMIN"],DisplayMode.Edit,DisplayMode.View)
+            Fill: =RGBA(23, 151, 49, 1)
+            FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+            FocusedBorderThickness: |
+                =0
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =30
+            HoverBorderColor: =RGBA(23, 151, 49, 1)
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =
+            OnSelect: |-
+                =If(
+                    !vardetails.Admin_Approval,
+                    UpdateIf(
+                        CertificationRequest,
+                        ID = vardetails.ID,
+                        {Admin_Approval: true}
+                    );
+                    Notify(
+                        "Approved Successfully",
+                        NotificationType.Success,
+                        1700
+                    );
+                    Set(
+                        varNewCertVisible,
+                        false
+                    );
+                    ,
+                    Notify(
+                        "You have already approved",
+                        NotificationType.Error,
+                        1700
+                    );
+                    
+                )
+            PressedBorderColor: =RGBA(23, 151, 49, 1)
+            PressedColor: =RGBA(255, 255, 255, 1)
+            PressedFill: =
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =12
+            Text: =If(vardetails.Admin_Approval=false,"Approve","Approved")
+            Width: =102
+            X: |
+                =Btn_Revise_1.X+Btn_Revise_1.Width+ 40
+            Y: =Btn_Revise_1.Y
+            ZIndex: =18
+
+    Grp_ExportBtn As group:
+        Height: =5
+        Width: =5
+        X: =-53
+        Y: =40
+        ZIndex: =21
+
+        Btn_Export_TotalCertifications As button:
+            BorderColor: =RGBA(185, 29, 11, 1)
+            Color: =RGBA(185, 29, 11, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: =RGBA(255, 255, 255, 1)
+            FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+            FocusedBorderThickness: |
+                =0
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =28
+            HoverBorderColor: =RGBA(185, 29, 11, 1)
+            HoverColor: =RGBA(185, 29, 11, 1)
+            HoverFill: =
+            OnSelect: |-
+                =Clear(coldetails1);
+                ForAll(
+                    Glry_TotalCertifications.AllItems,
+                    Collect(
+                        coldetails1,
+                        {
+                            Department: ThisRecord.Title,
+                            Code: ThisRecord.Code,
+                            Total: ThisRecord.Glry_Lbl_Total.Text,
+                            Enroll: ThisRecord.Glry_Lbl_Enrolled.Text,
+                            Inprogress: ThisRecord.Glry_Lbl_Inprogress.Text,
+                            Proofs_Approved: ThisRecord.Glry_Lbl_ProofsApproved.Text,
+                            Reimbursed: ThisRecord.Glry_Lbl_Reimbursed.Text
+                        }
+                    )
+                );
+                
+                //Launch(TotalCertification_flow_excel.Run(JSON(coldetails1,JSONFormat.IncludeBinaryData)).filelink);
+            PressedBorderColor: =RGBA(185, 29, 11, 1)
+            PressedColor: =RGBA(185, 29, 11, 1)
+            PressedFill: =
+            RadiusBottomLeft: =5
+            RadiusBottomRight: =5
+            RadiusTopLeft: =5
+            RadiusTopRight: =5
+            Size: =10
+            Text: ="EXPORT IN EXCEL"
+            Visible: |-
+                =//If('Glry_Total Cert/Year Cert'.Selected.Name="Total Certifications",true,false)
+                true
+            X: =898
+            Y: =443
+            ZIndex: =17
+
+        Icon_Dwnlod_1 As icon.Download:
+            BorderColor: =RGBA(166, 166, 166, 1)
+            Color: =RGBA(185, 29, 11, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(220, 220, 220, 1)
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            FocusedBorderThickness: =4
+            Height: =20
+            HoverBorderColor: =RGBA(0, 0, 0, 0)
+            HoverColor: =RGBA(185, 29, 11, 1)
+            HoverFill: =RGBA(0, 0, 0, 0)
+            Icon: =Icon.Download
+            OnSelect: |-
+                =Clear(coldetails1);
+                ForAll(
+                    Glry_TotalCertifications.AllItems,
+                    Collect(
+                        coldetails1,
+                        {
+                            Department: ThisRecord.Title,
+                            Code: ThisRecord.Code,
+                            Total: ThisRecord.Glry_Lbl_Total.Text,
+                            Enroll: ThisRecord.Glry_Lbl_Enrolled.Text,
+                            Inprogress: ThisRecord.Glry_Lbl_Inprogress.Text,
+                            Proofs_Approved: ThisRecord.Glry_Lbl_ProofsApproved.Text,
+                            Reimbursed: ThisRecord.Glry_Lbl_Reimbursed.Text
+                        }
+                    )
+                );
+                
+                //Launch(TotalCertification_flow_excel.Run(JSON(coldetails1,JSONFormat.IncludeBinaryData)).filelink);
+            PressedBorderColor: =RGBA(0, 0, 0, 0)
+            PressedColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+            PressedFill: =RGBA(0, 0, 0, 0)
+            Visible: |-
+                =//If('Glry_Total Cert/Year Cert'.Selected.Name="Total Certifications",true,false)
+                true
+            Width: =24
+            X: =898
+            Y: =448
+            ZIndex: =18
+
+    c_Header_10 As c_Header:
+        CartOnselect: ='EnrollCertificate Screen'
+        FAQOnselect: ='FAQ Screen'
+        ZIndex: =22
+
+    C_leftPanel_10 As C_leftPanel:
+        NavigateTo: =Switch(SideLabelvar,1,Home_Screen,2,Register_Screen,3,'Request Screen',4,'Admin dashBoard')
+        Width: =93
+        Y: =85
+        ZIndex: =23
+
+    C_AlertPanel_9 As C_AlertPanel:
+        Visible: =varAlert
+        X: =976
+        ZIndex: =24
+
+    Grp_AddTargetBtn As group:
+        Height: =5
+        Width: =5
+        X: =-53
+        Y: =40
+        ZIndex: =24
+
+        Btn_AddTargetCertifcations As button:
+            BorderColor: =RGBA(185, 29, 11, 1)
+            Color: =RGBA(185, 29, 11, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: =RGBA(255, 255, 255, 1)
+            FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+            FocusedBorderThickness: |
+                =0
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =28
+            HoverBorderColor: =RGBA(185, 29, 11, 1)
+            HoverColor: =RGBA(185, 29, 11, 1)
+            HoverFill: =
+            OnSelect: |-
+                =UpdateContext({varaddtargetcertifications:true})
+            PressedBorderColor: =RGBA(185, 29, 11, 1)
+            PressedColor: =RGBA(185, 29, 11, 1)
+            PressedFill: =
+            RadiusBottomLeft: =5
+            RadiusBottomRight: =5
+            RadiusTopLeft: =5
+            RadiusTopRight: =5
+            Size: =10
+            Text: ="ADD TARGET CERTIFICATIONS"
+            Visible: |-
+                =//If('Glry_Total Cert/Year Cert'.Selected.Name="Total Certifications",true,false)
+                true
+            Width: =245
+            X: =1090
+            Y: =443
+            ZIndex: =19
+
+        Icon_Add As icon.Download:
+            BorderColor: =RGBA(166, 166, 166, 1)
+            Color: =RGBA(185, 29, 11, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(220, 220, 220, 1)
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            FocusedBorderThickness: =4
+            Height: =20
+            HoverBorderColor: =RGBA(0, 0, 0, 0)
+            HoverColor: =RGBA(185, 29, 11, 1)
+            HoverFill: =RGBA(0, 0, 0, 0)
+            Icon: =Icon.Add
+            OnSelect: =
+            PressedBorderColor: =RGBA(0, 0, 0, 0)
+            PressedColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+            PressedFill: =RGBA(0, 0, 0, 0)
+            Visible: |-
+                =//If('Glry_Total Cert/Year Cert'.Selected.Name="Total Certifications",true,false)
+                true
+            Width: =20
+            X: =1095
+            Y: =448
+            ZIndex: =20
+
+    C_Profile_9 As C_Profile:
+        Visible: =varProfileView
+        X: =976
+        ZIndex: =25
+
+    Cntr_Recent_Request As groupContainer.manualLayoutContainer:
+        DropShadow: =DropShadow.Semibold
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =768
+        RadiusBottomLeft: =8
+        RadiusBottomRight: =8
+        RadiusTopLeft: =8
+        RadiusTopRight: =8
+        Visible: |
+            =varNewCert
+        Width: =400
+        X: =Parent.Width-Self.Width
+        ZIndex: =26
+
+        Lbl_RecentCertReq_1 As label:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(57, 57, 57, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: ="Poppins"
+            FontWeight: =FontWeight.Bold
+            Size: =12
+            Text: ="Recent Certification Requests"
+            Width: =324
+            X: =23.28
+            Y: =20.29
+            ZIndex: =1
+
+        Icon_Cancel_RecentCertReq_1 As icon.Cancel:
+            BorderColor: =RGBA(166, 166, 166, 1)
+            BorderStyle: =BorderStyle.None
+            Color: =RGBA(70, 70, 70, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(220, 220, 220, 1)
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            FocusedBorderThickness: =4
+            Height: =21.87
+            HoverBorderColor: =RGBA(0, 0, 0, 0)
+            HoverColor: =RGBA(70, 70, 70, 1)
+            HoverFill: =RGBA(0, 0, 0, 0)
+            Icon: =Icon.Cancel
+            OnSelect: |-
+                =UpdateContext({varNewCert:false})
+            PressedBorderColor: =RGBA(0, 0, 0, 0)
+            PressedColor: =RGBA(70, 70, 70, 1)
+            PressedFill: =RGBA(0, 0, 0, 0)
+            Width: =21.87
+            X: =Lbl_RecentCertReq_1.X+Lbl_RecentCertReq_1.Width
+            Y: =27
+            ZIndex: =2
+
+        Search_3 As groupContainer.manualLayoutContainer:
+            BorderColor: =RGBA(154, 154, 154, 1)
+            BorderThickness: =1
+            Height: =32
+            LayoutMode: ="manual"
+            RadiusBottomLeft: =5
+            RadiusBottomRight: =5
+            RadiusTopLeft: =5
+            RadiusTopRight: =5
+            Width: =Rectangle5_9.Width
+            X: =23
+            Y: =86
+            ZIndex: =3
+
+            "'Rectangle 1129_3' As groupContainer.manualLayoutContainer":
+                BorderStyle: =BorderStyle.None
+                Height: =32
+                LayoutMode: ="manual"
+                Width: =Parent.Width
+                ZIndex: =15
+
+                Vector_19 As image:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledFill: =RGBA(0, 0, 0, 0)
+                    FocusedBorderThickness: =4
+                    Height: =32
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    HoverFill: =RGBA(0, 0, 0, 0)
+                    Image: =image89183
+                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                    PressedFill: =RGBA(0, 0, 0, 0)
+                    Width: =Parent.Width
+                    ZIndex: =16
+
+                Txt_SerchRecent As text:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderThickness: =0
+                    Color: =RGBA(154, 154, 154, 1)
+                    Default: =
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(154, 154, 154, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    FocusedBorderThickness: =0
+                    Font: ="Poppins"
+                    Height: =32
+                    HintText: ="Search anything"
+                    HoverBorderColor: =
+                    HoverColor: =RGBA(154, 154, 154, 1)
+                    HoverFill: =RGBA(0, 0, 0, 0)
+                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                    PressedColor: =RGBA(154, 154, 154, 1)
+                    PressedFill: =RGBA(0, 0, 0, 0)
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Size: =12
+                    Width: =Parent.Width
+                    ZIndex: =17
+
+            "'Group 5500_3' As groupContainer.manualLayoutContainer":
+                BorderStyle: =BorderStyle.None
+                Height: =28
+                LayoutMode: ="manual"
+                Width: =28
+                X: =Parent.Width-Self.Width
+                Y: =2
+                ZIndex: =18
+
+                "'Rectangle 779_3' As image":
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledFill: =RGBA(0, 0, 0, 0)
+                    FocusedBorderThickness: =4
+                    Height: =28
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    HoverFill: =RGBA(0, 0, 0, 0)
+                    Image: =image89186
+                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                    PressedFill: =RGBA(0, 0, 0, 0)
+                    Width: =28
+                    ZIndex: =19
+
+                Icon_Search As icon.Search:
+                    BorderColor: =RGBA(166, 166, 166, 1)
+                    Color: =RGBA(255, 255, 255, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(220, 220, 220, 1)
+                    DisabledFill: =RGBA(0, 0, 0, 0)
+                    FocusedBorderThickness: =4
+                    Height: =16
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    HoverColor: =Self.Color
+                    HoverFill: =RGBA(0, 0, 0, 0)
+                    Icon: =Icon.Search
+                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                    PressedColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+                    PressedFill: =RGBA(0, 0, 0, 0)
+                    Width: =16
+                    X: =6
+                    Y: =7
+                    ZIndex: =21
+
+        Rectangle5_9 As rectangle:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            DisabledFill: =RGBA(154, 154, 154, 1)
+            Fill: =RGBA(154, 154, 154, 0.5)
+            FocusedBorderThickness: =4
+            Height: =1
+            HoverFill: =RGBA(154, 154, 154, 1)
+            PressedFill: =RGBA(154, 154, 154, 1)
+            Width: =Lbl_RecentCertReq_1.X+Lbl_RecentCertReq_1.Width
+            X: =24
+            Y: =65
+            ZIndex: =4
+
+        Glry_ViewRequest As gallery.galleryVertical:
+            BorderColor: =RGBA(166, 166, 166, 1)
+            DelayItemLoading: =true
+            Height: =610
+            Items: |-
+                =Search(
+                    Sort(
+                        Cert_Req,
+                        Created,
+                        SortOrder.Descending
+                    ),
+                    Txt_SerchRecent.Text,
+                    "Title"
+                )
+            Layout: =Layout.Vertical
+            LoadingSpinner: =LoadingSpinner.Data
+            TemplateSize: =92
+            Width: =Rectangle5_9.Width
+            X: =23
+            Y: =135
+            ZIndex: =5
+
+            Glry_Lbl_Title As label:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(185, 29, 11, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: ="Poppins"
+                FontWeight: =FontWeight.Semibold
+                Height: =30
+                OnSelect: =Select(Parent)
+                Size: =10
+                Text: =ThisItem.Title
+                Width: =274
+                X: =8
+                Y: =6
+                ZIndex: =1
+
+            Glry_Lbl_Requestor As label:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: ="Poppins"
+                Height: =30
+                OnSelect: =Select(Parent)
+                Size: =10
+                Text: =ThisItem.Requestor.DisplayName
+                Width: =200
+                X: =8
+                Y: =Glry_Lbl_Title.Y+Glry_Lbl_Title.Height
+                ZIndex: =2
+
+            Glry_Lbl_BU As label:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: ="Poppins"
+                Height: =20
+                OnSelect: =Select(Parent)
+                Size: =10
+                Text: |-
+                    = "BU: " & ThisItem.BU.Value
+                X: =8
+                Y: =Glry_Lbl_Requestor.Y+Glry_Lbl_Requestor.Height+4
+                ZIndex: =3
+
+            Rectangle6_2 As rectangle:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                DisabledFill: =If(ThisItem.Admin_Approval=true,RGBA(92,255,9,1),RGBA(216,106,52,1))
+                DisplayMode: =DisplayMode.View
+                Fill: =If(ThisItem.Admin_Approval=true,RGBA(23,151,49,1),RGBA(216,106,52,1))
+                FocusedBorderThickness: =4
+                Height: =90
+                HoverFill: =If(ThisItem.Admin_Approval=true,RGBA(92,255,9,1),RGBA(255,191,0,0.5))
+                OnSelect: =Select(Parent)
+                PressedFill: =If(ThisItem.Admin_Approval=true,RGBA(92,255,9,1),RGBA(255,191,0,0.5))
+                Width: =1
+                ZIndex: =4
+
+            View_Icon As icon.View:
+                BorderColor: =RGBA(166, 166, 166, 1)
+                BorderStyle: =BorderStyle.None
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(220, 220, 220, 1)
+                DisabledFill: =RGBA(0, 0, 0, 0)
+                FocusedBorderThickness: =0
+                Height: =15
+                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                HoverColor: =Color.Black
+                HoverFill: =RGBA(0, 0, 0, 0)
+                Icon: =Icon.View
+                OnSelect: |-
+                    =Set(
+                        vardetails,
+                        ThisItem
+                    );
+                    UpdateContext({varNewCertVisible: true});
+                    UpdateContext({varNewCert: false})
+                PressedBorderColor: =RGBA(0, 0, 0, 0)
+                PressedColor: =Color.Black
+                PressedFill: =RGBA(0, 0, 0, 0)
+                Width: =15
+                X: =193
+                Y: =43
+                ZIndex: =5
+
+            "'Btn_Approve/Pending' As button":
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                Color: =If(ThisItem.Admin_Approval=true,RGBA(23,151,49,1),RGBA(216,106,52,1))
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =If(ThisItem.Admin_Approval=true,RGBA(23,151,49,0.18),RGBA(216,106,52,0.18))
+                DisplayMode: =DisplayMode.View
+                Fill: =If(ThisItem.Admin_Approval=true,RGBA(23,151,49,0.18),RGBA(216,106,52,0.18))
+                FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+                Font: ="Poppins"
+                FontWeight: =FontWeight.Semibold
+                Height: =25
+                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                HoverColor: =RGBA(255, 255, 255, 1)
+                HoverFill: =ColorFade(RGBA(0, 120, 212, 1), -10%)
+                OnSelect: =
+                PressedBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -50%)
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+                RadiusBottomLeft: =4
+                RadiusBottomRight: =4
+                RadiusTopLeft: =4
+                RadiusTopRight: =4
+                Size: =10
+                Text: =If(ThisItem.Admin_Approval=true,"Approved","Pending")
+                Width: =85
+                X: =237
+                Y: =Glry_Lbl_Title.Y+Glry_Lbl_Title.Height
+                ZIndex: =6
+
+            Dwn_Icon As icon.Download:
+                BorderColor: =RGBA(166, 166, 166, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(220, 220, 220, 1)
+                DisabledFill: =RGBA(0, 0, 0, 0)
+                FocusedBorderThickness: =4
+                Height: =15
+                HoverBorderColor: =RGBA(0, 0, 0, 1)
+                HoverColor: =RGBA(0, 0, 0, 1)
+                HoverFill: =RGBA(255, 255, 255, 1)
+                Icon: =Icon.Download
+                OnSelect: =Launch(First(ThisItem.Attachments).AbsoluteUri)
+                PressedBorderColor: =RGBA(0, 0, 0, 0)
+                PressedColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+                PressedFill: =RGBA(0, 0, 0, 0)
+                Width: =15
+                X: =158
+                Y: =43
+                ZIndex: =7
+
+    Cntr_TargetCert As groupContainer.manualLayoutContainer:
+        DropShadow: =DropShadow.Semibold
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =768
+        RadiusBottomLeft: =8
+        RadiusBottomRight: =8
+        RadiusTopLeft: =8
+        RadiusTopRight: =8
+        Visible: =varaddtargetcertifications
+        Width: =380
+        X: =Parent.Width-Self.Width
+        ZIndex: =27
+
+        Lbl_AddTargetCert As label:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(57, 57, 57, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: ="Poppins"
+            FontWeight: =FontWeight.Bold
+            Size: =12
+            Text: ="Add Target Certifications"
+            Width: =324
+            X: =13
+            Y: =24
+            ZIndex: =1
+
+        Icon_Cancel_AddTargetCert As icon.Cancel:
+            BorderColor: =RGBA(166, 166, 166, 1)
+            BorderStyle: =BorderStyle.None
+            Color: =RGBA(70, 70, 70, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(220, 220, 220, 1)
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            FocusedBorderThickness: =4
+            Height: =21.87
+            HoverBorderColor: =RGBA(0, 0, 0, 0)
+            HoverColor: =RGBA(70, 70, 70, 1)
+            HoverFill: =RGBA(0, 0, 0, 0)
+            Icon: =Icon.Cancel
+            OnSelect: |-
+                =UpdateContext({varaddtargetcertifications:false})
+            PressedBorderColor: =RGBA(0, 0, 0, 0)
+            PressedColor: =RGBA(70, 70, 70, 1)
+            PressedFill: =RGBA(0, 0, 0, 0)
+            Width: =21.87
+            X: =337
+            Y: =30
+            ZIndex: =2
+
+        Rectangle5_12 As rectangle:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            DisabledFill: =RGBA(154, 154, 154, 1)
+            Fill: =RGBA(154, 154, 154, 0.5)
+            FocusedBorderThickness: =4
+            Height: =1
+            HoverFill: =RGBA(154, 154, 154, 1)
+            PressedFill: =RGBA(154, 154, 154, 1)
+            Width: =Lbl_AddTargetCert.X+Lbl_AddTargetCert.Width
+            X: =9
+            Y: =68
+            ZIndex: =3
+
+        Drp_BUList_AddTargetCert As dropdown:
+            BorderColor: =RGBA(166, 166, 166, 1)
+            BorderThickness: =1
+            ChevronBackground: =RGBA(255, 255, 255, 1)
+            ChevronDisabledBackground: =RGBA(244, 244, 244, 1)
+            ChevronDisabledFill: =RGBA(166, 166, 166, 1)
+            ChevronFill: =RGBA(153, 153, 153, 1)
+            ChevronHoverBackground: =RGBA(241,246,246, 1)
+            ChevronHoverFill: =RGBA(33, 33, 33, 1)
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            FocusedBorderThickness: =0
+            Font: =Font.'Segoe UI'
+            Height: =46
+            HoverBorderColor: =RGBA(166, 166, 166, 1)
+            HoverColor: =RGBA(51, 51, 51, 1)
+            HoverFill: =RGBA(255, 255, 255, 1)
+            Items: =Sort('BU-List',Title,SortOrder.Ascending)
+            OnSelect: =Set(varNewCert,true)
+            PaddingBottom: =5
+            PaddingLeft: =12
+            PaddingRight: =5
+            PaddingTop: =5
+            PressedBorderColor: =RGBA(166, 166, 166, 1)
+            PressedFill: =RGBA(255, 255, 255, 1)
+            SelectionColor: =RGBA(0, 0, 0, 1)
+            SelectionFill: =RGBA(166, 166, 166, 1)
+            Size: =12
+            Width: =300
+            X: =33
+            Y: =144
+            ZIndex: =4
+
+        Lbl_BUName As label:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: =Font.'Segoe UI'
+            Height: =30
+            Size: =12
+            Text: ="BU"
+            X: =32
+            Y: =110
+            ZIndex: =5
+
+        "'Lbl_*' As label":
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(255, 0, 0, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: =Font.'Segoe UI'
+            Size: =12
+            Text: ="*"
+            Width: =30
+            X: =55
+            Y: |
+                =Lbl_BUName.Y-10
+            ZIndex: =6
+
+        "'Lbl_Target no.' As label":
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: =Font.'Segoe UI'
+            Height: =30
+            Size: =12
+            Text: ="Target Certifications"
+            X: =32
+            Y: =209
+            ZIndex: =7
+
+        "'Lbl_*_1' As label":
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(255, 0, 0, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: =Font.'Segoe UI'
+            Size: =12
+            Text: ="*"
+            Width: =30
+            X: =175
+            Y: =216
+            ZIndex: =8
+
+        TxtInp_TargetCert As text:
+            BorderColor: =RGBA(166, 166, 166, 1)
+            Color: =RGBA(51, 51, 51, 1)
+            Default: =""
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            FocusedBorderThickness: =2
+            Font: =Font.'Segoe UI'
+            Height: =46
+            HoverBorderColor: =RGBA(166, 166, 166, 1)
+            HoverColor: =RGBA(51, 51, 51, 1)
+            HoverFill: =RGBA(255, 255, 255, 1)
+            PressedBorderColor: =RGBA(166, 166, 166, 1)
+            PressedColor: =RGBA(51, 51, 51, 1)
+            PressedFill: =RGBA(255, 255, 255, 1)
+            Size: =12
+            Width: =300
+            X: =33
+            Y: =244
+            ZIndex: =9
+
+        Btn_Submit_TargetCert As button:
+            BorderColor: =RGBA(185, 29, 11, 1)
+            Color: =RGBA(185, 29, 11, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: =RGBA(255, 255, 255, 1)
+            FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =30
+            HoverBorderColor: =RGBA(185, 29, 11, 1)
+            HoverColor: =RGBA(185, 29, 11, 1)
+            HoverFill: =
+            OnSelect: |
+                =If(
+                    IsBlank(TxtInp_TargetCert.Text),
+                    Notify(
+                        "Please enter number of targets for certifiction",
+                        NotificationType.Error
+                    ),
+                    If(
+                        LookUp(
+                            'Target List',
+                            Title = Drp_BUList_AddTargetCert.SelectedText.Value,
+                            true
+                        ),
+                        UpdateIf(
+                            'Target List',
+                            Title = Drp_BUList_AddTargetCert.SelectedText.Value,
+                            {
+                                Title: Drp_BUList_AddTargetCert.SelectedText.Value,
+                                TargetNumber: TxtInp_TargetCert.Text
+                            }
+                        ),
+                        Patch(
+                            'Target List',
+                            Defaults('Target List'),
+                            {
+                                Title: Drp_BUList_AddTargetCert.SelectedText.Value,
+                                TargetNumber: TxtInp_TargetCert.Text
+                            }
+                        )
+                    );
+                    Notify(
+                        "Submitted Successfully",
+                        NotificationType.Success
+                    )
+                );
+                Reset(Drp_BUList_AddTargetCert);
+                Reset(TxtInp_TargetCert);
+            PressedBorderColor: =RGBA(185, 29, 11, 1)
+            PressedColor: =RGBA(185, 29, 11, 1)
+            PressedFill: =
+            RadiusBottomLeft: =5
+            RadiusBottomRight: =5
+            RadiusTopLeft: =5
+            RadiusTopRight: =5
+            Size: =10
+            Text: ="SUBMIT"
+            Width: =120
+            X: =230
+            Y: =334
+            ZIndex: =10
+
+        Rectangle5_13 As rectangle:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            DisabledFill: =RGBA(154, 154, 154, 1)
+            Fill: =RGBA(154, 154, 154, 0.5)
+            FocusedBorderThickness: =4
+            Height: =1
+            HoverFill: =RGBA(154, 154, 154, 1)
+            PressedFill: =RGBA(154, 154, 154, 1)
+            Width: =Lbl_AddTargetCert.X+Lbl_AddTargetCert.Width
+            X: =9
+            Y: =380
+            ZIndex: =11
+
+        Glry_TargetCert As gallery.galleryVertical:
+            BorderColor: =RGBA(166, 166, 166, 1)
+            DelayItemLoading: =true
+            Height: =309
+            Items: |-
+                =Sort('Target List',Title,SortOrder.Ascending)
+                   
+                  
+            Layout: =Layout.Vertical
+            LoadingSpinner: =LoadingSpinner.Data
+            TemplateSize: =68
+            Width: =347
+            X: =16
+            Y: =450
+            ZIndex: =13
+
+            Glry_Lbl_Target_BU As label:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: ="Poppins"
+                FontWeight: =FontWeight.Bold
+                Height: =30
+                OnSelect: =Select(Parent)
+                Size: =10
+                Text: =ThisItem.Title
+                Width: =274
+                X: =8
+                Y: =6
+                ZIndex: =1
+
+            "'Glry_Lbl_Target_TargetNo.' As label":
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: ="Poppins"
+                Height: =20
+                OnSelect: =Select(Parent)
+                Size: =10
+                Text: |-
+                    = "Target: " & ThisItem.TargetNumber
+                X: =8
+                Y: =36
+                ZIndex: =3
+
+            Rectangle6_3 As rectangle:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                DisabledFill: =
+                DisplayMode: =DisplayMode.View
+                Fill: =RGBA(185, 29, 11, 1)
+                FocusedBorderThickness: =4
+                Height: =60
+                HoverFill: =
+                OnSelect: =Select(Parent)
+                PressedFill: =
+                Width: =1
+                ZIndex: =4
+
+        Lbl_AddTargetCert_1 As label:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(57, 57, 57, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: ="Poppins"
+            FontWeight: =FontWeight.Bold
+            Size: =12
+            Text: ="Details"
+            Width: =324
+            X: =16
+            Y: =395
+            ZIndex: =14
+

@@ -1,0 +1,355 @@
+C_leftPanel As CanvasComponent:
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =683
+    NavigateTo: =App.ActiveScreen
+    OnReset: =Set(SideLabelvar,1)
+    Width: =76
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    Group_3 As groupContainer.manualLayoutContainer:
+        DropShadow: =DropShadow.Semibold
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =683
+        LayoutMode: ="manual"
+        Width: =76
+        ZIndex: =1
+
+        "'Group 5772_1' As groupContainer.manualLayoutContainer":
+            Fill: |-
+                =//If(Not(SideLabelvar=1),RGBA(0, 0, 0, 0),RGBA(201,47,29,1))
+                If(!IsBlank(SideLabelvar),If(SideLabelvar=1,RGBA(201,47,29,1),RGBA(0, 0, 0, 0)),RGBA(201,47,29,1))
+            Height: =63
+            LayoutMode: ="manual"
+            Width: =75
+            ZIndex: =1
+
+            "'Group 5771_7' As groupContainer.manualLayoutContainer":
+                Height: =45
+                LayoutMode: ="manual"
+                Width: =36
+                X: =20
+                Y: =10
+                ZIndex: =128
+
+                Home_2 As label:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    Color: |-
+                        =//If(SideLabelvar=1,Color.White,RGBA(179, 179, 179, 1))
+                        If(
+                            !IsBlank(SideLabelvar),
+                            If(
+                                SideLabelvar = 1,
+                                Color.White,
+                                RGBA(
+                                    179,
+                                    179,
+                                    179,
+                                    1
+                                )
+                            ),
+                            Color.White
+                        )
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Height: =18
+                    LineHeight: =1.5
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =9
+                    Text: ="Home"
+                    VerticalAlign: =VerticalAlign.Top
+                    Width: =36
+                    Y: =27
+                    ZIndex: =129
+
+                Icon5 As icon.Home:
+                    BorderColor: =RGBA(166, 166, 166, 1)
+                    Color: |-
+                        =//If(SideLabelvar=1,Color.White,RGBA(179, 179, 179, 1))
+                        If(
+                            !IsBlank(SideLabelvar),
+                            If(
+                                SideLabelvar = 1,
+                                Color.White,
+                                RGBA(
+                                    179,
+                                    179,
+                                    179,
+                                    1
+                                )
+                            ),
+                            Color.White
+                        )
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(220, 220, 220, 1)
+                    DisabledFill: =RGBA(0, 0, 0, 0)
+                    FocusedBorderThickness: =4
+                    Height: =20.2431640625
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    HoverColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+                    HoverFill: =RGBA(0, 0, 0, 0)
+                    Icon: =Icon.Home
+                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                    PressedColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+                    PressedFill: =RGBA(0, 0, 0, 0)
+                    Width: =19.1240234375
+                    X: =8
+                    Y: =7
+                    ZIndex: =130
+
+            Rectangle1 As rectangle:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                DisabledFill: =RGBA(166, 166, 166, 1)
+                Fill: =RGBA(0, 0, 0, 0)
+                FocusedBorderThickness: =4
+                Height: =63
+                HoverFill: =RGBA(0, 0, 0, 0)
+                OnSelect: |-
+                    =Set(SideLabelvar,1);
+                    Navigate(C_leftPanel.NavigateTo,ScreenTransition.Fade)
+                PressedFill: =RGBA(0, 0, 0, 0)
+                Width: =75
+                ZIndex: =129
+
+        "'Group 8509_1' As groupContainer.manualLayoutContainer":
+            Fill: =If(SideLabelvar=3,RGBA(201,47,29,1),RGBA(0, 0, 0, 0))
+            Height: =63
+            LayoutMode: ="manual"
+            Width: =75
+            Y: =166
+            ZIndex: =2
+
+            "'Group 5771_6' As groupContainer.manualLayoutContainer":
+                Height: =43.1416015625
+                LayoutMode: ="manual"
+                Width: =54
+                X: =11
+                Y: =10.451171875
+                ZIndex: =133
+
+                "'Add New_1' As label":
+                    Align: =Align.Center
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    Color: =If(SideLabelvar=3,Color.White,RGBA(179, 179, 179, 1))
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Height: =18
+                    LineHeight: =1.5
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =9
+                    Text: ="Add New"
+                    VerticalAlign: =VerticalAlign.Top
+                    Width: =54
+                    Y: =25.1416015625
+                    ZIndex: =134
+
+                g2140_1 As groupContainer.manualLayoutContainer:
+                    BorderColor: =If(SideLabelvar=3,Color.White,RGBA(179, 179, 179, 1))
+                    BorderThickness: =1
+                    Height: =18.7421875
+                    LayoutMode: ="manual"
+                    RadiusBottomLeft: =5
+                    RadiusBottomRight: =5
+                    RadiusTopLeft: =5
+                    RadiusTopRight: =5
+                    Width: =18.739990234375
+                    X: =17.1300048828125
+                    Y: =1
+                    ZIndex: =135
+
+                    Icon8 As icon.Add:
+                        BorderColor: =RGBA(166, 166, 166, 1)
+                        Color: =If(SideLabelvar=3,Color.White,RGBA(179, 179, 179, 1))
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(220, 220, 220, 1)
+                        DisabledFill: =RGBA(0, 0, 0, 0)
+                        FocusedBorderThickness: =0
+                        Height: =11.244140625
+                        HoverBorderColor: =RGBA(0, 0, 0, 0)
+                        HoverColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+                        HoverFill: =RGBA(0, 0, 0, 0)
+                        Icon: =Icon.Add
+                        PressedBorderColor: =RGBA(0, 0, 0, 0)
+                        PressedColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+                        PressedFill: =RGBA(0, 0, 0, 0)
+                        Width: =11.2440185547
+                        X: =4
+                        Y: =4
+                        ZIndex: =137
+
+            Rectangle3 As rectangle:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                DisabledFill: =RGBA(166, 166, 166, 1)
+                Fill: =RGBA(0, 0, 0, 0)
+                FocusedBorderThickness: =4
+                Height: =63
+                HoverFill: =RGBA(0, 0, 0, 0)
+                OnSelect: |-
+                    =Set(SideLabelvar,3);
+                    Navigate(C_leftPanel.NavigateTo,ScreenTransition.Fade)
+                PressedFill: =RGBA(0, 0, 0, 0)
+                Width: =75
+                ZIndex: =134
+
+        "'Group 9075_1' As groupContainer.manualLayoutContainer":
+            Fill: =If(SideLabelvar=4,RGBA(201,47,29,1),RGBA(0, 0, 0, 0))
+            Height: =63
+            LayoutMode: ="manual"
+            Visible: =Switch(varUserLevel,"SUPER-ADMIN",true,"ADMIN",true,false)
+            Width: =75
+            Y: =249
+            ZIndex: =3
+
+            "'Group 5771_5' As groupContainer.manualLayoutContainer":
+                Height: =42.0693359375
+                LayoutMode: ="manual"
+                Width: =50
+                X: =13
+                Y: =11.5244140625
+                ZIndex: =140
+
+                Analysis_1 As label:
+                    Align: =Align.Center
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    Color: =If(SideLabelvar=4,Color.White,RGBA(179, 179, 179, 1))
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Height: =18
+                    LineHeight: =1.5
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =9
+                    Text: ="Analysis"
+                    VerticalAlign: =VerticalAlign.Top
+                    Width: =50
+                    Y: =24.0693359375
+                    ZIndex: =141
+
+                Icon6 As icon.Trending:
+                    BorderColor: =If(SideLabelvar=4,Color.White,RGBA(179, 179, 179, 1))
+                    BorderThickness: =1
+                    Color: =If(SideLabelvar=4,Color.White,RGBA(179, 179, 179, 1))
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(220, 220, 220, 1)
+                    DisabledFill: =RGBA(0, 0, 0, 0)
+                    FocusedBorderThickness: =4
+                    Height: =16.5947265625
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    HoverColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+                    HoverFill: =RGBA(0, 0, 0, 0)
+                    Icon: =Icon.Trending
+                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                    PressedColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+                    PressedFill: =RGBA(0, 0, 0, 0)
+                    Width: =20.2829589844
+                    X: =15
+                    ZIndex: =143
+
+            Rectangle4 As rectangle:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                DisabledFill: =RGBA(166, 166, 166, 1)
+                Fill: =RGBA(0, 0, 0, 0)
+                FocusedBorderThickness: =4
+                Height: =63
+                HoverFill: =RGBA(0, 0, 0, 0)
+                OnSelect: |-
+                    =Set(SideLabelvar,4);
+                    Navigate(C_leftPanel.NavigateTo,ScreenTransition.Fade)
+                PressedFill: =RGBA(0, 0, 0, 0)
+                Visible: =If(varUserLevel="ADMIN" || varUserLevel= "SUPER-ADMIN",true,false)
+                Width: =75
+                ZIndex: =141
+
+        "'Group 8510_1' As groupContainer.manualLayoutContainer":
+            Fill: =If(SideLabelvar=2,RGBA(201,47,29,1),RGBA(0, 0, 0, 0))
+            Height: =63
+            LayoutMode: ="manual"
+            Width: =75
+            Y: =80
+            ZIndex: =4
+
+            "'Group 5771_4' As groupContainer.manualLayoutContainer":
+                Height: =43.1865234375
+                LayoutMode: ="manual"
+                Width: =49
+                X: =13.5
+                Y: =10.40625
+                ZIndex: =145
+
+                Register_1 As label:
+                    Align: =Align.Center
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    Color: =If(SideLabelvar=2,Color.White,RGBA(179, 179, 179, 1))
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Height: =18
+                    LineHeight: =1.5
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =9
+                    Text: ="Register"
+                    VerticalAlign: =VerticalAlign.Top
+                    Width: =49
+                    Y: =25.1865234375
+                    ZIndex: =146
+
+                Icon7 As icon.EditFolders:
+                    BorderColor: =RGBA(166, 166, 166, 1)
+                    Color: =If(SideLabelvar=2,Color.White,RGBA(179, 179, 179, 1))
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(220, 220, 220, 1)
+                    DisabledFill: =RGBA(0, 0, 0, 0)
+                    FocusedBorderThickness: =4
+                    Height: =18.6171875
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    HoverColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+                    HoverFill: =RGBA(0, 0, 0, 0)
+                    Icon: =Icon.LineWeight
+                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                    PressedColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+                    PressedFill: =RGBA(0, 0, 0, 0)
+                    Width: =18.6169433594
+                    X: =14.6910400391
+                    ZIndex: =148
+
+            Rectangle2 As rectangle:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                DisabledFill: =RGBA(166, 166, 166, 1)
+                Fill: =RGBA(0, 0, 0, 0)
+                FocusedBorderThickness: =4
+                Height: =63
+                HoverFill: =RGBA(0, 0, 0, 0)
+                OnSelect: |
+                    =Set(SideLabelvar,2);
+                    Navigate(C_leftPanel.NavigateTo,ScreenTransition.Fade)
+                PressedFill: =RGBA(0, 0, 0, 0)
+                Width: =75
+                ZIndex: =146
+
