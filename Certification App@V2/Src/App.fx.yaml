@@ -1,0 +1,168 @@
+App As appinfo:
+    BackEnabled: =false
+    OnStart: |+
+        =Set(
+            varUserLevel,
+            If(
+                CountRows(
+                    FirstN(
+                        Filter(
+                            'CertificationApp-Security_1',
+                            Title = "Certification-User"
+                        ),
+                        50
+                    )
+                ) = 1,
+                "USER",
+                varUserLevel
+            )
+        );
+        Set(
+            varUserLevel,
+            If(
+                CountRows(
+                    FirstN(
+                        Filter(
+                            'CertificationApp-Security_1',
+                            Title = "Certification-Admin"
+                        ),
+                        50
+                    )
+                ) = 1,
+                "ADMIN",
+                varUserLevel
+            )
+        );
+        Set(
+            varUserLevel,
+            If(
+                CountRows(
+                    FirstN(
+                        Filter(
+                            'CertificationApp-Security_1',
+                            Title = "Certification-SuperAdmin"
+                        ),
+                        50
+                    )
+                ) = 1,
+                "SUPER-ADMIN",
+                varUserLevel
+            )
+        );
+        //Set(varUserLevel,"USER");
+        ClearCollect(
+            myReports,
+            Office365Users.DirectReports(Office365Users.MyProfile().Id)
+        );
+        Set(
+            MyProfile,
+            Office365Users.MyProfile()
+        );
+        Set(
+            varMngrname,
+            Office365Users.ManagerV2(Office365Users.MyProfile().Mail).displayName
+        );
+        Set(
+            MyUserId,
+            MyProfile.Id
+        );
+        ClearCollect(
+            userCertifications,
+            Filter(
+                CertificationOrder,
+                Requestor.Email = User().Email And Created > DateAdd(
+                    Today(),
+                    -365
+                )
+            )
+        );
+        ClearCollect(
+            Certification,
+            Certifications
+        );
+        ClearCollect(
+            col_filtercert2,
+            Filter(
+                CertificationOrder,
+                Location = 'Drp_Location List'.SelectedText.Value
+            )
+        );
+        ClearCollect(
+            Cert_Req,
+            CertificationRequest
+        );
+        ClearCollect(
+            BUList,
+            'BU-List'
+        );
+        Collect(
+            CalendarLocalizedLabel,
+            {Value: "Calendar"},
+            {Value: "Kalender"},
+            {Value: "Təqvim"},
+            {Value: "Kalendar"},
+            {Value: "Calendari"},
+            {Value: "Kalendář"},
+            {Value: "Calendr"},
+            {Value: "Calendario"},
+            {Value: "Egutegia"},
+            {Value: "Kalendaryo"},
+            {Value: "Calendrier"},
+            {Value: "Féilire"},
+            {Value: "Am mìosachan"},
+            {Value: "Kalanda"},
+            {Value: "Dagbók"},
+            {Value: "Kalenda"},
+            {Value: "Kalendārs"},
+            {Value: "Kalenner"},
+            {Value: "Kalendorius"},
+            {Value: "Naptár"},
+            {Value: "Kalendarju"},
+            {Value: "Agenda"},
+            {Value: "Taqvim"},
+            {Value: "Kalendarz"},
+            {Value: "Calendário"},
+            {Value: "Intiwatana"},
+            {Value: "Kalendari"},
+            {Value: "Kalendár"},
+            {Value: "Koledar"},
+            {Value: "Kalenteri"},
+            {Value: "Maramataka"},
+            {Value: "Lịch"},
+            {Value: "Takvim"},
+            {Value: "Senenama"},
+            {Value: "Ημερολόγιο"},
+            {Value: "კალენდარი"},
+            {Value: "לוח שנה"},
+            {Value: "کیلنڈر"},
+            {Value: "التقويم"},
+            {Value: "कैलेंडर"},
+            {Value: "दिनदर्शिका"},
+            {Value: "ক্যালেন্ডার"},
+            {Value: "કૅલેન્ડર"},
+            {Value: "予定表"},
+            {Value: "行事曆"},
+            {Value: "日历"},
+            {Value: "క్యాలెండర్"}
+        );
+        ClearCollect(
+            col_Notification,
+            Filter(
+                LastN(
+                    NotificationList_CertificationApp,
+                    5000
+                ),
+                (Title = Office365Users.MyProfile().DisplayName && "been approved by your manager " & varMngrname in Notification) || ("has requested for" in Notification && Manager = User().FullName) || (Title = Office365Users.MyProfile().DisplayName && "been approved by ILD" in Notification) || (IsDeleted = false And Title = Office365Users.MyProfile().DisplayName)
+            )
+        );
+        
+    StartScreen: =
+    Theme: =PowerAppsTheme
+
+    Host As hostControl.DefaultHostControlVariant:
+        OnCancel: =false
+        OnEdit: =false
+        OnNew: =false
+        OnSave: =false
+        OnView: =false
+

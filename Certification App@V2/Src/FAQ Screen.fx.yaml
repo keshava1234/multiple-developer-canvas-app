@@ -1,0 +1,1765 @@
+"'FAQ Screen' As screen":
+    Fill: =RGBA(241, 246, 246, 1)
+    LoadingSpinnerColor: =RGBA(0, 120, 212, 1)
+    OnVisible: =Set(varProfileView,false)
+
+    cont_FAQheader As groupContainer.manualLayoutContainer:
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =51
+        RadiusBottomLeft: =8
+        RadiusBottomRight: =8
+        RadiusTopLeft: =8
+        RadiusTopRight: =8
+        Visible: =!varrecentQnsans
+        Width: =1256
+        X: =93
+        Y: =101
+        ZIndex: =1
+
+        btn_FAQ_recntQns As button:
+            BorderColor: =RGBA(185, 29, 11, 1)
+            Color: =RGBA(185, 29, 11, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: =RGBA(255, 255, 255, 1)
+            FocusedBorderColor: =RGBA(185, 29, 11, 1)
+            FocusedBorderThickness: =2
+            Font: ="Poppins"
+            FontWeight: =FontWeight.Semibold
+            Height: =26
+            HoverBorderColor: =RGBA(185, 29, 11, 1)
+            HoverColor: =RGBA(185, 29, 11, 1)
+            HoverFill: =RGBA(255, 255, 255, 1)
+            OnSelect: |-
+                =UpdateContext({varrecentQns:true});
+                ClearCollect(
+                    questiondetails,
+                    Filter(
+                        QuestionList,
+                        CertificationName.Value = "AWS Certified Cloud Practitioner"
+                    )
+                )
+            PressedBorderColor: =RGBA(185, 29, 11, 1)
+            PressedColor: =RGBA(185, 29, 11, 1)
+            PressedFill: =RGBA(255, 255, 255, 1)
+            RadiusBottomLeft: =3
+            RadiusBottomRight: =3
+            RadiusTopLeft: =3
+            RadiusTopRight: =3
+            Size: =11
+            Text: ="VIEW RECENT QUESTIONS"
+            Width: =202
+            X: =1040
+            Y: =12
+            ZIndex: =3
+
+        btn_FAQ_backQns As button:
+            BorderColor: =RGBA(185, 29, 11, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: =RGBA(185, 29, 11, 1)
+            FocusedBorderColor: =RGBA(185, 29, 11, 1)
+            FocusedBorderThickness: =2
+            Font: ="Poppins"
+            FontWeight: =FontWeight.Semibold
+            Height: =26
+            HoverBorderColor: =RGBA(185, 29, 11, 1)
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =RGBA(185, 29, 11, 1)
+            OnSelect: =Back()
+            PressedBorderColor: =RGBA(185, 29, 11, 1)
+            PressedColor: =RGBA(255, 255, 255, 1)
+            PressedFill: =RGBA(185, 29, 11, 1)
+            RadiusBottomLeft: =3
+            RadiusBottomRight: =3
+            RadiusTopLeft: =3
+            RadiusTopRight: =3
+            Size: =12
+            Text: ="< Back"
+            Width: =100
+            X: =15
+            Y: =11
+            ZIndex: =4
+
+    Cont_FAQ_main As groupContainer.verticalAutoLayoutContainer:
+        BorderStyle: =BorderStyle.None
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =584
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        RadiusBottomLeft: =11
+        RadiusBottomRight: =11
+        RadiusTopLeft: =11
+        RadiusTopRight: =11
+        Width: =1256
+        X: =93
+        Y: =162
+        ZIndex: =2
+
+        cont_FAQ_Qnscontent As groupContainer.manualLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            DropShadow: =DropShadow.Light
+            FillPortions: =0
+            Height: =Parent.Height
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            Visible: =!varrecentQnsans
+            Width: =Parent.Width
+            ZIndex: =1
+
+            HT_FAQ_Qns_desc As htmlViewer:
+                Color: =RGBA(38, 38, 38, 1)
+                Font: ="Poppins"
+                HtmlText: ="Description<font color=red>*</font>"
+                Width: =180
+                X: =446
+                Y: =20
+                ZIndex: =1
+
+            txtinp_FAQ_Qns_desc As text:
+                AccessibleLabel: ="txtinp_FAQ_Qns_desc"
+                BorderColor: =RGBA(154, 154, 154, 1)
+                BorderThickness: =2
+                Color: =RGBA(154, 154, 154, 1)
+                Default: =""
+                DisabledBorderColor: =RGBA(154, 154, 154, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                FocusedBorderColor: =RGBA(154, 154, 154, 1)
+                FocusedBorderThickness: =1
+                Font: ="Poppins"
+                Height: =99
+                HintText: ="Enter"
+                HoverBorderColor: =RGBA(154, 154, 154, 1)
+                HoverColor: =RGBA(154, 154, 154, 1)
+                HoverFill: =RGBA(255, 255, 255, 1)
+                Mode: =TextMode.MultiLine
+                PaddingTop: =12
+                PressedBorderColor: =RGBA(154, 154, 154, 1)
+                PressedColor: =RGBA(154, 154, 154, 1)
+                PressedFill: =RGBA(255, 255, 255, 1)
+                Size: =13
+                Width: =774
+                X: =446
+                Y: =HT_FAQ_Qns_desc.Y+HT_FAQ_Qns_desc.Height
+                ZIndex: =2
+
+            HT_FAQ_Qnsqn As htmlViewer:
+                Color: =RGBA(38, 38, 38, 1)
+                Font: ="Poppins"
+                HtmlText: ="Question<font color=red>*</font>"
+                Width: =180
+                X: =26
+                Y: =20
+                ZIndex: =3
+
+            txtinp_FAQ_Qnsqn As text:
+                AccessibleLabel: ="txtinp_FAQ_Qnsqn"
+                BorderColor: =RGBA(154, 154, 154, 1)
+                BorderThickness: =2
+                Color: =RGBA(154, 154, 154, 1)
+                Default: =""
+                DisabledBorderColor: =RGBA(154, 154, 154, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                FocusedBorderColor: =RGBA(154, 154, 154, 1)
+                FocusedBorderThickness: =1
+                Font: ="Poppins"
+                Height: =99
+                HintText: ="Enter"
+                HoverBorderColor: =RGBA(154, 154, 154, 1)
+                HoverColor: =RGBA(154, 154, 154, 1)
+                HoverFill: =RGBA(255, 255, 255, 1)
+                Mode: =TextMode.MultiLine
+                PaddingTop: =12
+                PressedBorderColor: =RGBA(154, 154, 154, 1)
+                PressedColor: =RGBA(154, 154, 154, 1)
+                PressedFill: =RGBA(255, 255, 255, 1)
+                Size: =13
+                Width: =380
+                X: =26
+                Y: =HT_FAQ_Qnsqn.Y+HT_FAQ_Qnsqn.Height
+                ZIndex: =4
+
+            rect_FAQ_QNs As rectangle:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                DisabledFill: =RGBA(154, 154, 154, 1)
+                Fill: =RGBA(154, 154, 154, 0.5)
+                FocusedBorderThickness: =4
+                Height: =1
+                HoverFill: =RGBA(154, 154, 154, 1)
+                PressedFill: =RGBA(154, 154, 154, 1)
+                Width: =1194
+                X: =26
+                Y: =240
+                ZIndex: =5
+
+            lbl_FAQ_topqnA As label:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: ="Poppins"
+                FontWeight: =FontWeight.Bold
+                Height: =42
+                Text: ="Top Questions & Answers"
+                Width: =482
+                X: =26
+                Y: =252
+                ZIndex: =6
+
+            btn_FAQ_Qnspost As button:
+                BorderColor: =RGBA(185, 29, 11, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Fill: =RGBA(185, 29, 11, 1)
+                FocusedBorderColor: =RGBA(185, 29, 11, 1)
+                FocusedBorderThickness: =2
+                Font: ="Poppins"
+                FontWeight: =FontWeight.Semibold
+                Height: =25
+                HoverBorderColor: =RGBA(185, 29, 11, 1)
+                HoverColor: =RGBA(255, 255, 255, 1)
+                HoverFill: =RGBA(185, 29, 11, 1)
+                OnSelect: |
+                    =/*Set(varQuestion, QuestionInput.Text);
+                    Set(vardescription, DescriptionInput.Text);
+                    'Q&A'.Run(varQuestion,vardescription,Technology,User().FullName);*/
+                    Refresh(QuestionList);
+                    Set(
+                        QuestionID,
+                        Last(
+                            Filter(
+                                QuestionList,
+                                  Boolean(1)
+                            )
+                        ).ID
+                    );
+                    ClearCollect(
+                        Questions,
+                        {
+                            ID: QuestionID + 1,
+                            QnTitle: txtinp_FAQ_Qnsqn.Text,
+                            QnDescription: txtinp_FAQ_Qns_desc.Text,
+                            certificateid: varCertificationData.CertificationID
+                        }
+                    );
+                    If(!IsBlank(txtinp_FAQ_Qnsqn.Text),
+                        ForAll(
+                            Questions,
+                            Patch(
+                                QuestionList,
+                                Defaults(QuestionList),
+                                {
+                                    Requestors: {
+                                        '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
+                                        DisplayName: User().FullName,
+                                        Claims: "i:0#.f|membership|" & Lower(User().Email),
+                                        Department: "",
+                                        Email: User().Email,
+                                        JobTitle: "",
+                                        Picture: ""
+                                    },
+                                    QuestionTitle: QnTitle,
+                                    //Technology: varCertificationName,
+                                    Description: QnDescription,
+                                    CertificationName: {
+                                        '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
+                                        Id: Value(certificateid),
+                                        Value: certificateid
+                                    }
+                                }
+                            )
+                        );
+                        Notify(
+                            "You have posted your question Successfully",
+                            NotificationType.Success,
+                            1500
+                        ),
+                        Notify(
+                            "You have'nt asked any question,Please check your question field",
+                            NotificationType.Error,
+                            3000
+                        )
+                    );
+                    Reset(txtinp_FAQ_Qnsqn);
+                    Reset(txtinp_FAQ_Qns_desc);
+                PressedBorderColor: =RGBA(185, 29, 11, 1)
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =RGBA(185, 29, 11, 1)
+                RadiusBottomLeft: =3
+                RadiusBottomRight: =3
+                RadiusTopLeft: =3
+                RadiusTopRight: =3
+                Size: =10
+                Text: ="Post"
+                Width: =100
+                X: =1120
+                Y: =193
+                ZIndex: =7
+
+            btn_FAQ_Qnsclear As button:
+                BorderColor: =RGBA(185, 29, 11, 1)
+                Color: =RGBA(185, 29, 11, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Fill: =RGBA(255, 255, 255, 1)
+                FocusedBorderColor: =RGBA(185, 29, 11, 1)
+                FocusedBorderThickness: =2
+                Font: ="Poppins"
+                FontWeight: =FontWeight.Semibold
+                Height: =25
+                HoverBorderColor: =RGBA(185, 29, 11, 1)
+                HoverColor: =RGBA(185, 29, 11, 1)
+                HoverFill: =RGBA(255, 255, 255, 1)
+                PressedBorderColor: =RGBA(185, 29, 11, 1)
+                PressedColor: =RGBA(185, 29, 11, 1)
+                PressedFill: =RGBA(255, 255, 255, 1)
+                RadiusBottomLeft: =3
+                RadiusBottomRight: =3
+                RadiusTopLeft: =3
+                RadiusTopRight: =3
+                Size: =10
+                Text: ="Clear"
+                Width: =100
+                X: =966
+                Y: =193
+                ZIndex: =8
+
+            glry_FAQ_Qnstop As gallery.galleryVertical:
+                AccessibleLabel: ="glry_FAQ_Qnstop"
+                BorderColor: =RGBA(166, 166, 166, 1)
+                BorderStyle: =BorderStyle.None
+                DelayItemLoading: =true
+                Height: =240
+                Items: =Filter(AnswerList,Technology.Value=varCertificationData.'Certification Name')
+                Layout: =Layout.Vertical
+                LoadingSpinner: =LoadingSpinner.Data
+                TabIndex: =0
+                TemplateSize: =260
+                Width: =1190
+                X: =26
+                Y: =295
+                ZIndex: =9
+
+                lbl_topqnsrequestor As label:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: ="Poppins"
+                    FontWeight: =FontWeight.Bold
+                    Height: =35
+                    OnSelect: =Select(Parent)
+                    Size: =12
+                    Text: =ThisItem.AnswerBy.DisplayName
+                    Width: =700
+                    X: =img_FAQ_qnrequestor.X+img_FAQ_qnrequestor.Width+15
+                    Y: =5
+                    ZIndex: =1
+
+                lbl_topqnsdept As label:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: ="Poppins"
+                    Height: =26
+                    OnSelect: =Select(Parent)
+                    Size: =12
+                    Text: |-
+                        ="Department :   "&ThisItem.AnswerBy.Department
+                    Width: =402
+                    X: =img_FAQ_qnrequestor.X+img_FAQ_qnrequestor.Width+15
+                    Y: =lbl_topqnsrequestor.Y+lbl_topqnsrequestor.Height
+                    ZIndex: =2
+
+                lbl_topqnsheader As label:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =RGBA(185, 29, 11, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: ="Poppins"
+                    FontWeight: =FontWeight.Bold
+                    Height: =32
+                    OnSelect: =Select(Parent)
+                    Size: =12
+                    Text: |-
+                        ="Question:   "
+                    Width: =92
+                    Y: =66
+                    ZIndex: =4
+
+                lbl_topqns As label:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: ="Poppins"
+                    Height: =49
+                    OnSelect: =Select(Parent)
+                    Size: =12
+                    Text: |-
+                        =ThisItem.'Question:QuestionTitle'.Value
+                    Width: =1180
+                    Y: =98
+                    ZIndex: =5
+
+                lbl_topqnansheader As label:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =RGBA(23, 151, 49, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: ="Poppins"
+                    FontWeight: =FontWeight.Bold
+                    Height: =32
+                    OnSelect: =Select(Parent)
+                    Size: =13
+                    Text: |-
+                        ="Answer:   "
+                    Width: =402
+                    Y: =147
+                    ZIndex: =6
+
+                lbl_topqnanswer As label:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: ="Poppins"
+                    Height: =70
+                    OnSelect: =Select(Parent)
+                    Overflow: =Overflow.Scroll
+                    Size: =12
+                    Text: =ThisItem.Title
+                    Width: =1174
+                    Y: =lbl_topqnansheader.Y+lbl_topqnansheader.Height+3
+                    ZIndex: =7
+
+                img_FAQ_qnrequestor As image:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledFill: =RGBA(0, 0, 0, 0)
+                    FocusedBorderThickness: =4
+                    Height: =40
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    HoverFill: =RGBA(0, 0, 0, 0)
+                    Image: =ThisItem.AnswerBy.Picture
+                    OnSelect: =Select(Parent)
+                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                    PressedFill: =RGBA(0, 0, 0, 0)
+                    RadiusBottomLeft: =50
+                    RadiusBottomRight: =50
+                    RadiusTopLeft: =50
+                    RadiusTopRight: =50
+                    Width: =40
+                    Y: =13
+                    ZIndex: =8
+
+                lbl_FAQ_qncreated As label:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: ="Poppins"
+                    Height: =35
+                    OnSelect: =Select(Parent)
+                    Size: =12
+                    Text: =ThisItem.Created
+                    Width: =200
+                    X: =980
+                    Y: =5
+                    ZIndex: =9
+
+            icon_FAQattachment As icon.Attachment:
+                AccessibleLabel: ="icon_FAQattachment"
+                BorderColor: =RGBA(166, 166, 166, 1)
+                BorderStyle: =BorderStyle.None
+                Color: =RGBA(154, 154, 154, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(154, 154, 154, 1)
+                DisabledFill: =RGBA(0, 0, 0, 0)
+                FocusedBorderThickness: =4
+                Height: =50
+                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                HoverColor: =RGBA(154, 154, 154, 1)
+                HoverFill: =RGBA(0, 0, 0, 0)
+                Icon: =Icon.PaperClip
+                OnSelect: |-
+                    =UpdateContext({varQnattachPopUp:true})
+                PressedBorderColor: =RGBA(0, 0, 0, 0)
+                PressedColor: =RGBA(154, 154, 154, 1)
+                PressedFill: =RGBA(0, 0, 0, 0)
+                Rotation: =40
+                TabIndex: =0
+                Width: =25
+                X: =1184
+                Y: =109
+                ZIndex: =10
+
+            attach_FAQ_questions As attachments:
+                AccessibleLabel: ="attach_FAQ_questions"
+                BorderColor: =RGBA(154, 154, 154, 1)
+                BorderStyle: =BorderStyle.Dashed
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayMode: =Parent.DisplayMode
+                FocusedBorderThickness: =4
+                Font: ="Poppins"
+                Height: =102
+                HoverColor: =RGBA(51, 51, 51, 1)
+                HoverFill: =RGBA(212, 212, 212, 1)
+                IsInDataCard: =true
+                ItemColor: =RGBA(0, 0, 0, 1)
+                ItemFill: =RGBA(0, 120, 212, 1)
+                ItemHoverColor: =RGBA(51, 51, 51, 1)
+                ItemHoverFill: =RGBA(212, 212, 212, 1)
+                Items: =
+                ItemSpacing: =12
+                NoAttachmentsColor: =RGBA(166, 166, 166, 1)
+                PaddingBottom: =5
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                PaddingRight: =5
+                PaddingTop: =5
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =RGBA(0, 120, 212, 1)
+                Tooltip: =
+                Visible: =varQnattachPopUp
+                Width: =363
+                X: =865
+                Y: =45
+                ZIndex: =11
+
+            ico_attachcancel As icon.Cancel:
+                AccessibleLabel: ="ico_attachcancel"
+                BorderColor: =RGBA(166, 166, 166, 1)
+                BorderStyle: =BorderStyle.None
+                Color: =RGBA(70, 70, 70, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(220, 220, 220, 1)
+                DisabledFill: =RGBA(0, 0, 0, 0)
+                FocusedBorderThickness: =4
+                Height: =21.87
+                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                HoverColor: =RGBA(70, 70, 70, 1)
+                HoverFill: =RGBA(0, 0, 0, 0)
+                Icon: =Icon.Cancel
+                OnSelect: |-
+                    =UpdateContext({varQnattachPopUp:false})
+                PressedBorderColor: =RGBA(0, 0, 0, 0)
+                PressedColor: =RGBA(70, 70, 70, 1)
+                PressedFill: =RGBA(0, 0, 0, 0)
+                TabIndex: =0
+                Visible: =varQnattachPopUp
+                Width: =21.87
+                X: =1207
+                Y: =45
+                ZIndex: =12
+
+        cont_EAQ_anscontent As groupContainer.manualLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            DropShadow: =DropShadow.Light
+            FillPortions: =0
+            Height: =Parent.Height
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            Visible: =varrecentQnsans
+            Width: =Parent.Width
+            ZIndex: =2
+
+            lbl_ans_qnrequestor As label:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: ="Poppins"
+                FontWeight: =FontWeight.Bold
+                Height: =35
+                OnSelect: =
+                Size: =12
+                Text: =Office365Users.MyProfile().DisplayName
+                Width: =700
+                X: =75
+                Y: =26
+                ZIndex: =1
+
+            lbl_ans_dept As label:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: ="Poppins"
+                Height: =26
+                OnSelect: =
+                Size: =12
+                Text: |-
+                    ="Department :   "& Office365Users.MyProfile().Department
+                Width: =402
+                X: =img_ans_requestor.X+img_ans_requestor.Width+15
+                Y: =61
+                ZIndex: =2
+
+            lbl_ans_qnheader As label:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(185, 29, 11, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: ="Poppins"
+                FontWeight: =FontWeight.Bold
+                Height: =25
+                OnSelect: =
+                Size: =12
+                Text: |-
+                    ="Question:   "
+                Width: =402
+                X: =20
+                Y: =lbl_ans_dept.Y+lbl_ans_dept.Height+10
+                ZIndex: =3
+
+            lbl_ans_qns As label:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: ="Poppins"
+                Height: =37
+                OnSelect: =
+                Size: =12
+                Text: =varQndata.QuestionTitle
+                Width: =1180
+                X: =20
+                Y: =lbl_ans_qnheader.Y+lbl_ans_qnheader.Height+3
+                ZIndex: =4
+
+            lbl_answer_header As label:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(23, 151, 49, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: ="Poppins"
+                FontWeight: =FontWeight.Bold
+                Height: =32
+                OnSelect: =
+                Size: =13
+                Text: |-
+                    ="Answer:   "
+                Width: =402
+                X: =20
+                Y: =lbl_ans_qns.Y+lbl_ans_qns.Height
+                ZIndex: =5
+
+            img_ans_requestor As image:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledFill: =RGBA(0, 0, 0, 0)
+                FocusedBorderThickness: =4
+                Height: =40
+                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                HoverFill: =RGBA(0, 0, 0, 0)
+                Image: =User().Image
+                OnSelect: =
+                PressedBorderColor: =RGBA(0, 0, 0, 0)
+                PressedFill: =RGBA(0, 0, 0, 0)
+                RadiusBottomLeft: =50
+                RadiusBottomRight: =50
+                RadiusTopLeft: =50
+                RadiusTopRight: =50
+                Width: =40
+                X: =20
+                Y: =34
+                ZIndex: =7
+
+            lbl_ans_createdtime As label:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: ="Poppins"
+                Height: =35
+                OnSelect: =
+                Size: =12
+                Text: =Now()
+                Width: =200
+                X: =1000
+                Y: =26
+                ZIndex: =8
+
+            rect_header_ans As rectangle:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                DisabledFill: =RGBA(154, 154, 154, 1)
+                Fill: =RGBA(154, 154, 154, 0.5)
+                FocusedBorderThickness: =4
+                Height: =1
+                HoverFill: =RGBA(154, 154, 154, 1)
+                PressedFill: =RGBA(154, 154, 154, 1)
+                Width: =1194
+                X: =20
+                Y: =226
+                ZIndex: =9
+
+            txtinp_answer_enter As text:
+                AccessibleLabel: ="txtinp_answer_enter"
+                BorderColor: =RGBA(154, 154, 154, 1)
+                BorderThickness: =2
+                Color: =RGBA(154, 154, 154, 1)
+                Default: =""
+                DisabledBorderColor: =RGBA(154, 154, 154, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                FocusedBorderColor: =RGBA(154, 154, 154, 1)
+                FocusedBorderThickness: =1
+                Font: ="Poppins"
+                Height: =136
+                HintText: ="Enter"
+                HoverBorderColor: =RGBA(154, 154, 154, 1)
+                HoverColor: =RGBA(154, 154, 154, 1)
+                HoverFill: =RGBA(255, 255, 255, 1)
+                Mode: =TextMode.MultiLine
+                PaddingTop: =12
+                PressedBorderColor: =RGBA(154, 154, 154, 1)
+                PressedColor: =RGBA(154, 154, 154, 1)
+                PressedFill: =RGBA(255, 255, 255, 1)
+                Size: =13
+                Width: =1194
+                X: =20
+                Y: =266
+                ZIndex: =10
+
+            btn_ans_submit As button:
+                BorderColor: =RGBA(185, 29, 11, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Fill: =RGBA(185, 29, 11, 1)
+                FocusedBorderColor: =RGBA(185, 29, 11, 1)
+                FocusedBorderThickness: =2
+                Font: ="Poppins"
+                FontWeight: =FontWeight.Semibold
+                HoverBorderColor: =RGBA(185, 29, 11, 1)
+                HoverColor: =RGBA(255, 255, 255, 1)
+                HoverFill: =RGBA(185, 29, 11, 1)
+                PressedBorderColor: =RGBA(185, 29, 11, 1)
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =RGBA(185, 29, 11, 1)
+                RadiusBottomLeft: =3
+                RadiusBottomRight: =3
+                RadiusTopLeft: =3
+                RadiusTopRight: =3
+                Size: =15
+                Text: ="Submit"
+                X: =1040
+                Y: =450
+                ZIndex: =11
+
+            btn_ans_clear As button:
+                BorderColor: =RGBA(185, 29, 11, 1)
+                Color: =RGBA(185, 29, 11, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Fill: =RGBA(255, 255, 255, 1)
+                FocusedBorderColor: =RGBA(185, 29, 11, 1)
+                FocusedBorderThickness: =2
+                Font: ="Poppins"
+                FontWeight: =FontWeight.Semibold
+                HoverBorderColor: =RGBA(185, 29, 11, 1)
+                HoverColor: =RGBA(185, 29, 11, 1)
+                HoverFill: =RGBA(255, 255, 255, 1)
+                PressedBorderColor: =RGBA(185, 29, 11, 1)
+                PressedColor: =RGBA(185, 29, 11, 1)
+                PressedFill: =RGBA(255, 255, 255, 1)
+                RadiusBottomLeft: =3
+                RadiusBottomRight: =3
+                RadiusTopLeft: =3
+                RadiusTopRight: =3
+                Size: =15
+                Text: ="Clear"
+                X: =840
+                Y: =450
+                ZIndex: =12
+
+            Icon_answerattach As icon.Attachment:
+                AccessibleLabel: ="Icon_answerattach"
+                BorderColor: =RGBA(166, 166, 166, 1)
+                BorderStyle: =BorderStyle.None
+                Color: =RGBA(154, 154, 154, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(220, 220, 220, 1)
+                DisabledFill: =RGBA(0, 0, 0, 0)
+                FocusedBorderThickness: =4
+                Height: =50
+                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                HoverColor: =RGBA(154, 154, 154, 1)
+                HoverFill: =RGBA(0, 0, 0, 0)
+                Icon: =Icon.PaperClip
+                OnSelect: |-
+                    =UpdateContext({varansattachPopUp:true})
+                PressedBorderColor: =RGBA(0, 0, 0, 0)
+                PressedColor: =RGBA(154, 154, 154, 1)
+                PressedFill: =RGBA(0, 0, 0, 0)
+                Rotation: =40
+                TabIndex: =0
+                Width: =25
+                X: =1175
+                Y: =340
+                ZIndex: =13
+
+            attach_ans As attachments:
+                AccessibleLabel: ="attach_ans"
+                BorderColor: =RGBA(154, 154, 154, 1)
+                BorderStyle: =BorderStyle.Dashed
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayMode: =Parent.DisplayMode
+                FocusedBorderThickness: =4
+                Font: ="Poppins"
+                Height: =104
+                HoverColor: =RGBA(51, 51, 51, 1)
+                HoverFill: =RGBA(212, 212, 212, 1)
+                IsInDataCard: =true
+                ItemColor: =RGBA(0, 0, 0, 1)
+                ItemFill: =RGBA(0, 120, 212, 1)
+                ItemHoverColor: =RGBA(51, 51, 51, 1)
+                ItemHoverFill: =RGBA(212, 212, 212, 1)
+                Items: =
+                ItemSpacing: =12
+                NoAttachmentsColor: =RGBA(166, 166, 166, 1)
+                PaddingBottom: =5
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                PaddingRight: =5
+                PaddingTop: =5
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =RGBA(0, 120, 212, 1)
+                Tooltip: =
+                Visible: =varansattachPopUp
+                Width: =363
+                X: =840
+                Y: =282
+                ZIndex: =14
+
+            icon_ans_cancelattach As icon.Cancel:
+                AccessibleLabel: ="icon_ans_cancelattach"
+                BorderColor: =RGBA(166, 166, 166, 1)
+                BorderStyle: =BorderStyle.None
+                Color: =RGBA(70, 70, 70, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(220, 220, 220, 1)
+                DisabledFill: =RGBA(0, 0, 0, 0)
+                FocusedBorderThickness: =4
+                Height: =21.87
+                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                HoverColor: =RGBA(70, 70, 70, 1)
+                HoverFill: =RGBA(0, 0, 0, 0)
+                Icon: =Icon.Cancel
+                OnSelect: |-
+                    =UpdateContext({varansattachPopUp:false})
+                PressedBorderColor: =RGBA(0, 0, 0, 0)
+                PressedColor: =RGBA(70, 70, 70, 1)
+                PressedFill: =RGBA(0, 0, 0, 0)
+                TabIndex: =0
+                Visible: =varansattachPopUp
+                Width: =21.87
+                X: =1182
+                Y: =282
+                ZIndex: =15
+
+    cont_FAQ_ansheader As groupContainer.manualLayoutContainer:
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =51
+        RadiusBottomLeft: =8
+        RadiusBottomRight: =8
+        RadiusTopLeft: =8
+        RadiusTopRight: =8
+        Visible: =varrecentQnsans
+        Width: =1256
+        X: =93
+        Y: =141
+        ZIndex: =3
+
+        btn_FAQ_recentans As button:
+            BorderColor: =RGBA(185, 29, 11, 1)
+            Color: =RGBA(185, 29, 11, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: =RGBA(255, 255, 255, 1)
+            FocusedBorderColor: =RGBA(185, 29, 11, 1)
+            FocusedBorderThickness: =2
+            Font: ="Poppins"
+            FontWeight: =FontWeight.Semibold
+            Height: =26
+            HoverBorderColor: =RGBA(185, 29, 11, 1)
+            HoverColor: =RGBA(185, 29, 11, 1)
+            HoverFill: =RGBA(255, 255, 255, 1)
+            OnSelect: |-
+                =UpdateContext({varselQnrectans:true})
+            PressedBorderColor: =RGBA(185, 29, 11, 1)
+            PressedColor: =RGBA(185, 29, 11, 1)
+            PressedFill: =RGBA(255, 255, 255, 1)
+            RadiusBottomLeft: =3
+            RadiusBottomRight: =3
+            RadiusTopLeft: =3
+            RadiusTopRight: =3
+            Size: =11
+            Text: ="VIEW RECENT ANSWERS"
+            Width: =202
+            X: =1040
+            Y: =12
+            ZIndex: =3
+
+        btn_FAQ_ansbackqns As button:
+            BorderColor: =RGBA(185, 29, 11, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: =RGBA(185, 29, 11, 1)
+            FocusedBorderColor: =RGBA(185, 29, 11, 1)
+            FocusedBorderThickness: =2
+            Font: ="Poppins"
+            FontWeight: =FontWeight.Semibold
+            Height: =26
+            HoverBorderColor: =RGBA(185, 29, 11, 1)
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =RGBA(185, 29, 11, 1)
+            OnSelect: |-
+                =UpdateContext({varrecentQnsans: false});
+                UpdateContext({varrecentQns:false});
+            PressedBorderColor: =RGBA(185, 29, 11, 1)
+            PressedColor: =RGBA(255, 255, 255, 1)
+            PressedFill: =RGBA(185, 29, 11, 1)
+            RadiusBottomLeft: =3
+            RadiusBottomRight: =3
+            RadiusTopLeft: =3
+            RadiusTopRight: =3
+            Size: =12
+            Text: ="< Back"
+            Width: =100
+            X: =15
+            Y: =11
+            ZIndex: =4
+
+    cont_viewrecentans As groupContainer.manualLayoutContainer:
+        BorderColor: =RGBA(154, 154, 154, 1)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =1
+        DropShadow: =DropShadow.Light
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =768
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Visible: =varselQnrectans
+        Width: =400
+        X: =Parent.Width-Self.Width
+        ZIndex: =4
+
+        lbl_recentans_header As label:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(57, 57, 57, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: ="Poppins"
+            FontWeight: =FontWeight.Bold
+            Height: =28
+            Size: =13
+            Text: ="Recent Questions"
+            Width: =167
+            X: =23.28
+            Y: =20.29
+            ZIndex: =1
+
+        icon_recentanscancel As icon.Cancel:
+            AccessibleLabel: ="icon_recentanscancel"
+            BorderColor: =RGBA(166, 166, 166, 1)
+            BorderStyle: =BorderStyle.None
+            Color: =RGBA(70, 70, 70, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(220, 220, 220, 1)
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            FocusedBorderThickness: =4
+            Height: =21.87
+            HoverBorderColor: =RGBA(0, 0, 0, 0)
+            HoverColor: =RGBA(70, 70, 70, 1)
+            HoverFill: =RGBA(0, 0, 0, 0)
+            Icon: =Icon.Cancel
+            OnSelect: |-
+                =UpdateContext({varselQnrectans:false})
+            PressedBorderColor: =RGBA(0, 0, 0, 0)
+            PressedColor: =RGBA(70, 70, 70, 1)
+            PressedFill: =RGBA(0, 0, 0, 0)
+            TabIndex: =0
+            Width: =21.87
+            X: =349
+            Y: =25
+            ZIndex: =2
+
+        cont_recentans_search As groupContainer.manualLayoutContainer:
+            BorderColor: =RGBA(154, 154, 154, 1)
+            BorderThickness: =1
+            Height: =32
+            LayoutMode: ="manual"
+            RadiusBottomLeft: =5
+            RadiusBottomRight: =5
+            RadiusTopLeft: =5
+            RadiusTopRight: =5
+            Width: =recent_recentans_bg.Width
+            X: =23
+            Y: =86
+            ZIndex: =3
+
+            cont_recentans_textbox As groupContainer.manualLayoutContainer:
+                BorderStyle: =BorderStyle.None
+                Height: =32
+                LayoutMode: ="manual"
+                Width: =Parent.Width
+                ZIndex: =15
+
+                img_recentans_textbox As image:
+                    AccessibleLabel: ="img_recentans_textbox"
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledFill: =RGBA(0, 0, 0, 0)
+                    FocusedBorderThickness: =4
+                    Height: =32
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    HoverFill: =RGBA(0, 0, 0, 0)
+                    Image: =image89183
+                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                    PressedFill: =RGBA(0, 0, 0, 0)
+                    TabIndex: =0
+                    Width: =Parent.Width
+                    ZIndex: =16
+
+                txtinp_recentans_textbox As text:
+                    AccessibleLabel: ="txtinp_recentans_textbox"
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =0
+                    Color: =RGBA(154, 154, 154, 1)
+                    Default: =
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(154, 154, 154, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    FocusedBorderThickness: =1
+                    Font: ="Poppins"
+                    Height: =32
+                    HintText: ="Search anything"
+                    HoverBorderColor: =
+                    HoverColor: =RGBA(154, 154, 154, 1)
+                    HoverFill: =RGBA(0, 0, 0, 0)
+                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                    PressedColor: =RGBA(154, 154, 154, 1)
+                    PressedFill: =RGBA(0, 0, 0, 0)
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Size: =12
+                    Width: =Parent.Width
+                    ZIndex: =17
+
+            cont_recentans_insearch As groupContainer.manualLayoutContainer:
+                BorderStyle: =BorderStyle.None
+                Height: =28
+                LayoutMode: ="manual"
+                Width: =28
+                X: =Parent.Width-Self.Width
+                Y: =2
+                ZIndex: =18
+
+                rect_search_recentans As image:
+                    AccessibleLabel: ="rect_search_recentans"
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledFill: =RGBA(0, 0, 0, 0)
+                    FocusedBorderThickness: =4
+                    Height: =28
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    HoverFill: =RGBA(0, 0, 0, 0)
+                    Image: =image89186
+                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                    PressedFill: =RGBA(0, 0, 0, 0)
+                    TabIndex: =0
+                    Width: =28
+                    ZIndex: =19
+
+                icon_search_recentans As icon.Search:
+                    BorderColor: =RGBA(166, 166, 166, 1)
+                    Color: =RGBA(255, 255, 255, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(220, 220, 220, 1)
+                    DisabledFill: =RGBA(0, 0, 0, 0)
+                    FocusedBorderThickness: =4
+                    Height: =16
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    HoverColor: =Self.Color
+                    HoverFill: =RGBA(0, 0, 0, 0)
+                    Icon: =Icon.Search
+                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                    PressedColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+                    PressedFill: =RGBA(0, 0, 0, 0)
+                    Width: =16
+                    X: =6
+                    Y: =7
+                    ZIndex: =21
+
+        recent_recentans_bg As rectangle:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            DisabledFill: =RGBA(154, 154, 154, 1)
+            Fill: =RGBA(154, 154, 154, 0.5)
+            FocusedBorderThickness: =4
+            Height: =1
+            HoverFill: =RGBA(154, 154, 154, 1)
+            PressedFill: =RGBA(154, 154, 154, 1)
+            Width: =347.28
+            X: =24
+            Y: =65
+            ZIndex: =4
+
+        glry_viewrecentans As gallery.galleryVertical:
+            AccessibleLabel: ="glry_viewrecentans"
+            BorderColor: =RGBA(166, 166, 166, 1)
+            BorderStyle: =BorderStyle.None
+            DelayItemLoading: =true
+            Height: =610
+            Items: =Search(Sort(col_Answerlist,Created,SortOrder.Descending),txtinp_recentans_textbox.Text,"Answers","Title")
+            Layout: =Layout.Vertical
+            LoadingSpinner: =LoadingSpinner.Data
+            TabIndex: =0
+            TemplateSize: =212
+            Width: =367
+            X: =23
+            Y: =135
+            ZIndex: =5
+
+            lbl_recentans_requestorname As label:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: ="Poppins"
+                Height: =35
+                OnSelect: =Select(Parent)
+                Size: =12
+                Text: =ThisItem.AnswerBy.DisplayName
+                Width: =162
+                X: =img_recentans_requestor.X+img_recentans_requestor.Width
+                Y: =5
+                ZIndex: =1
+
+            lbl_recentans_requestorrole As label:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: ="Poppins"
+                Height: =30
+                OnSelect: =Select(Parent)
+                Size: =12
+                Text: =ThisItem.AnswerBy.JobTitle
+                Width: =300
+                X: =img_recentans_requestor.X+img_recentans_requestor.Width
+                Y: =lbl_recentans_requestorname.Y+lbl_recentans_requestorname.Height
+                ZIndex: =2
+
+            lbl_recentans_ansheader As label:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(185, 29, 11, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: ="Poppins"
+                FontWeight: =FontWeight.Bold
+                Height: =25
+                OnSelect: =Select(Parent)
+                Size: =12
+                Text: |-
+                    ="Answer:   "
+                Width: =Parent.Width-20
+                Y: =98
+                ZIndex: =4
+
+            lbl_recentans_answer As label:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: ="Poppins"
+                Height: =77
+                OnSelect: =Select(Parent)
+                Overflow: =Overflow.Scroll
+                Size: =12
+                Text: =ThisItem.Title
+                Width: =Parent.Width-25
+                Y: =lbl_recentans_ansheader.Y+lbl_recentans_ansheader.Height+3
+                ZIndex: =5
+
+            img_recentans_requestor As image:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledFill: =RGBA(0, 0, 0, 0)
+                FocusedBorderThickness: =4
+                Height: =40
+                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                HoverFill: =RGBA(0, 0, 0, 0)
+                Image: =ThisItem.AnswerBy.Picture
+                OnSelect: =Select(Parent)
+                PressedBorderColor: =RGBA(0, 0, 0, 0)
+                PressedFill: =RGBA(0, 0, 0, 0)
+                RadiusBottomLeft: =50
+                RadiusBottomRight: =50
+                RadiusTopLeft: =50
+                RadiusTopRight: =50
+                Width: =40
+                Y: =13
+                ZIndex: =8
+
+            lbl_recentans_created As label:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: ="Poppins"
+                Height: =35
+                OnSelect: =Select(Parent)
+                Size: =12
+                Text: =ThisItem.Created
+                Width: =152
+                X: =202
+                Y: =5
+                ZIndex: =9
+
+            lbl_recentans_dept As label:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: ="Poppins"
+                Height: =30
+                OnSelect: =Select(Parent)
+                Size: =12
+                Text: |-
+                    ="BU : "&ThisItem.AnswerBy.Department
+                Width: =300
+                X: =img_recentans_requestor.X+img_recentans_requestor.Width
+                Y: =lbl_recentans_requestorrole.Y+lbl_recentans_requestorrole.Height
+                ZIndex: =10
+
+        btn_refresh_recentans As button:
+            Align: =Align.Left
+            BorderColor: =RGBA(185, 29, 11, 1)
+            BorderStyle: =BorderStyle.None
+            Color: =RGBA(185, 29, 11, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: =RGBA(255, 255, 255, 1)
+            FocusedBorderColor: =RGBA(185, 29, 11, 1)
+            FocusedBorderThickness: =2
+            Font: ="Poppins"
+            Height: =28
+            HoverBorderColor: =RGBA(185, 29, 11, 1)
+            HoverColor: =RGBA(185, 29, 11, 1)
+            HoverFill: =RGBA(255, 255, 255, 1)
+            PaddingLeft: =10
+            PressedBorderColor: =RGBA(185, 29, 11, 1)
+            PressedColor: =RGBA(185, 29, 11, 1)
+            PressedFill: =RGBA(255, 255, 255, 1)
+            RadiusBottomLeft: =3
+            RadiusBottomRight: =3
+            RadiusTopLeft: =3
+            RadiusTopRight: =3
+            Text: ="Refresh"
+            Width: =100
+            X: =icon_refresh_recentans.X+icon_refresh_recentans.Width
+            Y: =20.29
+            ZIndex: =6
+
+        icon_refresh_recentans As icon.Reload:
+            BorderColor: =RGBA(166, 166, 166, 1)
+            Color: =RGBA(185, 29, 11, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(220, 220, 220, 1)
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            FocusedBorderThickness: =4
+            Height: =20
+            HoverBorderColor: =RGBA(0, 0, 0, 0)
+            HoverColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+            HoverFill: =RGBA(0, 0, 0, 0)
+            Icon: =Icon.Reload
+            PressedBorderColor: =RGBA(0, 0, 0, 0)
+            PressedColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+            PressedFill: =RGBA(0, 0, 0, 0)
+            Width: =20
+            X: =lbl_recentans_header.X+lbl_recentans_header.Width+40
+            Y: =25
+            ZIndex: =7
+
+    c_Header_5 As c_Header:
+        CartOnselect: ='EnrollCertificate Screen'
+        FAQOnselect: ='FAQ Screen'
+        Height: =99
+        ZIndex: =5
+
+    C_leftPanel_5 As C_leftPanel:
+        NavigateTo: =Switch(SideLabelvar,1,Home_Screen,2,Register_Screen,3,'Request Screen',4,'Admin dashBoard')
+        Width: =93
+        Y: =85
+        ZIndex: =6
+
+    C_Profile_4 As C_Profile:
+        NavigateTo: ='Settings Screen'
+        Visible: =varProfileView
+        X: =976
+        ZIndex: =7
+
+    C_AlertPanel_4 As C_AlertPanel:
+        Visible: =varAlert
+        X: =976
+        ZIndex: =8
+
+    cont_viewrecentqns As groupContainer.manualLayoutContainer:
+        BorderColor: =RGBA(154, 154, 154, 1)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =1
+        DropShadow: =DropShadow.Light
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =768
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Visible: =varrecentQns
+        Width: =400
+        X: =Parent.Width-Self.Width
+        ZIndex: =9
+
+        lbl_recentqns_header As label:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(57, 57, 57, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: ="Poppins"
+            FontWeight: =FontWeight.Bold
+            Size: =13
+            Text: ="Recent Questions"
+            Width: =324
+            X: =23.28
+            Y: =20.29
+            ZIndex: =1
+
+        icon_recentqns_cancel As icon.Cancel:
+            AccessibleLabel: ="icon_recentqns_cancel"
+            BorderColor: =RGBA(166, 166, 166, 1)
+            BorderStyle: =BorderStyle.None
+            Color: =RGBA(70, 70, 70, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(220, 220, 220, 1)
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            FocusedBorderThickness: =4
+            Height: =21.87
+            HoverBorderColor: =RGBA(0, 0, 0, 0)
+            HoverColor: =RGBA(70, 70, 70, 1)
+            HoverFill: =RGBA(0, 0, 0, 0)
+            Icon: =Icon.Cancel
+            OnSelect: |-
+                =UpdateContext({varrecentQns:false})
+            PressedBorderColor: =RGBA(0, 0, 0, 0)
+            PressedColor: =RGBA(70, 70, 70, 1)
+            PressedFill: =RGBA(0, 0, 0, 0)
+            TabIndex: =0
+            Width: =21.87
+            X: =lbl_recentqns_header.X+lbl_recentqns_header.Width
+            Y: =27
+            ZIndex: =2
+
+        cont_recentqns_search As groupContainer.manualLayoutContainer:
+            BorderColor: =RGBA(154, 154, 154, 1)
+            BorderThickness: =1
+            Height: =32
+            LayoutMode: ="manual"
+            RadiusBottomLeft: =5
+            RadiusBottomRight: =5
+            RadiusTopLeft: =5
+            RadiusTopRight: =5
+            Width: =rect_recentqns.Width
+            X: =23
+            Y: =86
+            ZIndex: =3
+
+            cont_recent_textbox As groupContainer.manualLayoutContainer:
+                BorderStyle: =BorderStyle.None
+                Height: =32
+                LayoutMode: ="manual"
+                Width: =Parent.Width
+                ZIndex: =15
+
+                img_recentqns_textbox As image:
+                    AccessibleLabel: ="img_recentqns_textbox"
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledFill: =RGBA(0, 0, 0, 0)
+                    FocusedBorderThickness: =4
+                    Height: =32
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    HoverFill: =RGBA(0, 0, 0, 0)
+                    Image: =image89183
+                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                    PressedFill: =RGBA(0, 0, 0, 0)
+                    TabIndex: =0
+                    Width: =Parent.Width
+                    ZIndex: =16
+
+                txtinp_recent_textbox As text:
+                    AccessibleLabel: ="txtinp_recent_textbox"
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =0
+                    Color: =RGBA(154, 154, 154, 1)
+                    Default: =
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(154, 154, 154, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    FocusedBorderThickness: =1
+                    Font: ="Poppins"
+                    Height: =32
+                    HintText: ="Search anything"
+                    HoverBorderColor: =
+                    HoverColor: =RGBA(154, 154, 154, 1)
+                    HoverFill: =RGBA(0, 0, 0, 0)
+                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                    PressedColor: =RGBA(154, 154, 154, 1)
+                    PressedFill: =RGBA(0, 0, 0, 0)
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Size: =12
+                    Width: =Parent.Width
+                    ZIndex: =17
+
+            cont_recentqns_search2 As groupContainer.manualLayoutContainer:
+                BorderStyle: =BorderStyle.None
+                Height: =28
+                LayoutMode: ="manual"
+                Width: =28
+                X: =Parent.Width-Self.Width
+                Y: =2
+                ZIndex: =18
+
+                img_search_recentqns As image:
+                    AccessibleLabel: ="img_search_recentqns"
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledFill: =RGBA(0, 0, 0, 0)
+                    FocusedBorderThickness: =4
+                    Height: =28
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    HoverFill: =RGBA(0, 0, 0, 0)
+                    Image: =image89186
+                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                    PressedFill: =RGBA(0, 0, 0, 0)
+                    TabIndex: =0
+                    Width: =28
+                    ZIndex: =19
+
+                icon_search_recentqns As icon.Search:
+                    BorderColor: =RGBA(166, 166, 166, 1)
+                    Color: =RGBA(255, 255, 255, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(220, 220, 220, 1)
+                    DisabledFill: =RGBA(0, 0, 0, 0)
+                    FocusedBorderThickness: =4
+                    Height: =16
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    HoverColor: =Self.Color
+                    HoverFill: =RGBA(0, 0, 0, 0)
+                    Icon: =Icon.Search
+                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                    PressedColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+                    PressedFill: =RGBA(0, 0, 0, 0)
+                    Width: =16
+                    X: =6
+                    Y: =7
+                    ZIndex: =21
+
+        rect_recentqns As rectangle:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            DisabledFill: =RGBA(154, 154, 154, 1)
+            Fill: =RGBA(154, 154, 154, 0.5)
+            FocusedBorderThickness: =4
+            Height: =1
+            HoverFill: =RGBA(154, 154, 154, 1)
+            PressedFill: =RGBA(154, 154, 154, 1)
+            Width: =lbl_recentqns_header.X+lbl_recentqns_header.Width
+            X: =24
+            Y: =65
+            ZIndex: =4
+
+        glry_viewrecentqns As gallery.galleryVertical:
+            AccessibleLabel: ="glry_viewrecentqns"
+            BorderColor: =RGBA(166, 166, 166, 1)
+            BorderStyle: =BorderStyle.None
+            DelayItemLoading: =true
+            Height: =610
+            Items: =Search(Sort(questiondetails,Created,SortOrder.Descending),txtinp_recent_textbox.Text,"QuestionTitle","Description")
+            Layout: =Layout.Vertical
+            LoadingSpinner: =LoadingSpinner.Data
+            TabIndex: =0
+            TemplateSize: =212
+            Width: =367
+            X: =23
+            Y: =135
+            ZIndex: =5
+
+            lbl_recentqns_requestor As label:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: ="Poppins"
+                Height: =35
+                OnSelect: =Select(Parent)
+                Size: =12
+                Text: =ThisItem.Requestors.DisplayName
+                Width: =Parent.Width-100
+                X: =img_requestor_recntqns.X+img_requestor_recntqns.Width
+                Y: =5
+                ZIndex: =1
+
+            lbl_recentqns_dept As label:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: ="Poppins"
+                Height: =26
+                OnSelect: =Select(Parent)
+                Size: =12
+                Text: |-
+                    ="Department : " &ThisItem.Requestors.Department
+                Width: =357
+                Y: =lbl_recentqns_requestor.Y+lbl_recentqns_requestor.Height
+                ZIndex: =2
+
+            lbl_recentqnsheader As label:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(185, 29, 11, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: ="Poppins"
+                FontWeight: =FontWeight.Bold
+                Height: =25
+                OnSelect: =Select(Parent)
+                Size: =12
+                Text: |-
+                    ="Question:   "
+                Width: =Parent.Width-20
+                Y: =lbl_recentqns_dept.Y+lbl_recentqns_dept.Height+10
+                ZIndex: =4
+
+            lbl_recentqns As label:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: ="Poppins"
+                Height: =50
+                OnSelect: =Select(Parent)
+                Overflow: =Overflow.Scroll
+                Size: =12
+                Text: =ThisItem.QuestionTitle
+                Width: =Parent.Width-25
+                Y: =lbl_recentqnsheader.Y+lbl_recentqnsheader.Height+3
+                ZIndex: =5
+
+            img_requestor_recntqns As image:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledFill: =RGBA(0, 0, 0, 0)
+                FocusedBorderThickness: =4
+                Height: =40
+                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                HoverFill: =RGBA(0, 0, 0, 0)
+                Image: =ThisItem.Requestors.Picture
+                OnSelect: =Select(Parent)
+                PressedBorderColor: =RGBA(0, 0, 0, 0)
+                PressedFill: =RGBA(0, 0, 0, 0)
+                RadiusBottomLeft: =50
+                RadiusBottomRight: =50
+                RadiusTopLeft: =50
+                RadiusTopRight: =50
+                Width: =40
+                Y: =2
+                ZIndex: =8
+
+            lbl_recentqnscreated As label:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: ="Poppins"
+                Height: =61
+                OnSelect: =Select(Parent)
+                Overflow: =Overflow.Scroll
+                Size: =12
+                Text: =ThisItem.Created
+                Width: =120
+                X: =237
+                Y: =5
+                ZIndex: =9
+
+            btn_recentqn_postans As button:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                Color: =RGBA(57, 57, 57, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Fill: =RGBA(245, 223, 220, 1)
+                FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+                Font: ="Poppins"
+                FontWeight: =FontWeight.Semibold
+                Height: =30
+                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                HoverColor: =RGBA(57, 57, 57, 1)
+                HoverFill: =RGBA(245, 223, 220, 1)
+                OnSelect: |-
+                    =UpdateContext({varrecentQnsans:true});
+                    UpdateContext({varrecentQns:false});
+                    UpdateContext({varQndata:ThisItem});
+                    ClearCollect(col_Answerlist,Filter(FirstN(AnswerList,5000),Question.Id=varQndata.ID))
+                PressedBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -50%)
+                PressedColor: =RGBA(57, 57, 57, 1)
+                PressedFill: =RGBA(245, 223, 220, 1)
+                RadiusBottomLeft: =4
+                RadiusBottomRight: =4
+                RadiusTopLeft: =4
+                RadiusTopRight: =4
+                Size: =12
+                Text: ="Post Answer"
+                Width: =130
+                Y: =lbl_recentqns.Y+lbl_recentqns.Height+10
+                ZIndex: =10
+

@@ -1,0 +1,3162 @@
+Details_Screen As screen:
+    Fill: =RGBA(241, 246, 246, 1)
+    LoadingSpinnerColor: =RGBA(0, 120, 212, 1)
+    OnVisible: =Set(varProfileView,false)
+
+    c_Header_7 As c_Header:
+        CartOnselect: ='EnrollCertificate Screen'
+        FAQOnselect: ='FAQ Screen'
+
+    C_leftPanel_6 As C_leftPanel:
+        NavigateTo: =Switch(SideLabelvar,1,Home_Screen,2,Register_Screen,3,'Request Screen',4,'Admin dashBoard')
+        Width: =93
+        Y: =85
+        ZIndex: =2
+
+    Container16_3 As groupContainer.manualLayoutContainer:
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =51
+        RadiusBottomLeft: =10
+        RadiusBottomRight: =10
+        RadiusTopLeft: =10
+        RadiusTopRight: =10
+        Width: =1256
+        X: =93
+        Y: =101
+        ZIndex: =2
+
+        Button3_3 As button:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: =RGBA(189, 25, 11, 1)
+            FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+            Font: ="Poppins"
+            FontWeight: =FontWeight.Semibold
+            Height: =26
+            HoverBorderColor: =RGBA(0, 0, 0, 0)
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =RGBA(189, 25, 11, 1)
+            OnSelect: |-
+                =Navigate(Home_Screen,ScreenTransition.Fade,{varApprove:false})
+            PressedBorderColor: =RGBA(189, 25, 11, 1)
+            PressedColor: =RGBA(255, 255, 255, 1)
+            PressedFill: =ColorFade(RGBA(189, 25, 11, 1),-10%)
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            Size: =8
+            Text: ="<  Back"
+            Width: =69
+            X: =20
+            Y: =13
+            ZIndex: =1
+
+        Button4_2 As button:
+            BorderColor: =RGBA(189, 25, 11, 1)
+            BorderThickness: =1
+            Color: =RGBA(189, 25, 11, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: =RGBA(0, 0, 0, 0)
+            FocusedBorderColor: =RGBA(189, 25, 11, 1)
+            FocusedBorderThickness: =1
+            Font: ="Poppins"
+            FontWeight: =FontWeight.Semibold
+            Height: =26
+            HoverBorderColor: =RGBA(189, 25, 11, 1)
+            HoverColor: =RGBA(189, 25, 11, 1)
+            HoverFill: =ColorFade(RGBA(0, 0, 0, 0), -10%)
+            OnSelect: =Set(Doc_PanelView,true)
+            PressedBorderColor: =RGBA(189, 25, 11, 1)
+            PressedColor: =RGBA(189, 25, 11, 1)
+            PressedFill: =RGBA(0, 0, 0, 0)
+            RadiusBottomLeft: =5
+            RadiusBottomRight: =5
+            RadiusTopLeft: =5
+            RadiusTopRight: =5
+            Size: =8
+            Text: ="+Add Documents"
+            Visible: =If(IsBlank(varApprove)|| varApprove=false,true,false)
+            Width: =123
+            X: =1110
+            Y: =13
+            ZIndex: =2
+
+        Button4_3 As button:
+            BorderColor: =RGBA(189, 25, 11, 1)
+            BorderThickness: =1
+            Color: =RGBA(189, 25, 11, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: =RGBA(0, 0, 0, 0)
+            FocusedBorderColor: =RGBA(189, 25, 11, 1)
+            FocusedBorderThickness: =1
+            Font: ="Poppins"
+            FontWeight: =FontWeight.Semibold
+            Height: =26
+            HoverBorderColor: =RGBA(189, 25, 11, 1)
+            HoverColor: =RGBA(189, 25, 11, 1)
+            HoverFill: =ColorFade(RGBA(0, 0, 0, 0), -10%)
+            PressedBorderColor: =RGBA(189, 25, 11, 1)
+            PressedColor: =RGBA(189, 25, 11, 1)
+            PressedFill: =RGBA(0, 0, 0, 0)
+            RadiusBottomLeft: =5
+            RadiusBottomRight: =5
+            RadiusTopLeft: =5
+            RadiusTopRight: =5
+            Size: =8
+            Text: ="Revise"
+            Visible: =If(varApprove,true,false)
+            Width: =84
+            X: =993
+            Y: =13
+            ZIndex: =3
+
+        Button2 As button:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: =RGBA(23, 151, 49, 1)
+            FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =26
+            HoverBorderColor: =RGBA(0, 0, 0, 0)
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =ColorFade(RGBA(0, 120, 212, 1), -10%)
+            OnSelect: |-
+                =IfError(
+                    If(
+                        varCertificateDetails.Status = "Enrolled",
+                        UpdateIf(
+                            CertificationOrder,
+                            ID = varCertificateDetails.ID,
+                            {Status: "Manager Approved",'Approved By':User().FullName}
+                        ),
+                        If(
+                            varCertificateDetails.Status = "Proofs Uploaded",
+                            UpdateIf(
+                                CertificationOrder,
+                                ID = varCertificateDetails.ID,
+                                {Status: "Proofs Approved"}
+                            ),
+                            If(
+                                varCertificateDetails.Status = "Proofs Uploaded" And varCertificateDetails.PaymentMode<>"Cash",
+                                UpdateIf(
+                                    CertificationOrder,
+                                    ID = varCertificateDetails.ID,
+                                    {Status: "Completed Using Voucher"}
+                                )
+                            )
+                        )
+                    ),
+                    Notify(
+                        "Action successfully done",
+                        NotificationType.Error
+                    ),
+                    Notify(
+                        "Successfully approved the request",
+                        NotificationType.Success
+                    )
+                );
+                Refresh(CertificationOrder);
+                Navigate(
+                    Home_Screen,
+                    ScreenTransition.Fade
+                );
+                
+                
+                
+                /*To update status in NotificationSharePoint List*/
+                If(
+                    varCertificateDetails.Status = "Enrolled",
+                    Patch(
+                               NotificationList_CertificationApp,
+                                Defaults(NotificationList_CertificationApp),
+                                {
+                                    Title:varCertificateDetails.Requestor.DisplayName,
+                                    Notification:"Your Request for the certification "& varCertificateDetails.'Certification:Title'.Value &" has been approved by your manager " & varMngrname
+                                }),
+                    If( varCertificateDetails.Status = "Proofs Uploaded", Patch(
+                               NotificationList_CertificationApp,
+                                Defaults(NotificationList_CertificationApp),
+                                {
+                                    Title:varCertificateDetails.Requestor.DisplayName,
+                                    Notification:"Your uploaded proofs for the certification "& varCertificateDetails.'Certification:Title'.Value &" has been approved by ILD team"
+                                }),false)
+                )
+            PressedBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -50%)
+            PressedColor: =RGBA(255, 255, 255, 1)
+            PressedFill: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+            RadiusBottomLeft: =5
+            RadiusBottomRight: =5
+            RadiusTopLeft: =5
+            RadiusTopRight: =5
+            Size: =10
+            Text: ="Approve"
+            Visible: =If(varApprove,true,false)
+            Width: =84
+            X: =1110
+            Y: =13
+            ZIndex: =4
+
+    Container17_3 As groupContainer.manualLayoutContainer:
+        DropShadow: =DropShadow.Light
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =584
+        RadiusBottomLeft: =10
+        RadiusBottomRight: =10
+        RadiusTopLeft: =10
+        RadiusTopRight: =10
+        Width: =1256
+        X: =93
+        Y: =162
+        ZIndex: =3
+
+        Image2_3 As image:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            FocusedBorderThickness: =4
+            Height: =52
+            HoverBorderColor: =RGBA(0, 0, 0, 0)
+            HoverFill: =RGBA(0, 0, 0, 0)
+            Image: =LookUp(Certification,ID=varCertificateDetails.CertificationID.Id).Logo
+            PressedBorderColor: =RGBA(0, 0, 0, 0)
+            PressedFill: =RGBA(0, 0, 0, 0)
+            Width: =52
+            X: =24
+            Y: =17
+            ZIndex: =3
+
+        Label14_1 As label:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: ="Poppins"
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Size: =12
+            Text: |-
+                =varCertificateDetails.'Certification:Title'.Value
+            Width: = (Len (Self.Text)*14)
+            X: =88
+            Y: =30
+            ZIndex: =5
+
+        Container18_1 As groupContainer.manualLayoutContainer:
+            Height: =170
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            Width: =600
+            X: =31
+            Y: =81
+            ZIndex: =6
+
+            C_Parameters_2 As C_Parameters:
+                Height: =200
+                Width: =500
+                ZIndex: =7
+
+            Label23_9 As label:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: ="Poppins"
+                FontWeight: =FontWeight.Semibold
+                Height: =17
+                Size: =10
+                Text: |
+                    =varCertificateDetails.'Provider Type'
+                Width: =200
+                X: =173
+                Y: =2
+                ZIndex: =7
+
+            Label23_10 As label:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: ="Poppins"
+                FontWeight: =FontWeight.Semibold
+                Height: =17
+                Size: =10
+                Text: =LookUp(Certification,ID=varCertificateDetails.CertificationID.Id).Technology.Value
+                Width: =200
+                X: =173
+                Y: =30
+                ZIndex: =8
+
+            Label23_11 As label:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: ="Poppins"
+                FontWeight: =FontWeight.Semibold
+                Height: =17
+                Size: =10
+                Text: =LookUp(Certification,ID=varCertificateDetails.CertificationID.Id).'Exam Code'
+                Width: =200
+                X: =173
+                Y: =57
+                ZIndex: =9
+
+            Label23_12 As label:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: ="Poppins"
+                FontWeight: =FontWeight.Semibold
+                Height: =17
+                Size: =10
+                Text: =LookUp(Certification,ID=varCertificateDetails.CertificationID.Id).'Exam Level'
+                Width: =200
+                X: =173
+                Y: =84
+                ZIndex: =10
+
+            Label23_13 As label:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: ="Poppins"
+                FontWeight: =FontWeight.Semibold
+                Height: =17
+                Size: =10
+                Text: =LookUp(Certification,ID=varCertificateDetails.CertificationID.Id).Role.Value
+                Width: =200
+                X: =173
+                Y: =111
+                ZIndex: =11
+
+            HtmlText1_1 As htmlViewer:
+                Font: ="Poppins"
+                Height: =27
+                HtmlText: ="<b><font color=RGBA(0,32,80,1)><U>Click here for more Details of this Certification</U></font></b>"
+                OnSelect: =Launch(LookUp(Certification,ID=varCertificateDetails.CertificationID.Id).SiteURL)
+                Size: =8
+                Width: =600
+                Y: =135
+                ZIndex: =12
+
+        "'C-Parameters2_2' As 'C-Parameters2'":
+            Height: =200
+            Width: =500
+            X: =30
+            Y: =493
+            ZIndex: =8
+
+        Rectangle5_6 As rectangle:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            DisabledFill: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(188, 188, 188, 1)
+            FocusedBorderThickness: =4
+            Height: =1
+            HoverFill: =RGBA(0, 120, 212, 1)
+            PressedFill: =RGBA(0, 120, 212, 1)
+            Width: =1197
+            X: =24.5
+            Y: =252
+            ZIndex: =13
+
+        Label26_3 As label:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: ="Poppins"
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Size: =12
+            Text: ="Payment Information"
+            Width: =185
+            X: =31
+            Y: =264
+            ZIndex: =14
+
+        Label21_15 As label:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(57, 57, 57, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: ="Poppins"
+            FontWeight: =FontWeight.Semibold
+            Height: =20
+            Size: =10
+            Text: ="Paid with"
+            X: =31
+            Y: =293
+            ZIndex: =15
+
+        Label22_15 As label:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: =Font.'Segoe UI'
+            Height: =17
+            Size: =13
+            Text: |-
+                =":"
+            Width: =10
+            X: =180
+            Y: =293
+            ZIndex: =16
+
+        Label22_16 As label:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: =Font.'Segoe UI'
+            Height: =17
+            Size: =13
+            Text: |-
+                =":"
+            Width: =10
+            X: =180
+            Y: =319
+            ZIndex: =17
+
+        Label21_16 As label:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(57, 57, 57, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: ="Poppins"
+            FontWeight: =FontWeight.Semibold
+            Height: =20
+            Size: =10
+            Text: ="Date"
+            X: =31
+            Y: =320
+            ZIndex: =18
+
+        Label23_17 As label:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: ="Poppins"
+            FontWeight: =FontWeight.Semibold
+            Height: =17
+            Size: =10
+            Text: =varCertificateDetails.'Examination Date'
+            X: =209
+            Y: =321
+            ZIndex: =19
+
+        Rectangle5_7 As rectangle:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            DisabledFill: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(188, 188, 188, 1)
+            FocusedBorderThickness: =4
+            Height: =1
+            HoverFill: =RGBA(0, 120, 212, 1)
+            PressedFill: =RGBA(0, 120, 212, 1)
+            Width: =1197
+            X: =24
+            Y: =358
+            ZIndex: =20
+
+        Label26_4 As label:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: ="Poppins"
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Size: =12
+            Text: ="Description"
+            Width: =185
+            X: =31
+            Y: =370
+            ZIndex: =21
+
+        Label21_1 As label:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisplayMode: =DisplayMode.View
+            FocusedBorderThickness: =4
+            Font: ="Poppins"
+            Overflow: =Overflow.Scroll
+            Size: =10
+            Text: =LookUp(Certifications,ID=varCertificateDetails.CertificationID.Id).Description
+            VerticalAlign: =VerticalAlign.Top
+            Width: =1157
+            X: =36
+            Y: =395
+            ZIndex: =22
+
+        Rectangle5_8 As rectangle:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            DisabledFill: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(188, 188, 188, 1)
+            FocusedBorderThickness: =4
+            Height: =1
+            HoverFill: =RGBA(0, 120, 212, 1)
+            PressedFill: =RGBA(0, 120, 212, 1)
+            Width: =1197
+            X: =24.5
+            Y: =448
+            ZIndex: =23
+
+        Label26_5 As label:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: ="Poppins"
+            FontWeight: =FontWeight.Bold
+            Height: =20
+            Size: =12
+            Text: ="Status Information"
+            Width: =185
+            X: =31
+            Y: =462
+            ZIndex: =24
+
+        Label23_14 As label:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =Switch(Self.Text,"Proofs Approved",RGBA(23, 151, 49, 1),"",RGBA(216, 106, 52, 1))
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: ="Poppins"
+            FontWeight: =FontWeight.Semibold
+            Height: =17
+            Size: =10
+            Text: =varCertificateDetails.Status
+            X: =204
+            Y: =496
+            ZIndex: =25
+
+        Label23_15 As label:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =Switch(Self.Text,"Completed",RGBA(23, 151, 49, 1),"",RGBA(216, 106, 52, 1))
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: ="Poppins"
+            FontWeight: =FontWeight.Semibold
+            Height: =17
+            Size: =10
+            Text: =If(IsBlank(varCertificateDetails.'Proofs Uploaded on'),"Not Uploaded","Completed")
+            X: =204
+            Y: =524
+            ZIndex: =26
+
+        Label23_16 As label:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: ="Poppins"
+            FontWeight: =FontWeight.Semibold
+            Height: =17
+            Size: =10
+            Text: =varCertificateDetails.Created
+            X: =204
+            Y: =551
+            ZIndex: =27
+
+        Button4_4 As button:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderThickness: =0
+            Color: =RGBA(57, 57, 57, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: =RGBA(247, 222, 218, 1)
+            FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+            FocusedBorderThickness: =0
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =29
+            HoverBorderColor: =RGBA(0, 0, 0, 0)
+            HoverColor: =//RGBA(57, 57, 57, 1)
+            HoverFill: |-
+                =//ColorFade(RGBA(0, 120, 212, 1), -10%)
+                Self.Fill
+            PressedBorderColor: =//ColorFade(RGBA(0, 120, 212, 1), -50%)
+            PressedColor: =RGBA(57, 57, 57, 1)
+            PressedFill: =//ColorFade(RGBA(0, 120, 212, 1), -30%)
+            RadiusBottomLeft: =5
+            RadiusBottomRight: =5
+            RadiusTopLeft: =5
+            RadiusTopRight: =5
+            Size: =10
+            Text: |-
+                ="Price : "&LookUp(Certification,ID=varCertificateDetails.CertificationID.Id).Price&" INR"
+            Width: =150
+            X: =Label14_1.X+Label14_1.Width
+            Y: =26
+            ZIndex: =28
+
+        Radio1_1 As radio:
+            BorderColor: =RGBA(51, 51, 51, 1)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(51, 51, 51, 1)
+            Default: =Switch(varCertificateDetails.PaymentMode,"Cash","Paid with Cash","Voucher","Paid with Voucher","Advance Payment","Advance Payment")
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Lighter
+            Height: =30
+            HoverColor: =RGBA(51, 51, 51, 1)
+            HoverFill: =RGBA(0, 0, 0, 0)
+            Items: =["Paid with Cash","Paid with Voucher","Advance Payment"]
+            Layout: =Layout.Horizontal
+            PaddingBottom: =5
+            PaddingTop: =5
+            PressedColor: =RGBA(51, 51, 51, 1)
+            PressedFill: =RGBA(0, 0, 0, 0)
+            RadioBorderColor: =RGBA(51, 51, 51, 1)
+            RadioSelectionFill: =RGBA(0, 120, 212, 1)
+            RadioSize: =15
+            Size: =10
+            Width: =556
+            X: =204
+            Y: =283
+            ZIndex: =29
+
+    Container16_4 As groupContainer.manualLayoutContainer:
+        Height: =768
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Visible: =Doc_PanelView
+        Width: =390
+        X: =976
+        ZIndex: =5
+
+        Container17_4 As groupContainer.manualLayoutContainer:
+            DropShadow: =DropShadow.ExtraBold
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =768
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            Width: =348
+            X: =42
+            ZIndex: =1
+
+            Label4_9 As label:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: ="Poppins"
+                FontWeight: =FontWeight.Bold
+                Height: =32
+                Text: ="Supported Documents"
+                Width: =250
+                X: =21.98
+                Y: =18
+                ZIndex: =1
+
+            Icon16_3 As icon.Cancel:
+                BorderColor: =RGBA(166, 166, 166, 1)
+                Color: =RGBA(116, 116, 116, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(220, 220, 220, 1)
+                DisabledFill: =RGBA(0, 0, 0, 0)
+                FocusedBorderThickness: =4
+                Height: =20
+                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                HoverColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+                HoverFill: =RGBA(0, 0, 0, 0)
+                Icon: =Icon.Cancel
+                OnSelect: |
+                    =Set(Doc_PanelView,false)
+                PressedBorderColor: =RGBA(0, 0, 0, 0)
+                PressedColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+                PressedFill: =RGBA(0, 0, 0, 0)
+                Width: =20
+                X: =315
+                Y: =26
+                ZIndex: =2
+
+            Button3_4 As button:
+                BorderColor: =RGBA(151, 0, 0, 1)
+                BorderThickness: =1
+                Color: =RGBA(151, 0, 0, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Fill: =RGBA(0, 0, 0, 0)
+                FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Semibold
+                Height: =26
+                HoverBorderColor: =Parent.BorderColor
+                HoverColor: =Parent.BorderColor
+                HoverFill: =Parent.Fill
+                OnSelect: |
+                    ='DeleteAttachments-CertificationApp'.Run(
+                        varCertificateDetails.ID,
+                        varCertificateDetails.ID
+                    );
+                    Refresh(CertificationOrder);
+                    Notify("Attachments Deleted Successfully", NotificationType.Success,1700);
+                    //Set(varCertificationDetails1,varCertificationDetails);
+                    //UpdateContext( { varCertificationDetails1: Patch(varCertificationDetails1, {Status: "Manager Approved" } ) } );
+                    
+                     Set(
+                            varattach,
+                            false
+                        );
+                        Set(
+                            varattach1,
+                            true
+                        );
+                        Set(
+                            varattach2,
+                            false
+                        );
+                        Set(
+                            varattach3,
+                            true
+                        );
+                        Set(
+                            varattach4,
+                            false
+                        );
+                        Set(
+                            varattach5,
+                            true
+                        );
+                        Set(
+                            varattach6,
+                            false
+                        );
+                        Set(
+                            varattach7,
+                            true
+                        );
+                        Set(
+                            varattach8,
+                            false
+                        );
+                        Set(
+                            varattach9,
+                            true
+                        );
+                        Set(
+                            varattach,
+                            true
+                        );
+                        Set(
+                            varattach1,
+                            false
+                        );
+                        Set(
+                            varattach2,
+                            false
+                        );
+                        Set(
+                            varattach3,
+                            true
+                        );
+                        Set(
+                            varattach2,
+                            true
+                        );
+                        Set(
+                            varattach3,
+                            false
+                        );
+                        Set(
+                            varattach4,
+                            false
+                        );
+                        Set(
+                            varattach5,
+                            true
+                        );
+                        Set(
+                            varattach4,
+                            true
+                        );
+                        Set(
+                            varattach5,
+                            false
+                        );
+                        Set(
+                            varattach6,
+                            false
+                        );
+                        Set(
+                            varattach7,
+                            true
+                        );
+                        Set(
+                            varattach6,
+                            true
+                        );
+                        Set(
+                            varattach7,
+                            false
+                        );
+                        Set(
+                            varattach8,
+                            false
+                        );
+                        Set(
+                            varattach9,
+                            true
+                        );
+                        Set(
+                            varattach8,
+                            true
+                        );
+                        Set(
+                            varattach9,
+                            false
+                        );
+                PressedBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -50%)
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+                RadiusBottomLeft: =5
+                RadiusBottomRight: =5
+                RadiusTopLeft: =5
+                RadiusTopRight: =5
+                Size: =10
+                Text: ="Clear All"
+                Width: =82
+                X: =242
+                Y: =75
+                ZIndex: =3
+
+            Container16_5 As groupContainer.verticalAutoLayoutContainer:
+                Height: =652
+                LayoutAlignItems: =LayoutAlignItems.Stretch
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutGap: =10
+                LayoutJustifyContent: =LayoutJustifyContent.End
+                LayoutMode: =LayoutMode.Auto
+                LayoutOverflowX: =LayoutOverflow.Scroll
+                LayoutOverflowY: =LayoutOverflow.Scroll
+                PaddingBottom: =10
+                PaddingLeft: =10
+                PaddingRight: =10
+                PaddingTop: =10
+                Width: =348
+                Y: =116
+                ZIndex: =4
+
+                Container17_7 As groupContainer.manualLayoutContainer:
+                    AlignInContainer: =AlignInContainer.SetByContainer
+                    Fill: =RGBA(242, 242, 242, 1)
+                    FillPortions: =0.2
+                    LayoutMinHeight: =5
+                    LayoutMinWidth: =150
+                    Width: =Parent.Width
+                    X: =40
+                    Y: =40
+                    ZIndex: =2
+
+                    Attachments_1 As attachments:
+                        AccessibleLabel: ="Attachments"
+                        BorderColor: =RGBA(202, 202, 202, 1)
+                        BorderThickness: =0.1
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        DropTargetBorderColor: =RGBA(219, 219, 219, 1)
+                        DropTargetBorderThickness: =0
+                        FocusedBorderThickness: =4
+                        Height: =75
+                        HoverColor: =RGBA(0, 0, 0, 1)
+                        HoverFill: =RGBA(186, 202, 226, 1)
+                        IsInDataCard: =true
+                        ItemColor: =RGBA(255, 255, 255, 1)
+                        ItemFill: =RGBA(56, 96, 178, 1)
+                        ItemHoverColor: =RGBA(0, 0, 0, 1)
+                        ItemHoverFill: =RGBA(186, 202, 226, 1)
+                        Items: =
+                        OnAddFile: |-
+                            =/*Set(
+                                VarAttachmentControl,
+                                JSON(
+                                    Image9.Image,
+                                    IncludeBinaryData
+                                )
+                            );
+                            Set(
+                                VarBase64Only,
+                                Mid(
+                                    VarAttachmentControl,
+                                    Find(
+                                        ",",
+                                        VarAttachmentControl
+                                    ) + 1,
+                                    Len(VarAttachmentControl) - Find(
+                                        ",",
+                                        VarAttachmentControl
+                                    ) - 1
+                                )
+                            );
+                            Attachments_1.Run(
+                                varCertificateStatus.ID,
+                                Last(Attachments.Attachments).Name,
+                                VarBase64Only
+                            );
+                            */
+                            Refresh(CertificationOrder)
+                        PressedColor: =RGBA(255, 255, 255, 1)
+                        PressedFill: =RGBA(0, 18, 107, 1)
+                        Size: =10
+                        Tooltip: ="Upload 5 Documents"
+                        Visible: =varattach
+                        Width: =Parent.Width
+                        Y: =38
+                        ZIndex: =1
+
+                    "Gallery8_2 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+                        AccessibleLabel: ="Gallery8"
+                        BorderColor: =RGBA(0, 18, 107, 1)
+                        Height: =70
+                        Items: =Attachments_1.Attachments
+                        Layout: =Layout.Vertical
+                        ShowScrollbar: =false
+                        TemplatePadding: =0
+                        TemplateSize: =Min(160, Self.Height - 60)
+                        Visible: =false
+                        Width: =Parent.Width
+                        Y: =48
+                        ZIndex: =3
+
+                        Image10_6 As image:
+                            BorderColor: =RGBA(0, 18, 107, 1)
+                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                            DisabledFill: =RGBA(244, 244, 244, 1)
+                            Height: =1
+                            Image: =ThisItem.Value
+                            OnSelect: =Select(Parent)
+                            Width: =1
+                            ZIndex: =1
+
+                        Title6_6 As label:
+                            Color: =RGBA(0, 0, 0, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            FontWeight: =FontWeight.Semibold
+                            Height: =1
+                            OnSelect: =Select(Parent)
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            Size: =20
+                            Text: =ThisItem.Name
+                            VerticalAlign: =VerticalAlign.Top
+                            Width: =Parent.TemplateWidth - Image10_6.Width - 104
+                            X: =1
+                            ZIndex: =2
+
+                        Subtitle1_3 As label:
+                            Color: =RGBA(0, 0, 0, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Height: =1
+                            OnSelect: =Select(Parent)
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            Size: =18
+                            Text: =ThisItem.Value
+                            VerticalAlign: =VerticalAlign.Top
+                            Width: =Title6_6.Width
+                            X: =1
+                            ZIndex: =3
+
+                        NextArrow2_6 As icon.ChevronRight:
+                            AccessibleLabel: =Self.Tooltip
+                            BorderColor: =RGBA(0, 18, 107, 1)
+                            Color: =RGBA(0, 18, 107, 1)
+                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                            DisabledColor: =RGBA(244, 244, 244, 1)
+                            Height: =1
+                            Icon: =Icon.ChevronRight
+                            OnSelect: =Select(Parent)
+                            PaddingBottom: =10
+                            PaddingLeft: =10
+                            PaddingRight: =10
+                            PaddingTop: =10
+                            TabIndex: =0
+                            Tooltip: ="View item details"
+                            Width: =1
+                            ZIndex: =4
+
+                        Separator6_6 As rectangle:
+                            BorderColor: =RGBA(0, 18, 107, 1)
+                            Fill: =RGBA(0, 18, 107, 1)
+                            Height: =1
+                            OnSelect: =Select(Parent)
+                            Width: =Parent.TemplateWidth
+                            Y: =Parent.TemplateHeight - 1
+                            ZIndex: =5
+
+                    Toggle1_6 As toggleSwitch:
+                        AccessibleLabel: ="Toggle1"
+                        BorderColor: =RGBA(0, 18, 107, 1)
+                        Color: =RGBA(0, 0, 0, 1)
+                        FalseFill: =RGBA(128, 130, 133, 1)
+                        FalseText: ="Add More"
+                        FocusedBorderThickness: =0
+                        FontWeight: =FontWeight.Bold
+                        HandleFill: =RGBA(255, 255, 255, 1)
+                        Height: =18
+                        OnCheck: |-
+                            =Set(varattach,true);
+                            Set(varattach1,false)
+                        OnUncheck: |-
+                            =Set(varattach,false);
+                            Set(varattach1,true)
+                        Size: =8
+                        Tooltip: |-
+                            ="Upload These 5 proofs correctly
+                            1)Association Screenshot
+                            2)Certification Receipt bill
+                            3)Reimbursement form Filled
+                            4)Copy of Certification
+                            5)Manager Approval E-mail"
+                        TrueFill: =RGBA(0, 0, 189, 1)
+                        TrueText: ="Go to Uploads"
+                        Visible: =LookUp(CertificationOrder,ID=varCertificateDetails.ID).'Has attachments'
+                        Width: =122
+                        X: =195
+                        Y: =10
+                        ZIndex: =5
+
+                    "Gallery13_6 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+                        AccessibleLabel: ="Gallery13"
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderThickness: =0.1
+                        Fill: =RGBA(255, 255, 255, 1)
+                        Height: =75
+                        Items: =First(LookUp(CertificationOrder,ID=varCertificateDetails.ID).Attachments)
+                        Layout: =Layout.Vertical
+                        OnSelect: =Launch(ThisItem.AbsoluteUri)
+                        ShowScrollbar: =false
+                        TemplatePadding: =0
+                        TemplateSize: =38
+                        Visible: =varattach1
+                        Width: =Parent.Width
+                        Y: =38
+                        ZIndex: =6
+
+                        Separator9_6 As rectangle:
+                            BorderColor: =RGBA(0, 18, 107, 1)
+                            Fill: =RGBA(179, 179, 179, 1)
+                            Height: =1
+                            OnSelect: =Select(Parent)
+                            Visible: =false
+                            Width: =Parent.TemplateWidth
+                            Y: =Parent.TemplateHeight - 1
+                            ZIndex: =5
+
+                        Label78_6 As label:
+                            BorderColor: =RGBA(0, 18, 107, 1)
+                            Color: =RGBA(0, 0, 0, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Fill: =RGBA(255, 255, 255, 1)
+                            Height: =45
+                            OnSelect: =Select(Parent)
+                            Size: =8
+                            Text: =ThisItem.DisplayName
+                            Width: =Gallery13_6.Width
+                            ZIndex: =6
+
+                        RemoveAttachment_6 As icon.Cancel:
+                            AccessibleLabel: ="RemoveAttachment"
+                            BorderColor: =RGBA(0, 18, 107, 1)
+                            Color: =RGBA(0, 18, 107, 1)
+                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                            DisabledColor: =RGBA(244, 244, 244, 1)
+                            Height: =17
+                            Icon: =Icon.Cancel
+                            OnSelect: |-
+                                =//Select(Parent);
+                                //'DeleteAttachments-CertificationApp'.Run(varCertificateStatus.ID,varCertificateStatus.ID);
+                                First(LookUp(CertificationOrder,'DeleteAttachments-CertificationApp'.Run(varCertificateDetails.ID,varCertificateDetails.ID)).Attachments);
+                                Set(varattach,true);
+                                
+                                Refresh(CertificationOrder);
+                            Visible: =false
+                            Width: =1
+                            Y: =9
+                            ZIndex: =7
+
+                    Label15_4 As label:
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FontWeight: =FontWeight.Semibold
+                        Height: =38
+                        Size: =8
+                        Text: |-
+                            ="Microsoft account for Association Screenshot :"
+                        Width: =148
+                        ZIndex: =7
+
+                Container17_8 As groupContainer.manualLayoutContainer:
+                    AlignInContainer: =AlignInContainer.SetByContainer
+                    Fill: =RGBA(242, 242, 242, 1)
+                    FillPortions: =0.2
+                    Height: =62
+                    LayoutMinHeight: =5
+                    LayoutMinWidth: =250
+                    Width: =Parent.Width
+                    ZIndex: =3
+
+                    Attachments_7 As attachments:
+                        AccessibleLabel: ="Attachments_4"
+                        BorderColor: =RGBA(202, 202, 202, 1)
+                        BorderThickness: =0.1
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        DropTargetBorderColor: =RGBA(219, 219, 219, 1)
+                        DropTargetBorderThickness: =0
+                        FocusedBorderThickness: =4
+                        Height: =75
+                        HoverColor: =RGBA(0, 0, 0, 1)
+                        HoverFill: =RGBA(186, 202, 226, 1)
+                        IsInDataCard: =true
+                        ItemColor: =RGBA(255, 255, 255, 1)
+                        ItemFill: =RGBA(56, 96, 178, 1)
+                        ItemHoverColor: =RGBA(0, 0, 0, 1)
+                        ItemHoverFill: =RGBA(186, 202, 226, 1)
+                        Items: =
+                        OnAddFile: |-
+                            =/*Set(
+                                VarAttachmentControl,
+                                JSON(
+                                    Image9.Image,
+                                    IncludeBinaryData
+                                )
+                            );
+                            Set(
+                                VarBase64Only,
+                                Mid(
+                                    VarAttachmentControl,
+                                    Find(
+                                        ",",
+                                        VarAttachmentControl
+                                    ) + 1,
+                                    Len(VarAttachmentControl) - Find(
+                                        ",",
+                                        VarAttachmentControl
+                                    ) - 1
+                                )
+                            );
+                            Attachments_1.Run(
+                                varCertificateStatus.ID,
+                                Last(Attachments.Attachments).Name,
+                                VarBase64Only
+                            );
+                            */
+                            Refresh(CertificationOrder)
+                        PressedColor: =RGBA(255, 255, 255, 1)
+                        PressedFill: =RGBA(0, 18, 107, 1)
+                        Size: =10
+                        Tooltip: ="Upload 5 Documents"
+                        Visible: =varattach2
+                        Width: =Parent.Width
+                        Y: =38
+                        ZIndex: =1
+
+                    "Gallery8_7 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+                        AccessibleLabel: ="Gallery8_1"
+                        BorderColor: =RGBA(0, 18, 107, 1)
+                        Height: =75
+                        Items: =Attachments_7.Attachments
+                        Layout: =Layout.Vertical
+                        ShowScrollbar: =false
+                        TemplatePadding: =0
+                        TemplateSize: =Min(160, Self.Height - 60)
+                        Visible: =false
+                        Width: =Parent.Width
+                        Y: =38
+                        ZIndex: =3
+
+                        Image10_7 As image:
+                            BorderColor: =RGBA(0, 18, 107, 1)
+                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                            DisabledFill: =RGBA(244, 244, 244, 1)
+                            Height: =1
+                            Image: =ThisItem.Value
+                            OnSelect: =Select(Parent)
+                            Width: =1
+                            ZIndex: =1
+
+                        Title6_7 As label:
+                            Color: =RGBA(0, 0, 0, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            FontWeight: =FontWeight.Semibold
+                            Height: =1
+                            OnSelect: =Select(Parent)
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            Size: =20
+                            Text: =ThisItem.Name
+                            VerticalAlign: =VerticalAlign.Top
+                            Width: =Parent.TemplateWidth - Image10_7.Width - 104
+                            X: =1
+                            ZIndex: =2
+
+                        Subtitle1_8 As label:
+                            Color: =RGBA(0, 0, 0, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Height: =1
+                            OnSelect: =Select(Parent)
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            Size: =18
+                            Text: =ThisItem.Value
+                            VerticalAlign: =VerticalAlign.Top
+                            Width: =Title6_7.Width
+                            X: =1
+                            ZIndex: =3
+
+                        NextArrow2_7 As icon.ChevronRight:
+                            AccessibleLabel: =Self.Tooltip
+                            BorderColor: =RGBA(0, 18, 107, 1)
+                            Color: =RGBA(0, 18, 107, 1)
+                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                            DisabledColor: =RGBA(244, 244, 244, 1)
+                            Height: =1
+                            Icon: =Icon.ChevronRight
+                            OnSelect: =Select(Parent)
+                            PaddingBottom: =10
+                            PaddingLeft: =10
+                            PaddingRight: =10
+                            PaddingTop: =10
+                            TabIndex: =0
+                            Tooltip: ="View item details"
+                            Width: =1
+                            ZIndex: =4
+
+                        Separator6_7 As rectangle:
+                            BorderColor: =RGBA(0, 18, 107, 1)
+                            Fill: =RGBA(0, 18, 107, 1)
+                            Height: =1
+                            OnSelect: =Select(Parent)
+                            Width: =Parent.TemplateWidth
+                            Y: =Parent.TemplateHeight - 1
+                            ZIndex: =5
+
+                    Toggle1_7 As toggleSwitch:
+                        AccessibleLabel: ="Toggle1_1"
+                        BorderColor: =RGBA(0, 18, 107, 1)
+                        Color: =RGBA(0, 0, 0, 1)
+                        FalseFill: =RGBA(128, 130, 133, 1)
+                        FalseText: ="Add More"
+                        FocusedBorderThickness: =0
+                        FontWeight: =FontWeight.Bold
+                        HandleFill: =RGBA(255, 255, 255, 1)
+                        Height: =18
+                        OnCheck: |-
+                            =Set(varattach2,true);
+                            Set(varattach3,false)
+                        OnUncheck: |-
+                            =Set(varattach2,false);
+                            Set(varattach3,true)
+                        Size: =8
+                        Tooltip: |-
+                            ="Upload These 5 proofs correctly
+                            1)Association Screenshot
+                            2)Certification Receipt bill
+                            3)Reimbursement form Filled
+                            4)Copy of Certification
+                            5)Manager Approval E-mail"
+                        TrueFill: =RGBA(0, 0, 189, 1)
+                        TrueText: ="Go to Uploads"
+                        Visible: =LookUp(CertificationOrder,ID=varCertificateDetails.ID).'Has attachments'
+                        Width: =122
+                        X: =206
+                        Y: =10
+                        ZIndex: =5
+
+                    "Gallery13_7 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+                        AccessibleLabel: ="Gallery13_1"
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderThickness: =0.1
+                        Fill: =RGBA(255, 255, 255, 1)
+                        Height: =75
+                        Items: =Last(FirstN(LookUp(CertificationOrder,ID=varCertificateDetails.ID).Attachments,2))
+                        Layout: =Layout.Vertical
+                        OnSelect: =Launch(ThisItem.AbsoluteUri)
+                        ShowScrollbar: =false
+                        TemplatePadding: =0
+                        TemplateSize: =38
+                        Visible: =varattach3
+                        Width: =Parent.Width
+                        Y: =38
+                        ZIndex: =6
+
+                        Separator9_7 As rectangle:
+                            BorderColor: =RGBA(0, 18, 107, 1)
+                            Fill: =RGBA(179, 179, 179, 1)
+                            Height: =1
+                            OnSelect: =Select(Parent)
+                            Visible: =false
+                            Width: =Parent.TemplateWidth
+                            Y: =Parent.TemplateHeight - 1
+                            ZIndex: =5
+
+                        Label78_7 As label:
+                            BorderColor: =RGBA(0, 18, 107, 1)
+                            Color: =RGBA(0, 0, 0, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Fill: =RGBA(255, 255, 255, 1)
+                            Height: =38
+                            OnSelect: =Select(Parent)
+                            Size: =8
+                            Text: =ThisItem.DisplayName
+                            Width: |
+                                =Gallery13_7.Width
+                            ZIndex: =6
+
+                        RemoveAttachment_7 As icon.Cancel:
+                            AccessibleLabel: ="RemoveAttachment_1"
+                            BorderColor: =RGBA(0, 18, 107, 1)
+                            Color: =RGBA(0, 18, 107, 1)
+                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                            DisabledColor: =RGBA(244, 244, 244, 1)
+                            Height: =17
+                            Icon: =Icon.Cancel
+                            OnSelect: |
+                                =//Select(Parent);
+                                Last(FirstN(LookUp(CertificationOrder,'DeleteAttachments-CertificationApp'.Run(varCertificateDetails.ID,varCertificateDetails.ID)).Attachments,2));
+                                
+                                Refresh(CertificationOrder)
+                            Visible: =false
+                            Width: =40
+                            Y: =9
+                            ZIndex: =7
+
+                    Label15_6 As label:
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FontWeight: =FontWeight.Semibold
+                        Height: =38
+                        Size: =8
+                        Text: |-
+                            ="Certification Receipt Bill :"
+                        Width: =164
+                        ZIndex: =7
+
+                Container17_17 As groupContainer.manualLayoutContainer:
+                    AlignInContainer: =AlignInContainer.SetByContainer
+                    Fill: =RGBA(242, 242, 242, 1)
+                    FillPortions: =0.2
+                    Height: =62
+                    LayoutMinHeight: =5
+                    LayoutMinWidth: =250
+                    Width: =Parent.Width
+                    ZIndex: =4
+
+                    Attachments_8 As attachments:
+                        AccessibleLabel: ="Attachments_5"
+                        BorderColor: =RGBA(202, 202, 202, 1)
+                        BorderThickness: =0.1
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        DropTargetBorderColor: =RGBA(219, 219, 219, 1)
+                        DropTargetBorderThickness: =0
+                        FocusedBorderThickness: =4
+                        Height: =75
+                        HoverColor: =RGBA(0, 0, 0, 1)
+                        HoverFill: =RGBA(186, 202, 226, 1)
+                        IsInDataCard: =true
+                        ItemColor: =RGBA(255, 255, 255, 1)
+                        ItemFill: =RGBA(56, 96, 178, 1)
+                        ItemHoverColor: =RGBA(0, 0, 0, 1)
+                        ItemHoverFill: =RGBA(186, 202, 226, 1)
+                        Items: =
+                        OnAddFile: |-
+                            =/*Set(
+                                VarAttachmentControl,
+                                JSON(
+                                    Image9.Image,
+                                    IncludeBinaryData
+                                )
+                            );
+                            Set(
+                                VarBase64Only,
+                                Mid(
+                                    VarAttachmentControl,
+                                    Find(
+                                        ",",
+                                        VarAttachmentControl
+                                    ) + 1,
+                                    Len(VarAttachmentControl) - Find(
+                                        ",",
+                                        VarAttachmentControl
+                                    ) - 1
+                                )
+                            );
+                            Attachments_1.Run(
+                                varCertificateStatus.ID,
+                                Last(Attachments.Attachments).Name,
+                                VarBase64Only
+                            );
+                            */
+                            Refresh(CertificationOrder)
+                        PressedColor: =RGBA(255, 255, 255, 1)
+                        PressedFill: =RGBA(0, 18, 107, 1)
+                        Size: =10
+                        Tooltip: ="Upload 5 Documents"
+                        Visible: =varattach4
+                        Width: =Parent.Width
+                        Y: =38
+                        ZIndex: =1
+
+                    "Gallery8_8 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+                        AccessibleLabel: ="Gallery8_3"
+                        BorderColor: =RGBA(0, 18, 107, 1)
+                        Height: =75
+                        Items: =Attachments_8.Attachments
+                        Layout: =Layout.Vertical
+                        ShowScrollbar: =false
+                        TemplatePadding: =0
+                        TemplateSize: =Min(160, Self.Height - 60)
+                        Visible: =false
+                        Width: =Parent.Width
+                        Y: =43
+                        ZIndex: =3
+
+                        Image10_8 As image:
+                            BorderColor: =RGBA(0, 18, 107, 1)
+                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                            DisabledFill: =RGBA(244, 244, 244, 1)
+                            Height: =1
+                            Image: =ThisItem.Value
+                            OnSelect: =Select(Parent)
+                            Width: =1
+                            ZIndex: =1
+
+                        Title6_8 As label:
+                            Color: =RGBA(0, 0, 0, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            FontWeight: =FontWeight.Semibold
+                            Height: =1
+                            OnSelect: =Select(Parent)
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            Size: =20
+                            Text: =ThisItem.Name
+                            VerticalAlign: =VerticalAlign.Top
+                            Width: =Parent.TemplateWidth - Image10_8.Width - 104
+                            X: =1
+                            ZIndex: =2
+
+                        Subtitle1_9 As label:
+                            Color: =RGBA(0, 0, 0, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Height: =1
+                            OnSelect: =Select(Parent)
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            Size: =18
+                            Text: =ThisItem.Value
+                            VerticalAlign: =VerticalAlign.Top
+                            Width: =Title6_8.Width
+                            X: =1
+                            ZIndex: =3
+
+                        NextArrow2_8 As icon.ChevronRight:
+                            AccessibleLabel: =Self.Tooltip
+                            BorderColor: =RGBA(0, 18, 107, 1)
+                            Color: =RGBA(0, 18, 107, 1)
+                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                            DisabledColor: =RGBA(244, 244, 244, 1)
+                            Height: =1
+                            Icon: =Icon.ChevronRight
+                            OnSelect: =Select(Parent)
+                            PaddingBottom: =10
+                            PaddingLeft: =10
+                            PaddingRight: =10
+                            PaddingTop: =10
+                            TabIndex: =0
+                            Tooltip: ="View item details"
+                            Width: =1
+                            ZIndex: =4
+
+                        Separator6_8 As rectangle:
+                            BorderColor: =RGBA(0, 18, 107, 1)
+                            Fill: =RGBA(0, 18, 107, 1)
+                            Height: =1
+                            OnSelect: =Select(Parent)
+                            Width: =Parent.TemplateWidth
+                            Y: =Parent.TemplateHeight - 1
+                            ZIndex: =5
+
+                    Toggle1_8 As toggleSwitch:
+                        AccessibleLabel: ="Toggle1_2"
+                        BorderColor: =RGBA(0, 18, 107, 1)
+                        Color: =RGBA(0, 0, 0, 1)
+                        FalseFill: =RGBA(128, 130, 133, 1)
+                        FalseText: ="Add More"
+                        FocusedBorderThickness: =0
+                        FontWeight: =FontWeight.Bold
+                        HandleFill: =RGBA(255, 255, 255, 1)
+                        Height: =18
+                        OnCheck: |-
+                            =Set(varattach4,true);
+                            Set(varattach5,false)
+                        OnUncheck: |-
+                            =Set(varattach4,false);
+                            Set(varattach5,true)
+                        Size: =8
+                        Tooltip: |-
+                            ="Upload These 5 proofs correctly
+                            1)Association Screenshot
+                            2)Certification Receipt bill
+                            3)Reimbursement form Filled
+                            4)Copy of Certification
+                            5)Manager Approval E-mail"
+                        TrueFill: =RGBA(0, 0, 189, 1)
+                        TrueText: ="Go to Uploads"
+                        Visible: =LookUp(CertificationOrder,ID=varCertificateDetails.ID).'Has attachments'
+                        Width: =122
+                        X: =206
+                        Y: =10
+                        ZIndex: =5
+
+                    "Gallery13_8 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+                        AccessibleLabel: ="Gallery13_2"
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderThickness: =0.1
+                        Fill: =RGBA(255, 255, 255, 1)
+                        Height: =75
+                        Items: =Last(FirstN(LookUp(CertificationOrder,ID=varCertificateDetails.ID).Attachments,3))
+                        Layout: =Layout.Vertical
+                        OnSelect: =Launch(ThisItem.AbsoluteUri)
+                        ShowScrollbar: =false
+                        TemplatePadding: =0
+                        TemplateSize: =26
+                        Visible: =varattach5
+                        Width: =Parent.Width
+                        Y: =38
+                        ZIndex: =6
+
+                        Separator9_8 As rectangle:
+                            BorderColor: =RGBA(0, 18, 107, 1)
+                            Fill: =RGBA(179, 179, 179, 1)
+                            Height: =1
+                            OnSelect: =Select(Parent)
+                            Visible: =false
+                            Width: =Parent.TemplateWidth
+                            Y: =Parent.TemplateHeight - 1
+                            ZIndex: =5
+
+                        Label78_8 As label:
+                            BorderColor: =RGBA(0, 18, 107, 1)
+                            Color: =RGBA(0, 0, 0, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Fill: =RGBA(255, 255, 255, 1)
+                            Height: =26
+                            OnSelect: =Select(Parent)
+                            Size: =8
+                            Text: =ThisItem.DisplayName
+                            Width: =Gallery13_8.Width
+                            ZIndex: =6
+
+                        RemoveAttachment_8 As icon.Cancel:
+                            AccessibleLabel: ="RemoveAttachment_2"
+                            BorderColor: =RGBA(0, 18, 107, 1)
+                            Color: =RGBA(0, 18, 107, 1)
+                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                            DisabledColor: =RGBA(244, 244, 244, 1)
+                            Height: =17
+                            Icon: =Icon.Cancel
+                            OnSelect: |
+                                =//Select(Parent);
+                                Last(FirstN(LookUp(CertificationOrder,'DeleteAttachments-CertificationApp'.Run(varCertificateDetails.ID,varCertificateDetails.ID)).Attachments,3));
+                                
+                                Refresh(CertificationOrder)
+                            Visible: =false
+                            Width: =1
+                            Y: =9
+                            ZIndex: =7
+
+                    Label15_15 As label:
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FontWeight: =FontWeight.Semibold
+                        Height: =38
+                        Size: =8
+                        Text: |-
+                            ="Reimbursement form Filled :"
+                        Width: =158
+                        ZIndex: =7
+
+                Container17_18 As groupContainer.manualLayoutContainer:
+                    AlignInContainer: =AlignInContainer.SetByContainer
+                    Fill: =RGBA(242, 242, 242, 1)
+                    FillPortions: =0.2
+                    Height: =62
+                    LayoutMinHeight: =5
+                    LayoutMinWidth: =250
+                    Width: =Parent.Width
+                    ZIndex: =5
+
+                    Attachments_9 As attachments:
+                        AccessibleLabel: ="Attachments_6"
+                        BorderColor: =RGBA(202, 202, 202, 1)
+                        BorderThickness: =0.1
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        DropTargetBorderColor: =RGBA(219, 219, 219, 1)
+                        DropTargetBorderThickness: =0
+                        FocusedBorderThickness: =4
+                        Height: =75
+                        HoverColor: =RGBA(0, 0, 0, 1)
+                        HoverFill: =RGBA(186, 202, 226, 1)
+                        IsInDataCard: =true
+                        ItemColor: =RGBA(255, 255, 255, 1)
+                        ItemFill: =RGBA(56, 96, 178, 1)
+                        ItemHoverColor: =RGBA(0, 0, 0, 1)
+                        ItemHoverFill: =RGBA(186, 202, 226, 1)
+                        Items: =
+                        OnAddFile: |-
+                            =/*Set(
+                                VarAttachmentControl,
+                                JSON(
+                                    Image9.Image,
+                                    IncludeBinaryData
+                                )
+                            );
+                            Set(
+                                VarBase64Only,
+                                Mid(
+                                    VarAttachmentControl,
+                                    Find(
+                                        ",",
+                                        VarAttachmentControl
+                                    ) + 1,
+                                    Len(VarAttachmentControl) - Find(
+                                        ",",
+                                        VarAttachmentControl
+                                    ) - 1
+                                )
+                            );
+                            Attachments_1.Run(
+                                varCertificateStatus.ID,
+                                Last(Attachments.Attachments).Name,
+                                VarBase64Only
+                            );
+                            */
+                            Refresh(CertificationOrder)
+                        PressedColor: =RGBA(255, 255, 255, 1)
+                        PressedFill: =RGBA(0, 18, 107, 1)
+                        Size: =10
+                        Tooltip: ="Upload 5 Documents"
+                        Visible: =varattach6
+                        Width: =Parent.Width
+                        Y: =38
+                        ZIndex: =1
+
+                    "Gallery8_9 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+                        AccessibleLabel: ="Gallery8_4"
+                        BorderColor: =RGBA(0, 18, 107, 1)
+                        Height: =75
+                        Items: =Attachments_9.Attachments
+                        Layout: =Layout.Vertical
+                        ShowScrollbar: =false
+                        TemplatePadding: =0
+                        TemplateSize: =Min(160, Self.Height - 60)
+                        Visible: =false
+                        Width: =Parent.Width
+                        Y: =18
+                        ZIndex: =3
+
+                        Image10_9 As image:
+                            BorderColor: =RGBA(0, 18, 107, 1)
+                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                            DisabledFill: =RGBA(244, 244, 244, 1)
+                            Height: =1
+                            Image: =ThisItem.Value
+                            OnSelect: =Select(Parent)
+                            Width: =1
+                            ZIndex: =1
+
+                        Title6_9 As label:
+                            Color: =RGBA(0, 0, 0, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            FontWeight: =FontWeight.Semibold
+                            Height: =1
+                            OnSelect: =Select(Parent)
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            Size: =20
+                            Text: =ThisItem.Name
+                            VerticalAlign: =VerticalAlign.Top
+                            Width: =Parent.TemplateWidth - Image10_9.Width - 104
+                            X: =1
+                            ZIndex: =2
+
+                        Subtitle1_10 As label:
+                            Color: =RGBA(0, 0, 0, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Height: =1
+                            OnSelect: =Select(Parent)
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            Size: =18
+                            Text: =ThisItem.Value
+                            VerticalAlign: =VerticalAlign.Top
+                            Width: =Title6_9.Width
+                            X: =1
+                            ZIndex: =3
+
+                        NextArrow2_9 As icon.ChevronRight:
+                            AccessibleLabel: =Self.Tooltip
+                            BorderColor: =RGBA(0, 18, 107, 1)
+                            Color: =RGBA(0, 18, 107, 1)
+                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                            DisabledColor: =RGBA(244, 244, 244, 1)
+                            Height: =1
+                            Icon: =Icon.ChevronRight
+                            OnSelect: =Select(Parent)
+                            PaddingBottom: =10
+                            PaddingLeft: =10
+                            PaddingRight: =10
+                            PaddingTop: =10
+                            TabIndex: =0
+                            Tooltip: ="View item details"
+                            Width: =1
+                            ZIndex: =4
+
+                        Separator6_9 As rectangle:
+                            BorderColor: =RGBA(0, 18, 107, 1)
+                            Fill: =RGBA(0, 18, 107, 1)
+                            Height: =1
+                            OnSelect: =Select(Parent)
+                            Width: =Parent.TemplateWidth
+                            Y: =Parent.TemplateHeight - 1
+                            ZIndex: =5
+
+                    Toggle1_9 As toggleSwitch:
+                        AccessibleLabel: ="Toggle1_3"
+                        BorderColor: =RGBA(0, 18, 107, 1)
+                        Color: =RGBA(0, 0, 0, 1)
+                        FalseFill: =RGBA(128, 130, 133, 1)
+                        FalseText: ="Add More"
+                        FocusedBorderThickness: =0
+                        FontWeight: =FontWeight.Bold
+                        HandleFill: =RGBA(255, 255, 255, 1)
+                        Height: =18
+                        OnCheck: |-
+                            =Set(varattach6,true);
+                            Set(varattach7,false)
+                        OnUncheck: |-
+                            =Set(varattach6,false);
+                            Set(varattach7,true)
+                        Size: =8
+                        Tooltip: |-
+                            ="Upload These 5 proofs correctly
+                            1)Association Screenshot
+                            2)Certification Receipt bill
+                            3)Reimbursement form Filled
+                            4)Copy of Certification
+                            5)Manager Approval E-mail"
+                        TrueFill: =RGBA(0, 0, 189, 1)
+                        TrueText: ="Go to Uploads"
+                        Visible: =LookUp(CertificationOrder,ID=varCertificateDetails.ID).'Has attachments'
+                        Width: =122
+                        X: =206
+                        Y: =10
+                        ZIndex: =5
+
+                    "Gallery13_9 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+                        AccessibleLabel: ="Gallery13_3"
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderThickness: =0.1
+                        Fill: =RGBA(255, 255, 255, 1)
+                        Height: =75
+                        Items: =Last(FirstN(LookUp(CertificationOrder,ID=varCertificateDetails.ID).Attachments,4))
+                        Layout: =Layout.Vertical
+                        OnSelect: =Launch(ThisItem.AbsoluteUri)
+                        ShowScrollbar: =false
+                        TemplatePadding: =0
+                        TemplateSize: =26
+                        Visible: =varattach7
+                        Width: =Parent.Width
+                        Y: =38
+                        ZIndex: =6
+
+                        Separator9_9 As rectangle:
+                            BorderColor: =RGBA(0, 18, 107, 1)
+                            Fill: =RGBA(179, 179, 179, 1)
+                            Height: =1
+                            OnSelect: =Select(Parent)
+                            Visible: =false
+                            Width: =Parent.TemplateWidth
+                            Y: =Parent.TemplateHeight - 1
+                            ZIndex: =5
+
+                        Label78_9 As label:
+                            BorderColor: =RGBA(0, 18, 107, 1)
+                            Color: =RGBA(0, 0, 0, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Fill: =RGBA(255, 255, 255, 1)
+                            Height: =26
+                            OnSelect: =Select(Parent)
+                            Size: =8
+                            Text: =ThisItem.DisplayName
+                            Width: =Gallery13_9.Width
+                            ZIndex: =6
+
+                        RemoveAttachment_9 As icon.Cancel:
+                            AccessibleLabel: ="RemoveAttachment_3"
+                            BorderColor: =RGBA(0, 18, 107, 1)
+                            Color: =RGBA(0, 18, 107, 1)
+                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                            DisabledColor: =RGBA(244, 244, 244, 1)
+                            Height: =17
+                            Icon: =Icon.Cancel
+                            OnSelect: |
+                                =//Select(Parent);
+                                Last(FirstN(LookUp(CertificationOrder,'DeleteAttachments-CertificationApp'.Run(varCertificateDetails.ID,varCertificateDetails.ID)).Attachments,4));
+                                
+                                Refresh(CertificationOrder)
+                            Visible: =false
+                            Width: =1
+                            Y: =9
+                            ZIndex: =7
+
+                    Label15_16 As label:
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FontWeight: =FontWeight.Semibold
+                        Height: =38
+                        Size: =8
+                        Text: |-
+                            ="Copy of Certification :"
+                        Width: =154
+                        ZIndex: =7
+
+                Container17_19 As groupContainer.manualLayoutContainer:
+                    AlignInContainer: =AlignInContainer.SetByContainer
+                    Fill: =RGBA(242, 242, 242, 1)
+                    FillPortions: =0.2
+                    Height: =62
+                    LayoutMinHeight: =5
+                    LayoutMinWidth: =250
+                    Width: =Parent.Width
+                    ZIndex: =6
+
+                    Attachments_12 As attachments:
+                        AccessibleLabel: ="Attachments_11"
+                        BorderColor: =RGBA(202, 202, 202, 1)
+                        BorderThickness: =0.1
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        DropTargetBorderColor: =RGBA(219, 219, 219, 1)
+                        DropTargetBorderThickness: =0
+                        FocusedBorderThickness: =4
+                        Height: =75
+                        HoverColor: =RGBA(0, 0, 0, 1)
+                        HoverFill: =RGBA(186, 202, 226, 1)
+                        IsInDataCard: =true
+                        ItemColor: =RGBA(255, 255, 255, 1)
+                        ItemFill: =RGBA(56, 96, 178, 1)
+                        ItemHoverColor: =RGBA(0, 0, 0, 1)
+                        ItemHoverFill: =RGBA(186, 202, 226, 1)
+                        Items: =
+                        OnAddFile: |-
+                            =/*Set(
+                                VarAttachmentControl,
+                                JSON(
+                                    Image9.Image,
+                                    IncludeBinaryData
+                                )
+                            );
+                            Set(
+                                VarBase64Only,
+                                Mid(
+                                    VarAttachmentControl,
+                                    Find(
+                                        ",",
+                                        VarAttachmentControl
+                                    ) + 1,
+                                    Len(VarAttachmentControl) - Find(
+                                        ",",
+                                        VarAttachmentControl
+                                    ) - 1
+                                )
+                            );
+                            Attachments_1.Run(
+                                varCertificateStatus.ID,
+                                Last(Attachments.Attachments).Name,
+                                VarBase64Only
+                            );
+                            */
+                            Refresh(CertificationOrder)
+                        PressedColor: =RGBA(255, 255, 255, 1)
+                        PressedFill: =RGBA(0, 18, 107, 1)
+                        Size: =10
+                        Tooltip: ="Upload 5 Documents"
+                        Visible: =varattach8
+                        Width: =Parent.Width
+                        Y: =38
+                        ZIndex: =1
+
+                    "Gallery8_10 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+                        AccessibleLabel: ="Gallery8_5"
+                        BorderColor: =RGBA(0, 18, 107, 1)
+                        Height: =75
+                        Items: =Attachments_12.Attachments
+                        Layout: =Layout.Vertical
+                        ShowScrollbar: =false
+                        TemplatePadding: =0
+                        TemplateSize: =Min(160, Self.Height - 60)
+                        Visible: =false
+                        Width: =Parent.Width
+                        Y: =18
+                        ZIndex: =3
+
+                        Image10_10 As image:
+                            BorderColor: =RGBA(0, 18, 107, 1)
+                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                            DisabledFill: =RGBA(244, 244, 244, 1)
+                            Height: =1
+                            Image: =ThisItem.Value
+                            OnSelect: =Select(Parent)
+                            Width: =1
+                            ZIndex: =1
+
+                        Title6_10 As label:
+                            Color: =RGBA(0, 0, 0, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            FontWeight: =FontWeight.Semibold
+                            Height: =1
+                            OnSelect: =Select(Parent)
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            Size: =20
+                            Text: =ThisItem.Name
+                            VerticalAlign: =VerticalAlign.Top
+                            Width: =Parent.TemplateWidth - Image10_10.Width - 104
+                            X: =1
+                            ZIndex: =2
+
+                        Subtitle1_11 As label:
+                            Color: =RGBA(0, 0, 0, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Height: =1
+                            OnSelect: =Select(Parent)
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            Size: =18
+                            Text: =ThisItem.Value
+                            VerticalAlign: =VerticalAlign.Top
+                            Width: =Title6_10.Width
+                            X: =1
+                            ZIndex: =3
+
+                        NextArrow2_10 As icon.ChevronRight:
+                            AccessibleLabel: =Self.Tooltip
+                            BorderColor: =RGBA(0, 18, 107, 1)
+                            Color: =RGBA(0, 18, 107, 1)
+                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                            DisabledColor: =RGBA(244, 244, 244, 1)
+                            Height: =1
+                            Icon: =Icon.ChevronRight
+                            OnSelect: =Select(Parent)
+                            PaddingBottom: =10
+                            PaddingLeft: =10
+                            PaddingRight: =10
+                            PaddingTop: =10
+                            TabIndex: =0
+                            Tooltip: ="View item details"
+                            Width: =1
+                            ZIndex: =4
+
+                        Separator6_10 As rectangle:
+                            BorderColor: =RGBA(0, 18, 107, 1)
+                            Fill: =RGBA(0, 18, 107, 1)
+                            Height: =1
+                            OnSelect: =Select(Parent)
+                            Width: =Parent.TemplateWidth
+                            Y: =Parent.TemplateHeight - 1
+                            ZIndex: =5
+
+                    Toggle1_10 As toggleSwitch:
+                        AccessibleLabel: ="Toggle1_4"
+                        BorderColor: =RGBA(0, 18, 107, 1)
+                        Color: =RGBA(0, 0, 0, 1)
+                        FalseFill: =RGBA(128, 130, 133, 1)
+                        FalseText: ="Add More"
+                        FocusedBorderThickness: =0
+                        FontWeight: =FontWeight.Bold
+                        HandleFill: =RGBA(255, 255, 255, 1)
+                        Height: =18
+                        OnCheck: |-
+                            =Set(varattach8,true);
+                            Set(varattach9,false)
+                        OnUncheck: |-
+                            =Set(varattach8,false);
+                            Set(varattach9,true)
+                        Size: =8
+                        Tooltip: |-
+                            ="Upload These 5 proofs correctly
+                            1)Association Screenshot
+                            2)Certification Receipt bill
+                            3)Reimbursement form Filled
+                            4)Copy of Certification
+                            5)Manager Approval E-mail"
+                        TrueFill: =RGBA(0, 0, 189, 1)
+                        TrueText: ="Go to Uploads"
+                        Visible: =LookUp(CertificationOrder,ID=varCertificateDetails.ID).'Has attachments'
+                        Width: =122
+                        X: =206
+                        Y: =10
+                        ZIndex: =5
+
+                    "Gallery13_10 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+                        AccessibleLabel: ="Gallery13_4"
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderThickness: =0.1
+                        Fill: =RGBA(255, 255, 255, 1)
+                        Height: =75
+                        Items: =Last(LookUp(CertificationOrder,ID=varCertificateDetails.ID).Attachments)
+                        Layout: =Layout.Vertical
+                        OnSelect: =Launch(ThisItem.AbsoluteUri)
+                        ShowScrollbar: =false
+                        TemplatePadding: =0
+                        TemplateSize: =26
+                        Visible: =varattach9
+                        Width: =Parent.Width
+                        Y: =38
+                        ZIndex: =6
+
+                        Separator9_10 As rectangle:
+                            BorderColor: =RGBA(0, 18, 107, 1)
+                            Fill: =RGBA(179, 179, 179, 1)
+                            Height: =1
+                            OnSelect: =Select(Parent)
+                            Visible: =false
+                            Width: =Parent.TemplateWidth
+                            Y: =Parent.TemplateHeight - 1
+                            ZIndex: =5
+
+                        Label78_10 As label:
+                            BorderColor: =RGBA(0, 18, 107, 1)
+                            Color: =RGBA(0, 0, 0, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Fill: =RGBA(255, 255, 255, 1)
+                            Height: =26
+                            OnSelect: =Select(Parent)
+                            Size: =8
+                            Text: =ThisItem.DisplayName
+                            Width: =Gallery13_10.Width
+                            ZIndex: =6
+
+                        RemoveAttachment_10 As icon.Cancel:
+                            AccessibleLabel: ="RemoveAttachment_4"
+                            BorderColor: =RGBA(0, 18, 107, 1)
+                            Color: =RGBA(0, 18, 107, 1)
+                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                            DisabledColor: =RGBA(244, 244, 244, 1)
+                            Height: =17
+                            Icon: =Icon.Cancel
+                            OnSelect: |
+                                =//Select(Parent);
+                                LookUp(CertificationOrder,'DeleteAttachments-CertificationApp'.Run(varCertificateDetails.ID,varCertificateDetails.ID)).Attachments;
+                                
+                                Refresh(CertificationOrder)
+                            Visible: =false
+                            Width: =1
+                            Y: =9
+                            ZIndex: =7
+
+                    Label15_17 As label:
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FontWeight: =FontWeight.Semibold
+                        Height: =38
+                        Size: =8
+                        Text: |-
+                            ="Manager Approval Mail :"
+                        Width: =165
+                        ZIndex: =7
+
+            Btn_Home_2 As button:
+                BorderColor: =RGBA(201,47,29,1)
+                Color: =Color.White
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                DisplayMode: |-
+                    =If(
+                        (varCertificateDetails.Status = "Manager Approved" And !IsEmpty(Attachments.Attachments)) ||  ((varCertificateDetails.Status = "Enrolled" || varCertificateDetails.Status = "Manager Approved") And varCertificateDetails.PaymentMode <> "Cash" And !IsEmpty(Attachments.Attachments)),
+                        If(
+                            (varCertificateDetails.Status = "Manager Approved" And !IsEmpty(Attachments_4.Attachments)) || (varCertificateDetails.Status = "Proofs Uploaded" And varCertificateDetails.'Has attachments') || ((varCertificateDetails.Status = "Enrolled" || varCertificateDetails.Status = "Manager Approved") And varCertificateDetails.PaymentMode <> "Cash" And !IsEmpty(Attachments_4.Attachments)),
+                            If(
+                                (varCertificateDetails.Status = "Manager Approved" And !IsEmpty(Attachments_5.Attachments)) || (varCertificateDetails.Status = "Proofs Uploaded" And varCertificateDetails.'Has attachments') || ((varCertificateDetails.Status = "Enrolled" || varCertificateDetails.Status = "Manager Approved") And varCertificateDetails.PaymentMode <> "Cash" And !IsEmpty(Attachments_5.Attachments)),
+                                If(
+                                    (varCertificateDetails.Status = "Manager Approved" And !IsEmpty(Attachments_6.Attachments)) || (varCertificateDetails.Status = "Proofs Uploaded" And varCertificateDetails.'Has attachments') || ((varCertificateDetails.Status = "Enrolled" || varCertificateDetails.Status = "Manager Approved") And varCertificateDetails.PaymentMode <> "Cash" And !IsEmpty(Attachments_6.Attachments)),
+                                    If(
+                                        (varCertificateDetails.Status = "Manager Approved" And !IsEmpty(Attachments_11.Attachments)) || (varCertificateDetails.Status = "Proofs Uploaded" And varCertificateDetails.'Has attachments') || ((varCertificateDetails.Status = "Enrolled" || varCertificateDetails.Status = "Manager Approved") And varCertificateDetails.PaymentMode <> "Cash" And !IsEmpty(Attachments_11.Attachments)),
+                                        DisplayMode.Edit,
+                                        DisplayMode.Disabled
+                                    ),
+                                    DisplayMode.Disabled
+                                ),
+                                DisplayMode.Disabled
+                            ),
+                            DisplayMode.Disabled
+                        ),
+                        DisplayMode.Disabled
+                    )
+                    
+                    
+                    
+                    
+                    //If(CountRows(Filter(CertificationOrder,varCertificateDetails.'Has attachments'))=5,DisplayMode.Edit,DisplayMode.Disabled)
+                Fill: =RGBA(201,47,29,1)
+                FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+                FocusedBorderThickness: =1
+                Font: =Font.'Segoe UI'
+                Height: =26
+                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                HoverFill: =Self.Fill
+                OnSelect: |
+                    =If(
+                        varCertificateDetails.PaymentMode <> "Cash",
+                        If(
+                            Value(TextInput1.Text) > 100 Or IsBlank(TextInput1.Text),
+                            Notify(
+                                "Please Re-Check your voucher percentage ",
+                                NotificationType.Error,
+                                1000
+                            ),
+                            If(
+                                !IsBlank(Attachments),
+                                ClearCollect(
+                                    colfiles,
+                                    ShowColumns(
+                                        AddColumns(
+                                            Gallery8.AllItems,
+                                            "base64",
+                                            With(
+                                                {
+                                                    varAttachment: JSON(
+                                                        Image10.Image,
+                                                        JSONFormat.IncludeBinaryData
+                                                    )
+                                                },
+                                                Mid(
+                                                    varAttachment,
+                                                    Find(
+                                                        ",",
+                                                        varAttachment
+                                                    ) + 1,
+                                                    Len(varAttachment) - Find(
+                                                        ",",
+                                                        varAttachment
+                                                    ) - 1
+                                                )
+                                            )
+                                        ),
+                                        "base64",
+                                        "Name"
+                                    )
+                                );
+                                Set(
+                                    varProofsLinks,
+                                    Attachment2.Run(
+                                        JSON(
+                                            colfiles,
+                                            JSONFormat.IndentFour
+                                        ),
+                                        varCertificateDetails.ID
+                                    ).links
+                                );
+                                If(
+                                    varCertificateDetails.Status in ["Enrolled"],
+                                    UpdateIf(
+                                        CertificationOrder,
+                                        ID = varCertificateDetails.ID,
+                                        {
+                                            Status: "Proofs Uploaded",
+                                            Documents_Link: varProofsLinks,
+                                            PaymentMode: If(
+                                                Radio2.Selected.Value = "Paid with Voucher",
+                                                TextInput1.Text & "% Voucher",
+                                                "Cash"
+                                            ),
+                                            'Proofs Uploaded on':Today()
+                                        }
+                                    )
+                                );
+                                Refresh(CertificationOrder);
+                                Reset(Attachments);
+                                
+                                Notify(
+                                    "Proofs Uploaded Successfully",
+                                    NotificationType.Success,
+                                    2000
+                                );
+                                Navigate(
+                                    Home_Screen,
+                                    ScreenTransition.Fade
+                                ),
+                                Notify(
+                                    "No Files Attached",
+                                    NotificationType.Error,
+                                    1000
+                                )
+                            )
+                        ),
+                        If(
+                            !IsBlank(Attachments),
+                            ClearCollect(
+                                colfiles,
+                                ShowColumns(
+                                    AddColumns(
+                                        Gallery8.AllItems,
+                                        "base64",
+                                        With(
+                                            {
+                                                varAttachment: JSON(
+                                                    Image10.Image,
+                                                    JSONFormat.IncludeBinaryData
+                                                )
+                                            },
+                                            Mid(
+                                                varAttachment,
+                                                Find(
+                                                    ",",
+                                                    varAttachment
+                                                ) + 1,
+                                                Len(varAttachment) - Find(
+                                                    ",",
+                                                    varAttachment
+                                                ) - 1
+                                            )
+                                        )
+                                    ),
+                                    "base64",
+                                    "Name"
+                                )
+                            );
+                            Set(
+                                varProofsLinks,
+                                Attachment2.Run(
+                                    JSON(
+                                        colfiles,
+                                        JSONFormat.IndentFour
+                                    ),
+                                    varCertificateDetails.ID
+                                ).links
+                            );
+                            If(
+                                varCertificateDetails.Status in [
+                                    "Manager Approved",
+                                    "Proofs Uploaded"
+                                ],
+                                UpdateIf(
+                                    CertificationOrder,
+                                    ID = varCertificateDetails.ID,
+                                    {
+                                        Status: "Proofs Uploaded",
+                                        Documents_Link: varProofsLinks,
+                                        PaymentMode: If(
+                                            Radio2.Selected.Value = "Paid with Voucher",
+                                            TextInput1.Text & "% Voucher",
+                                            "Cash"
+                                        ),
+                                        'Proofs Uploaded on':Today()
+                                    }
+                                )
+                            );
+                            Refresh(CertificationOrder);
+                            Reset(Attachments);
+                            
+                            Notify(
+                                "Proofs Uploaded Successfully",
+                                NotificationType.Success,
+                                2000
+                            );
+                            Navigate(
+                                Home_Screen,
+                                ScreenTransition.Fade
+                            ),
+                            Notify(
+                                "No Files Attached",
+                                NotificationType.Error,
+                                1000
+                            )
+                        )
+                    );
+                    
+                    Patch(
+                                   NotificationList_CertificationApp,
+                                    Defaults(NotificationList_CertificationApp),
+                                    {
+                                        Title:varCertificateDetails.Requestor.DisplayName,
+                                        Notification:varCertificateDetails.Requestor.DisplayName &" has uploaded proofs for the certification " & varCertificateDetails.'Certification:Title'.Value
+                                    }
+                    );
+                    
+                    
+                    
+                    
+                    
+                    If(
+                        varCertificateDetails.PaymentMode <> "Cash",
+                        If(
+                            Value(TextInput1.Text) > 100 Or IsBlank(TextInput1.Text),
+                            Notify(
+                                "Please Re-Check your voucher percentage ",
+                                NotificationType.Error,
+                                1000
+                            ),
+                            If(
+                                !IsBlank(Attachments_4),
+                                ClearCollect(
+                                    colfiles,
+                                    ShowColumns(
+                                        AddColumns(
+                                            Gallery8_1.AllItems,
+                                            "base64",
+                                            With(
+                                                {
+                                                    varAttachment: JSON(
+                                                        Image10_1.Image,
+                                                        JSONFormat.IncludeBinaryData
+                                                    )
+                                                },
+                                                Mid(
+                                                    varAttachment,
+                                                    Find(
+                                                        ",",
+                                                        varAttachment
+                                                    ) + 1,
+                                                    Len(varAttachment) - Find(
+                                                        ",",
+                                                        varAttachment
+                                                    ) - 1
+                                                )
+                                            )
+                                        ),
+                                        "base64",
+                                        "Name"
+                                    )
+                                );
+                                Set(
+                                    varProofsLinks,
+                                    Attachment2.Run(
+                                        JSON(
+                                            colfiles,
+                                            JSONFormat.IndentFour
+                                        ),
+                                        varCertificateDetails.ID
+                                    ).links
+                                );
+                                If(
+                                    varCertificateDetails.Status in ["Enrolled"],
+                                    UpdateIf(
+                                        CertificationOrder,
+                                        ID = varCertificateDetails.ID,
+                                        {
+                                            Status: "Proofs Uploaded",
+                                            Documents_Link: varProofsLinks,
+                                            PaymentMode: If(
+                                                Radio2.Selected.Value = "Paid with Voucher",
+                                                TextInput1.Text & "% Voucher",
+                                                "Cash"
+                                            ),
+                                            'Proofs Uploaded on':Today()
+                                        }
+                                    )
+                                );
+                                Refresh(CertificationOrder);
+                                Reset(Attachments_4);
+                                
+                                Notify(
+                                    "Proofs Uploaded Successfully",
+                                    NotificationType.Success,
+                                    2000
+                                );
+                                Navigate(
+                                    Home_Screen,
+                                    ScreenTransition.Fade
+                                ),
+                                Notify(
+                                    "No Files Attached",
+                                    NotificationType.Error,
+                                    1000
+                                )
+                            )
+                        ),
+                        If(
+                            !IsBlank(Attachments_4),
+                            ClearCollect(
+                                colfiles,
+                                ShowColumns(
+                                    AddColumns(
+                                        Gallery8_1.AllItems,
+                                        "base64",
+                                        With(
+                                            {
+                                                varAttachment: JSON(
+                                                    Image10_1.Image,
+                                                    JSONFormat.IncludeBinaryData
+                                                )
+                                            },
+                                            Mid(
+                                                varAttachment,
+                                                Find(
+                                                    ",",
+                                                    varAttachment
+                                                ) + 1,
+                                                Len(varAttachment) - Find(
+                                                    ",",
+                                                    varAttachment
+                                                ) - 1
+                                            )
+                                        )
+                                    ),
+                                    "base64",
+                                    "Name"
+                                )
+                            );
+                            Set(
+                                varProofsLinks,
+                                Attachment2.Run(
+                                    JSON(
+                                        colfiles,
+                                        JSONFormat.IndentFour
+                                    ),
+                                    varCertificateDetails.ID
+                                ).links
+                            );
+                            If(
+                                varCertificateDetails.Status in [
+                                    "Manager Approved",
+                                    "Proofs Uploaded"
+                                ],
+                                UpdateIf(
+                                    CertificationOrder,
+                                    ID = varCertificateDetails.ID,
+                                    {
+                                        Status: "Proofs Uploaded",
+                                        Documents_Link: varProofsLinks,
+                                        PaymentMode: If(
+                                            Radio2.Selected.Value = "Paid with Voucher",
+                                            TextInput1.Text & "% Voucher",
+                                            "Cash"
+                                        ),
+                                        'Proofs Uploaded on':Today()
+                                    }
+                                )
+                            );
+                            Refresh(CertificationOrder);
+                            Reset(Attachments_4);
+                            
+                            Notify(
+                                "Proofs Uploaded Successfully",
+                                NotificationType.Success,
+                                2000
+                            );
+                            Navigate(
+                                Home_Screen,
+                                ScreenTransition.Fade
+                            ),
+                            Notify(
+                                "No Files Attached",
+                                NotificationType.Error,
+                                1000
+                            )
+                        )
+                    );
+                    
+                    Patch(
+                                   NotificationList_CertificationApp,
+                                    Defaults(NotificationList_CertificationApp),
+                                    {
+                                        Title:varCertificateDetails.Requestor.DisplayName,
+                                        Notification:varCertificateDetails.Requestor.DisplayName &" has uploaded proofs for the certification " & varCertificateDetails.'Certification:Title'.Value
+                                    }
+                    );
+                    
+                    
+                    
+                    
+                    If(
+                        varCertificateDetails.PaymentMode <> "Cash",
+                        If(
+                            Value(TextInput1.Text) > 100 Or IsBlank(TextInput1.Text),
+                            Notify(
+                                "Please Re-Check your voucher percentage ",
+                                NotificationType.Error,
+                                1000
+                            ),
+                            If(
+                                !IsBlank(Attachments_5),
+                                ClearCollect(
+                                    colfiles,
+                                    ShowColumns(
+                                        AddColumns(
+                                            Gallery8_3.AllItems,
+                                            "base64",
+                                            With(
+                                                {
+                                                    varAttachment: JSON(
+                                                        Image10_2.Image,
+                                                        JSONFormat.IncludeBinaryData
+                                                    )
+                                                },
+                                                Mid(
+                                                    varAttachment,
+                                                    Find(
+                                                        ",",
+                                                        varAttachment
+                                                    ) + 1,
+                                                    Len(varAttachment) - Find(
+                                                        ",",
+                                                        varAttachment
+                                                    ) - 1
+                                                )
+                                            )
+                                        ),
+                                        "base64",
+                                        "Name"
+                                    )
+                                );
+                                Set(
+                                    varProofsLinks,
+                                    Attachment2.Run(
+                                        JSON(
+                                            colfiles,
+                                            JSONFormat.IndentFour
+                                        ),
+                                        varCertificateDetails.ID
+                                    ).links
+                                );
+                                If(
+                                    varCertificateDetails.Status in ["Enrolled"],
+                                    UpdateIf(
+                                        CertificationOrder,
+                                        ID = varCertificateDetails.ID,
+                                        {
+                                            Status: "Proofs Uploaded",
+                                            Documents_Link: varProofsLinks,
+                                            PaymentMode: If(
+                                                Radio2.Selected.Value = "Paid with Voucher",
+                                                TextInput1.Text & "% Voucher",
+                                                "Cash"
+                                            ),
+                                            'Proofs Uploaded on':Today()
+                                        }
+                                    )
+                                );
+                                Refresh(CertificationOrder);
+                                Reset(Attachments_5);
+                                
+                                Notify(
+                                    "Proofs Uploaded Successfully",
+                                    NotificationType.Success,
+                                    2000
+                                );
+                                Navigate(
+                                    Home_Screen,
+                                    ScreenTransition.Fade
+                                ),
+                                Notify(
+                                    "No Files Attached",
+                                    NotificationType.Error,
+                                    1000
+                                )
+                            )
+                        ),
+                        If(
+                            !IsBlank(Attachments_5),
+                            ClearCollect(
+                                colfiles,
+                                ShowColumns(
+                                    AddColumns(
+                                        Gallery8_3.AllItems,
+                                        "base64",
+                                        With(
+                                            {
+                                                varAttachment: JSON(
+                                                    Image10_2.Image,
+                                                    JSONFormat.IncludeBinaryData
+                                                )
+                                            },
+                                            Mid(
+                                                varAttachment,
+                                                Find(
+                                                    ",",
+                                                    varAttachment
+                                                ) + 1,
+                                                Len(varAttachment) - Find(
+                                                    ",",
+                                                    varAttachment
+                                                ) - 1
+                                            )
+                                        )
+                                    ),
+                                    "base64",
+                                    "Name"
+                                )
+                            );
+                            Set(
+                                varProofsLinks,
+                                Attachment2.Run(
+                                    JSON(
+                                        colfiles,
+                                        JSONFormat.IndentFour
+                                    ),
+                                    varCertificateDetails.ID
+                                ).links
+                            );
+                            If(
+                                varCertificateDetails.Status in [
+                                    "Manager Approved",
+                                    "Proofs Uploaded"
+                                ],
+                                UpdateIf(
+                                    CertificationOrder,
+                                    ID = varCertificateDetails.ID,
+                                    {
+                                        Status: "Proofs Uploaded",
+                                        Documents_Link: varProofsLinks,
+                                        PaymentMode: If(
+                                            Radio2.Selected.Value = "Paid with Voucher",
+                                            TextInput1.Text & "% Voucher",
+                                            "Cash"
+                                        ),
+                                        'Proofs Uploaded on':Today()
+                                    }
+                                )
+                            );
+                            Refresh(CertificationOrder);
+                            Reset(Attachments_5);
+                            
+                            Notify(
+                                "Proofs Uploaded Successfully",
+                                NotificationType.Success,
+                                2000
+                            );
+                            Navigate(
+                                Home_Screen,
+                                ScreenTransition.Fade
+                            ),
+                            Notify(
+                                "No Files Attached",
+                                NotificationType.Error,
+                                1000
+                            )
+                        )
+                    );
+                    
+                    Patch(
+                                   NotificationList_CertificationApp,
+                                    Defaults(NotificationList_CertificationApp),
+                                    {
+                                        Title:varCertificateDetails.Requestor.DisplayName,
+                                        Notification:varCertificateDetails.Requestor.DisplayName &" has uploaded proofs for the certification " & varCertificateDetails.'Certification:Title'.Value
+                                    }
+                    );
+                    
+                    
+                    
+                    
+                    If(
+                        varCertificateDetails.PaymentMode <> "Cash",
+                        If(
+                            Value(TextInput1.Text) > 100 Or IsBlank(TextInput1.Text),
+                            Notify(
+                                "Please Re-Check your voucher percentage ",
+                                NotificationType.Error,
+                                1000
+                            ),
+                            If(
+                                !IsBlank(Attachments_6),
+                                ClearCollect(
+                                    colfiles,
+                                    ShowColumns(
+                                        AddColumns(
+                                            Gallery8_4.AllItems,
+                                            "base64",
+                                            With(
+                                                {
+                                                    varAttachment: JSON(
+                                                        Image10_3.Image,
+                                                        JSONFormat.IncludeBinaryData
+                                                    )
+                                                },
+                                                Mid(
+                                                    varAttachment,
+                                                    Find(
+                                                        ",",
+                                                        varAttachment
+                                                    ) + 1,
+                                                    Len(varAttachment) - Find(
+                                                        ",",
+                                                        varAttachment
+                                                    ) - 1
+                                                )
+                                            )
+                                        ),
+                                        "base64",
+                                        "Name"
+                                    )
+                                );
+                                Set(
+                                    varProofsLinks,
+                                    Attachment2.Run(
+                                        JSON(
+                                            colfiles,
+                                            JSONFormat.IndentFour
+                                        ),
+                                        varCertificateDetails.ID
+                                    ).links
+                                );
+                                If(
+                                    varCertificateDetails.Status in ["Enrolled"],
+                                    UpdateIf(
+                                        CertificationOrder,
+                                        ID = varCertificateDetails.ID,
+                                        {
+                                            Status: "Proofs Uploaded",
+                                            Documents_Link: varProofsLinks,
+                                            PaymentMode: If(
+                                                Radio2.Selected.Value = "Paid with Voucher",
+                                                TextInput1.Text & "% Voucher",
+                                                "Cash"
+                                            ),
+                                            'Proofs Uploaded on':Today()
+                                        }
+                                    )
+                                );
+                                Refresh(CertificationOrder);
+                                Reset(Attachments_6);
+                                
+                                Notify(
+                                    "Proofs Uploaded Successfully",
+                                    NotificationType.Success,
+                                    2000
+                                );
+                                Navigate(
+                                    Home_Screen,
+                                    ScreenTransition.Fade
+                                ),
+                                Notify(
+                                    "No Files Attached",
+                                    NotificationType.Error,
+                                    1000
+                                )
+                            )
+                        ),
+                        If(
+                            !IsBlank(Attachments_6),
+                            ClearCollect(
+                                colfiles,
+                                ShowColumns(
+                                    AddColumns(
+                                        Gallery8_4.AllItems,
+                                        "base64",
+                                        With(
+                                            {
+                                                varAttachment: JSON(
+                                                    Image10_3.Image,
+                                                    JSONFormat.IncludeBinaryData
+                                                )
+                                            },
+                                            Mid(
+                                                varAttachment,
+                                                Find(
+                                                    ",",
+                                                    varAttachment
+                                                ) + 1,
+                                                Len(varAttachment) - Find(
+                                                    ",",
+                                                    varAttachment
+                                                ) - 1
+                                            )
+                                        )
+                                    ),
+                                    "base64",
+                                    "Name"
+                                )
+                            );
+                            Set(
+                                varProofsLinks,
+                                Attachment2.Run(
+                                    JSON(
+                                        colfiles,
+                                        JSONFormat.IndentFour
+                                    ),
+                                    varCertificateDetails.ID
+                                ).links
+                            );
+                            If(
+                                varCertificateDetails.Status in [
+                                    "Manager Approved",
+                                    "Proofs Uploaded"
+                                ],
+                                UpdateIf(
+                                    CertificationOrder,
+                                    ID = varCertificateDetails.ID,
+                                    {
+                                        Status: "Proofs Uploaded",
+                                        Documents_Link: varProofsLinks,
+                                        PaymentMode: If(
+                                            Radio2.Selected.Value = "Paid with Voucher",
+                                            TextInput1.Text & "% Voucher",
+                                            "Cash"
+                                        ),
+                                        'Proofs Uploaded on':Today()
+                                    }
+                                )
+                            );
+                            Refresh(CertificationOrder);
+                            Reset(Attachments_6);
+                            
+                            Notify(
+                                "Proofs Uploaded Successfully",
+                                NotificationType.Success,
+                                2000
+                            );
+                            Navigate(
+                                Home_Screen,
+                                ScreenTransition.Fade
+                            ),
+                            Notify(
+                                "No Files Attached",
+                                NotificationType.Error,
+                                1000
+                            )
+                        )
+                    );
+                    
+                    Patch(
+                                   NotificationList_CertificationApp,
+                                    Defaults(NotificationList_CertificationApp),
+                                    {
+                                        Title:varCertificateDetails.Requestor.DisplayName,
+                                        Notification:varCertificateDetails.Requestor.DisplayName &" has uploaded proofs for the certification " & varCertificateDetails.'Certification:Title'.Value
+                                    }
+                    );
+                    
+                    
+                    
+                    
+                    If(
+                        varCertificateDetails.PaymentMode <> "Cash",
+                        If(
+                            Value(TextInput1.Text) > 100 Or IsBlank(TextInput1.Text),
+                            Notify(
+                                "Please Re-Check your voucher percentage ",
+                                NotificationType.Error,
+                                1000
+                            ),
+                            If(
+                                !IsBlank(Attachments_11),
+                                ClearCollect(
+                                    colfiles,
+                                    ShowColumns(
+                                        AddColumns(
+                                            Gallery8_5.AllItems,
+                                            "base64",
+                                            With(
+                                                {
+                                                    varAttachment: JSON(
+                                                        Image10_4.Image,
+                                                        JSONFormat.IncludeBinaryData
+                                                    )
+                                                },
+                                                Mid(
+                                                    varAttachment,
+                                                    Find(
+                                                        ",",
+                                                        varAttachment
+                                                    ) + 1,
+                                                    Len(varAttachment) - Find(
+                                                        ",",
+                                                        varAttachment
+                                                    ) - 1
+                                                )
+                                            )
+                                        ),
+                                        "base64",
+                                        "Name"
+                                    )
+                                );
+                                Set(
+                                    varProofsLinks,
+                                    Attachment2.Run(
+                                        JSON(
+                                            colfiles,
+                                            JSONFormat.IndentFour
+                                        ),
+                                        varCertificateDetails.ID
+                                    ).links
+                                );
+                                If(
+                                    varCertificateDetails.Status in ["Enrolled"],
+                                    UpdateIf(
+                                        CertificationOrder,
+                                        ID = varCertificateDetails.ID,
+                                        {
+                                            Status: "Proofs Uploaded",
+                                            Documents_Link: varProofsLinks,
+                                            PaymentMode: If(
+                                                Radio2.Selected.Value = "Paid with Voucher",
+                                                TextInput1.Text & "% Voucher",
+                                                "Cash"
+                                            ),
+                                            'Proofs Uploaded on':Today()
+                                        }
+                                    )
+                                );
+                                Refresh(CertificationOrder);
+                                Reset(Attachments_11);
+                                
+                                Notify(
+                                    "Proofs Uploaded Successfully",
+                                    NotificationType.Success,
+                                    2000
+                                );
+                                Navigate(
+                                    Home_Screen,
+                                    ScreenTransition.Fade
+                                ),
+                                Notify(
+                                    "No Files Attached",
+                                    NotificationType.Error,
+                                    1000
+                                )
+                            )
+                        ),
+                        If(
+                            !IsBlank(Attachments_11),
+                            ClearCollect(
+                                colfiles,
+                                ShowColumns(
+                                    AddColumns(
+                                        Gallery8_5.AllItems,
+                                        "base64",
+                                        With(
+                                            {
+                                                varAttachment: JSON(
+                                                    Image10_4.Image,
+                                                    JSONFormat.IncludeBinaryData
+                                                )
+                                            },
+                                            Mid(
+                                                varAttachment,
+                                                Find(
+                                                    ",",
+                                                    varAttachment
+                                                ) + 1,
+                                                Len(varAttachment) - Find(
+                                                    ",",
+                                                    varAttachment
+                                                ) - 1
+                                            )
+                                        )
+                                    ),
+                                    "base64",
+                                    "Name"
+                                )
+                            );
+                            Set(
+                                varProofsLinks,
+                                Attachment2.Run(
+                                    JSON(
+                                        colfiles,
+                                        JSONFormat.IndentFour
+                                    ),
+                                    varCertificateDetails.ID
+                                ).links
+                            );
+                            If(
+                                varCertificateDetails.Status in [
+                                    "Manager Approved",
+                                    "Proofs Uploaded"
+                                ],
+                                UpdateIf(
+                                    CertificationOrder,
+                                    ID = varCertificateDetails.ID,
+                                    {
+                                        Status: "Proofs Uploaded",
+                                        Documents_Link: varProofsLinks,
+                                        PaymentMode: If(
+                                            Radio2.Selected.Value = "Paid with Voucher",
+                                            TextInput1.Text & "% Voucher",
+                                            "Cash"
+                                        ),
+                                        'Proofs Uploaded on':Today()
+                                    }
+                                )
+                            );
+                            Refresh(CertificationOrder);
+                            Reset(Attachments_11);
+                           
+                            Notify(
+                                "Proofs Uploaded Successfully",
+                                NotificationType.Success,
+                                2000
+                            );
+                            Navigate(
+                                Home_Screen,
+                                ScreenTransition.Fade
+                            ),
+                            Notify(
+                                "No Files Attached",
+                                NotificationType.Error,
+                                1000
+                            )
+                        )
+                    );
+                    
+                    Patch(
+                                   NotificationList_CertificationApp,
+                                    Defaults(NotificationList_CertificationApp),
+                                    {
+                                        Title:varCertificateDetails.Requestor.DisplayName,
+                                        Notification:varCertificateDetails.Requestor.DisplayName &" has uploaded proofs for the certification " & varCertificateDetails.'Certification:Title'.Value
+                                    }
+                    );
+                    
+                    Set(varAttachpopUp,false);
+                    
+                    Reset(TextInput1);
+                PressedBorderColor: =Self.BorderColor
+                PressedFill: =Color.White
+                RadiusBottomLeft: =8
+                RadiusBottomRight: =8
+                RadiusTopLeft: =8
+                RadiusTopRight: =8
+                Size: =10
+                Text: ="Upload"
+                Width: =119
+                X: =21
+                Y: =75
+                ZIndex: =5
+
+    C_AlertPanel_2 As C_AlertPanel:
+        Visible: =varAlert
+        X: =976
+        ZIndex: =6
+
+    C_Profile_2 As C_Profile:
+        Height: =244
+        NavigateTo: ='Settings Screen'
+        Visible: =varProfileView
+        Width: =392
+        X: =974
+        ZIndex: =7
+

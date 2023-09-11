@@ -1,0 +1,590 @@
+"'EnrollCertificate Screen' As screen":
+    Fill: =RGBA(241, 246, 246, 1)
+    LoadingSpinnerColor: =RGBA(0, 120, 212, 1)
+    OnVisible: |-
+        =Set(varProfileView,false);
+        /*
+        ClearCollect(
+                     myTeam, 
+                     Filter(
+                             Office365Users.DirectReports(Office365Users.Manager(User().Email).Mail),
+                             AccountEnabled = true
+                     )
+        )
+        */
+        ClearCollect(myTeam, Office365Users.DirectReports(User().Email))
+
+    c_Header_9 As c_Header:
+        CartOnselect: ='EnrollCertificate Screen'
+        FAQOnselect: ='FAQ Screen'
+        Height: =101
+
+    cont_EC_header As groupContainer.manualLayoutContainer:
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =51
+        RadiusBottomLeft: =8
+        RadiusBottomRight: =8
+        RadiusTopLeft: =8
+        RadiusTopRight: =8
+        Width: =1256
+        X: =93
+        Y: =101
+        ZIndex: =2
+
+        btn_EC_back As button:
+            BorderColor: =RGBA(185, 29, 11, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: =RGBA(185, 29, 11, 1)
+            FocusedBorderColor: =RGBA(185, 29, 11, 1)
+            FocusedBorderThickness: =2
+            Font: ="Poppins"
+            FontWeight: =FontWeight.Semibold
+            Height: =26
+            HoverBorderColor: =RGBA(185, 29, 11, 1)
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =RGBA(185, 29, 11, 1)
+            OnSelect: =Back()
+            PressedBorderColor: =RGBA(185, 29, 11, 1)
+            PressedColor: =RGBA(255, 255, 255, 1)
+            PressedFill: =RGBA(185, 29, 11, 1)
+            RadiusBottomLeft: =3
+            RadiusBottomRight: =3
+            RadiusTopLeft: =3
+            RadiusTopRight: =3
+            Size: =12
+            Text: ="< Back"
+            Width: =100
+            X: =12
+            Y: =12
+            ZIndex: =2
+
+    Cont_EC_maincontent As groupContainer.verticalAutoLayoutContainer:
+        BorderStyle: =BorderStyle.None
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =462
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        RadiusBottomLeft: =11
+        RadiusBottomRight: =11
+        RadiusTopLeft: =11
+        RadiusTopRight: =11
+        Width: =1256
+        X: =93
+        Y: =162
+        ZIndex: =3
+
+        Cont_EC_maincontent2 As groupContainer.manualLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            DropShadow: =DropShadow.Light
+            FillPortions: =0
+            Height: =Parent.Height
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            Width: =Parent.Width
+            ZIndex: =1
+
+            rect_EC_header As rectangle:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                DisabledFill: =RGBA(154, 154, 154, 1)
+                Fill: =RGBA(154, 154, 154, 0.5)
+                FocusedBorderThickness: =4
+                Height: =1
+                HoverFill: =RGBA(154, 154, 154, 1)
+                PressedFill: =RGBA(154, 154, 154, 1)
+                Width: =1194
+                X: =28
+                Y: =74
+                ZIndex: =1
+
+            lbl_ECH_checkout As label:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                Font: ="Poppins"
+                FontWeight: =FontWeight.Bold
+                Height: =42
+                Text: ="Checkout"
+                Width: =482
+                X: =28
+                Y: =19
+                ZIndex: =2
+
+            glry_EC_certdetails As gallery.galleryVertical:
+                AccessibleLabel: ="glry_EC_certdetails"
+                BorderColor: =RGBA(166, 166, 166, 1)
+                BorderStyle: =BorderStyle.None
+                DelayItemLoading: =true
+                Height: =284
+                Items: =EnrollList
+                Layout: =Layout.Vertical
+                LoadingSpinner: =LoadingSpinner.Data
+                TabIndex: =0
+                TemplateSize: =266
+                Width: =1194
+                X: =28
+                Y: =86
+                ZIndex: =3
+
+                lbl_EC_certname As label:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Font: ="Poppins"
+                    FontWeight: =FontWeight.Bold
+                    Height: =37
+                    Text: =ThisItem.'Certification Name'
+                    Width: =482
+                    X: =76
+                    ZIndex: =1
+
+                lbl_EC_timeline As label:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Font: ="Poppins"
+                    Height: =37
+                    Size: =12
+                    Text: |-
+                        ="Timeline:" & "30 Days (Tentative)"
+                    Width: =482
+                    X: =76
+                    Y: =lbl_EC_certname.Y+lbl_EC_certname.Height
+                    ZIndex: =2
+
+                HT_ECH_examdate As htmlViewer:
+                    Color: =RGBA(38, 38, 38, 1)
+                    Font: ="Poppins"
+                    Height: =37
+                    HtmlText: ="Exam Date<font color=red>*</font>"
+                    Width: =180
+                    X: =5
+                    Y: =lbl_EC_timeline.Y+lbl_EC_timeline.Height+6
+                    ZIndex: =3
+
+                HT_ECH_location As htmlViewer:
+                    Color: =RGBA(38, 38, 38, 1)
+                    Font: ="Poppins"
+                    Height: =37
+                    HtmlText: ="Location<font color=red>*</font>"
+                    Width: =180
+                    X: =drpdwn_EC_location.X
+                    Y: =lbl_EC_timeline.Y+lbl_EC_timeline.Height+6
+                    ZIndex: =4
+
+                HT_ECH_allocateto As htmlViewer:
+                    Color: =RGBA(38, 38, 38, 1)
+                    Font: ="Poppins"
+                    Height: =37
+                    HtmlText: ="Allocate to<font color=red>*</font>"
+                    Visible: =If(IsEmpty(myTeam),false,true)
+                    Width: =180
+                    X: =887
+                    Y: =lbl_EC_timeline.Y+lbl_EC_timeline.Height+6
+                    ZIndex: =5
+
+                DatePicker_EC_examdate As datepicker:
+                    AccessibleLabel: ="DatePicker_EC_examdate"
+                    BorderColor: =RGBA(154, 154, 154, 1)
+                    BorderThickness: =1
+                    CalendarHeaderFill: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+                    Color: =RGBA(154, 154, 154, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    FocusedBorderColor: =RGBA(154, 154, 154, 1)
+                    FocusedBorderThickness: =2
+                    Font: ="Poppins"
+                    HoverDateFill: =RGBA(200, 200, 200, 1)
+                    IconBackground: =RGBA(0, 0, 0, 0)
+                    IconFill: =RGBA(154, 154, 154, 1)
+                    PaddingTop: =5
+                    SelectedDateFill: =RGBA(0, 120, 212, 1)
+                    Size: =10
+                    Width: =360
+                    X: =5
+                    Y: =HT_ECH_examdate.Y+HT_ECH_examdate.Height+5
+                    ZIndex: =7
+
+                radio_EC_payment As radio:
+                    AccessibleLabel: ="radio_EC_payment"
+                    BorderColor: =RGBA(51, 51, 51, 1)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    Default: ="Yes"
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: ="Poppins"
+                    Height: =43
+                    HoverColor: =RGBA(51, 51, 51, 1)
+                    HoverFill: =RGBA(0, 0, 0, 0)
+                    Items: =["Cash","Voucher","Advance Payment"]
+                    Layout: =Layout.Horizontal
+                    PaddingBottom: =5
+                    PaddingTop: =5
+                    PressedColor: =RGBA(51, 51, 51, 1)
+                    PressedFill: =RGBA(0, 0, 0, 0)
+                    RadioBorderColor: =RGBA(51, 51, 51, 1)
+                    RadioSelectionFill: =If(radio_EC_payment.SelectedText.Value="Yes",RGBA(185, 29, 11, 1),RGBA(136,147,176,1))
+                    RadioSize: =30
+                    Size: =12
+                    Width: =585
+                    Y: =211
+                    ZIndex: =8
+
+                drpdwn_EC_location As dropdown:
+                    AccessibleLabel: ="drpdwn_EC_location"
+                    BorderColor: =RGBA(154, 154, 154, 1)
+                    ChevronBackground: =RGBA(255, 255, 255, 1)
+                    ChevronDisabledBackground: =RGBA(244, 244, 244, 1)
+                    ChevronDisabledFill: =RGBA(166, 166, 166, 1)
+                    ChevronFill: =RGBA(154, 154, 154, 1)
+                    ChevronHoverBackground: =RGBA(212, 212, 212, 1)
+                    ChevronHoverFill: =RGBA(33, 33, 33, 1)
+                    Color: =RGBA(154, 154, 154, 1)
+                    Default: =""
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    FocusedBorderColor: =RGBA(154, 154, 154, 1)
+                    FocusedBorderThickness: =2
+                    Font: ="Poppins"
+                    HoverBorderColor: =RGBA(154, 154, 154, 1)
+                    HoverColor: =RGBA(51, 51, 51, 1)
+                    HoverFill: =RGBA(154, 154, 154, 0.5)
+                    Items: ='Location List_Certification App'
+                    PaddingBottom: =5
+                    PaddingLeft: =12
+                    PaddingRight: =5
+                    PaddingTop: =5
+                    PressedBorderColor: =RGBA(154, 154, 154, 1)
+                    PressedColor: =RGBA(255, 255, 255, 1)
+                    PressedFill: =RGBA(154, 154, 154, 0.5)
+                    SelectionFill: =RGBA(154, 154, 154, 1)
+                    Size: =10
+                    Width: =360
+                    X: =DatePicker_EC_examdate.X+DatePicker_EC_examdate.Width+40
+                    Y: =HT_ECH_examdate.Y+HT_ECH_examdate.Height+5
+                    ZIndex: =9
+
+                cmbbox_EC_certifierdata As combobox:
+                    AccessibleLabel: ="cmbbox_EC_certifierdata"
+                    BorderColor: =RGBA(166, 166, 166, 1)
+                    ChevronBackground: =RGBA(255, 255, 255, 1)
+                    ChevronDisabledBackground: =RGBA(244, 244, 244, 1)
+                    ChevronDisabledFill: =RGBA(166, 166, 166, 1)
+                    ChevronFill: =RGBA(33, 33, 33, 1)
+                    ChevronHoverBackground: =RGBA(212, 212, 212, 1)
+                    ChevronHoverFill: =RGBA(33, 33, 33, 1)
+                    Color: =RGBA(51, 51, 51, 1)
+                    Default: |-
+                        =First(Office365Users.SearchUser({searchTerm:Office365Users.MyProfile().Mail}))
+                    DefaultSelectedItems: |-
+                        =Office365Users.SearchUser({searchTerm:Office365Users.MyProfile().Mail})
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    DisplayFields: =["DisplayName"]
+                    Font: ="Poppins"
+                    HoverBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+                    HoverColor: =RGBA(51, 51, 51, 1)
+                    HoverFill: =RGBA(212, 212, 212, 1)
+                    IsSearchable: =false
+                    Items: |-
+                        =//Office365Users.SearchUser({searchTerm:Self.SearchText,top:999})
+                        myTeam
+                    PressedBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+                    PressedColor: =RGBA(255, 255, 255, 1)
+                    PressedFill: =RGBA(0, 120, 212, 1)
+                    SearchFields: =["DisplayName"]
+                    SearchItems: =[]
+                    SelectionFill: =RGBA(245, 223, 220, 1)
+                    SelectionTagFill: =RGBA(245, 223, 220, 1)
+                    SelectMultiple: =false
+                    Size: =10
+                    Visible: =If(IsEmpty(myTeam),false,true)
+                    Width: =360
+                    X: =drpdwn_EC_location.X+drpdwn_EC_location.Width+40
+                    Y: =HT_ECH_examdate.Y+HT_ECH_examdate.Height+5
+                    ZIndex: =10
+
+                img_EC_certlogo As image:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledFill: =RGBA(0, 0, 0, 0)
+                    FocusedBorderThickness: =4
+                    Height: =52
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    HoverFill: =RGBA(0, 0, 0, 0)
+                    Image: |-
+                        =//"https://d1.awsstatic.com/training-and-certification/certification-badges/AWS-Certified-Cloud-Practitioner_badge.634f8a21af2e0e956ed8905a72366146ba22b74c.p
+                        ThisItem.Logo
+                    OnSelect: =Select(Parent)
+                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                    PressedFill: =RGBA(0, 0, 0, 0)
+                    Width: =55
+                    X: =5
+                    Y: =10
+                    ZIndex: =11
+
+                icon_EC_deletecert As icon.Trash:
+                    BorderColor: =RGBA(166, 166, 166, 1)
+                    Color: =RGBA(154, 154, 154, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(220, 220, 220, 1)
+                    DisabledFill: =RGBA(0, 0, 0, 0)
+                    FocusedBorderThickness: =4
+                    Height: =25
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    HoverColor: =RGBA(154, 154, 154, 1)
+                    HoverFill: =RGBA(0, 0, 0, 0)
+                    Icon: =Icon.Trash
+                    OnSelect: =Remove(EnrollList,ThisItem)
+                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                    PressedColor: =RGBA(154, 154, 154, 1)
+                    PressedFill: =RGBA(0, 0, 0, 0)
+                    Width: =25
+                    X: =1140
+                    Y: =10
+                    ZIndex: =12
+
+                HT_ECH_paymentby As htmlViewer:
+                    Color: =RGBA(38, 38, 38, 1)
+                    Font: ="Poppins"
+                    Height: =37
+                    HtmlText: ="Payment By<font color=red>*</font>"
+                    Width: =180
+                    X: =5
+                    Y: =DatePicker_EC_examdate.Y+DatePicker_EC_examdate.Height+12
+                    ZIndex: =13
+
+                btn_EC_price As button:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    Color: =RGBA(57, 57, 57, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    Fill: =RGBA(245, 223, 220, 1)
+                    FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+                    Font: ="Poppins"
+                    FontWeight: =FontWeight.Semibold
+                    Height: =30
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    HoverColor: =RGBA(57, 57, 57, 1)
+                    HoverFill: =RGBA(245, 223, 220, 1)
+                    OnSelect: =
+                    PressedBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -50%)
+                    PressedColor: =RGBA(57, 57, 57, 1)
+                    PressedFill: =RGBA(245, 223, 220, 1)
+                    RadiusBottomLeft: =4
+                    RadiusBottomRight: =4
+                    RadiusTopLeft: =4
+                    RadiusTopRight: =4
+                    Size: =12
+                    Text: |-
+                        ="INR : "&ThisItem.Price & "/-" 
+                    Width: =130
+                    X: =728
+                    Y: =7
+                    ZIndex: =14
+
+            btn_EC_submit As button:
+                BorderColor: =RGBA(185, 29, 11, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Fill: =RGBA(185, 29, 11, 1)
+                FocusedBorderColor: =RGBA(185, 29, 11, 1)
+                FocusedBorderThickness: =2
+                Font: ="Poppins"
+                FontWeight: =FontWeight.Semibold
+                Height: =25
+                HoverBorderColor: =RGBA(185, 29, 11, 1)
+                HoverColor: =RGBA(255, 255, 255, 1)
+                HoverFill: =RGBA(185, 29, 11, 1)
+                OnSelect: |
+                    =Set(
+                        varLookupRecord,
+                        LookUp(
+                            Certifications,
+                            CertificationID = 1
+                        )
+                    );
+                    If(
+                        IsBlank(DatePicker_EC_examdate) Or IsBlank(radio_EC_payment) Or IsBlank(drpdwn_EC_location),
+                        Notify(
+                            "Please Fill Required Fields",
+                            NotificationType.Error,
+                            1000
+                        ),
+                        If(
+                            IsBlankOrError(
+                                ForAll(
+                                    glry_EC_certdetails.AllItems,
+                                    Patch(
+                                        CertificationOrder,
+                                        Defaults(CertificationOrder),
+                                        {
+                                            Title: User().FullName,
+                                            Requestor: If(
+                                                IsEmpty(myTeam),
+                                                {
+                                                    '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
+                                                    DisplayName: User().FullName,
+                                                    Claims: "i:0#.f|membership|" & Lower(User().Email),
+                                                    Department: "",
+                                                    Email: User().Email,
+                                                    JobTitle: "",
+                                                    Picture: ""
+                                                },
+                                                {
+                                                    '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedUser",
+                                                    DisplayName: cmbbox_EC_certifierdata.Selected.DisplayName,
+                                                    Claims: "i:0#.f|membership|" & Lower(cmbbox_EC_certifierdata.Selected.Mail),
+                                                    Department: "",
+                                                    Email: cmbbox_EC_certifierdata.Selected.Mail,
+                                                    JobTitle: "",
+                                                    Picture: ""
+                                                }
+                                            ),
+                                            CertificationID: {
+                                                '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
+                                                Id: ID,
+                                                Value: ID
+                                            },
+                                            Status: "Enrolled",
+                                            Location: drpdwn_EC_location.SelectedText.Value,
+                                            Email: User().Email,
+                                            'Examination Date': DatePicker_EC_examdate.SelectedDate,
+                                            PaymentMode: radio_EC_payment.Selected.Value,
+                                            'Provider Type': 'Provider Name',
+                                            BU: {
+                                                '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
+                                                Id: LookUp(
+                                                    BUList,
+                                                    Code = Office365Users.MyProfile().Department
+                                                ).ID,
+                                                Value: LookUp(
+                                                    BUList,
+                                                    Code = Office365Users.MyProfile().Department
+                                                ).Code
+                                            }
+                                        }
+                                    )
+                                )
+                            ),
+                            Notify(
+                                "Error coming ",
+                                NotificationType.Error
+                            ),
+                            Clear([@EnrollList]);
+                            Notify(
+                                "Successfully submitted ",
+                                NotificationType.Success
+                            );
+                            Navigate(
+                                Register_Screen,
+                                ScreenTransition.Fade
+                            )
+                        );
+                        Refresh(CertificationOrder);
+                        
+                    );
+                    ForAll(
+                        EnrollList,
+                        Patch(
+                            NotificationList_CertificationApp,
+                            Defaults(NotificationList_CertificationApp),
+                            {
+                                Title: User().FullName,
+                                Notification: User().FullName & " has requested for the approval of " & 'Certification Name',
+                                Manager: varMngrname
+                            }
+                        )
+                    );
+                    ClearCollect(
+                        userCertifications,
+                        Filter(
+                            CertificationOrder,
+                            Requestor.Email = User().Email And Created>DateAdd(Today(), -365) 
+                        )
+                    );
+                PressedBorderColor: =RGBA(185, 29, 11, 1)
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =RGBA(185, 29, 11, 1)
+                RadiusBottomLeft: =3
+                RadiusBottomRight: =3
+                RadiusTopLeft: =3
+                RadiusTopRight: =3
+                Size: =10
+                Text: ="Enroll"
+                Width: =100
+                X: =1062
+                Y: =405
+                ZIndex: =4
+
+            btn_EC_Clear As button:
+                BorderColor: =RGBA(185, 29, 11, 1)
+                Color: =RGBA(185, 29, 11, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Fill: =RGBA(255, 255, 255, 1)
+                FocusedBorderColor: =RGBA(185, 29, 11, 1)
+                FocusedBorderThickness: =2
+                Font: ="Poppins"
+                FontWeight: =FontWeight.Semibold
+                Height: =25
+                HoverBorderColor: =RGBA(185, 29, 11, 1)
+                HoverColor: =RGBA(185, 29, 11, 1)
+                HoverFill: =RGBA(255, 255, 255, 1)
+                OnSelect: =Clear(EnrollList)
+                PressedBorderColor: =RGBA(185, 29, 11, 1)
+                PressedColor: =RGBA(185, 29, 11, 1)
+                PressedFill: =RGBA(255, 255, 255, 1)
+                RadiusBottomLeft: =3
+                RadiusBottomRight: =3
+                RadiusTopLeft: =3
+                RadiusTopRight: =3
+                Size: =10
+                Text: ="Clear"
+                Width: =100
+                X: =925
+                Y: =405
+                ZIndex: =5
+
+    C_AlertPanel_7 As C_AlertPanel:
+        Visible: =varAlert
+        X: =976
+        ZIndex: =4
+
+    C_leftPanel_9 As C_leftPanel:
+        NavigateTo: =Switch(SideLabelvar,1,Home_Screen,2,Register_Screen,3,'Request Screen',4,'Admin dashBoard')
+        Width: =93
+        Y: =85
+        ZIndex: =5
+
+    C_Profile_7 As C_Profile:
+        NavigateTo: ='Settings Screen'
+        Visible: =varProfileView
+        X: =976
+        ZIndex: =6
+
