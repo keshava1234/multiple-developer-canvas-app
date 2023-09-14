@@ -50,7 +50,20 @@
     "datasets": {},
     "dataSources": [
       "Certifications",
-      "CertificationRequest"
+      "CertificationRequest",
+      "QuestionList_Admin",
+      "CertificationApp-Security",
+      "BU-List",
+      "ExternalCertificationList",
+      "AnswersList_Admin",
+      "CertificationOrderHistory",
+      "Location List_Certification App",
+      "BU-CertificationList",
+      "AnswerList",
+      "NotificationList_CertificationApp",
+      "Target List",
+      "CertificationOrder",
+      "QuestionList"
     ],
     "dependencies": {},
     "dependents": [

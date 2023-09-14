@@ -43,7 +43,7 @@
                     NotificationList_CertificationApp,
                     5000
                 ),
-                (Title = User().FullName && "been approved by your manager " & varMngrname in Notification) || ("has requested for" in Notification && Manager = User().FullName) || (Title = User().FullName && "been approved by ILD" in Notification) || IsDeleted = false
+                (Title = User().FullName && "been approved by your manager " & varMngrname in Notification) || ("has requested for" in Notification && Manager = User().FullName) || (Title = User().FullName && "been approved by ILD" in Notification) || UserDeleted = false
             )
         ),
         ClearCollect(
@@ -53,7 +53,7 @@
                     NotificationList_CertificationApp,
                     5000
                 ),
-                Title = User().FullName && ("been approved by your manager " & varMngrname in Notification || "been approved by ILD" in Notification) && IsDeleted = false
+                Title = User().FullName && ("been approved by your manager " & varMngrname in Notification || "been approved by ILD" in Notification) && UserDeleted = false
             )
         ),
         ClearCollect(
@@ -3850,7 +3850,7 @@
                             NotificationList_CertificationApp,
                             5000
                         ),
-                        (Title = User().FullName && "been approved by your manager " & varMngrname in Notification) || ("has requested for" in Notification && Manager = User().FullName) || (Title = User().FullName && "been approved by ILD" in Notification) || IsDeleted = false
+                        (Title = User().FullName && "been approved by your manager " & varMngrname in Notification) || ("has requested for" in Notification && Manager = User().FullName) || (Title = User().FullName && "been approved by ILD" in Notification) || UserDeleted = false
                     )
                 ),
                 ClearCollect(
@@ -3860,7 +3860,7 @@
                             NotificationList_CertificationApp,
                             5000
                         ),
-                        Title = User().FullName && ("been approved by your manager " & varMngrname in Notification || "been approved by ILD" in Notification) && IsDeleted = false
+                        Title = User().FullName && ("been approved by your manager " & varMngrname in Notification || "been approved by ILD" in Notification) && UserDeleted = false
                     )
                 ),
                 ClearCollect(
@@ -4256,7 +4256,7 @@
                 =//RGBA(0, 0, 0, 0)
                 Color.White
             Height: =UserGallery_5.Height
-            Items: =Sort(Filter(FirstN(NotificationList_CertificationApp,2000), "has uploaded proofs" = Notification And IsDeleted=false),Created,SortOrder.Descending)
+            Items: =Sort(Filter(FirstN(NotificationList_CertificationApp,2000), "has uploaded proofs" = Notification And UserDeleted=false),Created,SortOrder.Descending)
             Layout: =Layout.Vertical
             TemplatePadding: =0
             TemplateSize: =79
@@ -4336,7 +4336,7 @@
                                 {ID: MyPatch.ID},
                                 {
                                     Title: MyPatch.Title,
-                                    IsDeleted: true
+                                    UserDeleted: true
                                 }
                             )
                         ),
@@ -4349,7 +4349,7 @@
                                     {ID: MyPatch.ID},
                                     {
                                         Title: MyPatch.Title,
-                                        IsDeleted: true
+                                        UserDeleted: true
                                     }
                                 )
                             ),
@@ -4360,7 +4360,7 @@
                                     {ID: MyPatch.ID},
                                     {
                                         Title: MyPatch.Title,
-                                        IsDeleted: true
+                                        UserDeleted: true
                                     }
                                 )
                             )
