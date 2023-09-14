@@ -3492,7 +3492,7 @@
                             {ID: MyPatch.ID},
                             {
                                 Title: MyPatch.Title,
-                                IsDeleted: true
+                                UserDeleted: true
                             }
                         )
                     ),
@@ -3505,7 +3505,7 @@
                                 {ID: MyPatch.ID},
                                 {
                                     Title: MyPatch.Title,
-                                    IsDeleted: true
+                                    UserDeleted: true
                                 }
                             )
                         ),
@@ -3516,7 +3516,7 @@
                                 {ID: MyPatch.ID},
                                 {
                                     Title: MyPatch.Title,
-                                    IsDeleted: true
+                                    UserDeleted: true
                                 }
                             )
                         )

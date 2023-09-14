@@ -2005,7 +2005,7 @@
                                                             NotificationList_CertificationApp,
                                                             5000
                                                         ),
-                                                        (Title = User().FullName && "been approved by your manager " & varMngrname in Notification) || ("has requested for" in Notification && Manager = User().FullName) || (Title = User().FullName && "been approved by ILD" in Notification) || IsDeleted = false
+                                                        (Title = User().FullName && "been approved by your manager " & varMngrname in Notification) || ("has requested for" in Notification && Manager = User().FullName) || (Title = User().FullName && "been approved by ILD" in Notification) || UserDeleted = false
                                                     )
                                                 ),
                                                 ClearCollect(
@@ -2015,7 +2015,7 @@
                                                             NotificationList_CertificationApp,
                                                             5000
                                                         ),
-                                                        Title = User().FullName && ("been approved by your manager " & varMngrname in Notification || "been approved by ILD" in Notification) && IsDeleted = false
+                                                        Title = User().FullName && ("been approved by your manager " & varMngrname in Notification || "been approved by ILD" in Notification) && UserDeleted = false
                                                     )
                                                 ),
                                                 ClearCollect(
@@ -3464,7 +3464,7 @@
                             {ID: MyPatch.ID},
                             {
                                 Title: MyPatch.Title,
-                                IsDeleted: true
+                                UserDeleted: true
                             }
                         )
                     ),
@@ -3477,7 +3477,7 @@
                                 {ID: MyPatch.ID},
                                 {
                                     Title: MyPatch.Title,
-                                    IsDeleted: true
+                                    UserDeleted: true
                                 }
                             )
                         ),
@@ -3488,7 +3488,7 @@
                                 {ID: MyPatch.ID},
                                 {
                                     Title: MyPatch.Title,
-                                    IsDeleted: true
+                                    UserDeleted: true
                                 }
                             )
                         )
