@@ -1253,7 +1253,7 @@
                         PaddingRight: =0
                         PaddingTop: =0
                         Size: =8
-                        Text: =ThisItem.Certification_x0020_Name
+                        Text: =ThisItem.'Certification Name'
                         Width: =227
                         X: =52
                         ZIndex: =2
@@ -1264,7 +1264,7 @@
                         Icon: =Icon.Trash
                         OnSelect: |-
                             =Remove(EnrollList, ThisItem);
-                            Notify(ThisItem.Certification_x0020_Name &" Removed From your Cart Successfully", NotificationType.Success, 2000)
+                            Notify(ThisItem.'Certification Name' &" Removed From your Cart Successfully", NotificationType.Success, 2000)
                         Width: =24
                         X: =340
                         Y: =117
@@ -1276,7 +1276,7 @@
                         Height: =33
                         OnSelect: =Select(Parent)
                         Size: =7
-                        Text: = "Timeline" & Char(10) & "Tentative Days " & ThisItem.Tentative_x0020_Days
+                        Text: = "Timeline" & Char(10) & "Tentative Days " & ThisItem.'Tentative Days'
                         Width: =105
                         X: =52
                         Y: =19
@@ -1512,7 +1512,7 @@
                                                     Email: User().Email,
                                                     'Examination Date': DatePicker1.SelectedDate,
                                                     PaymentMode: Radio1.Selected.Value,
-                                                    'Provider Type': Provider_x0020_Name,
+                                                    'Provider Type': 'Provider Name',
                                                     BU: {
                                                         '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
                                                         Id: LookUp(
@@ -1552,7 +1552,7 @@
                                     Defaults(NotificationList_CertificationApp),
                                     {
                                         Title: User().FullName,
-                                        Notification: User().FullName & " has requested for the approval of " & Certification_x0020_Name,
+                                        Notification: User().FullName & " has requested for the approval of " & 'Certification Name',
                                         Manager: varMngrname
                                     }
                                 )
@@ -1662,7 +1662,7 @@
                             PaddingTop: =0
                             Size: |
                                 =12
-                            Text: =ThisItem.Certification_x0020_Name
+                            Text: =ThisItem.'Certification Name'
                             Width: =199
                             X: =135
                             ZIndex: =2
@@ -1673,7 +1673,7 @@
                             Icon: =Icon.Trash
                             OnSelect: |-
                                 =Remove(EnrollList, ThisItem);
-                                Notify(ThisItem.Certification_x0020_Name &" Removed From your Cart Successfully", NotificationType.Success, 2000)
+                                Notify(ThisItem.'Certification Name' &" Removed From your Cart Successfully", NotificationType.Success, 2000)
                             Width: =20
                             X: =1040
                             Y: =48
@@ -1686,7 +1686,7 @@
                             OnSelect: =Select(Parent)
                             Size: |
                                 =12
-                            Text: = "Timeline" & Char(10) & "Tentative Days " & ThisItem.Tentative_x0020_Days
+                            Text: = "Timeline" & Char(10) & "Tentative Days " & ThisItem.'Tentative Days'
                             Width: =117
                             X: =334
                             ZIndex: =13
@@ -1918,7 +1918,7 @@
                                                         Email: User().Email,
                                                         'Examination Date': DatePicker1.SelectedDate,
                                                         PaymentMode: Radio1.Selected.Value,
-                                                        'Provider Type': Provider_x0020_Name,
+                                                        'Provider Type': 'Provider Name',
                                                         BU: {
                                                             '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
                                                             Id: LookUp(
@@ -1958,7 +1958,7 @@
                                         Defaults(NotificationList_CertificationApp),
                                         {
                                             Title: User().FullName,
-                                            Notification: User().FullName & " has requested for the approval of " & Certification_x0020_Name,
+                                            Notification: User().FullName & " has requested for the approval of " & 'Certification Name',
                                             Manager: varMngrname
                                         }
                                     )
