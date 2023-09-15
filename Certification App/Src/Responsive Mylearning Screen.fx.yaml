@@ -3182,7 +3182,7 @@
 
     Timer2 As timer:
         AutoStart: =true
-        Duration: =70
+        Duration: =1
         OnTimerEnd: |-
             =UpdateContext(
                 {
