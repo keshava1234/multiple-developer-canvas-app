@@ -3351,7 +3351,24 @@
                 PaddingTop: =0
                 Size: =9
                 Text: = varDetailsAdminPg.Status 
-                Visible: =varDetailsPopUp And If((varDetailsAdminPg.Status="Reimbursed") , false,If(varDetailsAdminPg.Status="Processing with Finance",false,If(varDetailsAdminPg.Status="Manager Approved",false,If(varDetailsAdminPg.Status="Proofs Uploaded",false,true))))
+                Visible: |-
+                    =varDetailsPopUp And If(
+                        (varDetailsAdminPg.Status = "Reimbursed"),
+                        false,
+                        If(
+                            varDetailsAdminPg.Status = "Processing with Finance",
+                            false,
+                            If(
+                                varDetailsAdminPg.Status = "Manager Approved",
+                                false,
+                                If(
+                                    varDetailsAdminPg.Status = "Proofs Uploaded",
+                                    false,
+                                    true
+                                )
+                            )
+                        )
+                    )
                 Width: =212
                 X: =132
                 Y: =368

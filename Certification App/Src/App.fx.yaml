@@ -78,7 +78,7 @@ App As appinfo:
                         50
                     )
                 ) = 1,
-                "USER",
+                "SUPER-ADMIN",
                 varUserLevel
             )
         );
