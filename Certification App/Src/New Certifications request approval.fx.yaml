@@ -2436,7 +2436,7 @@
         Width: =222
         X: =3
         Y: =93
-        ZIndex: =9
+        ZIndex: =2
 
         Icon29_42 As icon.ChevronRight:
             AccessibleLabel: ="Icon29_42"
@@ -3047,16 +3047,30 @@
         Width: =48
         X: =If(varMenuVisible=true,150,0)
         Y: =103
-        ZIndex: =10
+        ZIndex: =3
+
+    cert_Status_toggel As toggleSwitch:
+        AccessibleLabel: ="cert_Status_toggel"
+        FalseText: ="Waiting for Approval"
+        FontWeight: =FontWeight.Semibold
+        Height: =22
+        OnCheck: = ClearCollect(Cert_Req,Filter(FirstN(CertificationRequest,2000),Admin_Approval=true));
+        OnUncheck: =ClearCollect(Cert_Req,Filter(FirstN(CertificationRequest,2000),Admin_Approval=false));
+        Size: =10
+        TrueText: ="Approved"
+        Width: =206
+        X: =1129
+        Y: =145
+        ZIndex: =13
 
     NewCert_Req_Details_1 As groupContainer.manualLayoutContainer:
         Fill: =RGBA(255,255,255,1)
-        Height: =588
+        Height: =638
         Visible: =varNewCertVisible1
         Width: =876
         X: =142
         Y: =103
-        ZIndex: =11
+        ZIndex: =14
 
         Label8_12 As label:
             Height: =41
@@ -3231,20 +3245,6 @@
             Y: =549
             ZIndex: =15
 
-    cert_Status_toggel As toggleSwitch:
-        AccessibleLabel: ="cert_Status_toggel"
-        FalseText: ="Waiting for Approval"
-        FontWeight: =FontWeight.Semibold
-        Height: =22
-        OnCheck: = ClearCollect(Cert_Req,Filter(FirstN(CertificationRequest,2000),Admin_Approval=true));
-        OnUncheck: =ClearCollect(Cert_Req,Filter(FirstN(CertificationRequest,2000),Admin_Approval=false));
-        Size: =10
-        TrueText: ="Approved"
-        Width: =206
-        X: =1129
-        Y: =145
-        ZIndex: =21
-
     Group32_12 As group:
         Height: =5
         Width: =5
@@ -3259,7 +3259,7 @@
             Width: =450
             X: =900
             Y: =72
-            ZIndex: =12
+            ZIndex: =4
 
         "UserGallery_24 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
             AccessibleLabel: ="UserGallery_24"
@@ -3281,7 +3281,7 @@
             Width: =429
             X: =906
             Y: =117
-            ZIndex: =13
+            ZIndex: =5
 
             Subtitle3_72 As label:
                 Height: =81
@@ -3316,7 +3316,7 @@
             Width: =31
             X: =1331
             Y: =57
-            ZIndex: =14
+            ZIndex: =6
 
         "ManagerGallery_22 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
             AccessibleLabel: ="ManagerGallery_22"
@@ -3338,7 +3338,7 @@
             Width: =UserGallery_24.Width
             X: =906
             Y: =117
-            ZIndex: =15
+            ZIndex: =7
 
             Subtitle3_71 As label:
                 Height: =60
@@ -3375,7 +3375,7 @@
             Width: =31
             X: =1335
             Y: =117
-            ZIndex: =16
+            ZIndex: =8
 
         "ILDGAllery_22 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
             AccessibleLabel: ="ILDGAllery_22"
@@ -3391,7 +3391,7 @@
             Width: =UserGallery_24.Width
             X: =906
             Y: =117
-            ZIndex: =17
+            ZIndex: =9
 
             Subtitle3_70 As label:
                 Height: =57
@@ -3426,7 +3426,7 @@
             Width: =31
             X: =1335
             Y: =117
-            ZIndex: =18
+            ZIndex: =10
 
         NoNotificationsLabel_22 As label:
             Align: =Align.Center
@@ -3446,7 +3446,7 @@
                 )))
             X: =1045
             Y: =288
-            ZIndex: =19
+            ZIndex: =11
 
         Button2_12 As button:
             DisabledColor: =RGBA(255, 255, 255, 1)
@@ -3526,5 +3526,5 @@
             Width: =92
             X: =1219
             Y: =80
-            ZIndex: =20
+            ZIndex: =12
 
