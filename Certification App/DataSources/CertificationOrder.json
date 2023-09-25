@@ -3,7 +3,7 @@
     "ApiId": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
     "CdpRevision": {
       "BaseUrl": "/",
-      "LastChangedTimeString": "2023-06-06T16:32:53.9510000Z",
+      "LastChangedTimeString": "2023-09-19T16:29:14.0420000Z",
       "RevisionNumber": 1
     },
     "ConnectedDataSourceInfoNameMapping": {
@@ -50,6 +50,7 @@
       "PaymentMode": "PaymentMode",
       "ProofsUploadedon": "Proofs Uploaded on",
       "ProviderType": "Provider Type",
+      "ReimburseAmount": "Reimburse Amount",
       "Requester": "Requestor",
       "Requester#Claims": "Requestor Claims",
       "RequiredDays": "RequiredDays",

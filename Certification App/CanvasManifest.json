@@ -1,6 +1,10 @@
 {
   "FormatVersion": "0.24",
   "Header": {
+    "AnalysisOptions": {
+      "DataflowAnalysisEnabled": false,
+      "DataflowAnalysisFlagStateToggledByUser": false
+    },
     "DocVersion": "1.334",
     "MinVersionToLoad": "1.331",
     "MSAppStructureVersion": "2.0"
