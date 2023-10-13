@@ -1893,7 +1893,7 @@
 
                             galMyCertifications As gallery.galleryVertical:
                                 FillPortions: =0.6
-                                Items: =Search(Sort(userCertifications,Created),txtSearch_7.Text,"Title","Status")
+                                Items: =Filter(CertificationOrder,CertificationID.Value in Search(Certifications,txtSearch_7.Text,"Title").ID)
                                 Layout: =Layout.Vertical
                                 LayoutMinHeight: =220
                                 LayoutMinWidth: =320
@@ -1978,8 +1978,7 @@
                                     Height: =100
                                     OnSelect: =Select(Parent)
                                     Size: =9
-                                    Text: |-
-                                        =ThisItem.'Certification:Title'.Value
+                                    Text: =LookUp(Certifications,CertificationID = ThisItem.CertificationID.Value,Name)
                                     Width: =233
                                     X: =100
                                     ZIndex: =2
